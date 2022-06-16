@@ -1,6 +1,6 @@
 import { fontFamilies, Text } from '@hudoro/neron';
 import styled from 'styled-components';
-import { fontWeights } from 'utils/styles';
+import { fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
     margin-top: 50px;
@@ -11,5 +11,8 @@ export const Wrapper = styled.div`
 export const FooterText = styled(Text)`
     font-family: ${fontFamilies.poppins};
     font-weight: ${fontWeights.medium};
-    font-size: 17px;
+    font-size: 12px;
+    ${mediaQueries.lg} {
+        font-size: 17px;
+    }
 `;

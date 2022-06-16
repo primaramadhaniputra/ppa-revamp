@@ -20,3 +20,43 @@ export const Link = [
         subMenu: ['Kamu', 'Tidak', 'Tau'],
     },
 ];
+
+export const footer = [
+    {
+        title: 'devotion',
+        color: '#008000',
+    },
+    {
+        title: 'integrity',
+        color: '#0000FF',
+    },
+    {
+        title: 'teamwork',
+        color: '#37382F',
+    },
+    {
+        title: 'creativity',
+        color: '#F4762C',
+    },
+    {
+        title: 'winner',
+        color: '#FF0000',
+    },
+    {
+        title: 'perfection',
+        color: '#9F3F9F',
+    },
+];
+
+export const dummyInputDropdown = [
+    {
+        id: 0,
+        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        label: 'Manager',
+    },
+    {
+        id: 1,
+        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        label: 'Super-visor',
+    },
+];

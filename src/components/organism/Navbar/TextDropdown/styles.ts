@@ -15,14 +15,13 @@ export const WrapperDropdown = styled(Grid)`
 export const StyledCardDropdown = styled(Card)`
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: ${colors.primary};
   gap: 10px;
   color: ${colors.white};
   ${mediaQueries.lg} {
     position: absolute;
-    top: 70px;
+    top: 80px;
     min-width: 200px;
-    background-color: ${colors.primary};
   }
 `;
 

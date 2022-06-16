@@ -1,33 +1,8 @@
 import { Grid } from '@hudoro/neron'
 import React from 'react'
+import { footer } from 'utils/dummy'
 import { FooterText, Wrapper } from './styles'
-
-const footer = [
-   {
-      title: 'devotion',
-      color: '#008000'
-   },
-   {
-      title: 'integrity',
-      color: '#0000FF'
-   },
-   {
-      title: 'teamwork',
-      color: '#37382F'
-   },
-   {
-      title: 'creativity',
-      color: '#F4762C'
-   },
-   {
-      title: 'winner',
-      color: '#FF0000'
-   },
-   {
-      title: 'perfection',
-      color: '#9F3F9F'
-   },
-]
+footer
 
 export default function Footer() {
    return (

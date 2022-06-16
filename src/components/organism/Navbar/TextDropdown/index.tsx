@@ -1,66 +1,65 @@
-import { Avatar, Grid, Icon, Text } from "@hudoro/neron";
+import { Avatar, Grid, Icon } from "@hudoro/neron";
 import React, { useState } from "react";
 import { colors } from "utils/styles";
-import {
-  StyledCardDropdown,
-  StyledText,
-  Wrapper,
-  WrapperDropdown,
-} from "./styles";
+import DropDownMenu from "../DropdownMenu";
+import UserDropDownMenu from "../UserDropdownMenu";
+import { StyledText, Wrapper } from "./styles";
 
 interface IProps {
-  children: React.ReactNode;
   user: boolean;
   dropDownData?: string[];
   activeDropdown?: number;
   setactiveDropdown?: React.Dispatch<React.SetStateAction<number>>;
   index?: number;
+  title?: string;
+  handleDropdown?: () => void;
 }
 
 export default function TextDropdown({
-  children,
   user,
   dropDownData,
   activeDropdown,
   setactiveDropdown,
   index: id,
+  title,
 }: IProps) {
   const [isShowDropdown, setIsShowDropdown] = useState(false);
-
   const handleDropdown = () => {
     if (activeDropdown === id) {
       return setIsShowDropdown(!isShowDropdown);
     }
     if (setactiveDropdown) {
-      return setactiveDropdown(id as number);
+      setactiveDropdown(id as number);
+      return setIsShowDropdown(true);
     }
     return setIsShowDropdown;
+  };
+
+  const renderDropdown = () => {
+    if (activeDropdown === id && isShowDropdown) {
+      if (!user) {
+        return <DropDownMenu dropDownData={dropDownData} />;
+      }
+      return <UserDropDownMenu />;
+    }
+    return <></>;
   };
 
   return (
     <Wrapper container>
       <Grid container alignItems="center" gap={8}>
-        {user ? <Avatar /> : <StyledText variant="h4">{children}</StyledText>}
+        {user ? (
+          <Avatar src="/images/tukang.jpg" />
+        ) : (
+          <StyledText variant="h4">{title}</StyledText>
+        )}
         <Icon
           iconName="IcArrowDown"
           color={colors.white}
           onClick={handleDropdown}
         />
       </Grid>
-      {!user && activeDropdown === id && isShowDropdown && (
-        <WrapperDropdown container>
-          <StyledCardDropdown>
-            {dropDownData &&
-              dropDownData.map((item, index) => {
-                return (
-                  <Text variant="h4" key={index}>
-                    {item}
-                  </Text>
-                );
-              })}
-          </StyledCardDropdown>
-        </WrapperDropdown>
-      )}
+      {renderDropdown()}
     </Wrapper>
   );
 }

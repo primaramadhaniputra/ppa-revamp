@@ -5,12 +5,8 @@ import { ContentWrapper, Wrapper } from "./styles";
 import HomeInput from "./HomeInput";
 import Banner from "./Banner";
 import Footer from "./Footer";
+import { dummyInputDropdown } from "utils/dummy";
 
-const items = [{
-  id: 0,
-  value: "0de1dee1-af35-4c0b-9aaf-041c5e9da5c5",
-  label: "Front-End",
-}]
 
 export default function Home() {
   return (
@@ -18,7 +14,7 @@ export default function Home() {
       <Navbar />
       <ContentWrapper>
         <TitlePage type="h3"> Operation / Report </TitlePage>
-        <HomeInput items={items} />
+        <HomeInput items={dummyInputDropdown} />
         <Banner />
       </ContentWrapper>
       <Footer />
