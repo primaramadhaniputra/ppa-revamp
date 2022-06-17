@@ -13,11 +13,11 @@ interface IProps {
 export default function HamburgerMenu({ item }: IProps) {
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);
   const [subMenuHeight, setSubMenuHeight] = useState(0);
-  const subMenuRef = useRef<any>(null);
+  const subMenuRef = useRef<HTMLInputElement>(null);
   const handleSubMenu = () => {
-    const { height } = subMenuRef.current.getBoundingClientRect();
+    const height = subMenuRef?.current?.getBoundingClientRect().height;
     if (subMenuHeight < 1) {
-      setSubMenuHeight(height);
+      setSubMenuHeight(height as number);
     } else {
       setSubMenuHeight(0);
     }

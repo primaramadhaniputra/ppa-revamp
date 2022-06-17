@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "utils/dummy";
-import DesktopMenu from "../DesktopMenu";
-import HamburgerMenu from "../HamburgerMenu";
-import Logo from "../Logo";
+import DesktopMenu from "./DesktopMenu";
+import HamburgerMenu from "./HamburgerMenu";
+import Logo from "./Logo";
 import { LinkWrapper } from "../styles";
 import { NavbarWrapper } from "./styles";
 
