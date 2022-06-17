@@ -60,3 +60,10 @@ export const dummyInputDropdown = [
         label: 'Super-visor',
     },
 ];
+
+export const ImageUrl = [
+    '/images/mobilProyek.jpg',
+    '/images/traktor.jpeg',
+    '/images/traktor2.jpeg',
+    '/images/traktor3.jpeg',
+];
