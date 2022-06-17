@@ -13,7 +13,7 @@ export const LoginImage = styled.div<ILoginImage>`
   background-repeat: no-repeat;
   background-size: cover;
   ${mediaQueries.lg} {
-    height: 955px;
+    height: calc(100vh - 108px);
     width: 100%;
   }
 `;
