@@ -5,6 +5,7 @@ import { StyledInput, StyledLabel } from "./styles";
 interface IProps {
   title: string;
   label: boolean;
+  placeholder?: string;
 }
 
 export default function LabeldInput({
@@ -15,7 +16,7 @@ export default function LabeldInput({
   return (
     <Grid container flexDirection="column" gap={5}>
       {label && <StyledLabel htmlFor="NRP">{title}</StyledLabel>}
-      <StyledInput id="NRP" placeholder="NRP" {...rest} />
+      <StyledInput id="NRP" {...rest} />
     </Grid>
   );
 }
