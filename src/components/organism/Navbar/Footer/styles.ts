@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { fontWeights, mediaQueries } from "utils/styles";
 
 export const Wrapper = styled.div`
-  margin-top: 50px;
+  /* margin-top: 50px; */
   padding: 20px 0;
   border-top: 1px solid #9b9ea2;
 `;

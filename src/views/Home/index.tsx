@@ -1,8 +1,18 @@
 import React from 'react'
+// import Login1 from 'src/components/layouts/Login-1'
+// import Login2 from 'src/components/layouts/Login-2'
+// import Login3 from 'src/components/layouts/Login-3'
+// import Login4 from 'src/components/layouts/Login-4'
+// import Login5 from 'src/components/layouts/Login-5'
 import Navbar from 'src/components/organism/Navbar'
 
 export default function Home() {
   return (
     <Navbar />
+    // <Login1 />
+    // <Login2 />
+    // <Login3 />
+    // <Login4 />
+    // <Login5 />
   )
 }
