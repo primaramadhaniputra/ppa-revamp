@@ -1,52 +1,48 @@
-import { Avatar, Icon } from "@hudoro/neron";
-import TextDropdown from "src/components/organism/Navbar/TextDropdown";
-import React, { useState } from "react";
-import { Link } from "utils/dummy";
-import { colors } from "utils/styles";
-import {
-  LogoWrapper,
-  StyledUserContainer,
-  StyledUserContainerDesktop,
-  Wrapper,
-  WrapperIconHamburger,
-} from "./styles";
-import Dropdown from "./Dropdown";
+import TitlePage from "atoms/TitlePage";
+import { useState } from "react";
+import { dummyInputDropdown, Link } from "utils/dummy";
+import Banner from "./Banner";
+import DesktopMenu from "./DesktopMenu";
+import Footer from "./Footer";
+import HamburgerMenu from "./HamburgerMenu";
+import HomeInput from "./HomeInput";
+import Logo from "./Logo";
+import { ContentWrapper, LinkWrapper, NavbarWrapper, Wrapper } from "./styles";
 
 export default function Navbar() {
-  const [activeDropdown, setactiveDropdown] = useState(0);
-  const [dropDownHeight, setDropDownHeight] = useState(0);
+  const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 
-  const handleDropdown = () => {
-    if (dropDownHeight < 1) {
-      return setDropDownHeight(220 + 40);
-    }
-    return setDropDownHeight(0);
+  const handleChangeHamburgerMenu = () => {
+    setShowHamburgerMenu(!showHamburgerMenu);
+  };
+
+  const renderHambrgerMenu = () => {
+    return (
+      <LinkWrapper>
+        {Link.map((item) => (
+          <HamburgerMenu item={item} />
+        ))}
+      </LinkWrapper>
+    );
   };
 
   return (
-    <Wrapper container>
-      <LogoWrapper container alignItems="center" justifyContent="space-between">
-        <Avatar size="m" src="/images/ppa.jpg" />
-        <StyledUserContainer>
-          <TextDropdown user={true} />
-        </StyledUserContainer>
-      </LogoWrapper>
-      <Dropdown
-        Link={Link}
-        dropDownHeight={dropDownHeight}
-        activeDropdown={activeDropdown}
-        setactiveDropdown={setactiveDropdown}
-      />
-      <StyledUserContainerDesktop>
-        <TextDropdown user={true} />
-      </StyledUserContainerDesktop>
-      <WrapperIconHamburger>
-        <Icon
-          iconName={dropDownHeight > 0 ? "IcClose" : "IcArrowDown"}
-          color={colors.white}
-          onClick={handleDropdown}
+    <Wrapper>
+      <NavbarWrapper>
+        <Logo handleChangeHamburgerMenu={handleChangeHamburgerMenu} />
+        {showHamburgerMenu && renderHambrgerMenu()}
+        <DesktopMenu />
+      </NavbarWrapper>
+      <ContentWrapper>
+        <TitlePage type="h3"> Operation / Report </TitlePage>
+        <HomeInput
+          items={dummyInputDropdown}
+          title="Menu"
+          placeholder="Device / Production"
         />
-      </WrapperIconHamburger>
+        <Banner />
+      </ContentWrapper>
+      <Footer />
     </Wrapper>
   );
 }
