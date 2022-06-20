@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ImageUrl } from "utils/dummy";
 import SlideImage from "./ImageSlide";
-import { LoginSlider, } from "./styled";
+import { LoginSlider } from "./styled";
 
 interface IProps {
   url: string;

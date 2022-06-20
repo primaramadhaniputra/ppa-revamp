@@ -1,4 +1,3 @@
-import { Grid } from "@hudoro/neron";
 import Image from "next/image";
 import React from "react";
 import Footer from "src/components/organism/Navbar/Footer";
@@ -11,7 +10,12 @@ export default function Form() {
     <Wrapper style={{ position: "relative" }}>
       <Container>
         <FormWrapper>
-          <Image src="/images/logo2.png" width={354} height={34} alt="ppa-logo" />
+          <Image
+            src="/images/logo2.png"
+            width={354}
+            height={34}
+            alt="ppa-logo"
+          />
           <WelcomeTextComponent />
           <FormInput />
         </FormWrapper>
