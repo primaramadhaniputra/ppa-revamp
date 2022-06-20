@@ -31,6 +31,6 @@
         },
         "incremental": true
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/layouts/Login-1"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/layouts/Login/Login-1"],
     "exclude": ["node_modules", ".next"]
 }

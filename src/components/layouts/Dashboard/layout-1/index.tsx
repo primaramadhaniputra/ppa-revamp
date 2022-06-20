@@ -7,7 +7,7 @@ import HomeInput from "./HomeInput";
 import Navbar from "./Navbar";
 import { ContentWrapper, Wrapper } from "./styles";
 
-export default function Dashboard() {
+export default function Layout1() {
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 
   const handleChangeHamburgerMenu = () => {

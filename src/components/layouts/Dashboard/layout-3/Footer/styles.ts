@@ -13,6 +13,6 @@ export const FooterText = styled(Text)`
   font-weight: ${fontWeights.medium};
   font-size: 12px;
   ${mediaQueries.lg} {
-    font-size: 15px;
+    font-size: 17px;
   }
 `;
