@@ -13,12 +13,13 @@ export const Wrapper = styled(Grid)`
   }
 `;
 export const WrapperInput = styled(Grid)`
+  margin-top: 5px;
   ${mediaQueries.lg} {
     max-width: 250px;
   }
 `;
 
 export const InputLabel = styled(Text)`
-  margin-bottom: 5px;
+  line-height: 21px;
   font-family: ${fontFamilies.openSans};
 `;

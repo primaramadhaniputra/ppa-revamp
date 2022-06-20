@@ -6,6 +6,7 @@ interface IProps {
   title: string;
   label: boolean;
   placeholder?: string;
+  name: string;
 }
 
 export default function LabeldInput({
@@ -15,8 +16,8 @@ export default function LabeldInput({
 }: IProps) {
   return (
     <Grid container flexDirection="column" gap={5}>
-      {label && <StyledLabel htmlFor="NRP">{title}</StyledLabel>}
-      <StyledInput id="NRP" {...rest} />
+      {label && <StyledLabel>{title}</StyledLabel>}
+      <StyledInput {...rest} />
     </Grid>
   );
 }

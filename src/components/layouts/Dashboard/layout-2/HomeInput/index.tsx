@@ -23,10 +23,20 @@ export default function HomeInput({ items, title, placeholder }: IProps) {
         </WrapperInput>
       </Grid>
       <WrapperInput>
-        <LabeldInput label={true} title="Start Date" placeholder="start date" />
+        <LabeldInput
+          name="start"
+          label={true}
+          title="Start Date"
+          placeholder="start date"
+        />
       </WrapperInput>
       <WrapperInput>
-        <LabeldInput label={true} title="End Date" placeholder="end date" />
+        <LabeldInput
+          name="end"
+          label={true}
+          title="End Date"
+          placeholder="end date"
+        />
       </WrapperInput>
     </Wrapper>
   );

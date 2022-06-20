@@ -1,7 +1,14 @@
 import { Text } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontWeights } from "utils/styles";
+import { fontWeights, mediaQueries } from "utils/styles";
 
-export const StyledTitle = styled(Text)`
+interface IPropsStyledTitle {
+  sizing?: string;
+}
+
+export const StyledTitle = styled(Text)<IPropsStyledTitle>`
   font-weight: ${fontWeights.bold};
+  ${mediaQueries.lg} {
+    font-size: ${(props) => props.sizing};
+  }
 `;

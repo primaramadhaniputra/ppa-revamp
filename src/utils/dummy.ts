@@ -67,3 +67,70 @@ export const ImageUrl = [
     '/images/traktor2.jpeg',
     '/images/traktor3.jpeg',
 ];
+
+export const ProductionPerfromanceData = [
+    {
+        title: 'Ach. Cost @ 1 Km',
+        plan: ['MTD', '**'],
+        act: ['YTD', '**'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+];
+export const HaulerPerfromanceData = [
+    {
+        title: 'Ach. Cost @ 1 Km',
+        plan: ['MTD', '**'],
+        act: ['YTD', '**'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+];
+export const PlanPerfromanceData = [
+    {
+        title: 'Ach. Cost @ 1 Km',
+        plan: ['MTD', '**'],
+        act: ['YTD', '**'],
+    },
+    {
+        title: 'Ach. 105% Coal Production',
+        plan: ['Plan', '2.203.117 ton'],
+        act: ['Act', '2.314.285 ton'],
+    },
+];

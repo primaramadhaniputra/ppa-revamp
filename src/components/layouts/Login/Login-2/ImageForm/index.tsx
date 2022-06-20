@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ImageUrl } from "utils/dummy";
-import ButtonSlide from "./ButtonSlide";
 import SlideImage from "./ImageSlide";
-import { LoginSlider, SliderButton } from "./styled";
+import { LoginSlider } from "./styled";
 
 interface IProps {
   url: string;
@@ -36,7 +35,7 @@ export default function ImageForm({ url }: IProps) {
   return (
     <LoginSlider>
       <SlideImage image={image} index={index} />
-      <SliderButton>
+      {/* <SliderButton>
         <ButtonSlide
           iconName="IcArrowLeft"
           onClick={() => setIndex(index - 1)}
@@ -45,7 +44,7 @@ export default function ImageForm({ url }: IProps) {
           iconName="IcArrowRight"
           onClick={() => setIndex(index + 1)}
         />
-      </SliderButton>
+      </SliderButton> */}
     </LoginSlider>
   );
 }

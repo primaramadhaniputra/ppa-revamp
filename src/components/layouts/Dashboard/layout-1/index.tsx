@@ -21,11 +21,14 @@ export default function Layout1() {
         showHamburgerMenu={showHamburgerMenu}
       />
       <ContentWrapper>
-        <TitlePage type="h3"> Operation / Report </TitlePage>
+        <TitlePage type="h3" sizing="36px">
+          {" "}
+          Operation / Report{" "}
+        </TitlePage>
         <HomeInput
           items={dummyInputDropdown}
           title="Menu"
-          placeholder="Device / Production"
+          placeholder="Device / Production / Payload"
         />
         <Banner />
       </ContentWrapper>
