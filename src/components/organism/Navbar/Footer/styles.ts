@@ -12,7 +12,7 @@ export const FooterText = styled(Text)`
   font-family: ${fontFamilies.poppins};
   font-weight: ${fontWeights.medium};
   font-size: 12px;
-  ${mediaQueries.lg} {
-    font-size: 15px;
-  }
+  /* ${mediaQueries.lg} {
+        font-size: 15px;
+    } */
 `;

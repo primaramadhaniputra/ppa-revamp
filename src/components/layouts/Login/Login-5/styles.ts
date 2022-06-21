@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { mediaQueries } from "utils/styles";
 
 export const Wrapper = styled.div`
-  background-color: #f6921e;
   ${mediaQueries.lg} {
+    background-color: #f6921e;
     height: 100vh;
   }
 `;

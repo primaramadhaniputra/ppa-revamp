@@ -22,7 +22,7 @@ export default function Footer() {
         style={{ padding: "0 10px" }}
       >
         {footer.map((item, index) => (
-          <FooterText key={index} variant="p" style={{ color: item.color }}>
+          <FooterText key={index} variant="p" style={{ color: "#F6921E" }}>
             {item.title}
           </FooterText>
         ))}

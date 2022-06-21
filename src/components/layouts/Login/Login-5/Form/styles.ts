@@ -3,18 +3,14 @@ import styled from "styled-components";
 import { mediaQueries } from "utils/styles";
 
 export const Wrapper = styled(Grid)`
+  position: relative;
+  background-color: white;
   ${mediaQueries.lg} {
     position: absolute !important;
     z-index: 99;
     left: -250px;
     top: 50%;
     transform: translateY(-50%);
-  }
-`;
-
-export const Container = styled.div`
-  background-color: white;
-  ${mediaQueries.lg} {
     border-radius: 5px;
   }
 `;
@@ -24,8 +20,9 @@ export const FormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 30px;
   ${mediaQueries.lg} {
+    padding: 50px;
     justify-content: flex-start;
   }
 `;
