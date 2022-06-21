@@ -3,7 +3,7 @@ import TitlePage from "atoms/TitlePage";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
 import { HaulerPerfromanceData } from "utils/dummy";
-import { Item, ItemContainer } from "./styles";
+import { Item, ItemContainer } from "../styles";
 
 export default function HaulerPerformance() {
   return (
