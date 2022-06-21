@@ -7,6 +7,8 @@ interface IProps {
   label: boolean;
   placeholder?: string;
   name: string;
+  onClick?: () => void;
+  value?: string;
 }
 
 export default function LabeldInput({
@@ -17,7 +19,7 @@ export default function LabeldInput({
   return (
     <Grid container flexDirection="column" gap={5}>
       {label && <StyledLabel>{title}</StyledLabel>}
-      <StyledInput {...rest} />
+      <StyledInput autoComplete="off" {...rest} />
     </Grid>
   );
 }

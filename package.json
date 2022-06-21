@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hudoro/neron": "^0.1.18",
+    "@types/react-date-range": "^1.4.3",
     "axios": "^0.27.2",
     "date-fns": "^2.28.0",
     "js-cookie": "^3.0.1",

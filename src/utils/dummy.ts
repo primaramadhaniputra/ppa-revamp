@@ -24,29 +24,55 @@ export const Link = [
 export const footer = [
     {
         title: 'devotion',
-        color: '#008000',
+        color: '#F6921E',
     },
     {
         title: 'integrity',
-        color: '#0000FF',
+        color: '#F6921E',
     },
     {
         title: 'teamwork',
-        color: '#37382F',
+        color: '#F6921E',
     },
     {
         title: 'creativity',
-        color: '#F4762C',
+        color: '#F6921E',
     },
     {
         title: 'winner',
-        color: '#FF0000',
+        color: '#F6921E',
     },
     {
         title: 'perfection',
-        color: '#9F3F9F',
+        color: '#F6921E',
     },
 ];
+// export const footer = [
+//     {
+//         title: 'devotion',
+//         color: '#008000',
+//     },
+//     {
+//         title: 'integrity',
+//         color: '#0000FF',
+//     },
+//     {
+//         title: 'teamwork',
+//         color: '#37382F',
+//     },
+//     {
+//         title: 'creativity',
+//         color: '#F4762C',
+//     },
+//     {
+//         title: 'winner',
+//         color: '#FF0000',
+//     },
+//     {
+//         title: 'perfection',
+//         color: '#9F3F9F',
+//     },
+// ];
 
 export const dummyInputDropdown = [
     {
@@ -92,45 +118,45 @@ export const ProductionPerfromanceData = [
 ];
 export const HaulerPerfromanceData = [
     {
-        title: 'Ach. Cost @ 1 Km',
-        plan: ['MTD', '**'],
-        act: ['YTD', '**'],
+        title: 'Payload',
+        plan: ['MTD', '95.3 ton'],
+        act: ['YTD', '95.3 ton'],
     },
     {
-        title: 'Ach. 105% Coal Production',
-        plan: ['Plan', '2.203.117 ton'],
-        act: ['Act', '2.314.285 ton'],
+        title: 'Empty Speed',
+        plan: ['MTD', '22.6 km/h'],
+        act: ['YTD', '22.6 km/h'],
     },
     {
-        title: 'Ach. 105% Coal Production',
-        plan: ['Plan', '2.203.117 ton'],
-        act: ['Act', '2.314.285 ton'],
+        title: 'Loaded Speed',
+        plan: ['MTD', '20.7 km/h'],
+        act: ['YTD', '20.7 km/h'],
     },
     {
-        title: 'Ach. 105% Coal Production',
-        plan: ['Plan', '2.203.117 ton'],
-        act: ['Act', '2.314.285 ton'],
+        title: 'Distance',
+        plan: ['MTD', '2.7 km'],
+        act: ['YTD', '2.7 km'],
     },
     {
-        title: 'Ach. 105% Coal Production',
-        plan: ['Plan', '2.203.117 ton'],
-        act: ['Act', '2.314.285 ton'],
+        title: 'EST',
+        plan: ['MTD', '1.5 min'],
+        act: ['YTD', '1.5 min'],
     },
     {
-        title: 'Ach. 105% Coal Production',
-        plan: ['Plan', '2.203.117 ton'],
-        act: ['Act', '2.314.285 ton'],
+        title: 'Fuel',
+        plan: ['MTD', '75.1 L/H'],
+        act: ['YTD', '75.1 L/H'],
     },
 ];
 export const PlanPerfromanceData = [
     {
-        title: 'Ach. Cost @ 1 Km',
-        plan: ['MTD', '**'],
-        act: ['YTD', '**'],
+        title: 'PA',
+        plan: ['MTD', '** %'],
+        act: ['YTD', '** %'],
     },
     {
-        title: 'Ach. 105% Coal Production',
-        plan: ['Plan', '2.203.117 ton'],
-        act: ['Act', '2.314.285 ton'],
+        title: 'UA',
+        plan: ['MTD', '** %'],
+        act: ['YTD', '** %'],
     },
 ];
