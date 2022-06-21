@@ -1,5 +1,6 @@
 import React from "react";
 import { DateRange } from "react-date-range";
+import { colors } from "utils/styles";
 import { DateWrapper } from "./styles";
 
 interface IProps {
@@ -27,6 +28,7 @@ export default function DateCalendar({ setState, state }: IProps) {
         onChange={(item: any) => setState([item.selection])}
         moveRangeOnFirstSelection={false}
         ranges={state}
+        rangeColors={[colors.primary]}
       />
     </DateWrapper>
   );
