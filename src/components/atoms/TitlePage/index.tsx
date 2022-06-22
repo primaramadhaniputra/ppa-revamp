@@ -6,12 +6,11 @@ interface IProps {
   children: React.ReactNode;
   type: TextVariantType;
   styles?: React.CSSProperties;
-  sizing?: string;
 }
 
-export default function TitlePage({ children, type, styles, sizing }: IProps) {
+export default function TitlePage({ children, type, styles }: IProps) {
   return (
-    <StyledTitle sizing={sizing} variant={type} style={styles}>
+    <StyledTitle variant={type} style={styles}>
       {children}
     </StyledTitle>
   );

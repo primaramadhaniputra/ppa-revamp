@@ -1,5 +1,5 @@
 import { fontFamilies, Grid, Radio } from "@hudoro/neron";
-import LabeldInput from "atoms/LabeledInput";
+import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import React, { FormEvent } from "react";
 import { notify } from "utils/functions";
@@ -25,8 +25,8 @@ export default function FormInput({ color }: IProps) {
     <form style={{ width: "100%" }} onSubmit={handleSubmit}>
       <Grid container flexDirection="column" gap={50}>
         <Grid container flexDirection="column" gap={20}>
-          <LabeldInput color={color} label={true} name="nrp" title="NRP" />
-          <LabeldInput
+          <LabeledInput color={color} label={true} name="nrp" title="NRP" />
+          <LabeledInput
             color={color}
             label={true}
             title="Password"

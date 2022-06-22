@@ -21,12 +21,8 @@ export default function Logo({ handleChangeHamburgerMenu }: IProps) {
           style={{ cursor: "pointer" }}
           onClick={handleChangeHamburgerMenu}
         />
-        {/* <Grid container alignItems="center" gap={8}>
-               <Avatar src="/images/tukang.jpg" size="l" />
-               <Icon iconName="IcArrowDown" color="white" />
-            </Grid> */}
         <Grid container alignItems="center" gap={8}>
-          <StyledTextDropdownUser user={true} />
+          <StyledTextDropdownUser user={{ name: "dani" }} />
         </Grid>
       </HamburgerWrapper>
     </LogoWrapper>

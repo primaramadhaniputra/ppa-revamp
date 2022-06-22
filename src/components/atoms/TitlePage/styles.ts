@@ -1,19 +1,13 @@
 import { fontFamilies, Text } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontWeights, mediaQueries } from "utils/styles";
+import { fontSizing, fontWeights, mediaQueries } from "utils/styles";
 
-interface IPropsStyledTitle {
-  sizing?: string;
-}
-
-export const StyledTitle = styled(Text)<IPropsStyledTitle>`
+export const StyledTitle = styled(Text)`
+  font-family: ${fontFamilies.poppins};
   font-weight: ${fontWeights.semi};
-  font-family: ${fontFamilies.poppins};
-  font-family: ${fontFamilies.poppins};
-  font-weight: "500";
-  line-height: "18px";
-
+  line-height: ${fontSizing.md.lineHeight};
+  font-size: ${fontSizing.md.fontSize};
   ${mediaQueries.lg} {
-    font-size: ${(props) => props.sizing};
+    font-size: ${fontSizing.lg.fontSize};
   }
 `;

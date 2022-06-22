@@ -13,7 +13,7 @@ interface IProps {
 }
 
 export default function LabeledInput({
-  title = "Banana",
+  title = "NRP",
   label = true,
   color = "black",
   ...rest

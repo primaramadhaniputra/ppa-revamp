@@ -1,13 +1,13 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontWeights } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const StyledLabel = styled.label`
   font-family: ${fontFamilies.poppins};
   font-style: normal;
   font-weight: ${fontWeights.regular};
-  font-size: 14px;
-  line-height: 21px;
+  font-size: ${fontSizing.sm.fontSize};
+  line-height: ${fontSizing.md.lineHeight};
   color: black;
 `;
 

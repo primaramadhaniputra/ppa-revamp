@@ -8,7 +8,7 @@ import { Item, ItemContainer } from "../styles";
 export default function HaulerPerformance() {
   return (
     <>
-      <TitlePage type="h4" sizing="24px" styles={{ margin: "50px 0 30px" }}>
+      <TitlePage type="h4" styles={{ margin: "50px 0 30px" }}>
         {" "}
         Hauler Performance{" "}
       </TitlePage>
@@ -17,9 +17,7 @@ export default function HaulerPerformance() {
           return (
             <Item key={index}>
               <Grid container flexDirection="column" gap={20}>
-                <TitlePage type="h4" sizing="18px">
-                  {data.title}{" "}
-                </TitlePage>
+                <TitlePage type="h4">{data.title} </TitlePage>
                 <Grid container flexDirection="column" gap={15}>
                   <LabelValue data={data.plan} />
                   <LabelValue data={data.act} />

@@ -1,6 +1,6 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const StyledButton = styled.button`
   background: ${colors.primary};
@@ -10,8 +10,8 @@ export const StyledButton = styled.button`
   padding: 10px 0;
   font-family: ${fontFamilies.poppins};
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: ${fontWeights.regular};
+  font-size: ${fontSizing.sm.fontSize};
   text-align: center;
   color: white;
 `;

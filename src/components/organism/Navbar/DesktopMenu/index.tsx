@@ -32,7 +32,6 @@ export default function DesktopMenu({ type }: IProps) {
           <Grid container key={index}>
             <Grid container gap={8}>
               <StyledTextDropdownUser
-                user={false}
                 title={item.title}
                 handleClick={() => handleActiveNavbar(index)}
                 styles={{ color: "white" }}
@@ -48,7 +47,7 @@ export default function DesktopMenu({ type }: IProps) {
             Suwito
           </Text>
         )}
-        <StyledTextDropdownUser user={true} />
+        <StyledTextDropdownUser user={{ name: "dani" }} />
       </Grid>
     </Wrapper>
   );

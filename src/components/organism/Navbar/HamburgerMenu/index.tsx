@@ -26,10 +26,7 @@ export default function HamburgerMenu({ item }: IProps) {
   return (
     <MenuContainer container gap={1} flexDirection="column">
       <Grid container gap={8}>
-        {/* <Text variant="h4" style={{ color: 'white' }}>{item.title}</Text>
-            <Icon iconName={isShowSubMenu ? "IcArrowUp" : "IcArrowDown"} color="white" onClick={handleSubMenu} /> */}
         <StyledTextDropdownUser
-          user={false}
           title={item.title}
           handleClick={handleSubMenu}
           iconName={isShowSubMenu ? "IcArrowUp" : "IcArrowDown"}

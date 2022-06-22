@@ -4,7 +4,9 @@ import React from "react";
 interface IProps {
   title?: string;
   handleClick?: () => void;
-  user: boolean;
+  user?: {
+    name: string;
+  };
   iconName?: IIconProps["iconName"];
   styles?: React.CSSProperties;
 }
@@ -18,7 +20,7 @@ export default function StyledTextDropdownUser({
 }: IProps) {
   return (
     <>
-      {user ? (
+      {user?.name ? (
         <Avatar src="/images/tukang.jpg" size="l" />
       ) : (
         <Text variant="h4" style={styles}>
