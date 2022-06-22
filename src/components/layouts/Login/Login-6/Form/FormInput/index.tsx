@@ -20,12 +20,17 @@ export default function FormInput() {
     <form style={{ width: "100%" }} onSubmit={handleSubmit}>
       <Grid container flexDirection="column" gap={50}>
         <Grid container flexDirection="column" gap={20}>
-          <LabeldInput color="blue" name="nrp" label={true} title="NRP" />
           <LabeldInput
-            color="blue"
+            color={"rgb(0, 0, 180)"}
+            name="nrp"
+            label={true}
+            title="NRP"
+          />
+          <LabeldInput
             name="password"
             label={true}
             title="Password"
+            color={"rgb(0, 0, 180)"}
           />
           <Grid
             container
@@ -34,7 +39,7 @@ export default function FormInput() {
             style={{
               fontSize: "13px",
               fontFamily: fontFamilies.poppins,
-              color: "blue",
+              color: "rgb(0, 0, 180)",
             }}
           >
             <Radio label="Remember me" checked={true} />

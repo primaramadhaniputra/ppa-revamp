@@ -9,7 +9,7 @@ interface IProps {
   name: string;
   onClick?: () => void;
   value?: string;
-  color?: "blue" | "black";
+  color?: string;
 }
 
 export default function LabeldInput({

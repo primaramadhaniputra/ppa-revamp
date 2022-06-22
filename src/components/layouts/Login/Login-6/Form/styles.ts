@@ -43,6 +43,9 @@ export const Wrapper2 = styled.div`
     min-width: 500px;
     height: 120%;
   }
+  ${mediaQueries["2xl"]} {
+    margin-left: 50px;
+  }
 `;
 
 export const FormWrapper = styled.div`

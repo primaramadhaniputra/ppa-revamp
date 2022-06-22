@@ -13,5 +13,5 @@ export const WelcomeText = styled.p<IWelcomeText>`
   font-weight: ${(props) => props.weight};
   font-size: ${(props) => props.size};
   line-height: ${(props) => props.lineHeight};
-  color: blue;
+  color: rgb(0, 0, 180);
 `;
