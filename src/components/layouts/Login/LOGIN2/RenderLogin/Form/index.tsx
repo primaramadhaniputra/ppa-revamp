@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import FormInput from "./FormInput";
+import FormInput from "src/components/organism/FormInput";
+import WelcomeTextComponent from "src/components/organism/WelcomeText";
 import { FormWrapper } from "./styles";
-import WelcomeTextComponent from "./WelcomeText";
 
 interface IProps {
   nameLogin?: string;

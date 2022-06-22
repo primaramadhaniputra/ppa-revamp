@@ -3,8 +3,13 @@ import LabeldInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import React, { FormEvent } from "react";
 import { notify } from "utils/functions";
+import { colors } from "utils/styles";
 
-export default function FormInput() {
+interface IProps {
+  color?: string;
+}
+
+export default function FormInput({ color }: IProps) {
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
       form.preventDefault();
@@ -20,17 +25,12 @@ export default function FormInput() {
     <form style={{ width: "100%" }} onSubmit={handleSubmit}>
       <Grid container flexDirection="column" gap={50}>
         <Grid container flexDirection="column" gap={20}>
+          <LabeldInput color={color} label={true} name="nrp" title="NRP" />
           <LabeldInput
-            color={"rgb(0, 0, 180)"}
-            name="nrp"
-            label={true}
-            title="NRP"
-          />
-          <LabeldInput
-            name="password"
+            color={color}
             label={true}
             title="Password"
-            color={"rgb(0, 0, 180)"}
+            name="password"
           />
           <Grid
             container
@@ -39,7 +39,7 @@ export default function FormInput() {
             style={{
               fontSize: "13px",
               fontFamily: fontFamilies.poppins,
-              color: "rgb(0, 0, 180)",
+              color: colors.blue,
             }}
           >
             <Radio label="Remember me" checked={true} />

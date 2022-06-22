@@ -97,7 +97,7 @@ export const colors = {
     light: '#17BDFF',
     dark: '#09202E',
     white: '#FFFFFF',
-    blue: '#e8f0fe',
+    blue: '#2674fc',
     borderBlue: 'rgba(37, 40, 43, 0.2)',
     blueSky: '#e8f0fe',
     orange: '#F6921E',

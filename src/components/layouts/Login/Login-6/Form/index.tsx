@@ -1,7 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import Footer from "src/components/organism/Footer";
-import FormInput from "./FormInput";
+import FormInput from "src/components/organism/FormInput";
+import WelcomeTextComponent from "src/components/organism/WelcomeText";
+import { colors } from "utils/styles";
 import {
   FooterContainer,
   FormWrapper,
@@ -11,7 +13,6 @@ import {
   Wrapper,
   Wrapper2,
 } from "./styles";
-import WelcomeTextComponent from "./WelcomeText";
 
 export default function Form() {
   return (
@@ -24,8 +25,8 @@ export default function Form() {
             height={34}
             alt="ppa-logo"
           />
-          <WelcomeTextComponent sizing={true} />
-          <FormInput />
+          <WelcomeTextComponent styles={{ color: colors.blue }} />
+          <FormInput color={colors.blue} />
         </FormWrapper>
         <FooterContainer>
           <Footer />
