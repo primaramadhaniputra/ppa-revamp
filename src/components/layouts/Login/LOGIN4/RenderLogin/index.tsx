@@ -1,8 +1,8 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import Footer from "src/components/organism/Footer";
+import ImageForm from "molecules/ImageForm";
 import Form from "./Form";
-import ImageForm from "./ImageForm";
 import { FooterContainer, Wrapper, WrapperImageInput } from "../styles";
 
 interface IProps {

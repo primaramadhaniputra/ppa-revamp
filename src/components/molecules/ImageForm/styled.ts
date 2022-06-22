@@ -12,11 +12,3 @@ export const LoginSlider = styled.div`
     width: 100%;
   }
 `;
-export const SliderButton = styled.div`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  bottom: 20px;
-  justify-content: center;
-  gap: 30px;
-`;

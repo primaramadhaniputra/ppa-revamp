@@ -1,6 +1,6 @@
+import ImageForm from "molecules/ImageForm";
 import React from "react";
 import Form from "./Form";
-import ImageForm from "./ImageForm";
 import { WrapperImageInput } from "./styles";
 
 interface IProps {

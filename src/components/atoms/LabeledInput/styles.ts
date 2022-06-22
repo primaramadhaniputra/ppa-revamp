@@ -23,7 +23,7 @@ export const StyledInput = styled.input`
     font-family: ${fontFamilies.poppins};
   }
   &:focus {
-    background: ${colors.blue};
+    background: ${colors.blueSky};
     outline: 1px solid ${colors.primary};
   }
 `;

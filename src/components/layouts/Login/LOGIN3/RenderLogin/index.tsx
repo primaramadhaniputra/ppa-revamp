@@ -1,7 +1,7 @@
+import ImageForm from "molecules/ImageForm";
 import React from "react";
 import Footer from "src/components/organism/Footer";
 import Form from "./Form";
-import ImageForm from "./ImageForm";
 import { FooterContainer, WrapperImageInput } from "./styles";
 
 interface IProps {
