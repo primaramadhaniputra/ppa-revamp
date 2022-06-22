@@ -9,16 +9,18 @@ interface IProps {
   name: string;
   onClick?: () => void;
   value?: string;
+  color?: "blue" | "black";
 }
 
 export default function LabeldInput({
   title = "Banana",
   label = true,
+  color = "black",
   ...rest
 }: IProps) {
   return (
     <Grid container flexDirection="column" gap={5}>
-      {label && <StyledLabel>{title}</StyledLabel>}
+      {label && <StyledLabel style={{ color }}>{title}</StyledLabel>}
       <StyledInput autoComplete="off" {...rest} />
     </Grid>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 
 // DASHBOARD
-import Layout1 from 'src/components/layouts/Dashboard/layout-1'
+// import Layout1 from 'src/components/layouts/Dashboard/layout-1'
 // import Layout2 from 'src/components/layouts/Dashboard/layout-2'
 // import Layout3 from 'src/components/layouts/Dashboard/layout-3'
 
@@ -15,9 +15,11 @@ import Layout1 from 'src/components/layouts/Dashboard/layout-1'
 // import Login41 from 'src/components/layouts/Login/Login-4.1'
 // import Login5 from 'src/components/layouts/Login/Login-5'
 // import Login51 from 'src/components/layouts/Login/Login-5.1'
+import Login6 from 'src/components/layouts/Login/Login-6'
 
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+
+// import 'react-date-range/dist/styles.css'; // main style file
+// import 'react-date-range/dist/theme/default.css'; // theme css file
 // import { Calendar } from 'react-date-range';
 // import { DateRangePicker } from 'react-date-range';
 // import { DateRange } from 'react-date-range';
@@ -47,7 +49,7 @@ export default function Home() {
   return (
 
     // DASHBOARD 
-    <Layout1 />
+    // <Layout1 />
     // <Layout2 />
     // <Layout3 />
 
@@ -61,6 +63,7 @@ export default function Home() {
     // <Login41 />
     // <Login5 />
     // <Login51 />
+    <Login6 />
 
     // date picker
     // <Calendar

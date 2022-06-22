@@ -8,9 +8,8 @@ export const Wrapper = styled(Grid)`
   ${mediaQueries.lg} {
     position: absolute !important;
     z-index: 99;
-    left: -250px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     border-radius: 5px;
   }
 `;
