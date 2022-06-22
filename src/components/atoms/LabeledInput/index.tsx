@@ -12,7 +12,7 @@ interface IProps {
   color?: string;
 }
 
-export default function LabeldInput({
+export default function LabeledInput({
   title = "Banana",
   label = true,
   color = "black",

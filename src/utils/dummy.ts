@@ -116,7 +116,7 @@ export const ProductionPerfromanceData = [
         act: ['Act', '2.314.285 ton'],
     },
 ];
-export const HaulerPerfromanceData = [
+export const HaulerPerformanceData = [
     {
         title: 'Payload',
         plan: ['MTD', '95.3 ton'],

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "utils/styles";
 
 export const Wrapper = styled.div``;
 
@@ -9,7 +10,7 @@ export const ItemContainer = styled.div`
 `;
 
 export const Item = styled.div`
-  background-color: #e8f0fe;
+  background-color: ${colors.blueSky};
   flex: 1;
   min-width: 300px;
   border-radius: 5px;

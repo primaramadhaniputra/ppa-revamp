@@ -1,8 +1,8 @@
-import { fontFamilies, Grid } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
-import { HaulerPerfromanceData } from "utils/dummy";
+import { HaulerPerformanceData } from "utils/dummy";
 import { Item, ItemContainer } from "../styles";
 
 export default function HaulerPerformance() {
@@ -13,20 +13,11 @@ export default function HaulerPerformance() {
         Hauler Performance{" "}
       </TitlePage>
       <ItemContainer>
-        {HaulerPerfromanceData.map((data, index) => {
+        {HaulerPerformanceData.map((data, index) => {
           return (
             <Item key={index}>
               <Grid container flexDirection="column" gap={20}>
-                <TitlePage
-                  type="h4"
-                  sizing="18px"
-                  styles={{
-                    fontFamily: `${fontFamilies.poppins}`,
-                    fontWeight: "500",
-                    lineHeight: "18px",
-                  }}
-                >
-                  {" "}
+                <TitlePage type="h4" sizing="18px">
                   {data.title}{" "}
                 </TitlePage>
                 <Grid container flexDirection="column" gap={15}>

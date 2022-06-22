@@ -1,10 +1,10 @@
 import TitlePage from "atoms/TitlePage";
 import { useState } from "react";
+import Footer from "src/components/organism/Footer";
+import HomeInput from "src/components/organism/HomeInput";
+import Navbar from "src/components/organism/Navbar";
 import { dummyInputDropdown } from "utils/dummy";
 import Banner from "./Banner";
-import Footer from "./Footer";
-import HomeInput from "./HomeInput";
-import Navbar from "./Navbar";
 import { ContentWrapper, Wrapper } from "./styles";
 
 export default function Layout2() {
@@ -25,7 +25,7 @@ export default function Layout2() {
         <HomeInput
           items={dummyInputDropdown}
           title="Menu"
-          placeholder="Device / Production"
+          placeholder="Device / Production / Payload"
         />
         <Banner />
       </ContentWrapper>

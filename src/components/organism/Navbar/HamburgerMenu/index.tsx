@@ -13,18 +13,18 @@ interface IProps {
 export default function HamburgerMenu({ item }: IProps) {
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);
   const [subMenuHeight, setSubMenuHeight] = useState(0);
-  const subMenuRef = useRef<any>(null);
+  const subMenuRef = useRef<HTMLInputElement>(null);
   const handleSubMenu = () => {
-    const { height } = subMenuRef.current.getBoundingClientRect();
+    const height = subMenuRef?.current?.getBoundingClientRect().height;
     if (subMenuHeight < 1) {
-      setSubMenuHeight(height);
+      setSubMenuHeight(height as number);
     } else {
       setSubMenuHeight(0);
     }
     setIsShowSubMenu(!isShowSubMenu);
   };
   return (
-    <MenuContainer container gap={10} flexDirection="column">
+    <MenuContainer container gap={1} flexDirection="column">
       <Grid container gap={8}>
         {/* <Text variant="h4" style={{ color: 'white' }}>{item.title}</Text>
             <Icon iconName={isShowSubMenu ? "IcArrowUp" : "IcArrowDown"} color="white" onClick={handleSubMenu} /> */}
@@ -33,6 +33,7 @@ export default function HamburgerMenu({ item }: IProps) {
           title={item.title}
           handleClick={handleSubMenu}
           iconName={isShowSubMenu ? "IcArrowUp" : "IcArrowDown"}
+          styles={{ color: "white", fontSize: "14px", marginBottom: 10 }}
         />
       </Grid>
       <SubMenuWrapper height={subMenuHeight}>

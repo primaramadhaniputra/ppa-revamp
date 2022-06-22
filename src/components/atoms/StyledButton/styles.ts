@@ -1,8 +1,9 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
+import { colors } from "utils/styles";
 
 export const StyledButton = styled.button`
-  background: #00bcd4;
+  background: ${colors.primary};
   border-radius: 5px;
   width: 100%;
   border: none;

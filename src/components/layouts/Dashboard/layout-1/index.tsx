@@ -1,10 +1,10 @@
 import TitlePage from "atoms/TitlePage";
 import { useState } from "react";
+import Footer from "src/components/organism/Footer";
+import HomeInput from "src/components/organism/HomeInput";
+import Navbar from "src/components/organism/Navbar";
 import { dummyInputDropdown } from "utils/dummy";
 import Banner from "./Banner";
-import Footer from "./Footer";
-import HomeInput from "./HomeInput";
-import Navbar from "./Navbar";
 import { ContentWrapper, Wrapper } from "./styles";
 
 export default function Layout1() {
@@ -19,11 +19,11 @@ export default function Layout1() {
       <Navbar
         handleChangeHamburgerMenu={handleChangeHamburgerMenu}
         showHamburgerMenu={showHamburgerMenu}
+        type="layout1"
       />
       <ContentWrapper>
         <TitlePage type="h3" sizing="36px">
-          {" "}
-          Operation / Report{" "}
+          Operation / Report
         </TitlePage>
         <HomeInput
           items={dummyInputDropdown}

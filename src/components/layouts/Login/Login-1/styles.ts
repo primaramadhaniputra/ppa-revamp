@@ -1,6 +1,6 @@
 import { Card, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontWeights } from "utils/styles";
+import { fontSizing, fontWeights } from "utils/styles";
 
 export const Wrapper = styled.div``;
 
@@ -38,7 +38,7 @@ export const Title = styled.p`
   font-family: ${fontFamilies.poppins};
   font-style: normal;
   font-weight: ${fontWeights.regular};
-  font-size: 18px;
-  line-height: 27px;
+  font-size: ${fontSizing.lg.fontSize};
+  line-height: ${fontSizing.lg.lineHeight};
   text-align: center;
 `;

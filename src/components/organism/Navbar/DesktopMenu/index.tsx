@@ -1,11 +1,15 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import { Link } from "utils/dummy";
 import StyledTextDropdownUser from "atoms/StyledTextDropdownUser";
-import { Wrapper } from "./styles";
+import { Container, Wrapper } from "./styles";
 import DeskTopSubMenu from "./DeskTopSubMenu";
 
-export default function DesktopMenu() {
+interface IProps {
+  type?: string;
+}
+
+export default function DesktopMenu({ type }: IProps) {
   const [activeDropdown, setActiveDropdown] = useState(-1);
 
   const handleActiveNavbar = (index: number) => {
@@ -17,22 +21,34 @@ export default function DesktopMenu() {
 
   return (
     <Wrapper>
-      {Link.map((item, index) => (
-        <Grid container key={index}>
-          <Grid container gap={8}>
-            <StyledTextDropdownUser
-              user={false}
-              title={item.title}
-              handleClick={() => handleActiveNavbar(index)}
-            />
+      <Container
+        style={{
+          flex: `${type === "layout3" || type === "layout1" ? 1 : null}`,
+        }}
+        justifyContent={type === "layout1" ? "flex-end" : "center"}
+        container
+      >
+        {Link.map((item, index) => (
+          <Grid container key={index}>
+            <Grid container gap={8}>
+              <StyledTextDropdownUser
+                user={false}
+                title={item.title}
+                handleClick={() => handleActiveNavbar(index)}
+                styles={{ color: "white" }}
+              />
+            </Grid>
+            {activeDropdown === index && <DeskTopSubMenu data={item.subMenu} />}
           </Grid>
-          {activeDropdown === index && <DeskTopSubMenu data={item.subMenu} />}
-        </Grid>
-      ))}
+        ))}
+      </Container>
       <Grid container gap={8} alignItems="center">
+        {type !== "layout1" && (
+          <Text variant="h4" style={{ color: "white" }}>
+            Suwito
+          </Text>
+        )}
         <StyledTextDropdownUser user={true} />
-        {/* <Avatar src='/images/tukang.jpg' size='l' />
-            <Icon iconName='IcArrowDown' color='white' /> */}
       </Grid>
     </Wrapper>
   );

@@ -14,7 +14,7 @@ export const StyledLabel = styled.label`
 export const StyledInput = styled.input`
   outline: none;
   /* background: #e8f0fe; */
-  border: 1px solid rgba(37, 40, 43, 0.2);
+  border: 1px solid ${colors.borderBlue};
   border-radius: 5px;
   height: 41px;
   padding: 0 10px;
@@ -23,7 +23,7 @@ export const StyledInput = styled.input`
     font-family: ${fontFamilies.poppins};
   }
   &:focus {
-    background: #e8f0fe;
+    background: ${colors.blue};
     outline: 1px solid ${colors.primary};
   }
 `;

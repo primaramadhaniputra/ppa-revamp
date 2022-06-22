@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "src/components/organism/Navbar/Footer";
+import Footer from "src/components/organism/Footer";
 import Form from "./Form";
 import { FooterContainer, Wrapper, WrapperImageInput } from "./styles";
 import ImageForm from "./ImageForm";

@@ -2,17 +2,6 @@ import { Grid } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, mediaQueries } from "utils/styles";
 
-export const Wrapper = styled.section``;
-
-export const ContentWrapper = styled.article`
-  margin-top: 110px;
-  padding: 30px 15px;
-  ${mediaQueries.lg} {
-    padding: 30px 100px;
-    margin-top: 0;
-  }
-`;
-
 export const NavbarWrapper = styled.div`
   padding: 25px 32px;
   position: absolute;
@@ -32,18 +21,11 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const LinkWrapper = styled(Grid)`
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   ${mediaQueries.lg} {
     display: none;
   }
-`;
-
-export const SubMenuWrapper = styled.div``;
-export const SubMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 `;

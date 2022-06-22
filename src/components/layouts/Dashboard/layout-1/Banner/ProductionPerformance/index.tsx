@@ -1,4 +1,4 @@
-import { fontFamilies, Grid } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
@@ -17,17 +17,8 @@ export default function ProductionPerformance() {
           return (
             <Item key={index}>
               <Grid container flexDirection="column" gap={20}>
-                <TitlePage
-                  type="h4"
-                  sizing="18px"
-                  styles={{
-                    fontFamily: `${fontFamilies.poppins}`,
-                    fontWeight: "500",
-                    lineHeight: "18px",
-                  }}
-                >
-                  {" "}
-                  {data.title}{" "}
+                <TitlePage type="h4" sizing="18px">
+                  {data.title}
                 </TitlePage>
                 <Grid container flexDirection="column" gap={15}>
                   <LabelValue data={data.plan} />

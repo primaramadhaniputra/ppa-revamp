@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Footer from "src/components/organism/Navbar/Footer";
+import Footer from "src/components/organism/Footer";
 import FormInput from "./FormInput";
 import {
   FooterContainer,
