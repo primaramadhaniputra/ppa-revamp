@@ -8,13 +8,13 @@ import { LinkWrapper, NavbarWrapper } from "./styles";
 interface IProps {
   handleChangeHamburgerMenu: () => void;
   showHamburgerMenu: boolean;
-  type?: string;
+  position: "start" | "center" | "end";
 }
 
 export default function Navbar({
   handleChangeHamburgerMenu,
   showHamburgerMenu,
-  type,
+  position,
 }: IProps) {
   const renderHambrgerMenu = () => {
     return (
@@ -30,7 +30,7 @@ export default function Navbar({
     <NavbarWrapper>
       <Logo handleChangeHamburgerMenu={handleChangeHamburgerMenu} />
       {showHamburgerMenu && renderHambrgerMenu()}
-      <DesktopMenu type={type} />
+      <DesktopMenu position={position} />
     </NavbarWrapper>
   );
 }

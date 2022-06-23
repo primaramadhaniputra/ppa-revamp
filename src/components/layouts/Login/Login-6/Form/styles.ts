@@ -15,6 +15,7 @@ export const Wrapper = styled(Grid)`
     display: flex;
     align-items: center;
     padding-left: 50px;
+    border-radius: 5px;
   }
   ${mediaQueries.lg} {
     &::after {
@@ -27,6 +28,7 @@ export const Wrapper = styled(Grid)`
       right: 0;
       bottom: 0;
       opacity: 0.5;
+      border-radius: 5px;
     }
   }
 `;
@@ -35,6 +37,7 @@ export const Wrapper2 = styled.div`
   position: relative;
   ${mediaQueries.lg} {
     background-color: white;
+    border-radius: 5px;
     height: 110%;
     min-width: 400px;
     z-index: 99;
