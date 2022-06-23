@@ -1,17 +1,17 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
-const LoginView = dynamic(() => import("views/Login"));
+const HomeView = dynamic(() => import("views/Home"));
 
-export default function LoginPage() {
-  return <LoginView />;
+export default function HomePage() {
+  return <HomeView />;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     return {
       props: {
-        data: [],
+        pokemons: [],
       },
     };
   } catch (error: any) {

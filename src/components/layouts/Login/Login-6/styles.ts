@@ -3,7 +3,9 @@ import { mediaQueries } from "utils/styles";
 
 export const Wrapper = styled.div`
   ${mediaQueries.lg} {
-    background-color: #f6921e;
+    background: url(/images/bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
   }
 `;

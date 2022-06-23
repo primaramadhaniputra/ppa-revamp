@@ -2,6 +2,7 @@ import { Grid } from "@hudoro/neron";
 import Image from "next/image";
 import React from "react";
 import { footer } from "utils/dummy";
+import { fontSizing } from "utils/styles";
 import { FooterText, Wrapper } from "./styles";
 
 export default function Footer() {
@@ -22,7 +23,11 @@ export default function Footer() {
         style={{ padding: "0 10px" }}
       >
         {footer.map((item, index) => (
-          <FooterText key={index} variant="p" style={{ color: item.color }}>
+          <FooterText
+            key={index}
+            variant="p"
+            style={{ color: item.color, fontSize: fontSizing.sm.fontSize }}
+          >
             {item.title}
           </FooterText>
         ))}
