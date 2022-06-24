@@ -1,18 +1,20 @@
-import { fontFamilies, Grid, Radio } from "@hudoro/neron";
+import { Grid, Radio, Text } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import Cookies from "js-cookie";
 import Router from "next/router";
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import { login } from "services/users";
 import { notify } from "utils/functions";
-import { colors } from "utils/styles";
+import { fontSizing } from "utils/styles";
+import { RadioWrapper } from "./styles";
 
 interface IProps {
   color?: string;
 }
 
 export default function FormInput({ color }: IProps) {
+  const [checkedRadio, setCheckedRadio] = useState(false);
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
       form.preventDefault();
@@ -33,30 +35,29 @@ export default function FormInput({ color }: IProps) {
       return notify(error.message, "error");
     }
   };
+  const handleRadio = () => {
+    setCheckedRadio(!checkedRadio);
+  };
   return (
     <form style={{ width: "100%" }} onSubmit={handleSubmit}>
       <Grid container flexDirection="column" gap={50}>
         <Grid container flexDirection="column" gap={20}>
-          <LabeledInput color={color} label={true} name="nrp" title="NRP" />
-          <LabeledInput
-            color={color}
-            label={true}
-            title="Password"
-            name="password"
-          />
-          <Grid
+          <LabeledInput color={color} name="nrp" title="NRP" />
+          <LabeledInput color={color} title="Password" name="password" />
+          <RadioWrapper
             container
             alignItems="center"
             justifyContent="space-between"
-            style={{
-              fontSize: "13px",
-              fontFamily: fontFamilies.poppins,
-              color: colors.blue,
-            }}
           >
-            <Radio label="Remember me" />
-            <p>Forgot password ?</p>
-          </Grid>
+            <Radio
+              label="Remember me"
+              onClick={handleRadio}
+              checked={checkedRadio}
+            />
+            <Text variant="p" style={{ fontSize: fontSizing.xs.fontSize }}>
+              Forgot password ?
+            </Text>
+          </RadioWrapper>
         </Grid>
         <StyledButton>Masuk</StyledButton>
       </Grid>

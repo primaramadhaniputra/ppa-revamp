@@ -4,7 +4,6 @@ import { StyledInput, StyledLabel } from "./styles";
 
 interface IProps {
   title: string;
-  label: boolean;
   placeholder?: string;
   name: string;
   onClick?: () => void;
@@ -13,14 +12,13 @@ interface IProps {
 }
 
 export default function LabeledInput({
-  title = "NRP",
-  label = true,
+  title,
   color = "black",
   ...rest
 }: IProps) {
   return (
     <Grid container flexDirection="column" gap={5}>
-      {label && <StyledLabel style={{ color }}>{title}</StyledLabel>}
+      {title && <StyledLabel style={{ color }}>{title}</StyledLabel>}
       <StyledInput autoComplete="off" {...rest} />
     </Grid>
   );

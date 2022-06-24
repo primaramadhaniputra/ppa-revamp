@@ -41,7 +41,6 @@ export default function HomeInput({ items, title, placeholder }: IProps) {
       <WrapperInput>
         <LabeledInput
           name="end"
-          label={true}
           title="Date"
           onClick={handleDate}
           value={`${convert(state[0].startDate)} ~ ${convert(
