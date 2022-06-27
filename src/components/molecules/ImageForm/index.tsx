@@ -3,10 +3,13 @@ import { ImageUrl } from "utils/dummy";
 import SlideImage from "./ImageSlide";
 import { LoginSlider } from "./styled";
 
-export default function ImageForm() {
-  const [image, setImage] = useState(ImageUrl);
+interface IProps {
+  height?: string;
+}
+
+export default function ImageForm({ height }: IProps) {
+  const [image] = useState(ImageUrl);
   const [index, setIndex] = useState(0);
-  console.log(setImage);
   useEffect(() => {
     const lastIndex = image.length - 1;
     if (index < 0) {
@@ -27,7 +30,7 @@ export default function ImageForm() {
   }, [index]);
 
   return (
-    <LoginSlider>
+    <LoginSlider height={height}>
       <SlideImage image={image} index={index} />
     </LoginSlider>
   );

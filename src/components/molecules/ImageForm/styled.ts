@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import { mediaQueries } from "utils/styles";
 
-export const LoginSlider = styled.div`
+interface ILoginSlider {
+  height?: string;
+}
+
+export const LoginSlider = styled.div<ILoginSlider>`
   height: 400px;
   width: 100%;
   position: relative;
   overflow: hidden;
 
   ${mediaQueries.lg} {
-    height: calc(100vh - 108px);
+    height: ${(props) => (props.height ? props.height : "calc(100vh - 108px)")};
     width: 100%;
   }
 `;

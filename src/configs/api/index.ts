@@ -9,6 +9,8 @@ const API = {
     getProfile: apiRequest.get(apiEndpoints.users, true),
     updateProfile: apiRequest.patch(apiEndpoints.users, true),
     changePassword: apiRequest.patch(apiEndpoints.users, true),
+    forgotPassword: apiRequest.post(apiEndpoints.users),
+    resetPassword: apiRequest.patch(apiEndpoints.users),
 };
 
 export default API;

@@ -45,3 +45,9 @@ export function convert(str: string | number | Date | null) {
         day = ('0' + date.getDate()).slice(-2);
     return [date.getFullYear(), mnth, day].join('-');
 }
+
+export const parseJwt = (token: string) => {
+    const base64Payload = token.split('.')[1];
+    const payload = Buffer.from(base64Payload, 'base64');
+    return JSON.parse(payload.toString());
+};

@@ -8,6 +8,7 @@ interface IProps {
   nameLogin?: string;
 }
 
+console.log("bnanaan");
 export default function RenderLogin({ typeLogin, nameLogin }: IProps) {
   function render() {
     if (typeLogin === "login22") {

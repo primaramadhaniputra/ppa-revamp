@@ -18,7 +18,7 @@ export const Wrapper = styled.div<IWrapperImageInput>`
 export const WrapperImageInput = styled.div<IWrapperImageInput>`
   ${mediaQueries.lg} {
     display: flex;
-    padding: 0 100px;
+    padding: 100px;
     padding-right: ${(props) => (props.type ? "345px" : "100px")};
     padding-left: ${(props) => (props.type ? "100px" : "345px")};
     height: 100%;
