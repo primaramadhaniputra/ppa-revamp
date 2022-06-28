@@ -1,3 +1,4 @@
+import { ISelectItem } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import { useState } from "react";
 // import { useUsersState } from "recoil/users/atom";
@@ -9,14 +10,22 @@ import { dummyInputDropdown } from "utils/dummy";
 // import { notify } from "utils/functions";
 import { fontSizing } from "utils/styles";
 import Banner from "./Banner";
+import LayoutChanger from "./LayoutChanger";
 import { ContentWrapper, Wrapper } from "./styles";
 
 export default function Layout() {
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+  const [navbarPosition, setNavbarPosition] = useState<
+    "start" | "center" | "end"
+  >("start");
   // const [userData, setUserData] = useUsersState();
 
   const handleChangeHamburgerMenu = () => {
     setShowHamburgerMenu(!showHamburgerMenu);
+  };
+
+  const handleLayoutChange = (e: ISelectItem | ISelectItem[] | null) => {
+    return setNavbarPosition(e?.values);
   };
 
   // useEffect(() => {
@@ -42,9 +51,10 @@ export default function Layout() {
       <Navbar
         handleChangeHamburgerMenu={handleChangeHamburgerMenu}
         showHamburgerMenu={showHamburgerMenu}
-        position="end"
+        position={navbarPosition}
       />
       <ContentWrapper>
+        <LayoutChanger handleLayoutChange={handleLayoutChange} />
         <TitlePage type="h3" styles={{ fontSize: fontSizing["3xl"].fontSize }}>
           Operation / Report
         </TitlePage>

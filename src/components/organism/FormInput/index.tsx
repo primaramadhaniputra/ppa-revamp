@@ -30,7 +30,7 @@ export default function FormInput({ color }: IProps) {
       });
       Cookies.set("token", response.data.data.accessToken);
       Router.push("/dashboard");
-      return notify(nrp as string, "success");
+      return notify("selamat kamu berhasil loggin", "success");
     } catch (error: any) {
       return notify(error.message, "error");
     }
@@ -43,7 +43,12 @@ export default function FormInput({ color }: IProps) {
       <Grid container flexDirection="column" gap={50}>
         <Grid container flexDirection="column" gap={20}>
           <LabeledInput color={color} name="nrp" title="NRP" />
-          <LabeledInput color={color} title="Password" name="password" />
+          <LabeledInput
+            color={color}
+            title="Password"
+            name="password"
+            type="password"
+          />
           <RadioWrapper
             container
             alignItems="center"
