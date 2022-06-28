@@ -17,7 +17,7 @@ export default function RenderLogin({ type }: IProps) {
           <WrapperImageInput type="login4">
             <Grid style={{ position: "relative" }}>
               <Form type={type} />
-              <ImageForm />
+              <ImageForm height="745px" />
             </Grid>
           </WrapperImageInput>
           <FooterContainer>
@@ -31,7 +31,7 @@ export default function RenderLogin({ type }: IProps) {
         <WrapperImageInput>
           <Grid style={{ position: "relative" }}>
             <Form />
-            <ImageForm />
+            <ImageForm height="745px" />
           </Grid>
         </WrapperImageInput>
         <FooterContainer>

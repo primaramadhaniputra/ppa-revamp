@@ -10,8 +10,8 @@ export const Wrapper = styled(Grid)<IWrapper>`
   ${mediaQueries.lg} {
     position: absolute !important;
     z-index: 99;
-    right: ${(props) => (props.type ? "-250px" : "auto")};
-    left: ${(props) => (props.type ? "auto" : "-250px")};
+    right: ${(props) => (props.type ? "-235px" : "auto")};
+    left: ${(props) => (props.type ? "auto" : "-235px")};
     top: 50%;
     transform: translateY(-50%);
   }
