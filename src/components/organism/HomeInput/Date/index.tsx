@@ -24,7 +24,7 @@ interface IProps {
 
 export default function DateCalendar({ setState, state }: IProps) {
   return (
-    <DateWrapper>
+    <DateWrapper style={{ zIndex: "999" }}>
       <DateRange
         editableDateInputs={true}
         onChange={(item: any) => setState([item.selection])}

@@ -30,7 +30,7 @@ export default function FormInput({ color }: IProps) {
       });
       Cookies.set("token", response.data.data.accessToken);
       Router.push("/dashboard");
-      return notify("selamat kamu berhasil loggin", "success");
+      return notify("selamat kamu berhasil login", "success");
     } catch (error: any) {
       return notify(error.message, "error");
     }

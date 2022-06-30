@@ -7,11 +7,14 @@ interface IWrapperImageInput {
 
 export const Wrapper = styled.div<IWrapperImageInput>`
   ${mediaQueries.lg} {
-    background-color: ${(props) =>
+    background: ${(props) =>
       props.type === "login4" || props.type === "login41"
-        ? colors.primary
-        : colors.orange};
+        ? `linear-gradient(135deg,${colors.primary} 0%,#0693e3 100%)`
+        : "url(/images/bg.jpeg)"};
     height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 `;
 

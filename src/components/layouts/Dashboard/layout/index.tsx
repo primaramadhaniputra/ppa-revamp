@@ -1,15 +1,13 @@
 import { ISelectItem } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import { useState } from "react";
-// import { useUsersState } from "recoil/users/atom";
-// import { getProfile } from "services/users";
 import Footer from "src/components/organism/Footer";
 import HomeInput from "src/components/organism/HomeInput";
 import Navbar from "src/components/organism/Navbar";
-import { dummyInputDropdown } from "utils/dummy";
-// import { notify } from "utils/functions";
+import { IOperationReportPayloadData } from "utils/interfaces";
 import { fontSizing } from "utils/styles";
-import Banner from "./Banner";
+import DisplayData from "./DisplayData";
+// import Banner from "./Banner";
 import LayoutChanger from "./LayoutChanger";
 import { ContentWrapper, Wrapper } from "./styles";
 
@@ -18,7 +16,8 @@ export default function Layout() {
   const [navbarPosition, setNavbarPosition] = useState<
     "start" | "center" | "end"
   >("start");
-  // const [userData, setUserData] = useUsersState();
+  const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleChangeHamburgerMenu = () => {
     setShowHamburgerMenu(!showHamburgerMenu);
@@ -27,25 +26,6 @@ export default function Layout() {
   const handleLayoutChange = (e: ISelectItem | ISelectItem[] | null) => {
     return setNavbarPosition(e?.values);
   };
-
-  // useEffect(() => {
-  //   console.log("ini user gessss", userData);
-  // }, [userData]);
-
-  // useEffect(() => {
-  //   getProfile({
-  //     path: "/profile",
-  //   })
-  //     .then((data) => setUserData([data.data.data]))
-  //     .catch((err) => notify(err.message, "error"));
-
-  // updateProfile({
-  //   path: '/profile',
-  //   body: { fullName: 'banana' }
-  // }).then(data => console.log('berhasil mengubah profile', data.data))
-  //   .catch(err => console.log('bananas', err.message))
-  // }, []);
-
   return (
     <Wrapper>
       <Navbar
@@ -59,11 +39,13 @@ export default function Layout() {
           Operation / Report
         </TitlePage>
         <HomeInput
-          items={dummyInputDropdown}
           title="Menu"
           placeholder="Device / Production / Payload"
+          setDataChart={setDataChart}
+          setIsLoading={setIsLoading}
         />
-        <Banner />
+        {/* <Banner /> */}
+        <DisplayData data={dataChart} isLoading={isLoading} />
       </ContentWrapper>
       <Footer />
     </Wrapper>

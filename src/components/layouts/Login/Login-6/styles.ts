@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     background: url(/images/bg.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
   }
 `;
 

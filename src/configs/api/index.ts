@@ -11,6 +11,9 @@ const API = {
     changePassword: apiRequest.patch(apiEndpoints.users, true),
     forgotPassword: apiRequest.post(apiEndpoints.users),
     resetPassword: apiRequest.patch(apiEndpoints.users),
+
+    // OPERATION REPORT
+    getPayload: apiRequest.get(apiEndpoints.operationReport),
 };
 
 export default API;

@@ -10,13 +10,14 @@ export const Wrapper = styled(Grid)`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100%;
+    height: 90%;
     max-height: 1000px;
     display: flex;
     align-items: center;
     padding-left: 50px;
     border-radius: 5px;
   }
+
   ${mediaQueries.lg} {
     &::after {
       content: "";
@@ -57,8 +58,16 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  height: calc(100vh - 108px);
   ${mediaQueries.lg} {
-    padding: 50px;
+    padding: 30px;
+    height: auto;
+    gap: 10px;
+  }
+  ${mediaQueries.xl} {
+    padding: 30px;
+    height: auto;
+    gap: 20px;
   }
 `;
 

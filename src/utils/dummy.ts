@@ -78,12 +78,44 @@ export const dummyInputDropdown = [
     {
         id: 0,
         value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
-        label: 'Manager',
+        label: 'Payload',
     },
     {
         id: 1,
         value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
-        label: 'Super-visor',
+        label: 'Empty Stop',
+    },
+    {
+        id: 2,
+        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        label: 'Loading Time',
+    },
+    {
+        id: 3,
+        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        label: 'Speed',
+    },
+    {
+        id: 4,
+        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        label: 'Loaded Speed',
+    },
+];
+export const dummyDisplayDataDropdown = [
+    {
+        id: 0,
+        values: 'Table',
+        label: 'Table',
+    },
+    {
+        id: 1,
+        values: 'Chart',
+        label: 'Chart',
+    },
+    {
+        id: 2,
+        values: 'Trend',
+        label: 'Trend',
     },
 ];
 

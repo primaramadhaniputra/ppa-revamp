@@ -22,12 +22,12 @@ export const LoginSlider = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  display: none;
   ${mediaQueries.lg} {
     height: 745px;
     width: 100%;
     flex: 1;
     border-radius: 5px;
-    display: none;
   }
 `;
 export const SliderButton = styled.div`

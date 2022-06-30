@@ -29,8 +29,10 @@ export const FormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 30px;
+  height: calc(100vh - 108px);
   ${mediaQueries.lg} {
+    height: auto;
     justify-content: flex-start;
   }
 `;

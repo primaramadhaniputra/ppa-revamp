@@ -42,3 +42,16 @@ export interface IUserData {
     gMenu: string;
     site: string;
 }
+
+export interface IOperationReportPayloadData {
+    total: number;
+    average: string;
+    range: {
+        target: number;
+        data: [];
+    };
+    trend: {
+        target: number;
+        data: [];
+    };
+}
