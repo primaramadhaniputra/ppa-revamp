@@ -192,3 +192,5 @@ export const PlanPerfromanceData = [
         act: ['YTD', '** %'],
     },
 ];
+
+export const tabMenu = ['Profil', 'Admin'];

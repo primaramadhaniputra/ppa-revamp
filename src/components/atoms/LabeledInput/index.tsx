@@ -10,6 +10,7 @@ interface IProps {
   value?: string;
   color?: string;
   type?: string;
+  style?: React.CSSProperties;
 }
 
 export default function LabeledInput({

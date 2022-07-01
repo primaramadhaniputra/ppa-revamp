@@ -6,5 +6,9 @@ interface IProps {
 }
 
 export default function StyledButton({ children, ...rest }: IProps) {
-  return <Button {...rest}>{children}</Button>;
+  return (
+    <Button {...rest} style={{ cursor: "pointer" }}>
+      {children}
+    </Button>
+  );
 }
