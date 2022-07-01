@@ -9,7 +9,10 @@ export const Table = styled.table`
   border-color: #ffcc00;
   border-style: solid;
   color: #3d0000;
-  max-width: 1400px;
+  /* max-width: 1400px; */
+  tr:nth-child(even) {
+    background: ${colors.blueSky};
+  }
 `;
 
 export const THead = styled.thead`
@@ -36,10 +39,9 @@ export const TH = styled.th`
 `;
 
 export const TD = styled.td`
-  border-width: 0px;
-  border-color: #ffcc00;
+  border-width: 1px;
+  border-color: ${colors.blueSky};
   border-style: solid;
-  padding: 10px;
-  padding-bottom: 40px;
+  padding: 30px 0;
   font-size: ${fontSizing.sm.fontSize};
 `;

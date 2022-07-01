@@ -9,6 +9,7 @@ interface IProps {
         target: number;
         ppa: number;
         komatsu: number;
+        cycle: number;
       }[]
     | undefined;
 }
@@ -18,21 +19,19 @@ export default function TableData({ data }: IProps) {
     <Table>
       <THead>
         <tr>
-          <TH>Label</TH>
-          <TH>Value</TH>
           <TH>Target</TH>
           <TH>PPA</TH>
           <TH>Komatsu</TH>
+          <TH>Cycle</TH>
         </tr>
       </THead>
       <TBody>
         {data?.map((item, index) => (
           <tr key={index}>
-            <TD>{item.label}</TD>
-            <TD>{item.value}</TD>
             <TD>{item.target}</TD>
             <TD>{item.ppa}</TD>
             <TD>{item.komatsu}</TD>
+            <TD>{item.cycle}</TD>
           </tr>
         ))}
       </TBody>

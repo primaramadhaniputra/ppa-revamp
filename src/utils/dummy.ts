@@ -77,27 +77,27 @@ export const footer = [
 export const dummyInputDropdown = [
     {
         id: 0,
-        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        values: 'payloads',
         label: 'Payload',
     },
     {
         id: 1,
-        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        values: 'empty-stop',
         label: 'Empty Stop',
     },
     {
         id: 2,
-        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        values: 'loading-time',
         label: 'Loading Time',
     },
     {
         id: 3,
-        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        values: 'speed',
         label: 'Speed',
     },
     {
         id: 4,
-        value: '0de1dee1-af35-4c0b-9aaf-041c5e9da5c5',
+        values: 'loaded-speed',
         label: 'Loaded Speed',
     },
 ];

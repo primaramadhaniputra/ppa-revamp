@@ -13,7 +13,7 @@ const API = {
     resetPassword: apiRequest.patch(apiEndpoints.users),
 
     // OPERATION REPORT
-    getPayload: apiRequest.get(apiEndpoints.operationReport),
+    getOperationReport: apiRequest.get(apiEndpoints.operationReport),
 };
 
 export default API;

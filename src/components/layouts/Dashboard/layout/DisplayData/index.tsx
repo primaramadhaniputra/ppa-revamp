@@ -1,6 +1,7 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import Loading from "atoms/Loading";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useMenuTypeOperationReportValue } from "recoil/menuTypeOperationReport/atom";
 import { dummyDisplayDataDropdown } from "utils/dummy";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import ChartData from "./ChartData";
@@ -15,17 +16,15 @@ interface IProps {
 
 export default function DisplayData({ data, isLoading }: IProps) {
   const [activeDisplayData, setActiveDisplayData] = useState("Table");
+  const [dropdownChart, setDropdownChart] = useState(dummyDisplayDataDropdown);
+  const menuOperationReportValue = useMenuTypeOperationReportValue();
 
   const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
     return setActiveDisplayData(e?.values);
   };
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   const renderDisplayData = (type: string) => {
-    if (type === "Table") {
+    if (type === "Table" && menuOperationReportValue === "payloads") {
       return <TableData data={data?.range.data} />;
     }
     if (type === "Trend") {
@@ -33,6 +32,20 @@ export default function DisplayData({ data, isLoading }: IProps) {
     }
     return <ChartData data={data?.range.data} />;
   };
+
+  useEffect(() => {
+    if (menuOperationReportValue !== "payloads") {
+      const newDropdowChart = dropdownChart.filter(
+        (item) => item.values !== "Table"
+      );
+      return setDropdownChart(newDropdowChart);
+    }
+    return setDropdownChart(dummyDisplayDataDropdown);
+  }, [menuOperationReportValue]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <Wrapper>
@@ -45,11 +58,7 @@ export default function DisplayData({ data, isLoading }: IProps) {
         style={{ width: "100%" }}
       >
         <Grid style={{ maxWidth: "300px" }}>
-          <Select
-            onChange={handleActiveDisplayData}
-            items={dummyDisplayDataDropdown}
-            defaultValue={{ id: 1, value: activeDisplayData, label: "Table" }}
-          />
+          <Select onChange={handleActiveDisplayData} items={dropdownChart} />
         </Grid>
         <WrapperTotalText>
           <TotalText>∑ {data?.total} </TotalText>

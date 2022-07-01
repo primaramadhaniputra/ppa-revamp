@@ -56,7 +56,7 @@ export default function Trend({ datas }: IProps) {
     datasets: [
       {
         fill: true,
-        label: "Dataset 2",
+        label: "Payload",
         data: dataTrend,
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",

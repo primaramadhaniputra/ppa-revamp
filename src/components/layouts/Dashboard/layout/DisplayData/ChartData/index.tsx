@@ -9,7 +9,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-// import { faker } from '@faker-js/faker'
 
 ChartJS.register(
   CategoryScale,
@@ -26,19 +25,23 @@ interface IProps {
 
 export default function ChartData({ data }: IProps) {
   const [labels, setLabels] = useState(["0"]);
-  const [target, setTarget] = useState([0]);
-  const [ppa, setPpa] = useState([0]);
-  const [komatsu, setKomatsu] = useState([0]);
+  const dataName = Object.keys(data[0]).filter(
+    (item) => item !== "label" && item !== "value" && item !== "chartValue"
+  );
+  const dataValue = dataName.map((item) => {
+    const value = data.map((name: { [x: string]: any }) => name[item]);
+    return {
+      label: item,
+      data: value,
+      backgroundColor: `hsl(${360 * Math.random()},${
+        25 + 70 * Math.random()
+      }%,${85 + 10 * Math.random()}%)`,
+    };
+  });
 
   useEffect(() => {
     const newLabels = data?.map((item: any) => item.label);
-    const newTarget = data?.map((item: any) => item.target);
-    const newPpa = data?.map((item: any) => item.ppa);
-    const newKomatsu = data?.map((item: any) => item.komatsu);
     setLabels(newLabels);
-    setTarget(newTarget);
-    setPpa(newPpa);
-    setKomatsu(newKomatsu);
   }, [data]);
 
   const options = {
@@ -55,23 +58,7 @@ export default function ChartData({ data }: IProps) {
 
   const datas = {
     labels,
-    datasets: [
-      {
-        label: "Target",
-        data: target,
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      {
-        label: "PPA",
-        data: ppa,
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-      },
-      {
-        label: "Komatsu",
-        data: komatsu,
-        backgroundColor: "rgba(53, 235, 190, 0.5)",
-      },
-    ],
+    datasets: dataValue,
   };
   return (
     <div style={{ maxWidth: "1400px", width: "100%" }}>

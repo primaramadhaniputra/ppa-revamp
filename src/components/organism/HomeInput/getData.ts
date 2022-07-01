@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { getPayload } from "services/operationReport";
+import { getOperationReport as getReport } from "services/operationReport";
 import { notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 
@@ -12,26 +12,24 @@ export default async function getOperationReport(
   >,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
-  if (type === "Payload") {
+  setIsLoading(true);
+  try {
     setIsLoading(true);
-    try {
-      const data = await getPayload({
-        params: {
-          startedAt: startDate,
-          endedAt: endDate,
-        },
-        headers: {
-          Tenant: "MHU",
-        },
-        path: "/payloads",
-      });
-      setDataChart(data.data.data);
-      setIsLoading(false);
-      return notify("succes get payload", "success");
-    } catch (error: any) {
-      setIsLoading(false);
-      return notify(error.message);
-    }
+    const data = await getReport({
+      params: {
+        startedAt: startDate,
+        endedAt: endDate,
+      },
+      headers: {
+        Tenant: "MHU",
+      },
+      path: `/${type}`,
+    });
+    setDataChart(data.data.data);
+    setIsLoading(false);
+    return notify(`succes get ${type}`, "success");
+  } catch (error: any) {
+    setIsLoading(false);
+    return notify(error.message);
   }
-  return console.log(type, startDate, endDate);
 }

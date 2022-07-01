@@ -1,6 +1,7 @@
-import { Grid, Icon, Select } from "@hudoro/neron";
+import { Grid, Icon, ISelectItem, Select } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useSetMenuTypeOperationReport } from "recoil/menuTypeOperationReport/atom";
 import { dummyInputDropdown } from "utils/dummy";
 import { convert } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
@@ -31,11 +32,13 @@ export default function HomeInput({
     },
   ]);
   const [isShowDate, setIsShowDate] = useState(false);
-  const [operationReportType, setOperationReportType] = useState("Payload");
-  console.log(setOperationReportType);
+  const [operationReportType, setOperationReportType] = useState("payloads");
+  const setMenuOperationReport = useSetMenuTypeOperationReport();
+
   const handleDate = () => {
     return setIsShowDate(!isShowDate);
   };
+
   useEffect(() => {
     const startDate = convert(state[0].startDate);
     const endDate = convert(state[0].endDate);
@@ -46,7 +49,7 @@ export default function HomeInput({
       setDataChart,
       setIsLoading
     );
-  }, []);
+  }, [operationReportType]);
 
   const hanldeSearchOperationReport = () => {
     const startDate = convert(state[0].startDate);
@@ -60,6 +63,10 @@ export default function HomeInput({
     );
   };
 
+  const handleChangeOperation = (e: ISelectItem | ISelectItem[] | null) => {
+    setOperationReportType(e?.values);
+    setMenuOperationReport(e?.values);
+  };
   return (
     <Wrapper>
       <Grid>
@@ -70,9 +77,10 @@ export default function HomeInput({
             placeholder={placeholder}
             defaultValue={{
               id: 0,
-              value: "0de1dee1-af35-4c0b-9aaf-041c5e9da5c5",
+              values: "Payload",
               label: "Payload",
             }}
+            onChange={handleChangeOperation}
           />
         </WrapperInput>
       </Grid>
