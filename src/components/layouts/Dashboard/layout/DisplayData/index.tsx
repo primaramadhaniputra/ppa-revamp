@@ -43,12 +43,9 @@ export default function DisplayData({ data, isLoading }: IProps) {
     return setDropdownChart(dummyDisplayDataDropdown);
   }, [menuOperationReportValue]);
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   return (
     <Wrapper>
+      {isLoading && <Loading />}
       <Grid
         container
         justifyContent="space-between"

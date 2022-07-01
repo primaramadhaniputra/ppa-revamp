@@ -9,15 +9,15 @@ interface IProps {
   setState: React.Dispatch<
     React.SetStateAction<
       {
-        startDate: any;
-        endDate: any;
+        startDate: Date;
+        endDate: Date;
         key: string;
       }[]
     >
   >;
   state: {
-    startDate: any;
-    endDate: any;
+    startDate: Date;
+    endDate: Date;
     key: string;
   }[];
 }

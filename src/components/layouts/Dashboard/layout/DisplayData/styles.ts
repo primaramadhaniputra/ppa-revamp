@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   margin: 50px 0;
   padding: 0 10px;
   width: 100%;
+  position: relative;
   @media (max-width: 640px) {
     overflow-x: scroll;
     ::-webkit-scrollbar {
