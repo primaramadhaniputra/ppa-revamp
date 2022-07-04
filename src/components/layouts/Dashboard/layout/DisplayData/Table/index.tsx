@@ -3,20 +3,20 @@ import { THead, Table, TH, TBody, TD } from "./styles";
 
 interface IProps {
   data:
-  | {
-    label: string;
-    value: string;
-    target: number;
-    ppa: number;
-    komatsu: number;
-    cycle: number;
-  }[]
-  | undefined;
+    | {
+        label: string;
+        value: string;
+        target: number;
+        ppa: number;
+        komatsu: number;
+        cycle: number;
+      }[]
+    | undefined;
 }
 
 export default function TableData({ data }: IProps) {
   return (
-    <Table >
+    <Table>
       <THead>
         <tr>
           <TH>Target</TH>
