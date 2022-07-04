@@ -1,0 +1,26 @@
+name: Push to main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  second-build:
+    name: Push to PPA repo
+    if: github.repository == 'hudoro-solusi-digital/ppa-dashboard-revamp'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - run: |
+          git remote add mirror git@github.com:agusekaprs/dashboard-revamp-fe.git
+          git config --global user.email "mikeul2.gt@gmail.com"
+          git config --global user.name "Mikhael Esa"
+          git checkout main
+          git commit --amend --author="Mikhael Esa <mikeul2.gt@gmail.com>" --no-edit
+          git push -u mirror main --force
