@@ -25,20 +25,17 @@ interface IProps {
 
 export default function ChartData({ data }: IProps) {
   const [labels, setLabels] = useState(["0"]);
-  const dataName = Object.keys(data[0]).filter(
-    (item) => item !== "label" && item !== "value" && item !== "chartValue"
-  );
-  const dataValue = dataName.map((item) => {
-    const value = data.map((name: { [x: string]: any }) => name[item]);
+  const dataName = Object.keys(data[0]).filter(item => item !== 'label' && item !== 'value' && item !== 'chartValue')
+  const dataValue = dataName.map(item => {
+    const value = data.map((name: { [x: string]: any; }) => name[item])
     return {
       label: item,
       data: value,
-      backgroundColor: `hsl(${360 * Math.random()},${
-        25 + 70 * Math.random()
-      }%,${85 + 10 * Math.random()}%)`,
-    };
-  });
-
+      backgroundColor: "hsl(" + 360 * Math.random() + ',' +
+        (25 + 70 * Math.random()) + '%,' +
+        (85 + 10 * Math.random()) + '%)',
+    }
+  })
   useEffect(() => {
     const newLabels = data?.map((item: any) => item.label);
     setLabels(newLabels);

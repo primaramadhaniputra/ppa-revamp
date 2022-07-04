@@ -7,7 +7,6 @@ import { IOperationReportPayloadData } from 'utils/interfaces';
 export default function Home() {
   const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
   const [isLoading, setIsLoading] = useState(true);
-
   return (
     <Layout title='Operation / Report'>
       <HomeInput

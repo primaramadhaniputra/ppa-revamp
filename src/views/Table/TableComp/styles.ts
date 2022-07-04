@@ -1,8 +1,11 @@
 import styled from 'styled-components';
-import { colors } from 'utils/styles';
+import { colors, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
     overflow-x: scroll;
+    ${mediaQueries.xl} {
+        overflow: hidden;
+    }
     ::-webkit-scrollbar {
         width: 12px;
         height: 7px;
