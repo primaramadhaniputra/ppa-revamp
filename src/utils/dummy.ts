@@ -30,7 +30,7 @@ export const Link = [
         subMenu: [
             {
                 subMenuTitle: 'REPORT',
-                subMenuLink: 'report',
+                subMenuLink: '/operation/report_device_production_payload',
             },
             {
                 subMenuTitle: 'ACCESS & DATA ENTRY',
@@ -124,33 +124,6 @@ export const footer = [
         color: '#F6921E',
     },
 ];
-// export const footer = [
-//     {
-//         title: 'devotion',
-//         color: '#008000',
-//     },
-//     {
-//         title: 'integrity',
-//         color: '#0000FF',
-//     },
-//     {
-//         title: 'teamwork',
-//         color: '#37382F',
-//     },
-//     {
-//         title: 'creativity',
-//         color: '#F4762C',
-//     },
-//     {
-//         title: 'winner',
-//         color: '#FF0000',
-//     },
-//     {
-//         title: 'perfection',
-//         color: '#9F3F9F',
-//     },
-// ];
-
 export const dummyInputDropdown = [
     {
         id: 0,
@@ -275,3 +248,73 @@ export const PlanPerfromanceData = [
 ];
 
 export const tabMenu = ['Profil', 'Admin'];
+
+export const inputDropDownOperation = [
+    {
+        id: 0,
+        values: 'operation/prod/payload_by_api',
+        label: ' Device / Production / Payload',
+    },
+    {
+        id: 1,
+        values: 'operation/prod/est_by_api',
+        label: ' Device /  Production / Empty Stop',
+    },
+    {
+        id: 2,
+        values: 'operation/prod/list_by_api',
+        label: ' Device /  Production / Loading Time',
+    },
+    {
+        id: 3,
+        values: 'operation/prod/speed_by_api',
+        label: ' Device /  Production / Speed',
+    },
+    {
+        id: 4,
+        values: 'operation/prod/ls_by_api',
+        label: ' Device /  Production / Loaded Speed',
+    },
+    {
+        id: 5,
+        values: 'operation/prod/es',
+        label: ' Device /  Production / Empty Speed',
+    },
+];
+export const inputDropDownOperation2 = [
+    {
+        id: 0,
+        values: 'report_device_production_payload',
+        label: ' Device / Production / Payload',
+    },
+    {
+        id: 1,
+        values: 'report_device_production_empty_stop',
+        label: ' Device /  Production / Empty Stop',
+    },
+    {
+        id: 2,
+        values: 'report_device_production_loading_time',
+        label: ' Device /  Production / Loading Time',
+    },
+    {
+        id: 3,
+        values: 'report_device_production_speed',
+        label: ' Device /  Production / Speed',
+    },
+    {
+        id: 4,
+        values: 'report_device_production_loaded_speed',
+        label: ' Device /  Production / Loaded Speed',
+    },
+    {
+        id: 5,
+        values: 'report_device_production_empty_speed',
+        label: ' Device /  Production / Empty Speed',
+    },
+    {
+        id: 6,
+        values: 'report_device_mc_loader_performance_fc',
+        label: ' Device /  Machine Condition / Loader / Performance / Fuel Consumen',
+    },
+];
