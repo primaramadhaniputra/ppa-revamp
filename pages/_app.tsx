@@ -1,10 +1,12 @@
 import { GlobalStyle } from "atoms/GlobalStyles";
 import type { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
+import { RecoilRoot } from "recoil";
 import "../styles/globals.css";
 import "../styles/react-toastify.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
+  console.log(router.pathname);
   return (
     <>
       <ToastContainer
@@ -16,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         pauseOnFocusLoss
       />
       <GlobalStyle />
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 }

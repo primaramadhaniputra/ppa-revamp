@@ -1,48 +1,22 @@
-import React from "react";
-import {
-  Container,
-  Footer,
-  ParagraphContainer,
-  Title,
-  Wrapper,
-} from "./styles";
+import React, { useState } from 'react'
+import Layout from 'src/components/layouts/Dashboard/layout'
+import Banner from 'src/components/layouts/Dashboard/layout/Banner';
+import HomeInput from 'src/components/organism/HomeInput'
+import { IOperationReportPayloadData } from 'utils/interfaces';
 
 export default function Home() {
+  const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
+  const [isLoading, setIsLoading] = useState(true);
+  console.log(dataChart, isLoading)
   return (
-    <Wrapper>
-      <Container>
-        <Title>Welcome to Next JS boilerplate</Title>
-        <ParagraphContainer>
-          <p>
-            This boilerplate uses{" "}
-            <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-              Next JS
-            </a>{" "}
-            as its framework and{" "}
-            <a
-              href="https://styled-components.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Styled Components
-            </a>{" "}
-            for the styling. Check our{" "}
-            <a
-              href="https://github.com/hudoro-solusi-digital"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Github Page
-            </a>{" "}
-            for more open source project like this.
-          </p>
-          <br />
-          <p>Go to views directory to start editing this page</p>
-        </ParagraphContainer>
-      </Container>
-      <Footer>
-        PT. Hudoro Solusi Digital © 2021 - 2022. All Rights Reserved
-      </Footer>
-    </Wrapper>
-  );
+    <Layout title='Operation / Report'>
+      <HomeInput
+        title="Menu"
+        placeholder="Device / Production / Payload"
+        setDataChart={setDataChart}
+        setIsLoading={setIsLoading}
+      />
+      <Banner />
+    </Layout>
+  )
 }
