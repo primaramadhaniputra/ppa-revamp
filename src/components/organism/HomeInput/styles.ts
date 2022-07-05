@@ -1,4 +1,4 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
+import { fontFamilies, Grid, Icon, Text } from "@hudoro/neron";
 import styled from "styled-components";
 import { fontSizing, mediaQueries } from "utils/styles";
 
@@ -23,4 +23,11 @@ export const WrapperInput = styled(Grid)`
 export const InputLabel = styled(Text)`
   line-height: ${fontSizing.md.lineHeight};
   font-family: ${fontFamilies.openSans};
+`;
+
+export const StyledIcon = styled(Icon)`
+  position: absolute;
+  right: 10px;
+  top: 42px;
+  cursor: pointer;
 `;

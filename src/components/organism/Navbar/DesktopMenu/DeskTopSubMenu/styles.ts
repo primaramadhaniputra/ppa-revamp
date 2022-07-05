@@ -24,4 +24,5 @@ export const StyledText = styled.p`
   line-height: 21px;
   color: ${colors.white};
   margin-bottom: 20px;
+  cursor: pointer;
 `;

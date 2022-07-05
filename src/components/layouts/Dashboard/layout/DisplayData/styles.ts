@@ -12,21 +12,6 @@ export const Wrapper = styled.div`
   padding: 0 10px;
   width: 100%;
   position: relative;
-  @media (max-width: 640px) {
-    overflow-x: scroll;
-    ::-webkit-scrollbar {
-      height: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: ${colors.primary};
-      border-radius: 10px;
-    }
-  }
 `;
 
 export const WrapperTotalText = styled.div`

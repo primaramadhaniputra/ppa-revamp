@@ -1,40 +1,41 @@
 import React from "react";
-import { THead, Table, TH, TBody, TD } from "./styles";
+import { THead, Table, TH, TBody, TD, Wrapper } from "./styles";
 
 interface IProps {
   data:
     | {
-        label: string;
-        value: string;
-        target: number;
-        ppa: number;
-        komatsu: number;
-        cycle: number;
+        [x: string]: string | number;
       }[]
     | undefined;
 }
 
 export default function TableData({ data }: IProps) {
+  const dataHead =
+    data &&
+    Object.keys(data[0]).filter(
+      (item) => item !== "label" && item !== "value" && item !== "chartValue"
+    );
+
   return (
-    <Table>
-      <THead>
-        <tr>
-          <TH>Target</TH>
-          <TH>PPA</TH>
-          <TH>Komatsu</TH>
-          <TH>Cycle</TH>
-        </tr>
-      </THead>
-      <TBody>
-        {data?.map((item, index) => (
-          <tr key={index}>
-            <TD>{item.target}</TD>
-            <TD>{item.ppa}</TD>
-            <TD>{item.komatsu}</TD>
-            <TD>{item.cycle}</TD>
+    <Wrapper>
+      <Table>
+        <THead>
+          <tr>
+            {dataHead?.map((item, index) => (
+              <TH key={index}>{item}</TH>
+            ))}
           </tr>
-        ))}
-      </TBody>
-    </Table>
+        </THead>
+        <TBody>
+          {data?.map((item, index) => (
+            <tr key={index}>
+              {dataHead?.map((dataText, key) => (
+                <TD key={key}>{item[dataText]}</TD>
+              ))}
+            </tr>
+          ))}
+        </TBody>
+      </Table>
+    </Wrapper>
   );
 }

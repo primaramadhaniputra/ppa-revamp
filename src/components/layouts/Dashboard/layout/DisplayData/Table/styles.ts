@@ -1,6 +1,23 @@
 import styled from "styled-components";
 import { colors, fontSizing, mediaQueries } from "utils/styles";
 
+export const Wrapper = styled.div`
+  width: 100%;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.primary};
+    border-radius: 10px;
+  }
+`;
+
 export const Table = styled.table`
   width: 100%;
   background-color: #ffffff;

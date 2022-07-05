@@ -19,90 +19,23 @@ export default function TableComp() {
                </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>12345</td>
-                  <td>matumbaman</td>
-                  <td>steam</td>
-                  <td>dunno</td>
-                  <td>hokage</td>
-                  <td>sayap kanan</td>
-                  <td>
-                     <Lozenge label='45.5%' variant='danger-strong' />
-                  </td>
-                  <td>
-                     <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
-                  </td>
-               </tr>
-               <tr>
-                  <td>12345</td>
-                  <td>matumbaman</td>
-                  <td>steam</td>
-                  <td>dunno</td>
-                  <td>hokage</td>
-                  <td>sayap kanan</td>
-                  <td>
-                     <Lozenge label='45.5%' variant='danger-strong' />
-                  </td>
-                  <td>
-                     <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
-                  </td>
-               </tr>
-               <tr>
-                  <td>12345</td>
-                  <td>matumbaman</td>
-                  <td>steam</td>
-                  <td>dunno</td>
-                  <td>hokage</td>
-                  <td>sayap kanan</td>
-                  <td>
-                     <Lozenge label='45.5%' variant='danger-strong' />
-                  </td>
-                  <td>
-                     <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
-                  </td>
-               </tr>
-               <tr>
-                  <td>12345</td>
-                  <td>matumbaman</td>
-                  <td>steam</td>
-                  <td>dunno</td>
-                  <td>hokage</td>
-                  <td>sayap kanan</td>
-                  <td>
-                     <Lozenge label='45.5%' variant='danger-strong' />
-                  </td>
-                  <td>
-                     <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
-                  </td>
-               </tr>
-               <tr>
-                  <td>12345</td>
-                  <td>matumbaman</td>
-                  <td>steam</td>
-                  <td>dunno</td>
-                  <td>hokage</td>
-                  <td>sayap kanan</td>
-                  <td>
-                     <Lozenge label='45.5%' variant='danger-strong' />
-                  </td>
-                  <td>
-                     <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
-                  </td>
-               </tr>
-               <tr>
-                  <td>12345</td>
-                  <td>matumbaman</td>
-                  <td>steam</td>
-                  <td>dunno</td>
-                  <td>hokage</td>
-                  <td>sayap kanan</td>
-                  <td>
-                     <Lozenge label='45.5%' variant='danger-strong' />
-                  </td>
-                  <td>
-                     <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
-                  </td>
-               </tr>
+               {
+                  new Array(10).fill(1).map((_, index) => <tr key={index}>
+                     <td>12345</td>
+                     <td>matumbaman</td>
+                     <td>steam</td>
+                     <td>dunno</td>
+                     <td>hokage</td>
+                     <td>sayap kanan</td>
+                     <td>
+                        <Lozenge label='45.5%' variant='danger-strong' />
+                     </td>
+                     <td>
+                        <span style={{ fontSize: '30px', cursor: "pointer" }}>...</span>
+                     </td>
+                  </tr>)
+               }
+
             </tbody>
          </TABLE>
       </Wrapper>

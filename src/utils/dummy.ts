@@ -1,23 +1,100 @@
 export const Link = [
     {
         title: 'Team Work',
-        subMenu: ['Tidak Tau', 'Tau Tidak', 'Ya Tidak Tau'],
+        subMenu: [
+            {
+                subMenuTitle: 'FORM',
+                subMenuLink: 'form',
+            },
+            {
+                subMenuTitle: 'REPORT',
+                subMenuLink: 'report',
+            },
+        ],
     },
     {
         title: 'SHE',
-        subMenu: ['Kenapa', 'Tidak', 'Tau'],
+        subMenu: [
+            {
+                subMenuTitle: 'FORM',
+                subMenuLink: 'form',
+            },
+            {
+                subMenuTitle: 'REPORT',
+                subMenuLink: 'report',
+            },
+        ],
     },
     {
         title: 'Operation',
-        subMenu: ['Karena', 'Tidak', 'Tau'],
+        subMenu: [
+            {
+                subMenuTitle: 'REPORT',
+                subMenuLink: 'report',
+            },
+            {
+                subMenuTitle: 'ACCESS & DATA ENTRY',
+                subMenuLink: 'access_data_entry',
+            },
+        ],
     },
     {
         title: 'Administration',
-        subMenu: ['Kok', 'Tidak', 'Tau'],
+        subMenu: [
+            {
+                subMenuTitle: 'HC',
+                subMenuLink: 'hc',
+            },
+            {
+                subMenuTitle: 'GA',
+                subMenuLink: 'ga',
+            },
+            {
+                subMenuTitle: 'LEGAL',
+                subMenuLink: 'legal',
+            },
+        ],
     },
     {
         title: 'System',
-        subMenu: ['Kamu', 'Tidak', 'Tau'],
+        subMenu: [
+            {
+                subMenuTitle: 'VHMS DOWNLOAD',
+                subMenuLink: 'vhms_donwload',
+            },
+            {
+                subMenuTitle: 'DATABASE',
+                subMenuLink: 'db',
+            },
+            {
+                subMenuTitle: 'ACCESS CONTROL',
+                subMenuLink: 'ac',
+            },
+            {
+                subMenuTitle: 'SURVEY',
+                subMenuLink: 'sv',
+            },
+            {
+                subMenuTitle: 'APP VERSION CONTROL',
+                subMenuLink: 'avc',
+            },
+            {
+                subMenuTitle: 'USER FEEDBACK',
+                subMenuLink: 'uf',
+            },
+            {
+                subMenuTitle: 'ABS MACHINE',
+                subMenuLink: 'am',
+            },
+            {
+                subMenuTitle: 'EVENTS',
+                subMenuLink: 'ev',
+            },
+            {
+                subMenuTitle: 'DEVICE MONITORING',
+                subMenuLink: 'dm',
+            },
+        ],
     },
 ];
 
@@ -78,39 +155,43 @@ export const dummyInputDropdown = [
     {
         id: 0,
         values: 'payloads',
-        label: 'Payload',
+        label: 'Device / Production / Payload',
     },
     {
         id: 1,
         values: 'empty-stop',
-        label: 'Empty Stop',
+        // label: 'Empty Stop',
+        label: 'Device / Production / Empty Stop',
     },
     {
         id: 2,
         values: 'loading-time',
-        label: 'Loading Time',
+        // label: 'Loading Time',
+        label: 'Device / Production / Loading Time',
     },
     {
         id: 3,
         values: 'speed',
-        label: 'Speed',
+        // label: 'Speed',
+        label: 'Device / Production / Speed',
     },
     {
         id: 4,
         values: 'loaded-speed',
-        label: 'Loaded Speed',
+        // label: 'Loaded Speed',
+        label: 'Device / Production / Loaded Speed',
     },
 ];
 export const dummyDisplayDataDropdown = [
     {
         id: 0,
         values: 'Table',
-        label: 'Table',
+        label: 'Range Data',
     },
     {
         id: 1,
         values: 'Chart',
-        label: 'Chart',
+        label: 'Range Chart',
     },
     {
         id: 2,

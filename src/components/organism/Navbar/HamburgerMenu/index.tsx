@@ -6,11 +6,15 @@ import { MenuContainer, SubMenu, SubMenuText, SubMenuWrapper } from "./styles";
 interface IProps {
   item: {
     title: string;
-    subMenu: string[];
+    subMenu: {
+      subMenuTitle: string;
+      subMenuLink: string;
+    }[];
   };
 }
 
 export default function HamburgerMenu({ item }: IProps) {
+  console.log("itemmmm", item);
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);
   const [subMenuHeight, setSubMenuHeight] = useState(0);
   const subMenuRef = useRef<HTMLInputElement>(null);
@@ -38,7 +42,7 @@ export default function HamburgerMenu({ item }: IProps) {
           {item.subMenu.map((data, index) => (
             <SubMenuText key={index} variant="h4">
               {" "}
-              {data}
+              {data.subMenuTitle}
             </SubMenuText>
           ))}
         </SubMenu>

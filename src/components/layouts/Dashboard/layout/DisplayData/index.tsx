@@ -15,22 +15,12 @@ interface IProps {
 }
 
 export default function DisplayData({ data, isLoading }: IProps) {
-  const [activeDisplayData, setActiveDisplayData] = useState("Table");
+  const [activeDisplayData, setActiveDisplayData] = useState("Chart");
   const [dropdownChart, setDropdownChart] = useState(dummyDisplayDataDropdown);
   const menuOperationReportValue = useMenuTypeOperationReportValue();
 
   const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
     return setActiveDisplayData(e?.values);
-  };
-
-  const renderDisplayData = (type: string) => {
-    if (type === "Table" && menuOperationReportValue === "payloads") {
-      return <TableData data={data?.range.data} />;
-    }
-    if (type === "Trend") {
-      return <Trend datas={data?.trend} />;
-    }
-    return <ChartData data={data?.range.data} />;
   };
 
   useEffect(() => {
@@ -42,6 +32,16 @@ export default function DisplayData({ data, isLoading }: IProps) {
     }
     return setDropdownChart(dummyDisplayDataDropdown);
   }, [menuOperationReportValue]);
+
+  const renderDisplayData = (type: string) => {
+    if (type === "Table" && menuOperationReportValue === "payloads") {
+      return <TableData data={data?.range.data} />;
+    }
+    if (type === "Trend") {
+      return <Trend datas={data?.trend} />;
+    }
+    return <ChartData data={data?.range.data || [{}]} />;
+  };
 
   return (
     <Wrapper>
@@ -55,7 +55,11 @@ export default function DisplayData({ data, isLoading }: IProps) {
         style={{ width: "100%" }}
       >
         <Grid style={{ maxWidth: "300px" }}>
-          <Select onChange={handleActiveDisplayData} items={dropdownChart} />
+          <Select
+            onChange={handleActiveDisplayData}
+            items={dropdownChart}
+            defaultValue={dummyDisplayDataDropdown[1]}
+          />
         </Grid>
         <WrapperTotalText>
           <TotalText>∑ {data?.total} </TotalText>

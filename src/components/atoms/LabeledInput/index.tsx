@@ -11,6 +11,7 @@ interface IProps {
   color?: string;
   type?: string;
   style?: React.CSSProperties;
+  onChange?: (e: any) => void;
 }
 
 export default function LabeledInput({

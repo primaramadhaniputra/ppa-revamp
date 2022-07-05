@@ -1,4 +1,4 @@
-import { Grid, Icon, ISelectItem, Select } from "@hudoro/neron";
+import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useSetMenuTypeOperationReport } from "recoil/menuTypeOperationReport/atom";
@@ -7,7 +7,7 @@ import { convert } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DateCalendar from "./Date";
 import getOperationReport from "./getData";
-import { InputLabel, Wrapper, WrapperInput } from "./styles";
+import { InputLabel, StyledIcon, Wrapper, WrapperInput } from "./styles";
 
 interface IProps {
   title: string;
@@ -51,7 +51,7 @@ export default function HomeInput({
     );
   }, [operationReportType]);
 
-  const hanldeSearchOperationReport = () => {
+  const handleSearchOperationReport = () => {
     const startDate = convert(state[0].startDate);
     const endDate = convert(state[0].endDate);
     getOperationReport(
@@ -77,8 +77,8 @@ export default function HomeInput({
             placeholder={placeholder}
             defaultValue={{
               id: 0,
-              values: "Payload",
-              label: "Payload",
+              values: "payloads",
+              label: "Device / Production / Payload",
             }}
             onChange={handleChangeOperation}
           />
@@ -93,16 +93,7 @@ export default function HomeInput({
             state[0].endDate
           )}`}
         />
-        <Icon
-          iconName="IcSearch"
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: "42px",
-            cursor: "pointer",
-          }}
-          onClick={hanldeSearchOperationReport}
-        />
+        <StyledIcon iconName="IcSearch" onClick={handleSearchOperationReport} />
         {isShowDate && <DateCalendar setState={setState} state={state} />}
       </WrapperInput>
     </Wrapper>

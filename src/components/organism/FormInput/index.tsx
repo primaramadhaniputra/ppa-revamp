@@ -28,6 +28,7 @@ export default function FormInput({ color }: IProps) {
         },
         path: "/login",
       });
+
       Cookies.set("token", response.data.data.accessToken);
       Router.push("/dashboard");
       return notify("selamat kamu berhasil login", "success");
