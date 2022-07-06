@@ -5,8 +5,7 @@ import { RecoilRoot } from "recoil";
 import "../styles/globals.css";
 import "../styles/react-toastify.css";
 
-function MyApp({ Component, pageProps, router }: AppProps) {
-  console.log(router.pathname);
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <ToastContainer

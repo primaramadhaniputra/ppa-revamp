@@ -13,7 +13,7 @@ export default function DeskTopSubMenu({ data }: IProps) {
     <StyledCard>
       {data.map((item, index) => {
         return (
-          <Link href={`/dashboard/${item.subMenuLink}`}>
+          <Link href={`/dashboard${item.subMenuLink}`}>
             <StyledText key={index}>{item.subMenuTitle}</StyledText>
           </Link>
         );

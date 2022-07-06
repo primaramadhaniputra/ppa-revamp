@@ -11,6 +11,7 @@ interface IProps {
   placeholder: string;
   isMenu: boolean;
   isDate: boolean;
+  isShift: boolean;
   dropDownDefaultvalue?: IDropdownData;
   dropDownData?: IDropdownData[];
   onChangeDropdownMenu?: (
@@ -32,6 +33,7 @@ export default function SearchingForm({
   onSearchDate,
   calendarState,
   setCalendarState,
+  isShift,
 }: IProps) {
   const [isShowDate, setIsShowDate] = useState(false);
   const handleDate = () => {
@@ -39,6 +41,19 @@ export default function SearchingForm({
   };
   return (
     <Wrapper>
+      {isShift && (
+        <Grid>
+          <InputLabel variant="p">Shift</InputLabel>
+          <WrapperInput>
+            <Select
+              items={dropDownData as ISelectItem[]}
+              placeholder={placeholder}
+              defaultValue={dropDownDefaultvalue}
+              onChange={onChangeDropdownMenu}
+            />
+          </WrapperInput>
+        </Grid>
+      )}
       {isMenu && (
         <Grid>
           <InputLabel variant="p">{title}</InputLabel>

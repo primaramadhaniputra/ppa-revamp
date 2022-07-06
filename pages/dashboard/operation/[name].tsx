@@ -32,7 +32,6 @@ export const getServerSideProps: GetServerSideProps = async (
     const isUrl = inputDropDownOperation2.find(
       (item) => item.values === context.query.name
     );
-    console.log(isUrl);
     if (!isUrl) {
       return {
         notFound: true,
