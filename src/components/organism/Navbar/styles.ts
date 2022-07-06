@@ -12,7 +12,7 @@ export const NavbarWrapper = styled.div`
   background-color: ${colors.primary};
   ${mediaQueries.lg} {
     position: static;
-    padding: 25px 100px;
+    /* padding: 25px 100px; */
     margin-top: 0;
     display: flex;
     align-items: center;
