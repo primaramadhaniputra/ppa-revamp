@@ -10,6 +10,7 @@ export const ItemContainer = styled.div`
 `;
 
 export const Item = styled.div`
+  /* ini styling */
   background-color: ${colors.blueSky};
   flex: 1;
   min-width: 300px;
