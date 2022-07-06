@@ -1,6 +1,4 @@
-
-import Router from 'next/router';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { IDropdownData } from 'utils/interfaces';
 import renderContent from './renderContent';
 interface IProps {
@@ -9,7 +7,6 @@ interface IProps {
    queryName: string
 }
 export default function Operation({ data, defaultValue, queryName }: IProps) {
-
    return (
       <>
          {renderContent(queryName, data, defaultValue)}

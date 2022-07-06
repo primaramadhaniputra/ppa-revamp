@@ -14,6 +14,7 @@ export default function Report() {
         placeholder="Device / Production / Payload"
         isDate={true}
         isMenu={true}
+        isShift={false}
       />
       {/* <DisplayData data={dataChart} isLoading={isLoading} /> */}
     </Layout>

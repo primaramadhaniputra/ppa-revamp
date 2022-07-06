@@ -5,8 +5,6 @@ import SearchingForm from 'src/components/organism/SearchingForm'
 
 
 export default function Home() {
-
-
   return (
     <Layout title='Operation / Report'>
       <SearchingForm
@@ -14,6 +12,7 @@ export default function Home() {
         placeholder="Device / Production / Payload"
         isDate={true}
         isMenu={true}
+        isShift={false}
       />
       <Banner />
     </Layout>
