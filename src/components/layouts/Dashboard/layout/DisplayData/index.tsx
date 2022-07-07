@@ -21,7 +21,6 @@ export default function DisplayData({
   const [activeDisplayData, setActiveDisplayData] = useState(
     typeDisplayData[0].values
   );
-
   const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
     return setActiveDisplayData(e?.values);
   };

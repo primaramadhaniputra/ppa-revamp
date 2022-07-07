@@ -16,7 +16,7 @@ interface IProps {
   dropDownData?: IDropdownData[];
   onChangeDropdownMenu?: (
     e: ISelectItem | ISelectItem[] | null
-  ) => Promise<boolean>;
+  ) => Promise<boolean> | Promise<void>;
   onSearchDate?: () => void;
   calendarState?: ICalendarState[];
   setCalendarState?: React.Dispatch<React.SetStateAction<ICalendarState[]>>;

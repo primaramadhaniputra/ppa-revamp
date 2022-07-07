@@ -8,6 +8,8 @@ import SearchingForm from 'src/components/organism/SearchingForm'
 import getOperationReport from 'src/components/organism/SearchingForm/getData';
 import { convert, renderType } from 'utils/functions';
 import { IDropdownData, IOperationReportPayloadData } from 'utils/interfaces';
+
+
 interface IProps {
    defaultValue: IDropdownData
    data: IDropdownData[]
@@ -41,10 +43,11 @@ export default function RDPP({ data, defaultValue, isMenu = false, isDate = fals
       );
    }, [operationReportType]);
 
+
    const handleChangeOperation = (e: ISelectItem | ISelectItem[] | null) => {
       setOperationReportType(e?.values);
       setMenuOperationReport(renderType(e?.values));
-      return Router.replace(`/dashboard/operation/${e?.values}`)
+      return Router.replace(`/dashboard/operation/${e?.values}`).then(() => Router.reload())
    };
 
    const handleSearchOperationReportDate = () => {
