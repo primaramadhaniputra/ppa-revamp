@@ -1,5 +1,6 @@
 import { Avatar, Grid, Icon } from "@hudoro/neron";
 import StyledTextDropdownUser from "atoms/StyledTextDropdownUser";
+import Router from "next/router";
 import React from "react";
 import { HamburgerWrapper, LogoWrapper } from "./styles";
 
@@ -8,10 +9,18 @@ interface IProps {
 }
 
 export default function Logo({ handleChangeHamburgerMenu }: IProps) {
+  const backTodashboard = () => {
+    return Router.push("/dashboard");
+  };
   return (
     <LogoWrapper container>
       <Grid>
-        <Avatar src="/images/ppa.jpg" size="l" />
+        <Avatar
+          src="/images/ppa.jpg"
+          size="l"
+          onClick={backTodashboard}
+          style={{ cursor: "pointer" }}
+        />
       </Grid>
       <HamburgerWrapper>
         <Icon

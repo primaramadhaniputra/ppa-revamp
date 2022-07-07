@@ -7,7 +7,7 @@ import { ContentWrapper, Wrapper } from "./styles";
 
 interface IProps {
   children: React.ReactNode;
-  title: string;
+  title?: string;
 }
 
 export default function Layout({ title, children }: IProps) {
@@ -25,9 +25,14 @@ export default function Layout({ title, children }: IProps) {
         position="start"
       />
       <ContentWrapper>
-        <TitlePage type="h3" styles={{ fontSize: fontSizing["3xl"].fontSize }}>
-          {title}
-        </TitlePage>
+        {title && (
+          <TitlePage
+            type="h3"
+            styles={{ fontSize: fontSizing["3xl"].fontSize }}
+          >
+            {title}
+          </TitlePage>
+        )}
         {children}
       </ContentWrapper>
       <Footer />

@@ -8,7 +8,7 @@ export const ContentWrapper = styled.article`
   padding: 30px 15px;
   ${mediaQueries.lg} {
     padding: 30px 100px;
-    margin-top: 0;
+    margin-top: 0px;
   }
 `;
 
