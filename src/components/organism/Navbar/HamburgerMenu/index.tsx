@@ -14,7 +14,6 @@ interface IProps {
 }
 
 export default function HamburgerMenu({ item }: IProps) {
-  console.log("itemmmm", item);
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);
   const [subMenuHeight, setSubMenuHeight] = useState(0);
   const subMenuRef = useRef<HTMLInputElement>(null);

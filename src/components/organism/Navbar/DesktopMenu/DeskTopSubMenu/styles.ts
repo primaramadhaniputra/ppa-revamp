@@ -5,7 +5,7 @@ import { colors, fontWeights } from "utils/styles";
 export const StyledCard = styled(Card)`
   position: absolute;
   min-width: 150px;
-  background-color: ${colors.primary};
+  background-color: ${colors.primary} !important;
   color: white;
   font-family: ${fontFamilies.poppins};
   font-weight: ${fontWeights.regular};
