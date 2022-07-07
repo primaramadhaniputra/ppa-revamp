@@ -1,4 +1,3 @@
-import { Grid } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, mediaQueries } from "utils/styles";
 
@@ -20,12 +19,12 @@ export const NavbarWrapper = styled.div`
   }
 `;
 
-export const LinkWrapper = styled(Grid)`
+export const LinkWrapper = styled.div`
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   ${mediaQueries.lg} {
-    display: none !important;
+    display: none;
   }
 `;
