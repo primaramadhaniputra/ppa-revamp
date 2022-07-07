@@ -26,6 +26,6 @@ export const LinkWrapper = styled(Grid)`
   flex-direction: column;
   gap: 20px;
   ${mediaQueries.lg} {
-    display: none;
+    display: none !important;
   }
 `;
