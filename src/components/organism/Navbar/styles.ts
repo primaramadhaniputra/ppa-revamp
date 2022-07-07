@@ -21,10 +21,10 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const LinkWrapper = styled(Grid)`
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin-top: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
   ${mediaQueries.lg} {
     display: none !important;
   }
