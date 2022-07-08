@@ -7,7 +7,7 @@ import React, { FormEvent, useState } from "react";
 import { login } from "services/users";
 import { notify } from "utils/functions";
 import { fontSizing } from "utils/styles";
-import { RadioWrapper1, RadioWrapper2 } from "./styles";
+import { RadioWrapper } from "./styles";
 
 interface IProps {
   color?: string;
@@ -50,7 +50,7 @@ export default function FormInput({ color }: IProps) {
             name="password"
             type="password"
           />
-          <RadioWrapper1
+          <RadioWrapper
             container
             alignItems="center"
             justifyContent="space-between"
@@ -63,21 +63,7 @@ export default function FormInput({ color }: IProps) {
             <Text variant="p" style={{ fontSize: fontSizing.xs.fontSize }}>
               Forgot password ?
             </Text>
-          </RadioWrapper1>
-          <RadioWrapper2
-            container
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Radio
-              label="Remember me"
-              onClick={handleRadio}
-              checked={checkedRadio}
-            />
-            <Text variant="p" style={{ fontSize: fontSizing.xs.fontSize }}>
-              Forgot password ?
-            </Text>
-          </RadioWrapper2>
+          </RadioWrapper>
         </Grid>
         <StyledButton>Login</StyledButton>
       </Grid>

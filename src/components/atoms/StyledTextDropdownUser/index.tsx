@@ -1,5 +1,6 @@
-import { Avatar, Icon, IIconProps, Text } from "@hudoro/neron";
+import { Avatar, Grid, Icon, IIconProps, Text } from "@hudoro/neron";
 import React from "react";
+import { HoverWrapper } from "./tyles";
 
 interface IProps {
   title?: string;
@@ -21,13 +22,19 @@ export default function StyledTextDropdownUser({
   return (
     <>
       {user?.name ? (
-        <Avatar src="/images/tukang.jpg" size="l" />
+        <Grid container alignItems="center" gap={5}>
+          <Avatar src="/images/tukang.jpg" size="m" style={{ height: '35px', width: '35px' }} />
+          <Icon iconName={iconName} color="white" onClick={handleClick} />
+        </Grid>
       ) : (
-        <Text variant="h4" style={styles}>
-          {title}
-        </Text>
+        <HoverWrapper >
+          <Text variant="h4" style={{ ...styles }}>
+            {title}
+          </Text>
+          <Icon iconName={iconName} color="white" onClick={handleClick} />
+        </HoverWrapper>
+
       )}
-      <Icon iconName={iconName} color="white" onClick={handleClick} />
     </>
   );
 }

@@ -96,6 +96,7 @@ export const colors = {
     primary: '#00BCD4',
     light: '#17BDFF',
     dark: '#09202E',
+    darkGrey: '#454646',
     white: '#FFFFFF',
     blue: '#3E4095',
     borderBlue: 'rgba(37, 40, 43, 0.2)',
