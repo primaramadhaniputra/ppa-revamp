@@ -68,6 +68,10 @@ export const TABLE = styled.table`
         border-left: none;
     }
 
+    & tfoot > tr > th div label {
+        text-align: start;
+    }
+
     /* & tfoot {
         font-family: 'Poppins';
         font-style: normal;
