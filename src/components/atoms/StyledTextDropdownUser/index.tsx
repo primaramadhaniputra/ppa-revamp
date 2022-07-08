@@ -23,17 +23,20 @@ export default function StyledTextDropdownUser({
     <>
       {user?.name ? (
         <Grid container alignItems="center" gap={5}>
-          <Avatar src="/images/tukang.jpg" size="m" style={{ height: '35px', width: '35px' }} />
+          <Avatar
+            src="/images/tukang.jpg"
+            size="m"
+            style={{ height: "35px", width: "35px" }}
+          />
           <Icon iconName={iconName} color="white" onClick={handleClick} />
         </Grid>
       ) : (
-        <HoverWrapper >
+        <HoverWrapper>
           <Text variant="h4" style={{ ...styles }}>
             {title}
           </Text>
           <Icon iconName={iconName} color="white" onClick={handleClick} />
         </HoverWrapper>
-
       )}
     </>
   );

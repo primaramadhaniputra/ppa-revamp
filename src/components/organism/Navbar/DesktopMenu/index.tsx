@@ -32,7 +32,7 @@ export default function DesktopMenu({ position }: IProps) {
               <StyledTextDropdownUser
                 title={item.title}
                 handleClick={() => handleActiveNavbar(index)}
-                styles={{ color: "white", fontSize: '15px' }}
+                styles={{ color: "white", fontSize: "15px" }}
               />
             </Grid>
             {activeDropdown === index && <DeskTopSubMenu data={item.subMenu} />}
