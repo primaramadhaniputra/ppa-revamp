@@ -13,6 +13,7 @@ import {
    useReactTable,
 } from '@tanstack/react-table'
 import LabeledInput from 'atoms/LabeledInput'
+import PaginationComp from '../PaginationComp'
 
 // filter table di atas
 
@@ -21,6 +22,96 @@ type Person = {
 }
 
 const defaultData: Person[] = [
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
+   {
+      NRP: '12345678',
+      Nama: 'linsley',
+      Perusahaan: 'PT PO',
+      Dept: 'Naruto',
+      Jabatan: 'Hokage ke 7',
+      Posisi: 'Sayap Kanan',
+      Achievment: '45.5%',
+      aksi: '...'
+   },
    {
       NRP: '12345678',
       Nama: 'linsley',
@@ -123,69 +214,73 @@ export default function TableComp() {
       debugTable: true,
    })
    return (
-      <Wrapper>
-         <div>
-         </div>
-         <TABLE className="paleBlueRows">
-            <thead>
-               {table.getHeaderGroups().map(headerGroup => (
-                  <tr key={headerGroup.id}>
-                     {headerGroup.headers.map(header => (
-                        <th key={header.id} colSpan={header.colSpan}>
-                           {header.isPlaceholder
-                              ? null
-                              : flexRender(
-                                 header.column.columnDef.header,
-                                 header.getContext()
-                              )}
-                        </th>
-                     ))}
-                  </tr>
-               ))}
-            </thead>
-            <tbody>
-               {table.getRowModel().rows.map(row => (
-                  <tr key={row.id}>
-                     {row.getVisibleCells().map(cell => (
-                        <td key={cell.id}>
-                           {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </td>
-                     ))}
-                  </tr>
-               ))}
-            </tbody>
-            <tfoot>
-               {table.getHeaderGroups().map(headerGroup => (
-                  <tr key={headerGroup.id}>
-                     {headerGroup.headers.map(header => {
-                        const title = flexRender(
-                           header.column.columnDef.header,
-                           header.getContext()
-                        )
-                        return (
-                           header.column.getCanFilter() &&
+      <>
+         <Wrapper>
+            <div>
+            </div>
+            <TABLE className="paleBlueRows">
+               <thead>
+                  {table.getHeaderGroups().map(headerGroup => (
+                     <tr key={headerGroup.id}>
+                        {headerGroup.headers.map(header => (
                            <th key={header.id} colSpan={header.colSpan}>
-                              {header.isPlaceholder ? null : (
-                                 <div style={{ display: 'flex', justifyContent: 'center' }} >
-                                    <div style={{ display: 'none' }}> {flexRender(
-                                       header.column.columnDef.header,
-                                       header.getContext()
-                                    )}</div>
-                                    {header.column.getCanFilter() ? (
-                                       <div>
-                                          <Filter column={header.column} table={table} title={title} />
-                                       </div>
-                                    ) : null}
-                                 </div>
-                              )}
+                              {header.isPlaceholder
+                                 ? null
+                                 : flexRender(
+                                    header.column.columnDef.header,
+                                    header.getContext()
+                                 )}
                            </th>
-                        )
-                     })}
-                  </tr>
-               ))}
-            </tfoot>
-         </TABLE>
-      </Wrapper>
+                        ))}
+                     </tr>
+                  ))}
+               </thead>
+               <tbody>
+                  {table.getRowModel().rows.map(row => (
+                     <tr key={row.id}>
+                        {row.getVisibleCells().map(cell => (
+                           <td key={cell.id}>
+                              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                           </td>
+                        ))}
+                     </tr>
+                  ))}
+               </tbody>
+               <tfoot>
+                  {table.getHeaderGroups().map(headerGroup => (
+                     <tr key={headerGroup.id}>
+                        {headerGroup.headers.map(header => {
+                           const title = flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                           )
+                           return (
+                              header.column.getCanFilter() &&
+                              <th key={header.id} colSpan={header.colSpan}>
+                                 {header.isPlaceholder ? null : (
+                                    <div style={{ display: 'flex', justifyContent: 'center' }} >
+                                       <div style={{ display: 'none' }}> {flexRender(
+                                          header.column.columnDef.header,
+                                          header.getContext()
+                                       )}</div>
+                                       {header.column.getCanFilter() ? (
+                                          <div>
+                                             <Filter column={header.column} table={table} title={title} />
+                                          </div>
+                                       ) : null}
+                                    </div>
+                                 )}
+                              </th>
+                           )
+                        })}
+                     </tr>
+                  ))}
+               </tfoot>
+            </TABLE>
+
+         </Wrapper>
+         <PaginationComp dataPerPage={table.getRowModel().rows.length} totalData={table.getPreFilteredRowModel().rows.length} currentPage={table.getState().pagination.pageIndex + 1} totalPage={table.getPageCount()} nextButtonEvent={() => table.nextPage()} previousButtonEvent={() => table.previousPage()} />
+      </>
    )
 }
 
