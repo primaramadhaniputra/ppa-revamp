@@ -11,7 +11,11 @@ export default function Logo({ handleChangeHamburgerMenu }: IProps) {
   return (
     <LogoWrapper container>
       <Grid>
-        <Avatar src="/images/ppa.jpg" size="l" />
+        <Avatar
+          src="/images/ppa.jpg"
+          size="m"
+          style={{ height: "35px", width: "35px" }}
+        />
       </Grid>
       <HamburgerWrapper>
         <Icon

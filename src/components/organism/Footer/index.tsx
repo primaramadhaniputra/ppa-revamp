@@ -7,13 +7,15 @@ import { FooterText, Wrapper } from "./styles";
 
 export default function Footer() {
   return (
+    // style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
     <Wrapper>
-      <Grid container justifyContent="center" style={{ marginBottom: "20px" }}>
+      <Grid container justifyContent="center" style={{ marginBottom: "10px" }}>
         <Image
           src="/images/footer.png"
           width={100}
           height={30}
           alt="ppa logo"
+          quality={100}
         />
       </Grid>
       <Grid

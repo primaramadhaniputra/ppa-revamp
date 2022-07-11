@@ -7,6 +7,7 @@ interface IWrapper {
 
 export const WrapperImageInput = styled.div<IWrapper>`
   ${mediaQueries.lg} {
+    height: calc(100vh - 74px);
     display: grid;
     grid-template-columns: ${(props) =>
       props.nameLogin === "secondLogin" ? "1fr 2fr" : "2fr 1fr"};
