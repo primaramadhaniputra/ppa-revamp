@@ -10,6 +10,7 @@ export const ContentWrapper = styled.article`
   ${mediaQueries.lg} {
     padding: 30px 100px;
     margin-top: 0;
+    min-height: calc(100vh - 129px);
   }
 `;
 
