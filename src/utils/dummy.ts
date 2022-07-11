@@ -185,21 +185,25 @@ export const ProductionPerfromanceData = [
         title: 'Ach. Cost @ 1 Km',
         plan: ['MTD', '**'],
         act: ['YTD', '**'],
+        icon: 'ach_cost.png',
     },
     {
         title: 'Ach. 105% Coal Production',
         plan: ['Plan', '2.203.117 ton'],
         act: ['Act', '2.314.285 ton'],
+        icon: 'ach_coal_production.png',
     },
     {
-        title: 'Ach. 105% Coal Production',
+        title: 'Ach. 105% OB Production',
         plan: ['Plan', '2.203.117 ton'],
         act: ['Act', '2.314.285 ton'],
+        icon: 'ach_ob_production.png',
     },
     {
-        title: 'Ach. 105% Coal Production',
+        title: 'Ach. 105% MP Production',
         plan: ['Plan', '2.203.117 ton'],
         act: ['Act', '2.314.285 ton'],
+        icon: 'mp_productivity.png',
     },
 ];
 export const HaulerPerformanceData = [
@@ -207,31 +211,37 @@ export const HaulerPerformanceData = [
         title: 'Payload',
         plan: ['MTD', '95.3 ton'],
         act: ['YTD', '95.3 ton'],
+        icon: 'payload.png',
     },
     {
         title: 'Empty Speed',
         plan: ['MTD', '22.6 km/h'],
         act: ['YTD', '22.6 km/h'],
+        icon: 'empty_speed.png',
     },
     {
         title: 'Loaded Speed',
         plan: ['MTD', '20.7 km/h'],
         act: ['YTD', '20.7 km/h'],
+        icon: 'loaded_speed.png',
     },
     {
         title: 'Distance',
         plan: ['MTD', '2.7 km'],
         act: ['YTD', '2.7 km'],
+        icon: 'distance.png',
     },
     {
         title: 'EST',
         plan: ['MTD', '1.5 min'],
         act: ['YTD', '1.5 min'],
+        icon: 'est.png',
     },
     {
         title: 'Fuel',
         plan: ['MTD', '75.1 L/H'],
         act: ['YTD', '75.1 L/H'],
+        icon: 'fuel.png',
     },
 ];
 export const PlanPerfromanceData = [
@@ -239,11 +249,13 @@ export const PlanPerfromanceData = [
         title: 'PA',
         plan: ['MTD', '** %'],
         act: ['YTD', '** %'],
+        icon: 'pa.png',
     },
     {
         title: 'UA',
         plan: ['MTD', '** %'],
         act: ['YTD', '** %'],
+        icon: 'ua.png',
     },
 ];
 

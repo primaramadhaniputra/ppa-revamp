@@ -65,7 +65,7 @@ export default function FormInput({ color }: IProps) {
             </Text>
           </RadioWrapper>
         </Grid>
-        <StyledButton>Masuk</StyledButton>
+        <StyledButton>Login</StyledButton>
       </Grid>
     </form>
   );
