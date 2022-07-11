@@ -27,7 +27,12 @@ export default function PlantPerformance() {
                   <TitlePage styles={{ color: colors.orange }} type="h4">
                     {data.title}
                   </TitlePage>
-                  <Image src={`/icons/${data.icon}`} width={30} height={30} />
+                  <Image
+                    src={`/icons/${data.icon}`}
+                    width={30}
+                    height={30}
+                    quality={100}
+                  />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>
                   <LabelValue data={data.plan} />
