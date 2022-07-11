@@ -11,7 +11,8 @@ export const ItemContainer = styled.div`
 
 export const Item = styled.div`
   /* ini styling */
-  background-color: ${colors.blueSky};
+  /* background-color: ${colors.blueSky}; */
+  background-color: #f0f6fb;
   flex: 1;
   min-width: 300px;
   border-radius: 5px;
