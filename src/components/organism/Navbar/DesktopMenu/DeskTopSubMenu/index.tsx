@@ -1,5 +1,7 @@
+import Cookies from "js-cookie";
 import Link from "next/link";
 import React from "react";
+import { notify } from "utils/functions";
 import { StyledCard, StyledText } from "./styles";
 
 interface IProps {
@@ -17,12 +19,25 @@ export default function DeskTopSubMenu({
   style,
   width,
 }: IProps) {
+  const handleLogout = (e: string) => {
+    if (e === "Logout") {
+      Cookies.remove("token");
+      return notify('Anda berhasil logout', 'success')
+    }
+    return e
+  };
+
   return (
     <StyledCard isActive={isActive} style={style} width={width}>
       {data.map((item, index) => {
         return (
           <Link href={`/dashboard/${item.subMenuLink}`}>
-            <StyledText key={index}>{item.subMenuTitle}</StyledText>
+            <StyledText
+              key={index}
+              onClick={() => handleLogout(item.subMenuTitle)}
+            >
+              {item.subMenuTitle}
+            </StyledText>
           </Link>
         );
       })}

@@ -4,7 +4,7 @@ import { mediaQueries } from "utils/styles";
 export const Wrapper = styled.div``;
 
 export const ContentWrapper = styled.article`
-  margin-top: 110px;
+  margin-top: 60px;
   padding: 30px 15px;
   background-color: #fff;
   ${mediaQueries.lg} {

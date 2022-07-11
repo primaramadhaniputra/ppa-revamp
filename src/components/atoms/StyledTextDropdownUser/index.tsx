@@ -2,7 +2,7 @@ import { Avatar, Grid, Icon, IIconProps, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import DeskTopSubMenu from "src/components/organism/Navbar/DesktopMenu/DeskTopSubMenu";
 
-import { HoverWrapper } from "./tyles";
+import { HoverWrapper } from "./styles";
 
 interface IProps {
   title?: string;
@@ -44,8 +44,8 @@ export default function StyledTextDropdownUser({
           />
           <DeskTopSubMenu
             data={[
-              { subMenuTitle: "Pengaturan", subMenuLink: "dani" },
-              { subMenuTitle: "Logout", subMenuLink: "dani" },
+              { subMenuTitle: "Pengaturan", subMenuLink: "pengaturan" },
+              { subMenuTitle: "Logout", subMenuLink: "" },
             ]}
             isActive={isUserDropdwon}
             style={{ transform: "translateX(-40px)" }}
