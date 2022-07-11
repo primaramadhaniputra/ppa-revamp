@@ -35,7 +35,12 @@ export default function DesktopMenu({ position }: IProps) {
                 styles={{ color: "white", fontSize: "15px" }}
               />
             </Grid>
-            {activeDropdown === index && <DeskTopSubMenu data={item.subMenu} />}
+            {
+              <DeskTopSubMenu
+                data={item.subMenu}
+                isActive={activeDropdown === index}
+              />
+            }
           </Grid>
         ))}
       </Container>

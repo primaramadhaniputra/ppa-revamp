@@ -1,5 +1,7 @@
 import { Avatar, Grid, Icon, IIconProps, Text } from "@hudoro/neron";
-import React from "react";
+import React, { useState } from "react";
+import DeskTopSubMenu from "src/components/organism/Navbar/DesktopMenu/DeskTopSubMenu";
+
 import { HoverWrapper } from "./tyles";
 
 interface IProps {
@@ -19,6 +21,12 @@ export default function StyledTextDropdownUser({
   iconName = "IcArrowDown",
   styles,
 }: IProps) {
+  const [isUserDropdwon, setIsUserDropdwon] = useState(false);
+
+  const handleUserDropdwon = () => {
+    return setIsUserDropdwon(!isUserDropdwon);
+  };
+
   return (
     <>
       {user?.name ? (
@@ -28,7 +36,21 @@ export default function StyledTextDropdownUser({
             size="m"
             style={{ height: "35px", width: "35px" }}
           />
-          <Icon iconName={iconName} color="white" onClick={handleClick} />
+          <Icon
+            iconName={iconName}
+            color="white"
+            style={{ cursor: "pointer" }}
+            onClick={handleUserDropdwon}
+          />
+          <DeskTopSubMenu
+            data={[
+              { subMenuTitle: "Pengaturan", subMenuLink: "dani" },
+              { subMenuTitle: "Logout", subMenuLink: "dani" },
+            ]}
+            isActive={isUserDropdwon}
+            style={{ transform: "translateX(-40px)" }}
+            width="120px"
+          />
         </Grid>
       ) : (
         <HoverWrapper>
