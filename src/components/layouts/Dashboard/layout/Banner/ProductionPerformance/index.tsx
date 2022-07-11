@@ -8,7 +8,7 @@ import { Item, ItemContainer } from "../styles";
 export default function ProductionPerformance() {
   return (
     <>
-      <TitlePage type="h4" styles={{ margin: "50px 0 30px" }}>
+      <TitlePage type="h4" styles={{ margin: "0 0 30px" }}>
         {" "}
         Production Performance{" "}
       </TitlePage>

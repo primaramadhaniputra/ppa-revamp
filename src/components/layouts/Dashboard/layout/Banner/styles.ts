@@ -1,7 +1,11 @@
+import { Card } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors } from "utils/styles";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled(Card)`
+  /* box-shadow: 10px 10px 10px 10px black; */
+  margin-top: 50px;
+`;
 
 export const ItemContainer = styled.div`
   display: flex;
