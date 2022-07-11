@@ -22,9 +22,9 @@ export default function DeskTopSubMenu({
   const handleLogout = (e: string) => {
     if (e === "Logout") {
       Cookies.remove("token");
-      return notify('Anda berhasil logout', 'success')
+      return notify("Anda berhasil logout", "success");
     }
-    return e
+    return e;
   };
 
   return (
