@@ -7,11 +7,11 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  height: calc(100vh - 108px);
+  height: calc(100vh - 74px);
   ${mediaQueries.lg} {
-    height: auto;
     padding: 50px;
     justify-content: flex-start;
+    box-shadow: -3px 0px 20px rgba(0, 0, 0, 0.3);
   }
 `;
 
