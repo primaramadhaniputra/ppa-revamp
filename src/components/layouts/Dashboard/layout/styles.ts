@@ -7,7 +7,7 @@ export const ContentWrapper = styled.article`
   margin-top: 60px;
   padding: 30px 15px;
   background-color: #fff;
-  min-height: calc(100vh - 129px);
+  min-height: calc(100vh - 105px);
   ${mediaQueries.lg} {
     padding: 30px 100px;
     margin-top: 0px;

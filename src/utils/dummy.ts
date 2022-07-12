@@ -30,7 +30,7 @@ export const Link = [
         subMenu: [
             {
                 subMenuTitle: 'REPORT',
-                subMenuLink: '/operation/device_production_payload',
+                subMenuLink: '/operation/report/device_production_payload',
             },
             {
                 subMenuTitle: 'ACCESS & DATA ENTRY',
@@ -60,39 +60,39 @@ export const Link = [
         subMenu: [
             {
                 subMenuTitle: 'VHMS DOWNLOAD',
-                subMenuLink: 'vhms_donwload',
+                subMenuLink: 'system/vhms_download',
             },
             {
                 subMenuTitle: 'DATABASE',
-                subMenuLink: 'db',
+                subMenuLink: 'system/database',
             },
             {
                 subMenuTitle: 'ACCESS CONTROL',
-                subMenuLink: 'ac',
+                subMenuLink: 'system/access_control',
             },
             {
                 subMenuTitle: 'SURVEY',
-                subMenuLink: 'sv',
+                subMenuLink: 'system/survey',
             },
             {
                 subMenuTitle: 'APP VERSION CONTROL',
-                subMenuLink: 'avc',
+                subMenuLink: 'system/app_version_control',
             },
             {
                 subMenuTitle: 'USER FEEDBACK',
-                subMenuLink: 'uf',
+                subMenuLink: 'system/user_feedback',
             },
             {
                 subMenuTitle: 'ABS MACHINE',
-                subMenuLink: 'am',
+                subMenuLink: 'system/abs_machine',
             },
             {
                 subMenuTitle: 'EVENTS',
-                subMenuLink: 'ev',
+                subMenuLink: 'system/events',
             },
             {
                 subMenuTitle: 'DEVICE MONITORING',
-                subMenuLink: 'dm',
+                subMenuLink: 'system/device_monitoring',
             },
         ],
     },

@@ -47,7 +47,7 @@ export default function RDPP({ data, defaultValue, isMenu = false, isDate = fals
    const handleChangeOperation = (e: ISelectItem | ISelectItem[] | null) => {
       setOperationReportType(e?.values);
       setMenuOperationReport(renderType(e?.values));
-      return Router.replace(`/dashboard/operation/${e?.values}`).then(() => Router.reload())
+      return Router.replace(`/dashboard/operation/report/${e?.values}`).then(() => Router.reload())
    };
 
    const handleSearchOperationReportDate = () => {
