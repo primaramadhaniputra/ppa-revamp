@@ -32,6 +32,7 @@ export default function PlantPerformance() {
                     width={30}
                     height={30}
                     quality={100}
+                    alt="PlanPerfromance icon"
                   />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>

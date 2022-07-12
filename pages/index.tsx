@@ -1,17 +1,26 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
+import { currentLoginPages } from "services/pages";
 
 const LoginView = dynamic(() => import("views/Login"));
 
-export default function LoginPage() {
-  return <LoginView />;
+interface IProps {
+  id: number;
+}
+
+export default function LoginPage({ id }: IProps) {
+  return <LoginView id={id} />;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
+    const data = await currentLoginPages({
+      path: "pages",
+    });
+    const id = data.data.data.pageId;
     return {
       props: {
-        data: [],
+        id,
       },
     };
   } catch (error: any) {

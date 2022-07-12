@@ -32,6 +32,7 @@ export default function HaulerPerformance() {
                     width={25}
                     height={25}
                     quality={100}
+                    alt="HaulerPerformance icon"
                   />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>

@@ -14,6 +14,11 @@ const API = {
 
     // OPERATION REPORT
     getOperationReport: apiRequest.get(apiEndpoints.operationReport),
+
+    // PAGES
+    listPages: apiRequest.get(apiEndpoints.pages, true),
+    updatePages: apiRequest.patch(apiEndpoints.pages, true),
+    currentLoginPages: apiRequest.get(apiEndpoints.pages),
 };
 
 export default API;
