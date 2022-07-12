@@ -1,4 +1,4 @@
-import { Card, colors } from "@hudoro/neron";
+import { colors } from "@hudoro/neron";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -12,8 +12,9 @@ export const ItemContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Item = styled(Card)`
+export const Item = styled.div`
   background-color: ${colors.white[100]};
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
   flex: 1;
   min-width: 300px;
   border-radius: 5px;
