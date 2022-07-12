@@ -3,7 +3,7 @@ import { mediaQueries } from "utils/styles";
 
 export const WrapperImageInput = styled.div`
   ${mediaQueries.lg} {
-    height: 100vh;
+    /* height: 100vh; */
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
