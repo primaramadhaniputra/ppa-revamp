@@ -5,11 +5,14 @@ import { footer } from "utils/dummy";
 import { fontSizing } from "utils/styles";
 import { FooterText, Wrapper } from "./styles";
 
-export default function Footer() {
+interface IProps {
+  type?: string;
+}
+
+export default function Footer({ type }: IProps) {
   return (
-    // style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-    <Wrapper>
-      <Grid container justifyContent="center" style={{ marginBottom: "10px" }}>
+    <Wrapper type={type}>
+      <Grid container justifyContent="center" style={{ order: "1" }}>
         <Image
           src="/images/footer.png"
           width={100}
