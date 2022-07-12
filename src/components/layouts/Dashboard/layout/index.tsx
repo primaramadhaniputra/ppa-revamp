@@ -35,7 +35,7 @@ export default function Layout({ title, children }: IProps) {
         )}
         {children}
       </ContentWrapper>
-      <Footer />
+      <Footer type="dashboard" />
     </Wrapper>
   );
 }

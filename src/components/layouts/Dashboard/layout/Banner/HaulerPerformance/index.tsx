@@ -27,7 +27,12 @@ export default function HaulerPerformance() {
                   <TitlePage styles={{ color: colors.orange }} type="h4">
                     {data.title}
                   </TitlePage>
-                  <Image src={`/icons/${data.icon}`} width={25} height={25} />
+                  <Image
+                    src={`/icons/${data.icon}`}
+                    width={25}
+                    height={25}
+                    quality={100}
+                  />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>
                   <LabelValue data={data.plan} />
