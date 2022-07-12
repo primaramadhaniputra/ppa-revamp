@@ -6,7 +6,11 @@ import { notify } from 'utils/functions'
 import { fontSizing } from 'utils/styles'
 import { SelectLabel } from '../styles'
 
-export default function Layout() {
+interface IProps {
+   loginDefaultValue: ISelectItem
+}
+
+export default function Layout({ loginDefaultValue }: IProps) {
    const [layout, setLayout] = useState([])
    const [isDisabled, setIsDisabled] = useState(true)
 
@@ -50,7 +54,7 @@ export default function Layout() {
          <Grid container flexDirection='column' gap={30}>
             <Grid container flexDirection='column' gap={5}>
                <SelectLabel >Pilih layout login</SelectLabel>
-               <Select items={layout} disabled={isDisabled} onChange={handleChangeLayout} placeholder='change layout' />
+               <Select items={layout} disabled={isDisabled} onChange={handleChangeLayout} placeholder='change layout' defaultValue={loginDefaultValue} />
             </Grid>
             <Grid container flexDirection='column' gap={5}>
                <SelectLabel >Pilih posisi navbar</SelectLabel>
