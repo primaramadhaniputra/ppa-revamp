@@ -53,16 +53,17 @@ export const parseJwt = (token: string) => {
 };
 
 export const renderType = (type: string) => {
+    console.log('adsffffffffffff', type);
     switch (type) {
-        case 'report_device_production_payload':
+        case 'device_production_payload':
             return 'payloads';
-        case 'report_device_production_empty_stop':
+        case 'device_production_empty_stop':
             return 'empty-stop';
-        case 'report_device_production_loading_time':
+        case 'device_production_loading_time':
             return 'loading-time';
-        case 'report_device_production_speed':
+        case 'device_production_speed':
             return 'speed';
-        case 'report_device_production_loaded_speed':
+        case 'device_production_loaded_speed':
             return 'loaded-speed';
         // case 'report_device_production_empty_speed':
         //     return 'empty_speed';
