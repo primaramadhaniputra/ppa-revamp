@@ -7,7 +7,7 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  height: calc(100vh - 74px);
+  height: calc(100vh - 64px);
   ${mediaQueries.lg} {
     padding: 50px;
     justify-content: flex-start;

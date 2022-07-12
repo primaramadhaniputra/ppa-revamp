@@ -5,7 +5,7 @@ import { fontSizing, fontWeights } from "utils/styles";
 export const Wrapper = styled.div``;
 
 export const LoginWrapper = styled.div`
-  min-height: calc(100vh - 108px);
+  min-height: calc(100vh - 64px);
   background-image: url(/images/traktor.jpeg);
   background-size: cover;
   background-position: center;
