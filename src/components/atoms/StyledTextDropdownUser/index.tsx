@@ -2,7 +2,7 @@ import { Avatar, Grid, Icon, IIconProps, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import DeskTopSubMenu from "src/components/organism/Navbar/DesktopMenu/DeskTopSubMenu";
 
-import { HoverWrapper } from "./styles";
+import { HoverWrapper, StyledUserName } from "./styles";
 
 interface IProps {
   title?: string;
@@ -30,7 +30,8 @@ export default function StyledTextDropdownUser({
   return (
     <>
       {user?.name ? (
-        <Grid container alignItems="center" gap={5}>
+        <Grid container alignItems="center" gap={7}>
+          <StyledUserName>{user?.name}</StyledUserName>
           <Avatar
             src="/images/tukang.jpg"
             size="m"

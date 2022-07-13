@@ -1,5 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import StyledTextDropdownUser from "atoms/StyledTextDropdownUser";
+import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { MenuContainer, SubMenu, SubMenuText, SubMenuWrapper } from "./styles";
 
@@ -27,22 +28,23 @@ export default function HamburgerMenu({ item }: IProps) {
     setIsShowSubMenu(!isShowSubMenu);
   };
   return (
-    <MenuContainer container gap={1} flexDirection="column">
-      <Grid container gap={8}>
+    <MenuContainer container flexDirection="column">
+      <Grid container>
         <StyledTextDropdownUser
           title={item.title}
           handleClick={handleSubMenu}
           iconName={isShowSubMenu ? "IcArrowUp" : "IcArrowDown"}
-          styles={{ color: "white", fontSize: "14px", marginBottom: 10 }}
+          styles={{ color: "white", fontSize: "14px" }}
         />
       </Grid>
       <SubMenuWrapper height={subMenuHeight}>
         <SubMenu ref={subMenuRef}>
           {item.subMenu.map((data, index) => (
-            <SubMenuText key={index} variant="h4">
-              {" "}
-              {data.subMenuTitle}
-            </SubMenuText>
+            <Link href={`/dashboard/${data.subMenuLink}`}>
+              <SubMenuText key={index} variant="h4">
+                {data.subMenuTitle}
+              </SubMenuText>
+            </Link>
           ))}
         </SubMenu>
       </SubMenuWrapper>

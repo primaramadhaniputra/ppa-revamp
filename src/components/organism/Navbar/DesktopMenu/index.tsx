@@ -45,7 +45,7 @@ export default function DesktopMenu({ position }: IProps) {
         ))}
       </Container>
       <Grid container gap={8} alignItems="center">
-        <StyledTextDropdownUser user={{ name: "dani" }} />
+        <StyledTextDropdownUser user={{ name: "Suwito" }} />
       </Grid>
     </Wrapper>
   );

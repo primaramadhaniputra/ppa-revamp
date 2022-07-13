@@ -18,6 +18,7 @@ export const FormWrapper = styled.div<IFormWrapper>`
     order: ${(props) => (props.nameLogin === "secondLogin" ? 0 : 1)};
     justify-content: flex-start;
     box-shadow: -3px 0px 20px rgba(0, 0, 0, 0.3);
+    clip-path: inset(0px 0px 0px -20px);
     z-index: 1;
   }
 `;
