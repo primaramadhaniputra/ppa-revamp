@@ -30,7 +30,7 @@ export default function StyledTextDropdownUser({
   return (
     <>
       {user?.name ? (
-        <Grid container alignItems="center" gap={5}>
+        <Grid container alignItems="center" gap={7}>
           <StyledUserName>{user?.name}</StyledUserName>
           <Avatar
             src="/images/tukang.jpg"
