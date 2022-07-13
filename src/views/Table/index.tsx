@@ -20,7 +20,6 @@ interface Person {
 }
 
 export default function Table() {
-
    const [rowSelection, setRowSelection] = React.useState({})
    const columns: ColumnDef<Person>[] = [
       {
@@ -87,15 +86,17 @@ export default function Table() {
       debugTable: true,
    })
 
+   const handleChangeTotalShowData = (e: { values: string }) => {
+      table.setPageSize(Number(e.values))
+   }
+
    return (
       <Layout title='Table'>
          <Wrapper style={{ marginTop: '50px' }}>
             <Card>
                <InputComp
                   value={{ id: 0, values: `${table.getState().pagination.pageSize}`, label: `${table.getState().pagination.pageSize}` }}
-                  handleChange={e => {
-                     table.setPageSize(Number(e.values))
-                  }} />
+                  handleChange={handleChangeTotalShowData} />
                <TableComp table={table} />
                <PaginationComp dataPerPage={table.getRowModel().rows.length} totalData={table.getPreFilteredRowModel().rows.length} currentPage={table.getState().pagination.pageIndex + 1} totalPage={table.getPageCount()} nextButtonEvent={() => table.nextPage()} previousButtonEvent={() => table.previousPage()} />
             </Card>

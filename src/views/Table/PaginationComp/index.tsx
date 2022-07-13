@@ -17,10 +17,10 @@ export default function PaginationComp({ dataPerPage, totalData, currentPage, to
          style={{ marginTop: '20px', marginLeft: '20px' }}
          gap={20}
       >
-
          <Text variant='p'>Showing {' '}
             {dataPerPage} of{' '}
-            {totalData} Total Rows Selected</Text>
+            {totalData} Total Rows Selected
+         </Text>
          <Pagination numberOfPages={totalPage} currentPage={currentPage} nextButtonEvent={nextButtonEvent} previousButtonEvent={previousButtonEvent} />
       </Grid>
    )
