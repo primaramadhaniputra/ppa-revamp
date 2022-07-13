@@ -15,7 +15,7 @@ export const StyledCard = styled(Card)<IStyledCard>`
   font-weight: ${fontWeights.regular};
   font-size: 14px;
   line-height: 21px;
-  top: 62px;
+  top: 50px;
   min-width: ${(props) => (props.width ? props.width : "224px")};
   transition: 0.3s;
   transform: translateY(-20px);

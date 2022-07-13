@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import Link from "next/link";
+import Router from "next/router";
 import React from "react";
 import { notify } from "utils/functions";
 import { StyledCard, StyledText } from "./styles";
@@ -22,7 +23,8 @@ export default function DeskTopSubMenu({
   const handleLogout = (e: string) => {
     if (e === "Logout") {
       Cookies.remove("token");
-      return notify("Anda berhasil logout", "success");
+      notify("Anda berhasil logout", "success");
+      return Router.reload();
     }
     return e;
   };
