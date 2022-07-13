@@ -1,7 +1,9 @@
 import { Grid, JustifyContentType } from "@hudoro/neron";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "utils/dummy";
 import StyledTextDropdownUser from "atoms/StyledTextDropdownUser";
+import { getProfile } from "services/users";
+import { notify } from "utils/functions";
 import { Container, Wrapper } from "./styles";
 import DeskTopSubMenu from "./DeskTopSubMenu";
 
@@ -11,6 +13,7 @@ interface IProps {
 
 export default function DesktopMenu({ position }: IProps) {
   const [activeDropdown, setActiveDropdown] = useState(-1);
+  const [userName, setUserName] = useState("");
 
   const handleActiveNavbar = (index: number) => {
     if (activeDropdown === index) {
@@ -18,6 +21,14 @@ export default function DesktopMenu({ position }: IProps) {
     }
     return setActiveDropdown(index);
   };
+
+  useEffect(() => {
+    getProfile({
+      path: "profile",
+    })
+      .then((res) => setUserName(res.data.data.fullName))
+      .catch((err) => notify(err.message, "error"));
+  }, []);
 
   return (
     <Wrapper>
@@ -45,7 +56,7 @@ export default function DesktopMenu({ position }: IProps) {
         ))}
       </Container>
       <Grid container gap={8} alignItems="center">
-        <StyledTextDropdownUser user={{ name: "Suwito" }} />
+        <StyledTextDropdownUser user={{ name: userName }} />
       </Grid>
     </Wrapper>
   );
