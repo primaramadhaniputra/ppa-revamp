@@ -31,11 +31,8 @@ export default function DeskTopSubMenu({
     <StyledCard isActive={isActive} style={style} width={width}>
       {data.map((item, index) => {
         return (
-          <Link href={`/dashboard/${item.subMenuLink}`}>
-            <StyledText
-              key={index}
-              onClick={() => handleLogout(item.subMenuTitle)}
-            >
+          <Link href={`/dashboard/${item.subMenuLink}`} key={index}>
+            <StyledText onClick={() => handleLogout(item.subMenuTitle)}>
               {item.subMenuTitle}
             </StyledText>
           </Link>

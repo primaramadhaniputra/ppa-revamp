@@ -330,3 +330,35 @@ export const inputDropDownOperation2 = [
         label: ' Device /  Machine Condition / Loader / Performance / Fuel Consumen',
     },
 ];
+
+export const dummyValueTable = [
+    {
+        id: 0,
+        values: '10',
+        label: '10',
+    },
+    {
+        id: 1,
+        values: '20',
+        label: '20',
+    },
+    {
+        id: 2,
+        values: '30',
+        label: '30',
+    },
+];
+
+const arr = new Array(100).fill(0);
+export const defaultDataTable = arr.map(() => {
+    return {
+        NRP: '12345678',
+        Nama: 'linsley',
+        Perusahaan: 'PT PO',
+        Dept: 'Naruto',
+        Jabatan: 'Hokage ke 7',
+        Posisi: 'Sayap Kanan',
+        Achievment: '45.5%',
+        aksi: '...',
+    };
+});
