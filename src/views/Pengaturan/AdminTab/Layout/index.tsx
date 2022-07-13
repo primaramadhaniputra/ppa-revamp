@@ -8,9 +8,10 @@ import { SelectLabel } from '../styles'
 
 interface IProps {
    loginDefaultValue: ISelectItem
+   navbarDefaultValue: ISelectItem
 }
 
-export default function Layout({ loginDefaultValue }: IProps) {
+export default function Layout({ loginDefaultValue, navbarDefaultValue }: IProps) {
    const [layout, setLayout] = useState([])
    const [isDisabled, setIsDisabled] = useState(true)
 
@@ -58,7 +59,7 @@ export default function Layout({ loginDefaultValue }: IProps) {
             </Grid>
             <Grid container flexDirection='column' gap={5}>
                <SelectLabel >Pilih posisi navbar</SelectLabel>
-               <Select items={[{ id: 1, values: 'Center', label: 'Center' }]} defaultValue={{ id: 1, values: 'Center', label: 'Center' }} />
+               <Select items={[{ id: 1, values: 'Center', label: 'Center' }]} defaultValue={navbarDefaultValue} />
             </Grid>
          </Grid>
       </>
