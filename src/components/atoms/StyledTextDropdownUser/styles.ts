@@ -18,7 +18,7 @@ export const HoverWrapper = styled.div`
 
 export const StyledUserName = styled.p`
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-family: ${fontFamilies.poppins};
   display: none;
   ${mediaQueries.lg} {
