@@ -16,7 +16,7 @@ export const WrapperInput = styled(Grid)`
   margin-top: 5px;
   position: relative;
   ${mediaQueries.lg} {
-    max-width: 250px;
+    /* max-width: 350px; */
   }
 `;
 

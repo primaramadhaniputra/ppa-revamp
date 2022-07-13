@@ -51,3 +51,23 @@ export const parseJwt = (token: string) => {
     const payload = Buffer.from(base64Payload, 'base64');
     return JSON.parse(payload.toString());
 };
+
+export const renderType = (type: string) => {
+    console.log('adsffffffffffff', type);
+    switch (type) {
+        case 'device_production_payload':
+            return 'payloads';
+        case 'device_production_empty_stop':
+            return 'empty-stop';
+        case 'device_production_loading_time':
+            return 'loading-time';
+        case 'device_production_speed':
+            return 'speed';
+        case 'device_production_loaded_speed':
+            return 'loaded-speed';
+        // case 'report_device_production_empty_speed':
+        //     return 'empty_speed';
+        default:
+            return 'payloads';
+    }
+};

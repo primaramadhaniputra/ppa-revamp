@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Layout from 'src/components/layouts/Dashboard/layout'
-import DisplayData from 'src/components/layouts/Dashboard/layout/DisplayData';
-import HomeInput from 'src/components/organism/HomeInput'
-import { IOperationReportPayloadData } from 'utils/interfaces';
+// import DisplayData from 'src/components/layouts/Dashboard/layout/DisplayData';
+import SearchingForm from 'src/components/organism/SearchingForm'
+// import { IOperationReportPayloadData } from 'utils/interfaces';
 
 export default function Report() {
-  const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
-  const [isLoading, setIsLoading] = useState(true);
+  // const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
+  // const [isLoading, setIsLoading] = useState(true);
   return (
     <Layout title='Operation / Report'>
-      <HomeInput
+      <SearchingForm
         title="Menu"
         placeholder="Device / Production / Payload"
-        setDataChart={setDataChart}
-        setIsLoading={setIsLoading}
+        isDate={true}
+        isMenu={true}
+        isShift={false}
       />
-      <DisplayData data={dataChart} isLoading={isLoading} />
+      {/* <DisplayData data={dataChart} isLoading={isLoading} /> */}
     </Layout>
   )
 }

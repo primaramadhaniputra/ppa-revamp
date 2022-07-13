@@ -32,6 +32,7 @@ export default function ProductionPerformance() {
                     width={30}
                     height={30}
                     quality={100}
+                    alt="ProductionPerfromance icon"
                   />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>

@@ -1,9 +1,7 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import Loading from "atoms/Loading";
 import React, { useEffect, useState } from "react";
-import { useMenuTypeOperationReportValue } from "recoil/menuTypeOperationReport/atom";
-import { dummyDisplayDataDropdown } from "utils/dummy";
-import { IOperationReportPayloadData } from "utils/interfaces";
+import { IDropdownData, IOperationReportPayloadData } from "utils/interfaces";
 import ChartData from "./ChartData";
 import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 import TableData from "./Table";
@@ -12,29 +10,27 @@ import Trend from "./Trend";
 interface IProps {
   data: IOperationReportPayloadData | undefined;
   isLoading: boolean;
+  typeDisplayData: IDropdownData[];
 }
 
-export default function DisplayData({ data, isLoading }: IProps) {
-  const [activeDisplayData, setActiveDisplayData] = useState("Chart");
-  const [dropdownChart, setDropdownChart] = useState(dummyDisplayDataDropdown);
-  const menuOperationReportValue = useMenuTypeOperationReportValue();
-
+export default function DisplayData({
+  data,
+  isLoading,
+  typeDisplayData,
+}: IProps) {
+  const [activeDisplayData, setActiveDisplayData] = useState(
+    typeDisplayData[0].values
+  );
   const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
     return setActiveDisplayData(e?.values);
   };
 
   useEffect(() => {
-    if (menuOperationReportValue !== "payloads") {
-      const newDropdowChart = dropdownChart.filter(
-        (item) => item.values !== "Table"
-      );
-      return setDropdownChart(newDropdowChart);
-    }
-    return setDropdownChart(dummyDisplayDataDropdown);
-  }, [menuOperationReportValue]);
+    setActiveDisplayData(typeDisplayData[0].values);
+  }, [typeDisplayData]);
 
   const renderDisplayData = (type: string) => {
-    if (type === "Table" && menuOperationReportValue === "payloads") {
+    if (type === "Range Data") {
       return <TableData data={data?.range.data} />;
     }
     if (type === "Trend") {
@@ -57,8 +53,8 @@ export default function DisplayData({ data, isLoading }: IProps) {
         <Grid style={{ maxWidth: "300px" }}>
           <Select
             onChange={handleActiveDisplayData}
-            items={dropdownChart}
-            defaultValue={dummyDisplayDataDropdown[1]}
+            items={typeDisplayData}
+            defaultValue={typeDisplayData[0]}
           />
         </Grid>
         <WrapperTotalText>

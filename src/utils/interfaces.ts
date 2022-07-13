@@ -55,3 +55,26 @@ export interface IOperationReportPayloadData {
         data: [];
     };
 }
+
+export interface IDropdownData {
+    id: number;
+    values: string;
+    label: string;
+}
+
+export interface ICalendarState {
+    startDate: Date;
+    endDate: Date;
+    key: string;
+}
+export interface ISetCalendarState {
+    setCalendarState: React.Dispatch<
+        React.SetStateAction<
+            {
+                startDate: Date;
+                endDate: Date;
+                key: string;
+            }[]
+        >
+    >;
+}

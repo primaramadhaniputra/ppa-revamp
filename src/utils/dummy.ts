@@ -30,7 +30,7 @@ export const Link = [
         subMenu: [
             {
                 subMenuTitle: 'REPORT',
-                subMenuLink: 'report',
+                subMenuLink: '/operation/report/device_production_payload',
             },
             {
                 subMenuTitle: 'ACCESS & DATA ENTRY',
@@ -60,39 +60,39 @@ export const Link = [
         subMenu: [
             {
                 subMenuTitle: 'VHMS DOWNLOAD',
-                subMenuLink: 'vhms_donwload',
+                subMenuLink: 'system/vhms_download',
             },
             {
                 subMenuTitle: 'DATABASE',
-                subMenuLink: 'db',
+                subMenuLink: 'system/database',
             },
             {
                 subMenuTitle: 'ACCESS CONTROL',
-                subMenuLink: 'ac',
+                subMenuLink: 'system/access_control',
             },
             {
                 subMenuTitle: 'SURVEY',
-                subMenuLink: 'sv',
+                subMenuLink: 'system/survey',
             },
             {
                 subMenuTitle: 'APP VERSION CONTROL',
-                subMenuLink: 'avc',
+                subMenuLink: 'system/app_version_control',
             },
             {
                 subMenuTitle: 'USER FEEDBACK',
-                subMenuLink: 'uf',
+                subMenuLink: 'system/user_feedback',
             },
             {
                 subMenuTitle: 'ABS MACHINE',
-                subMenuLink: 'am',
+                subMenuLink: 'system/abs_machine',
             },
             {
                 subMenuTitle: 'EVENTS',
-                subMenuLink: 'ev',
+                subMenuLink: 'system/events',
             },
             {
                 subMenuTitle: 'DEVICE MONITORING',
-                subMenuLink: 'dm',
+                subMenuLink: 'system/device_monitoring',
             },
         ],
     },
@@ -124,33 +124,6 @@ export const footer = [
         color: '#F6921E',
     },
 ];
-// export const footer = [
-//     {
-//         title: 'devotion',
-//         color: '#008000',
-//     },
-//     {
-//         title: 'integrity',
-//         color: '#0000FF',
-//     },
-//     {
-//         title: 'teamwork',
-//         color: '#37382F',
-//     },
-//     {
-//         title: 'creativity',
-//         color: '#F4762C',
-//     },
-//     {
-//         title: 'winner',
-//         color: '#FF0000',
-//     },
-//     {
-//         title: 'perfection',
-//         color: '#9F3F9F',
-//     },
-// ];
-
 export const dummyInputDropdown = [
     {
         id: 0,
@@ -287,3 +260,73 @@ export const PlanPerfromanceData = [
 ];
 
 export const tabMenu = ['Profil', 'Admin'];
+
+export const inputDropDownOperation = [
+    {
+        id: 0,
+        values: 'operation/prod/payload_by_api',
+        label: ' Device / Production / Payload',
+    },
+    {
+        id: 1,
+        values: 'operation/prod/est_by_api',
+        label: ' Device /  Production / Empty Stop',
+    },
+    {
+        id: 2,
+        values: 'operation/prod/list_by_api',
+        label: ' Device /  Production / Loading Time',
+    },
+    {
+        id: 3,
+        values: 'operation/prod/speed_by_api',
+        label: ' Device /  Production / Speed',
+    },
+    {
+        id: 4,
+        values: 'operation/prod/ls_by_api',
+        label: ' Device /  Production / Loaded Speed',
+    },
+    {
+        id: 5,
+        values: 'operation/prod/es',
+        label: ' Device /  Production / Empty Speed',
+    },
+];
+export const inputDropDownOperation2 = [
+    {
+        id: 0,
+        values: 'device_production_payload',
+        label: ' Device / Production / Payload',
+    },
+    {
+        id: 1,
+        values: 'device_production_empty_stop',
+        label: ' Device /  Production / Empty Stop',
+    },
+    {
+        id: 2,
+        values: 'device_production_loading_time',
+        label: ' Device /  Production / Loading Time',
+    },
+    {
+        id: 3,
+        values: 'device_production_speed',
+        label: ' Device /  Production / Speed',
+    },
+    {
+        id: 4,
+        values: 'device_production_loaded_speed',
+        label: ' Device /  Production / Loaded Speed',
+    },
+    {
+        id: 5,
+        values: 'device_production_empty_speed',
+        label: ' Device /  Production / Empty Speed',
+    },
+    {
+        id: 6,
+        values: 'device_mc_loader_performance_fc',
+        label: ' Device /  Machine Condition / Loader / Performance / Fuel Consumen',
+    },
+];
