@@ -26,7 +26,7 @@ export default function DesktopMenu({ position }: IProps) {
     getProfile({
       path: "profile",
     })
-      .then((res) => setUserName(res.data.data.fullName))
+      .then((res) => setUserName(res.data.data.fullName.slice(0, 6)))
       .catch((err) => notify(err.message, "error"));
   }, []);
 
