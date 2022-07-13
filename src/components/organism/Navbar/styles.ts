@@ -26,7 +26,7 @@ export const LinkWrapper = styled.div`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   ${mediaQueries.lg} {
     display: none;
   }

@@ -26,4 +26,5 @@ export const SubMenuText = styled(Text)`
   font-size: ${fontSizing.xs.fontSize};
   color: ${colors.white};
   margin-bottom: 10px;
+  cursor: pointer;
 `;
