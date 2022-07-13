@@ -1,6 +1,7 @@
 import { Avatar, Grid, Icon, IIconProps, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import DeskTopSubMenu from "src/components/organism/Navbar/DesktopMenu/DeskTopSubMenu";
+import { useWindowSize } from "utils/customHooks";
 
 import { HoverWrapper, StyledUserName } from "./styles";
 
@@ -26,7 +27,8 @@ export default function StyledTextDropdownUser({
   const handleUserDropdwon = () => {
     return setIsUserDropdwon(!isUserDropdwon);
   };
-
+  const { width } = useWindowSize();
+  console.log('asdfffffffs', width)
   return (
     <>
       {user?.name ? (
@@ -49,7 +51,7 @@ export default function StyledTextDropdownUser({
               { subMenuTitle: "Logout", subMenuLink: "" },
             ]}
             isActive={isUserDropdwon}
-            style={{ transform: "translateX(-40px)" }}
+            style={{ transform: width > 1024 ? "translateX(0px)" : "translateX(-40px)" }}
             width="120px"
           />
         </Grid>
