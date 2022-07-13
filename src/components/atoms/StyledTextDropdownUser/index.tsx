@@ -28,7 +28,6 @@ export default function StyledTextDropdownUser({
     return setIsUserDropdwon(!isUserDropdwon);
   };
   const { width } = useWindowSize();
-  console.log('asdfffffffs', width)
   return (
     <>
       {user?.name ? (
@@ -51,7 +50,9 @@ export default function StyledTextDropdownUser({
               { subMenuTitle: "Logout", subMenuLink: "" },
             ]}
             isActive={isUserDropdwon}
-            style={{ transform: width > 1024 ? "translateX(0px)" : "translateX(-40px)" }}
+            style={{
+              transform: width > 1024 ? "translateX(0px)" : "translateX(-40px)",
+            }}
             width="120px"
           />
         </Grid>
