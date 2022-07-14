@@ -57,6 +57,7 @@ export default function FormInput({ color }: IProps) {
             <Radio
               label="Remember me"
               onClick={handleRadio}
+              onChange={handleRadio}
               checked={checkedRadio}
             />
             <Text variant="p" style={{ fontSize: fontSizing.xs.fontSize }}>
