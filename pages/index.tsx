@@ -16,6 +16,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const data = await currentLoginPages({
       path: "pages",
+      params: {
+        name: "LOGIN",
+      },
     });
     const id = data.data.data.pageId;
     return {
