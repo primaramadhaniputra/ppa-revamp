@@ -7,6 +7,7 @@ interface IWrapperImageInput {
 
 export const Wrapper = styled.div<IWrapperImageInput>`
   ${mediaQueries.lg} {
+    min-height: 900px;
     background: ${(props) =>
       props.type === "login4" || props.type === "login41"
         ? `linear-gradient(135deg,${colors.primary} 0%,#0693e3 100%)`

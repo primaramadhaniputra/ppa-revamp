@@ -31,6 +31,8 @@ export const FormWrapper = styled.div`
   align-items: center;
   padding: 30px;
   height: calc(100vh - 64px);
+  min-height: 600px;
+
   ${mediaQueries.lg} {
     height: auto;
     justify-content: flex-start;

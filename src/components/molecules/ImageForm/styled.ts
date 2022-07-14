@@ -11,6 +11,7 @@ export const LoginSlider = styled.div<ILoginSlider>`
   position: relative;
   overflow: hidden;
   display: none;
+  min-height: 800px;
   ${mediaQueries.lg} {
     height: ${(props) => (props.height ? props.height : "calc(100vh - 74px)")};
     width: 100%;

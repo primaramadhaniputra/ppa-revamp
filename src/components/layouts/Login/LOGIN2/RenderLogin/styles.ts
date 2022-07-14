@@ -7,6 +7,7 @@ interface IWrapper {
 
 export const WrapperImageInput = styled.div<IWrapper>`
   height: calc(100vh - 74px);
+  min-height: 800px;
   ${mediaQueries.lg} {
     display: grid;
     grid-template-columns: ${(props) =>
