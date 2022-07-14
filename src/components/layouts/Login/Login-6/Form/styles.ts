@@ -5,6 +5,7 @@ import { fontWeights, mediaQueries } from "utils/styles";
 export const Wrapper = styled(Grid)`
   position: relative;
   background-color: white;
+  min-height: 600px;
   ${mediaQueries.lg} {
     background-image: url(/images/mobilProyek.jpg);
     background-repeat: no-repeat;
@@ -12,6 +13,7 @@ export const Wrapper = styled(Grid)`
     background-size: cover;
     height: 90%;
     max-height: 1000px;
+
     display: flex;
     align-items: center;
     padding-left: 50px;
@@ -58,6 +60,7 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  min-height: 600px;
   height: calc(100vh - 64px);
   ${mediaQueries.lg} {
     padding: 30px;

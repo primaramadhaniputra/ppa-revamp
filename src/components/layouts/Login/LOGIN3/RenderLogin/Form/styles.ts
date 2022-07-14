@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { mediaQueries } from "utils/styles";
 
 export const FormWrapper = styled.div`
+  min-height: 800px;
   display: flex;
   justify-content: center;
   flex-direction: column;

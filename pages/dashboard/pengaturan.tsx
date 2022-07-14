@@ -5,8 +5,16 @@ import { listPages } from "services/pages";
 
 const PengaturanView = dynamic(() => import("views/Pengaturan"));
 
-export default function PengaturanPage({ loginDefaultValue }: ISelectItem) {
-  return <PengaturanView loginDefaultValue={loginDefaultValue} />;
+export default function PengaturanPage({
+  loginDefaultValue,
+  navbarDefaultValue,
+}: ISelectItem) {
+  return (
+    <PengaturanView
+      loginDefaultValue={loginDefaultValue}
+      navbarDefaultValue={navbarDefaultValue}
+    />
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -24,17 +32,38 @@ export const getServerSideProps: GetServerSideProps = async (
       path: "settings/pages",
       context,
     });
-    const { id, pageId, status } = data.data.data.find(
+
+    const layoutLogin = data.data.data.filter(
+      (item: { name: string }) => item.name === "LOGIN"
+    );
+    const layoutNavbar = data.data.data.filter(
+      (item: { name: string }) => item.name === "NAVBAR"
+    );
+
+    const loginActive = layoutLogin.find(
       (item: { status: number }) => item.status === 1
     );
-    const loginDefaultValue = {
-      id,
-      values: status.toString(),
-      label: pageId.toString(),
-    };
+    const navbarActive = layoutNavbar.find(
+      (item: { status: number }) => item.status === 1
+    );
+
+    // const loginDefaultValue = {
+    //   id: loginActive.id,
+    //   values: loginActive.status.toString(),
+    //   label: loginActive.pageId.toString(),
+    // };
     return {
       props: {
-        loginDefaultValue,
+        loginDefaultValue: {
+          id: loginActive.id,
+          values: loginActive.status.toString(),
+          label: loginActive.pageId.toString(),
+        },
+        navbarDefaultValue: {
+          id: navbarActive.id,
+          values: navbarActive.status.toString(),
+          label: navbarActive.pageId.toString(),
+        },
       },
     };
   } catch (error: any) {

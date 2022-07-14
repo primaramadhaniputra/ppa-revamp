@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const WrapperImageInput = styled.div`
+  min-height: 750px;
   ${mediaQueries.lg} {
     height: 100vh;
     display: flex;

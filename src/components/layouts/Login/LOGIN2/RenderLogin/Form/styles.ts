@@ -12,6 +12,7 @@ export const FormWrapper = styled.div<IFormWrapper>`
   align-items: center;
   padding: 30px;
   height: calc(100vh - 108px);
+  min-height: 800px;
   ${mediaQueries.lg} {
     height: auto;
     padding-top: 50px;
