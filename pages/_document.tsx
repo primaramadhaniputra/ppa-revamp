@@ -42,21 +42,28 @@ class MyDocument extends Document {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/favicons/apple-touch-icon.png"
+            // href="/favicons/apple-touch-icon.png"
+            href="/favicon.ico"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/favicons/favicon-32x32.png"
+            // href="/favicons/favicon-32x32.png"
+            href="/favicon.ico"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/favicons/favicon-16x16.png"
+            // href="/favicons/favicon-16x16.png"
+            href="/favicon.ico"
           />
-          <link rel="manifest" href="/favicons/site.webmanifest" />
+          <link
+            rel="manifest"
+            // href="/favicons/site.webmanifest"
+            href="/favicon.ico"
+          />
         </Head>
         <body>
           <Main />
