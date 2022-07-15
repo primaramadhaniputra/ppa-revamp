@@ -7,16 +7,23 @@ import { listPages } from "services/pages";
 
 const PengaturanView = dynamic(() => import("views/Pengaturan"));
 
+interface IProps {
+  loginDefaultValue: ISelectItem | ISelectItem[];
+  navbarDefaultValue: ISelectItem | ISelectItem[];
+  isAdmin: boolean;
+}
+
 export default function PengaturanPage({
   loginDefaultValue,
   navbarDefaultValue,
-}: ISelectItem) {
+  isAdmin,
+}: IProps) {
   const setLoginDefaultValue = useSetLoginDefaultValue();
   const setNavbarDefaultValue = useSetNavbarDefaultValue();
 
-  setLoginDefaultValue(loginDefaultValue);
-  setNavbarDefaultValue(navbarDefaultValue);
-  return <PengaturanView />;
+  setLoginDefaultValue(loginDefaultValue as ISelectItem[]);
+  setNavbarDefaultValue(navbarDefaultValue as ISelectItem[]);
+  return <PengaturanView isAdmin={isAdmin} />;
 }
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -27,7 +34,14 @@ export const getServerSideProps: GetServerSideProps = async (
       path: "settings/pages",
       context,
     });
-
+    console.log(data.data.status);
+    if (data.data.status === "Unauthorized") {
+      return {
+        props: {
+          isAdmin: false,
+        },
+      };
+    }
     const layoutLogin = data.data.data.filter(
       (item: { name: string }) => item.name === "LOGIN"
     );
@@ -54,6 +68,7 @@ export const getServerSideProps: GetServerSideProps = async (
           values: navbarActive.status.toString(),
           label: navbarActive.pageId.toString(),
         },
+        isAdmin: true,
       },
     };
   } catch (error: any) {
