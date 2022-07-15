@@ -1,14 +1,10 @@
-import React from 'react'
-import Layout from 'src/components/layouts/Dashboard/layout'
+import React from "react";
+import Layout from "src/components/layouts/Dashboard/layout";
 
 interface IProps {
-   pageTitle: string
+  pageTitle: string;
 }
 
 export default function Sytem({ pageTitle }: IProps) {
-   return (
-      <Layout title={pageTitle}>
-
-      </Layout>
-   )
+  return <Layout title={pageTitle} children={undefined} />;
 }

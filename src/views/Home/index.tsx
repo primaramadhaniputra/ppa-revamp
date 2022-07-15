@@ -1,10 +1,10 @@
-import React from 'react'
-import Layout from 'src/components/layouts/Dashboard/layout'
-import Banner from 'src/components/layouts/Dashboard/layout/Banner';
+import React from "react";
+import Layout from "src/components/layouts/Dashboard/layout";
+import Banner from "src/components/layouts/Dashboard/layout/Banner";
 
 export default function Home() {
   return (
-    <Layout title='Dashboard'>
+    <Layout title="Dashboard">
       {/* <SearchingForm
         title="Menu"
         placeholder="Device / Production / Payload"
@@ -15,5 +15,5 @@ export default function Home() {
       /> */}
       <Banner />
     </Layout>
-  )
+  );
 }

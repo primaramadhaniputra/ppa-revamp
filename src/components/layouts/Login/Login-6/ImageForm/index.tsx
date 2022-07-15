@@ -4,9 +4,9 @@ import SlideImage from "./ImageSlide";
 import { LoginSlider } from "./styled";
 
 export default function ImageForm() {
-  const [image, setImage] = useState(ImageUrl);
-  const [index, setIndex] = useState(0);
-  console.log(setImage, setIndex);
+  const [image] = useState(ImageUrl);
+  const [index] = useState(0);
+  // console.log(setImage, setIndex);
   // useEffect(() => {
   //   const lastIndex = image.length - 1;
   //   if (index < 0) {

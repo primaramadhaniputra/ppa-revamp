@@ -77,6 +77,7 @@ export default function SearchingForm({
             value={`${convert(calendarState[0].startDate)} ~ ${convert(
               calendarState[0].endDate
             )}`}
+            onChange={() => {}}
           />
           <StyledIcon iconName="IcSearch" onClick={onSearchDate} />
           {isShowDate && (

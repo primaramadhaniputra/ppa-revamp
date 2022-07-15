@@ -34,7 +34,6 @@ export const getServerSideProps: GetServerSideProps = async (
       path: "settings/pages",
       context,
     });
-    console.log(data.data.status);
     if (data.data.status === "Unauthorized") {
       return {
         props: {
