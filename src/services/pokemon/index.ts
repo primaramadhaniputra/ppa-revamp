@@ -1,10 +1,10 @@
-import API from 'configs/api';
-import { IPayload, IPromiseResult, IResponse } from 'utils/interfaces';
+import API from "configs/api";
+import { IPayload, IPromiseResult, IResponse } from "utils/interfaces";
 
 export const getPokemons = (payload: IPayload): Promise<IPromiseResult> => {
-    return new Promise<IPromiseResult>((resolve, reject) => {
-        API.getPokemons(payload)
-            .then((res: IResponse) => resolve({ data: res, success: true }))
-            .catch((err) => reject(new Error(err.message)));
-    });
+  return new Promise<IPromiseResult>((resolve, reject) => {
+    API.getPokemons(payload)
+      .then((res: IResponse) => resolve({ data: res, success: true }))
+      .catch((err) => reject(new Error(err.message)));
+  });
 };
