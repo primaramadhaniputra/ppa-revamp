@@ -4,11 +4,11 @@ export const Link = [
     subMenu: [
       {
         subMenuTitle: "FORM",
-        subMenuLink: "form",
+        subMenuLink: "teamwork/form",
       },
       {
         subMenuTitle: "REPORT",
-        subMenuLink: "report",
+        subMenuLink: "teamwork/report",
       },
     ],
   },
@@ -17,11 +17,11 @@ export const Link = [
     subMenu: [
       {
         subMenuTitle: "FORM",
-        subMenuLink: "form",
+        subMenuLink: "she/form",
       },
       {
         subMenuTitle: "REPORT",
-        subMenuLink: "report",
+        subMenuLink: "she/report",
       },
     ],
   },
@@ -43,15 +43,15 @@ export const Link = [
     subMenu: [
       {
         subMenuTitle: "HC",
-        subMenuLink: "hc",
+        subMenuLink: "administration/hc",
       },
       {
         subMenuTitle: "GA",
-        subMenuLink: "ga",
+        subMenuLink: "administration/ga",
       },
       {
         subMenuTitle: "LEGAL",
-        subMenuLink: "legal",
+        subMenuLink: "administration/legal",
       },
     ],
   },
