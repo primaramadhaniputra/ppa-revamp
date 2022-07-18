@@ -1,14 +1,14 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import Router from "next/router";
 import React, { FormEvent } from "react";
 import { changePassword } from "services/users";
 import { notify } from "utils/functions";
-import { colors } from "utils/styles";
-import { ButtonWrapper } from "../styles";
+import { colors, fontWeights } from "utils/styles";
+import { ButtonWrapper } from "./styles";
 
-export default function ChangePassword() {
+export default function PasswordTab() {
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
       form.preventDefault();
@@ -31,18 +31,22 @@ export default function ChangePassword() {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <Grid
-        container
-        flexDirection="column"
-        gap={30}
-        style={{ marginBottom: "150px" }}
-      >
-        <LabeledInput
-          name="currentPassword"
-          title="Password saat ini"
-          style={{ backgroundColor: colors.blueSky }}
-        />
+    <form
+      onSubmit={handleSubmit}
+      style={{ marginTop: "30px", width: "100%", flex: 3 }}
+    >
+      <Grid container flexDirection="column" gap={30}>
+        <Grid container flexDirection="column" gap={7}>
+          <LabeledInput
+            name="currentPassword"
+            title="Password saat ini"
+            style={{ backgroundColor: colors.blueSky }}
+          />
+          <Text variant="mute" style={{ color: "rgba(0,0,255,.7" }}>
+            Lupa password?
+          </Text>
+        </Grid>
+
         <LabeledInput
           name="newPassword"
           title="Password baru"
@@ -54,7 +58,11 @@ export default function ChangePassword() {
           style={{ backgroundColor: colors.blueSky }}
         />
         <ButtonWrapper>
-          <StyledButton>Ubah Password</StyledButton>
+          <StyledButton
+            style={{ fontWeight: fontWeights.bold, padding: "5px " }}
+          >
+            Ubah Password
+          </StyledButton>
         </ButtonWrapper>
       </Grid>
     </form>

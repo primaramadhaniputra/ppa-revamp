@@ -2,7 +2,7 @@ import { Grid } from "@hudoro/neron";
 import React from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import SearchingForm from "src/components/organism/SearchingForm";
-import { dummyInputDropdown } from "utils/dummy";
+import { InputDropdownTeamworkForm } from "utils/dummy";
 
 export default function Form() {
   return (
@@ -10,11 +10,11 @@ export default function Form() {
       <Grid style={{ maxWidth: "300px" }}>
         <SearchingForm
           title="Menu"
-          placeholder="Device / Production / Payload"
+          placeholder="Upload roster"
           isDate={true}
           isMenu={true}
           isShift={false}
-          dropDownData={dummyInputDropdown}
+          dropDownData={InputDropdownTeamworkForm}
         />
       </Grid>
     </Layout>

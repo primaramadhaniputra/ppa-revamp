@@ -2,7 +2,24 @@ import { Grid } from "@hudoro/neron";
 import React from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import SearchingForm from "src/components/organism/SearchingForm";
-import { dummyInputDropdown } from "utils/dummy";
+
+const InputDropdown = [
+  {
+    id: 0,
+    values: "sap_plant",
+    label: "Sap plant",
+  },
+  {
+    id: 1,
+    values: "insiden",
+    label: "Insiden",
+  },
+  {
+    id: 2,
+    values: "set_wake_upcall",
+    label: "Set wake upcall",
+  },
+];
 
 export default function Form() {
   return (
@@ -10,11 +27,11 @@ export default function Form() {
       <Grid style={{ maxWidth: "300px" }}>
         <SearchingForm
           title="Menu"
-          placeholder="Device / Production / Payload"
+          placeholder="ex: Sap plant"
           isDate={true}
           isMenu={true}
           isShift={false}
-          dropDownData={dummyInputDropdown}
+          dropDownData={InputDropdown}
         />
       </Grid>
     </Layout>

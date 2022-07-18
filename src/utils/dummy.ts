@@ -259,8 +259,6 @@ export const PlanPerfromanceData = [
   },
 ];
 
-export const tabMenu = ["Profil", "Admin"];
-
 export const inputDropDownOperation = [
   {
     id: 0,
@@ -363,3 +361,21 @@ export const defaultDataTable = arr.map(() => {
     aksi: "...",
   };
 });
+
+export const InputDropdownTeamworkForm = [
+  {
+    id: 0,
+    values: "Upload roster",
+    label: "Upload roster",
+  },
+  {
+    id: 1,
+    values: "Update roster",
+    label: "Update roster",
+  },
+  {
+    id: 2,
+    values: "Set roster",
+    label: "Set roster",
+  },
+];

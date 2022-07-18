@@ -4,6 +4,8 @@ import { fontSizing, fontWeights } from "utils/styles";
 
 export const Wrapper = styled.div`
   min-height: 60vh;
+  width: 100%;
+  flex: 3;
 `;
 
 export const SelectLabel = styled.p`
