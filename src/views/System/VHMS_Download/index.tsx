@@ -11,7 +11,8 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
-import DoughnutChart from "atoms/DoughnutChart";
+import Pagination from "src/components/organism/Pagination";
+// import DoughnutChart from "atoms/DoughnutChart";
 
 interface Person {
   [x: string]: any;
@@ -189,6 +190,7 @@ export default function VHMS_Download() {
 
   return (
     <>
+      <Pagination />
       <TableComponent
         table={table}
         type={systemTypeValue}
@@ -196,7 +198,7 @@ export default function VHMS_Download() {
         setGlobalFilter={setGlobalFilter}
         filterBottom={false}
       />
-      <DoughnutChart />
+      {/* <DoughnutChart /> */}
     </>
   );
 }

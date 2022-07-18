@@ -37,7 +37,8 @@ export const TABLE = styled.table`
   }
 
   & th {
-    padding: 20px;
+    padding: 5px;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
   }
   & tbody tr:nth-child(even) {
     background: ${colors.blueSky};

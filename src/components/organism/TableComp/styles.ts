@@ -6,9 +6,12 @@ export const Wrapper = styled.div`
 `;
 
 export const PaginationContainer = styled.div`
-  & .active {
-    background-color: ${colors.orange};
-    color: ${colors.white};
-    border-color: ${colors.orange};
+  & > div {
+    padding: 0 !important;
   }
+  /* & .active {
+        background-color: ${colors.orange};
+        color: ${colors.white};
+        border-color: ${colors.orange};
+    } */
 `;

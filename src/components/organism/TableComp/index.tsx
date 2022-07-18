@@ -2,7 +2,7 @@ import { Card } from "@hudoro/neron";
 import React from "react";
 import InputComp from "./InputComp";
 import PaginationComp from "./PaginationComp";
-import { PaginationContainer, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
 import TableComp from "./TableComp";
 
 interface Person {
@@ -36,16 +36,14 @@ export default function TableComponent({
           setGlobalFilter={setGlobalFilter}
         />
         <TableComp table={table} filterBottom={filterBottom} />
-        <PaginationContainer>
-          <PaginationComp
-            dataPerPage={table.getRowModel().rows.length}
-            totalData={table.getPreFilteredRowModel().rows.length}
-            currentPage={table.getState().pagination.pageIndex + 1}
-            totalPage={table.getPageCount()}
-            nextButtonEvent={() => table.nextPage()}
-            previousButtonEvent={() => table.previousPage()}
-          />
-        </PaginationContainer>
+        <PaginationComp
+          dataPerPage={table.getRowModel().rows.length}
+          totalData={table.getPreFilteredRowModel().rows.length}
+          currentPage={table.getState().pagination.pageIndex + 1}
+          totalPage={table.getPageCount()}
+          nextButtonEvent={() => table.nextPage()}
+          previousButtonEvent={() => table.previousPage()}
+        />
       </Card>
     </Wrapper>
   );

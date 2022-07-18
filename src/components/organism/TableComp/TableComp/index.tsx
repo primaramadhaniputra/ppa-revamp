@@ -48,7 +48,7 @@ export default function TableComp({ table, filterBottom }: IProps) {
               }) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => (
-                    <th key={header.id} colSpan={header.colSpan}>
+                    <th key={header.id} rowSpan={1} colSpan={header.colSpan}>
                       {header.isPlaceholder ? null : (
                         <div
                           style={{ cursor: "pointer", minWidth: "20px" }}
