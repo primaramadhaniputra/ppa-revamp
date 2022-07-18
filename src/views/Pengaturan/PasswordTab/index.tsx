@@ -5,7 +5,7 @@ import Router from "next/router";
 import React, { FormEvent } from "react";
 import { changePassword } from "services/users";
 import { notify } from "utils/functions";
-import { colors, fontWeights } from "utils/styles";
+import { fontWeights } from "utils/styles";
 import { ButtonWrapper, Container } from "./styles";
 
 export default function PasswordTab() {
@@ -35,25 +35,16 @@ export default function PasswordTab() {
       <form onSubmit={handleSubmit}>
         <Grid container flexDirection="column" gap={30}>
           <Grid container flexDirection="column" gap={7}>
-            <LabeledInput
-              name="currentPassword"
-              title="Password saat ini"
-              style={{ backgroundColor: colors.blueSky }}
-            />
+            <LabeledInput name="currentPassword" title="Password saat ini" />
             <Text variant="mute" style={{ color: "rgba(0,0,255,.7" }}>
               Lupa password?
             </Text>
           </Grid>
 
-          <LabeledInput
-            name="newPassword"
-            title="Password baru"
-            style={{ backgroundColor: colors.blueSky }}
-          />
+          <LabeledInput name="newPassword" title="Password baru" />
           <LabeledInput
             name="confirmNewPassword"
             title="Konfirmasi password baru"
-            style={{ backgroundColor: colors.blueSky }}
           />
           <ButtonWrapper>
             <StyledButton
