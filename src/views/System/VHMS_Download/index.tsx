@@ -11,6 +11,7 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import DoughnutChart from "atoms/DoughnutChart";
 
 interface Person {
   [x: string]: any;
@@ -195,6 +196,7 @@ export default function VHMS_Download() {
         setGlobalFilter={setGlobalFilter}
         filterBottom={false}
       />
+      <DoughnutChart />
     </>
   );
 }
