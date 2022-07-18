@@ -9,7 +9,6 @@ interface ITabText {
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
 `;
 
 export const TabText = styled.p<ITabText>`
@@ -25,4 +24,5 @@ export const TabText = styled.p<ITabText>`
     props.activeTab === true ? c.primary : colors.white[100]};
   font-weight: ${(props) =>
     props.activeTab === true ? fontWeights.bold : fontWeights.regular};
+  border: 1px solid rgba(0, 0, 0, 0.1);
 `;

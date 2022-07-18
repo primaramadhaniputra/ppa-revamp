@@ -25,10 +25,7 @@ export default function Profile() {
 
   return (
     <Wrapper>
-      <TitlePage
-        type="h4"
-        styles={{ margin: "30px 0 30px", fontSize: fontSizing.xl.fontSize }}
-      >
+      <TitlePage type="h4" styles={{ fontSize: fontSizing.xl.fontSize }}>
         Profile
       </TitlePage>
       <Grid container flexDirection="column" gap={40}>

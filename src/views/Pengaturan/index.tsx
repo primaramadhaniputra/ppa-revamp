@@ -10,26 +10,25 @@ interface IProps {
   isAdmin: boolean;
 }
 
-
 export default function Pengaturan({ isAdmin }: IProps) {
   const [activeTab, setactiveTab] = useState(0);
 
   const renderContent = () => {
     if (activeTab === 0) {
-      return <ProfileTab />
+      return <ProfileTab />;
     } else if (activeTab === 1) {
-      return <PasswordTab />
+      return <PasswordTab />;
     } else {
-      return <AdminTab />
+      return <AdminTab />;
     }
-  }
+  };
 
   return (
     <>
       {isAdmin ? (
         <Layout title="Pengaturan">
           <Container>
-            <TabWrapper >
+            <TabWrapper>
               <Tabs activeTab={activeTab} setactiveTab={setactiveTab} />
             </TabWrapper>
             {renderContent()}
@@ -39,8 +38,7 @@ export default function Pengaturan({ isAdmin }: IProps) {
         <Layout title="Pengaturan">
           <ProfileTab />
         </Layout>
-      )
-      }
+      )}
     </>
   );
 }

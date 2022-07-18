@@ -6,7 +6,7 @@ import React, { FormEvent } from "react";
 import { changePassword } from "services/users";
 import { notify } from "utils/functions";
 import { colors, fontWeights } from "utils/styles";
-import { ButtonWrapper } from "./styles";
+import { ButtonWrapper, Container } from "./styles";
 
 export default function PasswordTab() {
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
@@ -31,40 +31,39 @@ export default function PasswordTab() {
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ marginTop: "30px", width: "100%", flex: 3 }}
-    >
-      <Grid container flexDirection="column" gap={30}>
-        <Grid container flexDirection="column" gap={7}>
+    <Container>
+      <form onSubmit={handleSubmit}>
+        <Grid container flexDirection="column" gap={30}>
+          <Grid container flexDirection="column" gap={7}>
+            <LabeledInput
+              name="currentPassword"
+              title="Password saat ini"
+              style={{ backgroundColor: colors.blueSky }}
+            />
+            <Text variant="mute" style={{ color: "rgba(0,0,255,.7" }}>
+              Lupa password?
+            </Text>
+          </Grid>
+
           <LabeledInput
-            name="currentPassword"
-            title="Password saat ini"
+            name="newPassword"
+            title="Password baru"
             style={{ backgroundColor: colors.blueSky }}
           />
-          <Text variant="mute" style={{ color: "rgba(0,0,255,.7" }}>
-            Lupa password?
-          </Text>
+          <LabeledInput
+            name="confirmNewPassword"
+            title="Konfirmasi password baru"
+            style={{ backgroundColor: colors.blueSky }}
+          />
+          <ButtonWrapper>
+            <StyledButton
+              style={{ fontWeight: fontWeights.bold, padding: "5px " }}
+            >
+              Ubah Password
+            </StyledButton>
+          </ButtonWrapper>
         </Grid>
-
-        <LabeledInput
-          name="newPassword"
-          title="Password baru"
-          style={{ backgroundColor: colors.blueSky }}
-        />
-        <LabeledInput
-          name="confirmNewPassword"
-          title="Konfirmasi password baru"
-          style={{ backgroundColor: colors.blueSky }}
-        />
-        <ButtonWrapper>
-          <StyledButton
-            style={{ fontWeight: fontWeights.bold, padding: "5px " }}
-          >
-            Ubah Password
-          </StyledButton>
-        </ButtonWrapper>
-      </Grid>
-    </form>
+      </form>
+    </Container>
   );
 }

@@ -10,7 +10,7 @@ export default function Site() {
       <TitlePage
         type="h4"
         styles={{
-          margin: "30px 0 30px",
+          margin: "0 0 30px",
           fontSize: fontSizing.xl.fontSize,
           fontWeight: fontWeights.bold,
         }}
