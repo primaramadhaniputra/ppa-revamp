@@ -1,7 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-import { Column, flexRender, Table } from "@tanstack/react-table";
-import LabeledInput from "atoms/LabeledInput";
+import { flexRender } from "@tanstack/react-table";
 import { TABLE, Wrapper } from "./styles";
 
 interface IProps {
@@ -9,32 +8,33 @@ interface IProps {
   [x: string]: any;
 }
 
-function Filter({
-  column,
-  title,
-}: {
-  column: Column<any>;
-  table: Table<any>;
-  title: Element | ReactNode;
-}) {
-  // table,
-  // const firstValue = table
-  //    .getPreFilteredRowModel()
-  //    .flatRows[0]?.getValue(column.id)
+// function Filter({
+//   column,
+//   title,
+// }: {
+//   column: Column<any>;
+//   table: Table<any>;
+//   title: Element | ReactNode;
+// }) {
+//   // table,
+//   // const firstValue = table
+//   //    .getPreFilteredRowModel()
+//   //    .flatRows[0]?.getValue(column.id)
 
-  return (
-    <LabeledInput
-      name="asdf"
-      style={{ width: "150px" }}
-      title={title as string}
-      type="text"
-      value={(column.getFilterValue() ?? "") as string}
-      onChange={(e) => column.setFilterValue(e.target.value)}
-      placeholder={`Search...`}
-    />
-  );
-}
-export default function TableComp({ table, filterBottom }: IProps) {
+//   return (
+//     <LabeledInput
+//       name="asdf"
+//       style={{ width: "150px" }}
+//       title={title as string}
+//       type="text"
+//       value={(column.getFilterValue() ?? "") as string}
+//       onChange={(e) => column.setFilterValue(e.target.value)}
+//       placeholder={`Search...`}
+//     />
+//   );
+// }
+// , filterBottom
+export default function TableComp({ table }: IProps) {
   return (
     <Wrapper>
       <TABLE className="paleBlueRows">
@@ -92,7 +92,7 @@ export default function TableComp({ table, filterBottom }: IProps) {
               )
             )}
         </tbody>
-        <tfoot>
+        {/* <tfoot>
           {table
             .getHeaderGroups()
             .map(
@@ -141,7 +141,7 @@ export default function TableComp({ table, filterBottom }: IProps) {
                 </tr>
               )
             )}
-        </tfoot>
+        </tfoot> */}
       </TABLE>
     </Wrapper>
   );

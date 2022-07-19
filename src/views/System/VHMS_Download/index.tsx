@@ -1,6 +1,6 @@
 import React from "react";
 import TableComponent from "src/components/organism/TableComp";
-
+import DoughnutChart from "atoms/DoughnutChart";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -11,7 +11,6 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
-// import DoughnutChart from "atoms/DoughnutChart";
 
 interface Person {
   [x: string]: any;
@@ -44,7 +43,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           Model
-          <span style={{ display: "inline-block", transform: "rotate(90deg)" }}>
+          <span>
             {"<>"}
           </span>
         </span>
@@ -58,7 +57,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           CN
-          <span style={{ display: "inline-block", transform: "rotate(90deg)" }}>
+          <span>
             {"<>"}
           </span>
         </span>
@@ -70,7 +69,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           SN
-          <span style={{ display: "inline-block", transform: "rotate(90deg)" }}>
+          <span>
             {"<>"}
           </span>
         </span>
@@ -83,7 +82,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           Last Download
-          <span style={{ display: "inline-block", transform: "rotate(90deg)" }}>
+          <span>
             {"<>"}
           </span>
         </span>
@@ -95,7 +94,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           Last Operation
-          <span style={{ display: "inline-block", transform: "rotate(90deg)" }}>
+          <span>
             {"<>"}
           </span>
         </span>
@@ -103,7 +102,7 @@ export default function VHMS_Download() {
       footer: (props) => props.column.id,
     },
     {
-      header: "Info",
+      header: "VHMS Latest",
       footer: (props) => props.column.id,
       columns: [
         {
@@ -112,7 +111,6 @@ export default function VHMS_Download() {
             <span>
               Pldcycn Record
               <span
-                style={{ display: "inline-block", transform: "rotate(90deg)" }}
               >
                 {"<>"}
               </span>
@@ -125,9 +123,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Trend Record
-              <span
-                style={{ display: "inline-block", transform: "rotate(90deg)" }}
-              >
+              <span>
                 {"<>"}
               </span>
             </span>
@@ -141,9 +137,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Fault Record
-              <span
-                style={{ display: "inline-block", transform: "rotate(90deg)" }}
-              >
+              <span>
                 {"<>"}
               </span>
             </span>
@@ -157,9 +151,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Machine History
-              <span
-                style={{ display: "inline-block", transform: "rotate(90deg)" }}
-              >
+              <span>
                 {"<>"}
               </span>
             </span>
@@ -196,7 +188,7 @@ export default function VHMS_Download() {
         setGlobalFilter={setGlobalFilter}
         filterBottom={false}
       />
-      {/* <DoughnutChart /> */}
+      <DoughnutChart />
     </>
   );
 }

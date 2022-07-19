@@ -1,9 +1,8 @@
-import { fontFamilies, Grid, ISelectItem, Select, Text } from "@hudoro/neron";
+import { Grid, ISelectItem, Text } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
-import { dummyValueTable } from "utils/dummy";
-import { colors } from "utils/styles";
-import { ButtonWrapper, Wrapper } from "./styles";
+import { colors, fontWeights } from "utils/styles";
+import { ButtonWrapper, LabelSearch, NumberInput, Wrapper } from "./styles";
 
 interface IInputComp {
   value: ISelectItem[] | ISelectItem;
@@ -37,20 +36,11 @@ function DebouncedInput({
 
   return (
     <Grid container gap={5}>
-      <label
-        style={{
-          display: "flex",
-          alignItems: "center",
-          fontFamily: fontFamilies.poppins,
-        }}
-      >
-        Search :
-      </label>
+      <LabelSearch>Search :</LabelSearch>
       <input
         {...props}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        style={{ padding: "0 15px", border: "1px solid rgba(0,0,0,.2)" }}
       />
     </Grid>
   );
@@ -64,20 +54,25 @@ export default function InputComp({
 }: IInputComp) {
   return (
     <Wrapper container>
-      <Grid container flexDirection="column" gap={5}>
+      <Grid container alignItems="center" gap={5}>
         <Text variant="p">Show</Text>
-        <Select
-          defaultValue={value}
-          items={dummyValueTable}
+        <NumberInput
+          value={parseInt(value.values, 10)}
           onChange={handleChange}
         />
+        <Text variant="p">entries</Text>
       </Grid>
-      <Grid container gap={10}>
+      <Grid container gap={30}>
         <ButtonWrapper style={{ minWidth: "142px" }}>
           <StyledButton
-            style={{ backgroundColor: colors.orange, color: colors.white }}
+            style={{
+              backgroundColor: colors.orange,
+              color: colors.white,
+              padding: "5px",
+              fontWeight: fontWeights.bold,
+            }}
           >
-            Export
+            EXPORT
           </StyledButton>
         </ButtonWrapper>
         {setGlobalFilter && (

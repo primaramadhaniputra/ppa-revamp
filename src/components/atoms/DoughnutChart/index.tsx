@@ -1,8 +1,9 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { Card, Grid, Text } from "@hudoro/neron";
-import { colors } from "utils/styles";
+import { Text } from "@hudoro/neron";
+import { fontWeights } from "utils/styles";
+import { Container, DataContainer, DonatContainer, Wrapper } from "./styles";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -13,13 +14,13 @@ export const data = {
       label: "# of Votes",
       data: [12, 19, 3, 5],
       backgroundColor: [
-        "#1e4181",
+        "#345aa0",
         "#008d07",
         "rgba(228, 176, 46, 0.7)",
         "rgba(197, 214, 214, 0.7)",
       ],
       borderColor: [
-        "#1e4181",
+        "#345aa0",
         "#008d07",
         "rgba(228, 176, 46, 0.7)",
         "rgba(197, 214, 214, 0.7)",
@@ -29,22 +30,46 @@ export const data = {
   ],
 };
 
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom" as const,
+      labels: {
+        padding: 15,
+      },
+      title: {
+        display: true,
+        padding: {
+          bottom: 20,
+        },
+      },
+    },
+  },
+};
+
 export default function DoughnutChart() {
   return (
-    <Card style={{ maxWidth: "900px", margin: "auto" }}>
-      <Doughnut data={data} />
-      <Grid>
-        <Text variant="h4">CAT777</Text>
-        <Text variant="h4" style={{ backgroundColor: colors.orange }}>
-          CAT777
-        </Text>
-      </Grid>
-      <Grid>
-        <Text variant="h4">CAT777</Text>
-        <Text variant="h4" style={{ backgroundColor: colors.orange }}>
-          CAT777
-        </Text>
-      </Grid>
-    </Card>
+    <Wrapper>
+      <Text
+        variant="h4"
+        style={{ fontWeight: fontWeights.bold, marginBottom: "30px" }}
+      >
+        VHMS Download
+      </Text>
+      <DonatContainer>
+        <Doughnut data={data} options={options} />
+      </DonatContainer>
+      <Container>
+        <DataContainer>
+          <Text variant="h4">CAT777</Text>
+          <Text variant="h4">1001</Text>
+        </DataContainer>
+        <DataContainer>
+          <Text variant="h4">CAT777</Text>
+          <Text variant="h4">1001</Text>
+        </DataContainer>
+      </Container>
+    </Wrapper>
   );
 }

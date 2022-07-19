@@ -1,4 +1,3 @@
-import { Card } from "@hudoro/neron";
 import React from "react";
 import InputComp from "./InputComp";
 import PaginationComp from "./PaginationComp";
@@ -19,32 +18,30 @@ export default function TableComponent({
   setGlobalFilter,
   filterBottom,
 }: Person) {
-  const handleChangeTotalShowData = (e: { values: string }) => {
-    table.setPageSize(Number(e.values));
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
   };
   return (
-    <Wrapper style={{ marginTop: "50px" }}>
-      <Card>
-        <InputComp
-          value={{
-            id: 0,
-            values: `${table.getState().pagination.pageSize}`,
-            label: `${table.getState().pagination.pageSize}`,
-          }}
-          handleChange={handleChangeTotalShowData}
-          globalFilter={globalFilter}
-          setGlobalFilter={setGlobalFilter}
-        />
-        <TableComp table={table} filterBottom={filterBottom} />
-        <PaginationComp
-          dataPerPage={table.getRowModel().rows.length}
-          totalData={table.getPreFilteredRowModel().rows.length}
-          currentPage={table.getState().pagination.pageIndex + 1}
-          totalPage={table.getPageCount()}
-          nextButtonEvent={() => table.nextPage()}
-          previousButtonEvent={() => table.previousPage()}
-        />
-      </Card>
+    <Wrapper>
+      <InputComp
+        value={{
+          id: 0,
+          values: `${table.getState().pagination.pageSize}`,
+          label: `${table.getState().pagination.pageSize}`,
+        }}
+        handleChange={handleChangeTotalShowData}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+      />
+      <TableComp table={table} filterBottom={filterBottom} />
+      <PaginationComp
+        dataPerPage={table.getRowModel().rows.length}
+        totalData={table.getPreFilteredRowModel().rows.length}
+        currentPage={table.getState().pagination.pageIndex + 1}
+        totalPage={table.getPageCount()}
+        nextButtonEvent={() => table.nextPage()}
+        previousButtonEvent={() => table.previousPage()}
+      />
     </Wrapper>
   );
 }

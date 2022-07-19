@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, mediaQueries } from "utils/styles";
+import { colors, fontWeights, mediaQueries } from "utils/styles";
 
 export const Wrapper = styled.div`
   overflow-x: scroll;
@@ -33,20 +33,20 @@ export const TABLE = styled.table`
   padding: 20px;
   margin-top: 20px;
   & td {
-    padding: 20px;
+    padding: 10px;
   }
 
   & th {
     padding: 5px;
-    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    border: 1px solid rgba(0, 0, 0, 0.2);
   }
-  & tbody tr:nth-child(even) {
+  & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
   }
 
   & thead {
     /* background: ${colors.blueSky}; */
-    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
   & tbody {
@@ -54,13 +54,13 @@ export const TABLE = styled.table`
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 21px;
+    /* line-height: 21px; */
     color: #000000;
   }
   & thead th {
     font-family: "Poppins";
     font-style: normal;
-    font-weight: 400;
+    font-weight: ${fontWeights.bold};
     font-size: 14px;
     line-height: 21px;
     color: #000000;
@@ -68,8 +68,10 @@ export const TABLE = styled.table`
     text-align: center;
     /* border: 1px solid rgba(0, 0, 0, 0.2); */
   }
-  & thead th:first-child {
-    border-left: none;
+
+  & thead th > div > span > span {
+    display: inline-block;
+    transform: rotate(90deg);
   }
 
   & tfoot > tr > th div label {
