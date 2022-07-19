@@ -20,15 +20,13 @@ interface Person {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
-    ID: "HD787",
-    User: "Hd123",
-    Host: `33${index}`,
-    DB: "2022-17-08",
-    Command: "2022-17-08",
+    Tanggal: "HD787",
+    NRP: "Hd123",
+    Nama: `33${index}`,
+    Posisi: "2022-17-08",
+    Status: "2022-17-08",
     Time: "2022-17-08 02:12:12",
-    State: "2022-17-08 02:12:12",
-    Info: "2022-17-08 02:12:12",
-    Action: "2022-17-08 02:12:12",
+    Mac: "2022-17-08 02:12:12",
   };
 });
 
@@ -46,11 +44,11 @@ export default function DeviceMonitoring() {
   ]);
   const columns: ColumnDef<Person>[] = [
     {
-      accessorKey: "ID",
+      accessorKey: "Tanggal",
       cell: (info) => info.getValue(),
       header: () => (
         <span>
-          ID
+          Tanggal
           <span>
             {"<>"}
           </span>
@@ -59,12 +57,12 @@ export default function DeviceMonitoring() {
       footer: (props) => props.column.id,
     },
     {
-      accessorFn: (row) => row.CN,
-      id: "User",
+      accessorFn: (row) => row.NRP,
+      id: "NRP",
       cell: (info) => info.getValue(),
       header: () => (
         <span>
-          User
+          NRP
           <span>
             {"<>"}
           </span>
@@ -73,10 +71,10 @@ export default function DeviceMonitoring() {
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "Host",
+      accessorKey: "Nama",
       header: () => (
         <span>
-          Host
+          Nama
           <span>
             {"<>"}
           </span>
@@ -86,10 +84,10 @@ export default function DeviceMonitoring() {
     },
 
     {
-      accessorKey: "DB",
+      accessorKey: "Posisi",
       header: () => (
         <span>
-          DB
+          Posisi
           <span>
             {"<>"}
           </span>
@@ -98,10 +96,10 @@ export default function DeviceMonitoring() {
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "Command",
+      accessorKey: "Status",
       header: () => (
         <span>
-          Command
+          Status
           <span>
             {"<>"}
           </span>
@@ -114,7 +112,7 @@ export default function DeviceMonitoring() {
       accessorKey: "Time",
       header: () => (
         <span>
-          Time(min)
+          Time
           <span
           >
             {"<>"}
@@ -124,10 +122,10 @@ export default function DeviceMonitoring() {
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "State",
+      accessorKey: "Mac",
       header: () => (
         <span>
-          State
+          Mac
           <span>
             {"<>"}
           </span>
@@ -136,32 +134,6 @@ export default function DeviceMonitoring() {
       footer: (props) => props.column.id,
       cell: (info) => <span>{info.getValue()}</span>,
       enableColumnFilter: false,
-    },
-    {
-      accessorKey: "Info",
-      header: () => (
-        <span>
-          Info
-          <span>
-            {"<>"}
-          </span>
-        </span>
-      ),
-      footer: (props) => props.column.id,
-      cell: (info) => <span>{info.getValue()}</span>,
-      enableColumnFilter: false,
-    },
-    {
-      accessorKey: "Action",
-      header: () => (
-        <span>
-          Action
-          <span>
-            {"<>"}
-          </span>
-        </span>
-      ),
-      footer: (props) => props.column.id,
     },
   ];
 
