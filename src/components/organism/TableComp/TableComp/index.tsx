@@ -47,26 +47,28 @@ export default function TableComp({ table }: IProps) {
                 headers: any[];
               }) => (
                 <tr key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <th key={header.id} rowSpan={1} colSpan={header.colSpan}>
-                      {header.isPlaceholder ? null : (
-                        <div
-                          style={{ cursor: "pointer", minWidth: "20px" }}
-                          {...{
-                            className: header.column.getCanSort()
-                              ? "cursor-pointer select-none"
-                              : "",
-                            onClick: header.column.getToggleSortingHandler(),
-                          }}
-                        >
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                        </div>
-                      )}
-                    </th>
-                  ))}
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <th key={header.id} rowSpan={1} colSpan={header.colSpan}>
+                        {header.isPlaceholder ? null : (
+                          <div
+                            style={{ cursor: "pointer", minWidth: "20px" }}
+                            {...{
+                              className: header.column.getCanSort()
+                                ? "cursor-pointer select-none"
+                                : "",
+                              onClick: header.column.getToggleSortingHandler(),
+                            }}
+                          >
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                          </div>
+                        )}
+                      </th>
+                    );
+                  })}
                 </tr>
               )
             )}

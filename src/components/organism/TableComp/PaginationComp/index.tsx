@@ -30,12 +30,6 @@ export default function PaginationComp({
       <Text variant="p">
         Showing {dataPerPage} of {totalData} Total Rows Selected
       </Text>
-      {/* <Pagination
-        numberOfPages={totalPage}
-        currentPage={currentPage}
-        nextButtonEvent={nextButtonEvent}
-        previousButtonEvent={previousButtonEvent}
-      /> */}
       <Pagination
         numberOfPages={totalPage}
         currentPage={currentPage}

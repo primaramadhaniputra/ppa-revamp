@@ -1,20 +1,27 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
 import { useSetSystemType } from "recoil/SystemType/atom";
 
 const SystemView = dynamic(() => import("views/System"));
 
-export default function SystemPage() {
-  const setSystemType = useSetSystemType();
-  setSystemType("vhms_download");
-  return <SystemView pageTitle="System / Survey" type="survey" />;
+interface IProps {
+  type: string;
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export default function SystemPage({ type }: IProps) {
+  const setSystemType = useSetSystemType();
+  setSystemType("vhms_download");
+  return <SystemView pageTitle={type} type={type} />;
+}
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
   try {
+    const type = context.query.name;
     return {
       props: {
-        data: [],
+        type,
       },
     };
   } catch (error: any) {

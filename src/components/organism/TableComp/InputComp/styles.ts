@@ -32,7 +32,7 @@ export const NumberInput = styled.input.attrs({
   padding: 4px 5px;
   outline: none;
   height: 100%;
-  border-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 `;
 

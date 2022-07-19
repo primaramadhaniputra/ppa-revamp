@@ -36,13 +36,8 @@ export const options = {
     legend: {
       position: "bottom" as const,
       labels: {
-        padding: 15,
-      },
-      title: {
-        display: true,
-        padding: {
-          bottom: 20,
-        },
+        padding: 30,
+        boxWidth: 15,
       },
     },
   },

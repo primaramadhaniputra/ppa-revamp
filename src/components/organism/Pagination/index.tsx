@@ -11,12 +11,10 @@ interface IProps {
 
 export default function Pagination({
   numberOfPages,
-  currentPage,
+  // currentPage,
   nextButtonEvent,
   previousButtonEvent,
 }: IProps) {
-  console.log(currentPage);
-
   const handleClick = (e: {
     [x: string]: any;
     isPrevious: boolean;
