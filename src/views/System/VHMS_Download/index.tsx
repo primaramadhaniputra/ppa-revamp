@@ -43,9 +43,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           Model
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -57,9 +55,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           CN
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -69,9 +65,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           SN
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -82,9 +76,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           Last Download
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -94,9 +86,7 @@ export default function VHMS_Download() {
       header: () => (
         <span>
           Last Operation
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -110,10 +100,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Pldcycn Record
-              <span
-              >
-                {"<>"}
-              </span>
+              <span>{"<>"}</span>
             </span>
           ),
           footer: (props) => props.column.id,
@@ -123,9 +110,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Trend Record
-              <span>
-                {"<>"}
-              </span>
+              <span>{"<>"}</span>
             </span>
           ),
           footer: (props) => props.column.id,
@@ -137,9 +122,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Fault Record
-              <span>
-                {"<>"}
-              </span>
+              <span>{"<>"}</span>
             </span>
           ),
           footer: (props) => props.column.id,
@@ -151,9 +134,7 @@ export default function VHMS_Download() {
           header: () => (
             <span>
               Machine History
-              <span>
-                {"<>"}
-              </span>
+              <span>{"<>"}</span>
             </span>
           ),
           footer: (props) => props.column.id,

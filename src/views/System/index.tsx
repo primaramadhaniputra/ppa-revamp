@@ -16,30 +16,26 @@ interface IProps {
 
 const renderContent = (type: string) => {
   if (type === "vhms_download") {
-    return <VHMS_Download />
+    return <VHMS_Download />;
   } else if (type === "database") {
-    return <Database />
-  } else if (type === 'survey') {
-    return <Survey />
-  } else if (type === 'app_version_control') {
-    return <App_Verions_Control />
-  } else if (type === 'user_feedback') {
-    return <App_Verions_Control />
-  } else if (type === 'abs_machine') {
-    return <Abs_Machine />
-  } else if (type === 'access_control') {
-    return <AccessControl />
-  } else if (type === 'events') {
-    return <Events />
+    return <Database />;
+  } else if (type === "survey") {
+    return <Survey />;
+  } else if (type === "app_version_control") {
+    return <App_Verions_Control />;
+  } else if (type === "user_feedback") {
+    return <App_Verions_Control />;
+  } else if (type === "abs_machine") {
+    return <Abs_Machine />;
+  } else if (type === "access_control") {
+    return <AccessControl />;
+  } else if (type === "events") {
+    return <Events />;
   } else {
-    return <DeviceMonitoring />
+    return <DeviceMonitoring />;
   }
-}
+};
 
 export default function Sytem({ pageTitle, type }: IProps) {
-  return (
-    <Layout title={`system / ${pageTitle}`}>
-      {renderContent(type)}
-    </Layout>
-  );
+  return <Layout title={`system / ${pageTitle}`}>{renderContent(type)}</Layout>;
 }

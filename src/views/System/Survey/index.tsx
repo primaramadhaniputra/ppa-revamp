@@ -20,7 +20,7 @@ export const defaultDataTable = arr.map((_, index) => {
   return {
     Dept: "HD787",
     MP: "Hd123",
-    ['Sudah mengisi']: `33${index}`,
+    ["Sudah mengisi"]: `33${index}`,
     Achievment: "2022-17-08",
   };
 });
@@ -37,9 +37,7 @@ export default function Survey() {
       header: () => (
         <span>
           Dept
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -51,9 +49,7 @@ export default function Survey() {
       header: () => (
         <span>
           MP
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -63,9 +59,7 @@ export default function Survey() {
       header: () => (
         <span>
           Sudah mengisi
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -76,9 +70,7 @@ export default function Survey() {
       header: () => (
         <span>
           Achievment
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,

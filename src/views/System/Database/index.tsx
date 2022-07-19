@@ -42,9 +42,7 @@ export default function Database() {
       header: () => (
         <span>
           ID
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -56,9 +54,7 @@ export default function Database() {
       header: () => (
         <span>
           User
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -68,9 +64,7 @@ export default function Database() {
       header: () => (
         <span>
           Host
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -81,9 +75,7 @@ export default function Database() {
       header: () => (
         <span>
           DB
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -93,9 +85,7 @@ export default function Database() {
       header: () => (
         <span>
           Command
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -106,10 +96,7 @@ export default function Database() {
       header: () => (
         <span>
           Time(min)
-          <span
-          >
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -119,9 +106,7 @@ export default function Database() {
       header: () => (
         <span>
           State
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -133,9 +118,7 @@ export default function Database() {
       header: () => (
         <span>
           Info
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -147,9 +130,7 @@ export default function Database() {
       header: () => (
         <span>
           Action
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,

@@ -20,8 +20,8 @@ export const defaultDataTable = arr.map((_, index) => {
   return {
     Dept: "HD787",
     MP: "Hd123",
-    ['New version']: `33${index}`,
-    ['Old version']: "2022-17-08",
+    ["New version"]: `33${index}`,
+    ["Old version"]: "2022-17-08",
     Update: "2022-17-08",
   };
 });
@@ -38,9 +38,7 @@ export default function App_Verions_Control() {
       header: () => (
         <span>
           Dept
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -52,9 +50,7 @@ export default function App_Verions_Control() {
       header: () => (
         <span>
           MP
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -64,9 +60,7 @@ export default function App_Verions_Control() {
       header: () => (
         <span>
           New version
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -77,9 +71,7 @@ export default function App_Verions_Control() {
       header: () => (
         <span>
           Old version
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -89,9 +81,7 @@ export default function App_Verions_Control() {
       header: () => (
         <span>
           Update
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,

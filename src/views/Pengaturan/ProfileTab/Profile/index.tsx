@@ -11,7 +11,7 @@ export default function Profile() {
     fullName: "",
     position: "",
     nrp: "",
-    mcu: ''
+    mcu: "",
   });
   useEffect(() => {
     getProfile({ path: "profile" }).then((e) => {
@@ -19,7 +19,7 @@ export default function Profile() {
         fullName: e.data.data.fullName,
         position: e.data.data.position,
         nrp: e.data.data.nrp,
-        mcu: e.data.data.mcu
+        mcu: e.data.data.mcu,
       };
       return setUsers(newData);
     });

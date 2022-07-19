@@ -41,9 +41,7 @@ export default function AccessControl() {
       header: () => (
         <span>
           NRP
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -55,9 +53,7 @@ export default function AccessControl() {
       header: () => (
         <span>
           Name
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -67,9 +63,7 @@ export default function AccessControl() {
       header: () => (
         <span>
           Dept
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -80,9 +74,7 @@ export default function AccessControl() {
       header: () => (
         <span>
           Position
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -92,34 +84,40 @@ export default function AccessControl() {
       header: () => (
         <span>
           Level
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Action",
-      cell: () =>
-        <Wrapper >
-          <IconContainer >
-            <IcEdit width={20} cursor='pointer' color="white" strokeWidth={1.5} />
-          </IconContainer>
-          <IconContainer >
-            <IcRefresh width={20} cursor='pointer' color="white" strokeWidth={1.5} />
+      cell: () => (
+        <Wrapper>
+          <IconContainer>
+            <IcEdit
+              width={20}
+              cursor="pointer"
+              color="white"
+              strokeWidth={1.5}
+            />
           </IconContainer>
           <IconContainer>
-            <IcBan width={20} cursor='pointer' color="white" strokeWidth={2} />
+            <IcRefresh
+              width={20}
+              cursor="pointer"
+              color="white"
+              strokeWidth={1.5}
+            />
           </IconContainer>
-        </Wrapper>,
+          <IconContainer>
+            <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} />
+          </IconContainer>
+        </Wrapper>
+      ),
       header: () => (
         <span>
           Action
-          <span
-          >
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,

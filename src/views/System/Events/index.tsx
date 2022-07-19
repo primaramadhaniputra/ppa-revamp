@@ -39,9 +39,7 @@ export default function Events() {
       header: () => (
         <span>
           ID
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -53,9 +51,7 @@ export default function Events() {
       header: () => (
         <span>
           Event
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -65,9 +61,7 @@ export default function Events() {
       header: () => (
         <span>
           Repeat
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -78,9 +72,7 @@ export default function Events() {
       header: () => (
         <span>
           Interval
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -90,9 +82,7 @@ export default function Events() {
       header: () => (
         <span>
           Time
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -102,9 +92,7 @@ export default function Events() {
       header: () => (
         <span>
           Last Executed
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,

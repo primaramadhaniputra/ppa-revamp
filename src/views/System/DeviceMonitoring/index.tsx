@@ -49,9 +49,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           Tanggal
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -63,9 +61,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           NRP
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -75,9 +71,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           Nama
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -88,9 +82,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           Posisi
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -100,9 +92,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           Status
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -113,10 +103,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           Time
-          <span
-          >
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -126,9 +113,7 @@ export default function DeviceMonitoring() {
       header: () => (
         <span>
           Mac
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -156,7 +141,7 @@ export default function DeviceMonitoring() {
 
   return (
     <>
-      <Grid style={{ maxWidth: '300px' }}>
+      <Grid style={{ maxWidth: "300px" }}>
         <SearchingForm
           title="Menu"
           placeholder="Device / Production / Payload"

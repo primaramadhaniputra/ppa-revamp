@@ -37,9 +37,7 @@ export default function Abs_Machine() {
       header: () => (
         <span>
           ID
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -51,9 +49,7 @@ export default function Abs_Machine() {
       header: () => (
         <span>
           IP
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -63,9 +59,7 @@ export default function Abs_Machine() {
       header: () => (
         <span>
           Lokasi
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
@@ -76,9 +70,7 @@ export default function Abs_Machine() {
       header: () => (
         <span>
           Last download
-          <span>
-            {"<>"}
-          </span>
+          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
