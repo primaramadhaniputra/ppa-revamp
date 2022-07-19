@@ -1,5 +1,6 @@
-import { Grid, Pagination, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React from "react";
+import Pagination from "../../Pagination";
 
 interface IProps {
   dataPerPage: number;
@@ -29,6 +30,12 @@ export default function PaginationComp({
       <Text variant="p">
         Showing {dataPerPage} of {totalData} Total Rows Selected
       </Text>
+      {/* <Pagination
+        numberOfPages={totalPage}
+        currentPage={currentPage}
+        nextButtonEvent={nextButtonEvent}
+        previousButtonEvent={previousButtonEvent}
+      /> */}
       <Pagination
         numberOfPages={totalPage}
         currentPage={currentPage}
