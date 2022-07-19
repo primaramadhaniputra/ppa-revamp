@@ -64,6 +64,10 @@ export default function TableComp({ table }: IProps) {
                               header.column.columnDef.header,
                               header.getContext()
                             )}
+                            {{
+                              asc: " 🔼",
+                              desc: " 🔽",
+                            }[header.column.getIsSorted() as string] ?? null}
                           </div>
                         )}
                       </th>
