@@ -59,6 +59,36 @@ export default function ChartData({ data }: IProps) {
     labels,
     datasets: dataValue,
   };
+
+  // const datas = {
+  //   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  //   datasets: [
+  //     {
+  //       type: 'line' as const,
+  //       label: 'Dataset 1',
+  //       borderColor: 'rgb(255, 99, 132)',
+  //       borderWidth: 2,
+  //       fill: false,
+  //       data: [10, 20, 20, 40, 50, 60, 10],
+  //     },
+  //     {
+  //       type: 'bar' as const,
+  //       label: 'Dataset 2',
+  //       backgroundColor: 'rgb(75, 192, 192)',
+  //       data: [10, 50, 30, 40, 50, 60, 70],
+  //       borderColor: 'white',
+  //       borderWidth: 2,
+  //     },
+  //     {
+  //       type: 'bar' as const,
+  //       label: 'Dataset 2',
+  //       backgroundColor: 'rgb(113, 76, 199)',
+  //       data: [10, 50, 30, 40, 50, 60, 70],
+  //       borderColor: 'white',
+  //       borderWidth: 2,
+  //     }
+  //   ]
+  // };
   return (
     <div style={{ maxWidth: "1400px", width: "100%" }}>
       <Bar options={options} data={datas} />
