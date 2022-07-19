@@ -18,47 +18,48 @@ interface Person {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
-    ID: "HD787",
-    IP: "Hd123",
-    Lokasi: `33${index}`,
-    ["Last download"]: "2022-17-08",
+    Dept: "HD787",
+    MP: "Hd123",
+    ["New version"]: `33${index}`,
+    ["Old version"]: "2022-17-08",
+    Update: "2022-17-08",
   };
 });
 
-export default function Abs_Machine() {
+export default function AppVerionsControl() {
   const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const columns: ColumnDef<Person>[] = [
     {
-      accessorKey: "ID",
+      accessorKey: "Dept",
       cell: (info) => info.getValue(),
       header: () => (
         <span>
-          ID
+          Dept
           <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorFn: (row) => row.IP,
-      id: "IP",
+      accessorFn: (row) => row.MP,
+      id: "MP",
       cell: (info) => info.getValue(),
       header: () => (
         <span>
-          IP
+          MP
           <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "Lokasi",
+      accessorKey: "New version",
       header: () => (
         <span>
-          Lokasi
+          New version
           <span>{"<>"}</span>
         </span>
       ),
@@ -66,10 +67,20 @@ export default function Abs_Machine() {
     },
 
     {
-      accessorKey: "Last download",
+      accessorKey: "Old version",
       header: () => (
         <span>
-          Last download
+          Old version
+          <span>{"<>"}</span>
+        </span>
+      ),
+      footer: (props) => props.column.id,
+    },
+    {
+      accessorKey: "Update",
+      header: () => (
+        <span>
+          Update
           <span>{"<>"}</span>
         </span>
       ),
@@ -102,6 +113,7 @@ export default function Abs_Machine() {
       setGlobalFilter={setGlobalFilter}
       filterBottom={false}
       noButton={true}
+      noSearch={true}
     />
   );
 }

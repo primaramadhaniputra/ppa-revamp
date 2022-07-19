@@ -1,14 +1,11 @@
 import styled from "styled-components";
-import { colors, fontWeights, mediaQueries } from "utils/styles";
+import { colors, fontWeights } from "utils/styles";
 
 export const Wrapper = styled.div`
   overflow-x: scroll;
-  /* ${mediaQueries.xl} {
-        overflow: hidden;
-    } */
   ::-webkit-scrollbar {
     width: 12px;
-    height: 7px;
+    height: 5px;
   }
 
   ::-webkit-scrollbar-track {
@@ -38,7 +35,7 @@ export const TABLE = styled.table`
 
   & th {
     padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
@@ -46,7 +43,7 @@ export const TABLE = styled.table`
 
   & thead {
     /* background: ${colors.blueSky}; */
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
   }
 
   & tbody {

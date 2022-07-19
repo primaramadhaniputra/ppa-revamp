@@ -18,48 +18,47 @@ interface Person {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
-    Dept: "HD787",
-    MP: "Hd123",
-    ["New version"]: `33${index}`,
-    ["Old version"]: "2022-17-08",
-    Update: "2022-17-08",
+    ID: "HD787",
+    IP: "Hd123",
+    Lokasi: `33${index}`,
+    ["Last download"]: "2022-17-08",
   };
 });
 
-export default function App_Verions_Control() {
+export default function AbsMachine() {
   const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const columns: ColumnDef<Person>[] = [
     {
-      accessorKey: "Dept",
+      accessorKey: "ID",
       cell: (info) => info.getValue(),
       header: () => (
         <span>
-          Dept
+          ID
           <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorFn: (row) => row.MP,
-      id: "MP",
+      accessorFn: (row) => row.IP,
+      id: "IP",
       cell: (info) => info.getValue(),
       header: () => (
         <span>
-          MP
+          IP
           <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "New version",
+      accessorKey: "Lokasi",
       header: () => (
         <span>
-          New version
+          Lokasi
           <span>{"<>"}</span>
         </span>
       ),
@@ -67,20 +66,10 @@ export default function App_Verions_Control() {
     },
 
     {
-      accessorKey: "Old version",
+      accessorKey: "Last download",
       header: () => (
         <span>
-          Old version
-          <span>{"<>"}</span>
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Update",
-      header: () => (
-        <span>
-          Update
+          Last download
           <span>{"<>"}</span>
         </span>
       ),
@@ -113,7 +102,6 @@ export default function App_Verions_Control() {
       setGlobalFilter={setGlobalFilter}
       filterBottom={false}
       noButton={true}
-      noSearch={true}
     />
   );
 }

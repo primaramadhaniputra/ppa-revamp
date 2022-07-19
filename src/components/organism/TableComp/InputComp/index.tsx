@@ -75,6 +75,7 @@ export default function InputComp({
                 color: colors.white,
                 padding: "5px",
                 fontWeight: fontWeights.bold,
+                borderRadius: "2px",
               }}
             >
               EXPORT
@@ -86,7 +87,6 @@ export default function InputComp({
             value={globalFilter ?? ""}
             onChange={(e) => setGlobalFilter(String(e))}
             className="p-2 font-lg shadow border border-block"
-            placeholder="Search all columns..."
           />
         )}
         {!setGlobalFilter && (

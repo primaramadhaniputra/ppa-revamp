@@ -1,13 +1,13 @@
 import React from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
-import Abs_Machine from "./Abs_Machine";
+import AbsMachine from "./AbsMachine";
 import AccessControl from "./AccessControl";
-import App_Verions_Control from "./App_Version_Control";
+import AppVerionsControl from "./AppVersionControl";
 import Database from "./Database";
 import DeviceMonitoring from "./DeviceMonitoring";
 import Events from "./Events";
 import Survey from "./Survey";
-import VHMS_Download from "./VHMS_Download";
+import VHMSDownload from "./VHMSDownload";
 
 interface IProps {
   pageTitle: string;
@@ -16,17 +16,17 @@ interface IProps {
 
 const renderContent = (type: string) => {
   if (type === "vhms_download") {
-    return <VHMS_Download />;
+    return <VHMSDownload />;
   } else if (type === "database") {
     return <Database />;
   } else if (type === "survey") {
     return <Survey />;
   } else if (type === "app_version_control") {
-    return <App_Verions_Control />;
+    return <AppVerionsControl />;
   } else if (type === "user_feedback") {
-    return <App_Verions_Control />;
+    return <AppVerionsControl />;
   } else if (type === "abs_machine") {
-    return <Abs_Machine />;
+    return <AbsMachine />;
   } else if (type === "access_control") {
     return <AccessControl />;
   } else if (type === "events") {

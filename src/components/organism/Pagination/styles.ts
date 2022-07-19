@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   & ul li {
     list-style: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 5px 10px;
     font-family: ${fontFamilies.poppins};
     cursor: pointer;

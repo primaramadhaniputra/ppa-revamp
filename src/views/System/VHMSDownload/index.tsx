@@ -31,7 +31,7 @@ export const defaultDataTable = arr.map((_, index) => {
   };
 });
 
-export default function VHMS_Download() {
+export default function VHMSDownload() {
   const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
