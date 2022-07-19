@@ -11,6 +11,7 @@ export default function Profile() {
     fullName: "",
     position: "",
     nrp: "",
+    mcu: ''
   });
   useEffect(() => {
     getProfile({ path: "profile" }).then((e) => {
@@ -18,6 +19,7 @@ export default function Profile() {
         fullName: e.data.data.fullName,
         position: e.data.data.position,
         nrp: e.data.data.nrp,
+        mcu: e.data.data.mcu
       };
       return setUsers(newData);
     });
@@ -63,7 +65,7 @@ export default function Profile() {
             <LabeledInput
               name="valid-mcu"
               title="Valid Mcu"
-              value="1234567"
+              value={users.mcu}
               disabled={true}
             />
           </Grid>

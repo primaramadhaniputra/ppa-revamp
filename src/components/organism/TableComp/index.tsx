@@ -9,6 +9,8 @@ interface Person {
   globalFilter?: string;
   setGlobalFilter?: React.Dispatch<React.SetStateAction<string>>;
   filterBottom: boolean;
+  noButton?: boolean;
+  noSearch?: boolean;
   [x: string]: any;
 }
 
@@ -17,6 +19,8 @@ export default function TableComponent({
   globalFilter,
   setGlobalFilter,
   filterBottom,
+  noButton,
+  noSearch,
 }: Person) {
   const handleChangeTotalShowData = (e: { target: { value: number } }) => {
     table.setPageSize(e.target.value);
@@ -32,6 +36,8 @@ export default function TableComponent({
         handleChange={handleChangeTotalShowData}
         globalFilter={globalFilter}
         setGlobalFilter={setGlobalFilter}
+        noButton={noButton}
+        noSearch={noSearch}
       />
       <TableComp table={table} filterBottom={filterBottom} />
       <PaginationComp

@@ -9,6 +9,8 @@ interface IInputComp {
   handleChange: (e: any) => void;
   globalFilter?: string;
   setGlobalFilter?: React.Dispatch<React.SetStateAction<string>>;
+  noButton: boolean | undefined;
+  noSearch: boolean | undefined;
 }
 function DebouncedInput({
   value: initialValue,
@@ -51,6 +53,8 @@ export default function InputComp({
   handleChange,
   globalFilter,
   setGlobalFilter,
+  noButton,
+  noSearch,
 }: IInputComp) {
   return (
     <Wrapper container>
@@ -63,19 +67,21 @@ export default function InputComp({
         <Text variant="p">entries</Text>
       </Grid>
       <Grid container gap={30}>
-        <ButtonWrapper style={{ minWidth: "142px" }}>
-          <StyledButton
-            style={{
-              backgroundColor: colors.orange,
-              color: colors.white,
-              padding: "5px",
-              fontWeight: fontWeights.bold,
-            }}
-          >
-            EXPORT
-          </StyledButton>
-        </ButtonWrapper>
-        {setGlobalFilter && (
+        {!noButton && (
+          <ButtonWrapper style={{ minWidth: "142px" }}>
+            <StyledButton
+              style={{
+                backgroundColor: colors.orange,
+                color: colors.white,
+                padding: "5px",
+                fontWeight: fontWeights.bold,
+              }}
+            >
+              EXPORT
+            </StyledButton>
+          </ButtonWrapper>
+        )}
+        {setGlobalFilter && !noSearch && (
           <DebouncedInput
             value={globalFilter ?? ""}
             onChange={(e) => setGlobalFilter(String(e))}

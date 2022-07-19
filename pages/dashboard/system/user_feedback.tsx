@@ -4,7 +4,9 @@ import dynamic from "next/dynamic";
 const SystemView = dynamic(() => import("views/System"));
 
 export default function SystemPage() {
-  return <SystemView pageTitle="System / Users feedback" />;
+  return (
+    <SystemView pageTitle="System / Users feedback" type="user_feedback" />
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
