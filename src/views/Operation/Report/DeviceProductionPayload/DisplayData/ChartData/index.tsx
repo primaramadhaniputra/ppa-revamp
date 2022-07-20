@@ -33,9 +33,8 @@ export default function ChartData({ data }: IProps) {
     return {
       label: item,
       data: value,
-      backgroundColor: `hsl(${360 * Math.random()},${
-        25 + 70 * Math.random()
-      }%,${85 + 10 * Math.random()}%)`,
+      backgroundColor: `hsl(${360 * Math.random()},${25 + 70 * Math.random()
+        }%,${85 + 10 * Math.random()}%)`,
     };
   });
   useEffect(() => {
@@ -110,6 +109,7 @@ export default function ChartData({ data }: IProps) {
   //     }
   //   ]
   // };
+
 
   return (
     <div style={{ maxWidth: "1400px", width: "100%" }}>

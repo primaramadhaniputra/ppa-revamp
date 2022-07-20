@@ -1,6 +1,6 @@
 import React from "react";
 import { IDropdownData } from "utils/interfaces";
-import RDPP from "./RDPP";
+import RDPP from "./Report/RDPP";
 
 export default function renderContent(
   queryName: string,
