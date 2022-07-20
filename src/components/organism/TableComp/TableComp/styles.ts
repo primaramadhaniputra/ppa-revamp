@@ -33,9 +33,11 @@ export const TABLE = styled.table`
     padding: 10px;
   }
 
+  & tr {
+  }
+
   & th {
     padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
   }
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
