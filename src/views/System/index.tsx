@@ -2,12 +2,13 @@ import React from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import AbsMachine from "./AbsMachine";
 import AccessControl from "./AccessControl";
-import AppVerionsControl from "./AppVersionControl";
 import Database from "./Database";
 import DeviceMonitoring from "./DeviceMonitoring";
 import Events from "./Events";
 import Survey from "./Survey";
 import VHMSDownload from "./VHMSDownload";
+import AppVersionControl from "./AppVersionControl";
+import UserFeedback from "./UserFeedback";
 
 interface IProps {
   pageTitle: string;
@@ -22,9 +23,9 @@ const renderContent = (type: string) => {
   } else if (type === "survey") {
     return <Survey />;
   } else if (type === "app_version_control") {
-    return <AppVerionsControl />;
+    return <AppVersionControl />;
   } else if (type === "user_feedback") {
-    return <AppVerionsControl />;
+    return <UserFeedback />;
   } else if (type === "abs_machine") {
     return <AbsMachine />;
   } else if (type === "access_control") {

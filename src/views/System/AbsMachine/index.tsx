@@ -10,6 +10,8 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import { Grid } from "@hudoro/neron";
+import { ArrowDown, ArrowUp } from "../styles";
 
 interface Person {
   [x: string]: any;
@@ -35,10 +37,15 @@ export default function AbsMachine() {
       accessorKey: "ID",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          ID
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            ID
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -47,20 +54,30 @@ export default function AbsMachine() {
       id: "IP",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          IP
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            IP
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Lokasi",
       header: () => (
-        <span>
-          Lokasi
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Lokasi
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -68,10 +85,15 @@ export default function AbsMachine() {
     {
       accessorKey: "Last download",
       header: () => (
-        <span>
-          Last download
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Last Download
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },

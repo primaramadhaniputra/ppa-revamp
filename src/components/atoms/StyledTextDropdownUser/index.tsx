@@ -57,11 +57,11 @@ export default function StyledTextDropdownUser({
           />
         </Grid>
       ) : (
-        <HoverWrapper>
+        <HoverWrapper onClick={handleClick}>
           <Text variant="h4" style={{ ...styles }}>
             {title}
           </Text>
-          <Icon iconName={iconName} color="white" onClick={handleClick} />
+          <Icon iconName={iconName} color="white" />
         </HoverWrapper>
       )}
     </>

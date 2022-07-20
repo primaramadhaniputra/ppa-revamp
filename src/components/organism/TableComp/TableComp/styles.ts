@@ -90,3 +90,11 @@ export const TABLE = styled.table`
         font-size: 14px;
     } */
 `;
+
+export const ThItemContainer = styled.div`
+  cursor: pointer;
+  min-width: 20px;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+`;

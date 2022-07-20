@@ -12,6 +12,8 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
 import { IconContainer, Wrapper } from "./styles";
+import { Grid } from "@hudoro/neron";
+import { ArrowDown, ArrowUp } from "../styles";
 
 interface Person {
   [x: string]: any;
@@ -39,10 +41,15 @@ export default function AccessControl() {
       accessorKey: "NRP",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          NRP
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            NRP
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -51,20 +58,30 @@ export default function AccessControl() {
       id: "Name",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          Name
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Name
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Dept",
       header: () => (
-        <span>
-          Dept
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Dept
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -72,20 +89,30 @@ export default function AccessControl() {
     {
       accessorKey: "Position",
       header: () => (
-        <span>
-          Position
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Position
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Level",
       header: () => (
-        <span>
-          Level
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Level
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -117,7 +144,6 @@ export default function AccessControl() {
       header: () => (
         <span>
           Action
-          <span>{"<>"}</span>
         </span>
       ),
       footer: (props) => props.column.id,

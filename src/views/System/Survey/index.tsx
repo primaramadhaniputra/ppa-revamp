@@ -10,12 +10,14 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import { fontWeights } from "utils/styles";
+import { fontFamilies } from "@hudoro/neron";
 
 interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
     Dept: "HD787",
@@ -37,10 +39,10 @@ export default function Survey() {
       header: () => (
         <span>
           Dept
-          <span>{"<>"}</span>
         </span>
       ),
-      footer: (props) => props.column.id,
+      // footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>Total</span>,
     },
     {
       accessorFn: (row) => row.MP,
@@ -49,20 +51,18 @@ export default function Survey() {
       header: () => (
         <span>
           MP
-          <span>{"<>"}</span>
         </span>
       ),
-      footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
     },
     {
       accessorKey: "Sudah mengisi",
       header: () => (
         <span>
           Sudah mengisi
-          <span>{"<>"}</span>
         </span>
       ),
-      footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
     },
 
     {
@@ -70,10 +70,9 @@ export default function Survey() {
       header: () => (
         <span>
           Achievment
-          <span>{"<>"}</span>
         </span>
       ),
-      footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
     },
   ];
 
@@ -103,6 +102,9 @@ export default function Survey() {
       filterBottom={false}
       noButton={true}
       noSearch={true}
+      noPagination={true}
+      noInputComp={true}
+      withFooter={true}
     />
   );
 }

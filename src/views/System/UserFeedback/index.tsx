@@ -10,6 +10,8 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import { Grid } from "@hudoro/neron";
+import { ArrowDown, ArrowUp } from "../styles";
 
 interface Person {
   [x: string]: any;
@@ -18,76 +20,96 @@ interface Person {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
-    ID: "HD787",
-    Event: "Hd123",
-    Repeat: `33${index}`,
-    Interval: "2022-17-08",
-    Time: "2022-17-08",
-    ["Last Executed"]: "2022-17-08",
+    Dept: "HD787",
+    MP: "Hd123",
+    ["New version"]: `33${index}`,
+    ["Old version"]: "2022-17-08",
+    Update: "2022-17-08",
   };
 });
 
-export default function Events() {
+export default function UserFeedback() {
   const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const columns: ColumnDef<Person>[] = [
     {
-      accessorKey: "ID",
+      accessorKey: "Dept",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          ID
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Dept
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorFn: (row) => row.Event,
-      id: "Event",
+      accessorFn: (row) => row.MP,
+      id: "MP",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          Event
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            MP
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "Repeat",
+      accessorKey: "New version",
       header: () => (
-        <span>
-          Repeat
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            New Version
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
 
     {
-      accessorKey: "Interval",
+      accessorKey: "Old version",
       header: () => (
-        <span>
-          Interval
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Old Version
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorKey: "Time",
+      accessorKey: "Update",
       header: () => (
-        <span>
-          Time
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Last Executed",
-      header: () => (
-        <span>
-          Last Executed
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Update
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { flexRender } from "@tanstack/react-table";
-import { TABLE, Wrapper } from "./styles";
+import { TABLE, ThItemContainer, Wrapper } from "./styles";
 
 interface IProps {
   filterBottom: boolean;
@@ -34,7 +34,7 @@ interface IProps {
 //   );
 // }
 // , filterBottom
-export default function TableComp({ table }: IProps) {
+export default function TableComp({ table, withFooter }: IProps) {
   return (
     <Wrapper>
       <TABLE className="paleBlueRows">
@@ -51,8 +51,7 @@ export default function TableComp({ table }: IProps) {
                     return (
                       <th key={header.id} rowSpan={1} colSpan={header.colSpan}>
                         {header.isPlaceholder ? null : (
-                          <div
-                            style={{ cursor: "pointer", minWidth: "20px" }}
+                          <ThItemContainer
                             {...{
                               className: header.column.getCanSort()
                                 ? "cursor-pointer select-none"
@@ -68,7 +67,7 @@ export default function TableComp({ table }: IProps) {
                               asc: " 🔼",
                               desc: " 🔽",
                             }[header.column.getIsSorted() as string] ?? null}
-                          </div>
+                          </ThItemContainer>
                         )}
                       </th>
                     );
@@ -98,6 +97,31 @@ export default function TableComp({ table }: IProps) {
               )
             )}
         </tbody>
+        {withFooter && (
+          <tfoot>
+            {table
+              .getFooterGroups()
+              .map(
+                (footerGroup: {
+                  id: React.Key | null | undefined;
+                  headers: any[];
+                }) => (
+                  <tr key={footerGroup.id}>
+                    {footerGroup.headers.map((header) => (
+                      <th key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.footer,
+                              header.getContext()
+                            )}
+                      </th>
+                    ))}
+                  </tr>
+                )
+              )}
+          </tfoot>
+        )}
         {/* <tfoot>
           {table
             .getHeaderGroups()

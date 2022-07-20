@@ -10,6 +10,8 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import { Grid } from "@hudoro/neron";
+import { ArrowDown, ArrowUp } from "../styles";
 
 interface Person {
   [x: string]: any;
@@ -40,32 +42,47 @@ export default function Database() {
       accessorKey: "ID",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          ID
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            ID
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
-      accessorFn: (row) => row.CN,
+      accessorFn: (row) => row.User,
       id: "User",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          User
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            User
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Host",
       header: () => (
-        <span>
-          Host
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Host
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -73,20 +90,30 @@ export default function Database() {
     {
       accessorKey: "DB",
       header: () => (
-        <span>
-          DB
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            DB
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Command",
       header: () => (
-        <span>
-          Command
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Command
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -94,20 +121,30 @@ export default function Database() {
     {
       accessorKey: "Time",
       header: () => (
-        <span>
-          Time(min)
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Time(min)
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "State",
       header: () => (
-        <span>
-          State
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            State
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
       cell: (info) => <span>{info.getValue()}</span>,
@@ -116,10 +153,15 @@ export default function Database() {
     {
       accessorKey: "Info",
       header: () => (
-        <span>
-          Info
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Info
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
       cell: (info) => <span>{info.getValue()}</span>,
@@ -128,10 +170,15 @@ export default function Database() {
     {
       accessorKey: "Action",
       header: () => (
-        <span>
-          Action
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Action
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },

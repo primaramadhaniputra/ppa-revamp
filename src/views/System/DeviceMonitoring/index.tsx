@@ -12,6 +12,7 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import SearchingForm from "src/components/organism/SearchingForm";
 import { Grid } from "@hudoro/neron";
+import { ArrowDown, ArrowUp } from "../styles";
 
 interface Person {
   [x: string]: any;
@@ -47,10 +48,15 @@ export default function DeviceMonitoring() {
       accessorKey: "Tanggal",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          Tanggal
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Tanggal
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -59,20 +65,30 @@ export default function DeviceMonitoring() {
       id: "NRP",
       cell: (info) => info.getValue(),
       header: () => (
-        <span>
-          NRP
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            NRP
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Nama",
       header: () => (
-        <span>
-          Nama
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Nama
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -80,20 +96,30 @@ export default function DeviceMonitoring() {
     {
       accessorKey: "Posisi",
       header: () => (
-        <span>
-          Posisi
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Posisi
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Status",
       header: () => (
-        <span>
-          Status
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Status
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
@@ -101,20 +127,30 @@ export default function DeviceMonitoring() {
     {
       accessorKey: "Time",
       header: () => (
-        <span>
-          Time
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Time
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Mac",
       header: () => (
-        <span>
-          Mac
-          <span>{"<>"}</span>
-        </span>
+        <Grid container alignItems="center" gap={7}>
+          <span>
+            Mac
+          </span>
+          <Grid>
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </Grid>
       ),
       footer: (props) => props.column.id,
       cell: (info) => <span>{info.getValue()}</span>,

@@ -1,4 +1,5 @@
 import React from "react";
+import { fontWeights } from "utils/styles";
 import { TabText, Wrapper } from "./styles";
 
 interface IProps {
@@ -12,7 +13,9 @@ export default function Tabs({ activeTab, setactiveTab }: IProps) {
   return (
     <Wrapper>
       <TabText
-        style={{ color: activeTab === 0 ? "rgba(0,0,0,1)" : "rgba(0,0,0,0.3)" }}
+        style={{
+          fontWeight: activeTab === 0 ? fontWeights.bold : fontWeights.regular,
+        }}
       >
         Pengaturan Profile
       </TabText>

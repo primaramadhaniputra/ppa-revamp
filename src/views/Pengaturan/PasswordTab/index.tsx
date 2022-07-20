@@ -1,14 +1,18 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
+import Cookies from "js-cookie";
 import Router from "next/router";
 import React, { FormEvent } from "react";
 import { changePassword } from "services/users";
-import { notify } from "utils/functions";
+import { notify, parseJwt } from "utils/functions";
 import { fontWeights } from "utils/styles";
-import { ButtonWrapper, Container } from "./styles";
+import { ButtonWrapper, Container, TextForgotPassword } from "./styles";
 
 export default function PasswordTab() {
+
+  const token = Cookies.get('token')
+
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
       form.preventDefault();
@@ -30,15 +34,21 @@ export default function PasswordTab() {
       notify(err.message, "error");
     }
   };
+
+  const handleForgotPassword = async () => {
+    const parseToken = parseJwt(token as string)
+    console.log(parseToken)
+  }
+
   return (
     <Container>
       <form onSubmit={handleSubmit}>
         <Grid container flexDirection="column" gap={30}>
           <Grid container flexDirection="column" gap={7}>
             <LabeledInput name="currentPassword" title="Password saat ini" />
-            <Text variant="mute" style={{ color: "rgba(0,0,255,.7" }}>
+            <TextForgotPassword onClick={handleForgotPassword} >
               Lupa password?
-            </Text>
+            </TextForgotPassword>
           </Grid>
 
           <LabeledInput name="newPassword" title="Password baru" />

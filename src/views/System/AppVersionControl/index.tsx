@@ -10,23 +10,24 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import { fontWeights } from "utils/styles";
+import { fontFamilies } from "@hudoro/neron";
 
 interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
     Dept: "HD787",
     MP: "Hd123",
-    ["New version"]: `33${index}`,
-    ["Old version"]: "2022-17-08",
-    Update: "2022-17-08",
+    ["Sudah mengisi"]: `33${index}`,
+    Achievment: "2022-17-08",
   };
 });
 
-export default function AppVerionsControl() {
+export default function AppVersionControl() {
   const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
@@ -38,10 +39,10 @@ export default function AppVerionsControl() {
       header: () => (
         <span>
           Dept
-          <span>{"<>"}</span>
         </span>
       ),
-      footer: (props) => props.column.id,
+      // footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>Total</span>,
     },
     {
       accessorFn: (row) => row.MP,
@@ -50,41 +51,28 @@ export default function AppVerionsControl() {
       header: () => (
         <span>
           MP
-          <span>{"<>"}</span>
         </span>
       ),
-      footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
     },
     {
-      accessorKey: "New version",
+      accessorKey: "Sudah mengisi",
       header: () => (
         <span>
-          New version
-          <span>{"<>"}</span>
+          Sudah mengisi
         </span>
       ),
-      footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
     },
 
     {
-      accessorKey: "Old version",
+      accessorKey: "Achievment",
       header: () => (
         <span>
-          Old version
-          <span>{"<>"}</span>
+          Achievment
         </span>
       ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Update",
-      header: () => (
-        <span>
-          Update
-          <span>{"<>"}</span>
-        </span>
-      ),
-      footer: (props) => props.column.id,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
     },
   ];
 
@@ -114,6 +102,10 @@ export default function AppVerionsControl() {
       filterBottom={false}
       noButton={true}
       noSearch={true}
+      noPagination={true}
+      noInputComp={true}
+      withFooter={true}
+      titleHeader='Mobile App Version Control MHU'
     />
   );
 }

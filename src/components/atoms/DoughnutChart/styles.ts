@@ -31,7 +31,7 @@ export const DataContainer = styled(Grid).attrs({
   border-radius: 3px;
   padding: 10px 20px;
   & :nth-child(1) {
-    font-weight: ${fontWeights.semi};
+    font-weight: ${fontWeights.bold};
   }
   & :nth-child(2) {
     color: ${colors.white};
