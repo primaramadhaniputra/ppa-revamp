@@ -40,7 +40,7 @@ export default function SearchingForm({
     return setIsShowDate(!isShowDate);
   };
   return (
-    <Wrapper>
+    <Wrapper style={{ flex: "2" }}>
       {isShift && (
         <Grid>
           <InputLabel variant="p">Shift</InputLabel>

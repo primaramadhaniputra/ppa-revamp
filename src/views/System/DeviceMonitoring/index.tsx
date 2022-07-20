@@ -13,6 +13,9 @@ import { useSystemTypeValue } from "recoil/SystemType/atom";
 import SearchingForm from "src/components/organism/SearchingForm";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
+import { dummyInputDropdown } from "utils/dummy";
+import StyledButton from "atoms/StyledButton";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 interface Person {
   [x: string]: any;
@@ -177,20 +180,23 @@ export default function DeviceMonitoring() {
 
   return (
     <>
-      <Grid style={{ maxWidth: "300px" }}>
+      <Grid container alignItems="flex-end" gap={15} >
         <SearchingForm
-          title="Menu"
-          placeholder="Device / Production / Payload"
-          isMenu={false}
+          title="Filter"
+          placeholder="Status"
+          isMenu={true}
           isDate={true}
           isShift={false}
-          // dropDownData={data}
+          dropDownData={dummyInputDropdown}
           // dropDownDefaultvalue={defaultValue}
           // onChangeDropdownMenu={handleChangeOperation}
           // onSearchDate={handleSearchOperationReportDate}
           calendarState={state}
           setCalendarState={setState}
         />
+        <Grid style={{ flex: 1 }}>
+          <StyledButton style={{ backgroundColor: colors.orange, fontWeight: fontWeights.bold, fontSize: fontSizing.lg.fontSize }}>Show</StyledButton>
+        </Grid>
       </Grid>
       <TableComponent
         table={table}
