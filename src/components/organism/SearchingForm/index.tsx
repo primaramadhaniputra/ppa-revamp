@@ -14,9 +14,7 @@ interface IProps {
   isShift: boolean;
   dropDownDefaultvalue?: IDropdownData;
   dropDownData?: IDropdownData[];
-  onChangeDropdownMenu?: (
-    e: ISelectItem | ISelectItem[] | null
-  ) => Promise<boolean> | Promise<void>;
+  onChangeDropdownMenu?: (e: ISelectItem | ISelectItem[] | null) => void;
   onSearchDate?: () => void;
   calendarState?: ICalendarState[];
   setCalendarState?: React.Dispatch<React.SetStateAction<ICalendarState[]>>;

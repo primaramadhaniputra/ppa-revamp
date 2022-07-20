@@ -1,7 +1,11 @@
 import React from "react";
+import Layout from "src/components/layouts/Dashboard/layout";
 import { IDropdownData } from "utils/interfaces";
+import DeviceProductionEmptySpeed from "./Report/DeviceProductionEmptySpeed";
+import DeviceProductionEmptyStop from "./Report/DeviceProductionEmptyStop";
+import DeviceProductionLoadedSpeed from "./Report/DeviceProductionLoadedSpeed";
+import DeviceProductionLoadingTime from "./Report/DeviceProductionLoadingTime";
 import DeviceProductionPayload from "./Report/DeviceProductionPayload";
-import RDPP from "./Report/RDPP";
 interface IProps {
   defaultValue: IDropdownData;
   data: IDropdownData[];
@@ -10,7 +14,6 @@ interface IProps {
 
 function renderContent(
   queryName: string,
-  data: IDropdownData[],
   defaultValue: IDropdownData
 ) {
   switch (queryName) {
@@ -22,100 +25,37 @@ function renderContent(
       );
     case "device_production_empty_stop":
       return (
-        <RDPP
-          data={data}
+        <DeviceProductionEmptyStop
           defaultValue={defaultValue}
-          isMenu={true}
-          isDate={true}
-          isShift={false}
-          typeDisplayData={[
-            {
-              id: 0,
-              values: "Range Chart",
-              label: "Range Chart",
-            },
-            {
-              id: 1,
-              values: "Trend",
-              label: "Trend",
-            },
-          ]}
         />
       );
     case "device_production_loading_time":
       return (
-        <RDPP
-          data={data}
+        <DeviceProductionLoadingTime
           defaultValue={defaultValue}
-          isMenu={true}
-          isDate={true}
-          isShift={false}
-          typeDisplayData={[
-            {
-              id: 0,
-              values: "Range Chart",
-              label: "Range Chart",
-            },
-            {
-              id: 1,
-              values: "Trend",
-              label: "Trend",
-            },
-          ]}
         />
       );
 
     case "device_production_loaded_speed":
       return (
-        <RDPP
-          data={data}
+        <DeviceProductionLoadedSpeed
           defaultValue={defaultValue}
-          isMenu={true}
-          isDate={true}
-          isShift={false}
-          typeDisplayData={[
-            {
-              id: 0,
-              values: "Range Chart",
-              label: "Range Chart",
-            },
-            {
-              id: 1,
-              values: "Trend",
-              label: "Trend",
-            },
-          ]}
         />
       );
 
     case "device_production_empty_speed":
       return (
-        <RDPP
-          data={data}
+        <DeviceProductionEmptySpeed
           defaultValue={defaultValue}
-          isMenu={true}
-          isDate={true}
-          isShift={false}
-          typeDisplayData={[
-            {
-              id: 0,
-              values: "Range Chart",
-              label: "Range Chart",
-            },
-            {
-              id: 1,
-              values: "Trend",
-              label: "Trend",
-            },
-          ]}
         />
       );
-
     default:
       return <h1>banana</h1>;
   }
 }
 
-export default function Operation({ data, defaultValue, queryName }: IProps) {
-  return <>{renderContent(queryName, data, defaultValue)}</>;
+export default function Operation({ defaultValue, queryName }: IProps) {
+  return <Layout title="Operation / Report">
+    {renderContent(queryName, defaultValue)}
+  </Layout>;
 }

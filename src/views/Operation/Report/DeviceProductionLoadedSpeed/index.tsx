@@ -12,13 +12,12 @@ interface IProps {
   defaultValue: IDropdownData;
 }
 
-export default function DeviceProductionPayload({
+export default function DeviceProductionLoadedSpeed({
   defaultValue,
 }: IProps) {
   const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter()
-
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -31,7 +30,7 @@ export default function DeviceProductionPayload({
     const startDate = convert(state[0].startDate);
     const endDate = convert(state[0].endDate);
     getOperationReport(
-      "payloads",
+      'loaded-speed',
       startDate,
       endDate,
       setDataChart,
@@ -47,7 +46,7 @@ export default function DeviceProductionPayload({
     const startDate = convert(state[0].startDate);
     const endDate = convert(state[0].endDate);
     getOperationReport(
-      'payloads',
+      'loaded-speed',
       startDate,
       endDate,
       setDataChart,

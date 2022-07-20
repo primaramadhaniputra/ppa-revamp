@@ -1,34 +1,23 @@
 import { ISelectItem } from "@hudoro/neron";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useSetMenuTypeOperationReport } from "recoil/menuTypeOperationReport/atom";
-import Layout from "src/components/layouts/Dashboard/layout";
-import DisplayData from "src/components/layouts/Dashboard/layout/DisplayData";
 import SearchingForm from "src/components/organism/SearchingForm";
-import getOperationReport from "src/components/organism/SearchingForm/getData";
-import { convert, renderType } from "utils/functions";
+import getOperationReport from "views/Operation/Report/getOperationReport";
+import { inputDropDownOperation2 } from "utils/dummy";
+import { convert } from "utils/functions";
 import { IDropdownData, IOperationReportPayloadData } from "utils/interfaces";
+import DisplayData from "./DisplayData";
 
 interface IProps {
   defaultValue: IDropdownData;
-  data: IDropdownData[];
-  isMenu?: boolean;
-  isDate?: boolean;
-  isShift?: boolean;
-  typeDisplayData?: IDropdownData[];
 }
-export default function RDPP({
-  data,
+
+export default function DeviceProductionEmptySpeed({
   defaultValue,
-  isMenu = false,
-  isDate = false,
-  isShift = false,
-  typeDisplayData,
 }: IProps) {
   const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
   const [isLoading, setIsLoading] = useState(true);
-  const [operationReportType, setOperationReportType] = useState("payloads");
-  const setMenuOperationReport = useSetMenuTypeOperationReport();
+  const router = useRouter()
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -41,27 +30,23 @@ export default function RDPP({
     const startDate = convert(state[0].startDate);
     const endDate = convert(state[0].endDate);
     getOperationReport(
-      operationReportType,
+      'speed',
       startDate,
       endDate,
       setDataChart,
       setIsLoading
     );
-  }, [operationReportType]);
+  }, []);
 
   const handleChangeOperation = (e: ISelectItem | ISelectItem[] | null) => {
-    setOperationReportType(e?.values);
-    setMenuOperationReport(renderType(e?.values));
-    return Router.replace(`/dashboard/operation/report/${e?.values}`).then(() =>
-      Router.reload()
-    );
+    router.push(`/dashboard/operation/report/${e?.values}`)
   };
 
   const handleSearchOperationReportDate = () => {
     const startDate = convert(state[0].startDate);
     const endDate = convert(state[0].endDate);
     getOperationReport(
-      operationReportType,
+      'speed',
       startDate,
       endDate,
       setDataChart,
@@ -70,27 +55,24 @@ export default function RDPP({
   };
 
   return (
-    <Layout title="Operation / Report">
+    <>
       <SearchingForm
         title="Menu"
         placeholder="Device / Production / Payload"
-        isMenu={isMenu}
-        isDate={isDate}
-        isShift={isShift}
-        dropDownData={data}
+        isMenu={true}
+        isDate={true}
+        isShift={false}
+        dropDownData={inputDropDownOperation2}
         dropDownDefaultvalue={defaultValue}
         onChangeDropdownMenu={handleChangeOperation}
         onSearchDate={handleSearchOperationReportDate}
         calendarState={state}
         setCalendarState={setState}
       />
-      {typeDisplayData && (
-        <DisplayData
-          data={dataChart}
-          isLoading={isLoading}
-          typeDisplayData={typeDisplayData}
-        />
-      )}
-    </Layout>
+      <DisplayData
+        data={dataChart}
+        isLoading={isLoading}
+      />
+    </>
   );
 }
