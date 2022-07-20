@@ -12,7 +12,6 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import SearchingForm from "src/components/organism/SearchingForm";
 import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp } from "../styles";
 import { dummyInputDropdown } from "utils/dummy";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
@@ -55,10 +54,6 @@ export default function DeviceMonitoring() {
           <span>
             Tanggal
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
@@ -72,10 +67,6 @@ export default function DeviceMonitoring() {
           <span>
             NRP
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
@@ -87,10 +78,6 @@ export default function DeviceMonitoring() {
           <span>
             Nama
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
@@ -103,10 +90,6 @@ export default function DeviceMonitoring() {
           <span>
             Posisi
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
@@ -118,10 +101,6 @@ export default function DeviceMonitoring() {
           <span>
             Status
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
@@ -134,10 +113,6 @@ export default function DeviceMonitoring() {
           <span>
             Time
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
@@ -149,10 +124,6 @@ export default function DeviceMonitoring() {
           <span>
             Mac
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
         </Grid>
       ),
       footer: (props) => props.column.id,
