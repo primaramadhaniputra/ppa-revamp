@@ -10,11 +10,8 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
-import SearchingForm from "src/components/organism/SearchingForm";
 import { Grid } from "@hudoro/neron";
-import { dummyInputDropdown } from "utils/dummy";
-import StyledButton from "atoms/StyledButton";
-import { colors, fontSizing, fontWeights } from "utils/styles";
+import CompleteInputs from "src/components/organism/CompleteInputs";
 
 interface Person {
   [x: string]: any;
@@ -38,13 +35,10 @@ export default function DeviceMonitoring() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
+  const [fromDateState, setFromDateState] = useState(new Date());
+  const [toDateState, setToDateState] = useState(new Date());
+  const [isFromDate, setIsFromDate] = useState(false)
+  const [isToDate, setIsToDate] = useState(false)
   const columns: ColumnDef<Person>[] = [
     {
       accessorKey: "Tanggal",
@@ -149,26 +143,23 @@ export default function DeviceMonitoring() {
     getSortedRowModel: getSortedRowModel(),
   });
 
+  const handleSelect = (date: Date) => {
+    setFromDateState(date)
+  }
+  const handleSelectToDate = (date: Date) => {
+    setToDateState(date)
+  }
+
+  const handleFromDateInput = () => {
+    setIsFromDate(!isFromDate)
+  }
+  const handleToDateInput = () => {
+    setIsToDate(!isToDate)
+  }
+
   return (
     <>
-      <Grid container alignItems="flex-end" gap={15} >
-        <SearchingForm
-          title="Filter"
-          placeholder="Status"
-          isMenu={true}
-          isDate={true}
-          isShift={false}
-          dropDownData={dummyInputDropdown}
-          // dropDownDefaultvalue={defaultValue}
-          // onChangeDropdownMenu={handleChangeOperation}
-          // onSearchDate={handleSearchOperationReportDate}
-          calendarState={state}
-          setCalendarState={setState}
-        />
-        <Grid style={{ flex: 1 }}>
-          <StyledButton style={{ backgroundColor: colors.orange, fontWeight: fontWeights.bold, fontSize: fontSizing.lg.fontSize }}>Show</StyledButton>
-        </Grid>
-      </Grid>
+      <CompleteInputs fromDateState={fromDateState} handleFromDateInput={handleFromDateInput} isFromDate={isFromDate} handleSelectFromDate={handleSelect} toDateState={toDateState} handleToDateInput={handleToDateInput} isToDate={isToDate} handleSelectToDate={handleSelectToDate} />
       <TableComponent
         table={table}
         type={systemTypeValue}
