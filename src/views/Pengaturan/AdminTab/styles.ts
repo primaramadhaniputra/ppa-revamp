@@ -1,9 +1,12 @@
-import { fontFamilies } from "@hudoro/neron";
+import { Card, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 import { fontSizing, fontWeights } from "utils/styles";
 
-export const Wrapper = styled.div`
-  min-height: 60vh;
+export const Wrapper = styled(Card)`
+  width: 100%;
+  flex: 3;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
 `;
 
 export const SelectLabel = styled.p`

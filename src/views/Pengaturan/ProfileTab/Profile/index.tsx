@@ -1,73 +1,76 @@
+import { Grid } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
-import StyledButton from "atoms/StyledButton";
 import TitlePage from "atoms/TitlePage";
-import axios from "axios";
-import Router from "next/router";
 import React, { useEffect, useState } from "react";
-import { getProfile, updateProfile } from "services/users";
-import { notify } from "utils/functions";
-import { colors, fontSizing } from "utils/styles";
-import { ButtonWrapper } from "../styles";
+import { getProfile } from "services/users";
+import { fontSizing } from "utils/styles";
 import { Wrapper } from "./styles";
 
 export default function Profile() {
-  const [userName, setUserName] = useState("");
+  const [users, setUsers] = useState({
+    fullName: "",
+    position: "",
+    nrp: "",
+    mcu: "",
+  });
   useEffect(() => {
-    getProfile({ path: "profile" }).then((e) =>
-      setUserName(e.data.data.fullName)
-    );
+    getProfile({ path: "profile" }).then((e) => {
+      const newData = {
+        fullName: e.data.data.fullName,
+        position: e.data.data.position,
+        nrp: e.data.data.nrp,
+        mcu: e.data.data.mcu,
+      };
+      return setUsers(newData);
+    });
   }, []);
 
-  const handleFullNameChange = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setUserName(e.target.value);
-  };
-
-  const handleSubmitUpdateProfile = async (e: {
-    preventDefault: () => void;
-  }) => {
-    try {
-      e.preventDefault();
-      await axios.all([
-        updateProfile({
-          body: {
-            fullName: userName,
-          },
-          path: "profile",
-        }),
-      ]);
-      notify("Berhasil mengupdate profile", "success");
-      return Router.reload();
-    } catch (err: any) {
-      return notify(err.message, "error");
-    }
-  };
-
   return (
-    <Wrapper onSubmit={handleSubmitUpdateProfile}>
-      <TitlePage
-        type="h4"
-        styles={{ margin: "30px 0 30px", fontSize: fontSizing.xl.fontSize }}
-      >
-        Profil
-      </TitlePage>
-      <LabeledInput
-        name="Nama-lengkap"
-        title="Nama Lengkap"
-        style={{ backgroundColor: colors.blueSky }}
-        value={userName}
-        onChange={handleFullNameChange}
-      />
-      <ButtonWrapper>
-        <StyledButton>Update Profile</StyledButton>
-      </ButtonWrapper>
+    <Wrapper>
       <TitlePage
         type="h4"
         styles={{ fontSize: fontSizing.xl.fontSize, marginBottom: "30px" }}
       >
-        Ubah Password
+        Profile
       </TitlePage>
+      <Grid container flexDirection="column" gap={40}>
+        <Grid container gap={20}>
+          <Grid>
+            <LabeledInput
+              name="Nama"
+              title="Nama"
+              value={users.fullName}
+              disabled={true}
+            />
+          </Grid>
+          <Grid>
+            <LabeledInput
+              name="NRP"
+              title="NRP"
+              value={users.nrp}
+              disabled={true}
+            />
+          </Grid>
+        </Grid>
+        <Grid container gap={20}>
+          <Grid>
+            <LabeledInput
+              name="Jabatan"
+              title="Jabatan"
+              value={users.position}
+              disabled={true}
+            />
+          </Grid>
+          <Grid>
+            <LabeledInput
+              name="valid-mcu"
+              title="Valid Mcu"
+              value={users.mcu}
+              disabled={true}
+            />
+          </Grid>
+        </Grid>
+      </Grid>
     </Wrapper>
   );
 }

@@ -1,7 +1,5 @@
 import React from "react";
-import { tabMenu } from "utils/dummy";
-import { colors as c } from "utils/styles";
-import { colors } from "@hudoro/neron";
+import { fontWeights } from "utils/styles";
 import { TabText, Wrapper } from "./styles";
 
 interface IProps {
@@ -9,14 +7,23 @@ interface IProps {
   setactiveTab: React.Dispatch<React.SetStateAction<number>>;
 }
 
+export const tabMenu = ["Account", "Password", "Admin"];
+
 export default function Tabs({ activeTab, setactiveTab }: IProps) {
   return (
     <Wrapper>
+      <TabText
+        style={{
+          fontWeight: activeTab === 0 ? fontWeights.bold : fontWeights.regular,
+        }}
+      >
+        Pengaturan Profile
+      </TabText>
       {tabMenu.map((item, index) => (
         <TabText
           onClick={() => setactiveTab(index)}
           key={index}
-          style={{ color: activeTab === index ? c.primary : colors.black[100] }}
+          activeTab={activeTab === index}
         >
           {item}
         </TabText>

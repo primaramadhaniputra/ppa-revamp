@@ -1,4 +1,5 @@
 import { AxiosRequestHeaders } from "axios";
+import { SVGProps } from "react";
 
 export interface IPromiseResult {
   success: boolean;
@@ -77,4 +78,8 @@ export interface ISetCalendarState {
       }[]
     >
   >;
+}
+
+export interface ISVGProps extends SVGProps<SVGSVGElement> {
+  size?: number;
 }

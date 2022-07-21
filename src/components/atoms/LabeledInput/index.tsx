@@ -12,6 +12,7 @@ interface IProps {
   type?: string;
   style?: React.CSSProperties;
   onChange?: (e: any) => void;
+  disabled?: boolean;
 }
 
 export default function LabeledInput({

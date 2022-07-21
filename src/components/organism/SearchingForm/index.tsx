@@ -14,9 +14,7 @@ interface IProps {
   isShift: boolean;
   dropDownDefaultvalue?: IDropdownData;
   dropDownData?: IDropdownData[];
-  onChangeDropdownMenu?: (
-    e: ISelectItem | ISelectItem[] | null
-  ) => Promise<boolean> | Promise<void>;
+  onChangeDropdownMenu?: (e: ISelectItem | ISelectItem[] | null) => void;
   onSearchDate?: () => void;
   calendarState?: ICalendarState[];
   setCalendarState?: React.Dispatch<React.SetStateAction<ICalendarState[]>>;
@@ -40,7 +38,7 @@ export default function SearchingForm({
     return setIsShowDate(!isShowDate);
   };
   return (
-    <Wrapper>
+    <Wrapper style={{ flex: "2" }}>
       {isShift && (
         <Grid>
           <InputLabel variant="p">Shift</InputLabel>

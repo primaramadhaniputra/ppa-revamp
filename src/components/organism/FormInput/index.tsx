@@ -2,7 +2,7 @@ import { Grid, Radio, Text } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import Cookies from "js-cookie";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import React, { FormEvent, useState } from "react";
 import { login } from "services/users";
 import { notify } from "utils/functions";
@@ -15,6 +15,7 @@ interface IProps {
 
 export default function FormInput({ color }: IProps) {
   const [checkedRadio, setCheckedRadio] = useState(false);
+  const router = useRouter();
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
       form.preventDefault();
@@ -29,7 +30,7 @@ export default function FormInput({ color }: IProps) {
         path: "/login",
       });
       Cookies.set("token", response.data.data.accessToken);
-      Router.push("/dashboard");
+      router.push("/dashboard");
       return notify("selamat kamu berhasil login", "success");
     } catch (error: any) {
       return notify(error.message, "error");
@@ -38,6 +39,11 @@ export default function FormInput({ color }: IProps) {
   const handleRadio = () => {
     setCheckedRadio(!checkedRadio);
   };
+
+  const handleForgotPassword = () => {
+    router.push("/forgot-password");
+  };
+
   return (
     <form style={{ width: "100%" }} onSubmit={handleSubmit}>
       <Grid container flexDirection="column" gap={50}>
@@ -60,7 +66,11 @@ export default function FormInput({ color }: IProps) {
               onChange={handleRadio}
               checked={checkedRadio}
             />
-            <Text variant="p" style={{ fontSize: fontSizing.xs.fontSize }}>
+            <Text
+              variant="p"
+              style={{ fontSize: fontSizing.xs.fontSize, cursor: "pointer" }}
+              onClick={handleForgotPassword}
+            >
               Forgot password ?
             </Text>
           </RadioWrapper>

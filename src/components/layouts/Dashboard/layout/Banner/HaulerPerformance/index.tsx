@@ -29,8 +29,8 @@ export default function HaulerPerformance() {
                   </TitlePage>
                   <Image
                     src={`/icons/${data.icon}`}
-                    width={25}
-                    height={25}
+                    width={30}
+                    height={30}
                     quality={100}
                     alt="HaulerPerformance icon"
                   />

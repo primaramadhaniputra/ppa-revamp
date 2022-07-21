@@ -40,7 +40,6 @@ export const getServerSideProps: GetServerSideProps = async (
     return {
       props: {
         defaultValue: isUrl,
-        data: inputDropDownOperation2,
         queryName: context.query.name,
       },
     };

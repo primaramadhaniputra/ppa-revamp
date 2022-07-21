@@ -1,7 +1,7 @@
 import { Grid, Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import React from "react";
-import { fontSizing } from "utils/styles";
+import { fontSizing, fontWeights } from "utils/styles";
 import { SelectLabel } from "../styles";
 
 export default function Site() {
@@ -9,7 +9,11 @@ export default function Site() {
     <>
       <TitlePage
         type="h4"
-        styles={{ margin: "30px 0 30px", fontSize: fontSizing.xl.fontSize }}
+        styles={{
+          margin: "0 0 30px",
+          fontSize: fontSizing.xl.fontSize,
+          fontWeight: fontWeights.bold,
+        }}
       >
         Site
       </TitlePage>
