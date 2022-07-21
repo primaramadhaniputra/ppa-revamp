@@ -191,7 +191,9 @@ export default function UpdateRoster() {
         </ThItemContainer>
       ),
       footer: (props) => props.column.id,
-      cell: () => <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={handleEdit} />
+      cell: () => <Grid>
+        <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={handleEdit} />
+      </Grid>
     },
   ];
 
@@ -221,7 +223,7 @@ export default function UpdateRoster() {
 
   return (
     <>
-      {isEdit && <FlyingForm closeForm={closeEdit} />}
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Update Roster</Text>
       </Grid>

@@ -9,9 +9,10 @@ export const Wrapper = styled.div`
   bottom: -300px;
   left: 0;
   right: 0;
-  z-index: 999;
   display: flex;
   padding: 20px;
+  transition: 1s;
+  z-index: 999;
   ${mediaQueries.lg} {
     bottom: -200px;
   }
@@ -26,9 +27,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-
-  /* transform: translateY(-80%); */
-  /* opacity: 0; */
+  transition: 1s;
 `;
 
 export const HeaderTextContainer = styled.div`
