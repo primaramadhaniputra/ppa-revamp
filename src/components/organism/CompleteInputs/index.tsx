@@ -25,6 +25,11 @@ interface IProps {
   handleToDateInput?: () => void;
   isToDate: boolean;
   handleSelectToDate?: (date: Date) => void;
+  toDate?: boolean;
+  toDateTitle?: string;
+  fromDateTitle?: string;
+  statusTitle?: string;
+  placeholder?: string;
 }
 
 export default function CompleteInputs({
@@ -36,13 +41,18 @@ export default function CompleteInputs({
   handleToDateInput,
   isToDate,
   handleSelectToDate,
+  toDate,
+  toDateTitle = "To",
+  fromDateTitle = "From",
+  statusTitle = "Status",
+  placeholder = "Select Status",
 }: IProps) {
   return (
     <Grid container gap={15} style={{ marginTop: "40px" }}>
       <DateContainer style={{ flex: 1 }}>
         <LabeledInput
           name="fromDate"
-          title="From"
+          title={fromDateTitle}
           style={{ backgroundColor: "transparent", border: "none" }}
           value={convert(fromDateState)}
           onClick={handleFromDateInput}
@@ -56,26 +66,28 @@ export default function CompleteInputs({
           </Container>
         )}
       </DateContainer>
-      <DateContainer style={{ flex: 1 }}>
-        <LabeledInput
-          name="toDate"
-          title="To"
-          style={{ backgroundColor: "transparent", border: "none" }}
-          value={convert(toDateState)}
-          onClick={handleToDateInput}
-        />
-        <DateIconContainer>
-          <IcCalendar width={20} />
-        </DateIconContainer>
-        {isToDate && (
-          <Container>
-            <Calendar date={toDateState} onChange={handleSelectToDate} />
-          </Container>
-        )}
-      </DateContainer>
+      {toDate && (
+        <DateContainer style={{ flex: 1 }}>
+          <LabeledInput
+            name="toDate"
+            title={toDateTitle}
+            style={{ backgroundColor: "transparent", border: "none" }}
+            value={convert(toDateState)}
+            onClick={handleToDateInput}
+          />
+          <DateIconContainer>
+            <IcCalendar width={20} />
+          </DateIconContainer>
+          {isToDate && (
+            <Container>
+              <Calendar date={toDateState} onChange={handleSelectToDate} />
+            </Container>
+          )}
+        </DateContainer>
+      )}
       <StatusContainer style={{ flex: 1 }}>
-        <label>Status</label>
-        <Select placeholder="Select status" items={inputDropDownOperation} />
+        <label>{statusTitle}</label>
+        <Select placeholder={placeholder} items={inputDropDownOperation} />
       </StatusContainer>
       <Grid container style={{ flex: 1 }}>
         <StyledButton
