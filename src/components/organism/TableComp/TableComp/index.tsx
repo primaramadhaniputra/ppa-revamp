@@ -63,10 +63,10 @@ export default function TableComp({ table, withFooter }: IProps) {
                               header.column.columnDef.header,
                               header.getContext()
                             )}
-                            {{
+                            {/* {{
                               asc: " 🔼",
                               desc: " 🔽",
-                            }[header.column.getIsSorted() as string] ?? null}
+                            }[header.column.getIsSorted() as string] ?? null} */}
                           </ThItemContainer>
                         )}
                       </th>

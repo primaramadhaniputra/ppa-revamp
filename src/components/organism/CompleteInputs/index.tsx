@@ -4,7 +4,7 @@ import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
 import { convert } from "utils/functions";
-import { fontWeights } from "utils/styles";
+import { colors, fontWeights } from "utils/styles";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { Calendar } from "react-date-range";
@@ -83,6 +83,7 @@ export default function CompleteInputs({
             fontSize: "30px",
             padding: "0",
             fontWeight: fontWeights.bold,
+            backgroundColor: colors.orange,
           }}
         >
           Show
