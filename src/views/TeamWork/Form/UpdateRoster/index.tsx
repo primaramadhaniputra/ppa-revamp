@@ -15,6 +15,7 @@ import {
 } from "@tanstack/react-table";
 import CompleteInputs from "src/components/organism/CompleteInputs";
 import { IcEdit } from "atoms/Icon";
+import FlyingForm from "molecules/FlyingForm";
 
 interface Person {
   [x: string]: any;
@@ -42,6 +43,14 @@ export default function UpdateRoster() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [fromDateState, setFromDateState] = useState(new Date())
   const [isFromDate, setIsFromDate] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
+
+  const handleEdit = () => {
+    setIsEdit(true)
+  }
+  const closeEdit = () => {
+    setIsEdit(false)
+  }
   const columns: ColumnDef<Person>[] = [
     {
       accessorKey: "nrp",
@@ -182,7 +191,7 @@ export default function UpdateRoster() {
         </ThItemContainer>
       ),
       footer: (props) => props.column.id,
-      cell: () => <IcEdit width={20} />
+      cell: () => <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={handleEdit} />
     },
   ];
 
@@ -209,8 +218,10 @@ export default function UpdateRoster() {
   const handleFromDateInput = () => {
     setIsFromDate(!isFromDate)
   }
+
   return (
     <>
+      {isEdit && <FlyingForm closeForm={closeEdit} />}
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Update Roster</Text>
       </Grid>

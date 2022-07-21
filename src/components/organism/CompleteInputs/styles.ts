@@ -22,7 +22,7 @@ export const StatusContainer = styled(Grid)`
     color: ${colors.darkGrey};
     font-family: ${fontFamilies.poppins};
   }
-  & > div > div {
+  & > div :nth-child(1) {
     background-color: transparent !important;
     border: none !important;
   }

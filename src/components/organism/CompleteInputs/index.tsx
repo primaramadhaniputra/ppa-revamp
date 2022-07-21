@@ -48,8 +48,8 @@ export default function CompleteInputs({
   placeholder = "Select Status",
 }: IProps) {
   return (
-    <Grid container gap={15} style={{ marginTop: "40px" }}>
-      <DateContainer style={{ flex: 1 }}>
+    <Grid container gap={15} style={{ marginTop: "40px", maxHeight: "60px" }}>
+      <DateContainer style={{ flex: 1, height: "60px" }}>
         <LabeledInput
           name="fromDate"
           title={fromDateTitle}
@@ -67,7 +67,7 @@ export default function CompleteInputs({
         )}
       </DateContainer>
       {toDate && (
-        <DateContainer style={{ flex: 1 }}>
+        <DateContainer style={{ flex: 1, height: "60px" }}>
           <LabeledInput
             name="toDate"
             title={toDateTitle}
@@ -85,20 +85,21 @@ export default function CompleteInputs({
           )}
         </DateContainer>
       )}
-      <StatusContainer style={{ flex: 1 }}>
+      <StatusContainer style={{ flex: 1, height: "60px", minWidth: 150 }}>
         <label>{statusTitle}</label>
         <Select placeholder={placeholder} items={inputDropDownOperation} />
       </StatusContainer>
-      <Grid container style={{ flex: 1 }}>
+      <Grid container style={{ flex: 1, height: "60px" }}>
         <StyledButton
           style={{
-            fontSize: "30px",
+            fontSize: "25px",
             padding: "0",
             fontWeight: fontWeights.bold,
             backgroundColor: colors.orange,
+            minWidth: 150,
           }}
         >
-          Show
+          SHOW
         </StyledButton>
       </Grid>
     </Grid>
