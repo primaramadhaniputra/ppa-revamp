@@ -3,18 +3,27 @@ import dynamic from "next/dynamic";
 
 const ResetPasswordView = dynamic(() => import("views/ResetPassword"));
 
-export default function ResetPasswordPage() {
-  return <ResetPasswordView />;
+interface IProps {
+  token: string;
+}
+
+export default function ResetPasswordPage({ token }: IProps) {
+  return <ResetPasswordView token={token} />;
 }
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  console.log(context);
+  const { token } = context.query;
+  if (!token) {
+    return {
+      notFound: true,
+    };
+  }
   try {
     return {
       props: {
-        data: [],
+        token,
       },
     };
   } catch (error: any) {

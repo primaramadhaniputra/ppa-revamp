@@ -1,17 +1,16 @@
 import { Grid } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
-import Cookies from "js-cookie";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import React, { FormEvent } from "react";
 import { changePassword } from "services/users";
-import { notify, parseJwt } from "utils/functions";
+import { notify } from "utils/functions";
 import { fontWeights } from "utils/styles";
 import { ButtonWrapper, Container, TextForgotPassword } from "./styles";
 
 export default function PasswordTab() {
 
-  const token = Cookies.get('token')
+  const router = useRouter()
 
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
@@ -29,15 +28,14 @@ export default function PasswordTab() {
         },
       });
       notify("berhasil mengubah password", "success");
-      return Router.reload();
+      return router.reload();
     } catch (err: any) {
       notify(err.message, "error");
     }
   };
 
   const handleForgotPassword = async () => {
-    const parseToken = parseJwt(token as string)
-    console.log(parseToken)
+    return router.replace('/forgot-password')
   }
 
   return (

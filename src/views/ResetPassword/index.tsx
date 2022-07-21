@@ -1,26 +1,39 @@
 import { Grid } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
+import { useRouter } from "next/router";
 import React, { FormEvent } from "react";
-import { forgotPassword } from "services/users";
+import { resetPassword } from "services/users";
 import Footer from "src/components/organism/Footer";
 import { notify } from "utils/functions";
 import { LoginWrapper, StyledCard, Title, Wrapper } from "./styles";
 
-export default function ResetPassword() {
+interface IProps {
+  token: string
+}
+
+export default function ResetPassword({ token }: IProps) {
+
+  const router = useRouter()
 
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
       form.preventDefault()
       const formData = new FormData(form.currentTarget)
       const email = formData.get('email')
-      await forgotPassword({
+      const newPassword = formData.get('newPassword')
+      const confirmNewPassword = formData.get('confirmNewPassword')
+      await resetPassword({
         body: {
-          email
+          email,
+          newPassword,
+          confirmNewPassword,
+          token
         },
-        path: '/forgot-password'
+        path: '/reset-password'
       })
-      return notify('Silahkan periksa email anda', 'success')
+      notify('Berhasil merubah password', 'success')
+      return router.push('/')
     } catch (error: any) {
       return notify(error.message, 'error')
     }
