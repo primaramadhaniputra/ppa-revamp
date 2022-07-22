@@ -4,7 +4,7 @@ import React from "react";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import {
   ButtonWrapper,
-  LabelSearch,
+  // LabelSearch,
   NumberInput,
   StyledInput,
   Wrapper,
@@ -44,13 +44,17 @@ function DebouncedInput({
   }, [value]);
 
   return (
-    <Grid container gap={5}>
-      <LabelSearch>Search :</LabelSearch>
+    <Grid container gap={5} alignItems='center'>
+      {/* <LabelSearch>Search </LabelSearch> */}
+      {/* <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+        Search
+      </Text> */}
       <Grid>
         <StyledInput
           {...props}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          placeholder='Search...'
         />
       </Grid>
     </Grid>
@@ -78,13 +82,13 @@ export default function InputComp({
             onChange={handleChange}
           />
         </Grid>
-        <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+        {/* <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
           entries
-        </Text>
+        </Text> */}
       </Grid>
       <Grid container gap={30}>
         {!noButton && (
-          <ButtonWrapper style={{ minWidth: "142px" }}>
+          <ButtonWrapper >
             <StyledButton
               style={{
                 backgroundColor: buttonColor || colors.orange,
