@@ -44,7 +44,7 @@ function DebouncedInput({
   }, [value]);
 
   return (
-    <Grid container gap={5} alignItems='center'>
+    <Grid container gap={5} alignItems="center">
       {/* <LabelSearch>Search </LabelSearch> */}
       {/* <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
         Search
@@ -54,7 +54,7 @@ function DebouncedInput({
           {...props}
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder='Search...'
+          placeholder="Search..."
         />
       </Grid>
     </Grid>
@@ -88,7 +88,7 @@ export default function InputComp({
       </Grid>
       <Grid container gap={30}>
         {!noButton && (
-          <ButtonWrapper >
+          <ButtonWrapper>
             <StyledButton
               style={{
                 backgroundColor: buttonColor || colors.orange,
