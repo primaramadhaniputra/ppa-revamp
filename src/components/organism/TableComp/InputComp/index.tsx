@@ -1,7 +1,7 @@
 import { Grid, ISelectItem, Text } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
-import { colors, fontWeights } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 import { ButtonWrapper, LabelSearch, NumberInput, Wrapper } from "./styles";
 
 interface IInputComp {
@@ -11,6 +11,7 @@ interface IInputComp {
   setGlobalFilter?: React.Dispatch<React.SetStateAction<string>>;
   noButton: boolean | undefined;
   noSearch: boolean | undefined;
+  buttonColor?: string;
 }
 function DebouncedInput({
   value: initialValue,
@@ -55,6 +56,7 @@ export default function InputComp({
   setGlobalFilter,
   noButton,
   noSearch,
+  buttonColor,
 }: IInputComp) {
   return (
     <Wrapper container>
@@ -71,11 +73,12 @@ export default function InputComp({
           <ButtonWrapper style={{ minWidth: "142px" }}>
             <StyledButton
               style={{
-                backgroundColor: colors.orange,
+                backgroundColor: buttonColor || colors.orange,
                 color: colors.white,
-                padding: "5px",
+                padding: "2px",
                 fontWeight: fontWeights.bold,
                 borderRadius: "2px",
+                fontSize: fontSizing.lg.fontSize,
               }}
             >
               EXPORT

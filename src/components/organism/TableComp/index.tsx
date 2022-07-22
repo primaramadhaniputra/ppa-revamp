@@ -46,6 +46,7 @@ export default function TableComponent({
           setGlobalFilter={setGlobalFilter}
           noButton={noButton}
           noSearch={noSearch}
+          buttonColor="#25B78A"
         />
       )}
       {noInputComp && <TableTitle>{titleHeader}</TableTitle>}
