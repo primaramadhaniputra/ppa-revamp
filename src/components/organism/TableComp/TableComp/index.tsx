@@ -1,5 +1,4 @@
 import React from "react";
-
 import { flexRender } from "@tanstack/react-table";
 import { TABLE, ThItemContainer, Wrapper } from "./styles";
 

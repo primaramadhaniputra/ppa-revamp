@@ -1,6 +1,7 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
+import SetRoster from "./SetRoster";
 import UpdateRoster from "./UpdateRoster";
 import UploadRoster from "./UploadRoster";
 import { ArrowDown, SelectContainer } from "./UploadRoster/styles";
@@ -24,6 +25,8 @@ const renderContent = (type: string) => {
     return <UploadRoster />
   } else if (type === 'Update Roster') {
     return <UpdateRoster />
+  } else if (type === 'Set Roster') {
+    return <SetRoster />
   }
 
 }
