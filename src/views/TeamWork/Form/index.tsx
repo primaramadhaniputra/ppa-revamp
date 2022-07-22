@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import AttendanceRevision from "./AttendanceRevision";
 import BenefitClaimVoucher from "./BenefitClaimVoucher";
+import EmployeeMutation from "./EmployeeMutation";
 import LeavingApplication from "./LeavingApplication";
 import SetRoster from "./SetRoster";
+import SuratPelanggaran from "./SuratPelanggaran";
+import SuratPerintahLembur from "./SuratPerintahLembur";
 import UpdateRoster from "./UpdateRoster";
 import UploadRoster from "./UploadRoster";
 import { ArrowDown, SelectContainer } from "./UploadRoster/styles";
@@ -15,12 +18,12 @@ const selectItems = [
   { id: 3, values: 'Set Roster', label: 'Set Roster' },
   { id: 4, values: 'Attendance Revision', label: 'Attendance Revision' },
   { id: 5, values: 'Upload SPL', label: 'Upload SPL' },
-  { id: 5, values: 'Upload DAR', label: 'Upload DAR' },
-  { id: 5, values: 'Leaving Application', label: 'Leaving Application' },
-  { id: 5, values: 'Benefit Claim Voucher', label: 'Benefit Claim Voucher' },
-  { id: 5, values: 'Surat Perintah Lembur', label: 'Surat Perintah Lembur' },
-  { id: 5, values: 'Surat Pelanggaran', label: 'Surat Pelanggaran' },
-  { id: 5, values: 'Employee Mutation', label: 'Employe Mutation' },
+  { id: 6, values: 'Upload DAR', label: 'Upload DAR' },
+  { id: 7, values: 'Leaving Application', label: 'Leaving Application' },
+  { id: 8, values: 'Benefit Claim Voucher', label: 'Benefit Claim Voucher' },
+  { id: 9, values: 'Surat Perintah Lembur', label: 'Surat Perintah Lembur' },
+  { id: 10, values: 'Surat Pelanggaran', label: 'Surat Pelanggaran' },
+  { id: 11, values: 'Employee Mutation', label: 'Employe Mutation' },
 ]
 
 const renderContent = (type: string) => {
@@ -36,6 +39,12 @@ const renderContent = (type: string) => {
     return <LeavingApplication />
   } else if (type === 'Benefit Claim Voucher') {
     return <BenefitClaimVoucher />
+  } else if (type === 'Surat Perintah Lembur') {
+    return <SuratPerintahLembur />
+  } else if (type === 'Surat Pelanggaran') {
+    return <SuratPelanggaran />
+  } else if (type === 'Employee Mutation') {
+    return <EmployeeMutation />
   }
 
 }
