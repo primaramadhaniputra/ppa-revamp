@@ -1,8 +1,14 @@
-import { Grid, ISelectItem, Text } from "@hudoro/neron";
+import { fontFamilies, Grid, ISelectItem, Text } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
 import { colors, fontSizing, fontWeights } from "utils/styles";
-import { ButtonWrapper, LabelSearch, NumberInput, Wrapper } from "./styles";
+import {
+  ButtonWrapper,
+  LabelSearch,
+  NumberInput,
+  StyledInput,
+  Wrapper,
+} from "./styles";
 
 interface IInputComp {
   value: ISelectItem[] | ISelectItem;
@@ -40,11 +46,13 @@ function DebouncedInput({
   return (
     <Grid container gap={5}>
       <LabelSearch>Search :</LabelSearch>
-      <input
-        {...props}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <Grid>
+        <StyledInput
+          {...props}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </Grid>
     </Grid>
   );
 }
@@ -59,14 +67,20 @@ export default function InputComp({
   buttonColor,
 }: IInputComp) {
   return (
-    <Wrapper container>
+    <Wrapper container alignItems="center">
       <Grid container alignItems="center" gap={5}>
-        <Text variant="p">Show</Text>
-        <NumberInput
-          value={parseInt(value.values, 10)}
-          onChange={handleChange}
-        />
-        <Text variant="p">entries</Text>
+        <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+          Show
+        </Text>
+        <Grid>
+          <NumberInput
+            value={parseInt(value.values, 10)}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+          entries
+        </Text>
       </Grid>
       <Grid container gap={30}>
         {!noButton && (

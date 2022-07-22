@@ -38,7 +38,6 @@ export const TABLE = styled.table`
 
   & th {
     padding: 5px;
-    min-width: 150px;
   }
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
@@ -57,6 +56,7 @@ export const TABLE = styled.table`
     /* line-height: 21px; */
     color: #000000;
   }
+
   & thead th {
     font-family: "Poppins";
     font-style: normal;
@@ -66,7 +66,12 @@ export const TABLE = styled.table`
     color: #000000;
     color: black;
     text-align: center;
-    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    &.hidden {
+      display: none;
+    }
+    text-align: center;
+    vertical-align: middle;
   }
 
   & thead th > div > span > span {

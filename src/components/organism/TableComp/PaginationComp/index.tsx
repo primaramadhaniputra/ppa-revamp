@@ -1,6 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import Pagination from "../../Pagination";
+import { StyledText } from "./styles";
 
 interface IProps {
   dataPerPage: number;
@@ -27,9 +28,9 @@ export default function PaginationComp({
       style={{ marginTop: "20px", marginLeft: "20px" }}
       gap={20}
     >
-      <Text variant="p">
+      <StyledText>
         Showing {dataPerPage} of {totalData} Total Rows Selected
-      </Text>
+      </StyledText>
       <Pagination
         numberOfPages={totalPage}
         currentPage={currentPage}

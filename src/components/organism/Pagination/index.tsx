@@ -36,7 +36,7 @@ export default function Pagination({
         breakLabel="..."
         nextLabel="next"
         // onPageChange={(e) => console.log('asdfasdfadsf', e)}
-        pageRangeDisplayed={4}
+        pageRangeDisplayed={1}
         pageCount={numberOfPages}
         previousLabel="previous"
         // renderOnZeroPageCount={(e) => e}

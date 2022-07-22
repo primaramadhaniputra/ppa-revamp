@@ -13,6 +13,7 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { ArrowDown, ArrowUp } from "../styles";
 import { Grid } from "@hudoro/neron";
+import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
 
 interface Person {
   [x: string]: any;
@@ -209,15 +210,19 @@ export default function VHMSDownload() {
   });
 
   return (
-    <>
-      <TableComponent
-        table={table}
-        type={systemTypeValue}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-        filterBottom={false}
-      />
-      <DoughnutChart />
-    </>
+    <Wrapper >
+      <TableWrapper >
+        <TableComponent
+          table={table}
+          type={systemTypeValue}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          filterBottom={false}
+        />
+      </TableWrapper>
+      <DoughnutWrapper >
+        <DoughnutChart />
+      </DoughnutWrapper>
+    </Wrapper>
   );
 }

@@ -28,7 +28,7 @@ export const ButtonWrapper = styled.div``;
 export const NumberInput = styled.input.attrs({
   type: "number",
 })`
-  max-width: 50px;
+  width: 100%;
   padding: 4px 6px;
   outline: none;
   font-family: ${fontFamilies.poppins};
@@ -36,15 +36,23 @@ export const NumberInput = styled.input.attrs({
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   font-weight: ${fontWeights.regular};
+  ${mediaQueries.md} {
+    max-width: 45px;
+  }
 `;
 
 export const LabelSearch = styled.label`
   display: flex;
   align-items: center;
   font-family: ${fontFamilies.poppins};
-  & ~ input {
-    padding: 0 15px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    min-height: 30px;
-  }
+`;
+
+export const StyledInput = styled.input`
+  padding: 0 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  min-height: 30px;
+  border-radius: 3px;
+  font-family: ${fontFamilies.poppins};
+  outline: none;
+  width: 100%;
 `;
