@@ -1,5 +1,6 @@
-import { Card, Grid } from '@hudoro/neron';
+import { Card, fontFamilies, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
+import { fontSizing, fontWeights } from 'utils/styles';
 
 export const Wrapper = styled.div``;
 
@@ -13,7 +14,7 @@ export const ArrowContainer = styled.div`
     flex-direction: column;
     gap: 5px;
     position: absolute;
-    top: 40px;
+    top: 37px;
     right: 15px;
 `;
 
@@ -50,4 +51,19 @@ export const TextHeaderContainer = styled(Grid).attrs({})``;
 export const FormCard = styled(Card)`
     margin-top: 15px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+export const StyledLabel = styled.label`
+    margin-top: 6px;
+    margin-bottom: 7px;
+    display: block;
+    font-family: ${fontFamilies.poppins};
+    font-weight: ${fontWeights.bold};
+    font-size: ${fontSizing.sm.fontSize};
+`;
+
+export const DropDownContainer = styled(Grid)`
+    & svg {
+        display: none;
+    }
 `;

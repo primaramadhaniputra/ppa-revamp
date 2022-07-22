@@ -1,14 +1,32 @@
-import { Grid, Text } from '@hudoro/neron'
+import { Grid, Select, Text } from '@hudoro/neron'
 import { IcCalendar } from 'atoms/Icon'
 import LabeledInput from 'atoms/LabeledInput'
 import React, { useState } from 'react'
 import { colors, fontSizing, fontWeights } from 'utils/styles'
-import { ArrowContainer, ArrowDown, ArrowUP, CalendarContainer, FormCard, FormContainer, IconContainer, TextHeaderContainer, Wrapper } from './styles'
+import { ArrowContainer, ArrowDown, ArrowUP, CalendarContainer, DropDownContainer, FormCard, FormContainer, IconContainer, StyledLabel, TextHeaderContainer, Wrapper } from './styles'
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { Calendar } from "react-date-range";
 import { convert } from 'utils/functions'
 import StyledButton from 'atoms/StyledButton'
+
+const data = [
+   {
+      id: 1,
+      values: 'dsm',
+      label: 'DSM'
+   },
+   {
+      id: 2,
+      values: 'osm',
+      label: 'OSM'
+   },
+   {
+      id: 3,
+      values: 'csm',
+      label: 'CSM'
+   },
+]
 
 export default function SetRoster() {
    const [fromCalendar, setFromCalendar] = useState(new Date())
@@ -42,13 +60,14 @@ export default function SetRoster() {
                   <Grid >
                      <LabeledInput name='nrp' title='NRP' styleLabel={{ fontWeight: fontWeights.bold }} />
                   </Grid>
-                  <Grid style={{ position: 'relative' }} >
-                     <LabeledInput name='roster' title='Roster' styleLabel={{ fontWeight: fontWeights.bold }} />
+                  <DropDownContainer style={{ position: 'relative' }} >
+                     <StyledLabel >Roster</StyledLabel>
+                     <Select items={data} />
                      <ArrowContainer>
                         <ArrowUP />
                         <ArrowDown />
                      </ArrowContainer>
-                  </Grid>
+                  </DropDownContainer>
                </Grid>
                <Grid container gap={30} style={{ textAlign: 'start' }}>
                   <Grid style={{ position: 'relative' }} >
