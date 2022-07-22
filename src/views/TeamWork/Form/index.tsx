@@ -1,6 +1,8 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
+import AttendanceRevision from "./AttendanceRevision";
+import LeavingApplication from "./LeavingApplication";
 import SetRoster from "./SetRoster";
 import UpdateRoster from "./UpdateRoster";
 import UploadRoster from "./UploadRoster";
@@ -27,6 +29,10 @@ const renderContent = (type: string) => {
     return <UpdateRoster />
   } else if (type === 'Set Roster') {
     return <SetRoster />
+  } else if (type === 'Attendance Revision') {
+    return <AttendanceRevision />
+  } else if (type === 'Leaving Application') {
+    return <LeavingApplication />
   }
 
 }
