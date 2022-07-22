@@ -4,6 +4,10 @@ import { colors, fontWeights, mediaQueries } from "utils/styles";
 
 export const Container = styled.div`
   overflow-x: scroll;
+  width: 100%;
+  ${mediaQueries.md} {
+    width: auto;
+  }
   ::-webkit-scrollbar {
     height: 0;
   }
@@ -21,6 +25,11 @@ export const Container = styled.div`
     padding: 5px 10px;
     font-family: ${fontFamilies.poppins};
     cursor: pointer;
+    width: 100%;
+    text-align: center;
+    ${mediaQueries.md} {
+      width: auto;
+    }
   }
   & .activePage {
     background-color: ${colors.orange};
