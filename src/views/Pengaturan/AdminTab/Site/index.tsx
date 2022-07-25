@@ -1,8 +1,9 @@
-import { Grid, Select } from "@hudoro/neron";
+import { Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import React from "react";
 import { fontSizing, fontWeights } from "utils/styles";
 import { SelectLabel } from "../styles";
+import { ArrowDown, Container } from "./styles";
 
 export default function Site() {
   return (
@@ -17,13 +18,14 @@ export default function Site() {
       >
         Site
       </TitlePage>
-      <Grid container flexDirection="column" gap={5}>
+      <Container>
         <SelectLabel>Pilih site</SelectLabel>
         <Select
           items={[{ id: 1, values: "MHU", label: "MHU" }]}
           defaultValue={{ id: 1, values: "MHU", label: "MHU" }}
         />
-      </Grid>
+        <ArrowDown />
+      </Container>
     </>
   );
 }

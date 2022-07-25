@@ -49,7 +49,10 @@ export default function Layout({ title, children }: IProps) {
         {title && (
           <TitlePage
             type="h3"
-            styles={{ fontSize: fontSizing["3xl"].fontSize }}
+            styles={{
+              fontSize: fontSizing["3xl"].fontSize,
+              lineHeight: fontSizing["2xl"].lineHeight,
+            }}
           >
             {title}
           </TitlePage>

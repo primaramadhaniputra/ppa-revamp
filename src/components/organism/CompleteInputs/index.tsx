@@ -48,7 +48,7 @@ export default function CompleteInputs({
   placeholder = "Select Status",
 }: IProps) {
   return (
-    <Grid container gap={15} style={{ marginTop: "40px", maxHeight: "60px" }}>
+    <Grid container gap={15} style={{ marginTop: "40px", minHeight: "60px" }}>
       <DateContainer style={{ flex: 1, height: "60px" }}>
         <LabeledInput
           name="fromDate"
