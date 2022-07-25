@@ -1,16 +1,15 @@
 import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
-import Image from "next/image";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
 import { HaulerPerformanceData } from "utils/dummy";
-import { colors } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 import { Item, ItemContainer } from "../styles";
 
 export default function HaulerPerformance() {
   return (
     <>
-      <TitlePage type="h4" styles={{ margin: "50px 0 30px" }}>
+      <TitlePage type="h4" styles={{ margin: "50px 0 30px", fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.bold }}>
         {" "}
         Hauler Performance{" "}
       </TitlePage>
@@ -24,16 +23,10 @@ export default function HaulerPerformance() {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <TitlePage styles={{ color: colors.orange }} type="h4">
+                  <TitlePage styles={{ color: colors.orange, fontSize: fontSizing.sm.fontSize }} type="h4">
                     {data.title}
                   </TitlePage>
-                  <Image
-                    src={`/icons/${data.icon}`}
-                    width={30}
-                    height={30}
-                    quality={100}
-                    alt="HaulerPerformance icon"
-                  />
+                  <img src={`/icons/${data.icon}`} width={25} alt="ProductionPerfromance icon" />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>
                   <LabelValue data={data.plan} />
