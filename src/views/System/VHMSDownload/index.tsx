@@ -206,7 +206,7 @@ export default function VHMSDownload() {
     getPaginationRowModel: getPaginationRowModel(),
     debugTable: true,
     getSortedRowModel: getSortedRowModel(),
-    sortDescFirst: true,
+    sortDescFirst: true
   });
 
   return (

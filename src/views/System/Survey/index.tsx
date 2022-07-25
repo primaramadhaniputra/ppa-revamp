@@ -12,6 +12,7 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { fontWeights } from "utils/styles";
 import { fontFamilies } from "@hudoro/neron";
+import { Container } from "./styles";
 
 interface Person {
   [x: string]: any;
@@ -94,17 +95,19 @@ export default function Survey() {
   });
 
   return (
-    <TableComponent
-      table={table}
-      type={systemTypeValue}
-      globalFilter={globalFilter}
-      setGlobalFilter={setGlobalFilter}
-      filterBottom={false}
-      noButton={true}
-      noSearch={true}
-      noPagination={true}
-      noInputComp={true}
-      withFooter={true}
-    />
+    <Container>
+      <TableComponent
+        table={table}
+        type={systemTypeValue}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        filterBottom={false}
+        noButton={true}
+        noSearch={true}
+        noPagination={true}
+        noInputComp={true}
+        withFooter={true}
+      />
+    </Container>
   );
 }

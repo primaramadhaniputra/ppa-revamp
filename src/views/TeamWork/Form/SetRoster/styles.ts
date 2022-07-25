@@ -4,9 +4,10 @@ import { fontSizing, fontWeights } from 'utils/styles';
 
 export const Wrapper = styled.div``;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled(Card)`
+    margin-top: 30px;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 30px;
 `;
 
 export const ArrowContainer = styled.div`
@@ -48,9 +49,12 @@ export const CalendarContainer = styled.div`
 
 export const TextHeaderContainer = styled(Grid).attrs({})``;
 
-export const FormCard = styled(Card)`
+export const FormCard = styled.div`
     margin-top: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
 `;
 
 export const StyledLabel = styled.label`

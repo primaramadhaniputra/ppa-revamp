@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
-  bottom: -300px;
+  /* bottom: -300px; */
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
@@ -14,7 +15,7 @@ export const Wrapper = styled.div`
   transition: 1s;
   z-index: 999;
   ${mediaQueries.lg} {
-    bottom: -200px;
+    /* bottom: -200px; */
   }
 `;
 

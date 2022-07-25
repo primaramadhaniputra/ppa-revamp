@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
-import { IconContainer, Wrapper } from "./styles";
+import { Container, IconContainer, Wrapper } from "./styles";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 
@@ -168,7 +168,7 @@ export default function AccessControl() {
   });
 
   return (
-    <>
+    <Container>
       <TableComponent
         table={table}
         type={systemTypeValue}
@@ -176,6 +176,6 @@ export default function AccessControl() {
         setGlobalFilter={setGlobalFilter}
         filterBottom={false}
       />
-    </>
+    </Container>
   );
 }

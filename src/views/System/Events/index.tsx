@@ -10,6 +10,7 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
+import { Container } from "./styles";
 
 interface Person {
   [x: string]: any;
@@ -111,14 +112,17 @@ export default function Events() {
   });
 
   return (
-    <TableComponent
-      table={table}
-      type={systemTypeValue}
-      globalFilter={globalFilter}
-      setGlobalFilter={setGlobalFilter}
-      filterBottom={false}
-      noButton={true}
-      noSearch={true}
-    />
+    <Container>
+
+      <TableComponent
+        table={table}
+        type={systemTypeValue}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        filterBottom={false}
+        noButton={true}
+        noSearch={true}
+      />
+    </Container>
   );
 }

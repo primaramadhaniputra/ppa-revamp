@@ -12,6 +12,7 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { Grid } from "@hudoro/neron";
 import CompleteInputs from "src/components/organism/CompleteInputs";
+import { Container } from "./styles";
 
 interface Person {
   [x: string]: any;
@@ -158,7 +159,7 @@ export default function DeviceMonitoring() {
   }
 
   return (
-    <>
+    <Container>
       <CompleteInputs fromDateState={fromDateState} handleFromDateInput={handleFromDateInput} isFromDate={isFromDate} handleSelectFromDate={handleSelect} toDateState={toDateState} handleToDateInput={handleToDateInput} isToDate={isToDate} handleSelectToDate={handleSelectToDate} />
       <TableComponent
         table={table}
@@ -168,6 +169,6 @@ export default function DeviceMonitoring() {
         filterBottom={false}
         noButton={true}
       />
-    </>
+    </Container>
   );
 }

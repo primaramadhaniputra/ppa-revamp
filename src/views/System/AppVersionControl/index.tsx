@@ -12,6 +12,7 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { colors, fontWeights } from "utils/styles";
 import { fontFamilies } from "@hudoro/neron";
+import { Container } from "./styles";
 
 interface Person {
   [x: string]: any;
@@ -104,18 +105,20 @@ export default function AppVersionControl() {
   });
 
   return (
-    <TableComponent
-      table={table}
-      type={systemTypeValue}
-      globalFilter={globalFilter}
-      setGlobalFilter={setGlobalFilter}
-      filterBottom={false}
-      noButton={true}
-      noSearch={true}
-      noPagination={true}
-      noInputComp={true}
-      withFooter={true}
-      titleHeader='Mobile App Version Control MHU'
-    />
+    <Container>
+      <TableComponent
+        table={table}
+        type={systemTypeValue}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        filterBottom={false}
+        noButton={true}
+        noSearch={true}
+        noPagination={true}
+        noInputComp={true}
+        withFooter={true}
+        titleHeader='Mobile App Version Control MHU'
+      />
+    </Container>
   );
 }

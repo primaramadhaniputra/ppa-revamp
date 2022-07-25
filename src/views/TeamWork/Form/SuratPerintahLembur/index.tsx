@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Card, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import TableComponent from "src/components/organism/TableComp";
 import { fontWeights } from "utils/styles";
@@ -87,13 +87,15 @@ export default function SuratPerintahLembur() {
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>
-      <TableComponent
-        table={table}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-        filterBottom={false}
-        noButton={true}
-      />
+      <Card style={{ marginTop: '30px' }}>
+        <TableComponent
+          table={table}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          filterBottom={false}
+          noButton={true}
+        />
+      </Card>
     </>
   );
 }

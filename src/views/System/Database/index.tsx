@@ -12,6 +12,7 @@ import {
 import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
+import { Wrapper } from "./styles";
 
 interface Person {
   [x: string]: any;
@@ -202,13 +203,15 @@ export default function Database() {
   });
 
   return (
-    <TableComponent
-      table={table}
-      type={systemTypeValue}
-      globalFilter={globalFilter}
-      setGlobalFilter={setGlobalFilter}
-      filterBottom={false}
-      noButton={true}
-    />
+    <Wrapper>
+      <TableComponent
+        table={table}
+        type={systemTypeValue}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        filterBottom={false}
+        noButton={true}
+      />
+    </Wrapper>
   );
 }

@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Card, Grid, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import TableComponent from "src/components/organism/TableComp";
 import { fontWeights } from "utils/styles";
@@ -222,7 +222,7 @@ export default function UpdateRoster() {
   }
 
   return (
-    <>
+    <Card style={{ marginTop: '30px' }}>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Update Roster</Text>
@@ -235,6 +235,6 @@ export default function UpdateRoster() {
         filterBottom={false}
         noButton={true}
       />
-    </>
+    </Card>
   );
 }
