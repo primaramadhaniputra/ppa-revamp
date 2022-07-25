@@ -11,7 +11,7 @@ interface IProps {
 
 export default function Tabs({ activeTab, setActiveTab }: IProps) {
    return (
-      <Grid container >
+      <Grid container gap={5} >
          {
             tabsTitle.map((item, index) => <TabsText className={activeTab === index ? 'active' : ''} key={index} onClick={() => setActiveTab(index)}>{item}</TabsText>)
          }

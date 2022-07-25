@@ -170,8 +170,8 @@ export default function AttendanceRevision() {
     <>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Attendance Revision</Text>
-        <FileContainer>
-          <div>
+        <FileContainer >
+          <div >
             <label htmlFor="file">+</label>
             <label htmlFor="file"> Input</label>
           </div>

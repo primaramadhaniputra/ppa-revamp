@@ -72,6 +72,7 @@ export const TABLE = styled.table`
     }
     text-align: center;
     vertical-align: middle;
+    min-width: 150px;
   }
 
   & thead th > div > span > span {

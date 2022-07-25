@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { Text } from "@hudoro/neron";
+import { fontFamilies, Text } from "@hudoro/neron";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
 
@@ -20,7 +20,17 @@ export const options = {
 
       },
     },
-
+    datalabels: {
+      color: 'White',
+      formatter: (value: string) => {
+        return value + '%';
+      },
+      font: {
+        size: 12,
+        family: fontFamilies.poppins,
+        weight: fontWeights.bold
+      },
+    }
   },
 };
 

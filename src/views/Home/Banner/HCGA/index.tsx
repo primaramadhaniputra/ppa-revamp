@@ -3,6 +3,7 @@ import TitlePage from 'atoms/TitlePage'
 import React from 'react'
 import { fontSizing, fontWeights } from 'utils/styles'
 import DoughnutChart from './DoughnutChart'
+import LineChart from './LineChart'
 import PieChart from './PieChart'
 
 export default function HCGA() {
@@ -33,10 +34,7 @@ export default function HCGA() {
                <PieChart data={data} />
             </Grid>
             <Grid>
-               <DoughnutChart data={data} />
-            </Grid>
-            <Grid>
-               <PieChart data={data} />
+               <LineChart />
             </Grid>
          </Grid>
       </>
