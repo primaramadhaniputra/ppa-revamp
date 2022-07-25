@@ -10,7 +10,7 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useSystemTypeValue } from "recoil/SystemType/atom";
-import { fontWeights } from "utils/styles";
+import { colors, fontWeights } from "utils/styles";
 import { fontFamilies } from "@hudoro/neron";
 
 interface Person {
@@ -22,8 +22,9 @@ export const defaultDataTable = arr.map((_, index) => {
   return {
     Dept: "HD787",
     MP: "Hd123",
-    ["Sudah mengisi"]: `33${index}`,
-    Achievment: "2022-17-08",
+    ["New Version"]: `33${index}`,
+    ["Old Version"]: `33${index}`,
+    Updated: "2022-17-08",
   };
 });
 
@@ -41,8 +42,7 @@ export default function AppVersionControl() {
           Dept
         </span>
       ),
-      // footer: (props) => props.column.id,
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>Total</span>,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>TOTAL</span>,
     },
     {
       accessorFn: (row) => row.MP,
@@ -53,26 +53,36 @@ export default function AppVersionControl() {
           MP
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
     {
-      accessorKey: "Sudah mengisi",
+      accessorKey: "New Version",
+      cell: (info) => <span style={{ color: colors.blueGrey }}>{info.getValue()}</span>,
       header: () => (
         <span>
-          Sudah mengisi
+          New Version
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
-
     {
-      accessorKey: "Achievment",
+      accessorKey: "Old Version",
+      cell: (info) => <span style={{ color: colors.blueGrey }}>{info.getValue()}</span>,
       header: () => (
         <span>
-          Achievment
+          Old Version
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123</span>,
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
+    },
+    {
+      accessorKey: "Updated",
+      header: () => (
+        <span>
+          Updated
+        </span>
+      ),
+      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
   ];
 
