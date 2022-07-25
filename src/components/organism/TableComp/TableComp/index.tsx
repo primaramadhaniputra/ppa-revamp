@@ -49,77 +49,48 @@ export default function TableComp({ table, withFooter }: IProps) {
                   {headerGroup.headers.map((header) => {
                     return (
                       <>
-                        {header.isPlaceholder ? (
-                          <th
-                            key={header.id}
-                            rowSpan={2}
-                            colSpan={header.colSpan}
-                          >
+                        {header.isPlaceholder ?
+                          <th key={header.id} rowSpan={2} colSpan={header.colSpan}>
                             <ThItemContainer
                               {...{
                                 className: header.column.getCanSort()
                                   ? "cursor-pointer select-none"
                                   : "",
-                                onClick:
-                                  header.column.getToggleSortingHandler(),
+                                onClick: header.column.getToggleSortingHandler(),
                               }}
                             >
                               {flexRender(
                                 header.column.columnDef.header,
                                 header.getContext()
                               )}
+                              {{
+                                asc: " 🔼",
+                                desc: " 🔽",
+                              }[header.column.getIsSorted() as string] ?? null}
                             </ThItemContainer>
                           </th>
-                        ) : (
-                          <th
-                            key={header.id}
-                            rowSpan={1}
-                            colSpan={header.colSpan}
-                            className={
-                              header.column.parent === undefined &&
-                              header.column.columns.length < 1
-                                ? "hidden"
-                                : ""
-                            }
-                          >
-                            <ThItemContainer
-                              {...{
-                                className: header.column.getCanSort()
-                                  ? "cursor-pointer select-none"
-                                  : "",
-                                onClick:
-                                  header.column.getToggleSortingHandler(),
-                              }}
-                            >
-                              {flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
-                            </ThItemContainer>
-                          </th>
-                        )}
+                          : (
+                            <th key={header.id} rowSpan={1} colSpan={header.colSpan} style={{ display: header.depth === 2 && !header.column.parent?.id ? 'none' : '' }} >
+                              <ThItemContainer
+                                {...{
+                                  className: header.column.getCanSort()
+                                    ? "cursor-pointer select-none"
+                                    : "",
+                                  onClick: header.column.getToggleSortingHandler(),
+                                }}
+                              >
+                                {flexRender(
+                                  header.column.columnDef.header,
+                                  header.getContext()
+                                )}
+                                {{
+                                  asc: " 🔼",
+                                  desc: " 🔽",
+                                }[header.column.getIsSorted() as string] ?? null}
+                              </ThItemContainer>
+                            </th>
+                          )}
                       </>
-                      // <th key={header.id} rowSpan={1} colSpan={header.colSpan}>
-                      //   {header.isPlaceholder ? null : (
-                      //     <ThItemContainer
-                      //       {...{
-                      //         className: header.column.getCanSort()
-                      //           ? "cursor-pointer select-none"
-                      //           : "",
-                      //         onClick: header.column.getToggleSortingHandler(),
-                      //       }}
-                      //     >
-                      //       {flexRender(
-                      //         header.column.columnDef.header,
-                      //         header.getContext()
-                      //       )}
-                      //       {/* {{
-                      //         asc: " 🔼",
-                      //         desc: " 🔽",
-                      //       }[header.column.getIsSorted() as string] ?? null} */}
-                      //     </ThItemContainer>
-                      //   )}
-                      // </th>
                     );
                   })}
                 </tr>
@@ -162,9 +133,9 @@ export default function TableComp({ table, withFooter }: IProps) {
                         {header.isPlaceholder
                           ? null
                           : flexRender(
-                              header.column.columnDef.footer,
-                              header.getContext()
-                            )}
+                            header.column.columnDef.footer,
+                            header.getContext()
+                          )}
                       </th>
                     ))}
                   </tr>
