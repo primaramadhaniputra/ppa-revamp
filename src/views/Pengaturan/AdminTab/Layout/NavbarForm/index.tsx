@@ -1,10 +1,11 @@
-import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { ISelectItem, Select } from "@hudoro/neron";
 import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useNavbarDefaultValue } from "recoil/navbarDefaultValue/atom";
 import { listPages, updatePages } from "services/pages";
 import { notify } from "utils/functions";
 import { SelectLabel } from "../../styles";
+import { ArrowDown, Container } from "./styled";
 
 export default function NavbarForm() {
   const navbarDefault = useNavbarDefaultValue();
@@ -27,8 +28,8 @@ export default function NavbarForm() {
             };
           });
         setLayout(newData);
-        setIsDisabled(false);
-        return notify("Berhasil mendapatkan layout", "success");
+        return setIsDisabled(false);
+        // return notify("Berhasil mendapatkan layout", "success");
       })
       .catch((err) => {
         setIsDisabled(true);
@@ -53,7 +54,7 @@ export default function NavbarForm() {
   };
 
   return (
-    <Grid container flexDirection="column" gap={5}>
+    <Container >
       <SelectLabel>Pilih posisi navbar</SelectLabel>
       <Select
         items={layout}
@@ -61,6 +62,7 @@ export default function NavbarForm() {
         disabled={isDisabled}
         onChange={handleChangeLayout}
       />
-    </Grid>
+      <ArrowDown />
+    </Container>
   );
 }

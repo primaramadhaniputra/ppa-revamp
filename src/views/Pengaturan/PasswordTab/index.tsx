@@ -1,4 +1,4 @@
-import { Grid } from "@hudoro/neron";
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import { useRouter } from "next/router";
@@ -41,6 +41,7 @@ export default function PasswordTab() {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
+        <Text variant='p' style={{ fontFamily: fontFamilies.poppins, fontWeight: fontWeights.bold, marginBottom: '20px' }}>Ubah password</Text>
         <Grid container flexDirection="column" gap={30}>
           <Grid container flexDirection="column" gap={7}>
             <LabeledInput name="currentPassword" title="Password saat ini" />

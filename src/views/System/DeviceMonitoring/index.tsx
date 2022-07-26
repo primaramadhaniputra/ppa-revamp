@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import TableComponent from "src/components/organism/TableComp";
+import React from "react";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -9,9 +8,11 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { Grid } from "@hudoro/neron";
-import CompleteInputs from "src/components/organism/CompleteInputs";
+import { Container } from "./styles";
+import TableComponent2 from "src/components/organism/TableComp2";
+import TopFilter from "./TopFilter";
+import Filter from "./Filter";
 
 interface Person {
   [x: string]: any;
@@ -31,14 +32,9 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function DeviceMonitoring() {
-  const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [fromDateState, setFromDateState] = useState(new Date());
-  const [toDateState, setToDateState] = useState(new Date());
-  const [isFromDate, setIsFromDate] = useState(false)
-  const [isToDate, setIsToDate] = useState(false)
   const columns: ColumnDef<Person>[] = [
     {
       accessorKey: "Tanggal",
@@ -143,31 +139,17 @@ export default function DeviceMonitoring() {
     getSortedRowModel: getSortedRowModel(),
   });
 
-  const handleSelect = (date: Date) => {
-    setFromDateState(date)
-  }
-  const handleSelectToDate = (date: Date) => {
-    setToDateState(date)
-  }
-
-  const handleFromDateInput = () => {
-    setIsFromDate(!isFromDate)
-  }
-  const handleToDateInput = () => {
-    setIsToDate(!isToDate)
-  }
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
+  };
 
   return (
-    <>
-      <CompleteInputs fromDateState={fromDateState} handleFromDateInput={handleFromDateInput} isFromDate={isFromDate} handleSelectFromDate={handleSelect} toDateState={toDateState} handleToDateInput={handleToDateInput} isToDate={isToDate} handleSelectToDate={handleSelectToDate} />
-      <TableComponent
+    <Container>
+      <TopFilter />
+      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2
         table={table}
-        type={systemTypeValue}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-        filterBottom={false}
-        noButton={true}
       />
-    </>
+    </Container>
   );
 }

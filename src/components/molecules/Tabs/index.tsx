@@ -15,6 +15,7 @@ export default function Tabs({ activeTab, setactiveTab }: IProps) {
       <TabText
         style={{
           fontWeight: activeTab === 0 ? fontWeights.bold : fontWeights.regular,
+          color: activeTab === 0 ? "black" : "rgba(0,0,0,.3)",
         }}
       >
         Pengaturan Profile

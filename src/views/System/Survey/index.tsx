@@ -1,5 +1,4 @@
 import React from "react";
-import TableComponent from "src/components/organism/TableComp";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -9,9 +8,10 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { fontWeights } from "utils/styles";
-import { fontFamilies } from "@hudoro/neron";
+import { fontFamilies, Text } from "@hudoro/neron";
+import { Container } from "./styles";
+import TableComponent2 from "src/components/organism/TableComp2";
 
 interface Person {
   [x: string]: any;
@@ -28,9 +28,8 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function Survey() {
-  const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
-  const [globalFilter, setGlobalFilter] = React.useState("");
+  // const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const columns: ColumnDef<Person>[] = [
     {
@@ -82,7 +81,7 @@ export default function Survey() {
     state: {
       sorting,
       rowSelection,
-      globalFilter,
+      // globalFilter,
     },
     onSortingChange: setSorting,
     onRowSelectionChange: setRowSelection,
@@ -94,17 +93,12 @@ export default function Survey() {
   });
 
   return (
-    <TableComponent
-      table={table}
-      type={systemTypeValue}
-      globalFilter={globalFilter}
-      setGlobalFilter={setGlobalFilter}
-      filterBottom={false}
-      noButton={true}
-      noSearch={true}
-      noPagination={true}
-      noInputComp={true}
-      withFooter={true}
-    />
+    <Container>
+      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi }}>Survey ESG achievment MHU</Text>
+      <TableComponent2
+        table={table}
+        noPagination={true}
+      />
+    </Container>
   );
 }

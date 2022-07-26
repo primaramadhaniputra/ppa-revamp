@@ -1,6 +1,6 @@
 import { fontFamilies, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
-import { colors, fontSizing, fontWeights } from 'utils/styles';
+import { colors, fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const SelectContainer = styled.div`
     position: relative;
@@ -22,6 +22,10 @@ export const ArrowDown = styled.div`
 `;
 
 export const FileContainer = styled.div`
+    width: 100%;
+    ${mediaQueries.md} {
+        width: auto;
+    }
     & label {
         background-color: ${colors.orange};
         color: #eee;

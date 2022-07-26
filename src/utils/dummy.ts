@@ -182,25 +182,28 @@ export const ImageUrl = [
 
 export const ProductionPerfromanceData = [
     {
-        title: 'Ach. Cost @ 1 Km',
+        title: ' Cost @ 1 Km',
         plan: ['MTD', '**'],
         act: ['YTD', '**'],
         icon: 'ach_cost.png',
+        ach: 'Ach.10%',
     },
     {
-        title: 'Ach. 105% Coal Production',
+        title: ' Coal ',
         plan: ['Plan', '2.203.117 ton'],
         act: ['Act', '2.314.285 ton'],
         icon: 'ach_coal_production.png',
+        ach: 'Ach.103%',
     },
     {
-        title: 'Ach. 105% OB Production',
+        title: 'OB',
         plan: ['Plan', '2.203.117 ton'],
         act: ['Act', '2.314.285 ton'],
         icon: 'ach_ob_production.png',
+        ach: 'Ach.103%',
     },
     {
-        title: 'Ach. 105% MP Production',
+        title: 'MP PRDTY',
         plan: ['Plan', '2.203.117 ton'],
         act: ['Act', '2.314.285 ton'],
         icon: 'mp_productivity.png',
@@ -247,15 +250,27 @@ export const HaulerPerformanceData = [
 export const PlanPerfromanceData = [
     {
         title: 'PA',
-        plan: ['MTD', '** %'],
-        act: ['YTD', '** %'],
+        plan: ['Plan', '** %'],
+        act: ['Act', '** %'],
         icon: 'pa.png',
     },
     {
         title: 'UA',
-        plan: ['MTD', '** %'],
-        act: ['YTD', '** %'],
+        plan: ['Plan', '** %'],
+        act: ['Act', '** %'],
         icon: 'ua.png',
+    },
+    {
+        title: 'MTBF',
+        plan: ['Plan', '** %'],
+        act: ['Act', '** %'],
+        icon: 'MTBF.png',
+    },
+    {
+        title: 'MTTR',
+        plan: ['Plan', '** %'],
+        act: ['Act', '** %'],
+        icon: 'MTTR.png',
     },
 ];
 

@@ -102,6 +102,7 @@ export const colors = {
     borderBlue: 'rgba(37, 40, 43, 0.2)',
     blueSky: '#e8f0fe',
     orange: '#F89D5C',
+    blueGrey: '#7376B4',
 };
 
 /**

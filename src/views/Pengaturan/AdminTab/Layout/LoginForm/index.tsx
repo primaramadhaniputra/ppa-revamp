@@ -1,9 +1,10 @@
-import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useEffect, useState } from "react";
 import { useLoginDefaultValue } from "recoil/loginDefaultValue/atom";
 import { listPages, updatePages } from "services/pages";
 import { notify } from "utils/functions";
 import { SelectLabel } from "../../styles";
+import { ArrowDown, Container } from "./styled";
 
 export default function LoginForm() {
   const [layout, setLayout] = useState([]);
@@ -26,8 +27,8 @@ export default function LoginForm() {
             };
           });
         setLayout(newData);
-        setIsDisabled(false);
-        return notify("Berhasil mendapatkan layout", "success");
+        return setIsDisabled(false);
+        // return notify("Berhasil mendapatkan layout", "success");
       })
       .catch((err) => {
         setIsDisabled(true);
@@ -51,7 +52,7 @@ export default function LoginForm() {
   };
 
   return (
-    <Grid container flexDirection="column" gap={5}>
+    <Container >
       <SelectLabel>Pilih layout login</SelectLabel>
       <Select
         items={layout}
@@ -60,6 +61,7 @@ export default function LoginForm() {
         placeholder="change layout"
         defaultValue={loginDefault}
       />
-    </Grid>
+      <ArrowDown />
+    </Container>
   );
 }

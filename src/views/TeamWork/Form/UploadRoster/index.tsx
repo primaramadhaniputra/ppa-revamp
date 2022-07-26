@@ -1,10 +1,8 @@
-import { Grid, Select, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React from "react";
-import TableComponent from "src/components/organism/TableComp";
-import { inputDropDownOperation } from "utils/dummy";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ArrowDown, FileContainer, SelectContainer, ThItemContainer } from "./styles";
+import { FileContainer, ThItemContainer } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -14,6 +12,8 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
+import TableComponent2 from "src/components/organism/TableComp2";
+import Filter from "./Filter";
 
 interface Person {
   [x: string]: any;
@@ -150,28 +150,20 @@ export default function UploadRoster() {
     debugTable: true,
     getSortedRowModel: getSortedRowModel(),
   });
-
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
+  };
   return (
     <>
-      <SelectContainer >
-        <label>Menu</label>
-        <Select items={inputDropDownOperation} />
-        <ArrowDown></ArrowDown>
-      </SelectContainer>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / asdf / asdf</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form /Upload Roster</Text>
         <FileContainer>
           <label htmlFor="file"> <span>+</span> UPLOAD FILE</label>
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>
-      <TableComponent
-        table={table}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-        filterBottom={false}
-        noButton={true}
-      />
+      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2 table={table} />
     </>
   );
 }

@@ -13,16 +13,20 @@ interface IProps {
   style?: React.CSSProperties;
   onChange?: (e: any) => void;
   disabled?: boolean;
+  styleLabel?: React.CSSProperties;
 }
 
 export default function LabeledInput({
   title,
   color = "black",
+  styleLabel,
   ...rest
 }: IProps) {
   return (
     <Grid container flexDirection="column" gap={5}>
-      {title && <StyledLabel style={{ color }}>{title}</StyledLabel>}
+      {title && (
+        <StyledLabel style={{ color, ...styleLabel }}>{title}</StyledLabel>
+      )}
       <StyledInput autoComplete="off" {...rest} />
     </Grid>
   );
