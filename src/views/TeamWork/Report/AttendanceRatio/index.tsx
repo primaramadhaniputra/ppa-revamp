@@ -17,6 +17,7 @@ import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TabsText from "./TabsText";
+import Department from "./Department";
 
 interface IProps {
   [x: string]: any;
@@ -224,16 +225,7 @@ export default function AttendanceRatio() {
         </>
       )
     } else if (activeTabs === 1) {
-      return <>
-        <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Department Attendance Ratio</Text>
-        <TopFilter noDept={true} />
-        <Grid container flexDirection="column" alignItems="center" justifyContent="center" style={{ marginTop: 10 }}>
-          <div>
-            <p>Chart</p>
-            <p>Detail</p>
-          </div>
-        </Grid>
-      </>
+      return <Department />
     }
   }
 
