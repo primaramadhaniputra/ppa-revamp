@@ -1,8 +1,7 @@
-import { Card, Grid, Text } from "@hudoro/neron";
+import { Card, Grid, Icon, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer } from "./styles";
+import { ArrowDown, ArrowUp, ThItemContainer } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -12,13 +11,9 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { IcEdit } from "atoms/Icon";
 import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import TabsText from "./TabsText";
-import Department from "./Department";
-import YTD from "./YTD";
 
 interface IProps {
   [x: string]: any;
@@ -27,171 +22,146 @@ interface IProps {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
-    nrp: "HD787",
-    name: "Hd123",
-    date: `33${index}`,
-    code: "2022-17-08",
-    in: "2022-17-08",
-    out: "2022-17-08 02:12:12",
-    job: "2022-17-08 02:12:12",
-    pos: "2022-17-08 02:12:12",
-    act: "2022-17-08 02:12:12",
+    ['Waktu Kejadian']: "2022-10-12||10.30",
+    ['NRP']: "Hd123",
+    ['Nama']: `33${index}`,
+    ['Posisi']: "Sayap kanan",
+    ['Sanksi']: "ee gak tau",
+    ['Jenis']: "2022-17-08 02:12:12",
+    ["Status"]: "AKTIF",
+    ['Detail']: "2022-17-08 02:12:12",
   };
 });
 
-export default function AttendanceRatio() {
-
+export default function SuratPelanggaran() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [activeTabs, setActiveTabs] = React.useState(0)
 
   const columns: ColumnDef<IProps>[] = [
     {
-      accessorKey: "nrp",
+      accessorKey: 'Waktu Kejadian',
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
           <span>
-            nrp
+            Waktu Kejadian
           </span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
-            <AD></AD>
+            <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
+      )
     },
     {
-      accessorFn: (row) => row.name,
-      id: "name",
+      accessorKey: 'NRP',
       cell: (info) => info.getValue(),
       header: () => (
-        <ThItemContainer >
+        <ThItemContainer>
           <span>
-            Name
+            NRP
           </span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
-            <AD></AD>
+            <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
+      )
     },
     {
-      accessorKey: "date",
-      header: () => (
-        <ThItemContainer >
-          <span>
-            Date
-          </span>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-
-    {
-      accessorKey: "Code",
-      header: () => (
-        <ThItemContainer >
-          <span>
-            code
-          </span>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "in",
-      header: () => (
-        <ThItemContainer >
-          <span>
-            In
-          </span>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-
-    {
-      accessorKey: "out",
+      accessorKey: 'Nama',
+      cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
           <span>
-            Out
+            Nama
           </span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
-            <AD></AD>
+            <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
+      )
     },
     {
-      accessorKey: "job",
+      accessorKey: 'Posisi',
+      cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
           <span>
-            Job
+            Posisi
           </span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
-            <AD></AD>
+            <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
+      )
     },
     {
-      accessorKey: "pos",
+      accessorKey: 'Sanksi',
+      cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
           <span>
-            Pos
+            Sanksi
           </span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
-            <AD></AD>
+            <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
+      )
     },
     {
-      accessorKey: "act",
+      accessorKey: 'Jenis',
+      cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
           <span>
-            Act
+            Jenis
           </span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
-            <AD></AD>
+            <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-      cell: () => <Grid>
-        <IcEdit width={20} style={{ cursor: 'pointer' }} />
-      </Grid>
+      )
+    },
+    {
+      accessorKey: 'Status',
+      cell: (info) => <span style={{ fontWeight: fontWeights.bold, color: "#3B7DDD" }}>{info.getValue()}</span>,
+      header: () => (
+        <ThItemContainer>
+          <span>
+            Status
+          </span>
+          <Grid container flexDirection="column">
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </ThItemContainer>
+      )
+    },
+    {
+      accessorKey: 'Detail',
+      cell: () => <Grid container style={{ justifyContent: 'center', cursor: 'pointer' }}>
+        <Icon iconName="IcEye" size={24} />
+      </Grid>,
+      header: () => (
+        <ThItemContainer>
+          <span>
+            Detail
+          </span>
+          <Grid container flexDirection="column">
+            <ArrowUp></ArrowUp>
+            <ArrowDown></ArrowDown>
+          </Grid>
+        </ThItemContainer>
+      )
     },
   ];
-
   const table = useReactTable({
     data: defaultDataTable,
     columns,
@@ -213,35 +183,16 @@ export default function AttendanceRatio() {
     table.setPageSize(e.target.value);
   };
 
-  const renderTab = () => {
-    if (activeTabs === 0) {
-      return (
-        <>
-          <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Individual Attendance Ratio</Text>
-          <TopFilter />
-          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-          <TableComponent2
-            table={table}
-          />
-        </>
-      )
-    } else if (activeTabs === 1) {
-      return <Department />
-    } else if (activeTabs === 2) {
-      return <Department />
-    } else {
-      return <YTD />
-    }
-
-  }
-
   return (
     <Card style={{ marginTop: '30px', paddingTop: 0 }}>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Attendance Ratio</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Surat Pelanggaran</Text>
       </Grid>
-      <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
-      {renderTab()}
+      <TopFilter />
+      <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2
+        table={table}
+      />
     </Card>
   );
 }

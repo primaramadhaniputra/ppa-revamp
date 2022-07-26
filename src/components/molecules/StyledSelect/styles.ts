@@ -5,7 +5,7 @@ import { colors } from "utils/styles";
 export const StatusContainer = styled(Grid)`
   background-color: ${colors.blueSky};
   position: relative;
-  padding: 5px;
+  padding: 0 5px;
   & label {
     line-height: 0;
     font-size: 12px;

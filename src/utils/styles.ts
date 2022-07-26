@@ -103,6 +103,7 @@ export const colors = {
     blueSky: '#e8f0fe',
     orange: '#F89D5C',
     blueGrey: '#7376B4',
+    orangeGrey: '#FFECDE',
 };
 
 /**

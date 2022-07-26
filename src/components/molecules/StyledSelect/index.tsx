@@ -9,7 +9,7 @@ interface IProps {
 
 export default function StyledSelect({ title }: IProps) {
   return (
-    <StatusContainer style={{ flex: 1, height: "60px", minWidth: "150px" }}>
+    <StatusContainer style={{ flex: 1, minWidth: "150px" }}>
       <label>{title}</label>
       <Select placeholder="banana" items={inputDropDownOperation} />
       <ArrowDown />
