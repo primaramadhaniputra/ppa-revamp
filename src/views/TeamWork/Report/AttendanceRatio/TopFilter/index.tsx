@@ -15,7 +15,7 @@ export default function TopFilter() {
       setFromDateState(e)
    }
    return (
-      <Grid container style={{ marginTop: '30px', gap: 5 }}>
+      <Grid container style={{ marginTop: '10px', gap: 5 }}>
          <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />
          <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
          <StyledSelect title='Dept' />

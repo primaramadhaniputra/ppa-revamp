@@ -6,7 +6,7 @@ import { ArrowDown, SelectContainer } from "./styles";
 
 
 const selectItems = [
-  { id: 1, values: 'Upload Roster', label: 'Upload Roster' },
+  { id: 1, values: 'Attendance Ratio', label: 'Attendance Ratio' },
   { id: 2, values: 'Update Roster', label: 'Update Roster' },
   { id: 3, values: 'Set Roster', label: 'Set Roster' },
   { id: 4, values: 'Attendance Revision', label: 'Attendance Revision' },
@@ -20,15 +20,14 @@ const selectItems = [
 ]
 
 const renderContent = (type: string) => {
-  console.log(type)
-  // if (type === 'Attendance Ratio') {
-  return <AttendanceRatio />
-  // }
+  if (type === 'Attendance Ratio') {
+    return <AttendanceRatio />
+  }
 
 }
 
 export default function Form() {
-  const [selectedItem, setSelectedItem] = useState<ISelectItem | ISelectItem[]>({ id: 1, values: 'Upload Roster', label: 'Upload Roster' })
+  const [selectedItem, setSelectedItem] = useState<ISelectItem | ISelectItem[]>({ id: 1, values: 'Attendance Ratio', label: 'Attendance Ratio' })
 
   const handleSelect = (e: ISelectItem | ISelectItem[]) => {
     setSelectedItem(e)

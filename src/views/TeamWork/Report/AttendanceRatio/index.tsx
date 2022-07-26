@@ -16,6 +16,7 @@ import { IcEdit } from "atoms/Icon";
 import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
+import TabsText from "./TabsText";
 
 interface IProps {
   [x: string]: any;
@@ -41,6 +42,7 @@ export default function AttendanceRatio() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [activeTabs, setActiveTabs] = React.useState(0)
 
   const columns: ColumnDef<IProps>[] = [
     {
@@ -214,6 +216,8 @@ export default function AttendanceRatio() {
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Attendance Ratio</Text>
       </Grid>
+      <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
+      <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Individual Attendance Ratio</Text>
       <TopFilter />
       <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2
