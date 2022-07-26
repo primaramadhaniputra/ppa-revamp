@@ -1,5 +1,4 @@
 import React from "react";
-import TableComponent from "src/components/organism/TableComp";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -9,10 +8,11 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { useSystemTypeValue } from "recoil/SystemType/atom";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 import { Container } from "./styles";
+import TableComponent2 from "src/components/organism/TableComp2";
+import Filter from "./Filter";
 
 interface Person {
   [x: string]: any;
@@ -29,7 +29,6 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function AbsMachine() {
-  const systemTypeValue = useSystemTypeValue();
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -116,17 +115,13 @@ export default function AbsMachine() {
     debugTable: true,
     getSortedRowModel: getSortedRowModel(),
   });
-
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
+  };
   return (
     <Container>
-      <TableComponent
-        table={table}
-        type={systemTypeValue}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-        filterBottom={false}
-        noButton={true}
-      />
+      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2 table={table} />
     </Container>
   );
 }

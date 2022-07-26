@@ -1,6 +1,5 @@
-import { Card, Grid, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React from "react";
-import TableComponent from "src/components/organism/TableComp";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
 import { FileContainer, ThItemContainer } from "./styles";
@@ -13,6 +12,8 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
+import TableComponent2 from "src/components/organism/TableComp2";
+import Filter from "./Filter";
 
 interface Person {
   [x: string]: any;
@@ -74,6 +75,10 @@ export default function SuratPerintahLembur() {
     getSortedRowModel: getSortedRowModel(),
   });
 
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
+  };
+
   return (
     <>
 
@@ -87,15 +92,8 @@ export default function SuratPerintahLembur() {
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>
-      <Card style={{ marginTop: '30px' }}>
-        <TableComponent
-          table={table}
-          globalFilter={globalFilter}
-          setGlobalFilter={setGlobalFilter}
-          filterBottom={false}
-          noButton={true}
-        />
-      </Card>
+      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2 table={table} />
     </>
   );
 }

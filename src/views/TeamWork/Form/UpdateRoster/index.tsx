@@ -1,6 +1,5 @@
 import { Card, Grid, Text } from "@hudoro/neron";
 import React, { useState } from "react";
-import TableComponent from "src/components/organism/TableComp";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
 import { ThItemContainer } from "./styles";
@@ -13,9 +12,11 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import CompleteInputs from "src/components/organism/CompleteInputs";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "molecules/FlyingForm";
+import TableComponent2 from "src/components/organism/TableComp2";
+import Filter from "./Filter";
+import TopFilter from "./TopFilter";
 
 interface Person {
   [x: string]: any;
@@ -41,8 +42,6 @@ export default function UpdateRoster() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [fromDateState, setFromDateState] = useState(new Date())
-  const [isFromDate, setIsFromDate] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
 
   const handleEdit = () => {
@@ -213,28 +212,18 @@ export default function UpdateRoster() {
     debugTable: true,
     getSortedRowModel: getSortedRowModel(),
   });
-
-  const handleSelectFromDate = (e: React.SetStateAction<Date>) => {
-    setFromDateState(e)
-  }
-  const handleFromDateInput = () => {
-    setIsFromDate(!isFromDate)
-  }
-
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
+  };
   return (
     <Card style={{ marginTop: '30px' }}>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Update Roster</Text>
       </Grid>
-      <CompleteInputs toDate={false} fromDateTitle='Date' statusTitle="Name" placeholder="Name.." isToDate={false} toDateState={new Date() as Date} fromDateState={fromDateState} isFromDate={isFromDate} handleSelectFromDate={handleSelectFromDate} handleFromDateInput={handleFromDateInput} />
-      <TableComponent
-        table={table}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-        filterBottom={false}
-        noButton={true}
-      />
+      <TopFilter />
+      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2 table={table} />
     </Card>
   );
 }

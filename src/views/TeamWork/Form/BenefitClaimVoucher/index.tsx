@@ -1,6 +1,5 @@
-import { Card, Grid, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React from "react";
-import TableComponent from "src/components/organism/TableComp";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
 import { FileContainer, ThItemContainer } from "./styles";
@@ -15,6 +14,8 @@ import {
 } from "@tanstack/react-table";
 import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
+import TableComponent2 from "src/components/organism/TableComp2";
+import Filter from "./Filter";
 
 interface Person {
   [x: string]: any;
@@ -91,6 +92,10 @@ export default function BenefitClaimVoucher() {
     getSortedRowModel: getSortedRowModel(),
   });
 
+  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+    table.setPageSize(e.target.value);
+  };
+
   return (
     <>
       {isImage && <FormImage onclick={handleImage} />}
@@ -104,15 +109,10 @@ export default function BenefitClaimVoucher() {
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>
-      <Card style={{ marginTop: '30px' }}>
-        <TableComponent
-          table={table}
-          globalFilter={globalFilter}
-          setGlobalFilter={setGlobalFilter}
-          filterBottom={false}
-          noButton={false}
-        />
-      </Card>
+      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      <TableComponent2
+        table={table}
+      />
     </>
   );
 }
