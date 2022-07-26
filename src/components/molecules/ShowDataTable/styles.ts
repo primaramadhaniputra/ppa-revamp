@@ -1,4 +1,4 @@
-import { fontFamilies } from "@hudoro/neron";
+import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
 import { fontWeights, mediaQueries } from "utils/styles";
 
@@ -15,5 +15,15 @@ export const NumberInput = styled.input.attrs({
   font-weight: ${fontWeights.regular};
   ${mediaQueries.md} {
     max-width: 45px;
+  }
+`;
+
+export const Wrapper = styled(Grid).attrs({
+  container: true,
+  alignItems: "center",
+})`
+  width: 100%;
+  ${mediaQueries.md} {
+    width: auto;
   }
 `;

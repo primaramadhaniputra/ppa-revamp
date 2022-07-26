@@ -1,4 +1,3 @@
-import { Grid } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
 import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
@@ -44,17 +43,13 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
       }, [value]);
 
       return (
-         <Grid container gap={5} alignItems="center">
-            <Grid>
-               <StyledInput
-                  {...props}
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                  placeholder="Search..."
-                  style={{ minWidth: '150px' }}
-               />
-            </Grid>
-         </Grid>
+         <StyledInput
+            {...props}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Search..."
+            style={{ minWidth: '150px' }}
+         />
       );
    }
 
