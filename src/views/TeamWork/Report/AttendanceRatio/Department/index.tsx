@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { fontWeights } from 'utils/styles'
 import TopFilter from '../TopFilter'
 import ChartComponent from './Chart'
+import Detail from './Detail'
 import { TabsContainer, StyledText } from './styles'
 
 const tabs = ['Chart', 'Detail']
@@ -18,7 +19,7 @@ export default function Department() {
                {tabs.map((item, index) => <StyledText key={index} className={index === activeTab ? 'active' : ''} onClick={() => setActiveTab(index)}>{item}</StyledText>)}
             </TabsContainer>
          </Grid>
-         <ChartComponent />
+         {activeTab === 0 ? <ChartComponent /> : <Detail />}
       </>
    )
 }

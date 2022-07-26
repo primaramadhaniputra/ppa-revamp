@@ -18,6 +18,7 @@ import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TabsText from "./TabsText";
 import Department from "./Department";
+import YTD from "./YTD";
 
 interface IProps {
   [x: string]: any;
@@ -226,7 +227,12 @@ export default function AttendanceRatio() {
       )
     } else if (activeTabs === 1) {
       return <Department />
+    } else if (activeTabs === 2) {
+      return <Department />
+    } else {
+      return <YTD />
     }
+
   }
 
   return (
