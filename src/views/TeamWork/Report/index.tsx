@@ -4,19 +4,22 @@ import Layout from "src/components/layouts/Dashboard/layout";
 import AttendanceDetail from "./AttendanceDetail";
 import AttendanceRatio from "./AttendanceRatio";
 import { ArrowDown, SelectContainer } from "./styles";
+import SuratPelanggaran from "./SuratPelanggaran";
 
 
 const selectItems = [
   { id: 1, values: 'Attendance Ratio', label: 'Attendance Ratio' },
   { id: 2, values: 'Attendance Detail', label: 'Attendance Detail' },
+  { id: 3, values: 'Surat Pelanggaran', label: 'Surat Pelanggaran' },
 ]
 
 const renderContent = (type: string) => {
   if (type === 'Attendance Ratio') {
     return <AttendanceRatio />
-  }
-  if (type === 'Attendance Detail') {
+  } else if (type === 'Attendance Detail') {
     return <AttendanceDetail />
+  } else if (type === 'Surat Pelanggaran') {
+    return <SuratPelanggaran />
   }
 
 }
