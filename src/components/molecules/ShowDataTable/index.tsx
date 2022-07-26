@@ -1,6 +1,6 @@
 import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
-import { NumberInput } from "./styles";
+import { NumberInput, Wrapper } from "./styles";
 
 interface IProps {
   value: {
@@ -13,7 +13,7 @@ interface IProps {
 
 export default function ShowDataTable({ value, handleChange }: IProps) {
   return (
-    <Grid container alignItems="center" gap={5}>
+    <Wrapper gap={5}>
       <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
         Show
       </Text>
@@ -23,6 +23,6 @@ export default function ShowDataTable({ value, handleChange }: IProps) {
           onChange={handleChange}
         />
       </Grid>
-    </Grid>
+    </Wrapper>
   );
 }

@@ -17,9 +17,15 @@ export const ButtonWrapper = styled.div`
     display: flex;
     gap: 5px;
     flex-direction: column;
+    & button {
+        order: 1;
+    }
     ${mediaQueries.md} {
         flex-direction: row;
         order: 0;
+        & button {
+            order: 0;
+        }
     }
 `;
 
@@ -41,5 +47,4 @@ export const StyledInput = styled.input`
     border-radius: 3px;
     font-family: ${fontFamilies.poppins};
     outline: none;
-    width: 100%;
 `;

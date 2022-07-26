@@ -60,7 +60,7 @@ export default function SetRoster() {
                   <Grid >
                      <LabeledInput name='nrp' title='NRP' styleLabel={{ fontWeight: fontWeights.bold }} />
                   </Grid>
-                  <DropDownContainer style={{ position: 'relative' }} >
+                  <DropDownContainer style={{ position: 'relative', minWidth: '100px' }} >
                      <StyledLabel >Roster</StyledLabel>
                      <Select items={data} />
                      <ArrowContainer>

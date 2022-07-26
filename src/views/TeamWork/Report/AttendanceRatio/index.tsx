@@ -211,18 +211,39 @@ export default function AttendanceRatio() {
     table.setPageSize(e.target.value);
   };
 
+  const renderTab = () => {
+    if (activeTabs === 0) {
+      return (
+        <>
+          <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Individual Attendance Ratio</Text>
+          <TopFilter />
+          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+          <TableComponent2
+            table={table}
+          />
+        </>
+      )
+    } else if (activeTabs === 1) {
+      return <>
+        <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Department Attendance Ratio</Text>
+        <TopFilter noDept={true} />
+        <Grid container flexDirection="column" alignItems="center" justifyContent="center" style={{ marginTop: 10 }}>
+          <div>
+            <p>Chart</p>
+            <p>Detail</p>
+          </div>
+        </Grid>
+      </>
+    }
+  }
+
   return (
     <Card style={{ marginTop: '30px', paddingTop: 0 }}>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Attendance Ratio</Text>
       </Grid>
       <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
-      <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Individual Attendance Ratio</Text>
-      <TopFilter />
-      <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2
-        table={table}
-      />
+      {renderTab()}
     </Card>
   );
 }
