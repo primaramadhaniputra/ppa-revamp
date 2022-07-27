@@ -18,6 +18,7 @@ import { getListUsersWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
 import { IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
+import FlyingForm from "./FlyingForm";
 
 interface Person {
   [x: string]: any;
@@ -39,7 +40,10 @@ export default function AccessControl() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [DataTable, setDataTable] = React.useState(defaultDataTable)
   const [isLoading, setIsLoading] = React.useState(true)
-
+  const [isEdit, setIsEdit] = React.useState(false)
+  const handleEdit = () => {
+    setIsEdit(true)
+  }
   const getAllUsers = async () => {
     try {
       setIsLoading(true)
@@ -58,8 +62,8 @@ export default function AccessControl() {
       setDataTable(newData)
       setIsLoading(false)
     } catch (error: any) {
-      return notify(error.message, 'error')
       setIsLoading(false)
+      return notify(error.message, 'error')
     }
   }
 
@@ -157,6 +161,7 @@ export default function AccessControl() {
               cursor="pointer"
               color="white"
               strokeWidth={1.5}
+              onClick={handleEdit}
             />
           </IconContainer>
           <IconContainer>
@@ -202,13 +207,20 @@ export default function AccessControl() {
     table.setPageSize(e.target.value);
   };
 
+  const closeEdit = () => {
+    setIsEdit(false)
+  }
+
   return (
-    <Container style={{ position: 'relative' }} >
-      {isLoading && <Loading />}
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2
-        table={table}
-      />
-    </Container>
+    <>
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+      <Container style={{ position: 'relative' }} >
+        {isLoading && <Loading />}
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2
+          table={table}
+        />
+      </Container>
+    </>
   );
 }
