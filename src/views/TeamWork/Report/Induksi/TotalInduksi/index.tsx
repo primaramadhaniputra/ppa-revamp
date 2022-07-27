@@ -14,6 +14,7 @@ import {
 import { ArrowDown, ArrowUp, ThItemContainer } from '../styles';
 import { Grid, Icon, Text } from '@hudoro/neron';
 import { fontSizing, fontWeights } from 'utils/styles';
+import ShowDetail from './ShowDetail';
 
 interface IProps {
    [x: string]: any;
@@ -37,11 +38,16 @@ export default function TotalInduksi() {
    const [rowSelection, setRowSelection] = React.useState({});
    const [globalFilter, setGlobalFilter] = React.useState("");
    const [sorting, setSorting] = React.useState<SortingState>([]);
+   const [isShowDetail, setIsShowDetail] = React.useState(false)
+
+   const handleShowDetail = () => {
+      setIsShowDetail(true)
+   }
 
    const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
       return {
          accessorKey: item,
-         cell: (info) => info.column.id === 'Detail' ? <Grid container justifyContent='center' style={{ backgroundColor: '#4A7ABC', padding: '3px 0', borderRadius: 3 }}><Icon iconName='IcSearch' color='white' /></Grid> : info.getValue(),
+         cell: (info) => info.column.id === 'Detail' ? <Grid container justifyContent='center' style={{ backgroundColor: '#4A7ABC', padding: '3px 0', borderRadius: 3 }}><Icon iconName='IcSearch' color='white' onClick={handleShowDetail} style={{ cursor: 'pointer' }} /></Grid> : info.getValue(),
          header: () => (
             <ThItemContainer key={index}>
                <span>
@@ -76,15 +82,18 @@ export default function TotalInduksi() {
       table.setPageSize(e.target.value);
    };
    return (
-      <Wrapper>
-         <Container >
-            <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize }} >Total Induksi</Text>
-            <TextInfo>24 orang</TextInfo>
-         </Container>
-         <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-         <TableComponent2
-            table={table}
-         />
-      </Wrapper >
+      <>
+         {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
+         <Wrapper>
+            <Container >
+               <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize }} >Total Induksi</Text>
+               <TextInfo>24 orang</TextInfo>
+            </Container>
+            <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+            <TableComponent2
+               table={table}
+            />
+         </Wrapper >
+      </>
    )
 }
