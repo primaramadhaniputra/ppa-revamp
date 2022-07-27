@@ -4,6 +4,7 @@ import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
     padding-left: 0;
+    flex: 1;
     ${mediaQueries.lg} {
         padding-left: 30px;
     }

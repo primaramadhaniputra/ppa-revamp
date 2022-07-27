@@ -9,6 +9,8 @@ import {
    Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { fontFamilies, Grid } from '@hudoro/neron';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
    CategoryScale,
@@ -16,13 +18,22 @@ ChartJS.register(
    BarElement,
    Title,
    Tooltip,
-   Legend
+   Legend,
 );
 
 export const options = {
    plugins: {
       legend: {
          display: false,
+      },
+      datalabels: {
+         color: 'white',
+         font: {
+            family: fontFamilies.poppins,
+            size: 15
+         },
+         align: 'start',
+         anchor: 'end',
       },
    },
    responsive: true,
@@ -32,6 +43,15 @@ export const options = {
       },
       y: {
          stacked: true,
+         ticks: {
+            callback: function (val: string) {
+               return `${val} %`
+            },
+            font: {
+               size: 13,
+               family: fontFamilies.poppins
+            }
+         }
       },
    },
 };
@@ -44,21 +64,19 @@ export const data = {
       {
          label: 'Dataset 1',
          data: [5, 2, 10],
-         backgroundColor: 'rgb(255, 99, 132)',
+         backgroundColor: '#FCB92C',
       },
       {
          label: 'Dataset 2',
          data: [5, 3, 10],
-         backgroundColor: 'rgb(75, 192, 192)',
-      },
-      {
-         label: 'Dataset 3',
-         data: [5, 3, 10],
-         backgroundColor: 'rgb(53, 162, 235)',
+         backgroundColor: '#3B7DDD',
       },
    ],
 };
 
 export default function RightItem() {
-   return <Bar options={options as any} data={data} />;
+   return <Grid style={{ flex: 1 }}>
+      <Bar options={options as any} data={data} plugins={[ChartDataLabels]} />
+   </Grid>
+
 }

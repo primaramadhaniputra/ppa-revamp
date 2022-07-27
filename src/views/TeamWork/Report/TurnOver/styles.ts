@@ -6,7 +6,7 @@ export const ItemContainer = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 30px;
-    ${mediaQueries.lg} {
+    ${mediaQueries.xl} {
         column-gap: 20px;
         flex-direction: row;
     }
