@@ -236,7 +236,7 @@ export default function AttendanceRatio() {
   }
 
   return (
-    <Card style={{ marginTop: '30px', paddingTop: 0 }}>
+    <Card style={{ marginTop: '30px', paddingTop: 0, boxShadow: 'none' }}>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Attendance Ratio</Text>
       </Grid>
