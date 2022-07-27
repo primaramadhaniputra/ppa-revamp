@@ -11,7 +11,7 @@ import TotalInduksi from "./TotalInduksi";
 export default function Induksi() {
 
   return (
-    <Card style={{ marginTop: '30px', paddingTop: 0 }}>
+    <Card style={{ marginTop: '30px', paddingTop: 0, boxShadow: 'none' }}>
       <Container>
         <Grid container flexDirection="column" gap={20} style={{ flex: 1 }} >
           <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Induksi Monitoring</Text>
