@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { colors } from "utils/styles";
 
 export const Container = styled.div`
-  background-color: rgba(0, 0, 0, 0.13);
   position: absolute;
   z-index: 999;
   right: 0;
   left: 0;
   bottom: 0;
   top: 0;
-
+  background-color: ${colors.blueSky};
+  opacity: 0.2;
   & > div {
     position: relative;
     top: 50%;
