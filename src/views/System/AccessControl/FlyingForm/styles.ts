@@ -40,7 +40,7 @@ export const HeaderTextContainer = styled.div`
 `;
 
 export const InputContainer = styled.div`
-    padding: 30px 50px;
+    padding: 30px 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;

@@ -33,33 +33,33 @@ export default function FlyingForm({ closeForm, isEdit }: IProps) {
           />
         </HeaderTextContainer>
         <InputContainer>
-          <Grid container gap={10} alignItems="center">
+          <Grid container gap={10} alignItems="center" justifyContent="space-between">
             <StyledLabel>NRP</StyledLabel>
-            <Grid>
+            <Grid style={{ maxWidth: 400 }}>
               <Styledinput />
             </Grid>
           </Grid>
-          <Grid container gap={10} alignItems="center">
+          <Grid container gap={10} alignItems="center" justifyContent="space-between">
             <StyledLabel>Name</StyledLabel>
-            <Grid>
+            <Grid style={{ maxWidth: 400 }}>
               <Styledinput />
             </Grid>
           </Grid>
-          <Grid container gap={10} alignItems="center">
+          <Grid container gap={10} alignItems="center" justifyContent="space-between">
             <StyledLabel>Dept</StyledLabel>
-            <Grid>
+            <Grid style={{ maxWidth: 400 }}>
               <Styledinput />
             </Grid>
           </Grid>
-          <Grid container gap={10} alignItems="center">
+          <Grid container gap={10} alignItems="center" justifyContent="space-between">
             <StyledLabel>Position</StyledLabel>
-            <Grid>
+            <Grid style={{ maxWidth: 400 }}>
               <Styledinput />
             </Grid>
           </Grid>
-          <Grid container gap={10} alignItems="center">
+          <Grid container gap={10} alignItems="center" justifyContent="space-between" >
             <StyledLabel>Level</StyledLabel>
-            <Grid>
+            <Grid style={{ maxWidth: 400 }}>
               <Select items={inputDropDownOperation} />
             </Grid>
           </Grid>
