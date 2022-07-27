@@ -43,7 +43,7 @@ export const InputContainer = styled.div`
     padding: 30px 30px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 `;
 
 export const StyledLabel = styled.label`
