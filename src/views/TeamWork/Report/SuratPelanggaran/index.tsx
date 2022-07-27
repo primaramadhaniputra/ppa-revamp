@@ -14,6 +14,7 @@ import {
 import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
+import ShowDetail from "./ShowDetail";
 
 interface IProps {
   [x: string]: any;
@@ -37,7 +38,10 @@ export default function SuratPelanggaran() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-
+  const [isShowDetail, setIsShowDetail] = React.useState(false)
+  const handleShowDetail = () => {
+    setIsShowDetail(true)
+  }
   const columns: ColumnDef<IProps>[] = [
     {
       accessorKey: 'Waktu Kejadian',
@@ -147,7 +151,7 @@ export default function SuratPelanggaran() {
     {
       accessorKey: 'Detail',
       cell: () => <Grid container style={{ justifyContent: 'center', cursor: 'pointer' }}>
-        <Icon iconName="IcEye" size={24} />
+        <Icon iconName="IcEye" size={24} onClick={handleShowDetail} />
       </Grid>,
       header: () => (
         <ThItemContainer>
@@ -184,15 +188,18 @@ export default function SuratPelanggaran() {
   };
 
   return (
-    <Card style={{ marginTop: '30px', paddingTop: 0 }}>
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Surat Pelanggaran</Text>
-      </Grid>
-      <TopFilter />
-      <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2
-        table={table}
-      />
-    </Card>
+    <>
+      {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
+      <Card style={{ marginTop: '30px', paddingTop: 0, boxShadow: 'none' }}>
+        <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
+          <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Surat Pelanggaran</Text>
+        </Grid>
+        <TopFilter />
+        <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2
+          table={table}
+        />
+      </Card>
+    </>
   );
 }

@@ -1,5 +1,6 @@
+import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontWeights } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const Wrapper = styled.div`
   overflow-x: scroll;
@@ -22,18 +23,21 @@ export const Wrapper = styled.div`
 `;
 
 export const TABLE = styled.table`
-  font-family: "Times New Roman", Times, serif;
+  font-family: ${fontFamilies.poppins};
   width: 100%;
   min-width: 1300px;
   text-align: center;
   border-collapse: collapse;
   padding: 20px;
   margin-top: 20px;
+  font-size: ${fontSizing.md.fontSize};
   & td {
     padding: 10px;
+    /* font-family: ${fontFamilies.poppins}; */
   }
 
   & tr {
+    /* font-family: ${fontFamilies.poppins}; */
   }
 
   & th {
@@ -41,27 +45,29 @@ export const TABLE = styled.table`
   }
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
+    /* font-family: ${fontFamilies.poppins}; */
   }
 
   & thead {
     /* background: ${colors.blueSky}; */
     /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
+    /* font-family: ${fontFamilies.poppins}; */
   }
 
   & tbody {
-    font-family: "Poppins";
+    /* font-family: ${fontFamilies.poppins}; */
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    /* font-weight: 400; */
+    /* font-size: 14px; */
     /* line-height: 21px; */
-    color: #000000;
+    color: rgba(0, 0, 0, 0.8);
   }
 
   & thead th {
-    font-family: "Poppins";
+    /* font-family: ${fontFamilies.poppins}; */
     font-style: normal;
-    font-weight: ${fontWeights.bold};
-    font-size: 14px;
+    font-weight: ${fontWeights.semi};
+    /* font-size: 14px; */
     line-height: 21px;
     color: #000000;
     color: black;
@@ -72,7 +78,7 @@ export const TABLE = styled.table`
     }
     text-align: center;
     vertical-align: middle;
-    min-width: 150px;
+    /* min-width: 150px; */
   }
 
   & thead th > div > span > span {
