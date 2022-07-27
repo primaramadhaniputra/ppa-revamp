@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
 export const TABLE = styled.table`
   font-family: ${fontFamilies.poppins};
   width: 100%;
-  min-width: 1300px;
+  /* min-width: 1300px; */
   text-align: center;
   border-collapse: collapse;
   padding: 20px;
