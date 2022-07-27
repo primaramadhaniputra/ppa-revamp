@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -14,27 +14,59 @@ import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
+import { getListUsersWebAdmin } from "services/webAdmin";
+import { notify } from "utils/functions";
+import { IUserList } from "utils/interfaces";
+import Loading from "atoms/Loading";
 
 interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-  return {
-    NRP: "HD787",
-    Name: "Hd123",
-    Dept: `33${index}`,
-    Position: "2022-17-08",
-    Level: "2022-17-08",
-    Action: "2022-17-08 02:12:12",
-  };
-});
+export const defaultDataTable = [
+  {
+    NRP: "",
+    Name: "",
+    Dept: "",
+    Position: "",
+    Level: "",
+    Action: "",
+  }];
 
 export default function AccessControl() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [DataTable, setDataTable] = React.useState(defaultDataTable)
+  const [isLoading, setIsLoading] = React.useState(true)
+
+  const getAllUsers = async () => {
+    try {
+      setIsLoading(true)
+      const data = await getListUsersWebAdmin({})
+      const newData = data.data.data.map((item: IUserList) => {
+        return {
+          NRP: item.nrp,
+          Name: item.fullName,
+          Dept: item.department,
+          Position: item.position,
+          Level: item.level,
+          action: ''
+
+        }
+      })
+      setDataTable(newData)
+      setIsLoading(false)
+    } catch (error: any) {
+      return notify(error.message, 'error')
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getAllUsers()
+  }, [])
+
   const columns: ColumnDef<Person>[] = [
     {
       accessorKey: "NRP",
@@ -150,7 +182,7 @@ export default function AccessControl() {
   ];
 
   const table = useReactTable({
-    data: defaultDataTable,
+    data: DataTable,
     columns,
     state: {
       sorting,
@@ -171,7 +203,8 @@ export default function AccessControl() {
   };
 
   return (
-    <Container>
+    <Container style={{ position: 'relative' }} >
+      {isLoading && <Loading />}
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2
         table={table}
