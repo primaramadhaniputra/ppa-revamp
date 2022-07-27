@@ -2,36 +2,47 @@ import React from "react";
 import { Text } from "@hudoro/neron";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
-import { Chart as ChartJS, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, Title, Filler } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js'; 'chart.js';
+import { Bar } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
-  Filler,
   annotationPlugin
 );
 
 const data = {
-  labels: ["", "", "", "", '', '', ""],
+  labels: [""],
   datasets: [{
-    label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
+    data: [10],
     borderColor: 'rgb(75, 192, 192)',
-    tension: 1,
-    pointBorderWidth: -100,
-    fill: true,
-    backgroundColor: '#ACD7F8'
+    backgroundColor: '#0496FF',
   }]
 };
 
 export const options = {
   responsive: true,
+  scales: {
+    y: {
+      ticks: {
+        callback: function () {
+          return '';
+        }
+      }
+    }
+  },
   plugins: {
     legend: {
       display: false,
@@ -41,33 +52,42 @@ export const options = {
         box1: {
           type: 'line',
           borderColor: '#FF4560',
-          borderDash: [6, 6],
           borderDashOffset: 0,
-          borderWidth: 3,
+          borderWidth: 1,
           label: {
             enabled: true,
-            content: 'Target 80%',
-            position: 'end',
-            backgroundColor: '#FF4560',
+            content: '2%',
+            position: 'center',
+            backgroundColor: 'transparent',
+            color: 'black',
+            padding: 0,
+            font: {
+              family: 'poppins',
+              size: 13
+            }
           },
           scaleID: 'y',
-          value: 80,
+          value: 20,
         },
       }
-    }
+    },
+    Tooltip: {
+      display: false
+    },
+
   },
 };
-export default function LineChart() {
+export default function GridChart() {
   return (
-    <Wrapper >
+    <Wrapper  >
       <Text
         variant="h4"
         style={{ color: colors.orange, fontWeight: fontWeights.semi, fontSize: fontSizing.sm.fontSize, flex: 1 }}
       >
-        Trend ATR
+        Turn Over
       </Text>
       <DonatContainer>
-        <Line options={options as any} data={data} />
+        <Bar options={options as any} data={data} />
       </DonatContainer>
     </Wrapper>
   );

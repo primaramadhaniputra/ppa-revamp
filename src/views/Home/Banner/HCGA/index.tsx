@@ -2,7 +2,9 @@ import { Grid } from '@hudoro/neron'
 import TitlePage from 'atoms/TitlePage'
 import React from 'react'
 import { fontSizing, fontWeights } from 'utils/styles'
+import { Item } from '../styles'
 import DoughnutChart from './DoughnutChart'
+import GridChart from './GridChart'
 import LineChart from './LineChart'
 import PieChart from './PieChart'
 
@@ -26,16 +28,19 @@ export default function HCGA() {
                HCGA
             </TitlePage>
          </Grid>
-         <Grid container gap={10}>
-            <Grid>
+         <Grid container gap={20}>
+            <Item style={{ flex: 5 }}>
                <DoughnutChart data={data} />
-            </Grid>
-            <Grid>
+            </Item>
+            <Item style={{ flex: 5 }}>
                <PieChart data={data} />
-            </Grid>
-            <Grid>
+            </Item>
+            <Item style={{ padding: 0, flex: 1 }}>
+               <GridChart />
+            </Item>
+            <Item style={{ flex: 5 }}>
                <LineChart />
-            </Grid>
+            </Item>
          </Grid>
       </>
    )
