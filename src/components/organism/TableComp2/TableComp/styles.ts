@@ -81,6 +81,10 @@ export const TABLE = styled.table`
     /* min-width: 150px; */
   }
 
+  & thead th > div > div {
+    display: flex;
+    justify-content: center;
+  }
   & thead th > div > span > span {
     display: inline-block;
     transform: rotate(90deg);
