@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import AttendanceDetail from "./AttendanceDetail";
 import AttendanceRatio from "./AttendanceRatio";
+import Induksi from "./Induksi";
 import OperatorHours from "./OperatorHours";
 import { ArrowDown, SelectContainer } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
@@ -13,6 +14,7 @@ const selectItems = [
   { id: 2, values: 'Attendance Detail', label: 'Attendance Detail' },
   { id: 3, values: 'Surat Pelanggaran', label: 'Surat Pelanggaran' },
   { id: 4, values: 'Operator Hours', label: 'Operator Hours' },
+  { id: 5, values: 'Induksi', label: 'Induksi' },
 ]
 
 const renderContent = (type: string) => {
@@ -24,6 +26,8 @@ const renderContent = (type: string) => {
     return <SuratPelanggaran />
   } else if (type === 'Operator Hours') {
     return <OperatorHours />
+  } else if (type === 'Induksi') {
+    return <Induksi />
   }
 
 }
