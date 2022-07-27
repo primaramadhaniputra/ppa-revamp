@@ -8,6 +8,7 @@ import Izin from "./Izin";
 import OperatorHours from "./OperatorHours";
 import { ArrowDown, SelectContainer } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
+import TurnOver from "./TurnOver";
 
 
 const selectItems = [
@@ -17,6 +18,7 @@ const selectItems = [
   { id: 4, values: 'Operator Hours', label: 'Operator Hours' },
   { id: 5, values: 'Induksi', label: 'Induksi' },
   { id: 6, values: 'Izin', label: 'Izin' },
+  { id: 7, values: 'Turn Over', label: 'Turn Over' },
 ]
 
 const renderContent = (type: string) => {
@@ -32,6 +34,8 @@ const renderContent = (type: string) => {
     return <Induksi />
   } else if (type === 'Izin') {
     return <Izin />
+  } else if (type === 'Turn Over') {
+    return <TurnOver />
   }
 
 }
