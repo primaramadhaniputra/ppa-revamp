@@ -4,6 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import { fontFamilies, Text } from "@hudoro/neron";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -21,15 +22,16 @@ export const options = {
       },
     },
     datalabels: {
-      color: 'White',
+      color: 'white',
       formatter: (value: string) => {
         return value + '%';
       },
       font: {
         size: 12,
         family: fontFamilies.poppins,
-        weight: fontWeights.bold
+        weight: fontWeights.bold,
       },
+
     }
   },
 };
@@ -48,7 +50,7 @@ export default function DoughnutChart({ data }: IProps) {
         Total Manpower
       </Text>
       <DonatContainer>
-        <Doughnut data={data} options={options} />
+        <Doughnut data={data} options={options} plugins={[ChartDataLabels]} />
       </DonatContainer>
     </Wrapper>
   );
