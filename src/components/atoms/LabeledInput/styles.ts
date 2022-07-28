@@ -16,8 +16,7 @@ export const StyledInput = styled.input`
   /* background: #e8f0fe; */
   border: 1px solid ${colors.borderBlue};
   border-radius: 5px;
-  height: 41px;
-  padding: 0 10px;
+  padding: 5px 10px;
   font-family: ${fontFamilies.poppins};
   &::placeholder {
     font-family: ${fontFamilies.poppins};
