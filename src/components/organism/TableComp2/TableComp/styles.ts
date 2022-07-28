@@ -55,10 +55,10 @@ export const TABLE = styled.table`
   }
 
   & tbody {
-    /* font-family: ${fontFamilies.poppins}; */
+    font-family: ${fontFamilies.poppins};
     font-style: normal;
     /* font-weight: 400; */
-    /* font-size: 14px; */
+    font-size: 12px;
     /* line-height: 21px; */
     color: rgba(0, 0, 0, 0.8);
   }
@@ -67,12 +67,12 @@ export const TABLE = styled.table`
     /* font-family: ${fontFamilies.poppins}; */
     font-style: normal;
     font-weight: ${fontWeights.semi};
-    /* font-size: 14px; */
+    font-size: 12px;
     line-height: 21px;
     color: #000000;
     color: black;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     &.hidden {
       display: none;
     }
@@ -88,6 +88,10 @@ export const TABLE = styled.table`
   & thead th > div > span > span {
     display: inline-block;
     transform: rotate(90deg);
+  }
+  & tfoot {
+    font-size: 12px;
+    line-height: 21px;
   }
 
   & tfoot > tr > th div label {
