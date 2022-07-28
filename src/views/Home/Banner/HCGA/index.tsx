@@ -29,16 +29,16 @@ export default function HCGA() {
             </TitlePage>
          </Grid>
          <Grid container gap={20}>
-            <Item style={{ flex: 5 }}>
+            <Item style={{ flex: 5, boxShadow: 'none' }}>
                <DoughnutChart data={data} />
             </Item>
-            <Item style={{ flex: 5 }}>
+            <Item style={{ flex: 5, boxShadow: 'none' }}>
                <PieChart data={data} />
             </Item>
-            <Item style={{ padding: 0, flex: 1 }}>
+            <Item style={{ padding: 0, flex: 1, boxShadow: 'none' }}>
                <GridChart />
             </Item>
-            <Item style={{ flex: 5 }}>
+            <Item style={{ flex: 5, boxShadow: 'none' }}>
                <LineChart />
             </Item>
          </Grid>
