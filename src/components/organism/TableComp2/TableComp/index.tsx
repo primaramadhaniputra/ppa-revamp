@@ -94,18 +94,20 @@ export default function TableComp({ table, withFooter }: IProps) {
               (row: {
                 id: React.Key | null | undefined;
                 getVisibleCells: () => any[];
-              }) => (
-                <tr key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              )
+              }) => {
+                return (
+                  <tr key={row.id}>
+                    {row.getVisibleCells().map((cell) => (
+                      <td key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              }
             )}
         </tbody>
         {withFooter && (
