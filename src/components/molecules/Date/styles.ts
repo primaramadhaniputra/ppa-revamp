@@ -4,8 +4,10 @@ import { colors } from "utils/styles";
 
 export const DateContainer = styled(Grid)`
   background-color: ${colors.blueSky};
+  border-radius: 5px;
   position: relative;
   padding: 10px;
+  padding-bottom: 3px;
   & label {
     line-height: 5px;
     font-size: 12px;
@@ -16,7 +18,7 @@ export const DateContainer = styled(Grid)`
 export const DateIconContainer = styled.div`
   position: absolute;
   right: 15px;
-  top: 30px;
+  top: 24px;
   cursor: pointer;
 `;
 
