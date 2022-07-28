@@ -6,6 +6,7 @@ import AttendanceRatio from "./AttendanceRatio";
 import Induksi from "./Induksi";
 import Izin from "./Izin";
 import OperatorHours from "./OperatorHours";
+import SelfAttendance from "./SelftAttendance";
 import { ArrowDown, SelectContainer } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import TurnOver from "./TurnOver";
@@ -19,6 +20,7 @@ const selectItems = [
   { id: 5, values: 'Induksi', label: 'Induksi' },
   { id: 6, values: 'Izin', label: 'Izin' },
   { id: 7, values: 'Turn Over', label: 'Turn Over' },
+  { id: 8, values: 'Self Attendance', label: 'Self Attendance' },
 ]
 
 const renderContent = (type: string) => {
@@ -36,6 +38,8 @@ const renderContent = (type: string) => {
     return <Izin />
   } else if (type === 'Turn Over') {
     return <TurnOver />
+  } else if (type === 'Self Attendance') {
+    return <SelfAttendance />
   }
 
 }
