@@ -26,11 +26,22 @@ ChartJS.register(
 const data = {
   labels: [""],
   datasets: [{
-    data: [10],
+    data: [1],
     borderColor: 'rgb(75, 192, 192)',
     backgroundColor: '#0496FF',
   }]
 };
+
+// scales: {
+//   y: {
+//     type: 'linear',
+//     position: 'left',
+//     stack: 'demo',
+//     stackWeight:1,
+//     grid: {
+//       borderColor: Utils.CHART_COLORS.red
+//     }
+//   },
 
 export const options = {
   responsive: true,
@@ -40,8 +51,8 @@ export const options = {
         callback: function () {
           return '';
         }
-      }
-    }
+      },
+    },
   },
   plugins: {
     legend: {

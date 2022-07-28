@@ -18,12 +18,12 @@ ChartJS.register(
 );
 
 const data = {
-  labels: ["", "", "", "", '', '', ""],
+  labels: ["", "", "", "", '', '', "", '', '', '', '', ''],
   datasets: [{
     label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
-    borderColor: 'rgb(75, 192, 192)',
-    tension: 1,
+    data: [10, 12, 8, 9, 16, 13, 40, 10, 30, 1, 10, 10],
+    borderColor: '#44ACFA',
+    tension: .3,
     pointBorderWidth: -100,
     fill: true,
     backgroundColor: '#ACD7F8'
@@ -32,6 +32,15 @@ const data = {
 
 export const options = {
   responsive: true,
+  scales: {
+    y: {
+      ticks: {
+        callback: function (value: string) {
+          return `${value}%`;
+        }
+      },
+    },
+  },
   plugins: {
     legend: {
       display: false,
@@ -46,12 +55,12 @@ export const options = {
           borderWidth: 3,
           label: {
             enabled: true,
-            content: 'Target 80%',
+            content: 'Target 20%',
             position: 'end',
             backgroundColor: '#FF4560',
           },
           scaleID: 'y',
-          value: 80,
+          value: 20,
         },
       }
     }
