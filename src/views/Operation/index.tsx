@@ -49,6 +49,12 @@ function renderContent(
           defaultValue={defaultValue}
         />
       );
+    case "device_production_speed":
+      return (
+        <DeviceProductionEmptySpeed
+          defaultValue={defaultValue}
+        />
+      );
     default:
       return <h1>banana</h1>;
   }

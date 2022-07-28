@@ -9,7 +9,7 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
-import { Container, IconContainer, Wrapper } from "./styles";
+import { Container, IconContainer, THContainer, Wrapper } from "./styles";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
@@ -76,7 +76,7 @@ export default function AccessControl() {
       accessorKey: "NRP",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             NRP
           </span>
@@ -84,7 +84,7 @@ export default function AccessControl() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -93,7 +93,7 @@ export default function AccessControl() {
       id: "Name",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Name
           </span>
@@ -101,14 +101,14 @@ export default function AccessControl() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Dept",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Dept
           </span>
@@ -116,7 +116,7 @@ export default function AccessControl() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -124,7 +124,7 @@ export default function AccessControl() {
     {
       accessorKey: "Position",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Position
           </span>
@@ -132,14 +132,14 @@ export default function AccessControl() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Level",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Level
           </span>
@@ -147,7 +147,7 @@ export default function AccessControl() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },

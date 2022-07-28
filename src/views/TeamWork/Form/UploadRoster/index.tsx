@@ -2,7 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer } from "./styles";
+import { FileContainer, THContainer } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -41,7 +41,7 @@ export default function UploadRoster() {
       accessorKey: "date",
       cell: (info) => info.getValue(),
       header: () => (
-        <ThItemContainer>
+        <THContainer>
           <span>
             Date
           </span>
@@ -49,7 +49,7 @@ export default function UploadRoster() {
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
-        </ThItemContainer>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -58,7 +58,7 @@ export default function UploadRoster() {
       id: "filename",
       cell: (info) => info.getValue(),
       header: () => (
-        <ThItemContainer >
+        <THContainer >
           <span>
             File Name
           </span>
@@ -66,14 +66,14 @@ export default function UploadRoster() {
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
-        </ThItemContainer>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "mp",
       header: () => (
-        <ThItemContainer >
+        <THContainer >
           <span>
             MP
           </span>
@@ -81,7 +81,7 @@ export default function UploadRoster() {
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
-        </ThItemContainer>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -89,7 +89,7 @@ export default function UploadRoster() {
     {
       accessorKey: "day",
       header: () => (
-        <ThItemContainer >
+        <THContainer >
           <span>
             Day
           </span>
@@ -97,14 +97,14 @@ export default function UploadRoster() {
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
-        </ThItemContainer>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "status",
       header: () => (
-        <ThItemContainer >
+        <THContainer >
           <span>
             Status
           </span>
@@ -112,7 +112,7 @@ export default function UploadRoster() {
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
-        </ThItemContainer>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -120,7 +120,7 @@ export default function UploadRoster() {
     {
       accessorKey: "remark",
       header: () => (
-        <ThItemContainer>
+        <THContainer>
           <span>
             Remark
           </span>
@@ -128,7 +128,7 @@ export default function UploadRoster() {
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
-        </ThItemContainer>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },

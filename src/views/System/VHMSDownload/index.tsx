@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp } from "../styles";
 import { Grid } from "@hudoro/neron";
-import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
+import { DoughnutWrapper, TableWrapper, THContainer, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
 
@@ -43,7 +43,7 @@ export default function VHMSDownload() {
       accessorKey: "Model",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer >
           <span>
             Model
           </span>
@@ -51,7 +51,7 @@ export default function VHMSDownload() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -60,7 +60,7 @@ export default function VHMSDownload() {
       id: "CN",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer >
           <span>
             CN
           </span>
@@ -68,14 +68,14 @@ export default function VHMSDownload() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "SN",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer >
           <span>
             SN
           </span>
@@ -83,7 +83,7 @@ export default function VHMSDownload() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -91,7 +91,7 @@ export default function VHMSDownload() {
     {
       accessorKey: "Last Download",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer >
           <span>
             Last Download
           </span>
@@ -99,14 +99,14 @@ export default function VHMSDownload() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Last Operation",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer >
           <span>
             Last Operation
           </span>
@@ -114,7 +114,7 @@ export default function VHMSDownload() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -125,7 +125,7 @@ export default function VHMSDownload() {
         {
           accessorKey: "Pldcycn Record",
           header: () => (
-            <Grid container alignItems="center" gap={7}>
+            <THContainer >
               <span>
                 Pldcycn Record
               </span>
@@ -133,14 +133,14 @@ export default function VHMSDownload() {
                 <ArrowUp></ArrowUp>
                 <ArrowDown></ArrowDown>
               </Grid>
-            </Grid>
+            </THContainer>
           ),
           footer: (props) => props.column.id,
         },
         {
           accessorKey: "Trend Record",
           header: () => (
-            <Grid container alignItems="center" gap={7}>
+            <THContainer >
               <span>
                 Trend Record
               </span>
@@ -148,7 +148,7 @@ export default function VHMSDownload() {
                 <ArrowUp></ArrowUp>
                 <ArrowDown></ArrowDown>
               </Grid>
-            </Grid>
+            </THContainer>
           ),
           footer: (props) => props.column.id,
           cell: (info) => <span>{info.getValue()}</span>,
@@ -157,7 +157,7 @@ export default function VHMSDownload() {
         {
           accessorKey: "Fault Record",
           header: () => (
-            <Grid container alignItems="center" gap={7}>
+            <THContainer >
               <span>
                 Fault Record
               </span>
@@ -165,7 +165,7 @@ export default function VHMSDownload() {
                 <ArrowUp></ArrowUp>
                 <ArrowDown></ArrowDown>
               </Grid>
-            </Grid>
+            </THContainer>
           ),
           footer: (props) => props.column.id,
           cell: (info) => <span>{info.getValue()}</span>,
@@ -174,7 +174,7 @@ export default function VHMSDownload() {
         {
           accessorKey: "Machine History",
           header: () => (
-            <Grid container alignItems="center" gap={7}>
+            <THContainer >
               <span>
                 Machine History
               </span>
@@ -182,7 +182,7 @@ export default function VHMSDownload() {
                 <ArrowUp></ArrowUp>
                 <ArrowDown></ArrowDown>
               </Grid>
-            </Grid>
+            </THContainer>
           ),
           footer: (props) => props.column.id,
         },
