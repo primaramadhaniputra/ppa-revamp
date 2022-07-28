@@ -27,7 +27,7 @@ const options = {
       datalabels: {
          color: 'White',
          font: {
-            size: 15,
+            size: 10,
             family: fontFamilies.poppins,
             weight: fontWeights.semi
          },
