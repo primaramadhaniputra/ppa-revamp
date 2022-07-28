@@ -9,6 +9,8 @@ import {
    Title,
    Tooltip,
    Legend,
+   PointElement,
+   LineElement,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -18,7 +20,9 @@ ChartJS.register(
    BarElement,
    Title,
    Tooltip,
-   Legend
+   Legend,
+   PointElement,
+   LineElement,
 );
 
 const options = {
@@ -76,10 +80,23 @@ const data = {
    labels,
    datasets: [
       {
+         type: 'line',
+         label: 'Dataset 1',
+         data: [5, 10, 5, 10, 20, 30, 20, 5, 15, 25, 5, 0],
+         borderColor: '#10E6A6',
+         pointStyle: 'rect',
+         pointRadius: 10,
+         pointHoverRadius: 15,
+         backgroundColor: '#10E6A6',
+         // stepped: true,
+         borderWidth: 2
+      },
+      {
          label: 'Dataset 1',
          data: [10, 20, 10, 15, 10, 20, 10, 15, 10, 20, 10, 15],
          backgroundColor: '#3B7DDD',
       },
+
    ],
 };
 
@@ -87,7 +104,7 @@ export default function ChartKecelakaan() {
    return (
       <Card style={{ marginTop: '40px', borderRadius: '3px' }}>
          <TitleChart >Frekuensi Kecelakaan</TitleChart>
-         <Bar options={options as any} data={data} style={{ maxHeight: '400px' }} />
+         <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} />
       </Card>
    )
 }

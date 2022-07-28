@@ -43,3 +43,11 @@ export const StyledText = styled.p`
         color: white;
     }
 `;
+
+export const CartWrapper = styled.div`
+    gap: 20px;
+    ${mediaQueries.md} {
+        grid-template-columns: repeat(auto-fit, minMax(500px, 1fr));
+        display: grid;
+    }
+`;
