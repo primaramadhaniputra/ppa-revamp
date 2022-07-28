@@ -5,3 +5,9 @@ export const Container = styled.div`
     padding: 20px;
     margin-top: 30px;
 `;
+
+export const THContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+`;

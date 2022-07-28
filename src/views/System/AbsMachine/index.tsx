@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
-import { Container } from "./styles";
+import { Container, THContainer } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
 
@@ -37,7 +37,7 @@ export default function AbsMachine() {
       accessorKey: "ID",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             ID
           </span>
@@ -45,7 +45,7 @@ export default function AbsMachine() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -54,7 +54,7 @@ export default function AbsMachine() {
       id: "IP",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             IP
           </span>
@@ -62,14 +62,14 @@ export default function AbsMachine() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Lokasi",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Lokasi
           </span>
@@ -77,7 +77,7 @@ export default function AbsMachine() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -85,7 +85,7 @@ export default function AbsMachine() {
     {
       accessorKey: "Last download",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Last Download
           </span>
@@ -93,7 +93,7 @@ export default function AbsMachine() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },

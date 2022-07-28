@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
-import { Wrapper } from "./styles";
+import { THContainer, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
 
@@ -42,7 +42,7 @@ export default function Database() {
       accessorKey: "ID",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             ID
           </span>
@@ -50,7 +50,7 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -59,7 +59,7 @@ export default function Database() {
       id: "User",
       cell: (info) => info.getValue(),
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             User
           </span>
@@ -67,14 +67,14 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Host",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Host
           </span>
@@ -82,7 +82,7 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -90,7 +90,7 @@ export default function Database() {
     {
       accessorKey: "DB",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             DB
           </span>
@@ -98,14 +98,14 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "Command",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Command
           </span>
@@ -113,7 +113,7 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
@@ -121,7 +121,7 @@ export default function Database() {
     {
       accessorKey: "Time",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Time(min)
           </span>
@@ -129,14 +129,14 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
     {
       accessorKey: "State",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             State
           </span>
@@ -144,7 +144,7 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
       cell: (info) => <span>{info.getValue()}</span>,
@@ -153,7 +153,7 @@ export default function Database() {
     {
       accessorKey: "Info",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Info
           </span>
@@ -161,7 +161,7 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
       cell: (info) => <span>{info.getValue()}</span>,
@@ -170,7 +170,7 @@ export default function Database() {
     {
       accessorKey: "Action",
       header: () => (
-        <Grid container alignItems="center" gap={7}>
+        <THContainer>
           <span>
             Action
           </span>
@@ -178,7 +178,7 @@ export default function Database() {
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
-        </Grid>
+        </THContainer>
       ),
       footer: (props) => props.column.id,
     },
