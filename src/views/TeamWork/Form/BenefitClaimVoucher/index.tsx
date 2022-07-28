@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Card, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
@@ -97,7 +97,7 @@ export default function BenefitClaimVoucher() {
   };
 
   return (
-    <>
+    <Card style={{ marginTop: '30px' }}>
       {isImage && <FormImage onclick={handleImage} />}
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Benefit Claim Voucher</Text>
@@ -113,6 +113,6 @@ export default function BenefitClaimVoucher() {
       <TableComponent2
         table={table}
       />
-    </>
+    </Card>
   );
 }

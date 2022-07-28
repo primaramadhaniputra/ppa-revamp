@@ -1,4 +1,4 @@
-import { Grid } from '@hudoro/neron';
+import { Card, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
 
 export const Wrapper = styled(Grid).attrs({
@@ -27,8 +27,8 @@ export const IconContainer = styled(Grid).attrs({
     padding: 3px 0;
 `;
 
-export const Container = styled.div`
-    /* box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); */
+export const Container = styled(Card)`
+    margin-top: 30px;
 `;
 
 export const THContainer = styled.div`

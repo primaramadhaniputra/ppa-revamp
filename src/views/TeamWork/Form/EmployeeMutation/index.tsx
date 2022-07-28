@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Card, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
@@ -89,7 +89,7 @@ export default function EmployeeMutation() {
     table.setPageSize(e.target.value);
   };
   return (
-    <>
+    <Card style={{ marginTop: '30px' }}>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Employee Mutation</Text>
@@ -103,6 +103,6 @@ export default function EmployeeMutation() {
       </Grid>
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2 table={table} />
-    </>
+    </Card>
   );
 }
