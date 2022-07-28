@@ -13,7 +13,7 @@ export const Container = styled.div`
   }
   font-size: 12px;
   ${mediaQueries.md} {
-    font-size: 15px;
+    /* font-size: 15px; */
   }
   & ul {
     display: flex;

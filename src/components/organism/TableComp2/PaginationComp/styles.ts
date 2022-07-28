@@ -6,6 +6,6 @@ export const StyledText = styled.p`
   font-size: 12px;
   font-family: ${fontFamilies.poppins};
   ${mediaQueries.md} {
-    font-size: 15px;
+    font-size: 13px;
   }
 `;
