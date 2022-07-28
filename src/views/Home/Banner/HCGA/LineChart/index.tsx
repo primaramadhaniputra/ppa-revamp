@@ -55,9 +55,7 @@ export const options = {
         box1: {
           type: 'line',
           borderColor: '#FF4560',
-          borderDash: [6, 6],
-          borderDashOffset: 0,
-          borderWidth: 3,
+          borderWidth: 1,
           label: {
             enabled: true,
             content: 'Target 20%',
