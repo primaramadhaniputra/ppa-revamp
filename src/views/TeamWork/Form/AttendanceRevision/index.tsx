@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Card, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
@@ -170,7 +170,7 @@ export default function AttendanceRevision() {
     table.setPageSize(e.target.value);
   };
   return (
-    <>
+    <Card style={{ marginTop: '30px' }}>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Attendance Revision</Text>
         <FileContainer >
@@ -183,6 +183,6 @@ export default function AttendanceRevision() {
       </Grid>
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2 table={table} />
-    </>
+    </Card>
   );
 }
