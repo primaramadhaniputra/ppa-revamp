@@ -40,6 +40,13 @@ export const options = {
    scales: {
       x: {
          stacked: true,
+         ticks: {
+            color: 'black',
+            font: {
+               family: fontFamilies.poppins,
+               size: 15,
+            },
+         }
       },
       y: {
          stacked: true,
@@ -48,7 +55,7 @@ export const options = {
                return `${val} %`
             },
             font: {
-               size: 13,
+               size: 15,
                family: fontFamilies.poppins
             }
          }
@@ -75,7 +82,7 @@ export const data = {
 };
 
 export default function RightItem() {
-   return <Grid style={{ flex: 1 }}>
+   return <Grid>
       <Bar options={options as any} data={data} plugins={[ChartDataLabels]} />
    </Grid>
 

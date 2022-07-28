@@ -7,7 +7,8 @@ export const ItemContainer = styled.div`
     flex-direction: column;
     row-gap: 30px;
     ${mediaQueries.xl} {
+        display: grid;
         column-gap: 20px;
-        flex-direction: row;
+        grid-template-columns: repeat(auto-fit, minMax(600px, 1fr));
     }
 `;

@@ -13,7 +13,7 @@ export default function TurnOver() {
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Turn Over</Text>
       </Grid>
-      <Card style={{ marginTop: '30px', paddingTop: 0, boxShadow: 'none' }}>
+      <Card style={{ marginTop: '30px' }}>
         <TopFilter />
         <ItemContainer  >
           <LeftItem />
