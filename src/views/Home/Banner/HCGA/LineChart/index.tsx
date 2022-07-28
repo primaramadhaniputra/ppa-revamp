@@ -40,6 +40,11 @@ export const options = {
         }
       },
     },
+    x: {
+      grid: {
+        display: false
+      }
+    },
   },
   plugins: {
     legend: {
