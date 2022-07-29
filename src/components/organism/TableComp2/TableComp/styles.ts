@@ -43,6 +43,10 @@ export const TABLE = styled.table`
   & th {
     padding: 5px;
   }
+  & tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+  }
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
     /* font-family: ${fontFamilies.poppins}; */
