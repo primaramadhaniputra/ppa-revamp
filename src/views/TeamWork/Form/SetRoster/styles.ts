@@ -1,13 +1,18 @@
 import { Card, fontFamilies, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
-import { fontSizing, fontWeights } from 'utils/styles';
+import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div``;
 
 export const FormContainer = styled(Card)`
     margin-top: 30px;
     text-align: center;
-    padding-top: 30px;
+    padding: 20px 10px;
+    box-shadow: none;
+    ${mediaQueries.sm} {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+    }
 `;
 
 export const ArrowContainer = styled.div`
@@ -40,7 +45,7 @@ export const ArrowDown = styled.div`
 export const IconContainer = styled.div`
     position: absolute;
     right: 15px;
-    top: 40px;
+    top: 35px;
 `;
 
 export const CalendarContainer = styled.div`

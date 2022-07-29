@@ -13,11 +13,14 @@ export const Wrapper = styled.div`
 
 export const TableWrapper = styled.div`
     width: 100%;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    padding: 0 5px;
+    box-shadow: none;
+    /* margin-top: 20px; */
+    border-radius: 3px;
+    padding: 0;
     ${mediaQueries.sm} {
+        margin-top: 20px;
         padding: 0 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     }
     ${mediaQueries.xl} {
         width: 70%;

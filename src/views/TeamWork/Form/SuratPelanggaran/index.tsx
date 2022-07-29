@@ -1,8 +1,8 @@
-import { Card, Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer } from "./styles";
+import { FileContainer, ThItemContainer, Wrapper } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -91,7 +91,7 @@ export default function SuratPelanggaran() {
     table.setPageSize(e.target.value);
   };
   return (
-    <Card style={{ marginTop: '30px' }}>
+    <Wrapper>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Data Pelanggaran Aktif Karyawan</Text>
@@ -110,6 +110,6 @@ export default function SuratPelanggaran() {
       </Grid>
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2 table={table} />
-    </Card>
+    </Wrapper>
   );
 }

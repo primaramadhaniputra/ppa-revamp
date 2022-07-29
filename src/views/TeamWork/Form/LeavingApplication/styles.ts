@@ -1,4 +1,14 @@
-import { fontFamilies, Grid } from '@hudoro/neron';
+export const Wrapper = styled(Card)`
+    margin-top: 30px;
+    padding: 0px;
+    box-shadow: none;
+    border-radius: 3px;
+    ${mediaQueries.sm} {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+    }
+`;
+import { Card, fontFamilies, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
 import { colors, fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 

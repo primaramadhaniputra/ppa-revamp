@@ -1,4 +1,3 @@
-import { Card } from '@hudoro/neron'
 import React from 'react'
 import { TitleChart, Wrapper } from './styles'
 import {
@@ -53,10 +52,9 @@ const data = {
 export default function SafetyPerformanceBar() {
    return (
       <Wrapper>
-         <Card style={{ marginTop: '40px', borderRadius: '3px', }}>
-            <TitleChart >Safety Performance</TitleChart>
-            <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} />
-         </Card>
+
+         <TitleChart >Safety Performance</TitleChart>
+         <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} />
       </Wrapper>
    )
 }

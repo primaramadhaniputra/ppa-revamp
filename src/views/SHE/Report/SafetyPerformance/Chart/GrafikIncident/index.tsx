@@ -1,4 +1,4 @@
-import { Card, fontFamilies } from '@hudoro/neron'
+import { fontFamilies } from '@hudoro/neron'
 import React from 'react'
 import { TitleChart, Wrapper } from './styles'
 import {
@@ -97,10 +97,8 @@ const data = {
 export default function GrafikIncident() {
    return (
       <Wrapper>
-         <Card style={{ marginTop: '40px', borderRadius: '3px' }}>
-            <TitleChart >Grafik Incident</TitleChart>
-            <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} plugins={[ChartDataLabels]} />
-         </Card>
+         <TitleChart >Grafik Incident</TitleChart>
+         <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} plugins={[ChartDataLabels]} />
       </Wrapper>
    )
 }

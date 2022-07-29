@@ -1,8 +1,8 @@
-import { Card, Grid, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer } from "./styles";
+import { ThItemContainer, Wrapper } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -216,7 +216,7 @@ export default function UpdateRoster() {
     table.setPageSize(e.target.value);
   };
   return (
-    <Card style={{ marginTop: '30px' }}>
+    <Wrapper>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Update Roster</Text>
@@ -224,6 +224,6 @@ export default function UpdateRoster() {
       <TopFilter />
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2 table={table} />
-    </Card>
+    </Wrapper>
   );
 }
