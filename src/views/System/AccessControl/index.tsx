@@ -16,7 +16,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
 import { getListUsersWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
-import { IUserList } from "utils/interfaces";
+import { ISingleUser, IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 
@@ -32,6 +32,7 @@ export const defaultDataTable = [
     Position: "",
     Level: "",
     Action: "",
+    Id: ''
   }];
 
 export default function AccessControl() {
@@ -41,7 +42,12 @@ export default function AccessControl() {
   const [DataTable, setDataTable] = React.useState(defaultDataTable)
   const [isLoading, setIsLoading] = React.useState(true)
   const [isEdit, setIsEdit] = React.useState(false)
-  const handleEdit = () => {
+  const [dataUser, setDataUser] = React.useState<ISingleUser>()
+
+  const handleEdit = async (e: { row: any }) => {
+    const data = e.row.original
+    console.log(data)
+    setDataUser(data)
     setIsEdit(true)
   }
   const getAllUsers = async () => {
@@ -55,8 +61,8 @@ export default function AccessControl() {
           Dept: item.department,
           Position: item.position,
           Level: item.level,
-          action: ''
-
+          Action: '',
+          Id: item.id
         }
       })
       setDataTable(newData)
@@ -153,7 +159,7 @@ export default function AccessControl() {
     },
     {
       accessorKey: "Action",
-      cell: () => (
+      cell: (info) => (
         <Wrapper>
           <IconContainer>
             <IcEdit
@@ -161,7 +167,7 @@ export default function AccessControl() {
               cursor="pointer"
               color="white"
               strokeWidth={1.5}
-              onClick={handleEdit}
+              onClick={() => handleEdit(info)}
             />
           </IconContainer>
           <IconContainer>
@@ -213,7 +219,7 @@ export default function AccessControl() {
 
   return (
     <>
-      <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} dataUser={dataUser} />
       <Container style={{ position: 'relative' }} >
         {isLoading && <Loading />}
         <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />

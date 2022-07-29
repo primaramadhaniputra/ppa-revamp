@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const Container = styled.div`
+export const Container = styled.form`
     background-color: white;
     margin: 30px auto;
     height: max-content;
