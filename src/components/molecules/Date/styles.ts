@@ -8,6 +8,7 @@ export const DateContainer = styled(Grid)`
   position: relative;
   padding: 10px;
   padding-bottom: 3px;
+  z-index: 999;
   & label {
     line-height: 5px;
     font-size: 12px;
