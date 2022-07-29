@@ -12,7 +12,7 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "./TopFilter";
-import SecondFilter from "./SecondFilter";
+// import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 
 interface IProps {
@@ -39,7 +39,9 @@ export const defaultDataTable = arr.map((_, index) => {
 export default function ObProductionDayli() {
   const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
-  const [globalFilter, setGlobalFilter] = React.useState("");
+  const [globalFilter,
+    // setGlobalFilter
+  ] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
 
   const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -76,9 +78,9 @@ export default function ObProductionDayli() {
     getSortedRowModel: getSortedRowModel(),
   });
 
-  const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-    table.setPageSize(e.target.value);
-  };
+  // const handleChangeTotalShowData = (e: { target: { value: number } }) => {
+  //   table.setPageSize(e.target.value);
+  // };
 
   return (
     <Wrapper>
@@ -86,9 +88,10 @@ export default function ObProductionDayli() {
         <Text variant="h4" style={{ fontWeight: fontWeights.semi }} >Operation / Report</Text>
       </Grid>
       <TopFilter />
-      <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+      {/* <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} /> */}
       <TableComponent2
         table={table}
+        noPagination={true}
       />
     </Wrapper>
   );

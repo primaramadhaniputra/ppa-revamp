@@ -17,6 +17,9 @@ import FlyingForm from "molecules/FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
 import TopFilter from "./TopFilter";
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Html } from 'next/document'
+// import useWindowDimensions from "utils/functions";
 
 interface Person {
   [x: string]: any;
@@ -215,6 +218,9 @@ export default function UpdateRoster() {
   const handleChangeTotalShowData = (e: { target: { value: number } }) => {
     table.setPageSize(e.target.value);
   };
+  isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
+  // const { height } = useWindowDimensions();
+  // console.log(height)
   return (
     <Wrapper>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} />

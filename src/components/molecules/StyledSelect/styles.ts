@@ -19,6 +19,9 @@ export const StatusContainer = styled(Grid)`
   & svg {
     display: none;
   }
+  /* & div > div > div svg {
+        display: block !important;
+    } */
 `;
 
 export const ArrowDown = styled.div`
