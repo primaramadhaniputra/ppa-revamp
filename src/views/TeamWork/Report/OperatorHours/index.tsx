@@ -2,7 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { StyledSpan, ThItemContainer } from "./styles";
+import { StyledSpan, ThItemContainer, Wrapper } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -94,13 +94,13 @@ export default function OperatorHours() {
     table.setPageSize(e.target.value);
   };
   return (
-    <>
+    <Wrapper>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Operation Hours</Text>
       </Grid>
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2 table={table} />
-    </>
+    </Wrapper>
   );
 }

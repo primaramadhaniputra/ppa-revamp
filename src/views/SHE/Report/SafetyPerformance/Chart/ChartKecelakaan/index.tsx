@@ -1,6 +1,6 @@
-import { Card, fontFamilies } from '@hudoro/neron'
+import { fontFamilies } from '@hudoro/neron'
 import React from 'react'
-import { TitleChart } from './styles'
+import { TitleChart, Wrapper } from './styles'
 import {
    Chart as ChartJS,
    CategoryScale,
@@ -102,9 +102,9 @@ const data = {
 
 export default function ChartKecelakaan() {
    return (
-      <Card style={{ marginTop: '40px', borderRadius: '3px' }}>
+      <Wrapper >
          <TitleChart >Frekuensi Kecelakaan</TitleChart>
          <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} />
-      </Card>
+      </Wrapper>
    )
 }

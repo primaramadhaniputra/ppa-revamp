@@ -1,5 +1,6 @@
 import { Card, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
+import { mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled(Grid).attrs({
     container: true,
@@ -29,6 +30,13 @@ export const IconContainer = styled(Grid).attrs({
 
 export const Container = styled(Card)`
     margin-top: 30px;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 3px;
+    ${mediaQueries.sm} {
+        padding: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    }
 `;
 
 export const THContainer = styled.div`

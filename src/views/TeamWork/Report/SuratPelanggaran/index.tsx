@@ -1,7 +1,7 @@
-import { Card, Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowDown, ArrowUp, ThItemContainer } from "./styles";
+import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -190,8 +190,8 @@ export default function SuratPelanggaran() {
   return (
     <>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
-      <Card style={{ marginTop: '30px', paddingTop: 0, boxShadow: 'none' }}>
-        <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
+      <Wrapper>
+        <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
           <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Surat Pelanggaran</Text>
         </Grid>
         <TopFilter />
@@ -199,7 +199,7 @@ export default function SuratPelanggaran() {
         <TableComponent2
           table={table}
         />
-      </Card>
+      </Wrapper>
     </>
   );
 }

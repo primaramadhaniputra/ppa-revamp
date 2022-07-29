@@ -11,7 +11,8 @@ import {
 } from "@tanstack/react-table";
 import { fontWeights } from 'utils/styles';
 import TableComponent2 from 'src/components/organism/TableComp2';
-import { Card, fontFamilies } from '@hudoro/neron';
+import { fontFamilies } from '@hudoro/neron';
+import { Wrapper } from './styles';
 
 interface Person {
    [x: string]: any;
@@ -76,9 +77,9 @@ export default function Insiden() {
       getSortedRowModel: getSortedRowModel(),
    });
    return (
-      <Card>
+      <Wrapper>
          <TableHeader>Insiden</TableHeader>
          <TableComponent2 table={table} noPagination={true} withFooter={true} />
-      </Card>
+      </Wrapper>
    )
 }

@@ -1,8 +1,8 @@
-import { Card, Grid, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer } from "./styles";
+import { FileContainer, ThItemContainer, Wrapper } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -80,7 +80,7 @@ export default function SuratPerintahLembur() {
   };
 
   return (
-    <Card style={{ marginTop: '30px' }}>
+    <Wrapper>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Surat Perintah Lembur</Text>
         <FileContainer>
@@ -93,6 +93,6 @@ export default function SuratPerintahLembur() {
       </Grid>
       <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2 table={table} />
-    </Card>
+    </Wrapper>
   );
 }

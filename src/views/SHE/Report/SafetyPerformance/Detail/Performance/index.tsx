@@ -10,7 +10,7 @@ import {
    getSortedRowModel,
 } from "@tanstack/react-table";
 import TableComponent2 from 'src/components/organism/TableComp2';
-import { Card } from '@hudoro/neron';
+import { Wrapper } from './styles';
 
 interface Person {
    [x: string]: any;
@@ -72,9 +72,9 @@ export default function Performance() {
       getSortedRowModel: getSortedRowModel(),
    });
    return (
-      <Card>
+      <Wrapper>
          <TableHeader style={{ backgroundColor: '#FFDE9C' }}>Performance</TableHeader>
          <TableComponent2 table={table} noPagination={true} />
-      </Card>
+      </Wrapper>
    )
 }

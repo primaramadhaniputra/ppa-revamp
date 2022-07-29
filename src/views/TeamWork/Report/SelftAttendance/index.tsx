@@ -1,7 +1,7 @@
 import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { Box, BoxContainer, Container, StatusText, WrapperStatus } from "./styles";
+import { Box, BoxContainer, Container, StatusText, Wrapper, WrapperStatus } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -104,7 +104,7 @@ export default function SelfAttendance() {
     getSortedRowModel: getSortedRowModel(),
   });
   return (
-    <>
+    <Wrapper>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Selft Attendance</Text>
       </Grid>
@@ -129,6 +129,6 @@ export default function SelfAttendance() {
           </BoxContainer>
         </WrapperStatus>
       </Container>
-    </>
+    </Wrapper>
   );
 }
