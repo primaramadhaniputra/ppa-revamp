@@ -25,11 +25,12 @@ ChartJS.register(
 export const options = {
    plugins: {
       legend: {
-         labels: {
-            boxWidth: 80,
-            boxHeight: 15,
-            padding: 30,
-         },
+         display: false
+         // labels: {
+         //    boxWidth: 80,
+         //    boxHeight: 15,
+         //    padding: 30,
+         // },
 
       },
    },
