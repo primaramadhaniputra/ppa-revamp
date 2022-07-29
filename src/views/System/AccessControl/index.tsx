@@ -50,10 +50,23 @@ export default function AccessControl() {
     setDataUser(data)
     setIsEdit(true)
   }
+  const handleResetPassword = (e: any) => {
+    console.log(e)
+    if (confirm('Are you sure to reset A. FAHMI AL UBAIDAH`s password ? ')) {
+      return alert('wokeh sha')
+    } else {
+      return alert('uh oh')
+    }
+  }
+
   const getAllUsers = async () => {
     try {
       setIsLoading(true)
-      const data = await getListUsersWebAdmin({})
+      const data = await getListUsersWebAdmin({
+        params: {
+          perPage: 66
+        }
+      })
       const newData = data.data.data.map((item: IUserList) => {
         return {
           NRP: item.nrp,
@@ -161,24 +174,26 @@ export default function AccessControl() {
       accessorKey: "Action",
       cell: (info) => (
         <Wrapper>
-          <IconContainer>
+          <IconContainer title="Edit">
             <IcEdit
               width={20}
               cursor="pointer"
               color="white"
               strokeWidth={1.5}
               onClick={() => handleEdit(info)}
+
             />
           </IconContainer>
-          <IconContainer>
+          <IconContainer title="Reset Password">
             <IcRefresh
               width={20}
               cursor="pointer"
               color="white"
               strokeWidth={1.5}
+              onClick={() => handleResetPassword(info)}
             />
           </IconContainer>
-          <IconContainer>
+          <IconContainer title="Disable">
             <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} />
           </IconContainer>
         </Wrapper>
