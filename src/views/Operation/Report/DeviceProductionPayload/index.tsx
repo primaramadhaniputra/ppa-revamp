@@ -1,74 +1,57 @@
-import { ISelectItem } from "@hudoro/neron";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import SearchingForm from "src/components/organism/SearchingForm";
-import getOperationReport from "views/Operation/Report/getOperationReport";
-import { inputDropDownOperation2 } from "utils/dummy";
-import { convert } from "utils/functions";
-import { IDropdownData, IOperationReportPayloadData } from "utils/interfaces";
+import { convert, notify } from "utils/functions";
+import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
+import TopFilter from "./TopFilter";
+import { getOperationReport } from 'services/operationReport';
 
-interface IProps {
-  defaultValue: IDropdownData;
-}
-
-export default function DeviceProductionPayload({
-  defaultValue,
-}: IProps) {
+export default function DeviceProductionPayload() {
   const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter()
+  const [toDate, setToDate] = useState(new Date())
+  const [fromDate, setFromDate] = useState(new Date())
 
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
+  const handleFromDate = (e: Date) => {
+    setFromDate(e)
+  }
+  const handleToDate = (e: Date) => {
+    setToDate(e)
+  }
+
+  const getData = async () => {
+    try {
+      setIsLoading(true)
+      const data = await getOperationReport({
+        params: {
+          startedAt: convert(fromDate),
+          endedAt: convert(toDate)
+        },
+        headers: {
+          Tenant: "MHU"
+        },
+        path: '/payloads'
+      })
+      setDataChart(data.data.data);
+      setIsLoading(false);
+      return notify('Berhasil mendapatkan data', 'success')
+    } catch (error: any) {
+      setIsLoading(false)
+      return notify(error.message, 'error')
+    }
+  }
 
   useEffect(() => {
-    const startDate = convert(state[0].startDate);
-    const endDate = convert(state[0].endDate);
-    getOperationReport(
-      "payloads",
-      startDate,
-      endDate,
-      setDataChart,
-      setIsLoading
-    );
-  }, []);
-
-  const handleChangeOperation = (e: ISelectItem | ISelectItem[] | null) => {
-    router.push(`/dashboard/operation/report/${e?.values}`)
-  };
-
-  const handleSearchOperationReportDate = () => {
-    const startDate = convert(state[0].startDate);
-    const endDate = convert(state[0].endDate);
-    getOperationReport(
-      'payloads',
-      startDate,
-      endDate,
-      setDataChart,
-      setIsLoading
-    );
-  };
+    getData()
+  }, [])
 
   return (
     <>
-      <SearchingForm
-        title="Menu"
-        placeholder="Device / Production / Payload"
-        isMenu={true}
-        isDate={true}
-        isShift={false}
-        dropDownData={inputDropDownOperation2}
-        dropDownDefaultvalue={defaultValue}
-        onChangeDropdownMenu={handleChangeOperation}
-        onSearchDate={handleSearchOperationReportDate}
-        calendarState={state}
-        setCalendarState={setState}
+      <TopFilter
+        toDate={toDate}
+        fromDate={fromDate}
+        handleFromDate={handleFromDate}
+        handleToDate={handleToDate}
+        getData={getData}
       />
       <DisplayData
         data={dataChart}

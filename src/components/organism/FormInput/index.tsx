@@ -75,7 +75,7 @@ export default function FormInput({ color }: IProps) {
             </Text>
           </RadioWrapper>
         </Grid>
-        <StyledButton>Login</StyledButton>
+        <StyledButton onClick={() => {}}>Login</StyledButton>
       </Grid>
     </form>
   );
