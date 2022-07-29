@@ -25,7 +25,7 @@ export default function PaginationComp({
       container
       alignItems="center"
       justifyContent="space-between"
-      style={{ marginTop: "20px", marginLeft: "20px" }}
+      style={{ marginTop: "20px" }}
       gap={20}
     >
       <StyledText>
