@@ -54,10 +54,15 @@ export default function AccessControl() {
   }
   const handleResetPassword = async (e: any) => {
     const userID = e.row.original.Id
+    const userNrp = e.row.original.NRP
     if (confirm('Are you sure to reset password ? ')) {
       try {
         await ResetPasswordWebAdmin({
-          path: `reset-password/${userID}`
+          path: `reset-password/${userID}`,
+          body: {
+            newPassword: userNrp,
+            confirmNewPassword: userNrp
+          }
         })
         notify('Berhasil mereset password user', 'success')
         router.reload()
@@ -74,7 +79,7 @@ export default function AccessControl() {
         await DisableUserdWebAdmin({
           path: `delete/${userID}`
         })
-        notify('Berhasil mereset password user', 'success')
+        notify('Berhasil disable user', 'success')
         router.reload()
       } catch (error: any) {
         return notify(error.message, 'error')

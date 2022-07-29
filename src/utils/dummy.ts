@@ -30,7 +30,7 @@ export const Link = [
         subMenu: [
             {
                 subMenuTitle: 'REPORT',
-                subMenuLink: 'operation/report/device_production_payload',
+                subMenuLink: 'operation/report',
             },
             {
                 subMenuTitle: 'ACCESS & DATA ENTRY',
@@ -332,17 +332,16 @@ export const inputDropDownOperation2 = [
         values: 'device_production_loaded_speed',
         label: ' Device /  Production / Loaded Speed',
     },
-    {
-        id: 5,
-        values: 'device_production_empty_speed',
-        label: ' Device /  Production / Empty Speed',
-    },
     // {
-    //   id: 6,
-    //   values: "device_mc_loader_performance_fc",
-    //   label:
-    //     " Device /  Machine Condition / Loader / Performance / Fuel Consumen",
+    //     id: 5,
+    //     values: 'device_production_empty_speed',
+    //     label: ' Device /  Production / Empty Speed',
     // },
+    {
+        id: 6,
+        values: 'moco_obProduction_dayli',
+        label: ' Moco / OB Production / Dayli',
+    },
 ];
 
 export const dummyValueTable = [

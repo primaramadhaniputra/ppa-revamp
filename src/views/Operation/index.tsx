@@ -1,67 +1,72 @@
-import React from "react";
+import { ISelectItem, Select } from "@hudoro/neron";
+import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
-import { IDropdownData } from "utils/interfaces";
-import DeviceProductionEmptySpeed from "./Report/DeviceProductionEmptySpeed";
+import { inputDropDownOperation2 } from "utils/dummy";
+// import { IDropdownData } from "utils/interfaces";
+// import DeviceProductionEmptySpeed from "./Report/DeviceProductionEmptySpeed";
 import DeviceProductionEmptyStop from "./Report/DeviceProductionEmptyStop";
 import DeviceProductionLoadedSpeed from "./Report/DeviceProductionLoadedSpeed";
 import DeviceProductionLoadingTime from "./Report/DeviceProductionLoadingTime";
 import DeviceProductionPayload from "./Report/DeviceProductionPayload";
-interface IProps {
-  defaultValue: IDropdownData;
-  data: IDropdownData[];
-  queryName: string;
-}
+import DeviceProductionSpeed from "./Report/DeviceProductionSpeed";
+import ObProductionDayli from "./Report/MOCO/ObProductionDayli";
+import { ArrowDown, SelectContainer } from "./styles";
+
 
 function renderContent(
   queryName: string,
-  defaultValue: IDropdownData
+
 ) {
   switch (queryName) {
     case "device_production_payload":
       return (
-        <DeviceProductionPayload
-          defaultValue={defaultValue}
-        />
+        <DeviceProductionPayload />
       );
     case "device_production_empty_stop":
       return (
-        <DeviceProductionEmptyStop
-          defaultValue={defaultValue}
-        />
+        <DeviceProductionEmptyStop />
       );
     case "device_production_loading_time":
       return (
-        <DeviceProductionLoadingTime
-          defaultValue={defaultValue}
-        />
+        <DeviceProductionLoadingTime />
       );
 
     case "device_production_loaded_speed":
       return (
-        <DeviceProductionLoadedSpeed
-          defaultValue={defaultValue}
-        />
+        <DeviceProductionLoadedSpeed />
       );
 
-    case "device_production_empty_speed":
-      return (
-        <DeviceProductionEmptySpeed
-          defaultValue={defaultValue}
-        />
-      );
+    // case "device_production_empty_speed":
+    //   return (
+    //     <DeviceProductionEmptySpeed />
+    //   );
     case "device_production_speed":
       return (
-        <DeviceProductionEmptySpeed
-          defaultValue={defaultValue}
-        />
+        <DeviceProductionSpeed />
+      );
+    case "moco_obProduction_dayli":
+      return (
+        <ObProductionDayli />
       );
     default:
       return <h1>banana</h1>;
   }
 }
 
-export default function Operation({ defaultValue, queryName }: IProps) {
-  return <Layout title="Operation / Report">
-    {renderContent(queryName, defaultValue)}
+export default function Operation() {
+
+  const [menu, setMenu] = useState('device_production_payload')
+
+  const handleChangeMenu = (e: ISelectItem | ISelectItem[] | null) => {
+    setMenu(e?.values)
+  }
+
+  return <Layout >
+    <SelectContainer >
+      <label>Menu</label>
+      <Select items={inputDropDownOperation2} defaultValue={{ id: 0, value: "device_production_payload", label: "Device / Production / Payload" }} onChange={handleChangeMenu} />
+      <ArrowDown></ArrowDown>
+    </SelectContainer>
+    {renderContent(menu)}
   </Layout>;
 }

@@ -41,7 +41,7 @@ export default function ChartData({ data }: IProps) {
         type: 'bar' as const,
         label: 'actual',
         backgroundColor: '#FA8231',
-        data: data.map((item: { actual: number }) => item.actual),
+        data: data.map((item: { chartValue: number }) => item.chartValue),
         borderColor: 'white',
         borderWidth: 2,
       }

@@ -34,7 +34,7 @@ export default function ForgotPassword() {
             title="Email"
             name="email"
           />
-          <StyledButton style={{ marginTop: '20px' }}>Submit</StyledButton>
+          <StyledButton onClick={() => { }} style={{ marginTop: '20px' }}>Submit</StyledButton>
         </StyledCard>
       </LoginWrapper>
       <Footer />
