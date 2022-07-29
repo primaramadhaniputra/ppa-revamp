@@ -14,11 +14,12 @@ import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
-import { getListUsersWebAdmin } from "services/webAdmin";
+import { DisableUserdWebAdmin, getListUsersWebAdmin, ResetPasswordWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
-import { IUserList } from "utils/interfaces";
+import { ISingleUser, IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
+import { useRouter } from "next/router";
 
 interface Person {
   [x: string]: any;
@@ -32,6 +33,7 @@ export const defaultDataTable = [
     Position: "",
     Level: "",
     Action: "",
+    Id: ''
   }];
 
 export default function AccessControl() {
@@ -41,13 +43,53 @@ export default function AccessControl() {
   const [DataTable, setDataTable] = React.useState(defaultDataTable)
   const [isLoading, setIsLoading] = React.useState(true)
   const [isEdit, setIsEdit] = React.useState(false)
-  const handleEdit = () => {
+  const [dataUser, setDataUser] = React.useState<ISingleUser>()
+  const router = useRouter()
+
+  const handleEdit = async (e: { row: any }) => {
+    const data = e.row.original
+    console.log(data)
+    setDataUser(data)
     setIsEdit(true)
   }
+  const handleResetPassword = async (e: any) => {
+    const userID = e.row.original.Id
+    if (confirm('Are you sure to reset password ? ')) {
+      try {
+        await ResetPasswordWebAdmin({
+          path: `reset-password/${userID}`
+        })
+        notify('Berhasil mereset password user', 'success')
+        router.reload()
+      } catch (error: any) {
+        return notify(error.message, 'error')
+      }
+    }
+  }
+
+  const disableUser = async (e: any) => {
+    const userID = e.row.original.Id
+    if (confirm('Are you sure to disable user ? ')) {
+      try {
+        await DisableUserdWebAdmin({
+          path: `delete/${userID}`
+        })
+        notify('Berhasil mereset password user', 'success')
+        router.reload()
+      } catch (error: any) {
+        return notify(error.message, 'error')
+      }
+    }
+  }
+
   const getAllUsers = async () => {
     try {
       setIsLoading(true)
-      const data = await getListUsersWebAdmin({})
+      const data = await getListUsersWebAdmin({
+        params: {
+          perPage: 100
+        }
+      })
       const newData = data.data.data.map((item: IUserList) => {
         return {
           NRP: item.nrp,
@@ -55,8 +97,8 @@ export default function AccessControl() {
           Dept: item.department,
           Position: item.position,
           Level: item.level,
-          action: ''
-
+          Action: '',
+          Id: item.id
         }
       })
       setDataTable(newData)
@@ -153,27 +195,29 @@ export default function AccessControl() {
     },
     {
       accessorKey: "Action",
-      cell: () => (
+      cell: (info) => (
         <Wrapper>
-          <IconContainer>
+          <IconContainer title="Edit">
             <IcEdit
               width={20}
               cursor="pointer"
               color="white"
               strokeWidth={1.5}
-              onClick={handleEdit}
+              onClick={() => handleEdit(info)}
+
             />
           </IconContainer>
-          <IconContainer>
+          <IconContainer title="Reset Password">
             <IcRefresh
               width={20}
               cursor="pointer"
               color="white"
               strokeWidth={1.5}
+              onClick={() => handleResetPassword(info)}
             />
           </IconContainer>
-          <IconContainer>
-            <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} />
+          <IconContainer title="Disable">
+            <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} onClick={() => disableUser(info)} />
           </IconContainer>
         </Wrapper>
       ),
@@ -213,7 +257,7 @@ export default function AccessControl() {
 
   return (
     <>
-      <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} dataUser={dataUser} />
       <Container style={{ position: 'relative' }} >
         {isLoading && <Loading />}
         <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />

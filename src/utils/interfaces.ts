@@ -92,3 +92,12 @@ export interface IUserList {
     nrp: string;
     position: string;
 }
+
+export interface ISingleUser {
+    Dept: string;
+    Level: string;
+    NRP: string;
+    Name: string;
+    Position: string;
+    Id: string;
+}
