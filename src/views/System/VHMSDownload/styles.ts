@@ -15,7 +15,10 @@ export const TableWrapper = styled.div`
     width: 100%;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    padding: 0 20px;
+    padding: 0 5px;
+    ${mediaQueries.sm} {
+        padding: 0 20px;
+    }
     ${mediaQueries.xl} {
         width: 70%;
     }
