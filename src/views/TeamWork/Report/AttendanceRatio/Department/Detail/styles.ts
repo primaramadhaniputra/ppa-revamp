@@ -1,17 +1,14 @@
-import { Grid } from '@hudoro/neron';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     margin-top: 50px;
 `;
 
-export const ThItemContainer = styled(Grid).attrs({
-    container: true,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    gap: 7,
-})`
+export const ThItemContainer = styled.div`
     width: 100%;
+    display: flex;
+    gap: 7px;
+    align-items: center;
 `;
 
 export const ArrowUp = styled.div`
