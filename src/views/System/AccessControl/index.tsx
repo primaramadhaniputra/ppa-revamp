@@ -14,11 +14,12 @@ import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Filter from "./Filter";
-import { getListUsersWebAdmin } from "services/webAdmin";
+import { DisableUserdWebAdmin, getListUsersWebAdmin, ResetPasswordWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
 import { ISingleUser, IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
+import { useRouter } from "next/router";
 
 interface Person {
   [x: string]: any;
@@ -43,6 +44,7 @@ export default function AccessControl() {
   const [isLoading, setIsLoading] = React.useState(true)
   const [isEdit, setIsEdit] = React.useState(false)
   const [dataUser, setDataUser] = React.useState<ISingleUser>()
+  const router = useRouter()
 
   const handleEdit = async (e: { row: any }) => {
     const data = e.row.original
@@ -50,12 +52,33 @@ export default function AccessControl() {
     setDataUser(data)
     setIsEdit(true)
   }
-  const handleResetPassword = (e: any) => {
-    console.log(e)
-    if (confirm('Are you sure to reset A. FAHMI AL UBAIDAH`s password ? ')) {
-      return alert('wokeh sha')
-    } else {
-      return alert('uh oh')
+  const handleResetPassword = async (e: any) => {
+    const userID = e.row.original.Id
+    if (confirm('Are you sure to reset password ? ')) {
+      try {
+        await ResetPasswordWebAdmin({
+          path: `reset-password/${userID}`
+        })
+        notify('Berhasil mereset password user', 'success')
+        router.reload()
+      } catch (error: any) {
+        return notify(error.message, 'error')
+      }
+    }
+  }
+
+  const disableUser = async (e: any) => {
+    const userID = e.row.original.Id
+    if (confirm('Are you sure to disable user ? ')) {
+      try {
+        await DisableUserdWebAdmin({
+          path: `delete/${userID}`
+        })
+        notify('Berhasil mereset password user', 'success')
+        router.reload()
+      } catch (error: any) {
+        return notify(error.message, 'error')
+      }
     }
   }
 
@@ -64,7 +87,7 @@ export default function AccessControl() {
       setIsLoading(true)
       const data = await getListUsersWebAdmin({
         params: {
-          perPage: 66
+          perPage: 100
         }
       })
       const newData = data.data.data.map((item: IUserList) => {
@@ -194,7 +217,7 @@ export default function AccessControl() {
             />
           </IconContainer>
           <IconContainer title="Disable">
-            <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} />
+            <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} onClick={() => disableUser(info)} />
           </IconContainer>
         </Wrapper>
       ),

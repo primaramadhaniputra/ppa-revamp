@@ -23,6 +23,8 @@ const API = {
     // WEB ADMIN
     getListUsers: apiRequest.get(apiEndpoints.webAdmin, true),
     EditUserLevel: apiRequest.patch(apiEndpoints.webAdmin, true),
+    resetPasswordWebAdmin: apiRequest.patch(apiEndpoints.webAdmin, true),
+    disableUserdWebAdmin: apiRequest.delete(apiEndpoints.webAdmin, true),
 };
 
 export default API;
