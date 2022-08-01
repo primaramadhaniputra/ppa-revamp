@@ -5,7 +5,8 @@ import { colors } from "utils/styles";
 export const StatusContainer = styled(Grid)`
   background-color: ${colors.blueSky};
   position: relative;
-  padding: 0 5px;
+  padding: 0 10px;
+  border-radius: 3px;
   & label {
     line-height: 0;
     font-size: 12px;
@@ -19,6 +20,9 @@ export const StatusContainer = styled(Grid)`
   & svg {
     display: none;
   }
+  /* & div > div > div svg {
+        display: block !important;
+    } */
 `;
 
 export const ArrowDown = styled.div`

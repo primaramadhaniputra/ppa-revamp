@@ -6,7 +6,7 @@ export const DateContainer = styled(Grid)`
   background-color: ${colors.blueSky};
   border-radius: 5px;
   position: relative;
-  padding: 10px;
+  padding: 7px 10px;
   padding-bottom: 3px;
   z-index: 99;
   & label {
@@ -19,7 +19,7 @@ export const DateContainer = styled(Grid)`
 export const DateIconContainer = styled.div`
   position: absolute;
   right: 15px;
-  top: 24px;
+  top: 21px;
   cursor: pointer;
 `;
 

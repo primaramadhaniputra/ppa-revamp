@@ -1,17 +1,21 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
+import Mobile from "./Mobile";
 import SafetyPerformance from "./SafetyPerformance";
 import { ArrowDown, SelectContainer } from "./styles";
 
 
 const selectItems = [
-  { id: 1, values: 'Safety Performance', label: 'Safety Performance' }
+  { id: 1, values: 'Safety Performance', label: 'Safety Performance' },
+  { id: 2, values: 'Mobile', label: 'Mobile' }
 ]
 
 const renderContent = (type: string) => {
   if (type === 'Safety Performance') {
     return <SafetyPerformance />
+  } else if (type === 'Mobile') {
+    return <Mobile />
   }
 }
 

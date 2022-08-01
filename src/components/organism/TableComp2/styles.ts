@@ -6,7 +6,8 @@ export const Wrapper = styled(Card)`
   /* box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2); */
   box-shadow: none;
   /* padding: a !important; */
-  padding: 20px 0;
+  padding: 0;
+  /* padding: 20px 0; */
 `;
 
 export const PaginationContainer = styled.div`
