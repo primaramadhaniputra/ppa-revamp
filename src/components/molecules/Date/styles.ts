@@ -6,7 +6,7 @@ export const DateContainer = styled(Grid)`
   background-color: ${colors.blueSky};
   border-radius: 5px;
   position: relative;
-  padding: 10px;
+  padding: 7px 10px;
   padding-bottom: 3px;
   z-index: 99;
   & label {
