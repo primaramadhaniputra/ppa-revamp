@@ -2,24 +2,59 @@ import React, { useState } from "react";
 import {
   ArrowDown,
   DropdownMenuContainer,
+  DropdownText,
+  DropdownTextAll,
   StyledInput,
   StyledLabel,
   Wrapper,
 } from "./styles";
 
+const dataDropdown = ["A", "B", "C", "D", "E", "F"];
+
 export default function StyledDropdownMenu() {
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState([]);
 
   const handleShowDropdownMenu = () => {
     setIsDropdownMenu(!isDropdownMenu);
   };
 
+  const handleActiveAllDropdown = () => {
+    setActiveDropdown(dataDropdown as never[]);
+  };
+  const handleActiveDropdown = (item: string) => {
+    const isItem = activeDropdown.find((e) => e === item);
+    if (isItem) {
+      const newItem = activeDropdown.filter((e) => e !== isItem);
+      return setActiveDropdown(newItem);
+    }
+    return setActiveDropdown([...activeDropdown, item] as never);
+  };
+
   return (
     <Wrapper>
       <StyledLabel>Dept</StyledLabel>
-      <StyledInput onClick={handleShowDropdownMenu} />
+      <StyledInput onClick={handleShowDropdownMenu} value={activeDropdown} />
       <ArrowDown />
-      {isDropdownMenu && <DropdownMenuContainer>hello</DropdownMenuContainer>}
+      {isDropdownMenu && (
+        <DropdownMenuContainer>
+          <DropdownTextAll onClick={handleActiveAllDropdown}>
+            ALL
+          </DropdownTextAll>
+          {dataDropdown.map((item, index) => {
+            const isActive = activeDropdown.find((e) => e === item);
+            return (
+              <DropdownText
+                className={isActive ? "active" : ""}
+                key={index}
+                onClick={() => handleActiveDropdown(item)}
+              >
+                {item}
+              </DropdownText>
+            );
+          })}
+        </DropdownMenuContainer>
+      )}
     </Wrapper>
   );
 }

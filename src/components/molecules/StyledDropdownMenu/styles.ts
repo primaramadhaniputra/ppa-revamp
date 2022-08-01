@@ -1,4 +1,4 @@
-import { Card, fontFamilies } from "@hudoro/neron";
+import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, fontWeights } from "utils/styles";
 
@@ -21,7 +21,7 @@ export const StyledLabel = styled.label`
 
 export const StyledInput = styled.input`
   outline: none;
-  border: 1px solid ${colors.borderBlue};
+  border: none;
   border-radius: 5px;
   padding: 5px 10px;
   font-family: ${fontFamilies.poppins};
@@ -44,7 +44,41 @@ export const ArrowDown = styled.div`
   top: 29px;
 `;
 
-export const DropdownMenuContainer = styled(Card)`
+export const DropdownMenuContainer = styled.div`
   position: absolute;
-  bottom: -53px;
+  left: 10px;
+  background-color: white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  width: 200px;
+  border-radius: 3px;
+  top: 95%;
+`;
+
+export const DropdownTextAll = styled.p`
+  padding: 10px;
+  cursor: pointer;
+  font-family: ${fontFamilies.poppins};
+  font-size: 13px;
+  font-weight: ${fontWeights.semi};
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: ${colors.primary};
+    color: white;
+  }
+`;
+export const DropdownText = styled.p`
+  padding: 10px;
+  cursor: pointer;
+  font-family: ${fontFamilies.poppins};
+  font-size: 13px;
+  font-weight: ${fontWeights.semi};
+  background-color: white;
+  &:hover {
+    background-color: ${colors.blueSky};
+    color: black;
+  }
+  &.active {
+    background-color: ${colors.primary};
+    color: white;
+  }
 `;
