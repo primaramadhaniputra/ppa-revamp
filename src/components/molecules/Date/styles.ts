@@ -19,7 +19,7 @@ export const DateContainer = styled(Grid)`
 export const DateIconContainer = styled.div`
   position: absolute;
   right: 15px;
-  top: 24px;
+  top: 21px;
   cursor: pointer;
 `;
 

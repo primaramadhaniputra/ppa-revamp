@@ -23,8 +23,8 @@ export default function LabeledInput({
   ...rest
 }: IProps) {
   return (
-    // gap={5}
-    <Grid container flexDirection="column">
+    //
+    <Grid container flexDirection="column" gap={5}>
       {title && (
         <StyledLabel style={{ color, ...styleLabel }}>{title}</StyledLabel>
       )}

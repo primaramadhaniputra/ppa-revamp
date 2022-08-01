@@ -18,7 +18,7 @@ export default function TopFilter() {
       <Grid container style={{ marginTop: '10px', gap: 5 }}>
          <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />
          <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
-         <StyledSelect title='Dept' />
+         <StyledSelect title='Dept' multiple={true} />
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton
                style={{
