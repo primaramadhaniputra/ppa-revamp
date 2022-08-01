@@ -1,10 +1,21 @@
 import { Grid, Text } from '@hudoro/neron'
 import React, { useState } from 'react'
 import { fontWeights } from 'utils/styles'
+import Question from './Question'
 import { TabText, Wrapper } from './styles'
 import Table from './Table'
 
 const tabTitle = ['Subject', 'Question', 'Schedule']
+
+const renderContent = (activeTab: number) => {
+   if (activeTab === 0) {
+      return <Table />
+   } else if (activeTab === 1) {
+      return <Question />
+   } else {
+      return <Table />
+   }
+}
 
 export default function Quiz() {
    const [activeTab, setActiveTab] = useState(0)
@@ -24,7 +35,7 @@ export default function Quiz() {
                )
             }
          </Grid>
-         <Table />
+         {renderContent(activeTab)}
       </Wrapper>
    )
 }

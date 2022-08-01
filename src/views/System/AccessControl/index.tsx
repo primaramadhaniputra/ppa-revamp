@@ -48,7 +48,6 @@ export default function AccessControl() {
 
   const handleEdit = async (e: { row: any }) => {
     const data = e.row.original
-    console.log(data)
     setDataUser(data)
     setIsEdit(true)
   }
