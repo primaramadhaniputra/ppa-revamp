@@ -25,6 +25,8 @@ export const StyledInput = styled.input`
   border-radius: 5px;
   padding: 5px 10px;
   font-family: ${fontFamilies.poppins};
+  font-size: 12.5px;
+  font-weight: ${fontWeights.semi};
   background-color: transparent;
   &::placeholder {
     font-family: ${fontFamilies.poppins};
