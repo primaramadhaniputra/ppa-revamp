@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Achievement from './Achievement'
+import Monitoring from './Monitoring'
 import { TabContainer, TabText, Wrapper } from './styles'
 import Temuan from './Temuan'
 
@@ -10,6 +11,8 @@ function renderTabContent(e: number) {
       return <Achievement />
    } else if (e === 2) {
       return <Temuan />
+   } else if (e === 1) {
+      return <Monitoring />
    }
 }
 
