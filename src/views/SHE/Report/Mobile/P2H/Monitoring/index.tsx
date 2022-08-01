@@ -1,6 +1,6 @@
 import React from 'react'
 import TableComponent2 from 'src/components/organism/TableComp2'
-import { ArrowDown, ArrowUp, IconContainer, IconText, ThItemContainer, Wrapper } from './styles'
+import { ArrowDown, ArrowUp, IconContainer, IconText, ImageContainer, ThItemContainer, Wrapper } from './styles'
 import {
    ColumnDef,
    getCoreRowModel,
@@ -11,7 +11,6 @@ import {
    getSortedRowModel,
 } from "@tanstack/react-table";
 import { Card, Grid, Icon, Text } from '@hudoro/neron'
-import Image from 'next/image';
 import { fontWeights } from 'utils/styles';
 
 interface IProps {
@@ -95,68 +94,74 @@ export default function Monitoring() {
       <Wrapper>
          <IconContainer>
             <Grid>
-               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '3px solid #F89F5F', padding: '10px 20px' }}>
+               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #F89F5F', padding: '10px 20px' }}>
                   <Grid container gap={20} justifyContent="space-between">
                      <Grid container flexDirection='column' gap={10}>
                         <IconText>Turn Over</IconText>
                         <Text variant='h4' style={{ fontWeight: fontWeights.bold }}>699 Unit</Text>
                      </Grid>
-                     <Image src='/icons/ua.png' width={24} height={12} />
+                     <ImageContainer style={{ backgroundImage: "url(/icons/1.png)" }} >
+                     </ImageContainer>
                   </Grid>
                </Card>
             </Grid>
             <Grid>
-               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '3px solid #016CE2', padding: '10px 20px' }}>
+               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #016CE2', padding: '10px 20px' }}>
                   <Grid container gap={20} justifyContent="space-between">
                      <Grid container flexDirection='column' gap={10}>
                         <IconText>Check In</IconText>
                         <Text variant='h4' style={{ fontWeight: fontWeights.bold }}>699 Unit</Text>
                      </Grid>
-                     <Image src='/icons/ua.png' width={24} height={12} />
+                     <ImageContainer style={{ backgroundImage: "url(/icons/2.png)" }} >
+                     </ImageContainer>
                   </Grid>
                </Card>
             </Grid>
             <Grid>
-               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '3px solid #451394', padding: '10px 20px' }}>
+               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #451394', padding: '10px 20px' }}>
                   <Grid container gap={20} justifyContent="space-between">
                      <Grid container flexDirection='column' gap={10}>
                         <IconText>P2H</IconText>
                         <Text variant='h4' style={{ fontWeight: fontWeights.bold }}>699 Unit</Text>
                      </Grid>
-                     <Image src='/icons/ua.png' width={24} height={12} />
+                     <ImageContainer style={{ backgroundImage: "url(/icons/3.png)" }} >
+                     </ImageContainer>
                   </Grid>
                </Card>
             </Grid>
             <Grid>
-               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '3px solid #E82A35', padding: '10px 20px' }}>
+               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #E82A35', padding: '10px 20px' }}>
                   <Grid container gap={20} justifyContent="space-between">
                      <Grid container flexDirection='column' gap={10}>
                         <IconText>Need P2H</IconText>
                         <Text variant='h4' style={{ fontWeight: fontWeights.bold }}>699 Unit</Text>
                      </Grid>
-                     <Image src='/icons/ua.png' width={24} height={12} />
+                     <ImageContainer style={{ backgroundImage: "url(/icons/4.png)" }} >
+                     </ImageContainer>
                   </Grid>
                </Card>
             </Grid>
             <Grid>
-               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '3px solid #6FB43F', padding: '10px 20px' }}>
+               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #6FB43F', padding: '10px 20px' }}>
                   <Grid container gap={20} justifyContent="space-between">
                      <Grid container flexDirection='column' gap={10}>
                         <IconText>Need Approve</IconText>
                         <Text variant='h4' style={{ fontWeight: fontWeights.bold }}>699 Unit</Text>
                      </Grid>
-                     <Image src='/icons/ua.png' width={24} height={12} />
+                     <ImageContainer style={{ backgroundImage: "url(/icons/5.png)" }} >
+                     </ImageContainer>
                   </Grid>
                </Card>
             </Grid>
             <Grid>
-               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '3px solid #F49E00', padding: '10px 20px' }}>
+               <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #F49E00', padding: '10px 20px' }}>
                   <Grid container gap={20} justifyContent="space-between">
                      <Grid container flexDirection='column' gap={10}>
                         <IconText>Approved</IconText>
                         <Text variant='h4' style={{ fontWeight: fontWeights.bold }}>699 Unit</Text>
                      </Grid>
-                     <Image src='/icons/MTTR.png' width={24} height={12} />
+                     <ImageContainer style={{ backgroundImage: "url(/icons/6.png)" }} >
+                     </ImageContainer>
                   </Grid>
                </Card>
             </Grid>
