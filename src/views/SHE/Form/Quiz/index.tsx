@@ -2,6 +2,7 @@ import { Grid, Text } from '@hudoro/neron'
 import React, { useState } from 'react'
 import { fontWeights } from 'utils/styles'
 import Question from './Question'
+import Schedule from './Schedule'
 import { TabText, Wrapper } from './styles'
 import Table from './Table'
 
@@ -13,7 +14,7 @@ const renderContent = (activeTab: number) => {
    } else if (activeTab === 1) {
       return <Question />
    } else {
-      return <Table />
+      return <Schedule />
    }
 }
 
