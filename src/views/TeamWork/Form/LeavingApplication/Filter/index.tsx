@@ -1,4 +1,4 @@
-import { Grid } from '@hudoro/neron'
+import { fontFamilies, Grid } from '@hudoro/neron'
 import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from './styles'
@@ -42,8 +42,9 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
       }, [value]);
 
       return (
-         <Grid container gap={5} alignItems="center">
-            <Grid>
+         <Grid container gap={5} alignItems="center" justifyContent='space-between' >
+            <label style={{ fontFamily: fontFamilies.poppins, fontSize: '14px' }}>Search</label>
+            <Grid container style={{ width: '85%' }}>
                <StyledInput
                   {...props}
                   value={value}

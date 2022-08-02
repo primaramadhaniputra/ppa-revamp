@@ -5,7 +5,7 @@ import { fontWeights, mediaQueries } from "utils/styles";
 export const NumberInput = styled.input.attrs({
   type: "number",
 })`
-  width: 100%;
+  width: 85%;
   padding: 4px 6px;
   outline: none;
   font-family: ${fontFamilies.poppins};
