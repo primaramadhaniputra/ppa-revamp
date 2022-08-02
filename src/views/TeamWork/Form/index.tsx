@@ -1,11 +1,13 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
+import { useWindowSize } from "utils/functions";
 import AttendanceRevision from "./AttendanceRevision";
 import BenefitClaimVoucher from "./BenefitClaimVoucher";
 import EmployeeMutation from "./EmployeeMutation";
 import LeavingApplication from "./LeavingApplication";
 import SetRoster from "./SetRoster";
+import { TabsContainer, TabsText } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import SuratPerintahLembur from "./SuratPerintahLembur";
 import UpdateRoster from "./UpdateRoster";
@@ -25,6 +27,8 @@ const selectItems = [
   { id: 10, values: 'Surat Pelanggaran', label: 'Surat Pelanggaran' },
   { id: 11, values: 'Employee Mutation', label: 'Employe Mutation' },
 ]
+
+const tabsData = ['Upload Roster', 'Update Roster', 'Set Roster', 'Attendance Revision', 'Upload SPL', 'Upload DAR', 'Leaving Application', 'Benefit Claim Voucher', 'Surat Perintah Lembur', 'Surat Pelanggaran', 'Employee Mutation',]
 
 const renderContent = (type: string) => {
   if (type === 'Upload Roster') {
@@ -46,26 +50,24 @@ const renderContent = (type: string) => {
   } else if (type === 'Employee Mutation') {
     return <EmployeeMutation />
   }
-
 }
 
 export default function Form() {
-  const [selectedItem, setSelectedItem] = useState<ISelectItem | ISelectItem[]>({ id: 1, values: 'Upload Roster', label: 'Upload Roster' })
-
+  const width = useWindowSize()
+  const [selectedItem, setSelectedItem] = useState('')
   const handleSelect = (e: ISelectItem | ISelectItem[]) => {
-    setSelectedItem(e)
+    setSelectedItem(e.values)
   }
-
-
-
   return (
-    <Layout >
-      <SelectContainer >
+    <Layout title="Team Work / Form" >
+      {width.width > 900 ? <TabsContainer>
+        {tabsData.map((item, index) => <TabsText key={index}>{item}</TabsText>)}
+      </TabsContainer> : <SelectContainer >
         <label>Menu</label>
-        <Select items={selectItems} defaultValue={selectedItem} onChange={handleSelect as any} />
+        <Select items={selectItems} defaultValue={{ id: 1, values: 'Upload Roster', label: 'Upload Roster' }} onChange={handleSelect as any} />
         <ArrowDown></ArrowDown>
-      </SelectContainer>
-      {renderContent(selectedItem.values)}
+      </SelectContainer>}
+      {renderContent(selectedItem)}
     </Layout>
   );
 }
