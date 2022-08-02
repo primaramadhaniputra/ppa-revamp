@@ -22,7 +22,7 @@ export const Container = styled.div`
   & ul li {
     list-style: none;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 5px 10px;
+    padding: 5px 0;
     font-family: ${fontFamilies.poppins};
     cursor: pointer;
     width: 100%;
@@ -30,6 +30,9 @@ export const Container = styled.div`
     ${mediaQueries.md} {
       width: auto;
     }
+  }
+  & ul li a {
+    padding: 5px 10px;
   }
   & .activePage {
     background-color: ${colors.orange};

@@ -19,7 +19,6 @@ import Filter from "./Filter";
 import TopFilter from "./TopFilter";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Html } from 'next/document'
-// import useWindowDimensions from "utils/functions";
 
 interface Person {
   [x: string]: any;
@@ -219,11 +218,9 @@ export default function UpdateRoster() {
     table.setPageSize(e.target.value);
   };
   isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
-  // const { height } = useWindowDimensions();
-  // console.log(height)
   return (
     <Wrapper>
-      <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} top={window.pageYOffset} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Update Roster</Text>
       </Grid>

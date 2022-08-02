@@ -19,7 +19,7 @@ export const TableWrapper = styled.div`
     padding: 0;
     ${mediaQueries.sm} {
         margin-top: 20px;
-        padding: 0 20px;
+        padding: 10px 20px;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     }
     ${mediaQueries.xl} {
