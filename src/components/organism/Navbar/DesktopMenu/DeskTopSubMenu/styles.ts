@@ -21,12 +21,11 @@ export const StyledCard = styled(Card)<IStyledCard>`
   transform: translateY(-20px);
   transform: ${(props) =>
     props.isActive ? "translateY(0)" : "translateY(-20px)"};
-  z-index: ${(props) => (props.isActive ? "99" : "-99")};
+  z-index: ${(props) => (props.isActive ? "999" : "-999")};
   opacity: ${(props) => (props.isActive ? "1" : "0")};
   /* z-index: -99; */
   padding: 10px;
   /* oc */
-  z-index: 999;
 `;
 
 export const StyledText = styled.p`
