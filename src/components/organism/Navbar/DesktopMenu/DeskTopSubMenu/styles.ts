@@ -26,6 +26,7 @@ export const StyledCard = styled(Card)<IStyledCard>`
   /* z-index: -99; */
   padding: 10px;
   /* oc */
+  z-index: 999;
 `;
 
 export const StyledText = styled.p`

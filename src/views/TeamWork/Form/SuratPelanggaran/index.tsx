@@ -94,7 +94,7 @@ export default function SuratPelanggaran() {
     <Wrapper>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Data Pelanggaran Aktif Karyawan</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Data Pelanggaran Aktif Karyawan</Text>
       </Grid>
       <Grid container style={{ marginTop: '30px' }}>
         <Grid>

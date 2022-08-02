@@ -100,7 +100,7 @@ export default function BenefitClaimVoucher() {
     <Wrapper>
       {isImage && <FormImage onclick={handleImage} />}
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Benefit Claim Voucher</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Benefit Claim Voucher</Text>
         <FileContainer>
           <div>
             <label htmlFor="file">+</label>

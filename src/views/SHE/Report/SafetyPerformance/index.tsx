@@ -14,7 +14,7 @@ export default function SafetyPerformance() {
       <>
          <Container style={{ marginTop: '30px' }}>
             <Grid container flexDirection="column" gap={20} style={{ flex: 1 }} >
-               <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >SHE / Report / Safety Monitoring</Text>
+               <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Report / Safety Monitoring</Text>
             </Grid>
             <Grid style={{ flex: 1 }} >
                <TopFilter />

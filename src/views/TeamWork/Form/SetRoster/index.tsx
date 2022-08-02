@@ -51,7 +51,7 @@ export default function SetRoster() {
    return (
       <Wrapper>
          <TextHeaderContainer style={{ marginTop: '30px' }}>
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Set Roster</Text>
+            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Set Roster</Text>
          </TextHeaderContainer>
          <FormContainer>
             <Text variant="h4" style={{ fontWeight: fontWeights.bold }} >Form  Roster</Text>

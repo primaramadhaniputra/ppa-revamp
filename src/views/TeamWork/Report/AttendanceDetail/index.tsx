@@ -83,13 +83,13 @@ export default function AttendanceDetail() {
   return (
     <Wrapper>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Attendance Detail</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Attendance Detail</Text>
       </Grid>
       <TopFilter />
       <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <TableComponent2
         table={table}
       />
-    </Wrapper>
+    </Wrapper >
   );
 }

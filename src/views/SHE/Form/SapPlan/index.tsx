@@ -7,7 +7,7 @@ export default function SapPlan() {
    return (
       <>
          <Grid style={{ flex: 1, marginTop: '30px' }} >
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >SHE / Form / SAP Plan</Text>
+            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Form / SAP Plan</Text>
          </Grid>
          <Table />
       </>

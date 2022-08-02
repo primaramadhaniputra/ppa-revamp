@@ -11,7 +11,7 @@ export default function TurnOver() {
   return (
     <Wrapper>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Turn Over</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Turn Over</Text>
       </Grid>
       <TopFilter />
       <ItemContainer  >

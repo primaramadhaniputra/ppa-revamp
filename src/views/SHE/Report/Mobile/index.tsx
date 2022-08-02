@@ -16,7 +16,7 @@ export default function Mobile() {
    return (
       <Wrapper style={{ marginTop: '30px' }}>
          <Grid container flexDirection="column" gap={20} style={{ flex: 1 }} >
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >SHE / Report / Mobile</Text>
+            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Report / Mobile</Text>
          </Grid>
          <Grid container gap={5} style={{ marginTop: '10px' }}>
             {

@@ -27,7 +27,7 @@ export default function Quiz() {
    return (
       <Wrapper>
          <Grid style={{ flex: 1, marginTop: '30px' }} >
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >SHE / Form / Quiz</Text>
+            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Form / Quiz</Text>
          </Grid>
          <Grid container gap={10} style={{ marginTop: '10px', padding: '0 10px' }}>
             {

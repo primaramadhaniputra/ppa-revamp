@@ -19,8 +19,8 @@ export const Container = styled(Grid).attrs({
 
 export const TabsText = styled.p`
     font-family: ${fontFamilies.poppins};
-    font-size: ${fontSizing.md.fontSize};
-    padding: 10px 25px;
+    font-size: 14px;
+    padding: 5px 15px;
     border-radius: 8px;
     color: ${colors.orange};
 `;

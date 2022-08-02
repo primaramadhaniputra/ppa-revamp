@@ -92,7 +92,7 @@ export default function Izin() {
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <Wrapper>
         <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
-          <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Izin</Text>
+          <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Izin</Text>
         </Grid>
         <TopFilter />
         <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
