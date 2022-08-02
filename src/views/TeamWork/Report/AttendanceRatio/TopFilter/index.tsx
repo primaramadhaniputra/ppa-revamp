@@ -27,13 +27,13 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
          {!noDate && <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />}
          {!noDate && <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />}
          {!noDept && <Grid>
-            <StyledDropdownMenu title='Dept' />
+            <StyledDropdownMenu title='Dept' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>}
          <Grid>
-            <StyledDropdownMenu title='Nama' />
+            <StyledDropdownMenu title='Nama' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>
          {doubleSelect && <Grid>
-            <StyledDropdownMenu title='Tahun' />
+            <StyledDropdownMenu title='Tahun' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>}
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton

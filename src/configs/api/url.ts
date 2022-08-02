@@ -6,6 +6,7 @@ const apiEndpoints = {
     operationReport: `${appActiveConfig.ppaurl}/operations/reports/devices/productions`,
     pages: `${appActiveConfig.baseurl}/admin`,
     webAdmin: `${appActiveConfig.baseurl}/admin/settings/web-admin`,
+    moco: `${appActiveConfig.baseurl}/admin/settings/reports/productions/daily`,
 };
 
 export { apiEndpoints };

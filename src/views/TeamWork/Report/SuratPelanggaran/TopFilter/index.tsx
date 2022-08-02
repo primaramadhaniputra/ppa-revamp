@@ -8,10 +8,10 @@ export default function TopFilter() {
    return (
       <Grid container style={{ marginTop: '10px', gap: 5 }}>
          <Grid>
-            <StyledDropdownMenu title='Status' />
+            <StyledDropdownMenu title='Status' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>
          <Grid>
-            <StyledDropdownMenu title='Dept' />
+            <StyledDropdownMenu title='Dept' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>
          {/* <StyledSelect title='Status' />
          <StyledSelect title='Dept' /> */}

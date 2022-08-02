@@ -9,16 +9,20 @@ import {
   Wrapper,
 } from "./styles";
 
-// const dataDropdown = ["A", "B", "C", "D", "E", "F"];
-
 interface IProps {
   data?: string[] | number[];
   title: string;
+  activeDropdown: never[];
+  setActiveDropdown: React.Dispatch<React.SetStateAction<never[]>>;
 }
 
-export default function StyledDropdownMenu({ title, data }: IProps) {
+export default function StyledDropdownMenu({
+  title,
+  data,
+  activeDropdown,
+  setActiveDropdown,
+}: IProps) {
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState([]);
 
   const handleShowDropdownMenu = () => {
     setIsDropdownMenu(!isDropdownMenu);
