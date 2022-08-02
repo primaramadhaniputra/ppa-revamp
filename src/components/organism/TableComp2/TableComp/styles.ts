@@ -28,8 +28,8 @@ export const TABLE = styled.table`
   /* min-width: 1300px; */
   text-align: center;
   border-collapse: collapse;
-  padding: 20px;
-  margin-top: 20px;
+  /* padding: 20px;
+    margin-top: 20px; */
   font-size: ${fontSizing.md.fontSize};
   & td {
     padding: 10px;

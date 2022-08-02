@@ -2,6 +2,7 @@ import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import { useWindowSize } from "utils/functions";
+import { fontWeights } from "utils/styles";
 import AttendanceRevision from "./AttendanceRevision";
 import BenefitClaimVoucher from "./BenefitClaimVoucher";
 import EmployeeMutation from "./EmployeeMutation";
@@ -54,17 +55,17 @@ const renderContent = (type: string) => {
 
 export default function Form() {
   const width = useWindowSize()
-  const [selectedItem, setSelectedItem] = useState('')
+  const [selectedItem, setSelectedItem] = useState('Upload Roster')
   const handleSelect = (e: ISelectItem | ISelectItem[]) => {
     setSelectedItem(e.values)
   }
   return (
     <Layout title="Team Work / Form" >
       {width.width > 900 ? <TabsContainer>
-        {tabsData.map((item, index) => <TabsText key={index}>{item}</TabsText>)}
+        {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
       </TabsContainer> : <SelectContainer >
         <label>Menu</label>
-        <Select items={selectItems} defaultValue={{ id: 1, values: 'Upload Roster', label: 'Upload Roster' }} onChange={handleSelect as any} />
+        <Select items={selectItems} defaultValue={{ id: 1, values: selectedItem, label: selectedItem }} onChange={handleSelect as any} />
         <ArrowDown></ArrowDown>
       </SelectContainer>}
       {renderContent(selectedItem)}
