@@ -1,7 +1,8 @@
-import { Grid, Text } from "@hudoro/neron";
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from "./styles";
+import { SingleStatus, StatusContainer, ThItemContainer, Wrapper } from "./styles";
+// ArrowDown, ArrowUp,
 import {
   ColumnDef,
   getCoreRowModel,
@@ -20,19 +21,20 @@ interface IProps {
 }
 
 const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+export const defaultDataTable = arr.map(() => {
   return {
-    NRP: "HD787",
-    Nama: "Hd123",
-    Tanggal: `33${index}`,
-    In: "2022-17-08",
-    Out: "2022-17-08",
-    Job: "2022-17-08 02:12:12",
-    Dep: "2022-17-08 02:12:12",
-    Company: "2022-17-08 02:12:12",
-    Code: "2022-17-08 02:12:12",
-    Device: "2022-17-08 02:12:12",
-    Owner: "2022-17-08 02:12:12",
+    ['LOADER']: "E5503PPA",
+    ['BL']: "2.406,00",
+    ['DW']: ``,
+    ['MUD 100%']: "",
+    ["MUD CAIR"]: "",
+    ['MUD ORI 1']: "",
+    ['MUD ORI']: "12.938,70",
+    ['OB']: "",
+    ['SOIL']: "",
+    ['TOTAL']: "2.406,00",
+    ['PLAN']: "",
+    ['ACH']: "",
   };
 });
 
@@ -53,12 +55,15 @@ export default function ObProductionDayli() {
           <span>
             {item}
           </span>
-          <Grid container flexDirection="column">
+          {/* <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
-          </Grid>
+          </Grid> */}
         </ThItemContainer>
-      )
+      ),
+      footer: (data) => {
+        return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{data.header.id === 'LOADER' ? "TOTAL" : 0}</span>
+      },
     }
   });
   const table = useReactTable({
@@ -88,10 +93,28 @@ export default function ObProductionDayli() {
         <Text variant="h4" style={{ fontWeight: fontWeights.semi }} >Operation / Report</Text>
       </Grid>
       <TopFilter />
-      {/* <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} /> */}
+      <StatusContainer style={{ margin: '20px  0 5px 0' }}>
+        <SingleStatus >
+          <Text variant="h4" >PLAN</Text>
+          <Text variant="p" >0,00</Text>
+        </SingleStatus>
+        <SingleStatus container gap={10} flexDirection='column' alignItems="center" >
+          <Text variant="h4" >TOTAL TC</Text>
+          <Text variant="p" >281.203,75</Text>
+        </SingleStatus>
+        <SingleStatus container gap={10} flexDirection='column' alignItems="center" >
+          <Text variant="h4" >TOTAL JS</Text>
+          <Text variant="p" >281.203,75</Text>
+        </SingleStatus>
+        <SingleStatus container gap={10} flexDirection='column' alignItems="center" >
+          <Text variant="h4" >ACHIEVEMENT</Text>
+          <Text variant="p" >Infinity %</Text>
+        </SingleStatus>
+      </StatusContainer>
       <TableComponent2
         table={table}
         noPagination={true}
+        withFooter={true}
       />
     </Wrapper>
   );
