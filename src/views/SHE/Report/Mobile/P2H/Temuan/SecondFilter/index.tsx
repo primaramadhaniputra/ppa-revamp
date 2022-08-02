@@ -45,14 +45,13 @@ export default function SecondFilter({ table, handleChangeTotalShowData, globalF
 
       return (
          <Grid container gap={5} alignItems="center">
-            <Grid>
-               <StyledInput
-                  {...props}
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                  placeholder="Search..."
-               />
-            </Grid>
+            <StyledInput
+               {...props}
+               value={value}
+               onChange={(e) => setValue(e.target.value)}
+               placeholder="Search..."
+               style={{ minWidth: '150px' }}
+            />
          </Grid>
       );
    }
