@@ -158,7 +158,8 @@ export default function UploadRoster() {
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Upload Roster</Text>
         <FileContainer>
-          <label htmlFor="file"> <span>+</span> UPLOAD FILE</label>
+          <label htmlFor="file"> +</label>
+          <label htmlFor="file"> UPLOAD FILE</label>
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>

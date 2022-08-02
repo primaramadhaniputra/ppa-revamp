@@ -101,10 +101,8 @@ export default function SuratPelanggaran() {
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
         </Grid>
         <FileContainer>
-          <div>
-            <label htmlFor="file">+</label>
-            <label htmlFor="file">Input</label>
-          </div>
+          <label htmlFor="file">+</label>
+          <label htmlFor="file">Input</label>
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>
