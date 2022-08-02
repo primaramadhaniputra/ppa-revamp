@@ -92,7 +92,7 @@ export default function EmployeeMutation() {
     <Wrapper>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Employee Mutation</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Employee Mutation</Text>
         <FileContainer>
           <div>
             <label htmlFor="file">+</label>

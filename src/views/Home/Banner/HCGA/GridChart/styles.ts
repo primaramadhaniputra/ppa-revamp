@@ -11,6 +11,7 @@ export const Wrapper = styled(Card)`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    padding: 0;
 `;
 export const DonatContainer = styled.div`
     width: 100%;

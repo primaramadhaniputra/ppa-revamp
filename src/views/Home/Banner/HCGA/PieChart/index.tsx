@@ -9,15 +9,20 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const options = {
+  aspectRatio: 2,
   responsive: true,
   plugins: {
     legend: {
       position: "right" as const,
       labels: {
-        padding: 30,
+        padding: 5,
         boxWidth: 7,
         usePointStyle: true,
         render: 'label',
+        font: {
+          size: 12,
+          family: fontFamilies.poppins,
+        },
       },
     },
     datalabels: {
@@ -46,7 +51,7 @@ export default function PieChart({ data }: IProps) {
     <Wrapper >
       <Text
         variant="h4"
-        style={{ color: colors.orange, fontWeight: fontWeights.semi, fontSize: fontSizing.sm.fontSize }}
+        style={{ color: colors.orange, fontWeight: fontWeights.semi, fontSize: fontSizing.sm.fontSize, marginBottom: '30px' }}
       >
         Total Manpower
       </Text>

@@ -14,7 +14,7 @@ export default function Induksi() {
     <Wrapper>
       <Container>
         <Grid container flexDirection="column" gap={20} style={{ flex: 1 }} >
-          <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Report / Induksi Monitoring</Text>
+          <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Induksi Monitoring</Text>
           <DateText variant="p">Current Date <span>25 / 7 / 2022</span></DateText>
         </Grid>
         <Grid style={{ flex: 1 }} >

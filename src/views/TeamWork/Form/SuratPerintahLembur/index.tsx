@@ -82,7 +82,7 @@ export default function SuratPerintahLembur() {
   return (
     <Wrapper>
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold }} >Teamwork / Form / Surat Perintah Lembur</Text>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Surat Perintah Lembur</Text>
         <FileContainer>
           <div>
             <label htmlFor="file">+</label>

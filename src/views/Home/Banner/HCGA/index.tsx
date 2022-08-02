@@ -30,12 +30,12 @@ export default function HCGA() {
          </Grid>
          <Grid container gap={20}>
             <Item style={{ flex: 5, boxShadow: 'none' }}>
-               <DoughnutChart data={data} />
+               <DoughnutChart />
             </Item>
             <Item style={{ flex: 5, boxShadow: 'none' }}>
                <PieChart data={data} />
             </Item>
-            <Item style={{ padding: 0, flex: 1, boxShadow: 'none' }}>
+            <Item style={{ flex: 1, boxShadow: 'none' }}>
                <GridChart />
             </Item>
             <Item style={{ flex: 5, boxShadow: 'none' }}>
