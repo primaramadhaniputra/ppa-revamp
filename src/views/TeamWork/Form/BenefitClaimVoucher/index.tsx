@@ -2,7 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, Wrapper } from "./styles";
+import { FileContainer, ThItemContainer, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -99,18 +99,20 @@ export default function BenefitClaimVoucher() {
   return (
     <Wrapper>
       {isImage && <FormImage onclick={handleImage} />}
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Benefit Claim Voucher</Text>
+      <WrapperTitle>
+        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Benefit Claim Voucher(BCV)</Text>
         <FileContainer>
           <label htmlFor="file">+</label>
           <label htmlFor="file">UPLOAD FILE</label>
           <input type='file' id="file" hidden />
         </FileContainer>
-      </Grid>
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2
-        table={table}
-      />
-    </Wrapper>
+      </WrapperTitle>
+      <WrapperTable>
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2
+          table={table}
+        />
+      </WrapperTable>
+    </Wrapper >
   );
 }
