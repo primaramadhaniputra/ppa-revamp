@@ -50,6 +50,15 @@ export const IconContainer = styled.div`
 
 export const CalendarContainer = styled.div`
     position: absolute;
+    z-index: 9999;
+    max-width: 250px;
+    overflow-x: scroll;
+    left: -20px;
+    ${mediaQueries.sm} {
+        left: 0;
+        max-width: 500px;
+        overflow-x: hidden;
+    }
 `;
 
 export const TextHeaderContainer = styled(Grid).attrs({})``;
