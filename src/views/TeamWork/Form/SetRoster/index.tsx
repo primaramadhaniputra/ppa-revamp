@@ -93,10 +93,10 @@ export default function SetRoster() {
             </FormCard>
             <Grid container justifyContent='flex-end' style={{ marginTop: '10px' }} >
                <Grid style={{ maxWidth: '200px' }}>
-                  <StyledButton style={{ color: colors.orange, backgroundColor: 'transparent', borderRadius: '50px', fontSize: fontSizing.xl.fontSize, fontWeight: fontWeights.semi }}>Back</StyledButton>
+                  <StyledButton style={{ color: colors.orange, backgroundColor: 'transparent', borderRadius: '50px', fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.semi, padding: '5px' }}>Back</StyledButton>
                </Grid>
                <Grid style={{ maxWidth: '200px' }}>
-                  <StyledButton style={{ color: colors.white, backgroundColor: colors.orange, borderRadius: '50px', fontSize: fontSizing.xl.fontSize, fontWeight: fontWeights.semi }}>Submit</StyledButton>
+                  <StyledButton style={{ color: colors.white, backgroundColor: colors.orange, borderRadius: '50px', fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.semi, padding: '5px' }}>Submit</StyledButton>
                </Grid>
 
             </Grid>

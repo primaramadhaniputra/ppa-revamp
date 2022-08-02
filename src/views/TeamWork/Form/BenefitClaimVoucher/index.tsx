@@ -102,10 +102,8 @@ export default function BenefitClaimVoucher() {
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Benefit Claim Voucher</Text>
         <FileContainer>
-          <div>
-            <label htmlFor="file">+</label>
-            <label htmlFor="file">UPLOAD FILE</label>
-          </div>
+          <label htmlFor="file">+</label>
+          <label htmlFor="file">UPLOAD FILE</label>
           <input type='file' id="file" hidden />
         </FileContainer>
       </Grid>

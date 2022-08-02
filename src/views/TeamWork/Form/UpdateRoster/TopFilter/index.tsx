@@ -21,8 +21,9 @@ export default function TopFilter() {
                style={{
                   fontSize: "25px",
                   padding: "0",
-                  fontWeight: fontWeights.bold,
+                  fontWeight: fontWeights.semi,
                   backgroundColor: colors.orange,
+
                }}
             >
                SHOW

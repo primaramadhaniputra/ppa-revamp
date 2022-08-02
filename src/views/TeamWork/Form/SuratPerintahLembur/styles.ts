@@ -26,23 +26,23 @@ export const FileContainer = styled.div`
     ${mediaQueries.md} {
         width: auto;
     }
-    & div {
-        background-color: ${colors.orange};
-        color: #eee;
-        font-weight: ${fontWeights.semi};
-        font-family: ${fontFamilies.poppins};
-        font-size: ${fontSizing.xl.fontSize};
-        padding: 10px 20px;
-        border-radius: 50px;
+    background-color: ${colors.orange};
+    color: white;
+    display: block;
+    font-weight: ${fontWeights.bold};
+    font-family: ${fontFamilies.poppins};
+    font-size: ${fontSizing.md.fontSize};
+    padding: 5px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    & label {
         cursor: pointer;
-        display: flex;
-        gap: 5px;
-        align-items: center;
     }
-
-    & div :nth-child(1) {
+    & :nth-child(1) {
         font-size: 30px;
-        font-weight: ${fontWeights.regular};
     }
 `;
 
