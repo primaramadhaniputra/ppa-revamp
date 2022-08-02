@@ -45,7 +45,7 @@ export const ArrowDown = styled.div`
 export const IconContainer = styled.div`
     position: absolute;
     right: 15px;
-    top: 35px;
+    top: 24px;
 `;
 
 export const CalendarContainer = styled.div`
