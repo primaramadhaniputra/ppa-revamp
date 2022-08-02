@@ -55,6 +55,8 @@ export const DropdownMenuContainer = styled.div`
   border-radius: 3px;
   top: 95%;
   z-index: 99;
+  overflow-y: scroll;
+  max-height: 200px;
 `;
 
 export const DropdownTextAll = styled.p`

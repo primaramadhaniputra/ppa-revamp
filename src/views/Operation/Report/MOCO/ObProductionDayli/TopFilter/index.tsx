@@ -19,10 +19,10 @@ export default function TopFilter() {
          <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />
          <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
          <Grid>
-            <StyledDropdownMenu title='Dept' />
+            <StyledDropdownMenu title='Shift' data={[1, 2]} />
          </Grid>
          <Grid>
-            <StyledDropdownMenu title='Pit' />
+            <StyledDropdownMenu title='Pit' data={['BLP', 'SENTUK 40', '60', 'SENTUK J', '0', 'SENTUK J SOUTH', 'SENTUK 10.0', 'SENTUK -10.0', 'SENTUK -15.0', 'SETNUK -30.0', 'SENTUK -3.0', 'SENTUK 0.0', 'DSP JLN HAULING', '#N']} />
          </Grid>
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton
