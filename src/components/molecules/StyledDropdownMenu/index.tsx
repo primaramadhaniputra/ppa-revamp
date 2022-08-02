@@ -9,13 +9,14 @@ import {
   Wrapper,
 } from "./styles";
 
-const dataDropdown = ["A", "B", "C", "D", "E", "F"];
+// const dataDropdown = ["A", "B", "C", "D", "E", "F"];
 
 interface IProps {
+  data?: string[] | number[];
   title: string;
 }
 
-export default function StyledDropdownMenu({ title }: IProps) {
+export default function StyledDropdownMenu({ title, data }: IProps) {
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState([]);
 
@@ -24,9 +25,12 @@ export default function StyledDropdownMenu({ title }: IProps) {
   };
 
   const handleActiveAllDropdown = () => {
-    setActiveDropdown(dataDropdown as never[]);
+    if (activeDropdown.length === data?.length) {
+      return setActiveDropdown([]);
+    }
+    return setActiveDropdown(data as never[]);
   };
-  const handleActiveDropdown = (item: string) => {
+  const handleActiveDropdown = (item: string | number) => {
     const isItem = activeDropdown.find((e) => e === item);
     if (isItem) {
       const newItem = activeDropdown.filter((e) => e !== isItem);
@@ -49,7 +53,7 @@ export default function StyledDropdownMenu({ title }: IProps) {
           <DropdownTextAll onClick={handleActiveAllDropdown}>
             ALL
           </DropdownTextAll>
-          {dataDropdown.map((item, index) => {
+          {data?.map((item, index) => {
             const isActive = activeDropdown.find((e) => e === item);
             return (
               <DropdownText
