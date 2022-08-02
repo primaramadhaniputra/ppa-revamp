@@ -7,7 +7,6 @@ export const StyledLabel = styled.label`
   font-style: normal;
   font-weight: ${fontWeights.regular};
   font-size: ${fontSizing.sm.fontSize};
-  line-height: ${fontSizing.md.lineHeight};
   color: black;
 `;
 
@@ -17,6 +16,7 @@ export const StyledInput = styled.input`
   border: 1px solid ${colors.borderBlue};
   border-radius: 5px;
   padding: 5px 10px;
+  font-size: 12px;
   font-family: ${fontFamilies.poppins};
   &::placeholder {
     font-family: ${fontFamilies.poppins};

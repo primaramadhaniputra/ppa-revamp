@@ -11,7 +11,11 @@ import {
 
 const dataDropdown = ["A", "B", "C", "D", "E", "F"];
 
-export default function StyledDropdownMenu() {
+interface IProps {
+  title: string;
+}
+
+export default function StyledDropdownMenu({ title }: IProps) {
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState([]);
 
@@ -33,8 +37,12 @@ export default function StyledDropdownMenu() {
 
   return (
     <Wrapper>
-      <StyledLabel>Dept</StyledLabel>
-      <StyledInput onClick={handleShowDropdownMenu} value={activeDropdown} />
+      <StyledLabel>{title}</StyledLabel>
+      <StyledInput
+        onClick={handleShowDropdownMenu}
+        value={activeDropdown}
+        placeholder="..."
+      />
       <ArrowDown />
       {isDropdownMenu && (
         <DropdownMenuContainer>

@@ -19,7 +19,7 @@ export default function TopFilter() {
          <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />
          <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
          <Grid>
-            <StyledDropdownMenu />
+            <StyledDropdownMenu title="Dept" />
          </Grid>
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton

@@ -1,7 +1,7 @@
 import { Grid } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
 import DateCalendar from 'molecules/Date'
-import StyledSelect from 'molecules/StyledSelect'
+import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
 
@@ -13,7 +13,9 @@ export default function TopFilter() {
    return (
       <Grid container style={{ marginTop: '30px', gap: 5 }}>
          <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
-         <StyledSelect title='Status' />
+         <Grid>
+            <StyledDropdownMenu title='Status' />
+         </Grid>
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton
                style={{
