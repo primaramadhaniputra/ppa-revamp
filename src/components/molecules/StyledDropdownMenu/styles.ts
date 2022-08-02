@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   position: relative;
   background-color: ${colors.blueSky};
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 3px;
 `;
 
@@ -43,7 +43,7 @@ export const ArrowDown = styled.div`
   border-top: 9px solid #000;
   position: absolute;
   right: 15px;
-  top: 29px;
+  top: 27px;
 `;
 
 export const DropdownMenuContainer = styled.div`

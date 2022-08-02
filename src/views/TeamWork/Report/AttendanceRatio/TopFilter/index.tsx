@@ -1,7 +1,7 @@
 import { Grid } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
 import DateCalendar from 'molecules/Date'
-import StyledSelect from 'molecules/StyledSelect'
+import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
 import { TextYear } from './styles'
@@ -26,9 +26,15 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
       <Grid container style={{ marginTop: '10px', gap: 5 }}>
          {!noDate && <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />}
          {!noDate && <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />}
-         {!noDept && <StyledSelect title='Dept' />}
-         <StyledSelect title='Nama' />
-         {doubleSelect && <StyledSelect title='Tahun' />}
+         {!noDept && <Grid>
+            <StyledDropdownMenu title='Dept' />
+         </Grid>}
+         <Grid>
+            <StyledDropdownMenu title='Nama' />
+         </Grid>
+         {doubleSelect && <Grid>
+            <StyledDropdownMenu title='Tahun' />
+         </Grid>}
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton
                style={{
