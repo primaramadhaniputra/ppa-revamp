@@ -54,6 +54,7 @@ export const DropdownMenuContainer = styled.div`
   width: 200px;
   border-radius: 3px;
   top: 95%;
+  z-index: 99;
 `;
 
 export const DropdownTextAll = styled.p`

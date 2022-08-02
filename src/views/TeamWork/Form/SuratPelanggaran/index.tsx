@@ -96,11 +96,11 @@ export default function SuratPelanggaran() {
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Data Pelanggaran Aktif Karyawan</Text>
       </Grid>
-      <Grid container style={{ marginTop: '30px' }}>
+      <Grid container style={{ marginTop: '30px' }} alignItems="center" gap={10}>
         <Grid>
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
         </Grid>
-        <FileContainer>
+        <FileContainer >
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>
           <input type='file' id="file" hidden />
