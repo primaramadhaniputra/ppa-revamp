@@ -29,7 +29,7 @@ export const TABLE = styled.table`
   border-collapse: collapse;
   font-size: ${fontSizing.md.fontSize};
   & td {
-    padding: 10px;
+    padding: 3px 10px;
   }
 
   & tr {
@@ -67,8 +67,7 @@ export const TABLE = styled.table`
     font-weight: ${fontWeights.semi};
     font-size: 12px;
     line-height: 21px;
-    color: #000000;
-    color: black;
+    color: #4a5259;
     text-align: center;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     border-top: 1px solid rgba(0, 0, 0, 0.1);

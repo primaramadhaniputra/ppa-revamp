@@ -1,7 +1,7 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from "./styles";
+import { ArrowDown, ArrowUp, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -135,7 +135,7 @@ export default function SuratPelanggaran() {
     },
     {
       accessorKey: 'Status',
-      cell: (info) => <span style={{ fontWeight: fontWeights.bold, color: "#3B7DDD" }}>{info.getValue()}</span>,
+      cell: (info) => <span style={{ fontWeight: fontWeights.bold, color: "#3B7DDD", backgroundColor: '#E8F0FE', padding: '0 15px', borderRadius: '50px', fontSize: '13px' }}>{info.getValue()}</span>,
       header: () => (
         <ThItemContainer>
           <span>
@@ -191,14 +191,16 @@ export default function SuratPelanggaran() {
     <>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <Wrapper>
-        <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
-          <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Surat Pelanggaran</Text>
-        </Grid>
-        <TopFilter />
-        <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-        <TableComponent2
-          table={table}
-        />
+        <WrapperTitle>
+          <TitleText>Surat Pelanggaran</TitleText>
+        </WrapperTitle>
+        <WrapperTable>
+          <TopFilter />
+          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+          <TableComponent2
+            table={table}
+          />
+        </WrapperTable>
       </Wrapper>
     </>
   );
