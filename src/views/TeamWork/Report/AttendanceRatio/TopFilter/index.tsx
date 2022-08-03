@@ -1,10 +1,11 @@
 import { Grid } from '@hudoro/neron'
+import RevisiDropdown from 'atoms/RevisiDropdown'
 import StyledButton from 'atoms/StyledButton'
-import DateCalendar from 'molecules/Date'
+import RevisiDate from 'molecules/RevisiDate'
 import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
-import { TextYear } from './styles'
+import { ButtonWrapper, TextYear, Wrapper } from './styles'
 
 interface IProps {
    noDept?: boolean
@@ -23,34 +24,36 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
       setFromDateState(e)
    }
    return (
-      <Grid container style={{ marginTop: '10px', gap: 5 }}>
-         {!noDate && <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />}
-         {!noDate && <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />}
-         {!noDept && <Grid>
-            <StyledDropdownMenu title='Dept' activeDropdown={[]} setActiveDropdown={() => { }} />
+      <Wrapper>
+         {!noDate && <RevisiDate placeholder="To" dateState={toDateState} setDateState={handleToDateState} />}
+         {!noDate && <RevisiDate placeholder="From" dateState={fromDateState} setDateState={handleFromDateState} />}
+         {!noDept && <Grid style={{ minWidth: '200px' }}>
+            <RevisiDropdown />
          </Grid>}
-         <Grid>
-            <StyledDropdownMenu title='Nama' activeDropdown={[]} setActiveDropdown={() => { }} />
+         <Grid style={{ minWidth: '200px' }}>
+            <RevisiDropdown />
          </Grid>
          {doubleSelect && <Grid>
             <StyledDropdownMenu title='Tahun' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>}
-         <Grid container style={{ flex: 1, minWidth: '150px' }}>
+         <ButtonWrapper style={{ minWidth: '150px' }}>
             <StyledButton
                style={{
-                  fontSize: "25px",
+                  fontSize: "18px",
                   padding: "0",
                   fontWeight: fontWeights.bold,
                   backgroundColor: colors.orange,
+                  borderRadius: '3px',
+                  minWidth: '150px'
                }}
             >
                SHOW
             </StyledButton>
-         </Grid>
+         </ButtonWrapper>
          {withYear &&
             <Grid container justifyContent='flex-end' alignItems='flex-end' style={{ flex: 1, minWidth: 'max-content' }}>
                <TextYear>Current Year <span>2021</span></TextYear>
             </Grid>}
-      </Grid>
+      </Wrapper>
    )
 }

@@ -1,6 +1,25 @@
-import { fontFamilies } from '@hudoro/neron';
+import { fontFamilies, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
-import { fontSizing, fontWeights } from 'utils/styles';
+import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
+
+export const Wrapper = styled(Grid).attrs({
+    container: true,
+})`
+    margin: 10px 0;
+    column-gap: 40px;
+    row-gap: 10px;
+    width: 100%;
+
+    ${mediaQueries.lg} {
+        width: 100%;
+    }
+    ${mediaQueries.xl} {
+        width: 90%;
+    }
+    ${mediaQueries['2xl']} {
+        width: 80%;
+    }
+`;
 
 export const TextYear = styled.p`
     font-family: ${fontFamilies.poppins};
@@ -9,5 +28,13 @@ export const TextYear = styled.p`
     & span {
         font-weight: ${fontWeights.bold};
         font-size: ${fontSizing['4xl'].fontSize};
+    }
+`;
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    ${mediaQueries.xl} {
+        width: auto;
     }
 `;

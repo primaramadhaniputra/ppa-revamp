@@ -2,7 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer, Wrapper } from "./styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -237,11 +237,13 @@ export default function AttendanceRatio() {
 
   return (
     <Wrapper>
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Attendance Ratio</Text>
-      </Grid>
-      <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
-      {renderTab()}
+      <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} styles={{ margin: '10px 0 20px', backgroundColor: 'white', padding: '5px 15px', borderRadius: '3px' }} />
+      <WrapperTitle>
+        <TitleText>Attendance Ratio</TitleText>
+      </WrapperTitle>
+      <WrapperTable>
+        {renderTab()}
+      </WrapperTable>
     </Wrapper>
   );
 }

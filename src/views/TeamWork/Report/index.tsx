@@ -55,7 +55,7 @@ export default function Form() {
   }
 
   return (
-    <Layout title="Team Wokr / Report" >
+    <Layout title="Team Work / Report" >
       {width.width > 900 ? <TabsContainer>
         {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
       </TabsContainer> : <SelectContainer >
