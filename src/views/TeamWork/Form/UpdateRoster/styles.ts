@@ -1,4 +1,4 @@
-import { Card, fontFamilies, Grid } from '@hudoro/neron';
+import { Card, fontFamilies, Grid, Text } from '@hudoro/neron';
 import styled from 'styled-components';
 import { colors, fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
@@ -39,6 +39,8 @@ export const ThItemContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: space-between;
+    width: 100%;
 `;
 
 export const Wrapper = styled(Card)`
@@ -69,5 +71,15 @@ export const WrapperTable = styled(Grid)`
     ${mediaQueries.md} {
         background-color: white;
         padding: 15px;
+    }
+`;
+
+export const TitleText = styled(Text).attrs({
+    variant: 'h3',
+})`
+    font-weight: ${fontWeights.bold};
+    font-size: 18px;
+    ${mediaQueries.md} {
+        font-size: 22px;
     }
 `;

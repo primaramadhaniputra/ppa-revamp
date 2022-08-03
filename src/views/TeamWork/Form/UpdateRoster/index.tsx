@@ -1,8 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React, { useState } from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer, Wrapper, WrapperTable } from "./styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTable } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -59,9 +58,11 @@ export default function UpdateRoster() {
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            nrp
-          </span>
+          <Grid>
+            <span>
+              NRP
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -76,9 +77,11 @@ export default function UpdateRoster() {
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer >
-          <span>
-            Name
-          </span>
+          <Grid>
+            <span>
+              Name
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -91,9 +94,11 @@ export default function UpdateRoster() {
       accessorKey: "date",
       header: () => (
         <ThItemContainer >
-          <span>
-            Date
-          </span>
+          <Grid>
+            <span>
+              Date
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -107,9 +112,11 @@ export default function UpdateRoster() {
       accessorKey: "Code",
       header: () => (
         <ThItemContainer >
-          <span>
-            code
-          </span>
+          <Grid>
+            <span>
+              Code
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -122,9 +129,11 @@ export default function UpdateRoster() {
       accessorKey: "in",
       header: () => (
         <ThItemContainer >
-          <span>
-            In
-          </span>
+          <Grid>
+            <span>
+              In
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -138,9 +147,11 @@ export default function UpdateRoster() {
       accessorKey: "out",
       header: () => (
         <ThItemContainer>
-          <span>
-            Out
-          </span>
+          <Grid>
+            <span>
+              Out
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -153,9 +164,11 @@ export default function UpdateRoster() {
       accessorKey: "job",
       header: () => (
         <ThItemContainer>
-          <span>
-            Job
-          </span>
+          <Grid>
+            <span>
+              Job
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -168,9 +181,11 @@ export default function UpdateRoster() {
       accessorKey: "pos",
       header: () => (
         <ThItemContainer>
-          <span>
-            Pos
-          </span>
+          <Grid>
+            <span>
+              Pos
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -186,10 +201,6 @@ export default function UpdateRoster() {
           <span>
             Act
           </span>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
         </ThItemContainer>
       ),
       footer: (props) => props.column.id,
@@ -223,7 +234,7 @@ export default function UpdateRoster() {
     <Wrapper>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} top={window.pageYOffset} />
       <WrapperTitle>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Update Roster</Text>
+        <TitleText>Update Roster</TitleText>
       </WrapperTitle>
       <WrapperTable>
         <TopFilter />

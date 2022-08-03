@@ -2,10 +2,12 @@ import { Card, Grid, Text } from '@hudoro/neron';
 import styled from 'styled-components';
 import { fontWeights, mediaQueries } from 'utils/styles';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+    margin-top: 10px;
+`;
 
 export const FormContainer = styled(Card)`
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     padding: 20px 10px;
     box-shadow: none;
@@ -28,11 +30,14 @@ export const FormCard = styled.div`
 `;
 
 export const StylingText = styled(Text).attrs({
-    variant: 'h4',
+    variant: 'h3',
 })`
     font-weight: ${fontWeights.bold};
-    font-size: 22px;
+    font-size: 18px;
     background-color: white;
-    padding: 10px 15px;
+    padding: 15px;
     border-radius: 3px;
+    ${mediaQueries.md} {
+        font-size: 22px;
+    }
 `;

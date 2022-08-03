@@ -1,7 +1,6 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
-import { FileContainer, ThItemContainer, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -160,7 +159,7 @@ export default function LeavingApplication() {
     <Wrapper>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <WrapperTitle>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Leaving Application</Text>
+        <TitleText>Leaving Application</TitleText>
         <FileContainer>
           <label htmlFor="file">Leave Application</label>
           <input type='file' id="file" hidden />

@@ -1,8 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -82,7 +81,7 @@ export default function SuratPerintahLembur() {
   return (
     <Wrapper>
       <WrapperTitle>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Surat Perintah Lembur</Text>
+        <TitleText>Surat Perintah Lembur</TitleText>
         <FileContainer>
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>

@@ -1,8 +1,7 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -99,7 +98,7 @@ export default function SuratPelanggaran() {
         </Grid>
       </WrapperTitle>
       <WrapperTitle>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} > Data Pelanggaran Aktif Karyawan</Text>
+        <TitleText > Data Pelanggaran Aktif Karyawan</TitleText>
         <FileContainer >
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>

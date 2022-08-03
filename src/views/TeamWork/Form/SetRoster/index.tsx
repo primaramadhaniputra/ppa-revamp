@@ -21,7 +21,7 @@ export default function SetRoster() {
 
    return (
       <Wrapper>
-         <TextHeaderContainer style={{ marginTop: '30px' }}>
+         <TextHeaderContainer>
             <StylingText> Set Roster</StylingText>
          </TextHeaderContainer>
          <FormContainer>

@@ -53,6 +53,7 @@ export const ThItemContainer = styled.div`
 `;
 
 export const Wrapper = styled(Card)`
+    margin-top: 10px;
     padding: 0;
     box-shadow: none;
     border-radius: 3px;

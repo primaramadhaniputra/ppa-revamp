@@ -1,8 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, THContainer, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import { FileContainer, THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -161,7 +160,7 @@ export default function UploadRoster() {
   return (
     <Wrapper >
       <WrapperTitle>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Upload Roster</Text>
+        <TitleText>Upload Roster</TitleText>
         <FileContainer>
           <label htmlFor="file"> +</label>
           <label htmlFor="file"> UPLOAD FILE</label>
