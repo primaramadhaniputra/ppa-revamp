@@ -2,7 +2,7 @@ import { fontFamilies } from '@hudoro/neron';
 import styled from 'styled-components';
 
 export const TabsContainer = styled.div`
-    margin: 15px 0;
+    margin: 15px 0 0 0;
     display: flex;
     flex-wrap: wrap;
     row-gap: 5px;
