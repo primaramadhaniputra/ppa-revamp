@@ -5,6 +5,9 @@ import { fontSizing } from 'utils/styles';
 export const SelectContainer = styled.div`
     margin-top: 10px;
     position: relative;
+    & * {
+        font-family: ${fontFamilies.poppins};
+    }
     & label {
         margin-bottom: 5px;
         display: block;

@@ -12,8 +12,11 @@ export const Wrapper = styled.div`
 export const TextSite = styled(Text).attrs({
     variant: 'h4',
 })`
-    font-size: ${fontSizing['5xl'].fontSize};
+    font-size: ${fontSizing['3xl'].fontSize};
     margin: 10px 0;
+    ${mediaQueries.md} {
+        font-size: ${fontSizing['4xl'].fontSize};
+    }
 `;
 
 export const TextDate = styled(Text).attrs({
@@ -32,13 +35,13 @@ export const TextDate = styled(Text).attrs({
 export const TextTurnOverPercent = styled(Text).attrs({
     variant: 'h4',
 })`
-    font-size: ${fontSizing['4xl'].fontSize};
+    font-size: ${fontSizing['3xl'].fontSize};
     font-weight: ${fontWeights.bold};
     margin: 10px 0;
     color: rgba(0, 0, 0, 0.8);
     margin: 50px 0;
     ${mediaQueries.sm} {
-        font-size: ${fontSizing['6xl'].fontSize};
+        font-size: ${fontSizing['5xl'].fontSize};
     }
 `;
 

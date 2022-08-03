@@ -50,8 +50,8 @@ const renderContent = (type: string) => {
 export default function Form() {
   const width = useWindowSize()
   const [selectedItem, setSelectedItem] = useState('Self Attendance')
-  const handleSelect = (e: string) => {
-    setSelectedItem(e)
+  const handleSelect = (e: { values: string }) => {
+    setSelectedItem(e.values)
   }
 
   return (
