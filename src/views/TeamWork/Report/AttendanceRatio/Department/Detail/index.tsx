@@ -50,7 +50,6 @@ export default function Detail() {
       return {
          accessorKey: item,
          cell: (info) => {
-            console.log(info.column.id)
             const id = info.column.id
             return <span style={{ fontWeight: id === 'Dept' || id === 'TOTAL' || id === 'ATR' || id === 'MP' ? fontWeights.bold : fontWeights.regular }}>
                {info.getValue()}

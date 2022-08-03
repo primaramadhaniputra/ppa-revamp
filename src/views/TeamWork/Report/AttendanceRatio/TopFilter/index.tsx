@@ -27,16 +27,16 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
       <Wrapper>
          {!noDate && <RevisiDate placeholder="To" dateState={toDateState} setDateState={handleToDateState} />}
          {!noDate && <RevisiDate placeholder="From" dateState={fromDateState} setDateState={handleFromDateState} />}
-         {!noDept && <Grid style={{ minWidth: '200px' }}>
+         {!noDept && <Grid >
             <RevisiDropdown />
          </Grid>}
-         <Grid style={{ minWidth: '200px' }}>
+         <Grid >
             <RevisiDropdown />
          </Grid>
          {doubleSelect && <Grid>
             <StyledDropdownMenu title='Tahun' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>}
-         <ButtonWrapper style={{ minWidth: '150px' }}>
+         <ButtonWrapper >
             <StyledButton
                style={{
                   fontSize: "18px",

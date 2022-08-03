@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const StyledText = styled.p`
     font-family: ${fontFamilies.poppins};
-    font-size: ${fontSizing.md.fontSize};
+    font-size: ${fontSizing.sm.fontSize};
     cursor: pointer;
     padding: 5px 0;
     border-bottom: 2px solid white;
