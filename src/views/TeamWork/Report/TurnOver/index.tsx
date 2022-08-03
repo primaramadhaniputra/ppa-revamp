@@ -1,6 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import LeftItem from "./LeftItem";
 import RightItem from "./RightItem";
 import { ItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
