@@ -5,6 +5,7 @@ import { mediaQueries } from "utils/styles";
 export const DateContainer = styled(Grid)`
   z-index: 99;
   min-width: 200px;
+  background-color: transparent;
 `;
 
 export const DateIconContainer = styled.div`
@@ -29,6 +30,7 @@ export const StyledInput = styled.input`
   font-size: 12px;
   width: 100%;
   font-family: ${fontFamilies.poppins};
+  background-color: transparent;
   &::placeholder {
     font-family: ${fontFamilies.poppins};
     font-size: 13px;

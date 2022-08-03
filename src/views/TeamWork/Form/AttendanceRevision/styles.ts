@@ -72,7 +72,7 @@ export const WrapperTitle = styled(Grid).attrs({
     align-items: center;
     ${mediaQueries.md} {
         background-color: white;
-        padding: 10px 15px;
+        padding: 15px;
     }
 `;
 export const WrapperTable = styled(Grid)`

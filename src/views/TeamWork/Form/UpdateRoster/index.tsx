@@ -2,7 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer, Wrapper } from "./styles";
+import { ThItemContainer, Wrapper, WrapperTable } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -19,6 +19,7 @@ import Filter from "./Filter";
 import TopFilter from "./TopFilter";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Html } from 'next/document'
+import { WrapperTitle } from "../AttendanceRevision/styles";
 
 interface Person {
   [x: string]: any;
@@ -221,12 +222,14 @@ export default function UpdateRoster() {
   return (
     <Wrapper>
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} top={window.pageYOffset} />
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
+      <WrapperTitle>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Update Roster</Text>
-      </Grid>
-      <TopFilter />
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2 table={table} />
+      </WrapperTitle>
+      <WrapperTable>
+        <TopFilter />
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2 table={table} />
+      </WrapperTable>
     </Wrapper>
   );
 }

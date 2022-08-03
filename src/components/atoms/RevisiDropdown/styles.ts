@@ -13,6 +13,7 @@ export const StyledInput = styled.input`
   padding: 5px 3px 0;
   font-size: 12px;
   width: 100%;
+  background-color: transparent;
   font-family: ${fontFamilies.poppins};
   &::placeholder {
     font-family: ${fontFamilies.poppins};
