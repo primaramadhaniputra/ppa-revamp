@@ -1,6 +1,6 @@
-import { fontFamilies } from '@hudoro/neron';
+import { fontFamilies, Grid } from '@hudoro/neron';
 import styled from 'styled-components';
-import { fontSizing, fontWeights } from 'utils/styles';
+import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const TextYear = styled.p`
     font-family: ${fontFamilies.poppins};
@@ -9,5 +9,18 @@ export const TextYear = styled.p`
     & span {
         font-weight: ${fontWeights.bold};
         font-size: ${fontSizing['4xl'].fontSize};
+    }
+`;
+
+export const ButtonWrapper = styled(Grid).attrs({
+    container: true,
+})`
+    flex: 1;
+    min-width: 150px;
+    & button {
+        border-radius: 3px;
+        ${mediaQueries.md} {
+            max-width: 150px;
+        }
     }
 `;
