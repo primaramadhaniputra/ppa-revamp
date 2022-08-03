@@ -1,12 +1,9 @@
 import React from 'react'
-import { ColorItem, InfoContainer, TextDate, TextInfo, TextSite, TextTurnOver, TextTurnOverPercent, Wrapper } from './styles'
+import { ColorItem, InfoContainer, TextDate, TextInfo, TextSite, TextTurnOverPercent, Wrapper } from './styles'
 
 export default function LeftItem() {
    return (
       <Wrapper>
-         <TextTurnOver >
-            Turn Over
-         </TextTurnOver>
          <TextSite >
             Site MHU
          </TextSite>

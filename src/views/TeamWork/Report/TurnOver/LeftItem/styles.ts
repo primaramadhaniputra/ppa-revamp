@@ -9,12 +9,6 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const TextTurnOver = styled(Text).attrs({
-    variant: 'h4',
-})`
-    font-weight: ${fontWeights.bold};
-    font-size: ${fontSizing.xl.fontSize};
-`;
 export const TextSite = styled(Text).attrs({
     variant: 'h4',
 })`
