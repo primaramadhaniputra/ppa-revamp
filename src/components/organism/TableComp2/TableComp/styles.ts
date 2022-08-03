@@ -95,7 +95,7 @@ export const TABLE = styled.table`
     font-size: 12px;
     line-height: 21px;
     ${mediaQueries.md} {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 

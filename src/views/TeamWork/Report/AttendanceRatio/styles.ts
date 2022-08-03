@@ -6,6 +6,10 @@ export const ThItemContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 5px;
+    justify-content: space-between;
 `;
 
 export const Wrapper = styled(Card)`
