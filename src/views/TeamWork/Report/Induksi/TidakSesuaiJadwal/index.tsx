@@ -77,7 +77,7 @@ export default function TidakSesuaiJadwal() {
    return (
       <Wrapper>
          <Container >
-            <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize }} >Tidak sesuai jadwal</Text>
+            <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize, color: '#4F5458' }} >Tidak sesuai jadwal</Text>
             <TextInfo>24 orang</TextInfo>
          </Container>
          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
