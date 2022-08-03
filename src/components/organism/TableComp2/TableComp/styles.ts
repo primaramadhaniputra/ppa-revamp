@@ -45,6 +45,9 @@ export const TABLE = styled.table`
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
   }
+  & tr th:nth-child(1) {
+    border-left: 0;
+  }
 
   & thead {
   }
@@ -67,7 +70,9 @@ export const TABLE = styled.table`
     color: #000000;
     color: black;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     &.hidden {
       display: none;
     }
