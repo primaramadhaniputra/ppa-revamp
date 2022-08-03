@@ -100,7 +100,7 @@ export const colors = {
     white: '#FFFFFF',
     blue: '#3E4095',
     borderBlue: 'rgba(37, 40, 43, 0.2)',
-    blueSky: '#e8f0fe',
+    blueSky: '#F7FBFE',
     orange: '#F89D5C',
     blueGrey: '#7376B4',
     orangeGrey: '#FFECDE',
