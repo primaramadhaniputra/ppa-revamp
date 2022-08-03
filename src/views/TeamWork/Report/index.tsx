@@ -1,13 +1,15 @@
-import { ISelectItem, Select } from "@hudoro/neron";
+import { Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
+import { useWindowSize } from "utils/functions";
+import { fontWeights } from "utils/styles";
 import AttendanceDetail from "./AttendanceDetail";
 import AttendanceRatio from "./AttendanceRatio";
 import Induksi from "./Induksi";
 import Izin from "./Izin";
 import OperatorHours from "./OperatorHours";
 import SelfAttendance from "./SelftAttendance";
-import { ArrowDown, SelectContainer } from "./styles";
+import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import TurnOver from "./TurnOver";
 
@@ -22,6 +24,8 @@ const selectItems = [
   { id: 7, values: 'Turn Over', label: 'Turn Over' },
   { id: 8, values: 'Self Attendance', label: 'Self Attendance' },
 ]
+
+const tabsData = ['Self Attendance', 'Attendance Ratio', 'Attendance Detail', 'Surat Pelanggaran', 'Operator Hours', 'Ranking Operator', 'Induksi', 'Izin', 'Turn Over']
 
 const renderContent = (type: string) => {
   if (type === 'Attendance Ratio') {
@@ -41,24 +45,25 @@ const renderContent = (type: string) => {
   } else if (type === 'Self Attendance') {
     return <SelfAttendance />
   }
-
 }
 
 export default function Form() {
-  const [selectedItem, setSelectedItem] = useState<ISelectItem | ISelectItem[]>({ id: 1, values: 'Attendance Ratio', label: 'Attendance Ratio' })
-
-  const handleSelect = (e: ISelectItem | ISelectItem[]) => {
+  const width = useWindowSize()
+  const [selectedItem, setSelectedItem] = useState('Self Attendance')
+  const handleSelect = (e: string) => {
     setSelectedItem(e)
   }
 
   return (
-    <Layout >
-      <SelectContainer >
+    <Layout title="Team Wokr / Report" >
+      {width.width > 900 ? <TabsContainer>
+        {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
+      </TabsContainer> : <SelectContainer >
         <label>Menu</label>
-        <Select items={selectItems} defaultValue={selectedItem} onChange={handleSelect as any} />
+        <Select items={selectItems} defaultValue={{ id: 1, values: 'Self Attendance', label: 'Self Attendance' }} onChange={handleSelect as any} />
         <ArrowDown></ArrowDown>
-      </SelectContainer>
-      {renderContent(selectedItem.values)}
+      </SelectContainer>}
+      {renderContent(selectedItem)}
     </Layout>
   );
 }
