@@ -23,6 +23,8 @@ export const StyledText = styled.p`
     cursor: pointer;
     padding: 3px 40px;
     border-radius: 5px;
+    width: 100%;
+    text-align: center;
     &.active {
         background-color: ${colors.orange};
         font-weight: ${fontWeights.bold};
