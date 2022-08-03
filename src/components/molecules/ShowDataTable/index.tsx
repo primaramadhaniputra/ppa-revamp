@@ -1,4 +1,4 @@
-import { fontFamilies, Text } from "@hudoro/neron";
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { NumberInput, Wrapper } from "./styles";
 
@@ -13,13 +13,16 @@ interface IProps {
 
 export default function ShowDataTable({ value, handleChange }: IProps) {
   return (
-    <Wrapper gap={5} justifyContent="space-between">
+    <Wrapper gap={5}>
       <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
         Show
       </Text>
-      {/* <Grid> */}
-      <NumberInput value={parseInt(value.values, 10)} onChange={handleChange} />
-      {/* </Grid> */}
+      <Grid>
+        <NumberInput
+          value={parseInt(value.values, 10)}
+          onChange={handleChange}
+        />
+      </Grid>
     </Wrapper>
   );
 }
