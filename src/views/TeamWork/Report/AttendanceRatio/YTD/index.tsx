@@ -15,6 +15,7 @@ import {
 } from "@tanstack/react-table";
 import { ThItemContainer } from '../styles'
 import { ArrowDown, ArrowUp } from '../Department/Detail/styles'
+import { TextYear } from '../TopFilter/styles'
 
 interface Person {
    [x: string]: any;
@@ -89,8 +90,11 @@ export default function YTD() {
    });
    return (
       <>
-         <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>YTD Personel</Text>
-         <TopFilter noDept={true} noDate={true} doubleSelect={true} withYear={true} />
+         <Grid container gap={10} alignItems='center' justifyContent='space-between' style={{ margin: '15px 0', width: '100%' }}>
+            <Text variant="h4" style={{ fontWeight: fontWeights.bold, fontSize: '15px' }}>YTD Personel</Text>
+            <TextYear>Current Year <span>2021</span></TextYear>
+         </Grid>
+         <TopFilter noDept={true} noDate={true} doubleSelect={true} styles={{ marginBottom: 40 }} />
          <TableComponent2 table={table} noPagination={true} withFooter={true} />
       </>
    )

@@ -2,19 +2,19 @@ import { Grid } from '@hudoro/neron'
 import RevisiDropdown from 'atoms/RevisiDropdown'
 import StyledButton from 'atoms/StyledButton'
 import RevisiDate from 'molecules/RevisiDate'
-import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
-import { ButtonWrapper, TextYear, Wrapper } from './styles'
+import { ButtonWrapper, Wrapper } from './styles'
 
 interface IProps {
    noDept?: boolean
    noDate?: boolean
    doubleSelect?: boolean
    withYear?: boolean
+   styles?: React.CSSProperties
 }
 
-export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IProps) {
+export default function TopFilter({ noDept, noDate, doubleSelect, styles }: IProps) {
    const [toDateState, setToDateState] = useState(new Date())
    const [fromDateState, setFromDateState] = useState(new Date())
    const handleToDateState = (e: Date) => {
@@ -24,7 +24,7 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
       setFromDateState(e)
    }
    return (
-      <Wrapper>
+      <Wrapper style={{ ...styles }}>
          {!noDate && <RevisiDate placeholder="To" dateState={toDateState} setDateState={handleToDateState} />}
          {!noDate && <RevisiDate placeholder="From" dateState={fromDateState} setDateState={handleFromDateState} />}
          {!noDept && <Grid >
@@ -34,7 +34,9 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
             <RevisiDropdown />
          </Grid>
          {doubleSelect && <Grid>
-            <StyledDropdownMenu title='Tahun' activeDropdown={[]} setActiveDropdown={() => { }} />
+            <Grid >
+               <RevisiDropdown />
+            </Grid>
          </Grid>}
          <ButtonWrapper >
             <StyledButton
@@ -50,10 +52,6 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
                SHOW
             </StyledButton>
          </ButtonWrapper>
-         {withYear &&
-            <Grid container justifyContent='flex-end' alignItems='flex-end' style={{ flex: 1, minWidth: 'max-content' }}>
-               <TextYear>Current Year <span>2021</span></TextYear>
-            </Grid>}
       </Wrapper>
    )
 }

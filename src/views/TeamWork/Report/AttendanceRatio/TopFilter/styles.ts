@@ -4,6 +4,7 @@ import { fontSizing, fontWeights } from 'utils/styles';
 
 export const Wrapper = styled.div`
     margin: 10px 0;
+    margin-bottom: 20px;
     column-gap: 30px;
     row-gap: 10px;
     display: grid;
@@ -12,11 +13,11 @@ export const Wrapper = styled.div`
 
 export const TextYear = styled.p`
     font-family: ${fontFamilies.poppins};
-    font-size: ${fontSizing.lg.fontSize};
+    font-size: ${fontSizing.sm.fontSize};
     color: rgba(0, 0, 0, 0.5);
     & span {
         font-weight: ${fontWeights.bold};
-        font-size: ${fontSizing['4xl'].fontSize};
+        font-size: 22px;
     }
 `;
 
