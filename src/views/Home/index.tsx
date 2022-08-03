@@ -1,3 +1,4 @@
+import RevisiInputYoutube from "atoms/RevisiInputYoutube";
 import React from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import Banner from "views/Home/Banner";
@@ -12,6 +13,7 @@ export default function Home() {
   // });
   return (
     <Layout title="Dashboard - Site Multi Harapan Utama">
+      <RevisiInputYoutube />
       {/* <div ref={parallax.ref} style={{ height: 100, width: 100, backgroundColor: 'rgba(255,125,125,1)', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div> */}
       <Banner />
     </Layout>
