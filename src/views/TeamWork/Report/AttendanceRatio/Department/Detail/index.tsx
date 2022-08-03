@@ -38,8 +38,8 @@ export const defaultDataTable = arr.map(() => {
       R: "12",
       H: "12",
       NR: "12",
-      TOTAL: "12",
-      ATR: "12",
+      TOTAL: "120",
+      ATR: "12%",
    };
 });
 
@@ -49,18 +49,28 @@ export default function Detail() {
    const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
       return {
          accessorKey: item,
-         cell: (info) => info.getValue(),
-         header: () => (
-            <ThItemContainer key={index}>
-               <span>
-                  {item}
-               </span>
-               <Grid container flexDirection="column">
-                  <ArrowUp></ArrowUp>
-                  <ArrowDown></ArrowDown>
-               </Grid>
-            </ThItemContainer>
-         ),
+         cell: (info) => {
+            console.log(info.column.id)
+            const id = info.column.id
+            return <span style={{ fontWeight: id === 'Dept' || id === 'TOTAL' || id === 'ATR' || id === 'MP' ? fontWeights.bold : fontWeights.regular }}>
+               {info.getValue()}
+            </span>
+         },
+         header: () => {
+            return (
+               <ThItemContainer key={index}>
+                  <Grid>
+                     <span>
+                        {item}
+                     </span>
+                  </Grid>
+                  <Grid container flexDirection="column">
+                     <ArrowUp></ArrowUp>
+                     <ArrowDown></ArrowDown>
+                  </Grid>
+               </ThItemContainer>
+            )
+         },
          footer: (info) => {
             return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{info.column.id === 'Dept' ? 'Total' : '123'}</span>
          },
