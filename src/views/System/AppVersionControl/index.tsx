@@ -104,7 +104,7 @@ export default function AppVersionControl() {
 
   return (
     <Container>
-      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi }}>Mobile App Version Control MHU</Text>
+      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi, marginBottom: '20px' }}>Mobile App Version Control MHU</Text>
       <TableComponent2 table={table} noPagination={true} withFooter={true} />
     </Container>
   );

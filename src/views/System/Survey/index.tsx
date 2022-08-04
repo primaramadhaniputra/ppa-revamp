@@ -94,7 +94,7 @@ export default function Survey() {
 
   return (
     <Container>
-      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi }}>Survey ESG achievment MHU</Text>
+      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi, marginBottom: '20px' }}>Survey ESG achievment MHU</Text>
       <TableComponent2
         table={table}
         noPagination={true}
