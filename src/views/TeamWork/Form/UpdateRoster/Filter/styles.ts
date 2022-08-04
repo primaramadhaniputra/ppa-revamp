@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    margin: 15px 0;
+    margin: 30px 0 15px 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     ${mediaQueries.md} {
         flex-direction: row;
     }

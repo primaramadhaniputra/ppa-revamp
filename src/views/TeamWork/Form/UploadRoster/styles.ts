@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors, fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const SelectContainer = styled.div`
-    margin: 15px 0;
+    margin: 25px 0;
     position: relative;
     & * {
         font-family: ${fontFamilies.poppins};
