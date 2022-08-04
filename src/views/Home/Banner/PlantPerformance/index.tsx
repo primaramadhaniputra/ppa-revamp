@@ -9,7 +9,7 @@ import { Item, ItemContainer } from "../styles";
 export default function PlantPerformance() {
   return (
     <>
-      <TitlePage type="h4" styles={{ margin: "50px 0 30px", fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.bold }}>
+      <TitlePage type="h4" styles={{ margin: "30px 0 30px", fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.bold }}>
         {" "}
         Plant Performance{" "}
       </TitlePage>

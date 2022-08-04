@@ -17,5 +17,5 @@ export const Item = styled.div`
     flex: 1;
     min-width: 300px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 15px;
 `;
