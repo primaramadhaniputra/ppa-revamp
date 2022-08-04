@@ -17,6 +17,7 @@ export const TableWrapper = styled.div`
     /* margin-top: 20px; */
     border-radius: 3px;
     padding: 0;
+    background-color: white;
     ${mediaQueries.sm} {
         margin-top: 20px;
         padding: 10px 20px;
