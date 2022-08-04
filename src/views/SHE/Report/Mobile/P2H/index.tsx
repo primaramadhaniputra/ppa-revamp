@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { TitleText, WrapperTitle } from '../styles'
 import Achievement from './Achievement'
 import Detail from './Detail'
 import Monitoring from './Monitoring'
@@ -33,6 +34,9 @@ export default function P2H() {
                p2hTab.map((item, index) => <TabText key={index} activeTab={activeTab === index ? true : false} onClick={() => handleActiveTab(index)}  >{item}</TabText >)
             }
          </TabContainer>
+         <WrapperTitle>
+            <TitleText>{p2hTab[activeTab]}</TitleText>
+         </WrapperTitle>
          {renderTabContent(activeTab)}
       </Wrapper>
    )

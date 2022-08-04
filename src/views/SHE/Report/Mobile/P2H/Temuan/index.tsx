@@ -1,7 +1,7 @@
 import React from 'react'
 import TableComponent2 from 'src/components/organism/TableComp2'
 import SecondFilter from './SecondFilter'
-import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from './styles'
+import { ArrowDown, ArrowUp, ThItemContainer } from './styles'
 import TopFilter from './TopFilter'
 import {
    ColumnDef,
@@ -13,6 +13,7 @@ import {
    getSortedRowModel,
 } from "@tanstack/react-table";
 import { Grid, Icon } from '@hudoro/neron'
+import { WrapperTable } from '../../styles'
 
 interface IProps {
    [x: string]: any;
@@ -96,12 +97,12 @@ export default function Temuan() {
    };
 
    return (
-      <Wrapper>
+      <WrapperTable style={{ marginTop: '20px' }}>
          <TopFilter />
          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
          <TableComponent2
             table={table}
          />
-      </Wrapper>
+      </WrapperTable>
    )
 }

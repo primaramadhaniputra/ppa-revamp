@@ -5,13 +5,19 @@ import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 export const Wrapper = styled(Grid).attrs({
     container: true,
 })`
-    margin-top: 10px;
-    gap: 15px;
+    margin: 10px 0;
+    column-gap: 30px;
+    row-gap: 10px;
+    width: 100%;
+    align-items: center;
     ${mediaQueries.lg} {
-        width: 80%;
+        width: 100%;
     }
     ${mediaQueries.xl} {
-        width: 70%;
+        width: 90%;
+    }
+    ${mediaQueries['2xl']} {
+        width: 80%;
     }
 `;
 
@@ -22,5 +28,13 @@ export const TextYear = styled.p`
     & span {
         font-weight: ${fontWeights.bold};
         font-size: ${fontSizing['4xl'].fontSize};
+    }
+`;
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    ${mediaQueries.xl} {
+        width: auto;
     }
 `;

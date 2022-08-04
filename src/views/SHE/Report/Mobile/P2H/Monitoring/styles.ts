@@ -42,6 +42,7 @@ export const IconContainer = styled.div`
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minMax(250px, 1fr));
+    margin: 30px 0;
 `;
 
 export const IconText = styled.p`

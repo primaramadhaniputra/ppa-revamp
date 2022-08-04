@@ -23,3 +23,19 @@ export const ArrowDown = styled.div`
     right: 15px;
     top: 34px;
 `;
+
+export const TabsContainer = styled.div`
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 25px;
+`;
+
+export const TabsText = styled.p`
+    font-family: ${fontFamilies.poppins};
+    font-size: 13.5px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 3px;
+    color: black;
+`;
