@@ -9,9 +9,8 @@ import { Item, ItemContainer } from "../styles";
 export default function HaulerPerformance() {
   return (
     <>
-      <TitlePage type="h4" styles={{ margin: "50px 0 30px", fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.bold }}>
-        {" "}
-        Hauler Performance{" "}
+      <TitlePage type="h4" styles={{ margin: "30px 0 30px", fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.bold }}>
+        Hauler Performance
       </TitlePage>
       <ItemContainer>
         {HaulerPerformanceData.map((data, index) => {
