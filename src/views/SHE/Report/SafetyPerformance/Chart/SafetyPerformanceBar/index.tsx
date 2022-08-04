@@ -1,5 +1,5 @@
 import React from 'react'
-import { TitleChart, Wrapper } from './styles'
+import { TitleChart } from './styles'
 import {
    Chart as ChartJS,
    CategoryScale,
@@ -10,6 +10,7 @@ import {
    Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { WrapperTable } from '../../styles';
 
 ChartJS.register(
    CategoryScale,
@@ -51,10 +52,9 @@ const data = {
 
 export default function SafetyPerformanceBar() {
    return (
-      <Wrapper>
-
+      <WrapperTable style={{ marginTop: '20px' }} >
          <TitleChart >Safety Performance</TitleChart>
          <Bar options={options as any} data={data as any} style={{ maxHeight: '400px' }} />
-      </Wrapper>
+      </WrapperTable>
    )
 }

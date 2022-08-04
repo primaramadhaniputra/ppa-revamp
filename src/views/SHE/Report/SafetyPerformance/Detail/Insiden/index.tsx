@@ -12,7 +12,7 @@ import {
 import { fontWeights } from 'utils/styles';
 import TableComponent2 from 'src/components/organism/TableComp2';
 import { fontFamilies } from '@hudoro/neron';
-import { Wrapper } from './styles';
+import { WrapperTable } from '../../styles';
 
 interface Person {
    [x: string]: any;
@@ -77,9 +77,9 @@ export default function Insiden() {
       getSortedRowModel: getSortedRowModel(),
    });
    return (
-      <Wrapper>
+      <WrapperTable >
          <TableHeader>Insiden</TableHeader>
          <TableComponent2 table={table} noPagination={true} withFooter={true} />
-      </Wrapper>
+      </WrapperTable>
    )
 }
