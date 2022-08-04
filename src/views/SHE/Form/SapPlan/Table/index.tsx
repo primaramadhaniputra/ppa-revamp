@@ -63,7 +63,6 @@ export default function Table() {
             </>
          },
          header: (data) => {
-            console.log(data.header.id === 'Detail')
             return (
                <ThItemContainer key={index} style={{ width: '100%', justifyContent: 'space-around' }}>
                   {
