@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    margin-top: 20px;
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     ${mediaQueries.md} {
         flex-direction: row;
+        margin: 10px 0 10px;
     }
 `;
 

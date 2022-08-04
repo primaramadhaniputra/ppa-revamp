@@ -1,6 +1,6 @@
 import { Grid } from '@hudoro/neron'
-import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
+import { TableTitle } from '../styles'
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from './styles'
 
 interface IProps {
@@ -14,8 +14,8 @@ interface IProps {
    [x: string]: any;
 
 }
-
-export default function SecondFilter({ table, handleChangeTotalShowData, globalFilter, setGlobalFilter }: IProps) {
+// table, handleChangeTotalShowData,
+export default function SecondFilter({ globalFilter, setGlobalFilter }: IProps) {
 
    function DebouncedInput({
       value: initialValue,
@@ -58,11 +58,12 @@ export default function SecondFilter({ table, handleChangeTotalShowData, globalF
    return (
       <Wrapper >
          <ContainerPeriode>
-            <ShowDataTable value={{
+            {/* <ShowDataTable value={{
                id: 0,
                values: `${table.getState().pagination.pageSize}`,
                label: `${table.getState().pagination.pageSize}`,
-            }} handleChange={handleChangeTotalShowData} />
+            }} handleChange={handleChangeTotalShowData} /> */}
+            <TableTitle variant='h4'>Data list subject quiz</TableTitle>
          </ContainerPeriode>
          <ButtonWrapper>
             <DebouncedInput

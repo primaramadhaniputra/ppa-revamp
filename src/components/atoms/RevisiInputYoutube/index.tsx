@@ -10,7 +10,7 @@ export default function RevisiInputYoutube() {
     <Wrapper>
       <FormGroup>
         <FormField type="input" placeholder="Name" />
-        <FormLabel htmlFor="name">From</FormLabel>
+        <FormLabel htmlFor="name">Subject Name</FormLabel>
       </FormGroup>
     </Wrapper>
   );

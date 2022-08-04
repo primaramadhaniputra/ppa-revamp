@@ -1,7 +1,7 @@
 import React from 'react'
 import TableComponent2 from 'src/components/organism/TableComp2'
 import SecondFilter from './SecondFilter'
-import { ArrowDown, ArrowUp, ButtonContainer, TableTitle, ThItemContainer, Wrapper } from './styles'
+import { ArrowDown, ArrowUp, ButtonContainer, TableTitle, ThItemContainer, Wrapper, WrapperInput } from './styles'
 import {
    ColumnDef,
    getCoreRowModel,
@@ -13,9 +13,9 @@ import {
 } from "@tanstack/react-table";
 import { Grid } from '@hudoro/neron'
 import { IcEdit } from 'atoms/Icon';
-import LabeledInput from 'atoms/LabeledInput';
 import StyledButton from 'atoms/StyledButton';
 import { colors } from 'utils/styles';
+import RevisiInputYoutube from 'atoms/RevisiInputYoutube';
 
 interface IProps {
    [x: string]: any;
@@ -103,15 +103,14 @@ export default function Table() {
    return (
       <Wrapper>
          <TableTitle variant='h4'>Form Create Subject Quiz</TableTitle>
-         <Grid style={{ marginTop: '20px' }} container gap={10}>
+         <WrapperInput>
             <Grid style={{ flex: 1 }}>
-               <LabeledInput name='adsf' title='Subject Name' />
+               <RevisiInputYoutube />
             </Grid>
             <ButtonContainer >
-               <StyledButton style={{ padding: '3px 0', minWidth: '150px', fontSize: '15px', fontWeight: 'bold', backgroundColor: '#F7F7F8', color: colors.orange, border: `2px solid ${colors.orange}` }}>Add</StyledButton>
+               <StyledButton style={{ padding: '4px 0', minWidth: '150px', fontSize: '15px', fontWeight: 'bold', backgroundColor: colors.orange, color: 'white', borderRadius: '2px' }}>Add</StyledButton>
             </ButtonContainer>
-         </Grid>
-         <TableTitle variant='h4' style={{ marginTop: '20px' }}>Data list subject quiz</TableTitle>
+         </WrapperInput>
          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
          <TableComponent2
             table={table}

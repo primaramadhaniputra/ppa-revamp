@@ -6,13 +6,14 @@ export const Wrapper = styled.div`
   align-items: flex-end;
   gap: 10px;
   position: relative;
+  width: 100%;
 `;
 
 export const FormGroup = styled.div`
   position: relative;
   padding: 10px 0 0;
   margin-top: 10px;
-  width: 50%;
+  width: 100%;
 `;
 
 export const FormField = styled.input`
@@ -63,5 +64,5 @@ export const FormLabel = styled.label`
   transition: 0.2s;
   font-size: 12px;
   font-family: Poppins;
-  color: #9b9b9b;
+  color: rgba(0, 0, 0, 0.7);
 `;

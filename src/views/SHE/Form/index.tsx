@@ -30,7 +30,7 @@ export default function Form() {
   }
   return (
     <Layout title="SHE / Form" >
-      {width.width > 900 ? <TabsContainer>
+      {width.width > 700 ? <TabsContainer>
         {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
       </TabsContainer> : <SelectContainer >
         <label>Menu</label>
