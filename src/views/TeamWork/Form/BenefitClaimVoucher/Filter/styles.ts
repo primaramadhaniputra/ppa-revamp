@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
     margin-bottom: 10px;
     ${mediaQueries.md} {
         flex-direction: row;
+        justify-content: space-between;
     }
 `;
 
@@ -33,7 +34,7 @@ export const ContainerPeriode = styled(Grid).attrs({
     container: true,
     alignItems: 'center',
 })`
-    flex: 1;
+    /* flex: 1; */
     gap: 20px;
     ${mediaQueries.md} {
         gap: 70px;

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     margin: 30px 0 15px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     ${mediaQueries.sm} {
         flex-direction: row;
     }

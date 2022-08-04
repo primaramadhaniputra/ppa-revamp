@@ -15,9 +15,15 @@ export const Wrapper = styled.div`
 export const ButtonWrapper = styled.div`
     order: 1;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-direction: column;
+    & button {
+        order: 1;
+    }
     ${mediaQueries.md} {
+        & button {
+            order: 0;
+        }
         flex-direction: row;
         order: 0;
     }

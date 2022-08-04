@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     margin: 20px 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     ${mediaQueries.md} {
         flex-direction: row;
     }
@@ -16,7 +16,9 @@ export const ButtonWrapper = styled.div`
     order: 1;
     display: flex;
     gap: 5px;
+    column-gap: 10px;
     flex-direction: column;
+    flex: 1;
     & button {
         order: 1;
     }
@@ -33,7 +35,7 @@ export const ContainerPeriode = styled(Grid).attrs({
     container: true,
     alignItems: 'center',
 })`
-    flex: 1;
+    flex: 2;
     gap: 20px;
     ${mediaQueries.md} {
         gap: 70px;
@@ -47,4 +49,25 @@ export const StyledInput = styled.input`
     border-radius: 3px;
     font-family: ${fontFamilies.poppins};
     outline: none;
+    width: 100%;
+`;
+
+export const SearchWrapper = styled(Grid).attrs({
+    container: true,
+})`
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+    min-width: 150px;
+`;
+
+export const SearchInput = styled(Grid)`
+    flex: 6;
+`;
+
+export const Button = styled(Grid)`
+    order: 1;
+    ${mediaQueries.md} {
+        order: 0;
+    }
 `;

@@ -1,8 +1,9 @@
-import { Grid } from '@hudoro/neron'
+import { fontFamilies, Grid, Text } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
 import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
 import { colors, fontSizing, fontWeights } from 'utils/styles'
+import { SearchInput, SearchWrapper } from 'views/System/VHMSDownload/Filter/styles'
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from './styles'
 
 interface IProps {
@@ -44,17 +45,20 @@ export default function SecondFilter({ table, handleChangeTotalShowData, globalF
       }, [value]);
 
       return (
-         <Grid container gap={5} alignItems="center">
-            <Grid>
+         <SearchWrapper style={{ width: '100%', minWidth: '200px' }}>
+            <Grid style={{ flex: 1 }}>
+               <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+                  Search
+               </Text>
+            </Grid>
+            <SearchInput >
                <StyledInput
                   {...props}
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
-                  placeholder="Search..."
-                  style={{ minWidth: '150px' }}
                />
-            </Grid>
-         </Grid>
+            </SearchInput>
+         </SearchWrapper>
       );
    }
 
@@ -72,7 +76,7 @@ export default function SecondFilter({ table, handleChangeTotalShowData, globalF
                style={{
                   backgroundColor: '#25B78A',
                   color: colors.white,
-                  padding: "0px 15px",
+                  padding: "0",
                   fontWeight: fontWeights.bold,
                   borderRadius: "2px",
                   fontSize: fontSizing.lg.fontSize,

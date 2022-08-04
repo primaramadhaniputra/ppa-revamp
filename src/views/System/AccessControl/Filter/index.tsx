@@ -1,7 +1,9 @@
+import { fontFamilies, Grid, Text } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
 import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
 import { colors, fontSizing, fontWeights } from 'utils/styles'
+import { SearchInput, SearchWrapper } from 'views/System/VHMSDownload/Filter/styles'
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from './styles'
 
 interface IProps {
@@ -43,13 +45,21 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
       }, [value]);
 
       return (
-         <StyledInput
-            {...props}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Search..."
-            style={{ minWidth: '150px' }}
-         />
+         <SearchWrapper style={{ width: '100%' }}>
+            <Grid style={{ flex: 1 }}>
+               <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+                  Search
+               </Text>
+            </Grid>
+            <SearchInput >
+               <StyledInput
+                  {...props}
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  placeholder="Search..."
+               />
+            </SearchInput>
+         </SearchWrapper>
       );
    }
 
@@ -67,10 +77,11 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
                style={{
                   backgroundColor: '#25B78A',
                   color: colors.white,
-                  padding: "0px 10px",
+                  padding: "0px",
                   fontWeight: fontWeights.bold,
                   borderRadius: "2px",
                   fontSize: fontSizing.lg.fontSize,
+                  minWidth: 150
                }}
             >
                EXPORT

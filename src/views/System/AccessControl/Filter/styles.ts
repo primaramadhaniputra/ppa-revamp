@@ -15,8 +15,10 @@ export const Wrapper = styled.div`
 export const ButtonWrapper = styled.div`
     order: 1;
     display: flex;
-    gap: 5px;
+    column-gap: 15px;
+    row-gap: 5px;
     flex-direction: column;
+    flex: 1;
     & button {
         order: 1;
     }
@@ -25,6 +27,7 @@ export const ButtonWrapper = styled.div`
         order: 0;
         & button {
             order: 0;
+            max-width: 150px;
         }
     }
 `;
@@ -33,7 +36,7 @@ export const ContainerPeriode = styled(Grid).attrs({
     container: true,
     alignItems: 'center',
 })`
-    flex: 1;
+    flex: 2;
     gap: 20px;
     ${mediaQueries.md} {
         gap: 70px;

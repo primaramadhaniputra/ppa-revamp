@@ -1,6 +1,7 @@
-import { fontFamilies, Grid } from '@hudoro/neron'
+import { fontFamilies, Grid, Text } from '@hudoro/neron'
 import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
+import { SearchInput, SearchWrapper } from 'views/System/VHMSDownload/Filter/styles'
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from './styles'
 
 interface IProps {
@@ -42,17 +43,20 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
       }, [value]);
 
       return (
-         <Grid container gap={5} alignItems="center">
-            <label style={{ fontFamily: fontFamilies.poppins, fontSize: '14px' }}>Search</label>
-            <Grid>
+         <SearchWrapper style={{ width: '100%' }}>
+            <Grid style={{ flex: 1 }}>
+               <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+                  Search
+               </Text>
+            </Grid>
+            <SearchInput >
                <StyledInput
                   {...props}
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
-                  placeholder="Search..."
                />
-            </Grid>
-         </Grid>
+            </SearchInput>
+         </SearchWrapper>
       );
    }
 

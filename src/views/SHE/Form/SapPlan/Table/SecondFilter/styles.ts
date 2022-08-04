@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     margin: 30px 0 10px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     ${mediaQueries.md} {
         flex-direction: row;
     }
@@ -15,11 +15,17 @@ export const Wrapper = styled.div`
 export const ButtonWrapper = styled.div`
     order: 1;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-direction: column;
+    & button {
+        order: 1;
+    }
     ${mediaQueries.md} {
         flex-direction: row;
         order: 0;
+        & button {
+            order: 0;
+        }
     }
 `;
 
