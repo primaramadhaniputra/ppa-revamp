@@ -4,7 +4,6 @@ import { currentLoginPages } from "services/pages";
 import Footer from "src/components/organism/Footer";
 import Navbar from "src/components/organism/Navbar";
 import { notify } from "utils/functions";
-import { fontSizing } from "utils/styles";
 import { ContentWrapper, Wrapper } from "./styles";
 
 interface IProps {
@@ -51,7 +50,7 @@ export default function Layout({ title, children }: IProps) {
             type="h3"
             styles={{
               fontSize: "22px",
-              lineHeight: fontSizing["2xl"].lineHeight,
+              // lineHeight: fontSizing["2xl"].lineHeight,
             }}
           >
             {title}

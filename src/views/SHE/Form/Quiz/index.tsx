@@ -1,9 +1,9 @@
-import { Grid, Text } from '@hudoro/neron'
+import { Text } from '@hudoro/neron'
 import React, { useState } from 'react'
 import { fontWeights } from 'utils/styles'
 import Question from './Question'
 import Schedule from './Schedule'
-import { TabText, Wrapper } from './styles'
+import { TabsWrapper, TabText, Wrapper, WrapperTable, WrapperTitle } from './styles'
 import Table from './Table'
 
 const tabTitle = ['Subject', 'Question', 'Schedule']
@@ -26,17 +26,19 @@ export default function Quiz() {
    }
    return (
       <Wrapper>
-         <Grid style={{ flex: 1, marginTop: '30px' }} >
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Form / Quiz</Text>
-         </Grid>
-         <Grid container gap={10} style={{ marginTop: '10px', padding: '0 10px' }}>
+         <TabsWrapper>
             {
                tabTitle.map((item, index) =>
                   <TabText key={index} activeTab={activeTab === index ? true : false} onClick={() => handleActiveTab(index)} >{item}</TabText>
                )
             }
-         </Grid>
-         {renderContent(activeTab)}
+         </TabsWrapper>
+         <WrapperTitle>
+            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >{tabTitle[activeTab]}</Text>
+         </WrapperTitle>
+         <WrapperTable>
+            {renderContent(activeTab)}
+         </WrapperTable>
       </Wrapper>
    )
 }

@@ -1,39 +1,17 @@
-import { Grid, Select, Text } from '@hudoro/neron'
-import { IcCalendar } from 'atoms/Icon'
-import LabeledInput from 'atoms/LabeledInput'
+import { Grid, Text } from '@hudoro/neron'
 import React, { useState } from 'react'
 import { colors, fontSizing, fontWeights } from 'utils/styles'
-import { ArrowContainer, ArrowDown, ArrowUP, CalendarContainer, DropDownContainer, FormCard, FormContainer, IconContainer, StyledLabel, TextHeaderContainer, Wrapper } from './styles'
+import { FormCard, FormContainer, StylingText, TextHeaderContainer, Wrapper } from './styles'
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { Calendar } from "react-date-range";
-import { convert } from 'utils/functions'
 import StyledButton from 'atoms/StyledButton'
-
-const data = [
-   {
-      id: 1,
-      values: 'dsm',
-      label: 'DSM'
-   },
-   {
-      id: 2,
-      values: 'osm',
-      label: 'OSM'
-   },
-   {
-      id: 3,
-      values: 'csm',
-      label: 'CSM'
-   },
-]
+import RevisiInput from 'atoms/RevisiInput'
+import RevisiDropdown from 'atoms/RevisiDropdown'
+import RevisiDate from 'molecules/RevisiDate'
 
 export default function SetRoster() {
-   const [fromCalendar, setFromCalendar] = useState(new Date())
-   const [toCalendar, setToCalendar] = useState(new Date())
-   const [isFromCalendar, setIsFromCalendar] = useState(false)
-   const [isToCalendar, setIsToCalendar] = useState(false)
-
+   const [fromCalendar, setFromCalendar] = useState<Date>()
+   const [toCalendar, setToCalendar] = useState<Date>()
    const handleFromCalendar = (e: Date) => {
       setFromCalendar(e)
    }
@@ -41,57 +19,28 @@ export default function SetRoster() {
       setToCalendar(e)
    }
 
-   const displayFromCalendar = () => {
-      setIsFromCalendar(!isFromCalendar)
-   }
-   const displayToCalendar = () => {
-      setIsToCalendar(!isToCalendar)
-   }
-
    return (
       <Wrapper>
-         <TextHeaderContainer style={{ marginTop: '30px' }}>
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Set Roster</Text>
+         <TextHeaderContainer>
+            <StylingText> Set Roster</StylingText>
          </TextHeaderContainer>
          <FormContainer>
-            <Text variant="h4" style={{ fontWeight: fontWeights.bold }} >Form  Roster</Text>
+            <Text variant="h4" style={{ fontWeight: fontWeights.bold, fontSize: '16px' }} >Form  Roster</Text>
             <FormCard >
-               <Grid container gap={30} style={{ textAlign: 'start', marginBottom: '20px' }}>
-                  <Grid >
-                     <LabeledInput name='nrp' title='NRP' styleLabel={{ fontWeight: fontWeights.bold }} />
+               <Grid container gap={30} style={{ textAlign: 'start', marginBottom: '40px' }}>
+                  <Grid style={{ minWidth: '200px' }}>
+                     <RevisiInput placeholder='Nrp' />
                   </Grid>
-                  <DropDownContainer style={{ position: 'relative', minWidth: '100px' }} >
-                     <StyledLabel >Roster</StyledLabel>
-                     <Select items={data} />
-                     <ArrowContainer>
-                        <ArrowUP />
-                        <ArrowDown />
-                     </ArrowContainer>
-                  </DropDownContainer>
+                  <Grid style={{ minWidth: '200px' }}>
+                     <RevisiDropdown />
+                  </Grid>
                </Grid>
-               <Grid container gap={30} style={{ textAlign: 'start' }}>
-                  <Grid style={{ position: 'relative' }} >
-                     <LabeledInput name='from' title='From' styleLabel={{ fontWeight: fontWeights.bold }} value={convert(fromCalendar)} onClick={displayFromCalendar} />
-                     <IconContainer>
-                        <IcCalendar width={20} />
-                     </IconContainer>
-                     {isFromCalendar && <CalendarContainer>
-                        <Calendar date={fromCalendar} onChange={handleFromCalendar} />
-                     </CalendarContainer>}
-
-                  </Grid>
-                  <Grid style={{ position: 'relative' }}>
-                     <LabeledInput name='to' title='To' styleLabel={{ fontWeight: fontWeights.bold }} value={convert(toCalendar)} onClick={displayToCalendar} />
-                     <IconContainer>
-                        <IcCalendar width={20} />
-                     </IconContainer>
-                     {isToCalendar && <CalendarContainer>
-                        <Calendar date={toCalendar} onChange={handleToCalendar} />
-                     </CalendarContainer>}
-                  </Grid>
+               <Grid container gap={30} style={{ textAlign: 'start', marginBottom: '20px' }}>
+                  <RevisiDate dateState={toCalendar as Date} setDateState={handleToCalendar} placeholder="To" />
+                  <RevisiDate dateState={fromCalendar as Date} setDateState={handleFromCalendar} placeholder="From" />
                </Grid>
             </FormCard>
-            <Grid container justifyContent='flex-end' style={{ marginTop: '10px' }} >
+            <Grid container justifyContent='flex-end' style={{ marginTop: '10px', }} >
                <Grid style={{ maxWidth: '200px' }}>
                   <StyledButton style={{ color: colors.orange, backgroundColor: 'transparent', borderRadius: '50px', fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.semi, padding: '5px' }}>Back</StyledButton>
                </Grid>

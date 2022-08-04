@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { colors, fontSizing, fontWeights } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    margin-top: 20px;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -11,9 +10,9 @@ export const Wrapper = styled.div`
 
 export const StyledText = styled.p`
     font-family: ${fontFamilies.poppins};
-    font-size: ${fontSizing.md.fontSize};
+    font-size: ${fontSizing.sm.fontSize};
     cursor: pointer;
-    padding-bottom: 5px;
+    padding: 5px 0;
     border-bottom: 2px solid white;
     color: rgba(0, 0, 0, 0.3);
     &.active {

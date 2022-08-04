@@ -29,7 +29,6 @@ export default function DateCalendar({
   };
 
   return (
-    // , height: "60px"
     <DateContainer style={{ flex: 1 }}>
       <LabeledInput
         name="date"

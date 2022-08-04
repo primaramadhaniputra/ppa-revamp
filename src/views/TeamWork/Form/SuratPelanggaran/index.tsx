@@ -1,8 +1,7 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, Wrapper } from "./styles";
+import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -93,21 +92,23 @@ export default function SuratPelanggaran() {
   return (
     <Wrapper>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Data Pelanggaran Aktif Karyawan</Text>
-      </Grid>
-      <Grid container style={{ marginTop: '30px' }} alignItems="center" gap={10}>
+      <WrapperTitle style={{ marginBottom: '20px ' }}>
         <Grid>
           <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
         </Grid>
+      </WrapperTitle>
+      <WrapperTitle>
+        <TitleText > Data Pelanggaran Aktif Karyawan</TitleText>
         <FileContainer >
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>
           <input type='file' id="file" hidden />
         </FileContainer>
-      </Grid>
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2 table={table} />
+      </WrapperTitle>
+      <WrapperTable>
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2 table={table} />
+      </WrapperTable>
     </Wrapper>
   );
 }

@@ -1,7 +1,6 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
-import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from "./styles";
+import { ArrowDown, ArrowUp, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -91,14 +90,16 @@ export default function Izin() {
     <>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
       <Wrapper>
-        <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
-          <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Izin</Text>
-        </Grid>
-        <TopFilter />
-        <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-        <TableComponent2
-          table={table}
-        />
+        <WrapperTitle style={{ margin: '20px 0 30px' }}>
+          <TitleText>Report Izin</TitleText>
+        </WrapperTitle>
+        <WrapperTable>
+          <TopFilter />
+          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+          <TableComponent2
+            table={table}
+          />
+        </WrapperTable>
       </Wrapper>
     </>
   );

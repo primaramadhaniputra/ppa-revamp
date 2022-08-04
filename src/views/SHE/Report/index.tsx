@@ -1,15 +1,19 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
+import { useWindowSize } from "utils/functions";
+import { fontWeights } from "utils/styles";
 import Mobile from "./Mobile";
 import SafetyPerformance from "./SafetyPerformance";
-import { ArrowDown, SelectContainer } from "./styles";
+import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
 
 
 const selectItems = [
   { id: 1, values: 'Safety Performance', label: 'Safety Performance' },
   { id: 2, values: 'Mobile', label: 'Mobile' }
 ]
+
+const tabsData = ["Mobile", 'Device', 'Safety Performance']
 
 const renderContent = (type: string) => {
   if (type === 'Safety Performance') {
@@ -20,19 +24,21 @@ const renderContent = (type: string) => {
 }
 
 export default function Report() {
-  const [selectedItem, setSelectedItem] = useState<ISelectItem | ISelectItem[]>({ id: 1, values: 'Safety Performance', label: 'Safety Performance' })
-
+  const width = useWindowSize()
+  const [selectedItem, setSelectedItem] = useState('Mobile')
   const handleSelect = (e: ISelectItem | ISelectItem[]) => {
-    setSelectedItem(e)
+    setSelectedItem(e.values)
   }
   return (
-    <Layout >
-      <SelectContainer >
+    <Layout title="SHE / Report" >
+      {width.width > 700 ? <TabsContainer>
+        {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
+      </TabsContainer> : <SelectContainer >
         <label>Menu</label>
-        <Select items={selectItems} defaultValue={selectedItem} onChange={handleSelect as any} />
+        <Select items={selectItems} defaultValue={{ id: 1, values: selectedItem, label: selectedItem }} onChange={handleSelect as any} />
         <ArrowDown></ArrowDown>
-      </SelectContainer>
-      {renderContent(selectedItem.values)}
+      </SelectContainer>}
+      {renderContent(selectedItem)}
     </Layout>
   );
 }

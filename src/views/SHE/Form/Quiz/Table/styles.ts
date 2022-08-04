@@ -1,16 +1,17 @@
-import { Card, Text } from '@hudoro/neron';
+import { Card, Grid, Text } from '@hudoro/neron';
 import styled from 'styled-components';
 import { fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled(Card)`
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 0;
     box-shadow: none;
     border-radius: 3px;
     flex: 5;
+    background-color: transparent;
+    position: relative;
     ${mediaQueries.sm} {
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-        padding: 20px;
+        padding: 0 20px;
     }
 `;
 
@@ -48,4 +49,25 @@ export const TableTitle = styled(Text).attrs({
 export const ButtonContainer = styled.div`
     display: flex;
     align-items: flex-end;
+    width: 100%;
+    ${mediaQueries.md} {
+        width: auto;
+    }
+`;
+
+export const WrapperInput = styled(Grid).attrs({
+    container: true,
+})`
+    margin-bottom: 30px;
+    row-gap: 10px;
+    column-gap: 30px;
+    ${mediaQueries.md} {
+        width: 80%;
+    }
+    ${mediaQueries.lg} {
+        width: 70%;
+    }
+    ${mediaQueries.xl} {
+        width: 50%;
+    }
 `;

@@ -1,9 +1,8 @@
-import { Grid, Text } from '@hudoro/neron'
+import { Grid } from '@hudoro/neron'
 import React, { useState } from 'react'
-import { fontWeights } from 'utils/styles'
 import Chart from './Chart'
 import Detail from './Detail'
-import { Container, StyledText, TabsContainer } from './styles'
+import { Container, StyledText, TabsContainer, TitleText } from './styles'
 import TopFilter from './TopFilter'
 
 const tabs = ['Chart', 'Detail']
@@ -12,9 +11,9 @@ export default function SafetyPerformance() {
    const [activeTab, setActiveTab] = useState(1)
    return (
       <>
-         <Container style={{ marginTop: '30px' }}>
+         <Container >
             <Grid container flexDirection="column" gap={20} style={{ flex: 1 }} >
-               <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Report / Safety Monitoring</Text>
+               <TitleText>Safety Monitoring</TitleText>
             </Grid>
             <Grid style={{ flex: 1 }} >
                <TopFilter />

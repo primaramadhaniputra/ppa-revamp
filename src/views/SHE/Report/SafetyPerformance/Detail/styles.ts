@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    margin-top: 40px;
+    margin-top: 20px;
 `;
 
 export const TableHeader = styled(Text).attrs({
@@ -14,6 +14,7 @@ export const TableHeader = styled(Text).attrs({
     background-color: #ffd4da;
     padding: 10px;
     border-radius: 3px;
+    margin-bottom: 20px;
     ${mediaQueries.md} {
         font-size: ${fontSizing.lg.fontSize};
     }

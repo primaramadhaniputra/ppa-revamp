@@ -1,8 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, Wrapper } from "./styles";
+import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -43,9 +42,11 @@ export default function AttendanceRevision() {
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            NRP
-          </span>
+          <Grid>
+            <span>
+              NRP
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -60,9 +61,11 @@ export default function AttendanceRevision() {
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer >
-          <span>
-            Name
-          </span>
+          <Grid>
+            <span>
+              Name
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -75,9 +78,11 @@ export default function AttendanceRevision() {
       accessorKey: "date",
       header: () => (
         <ThItemContainer >
-          <span>
-            Date
-          </span>
+          <Grid>
+            <span>
+              Date
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -91,9 +96,11 @@ export default function AttendanceRevision() {
       accessorKey: "in",
       header: () => (
         <ThItemContainer >
-          <span>
-            In
-          </span>
+          <Grid>
+            <span>
+              In
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -106,9 +113,11 @@ export default function AttendanceRevision() {
       accessorKey: "out",
       header: () => (
         <ThItemContainer >
-          <span>
-            Out
-          </span>
+          <Grid>
+            <span>
+              Out
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -122,9 +131,11 @@ export default function AttendanceRevision() {
       accessorKey: "status",
       header: () => (
         <ThItemContainer>
-          <span>
-            Status
-          </span>
+          <Grid>
+            <span>
+              Status
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -137,9 +148,11 @@ export default function AttendanceRevision() {
       accessorKey: "revision date",
       header: () => (
         <ThItemContainer>
-          <span>
-            Revision Date
-          </span>
+          <Grid>
+            <span>
+              Revision Date
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -171,16 +184,18 @@ export default function AttendanceRevision() {
   };
   return (
     <Wrapper>
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Attendance Revision</Text>
+      <WrapperTitle >
+        <TitleText >Attendance Revision</TitleText>
         <FileContainer >
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>
           <input type='file' id="file" hidden />
         </FileContainer>
-      </Grid>
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2 table={table} />
+      </WrapperTitle>
+      <WrapperTable>
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2 table={table} />
+      </WrapperTable>
     </Wrapper>
   );
 }

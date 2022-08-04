@@ -51,6 +51,7 @@ export default function SecondFilter({ table, handleChangeTotalShowData, globalF
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
                   placeholder="Search..."
+                  style={{ minWidth: '150px' }}
                />
             </Grid>
          </Grid>

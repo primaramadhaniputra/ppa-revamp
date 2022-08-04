@@ -12,11 +12,6 @@ export const SelectContainer = styled.div`
     }
 `;
 
-export const Container = styled.div`
-    /* box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1); */
-    padding: 20px 0;
-`;
-
 export const WrapperStatus = styled(Grid).attrs({
     container: true,
 })`
@@ -57,12 +52,76 @@ export const Box = styled.div`
 `;
 
 export const Wrapper = styled(Card)`
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 0;
     box-shadow: none;
+    background-color: transparent;
     border-radius: 3px;
-    ${mediaQueries.sm} {
+    /* ${mediaQueries.sm} {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
         padding: 20px;
+    } */
+`;
+
+export const WrapperTitle = styled(Grid).attrs({
+    container: true,
+})`
+    margin-top: 20px;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    ${mediaQueries.md} {
+        background-color: white;
+        padding: 10px 15px;
+        margin-top: 0;
+    }
+`;
+export const WrapperTable = styled(Grid)`
+    margin-top: 20px;
+    ${mediaQueries.md} {
+        background-color: white;
+        padding: 15px;
+    }
+`;
+
+export const TitleText = styled(Text).attrs({
+    variant: 'h3',
+})`
+    font-weight: ${fontWeights.extraBold};
+    font-size: 18px;
+    ${mediaQueries.md} {
+        font-size: 22px;
+    }
+`;
+
+export const TableTitle = styled(Text).attrs({
+    variant: 'h4',
+})`
+    font-family: ${fontFamilies.poppins};
+    font-weight: ${fontWeights.bold};
+    font-size: 15px;
+    display: none;
+    ${mediaQueries.md} {
+        display: block;
+        margin: 20px 0;
+        font-size: 17px;
+    }
+`;
+export const DateText = styled(Text).attrs({
+    variant: 'p',
+})`
+    font-family: ${fontFamilies.poppins};
+    font-size: 12px;
+    color: #969799;
+    & span {
+        font-weight: ${fontWeights.bold};
+        font-size: 16px;
+    }
+    ${mediaQueries.md} {
+        font-size: 14px;
+        & span {
+            font-weight: ${fontWeights.bold};
+            font-size: 23px;
+        }
     }
 `;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    margin-top: 20px;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
     gap: 20px;

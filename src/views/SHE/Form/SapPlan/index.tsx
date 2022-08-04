@@ -1,15 +1,16 @@
-import { Grid, Text } from '@hudoro/neron'
 import React from 'react'
-import { fontWeights } from 'utils/styles'
+import { TitleText, WrapperTable, WrapperTitle } from './styles'
 import Table from './Table'
 
 export default function SapPlan() {
    return (
       <>
-         <Grid style={{ flex: 1, marginTop: '30px' }} >
-            <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >SHE / Form / SAP Plan</Text>
-         </Grid>
-         <Table />
+         <WrapperTitle>
+            <TitleText>SAP Plan</TitleText>
+         </WrapperTitle>
+         <WrapperTable>
+            <Table />
+         </WrapperTable>
       </>
    )
 }

@@ -42,7 +42,7 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
       }, [value]);
 
       return (
-         <Grid container gap={5} alignItems="center">
+         <Grid container gap={5} alignItems="center" justifyContent='space-between' >
             <Grid>
                <StyledInput
                   {...props}

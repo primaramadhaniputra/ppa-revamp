@@ -1,13 +1,13 @@
 import { Grid } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
-import DateCalendar from 'molecules/Date'
-import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
+import RevisiDate from 'molecules/RevisiDate'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
+import { ButtonWrapper } from './styles'
 
 export default function TopFilter() {
-   const [toDateState, setToDateState] = useState(new Date())
-   const [fromDateState, setFromDateState] = useState(new Date())
+   const [toDateState, setToDateState] = useState<Date>()
+   const [fromDateState, setFromDateState] = useState<Date>()
    const handleToDateState = (e: Date) => {
       setToDateState(e)
    }
@@ -15,24 +15,22 @@ export default function TopFilter() {
       setFromDateState(e)
    }
    return (
-      <Grid container style={{ marginTop: '10px', gap: 5 }}>
-         <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />
-         <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
-         <Grid>
-            <StyledDropdownMenu title='Status' />
-         </Grid>
-         <Grid container style={{ flex: 1, minWidth: '150px' }}>
+      <Grid container alignItems='center' style={{ marginTop: '10px', columnGap: 50, rowGap: 10 }}>
+         <RevisiDate placeholder="From" dateState={fromDateState as Date} setDateState={handleFromDateState} />
+         <RevisiDate placeholder="To" dateState={toDateState as Date} setDateState={handleToDateState} />
+         <ButtonWrapper >
             <StyledButton
                style={{
-                  fontSize: "25px",
+                  fontSize: "20px",
                   padding: "0",
                   fontWeight: fontWeights.bold,
                   backgroundColor: colors.orange,
+
                }}
             >
                SHOW
             </StyledButton>
-         </Grid>
+         </ButtonWrapper>
       </Grid>
    )
 }

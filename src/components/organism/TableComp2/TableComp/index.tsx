@@ -120,16 +120,18 @@ export default function TableComp({ table, withFooter }: IProps) {
                   headers: any[];
                 }) => (
                   <tr key={footerGroup.id}>
-                    {footerGroup.headers.map((header) => (
-                      <th key={header.id}>
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.footer,
-                              header.getContext()
-                            )}
-                      </th>
-                    ))}
+                    {footerGroup.headers.map((header) => {
+                      return (
+                        <th key={header.id}>
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.footer,
+                                header.getContext()
+                              )}
+                        </th>
+                      );
+                    })}
                   </tr>
                 )
               )}

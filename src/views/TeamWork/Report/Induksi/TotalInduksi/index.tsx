@@ -86,7 +86,7 @@ export default function TotalInduksi() {
          {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
          <Wrapper>
             <Container >
-               <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize }} >Total Induksi</Text>
+               <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize, color: '#4F5458' }} >Total Induksi</Text>
                <TextInfo>24 orang</TextInfo>
             </Container>
             <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />

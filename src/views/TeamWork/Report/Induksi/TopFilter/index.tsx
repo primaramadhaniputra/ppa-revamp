@@ -1,27 +1,28 @@
 import { Grid } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
-import DateCalendar from 'molecules/Date'
+import RevisiDate from 'molecules/RevisiDate'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
 
 export default function TopFilter() {
-   const [toDateState, setToDateState] = useState(new Date())
+   const [toDateState, setToDateState] = useState<Date>()
    const handleToDateState = (e: Date) => {
       setToDateState(e)
    }
    return (
-      <Grid container style={{ marginTop: '10px', gap: 5 }}>
-         <DateCalendar title="Date" dateState={toDateState} setDateState={handleToDateState} />
-         <Grid container style={{ flex: 1, minWidth: '150px' }}>
+      <Grid container alignItems='center' style={{ gap: 20, flex: 1 }}>
+         <RevisiDate placeholder='Date' dateState={toDateState as Date} setDateState={handleToDateState} />
+         <Grid container style={{ flex: 1, maxWidth: '200px', minWidth: '200px' }}>
             <StyledButton
                style={{
-                  fontSize: "25px",
+                  fontSize: "20px",
                   padding: "0",
                   fontWeight: fontWeights.bold,
                   backgroundColor: colors.orange,
+                  borderRadius: '3px'
                }}
             >
-               SHOW
+               APPLY
             </StyledButton>
          </Grid>
       </Grid>

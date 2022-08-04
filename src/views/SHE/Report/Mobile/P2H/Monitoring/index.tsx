@@ -1,6 +1,6 @@
 import React from 'react'
 import TableComponent2 from 'src/components/organism/TableComp2'
-import { ArrowDown, ArrowUp, IconContainer, IconText, ImageContainer, ThItemContainer, Wrapper } from './styles'
+import { ArrowDown, ArrowUp, IconContainer, IconText, ImageContainer, ThItemContainer } from './styles'
 import {
    ColumnDef,
    getCoreRowModel,
@@ -12,6 +12,7 @@ import {
 } from "@tanstack/react-table";
 import { Card, Grid, Icon, Text } from '@hudoro/neron'
 import { fontWeights } from 'utils/styles';
+import { WrapperTable } from '../../styles';
 
 interface IProps {
    [x: string]: any;
@@ -91,7 +92,7 @@ export default function Monitoring() {
    });
 
    return (
-      <Wrapper>
+      <WrapperTable style={{ marginTop: '20px' }}>
          <IconContainer>
             <Grid>
                <Card style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, .15)', width: '100%', borderBottom: '2px solid #F89F5F', padding: '10px 20px' }}>
@@ -169,6 +170,6 @@ export default function Monitoring() {
          <TableComponent2
             table={table}
          />
-      </Wrapper>
+      </WrapperTable>
    )
 }

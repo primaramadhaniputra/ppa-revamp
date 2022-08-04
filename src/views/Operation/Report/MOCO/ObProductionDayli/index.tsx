@@ -20,26 +20,27 @@ interface IProps {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
   return {
-    ['LOADER']: "E5503PPA",
-    ['BL']: "2.406,00",
+    ['LOADER']: "",
+    ['BL']: "",
     ['DW']: ``,
     ['MUD 100%']: "",
     ["MUD CAIR"]: "",
     ['MUD ORI 1']: "",
-    ['MUD ORI']: "12.938,70",
+    ['MUD ORI']: "",
     ['OB']: "",
     ['SOIL']: "",
-    ['TOTAL']: "2.406,00",
+    ['TOTAL']: "",
     ['PLAN']: "",
     ['ACH']: "",
   };
 });
 
 export default function ObProductionDayli() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const [dataTable, setDataTable] = React.useState(defaultDataTable)
+  const objTitle = Object.keys(dataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter,
     // setGlobalFilter
@@ -49,25 +50,26 @@ export default function ObProductionDayli() {
   const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
     return {
       accessorKey: item,
-      cell: (info) => info.getValue(),
+      cell: (info) => {
+        return info.getValue()
+      },
       header: () => (
         <ThItemContainer key={index}>
           <span>
             {item}
           </span>
-          {/* <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid> */}
         </ThItemContainer>
       ),
-      footer: (data) => {
-        return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{data.header.id === 'LOADER' ? "TOTAL" : 0}</span>
+      footer: (info) => {
+        const headerId = info.header.id !== 'LOADER' ? info.header.id : ''
+        const data = info.table.options.data.map(e => e[headerId]).filter(e => e !== null).filter(e => e !== undefined)
+        const totalData = data.length > 0 ? data.reduce((total, num) => parseInt(total) + parseInt(num)) : 0
+        return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{info.header.id === 'LOADER' ? "TOTAL" : `${totalData}`}</span>
       },
     }
   });
   const table = useReactTable({
-    data: defaultDataTable,
+    data: dataTable,
     columns: columns as any,
     state: {
       sorting,
@@ -92,7 +94,7 @@ export default function ObProductionDayli() {
       <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
         <Text variant="h4" style={{ fontWeight: fontWeights.semi }} >Operation / Report</Text>
       </Grid>
-      <TopFilter />
+      <TopFilter setDataTable={setDataTable} />
       <StatusContainer style={{ margin: '20px  0 5px 0' }}>
         <SingleStatus >
           <Text variant="h4" >PLAN</Text>

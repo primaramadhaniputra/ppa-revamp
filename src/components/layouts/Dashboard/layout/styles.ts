@@ -8,8 +8,9 @@ export const ContentWrapper = styled.article`
   padding: 30px 15px;
   background-color: #fff;
   min-height: calc(100vh - 105px);
+  background-color: #f6f8fa;
   ${mediaQueries.lg} {
-    padding: 30px 100px;
+    padding: 20px 100px;
     margin-top: 0px;
   }
 `;

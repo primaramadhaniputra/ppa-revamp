@@ -9,6 +9,9 @@ export const ThItemContainer = styled.div`
     display: flex;
     gap: 7px;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 5px;
 `;
 
 export const ArrowUp = styled.div`

@@ -1,6 +1,6 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing, fontWeights } from "utils/styles";
+import { colors, fontSizing, fontWeights, mediaQueries } from "utils/styles";
 
 export const Wrapper = styled.div`
   overflow-x: scroll;
@@ -25,19 +25,14 @@ export const Wrapper = styled.div`
 export const TABLE = styled.table`
   font-family: ${fontFamilies.poppins};
   width: 100%;
-  /* min-width: 1300px; */
   text-align: center;
   border-collapse: collapse;
-  padding: 20px;
-  margin-top: 20px;
   font-size: ${fontSizing.md.fontSize};
   & td {
-    padding: 10px;
-    /* font-family: ${fontFamilies.poppins}; */
+    padding: 3px 10px;
   }
 
   & tr {
-    /* font-family: ${fontFamilies.poppins}; */
   }
 
   & th {
@@ -46,43 +41,48 @@ export const TABLE = styled.table`
   & tbody tr td {
     text-align: center;
     vertical-align: middle;
+    border-bottom: 1px solid #e4e4e4;
+    border-top: 1px solid #e4e4e4;
+    padding: 10px 0;
   }
   & tbody tr:nth-child(odd) {
     background: ${colors.blueSky};
-    /* font-family: ${fontFamilies.poppins}; */
+  }
+  & tr th:nth-child(1) {
+    border-left: 0;
   }
 
   & thead {
-    /* background: ${colors.blueSky}; */
-    /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
-    /* font-family: ${fontFamilies.poppins}; */
   }
 
   & tbody {
     font-family: ${fontFamilies.poppins};
     font-style: normal;
-    /* font-weight: 400; */
     font-size: 12px;
-    /* line-height: 21px; */
     color: rgba(0, 0, 0, 0.8);
+    ${mediaQueries.md} {
+      font-size: 14px;
+    }
   }
 
   & thead th {
-    /* font-family: ${fontFamilies.poppins}; */
     font-style: normal;
     font-weight: ${fontWeights.semi};
     font-size: 12px;
     line-height: 21px;
-    color: #000000;
-    color: black;
+    color: #4a5259;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     &.hidden {
       display: none;
     }
     text-align: center;
     vertical-align: middle;
-    /* min-width: 150px; */
+    ${mediaQueries.md} {
+      font-size: 16px;
+    }
   }
 
   & thead th > div > div {
@@ -96,6 +96,9 @@ export const TABLE = styled.table`
   & tfoot {
     font-size: 12px;
     line-height: 21px;
+    ${mediaQueries.md} {
+      font-size: 14px;
+    }
   }
 
   & tfoot > tr > th div label {

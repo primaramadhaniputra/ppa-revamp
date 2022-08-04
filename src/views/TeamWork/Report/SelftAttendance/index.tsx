@@ -1,7 +1,5 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
-import { Box, BoxContainer, Container, StatusText, Wrapper, WrapperStatus } from "./styles";
+import { Box, BoxContainer, DateText, StatusText, TableTitle, TitleText, Wrapper, WrapperStatus, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -105,11 +103,12 @@ export default function SelfAttendance() {
   });
   return (
     <Wrapper>
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Selft Attendance</Text>
-      </Grid>
-      <Container>
-        <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi }}>Self Attendance</Text>
+      <WrapperTitle>
+        <TitleText>Self Attendance</TitleText>
+        <DateText>Current Date : <span>01-09-2022</span></DateText>
+      </WrapperTitle>
+      <WrapperTable>
+        <TableTitle variant="h4" >Self Attendance</TableTitle>
         <TableComponent2
           table={table}
           noPagination={true}
@@ -128,7 +127,7 @@ export default function SelfAttendance() {
             <StatusText>Rejected</StatusText>
           </BoxContainer>
         </WrapperStatus>
-      </Container>
+      </WrapperTable>
     </Wrapper>
   );
 }

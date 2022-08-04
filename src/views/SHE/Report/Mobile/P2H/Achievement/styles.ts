@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export const Wrapper = styled.div`
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     gap: 10px 10px;
     flex-direction: column;
@@ -39,10 +39,11 @@ export const TableWrapper = styled(Card)`
     box-shadow: none;
     border-radius: 3px;
     flex: 5;
-    ${mediaQueries.sm} {
+    background-color: transparent;
+    /* ${mediaQueries.sm} {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
         padding: 20px;
-    }
+    } */
 `;
 
 export const ArrowUp = styled.div`

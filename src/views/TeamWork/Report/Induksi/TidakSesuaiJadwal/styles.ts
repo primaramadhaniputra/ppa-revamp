@@ -1,20 +1,28 @@
 import { fontFamilies, Grid, Text } from '@hudoro/neron';
 import styled from 'styled-components';
-import { fontSizing } from 'utils/styles';
+import { fontSizing, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
     margin-top: 30px;
     flex: 1;
+    ${mediaQueries.md} {
+        background-color: white;
+        padding: 15px;
+    }
 `;
 export const Container = styled(Grid).attrs({
     container: true,
     justifyContent: 'space-between',
     aligitems: 'center',
 })`
-    background-color: #eda617;
-    padding: 15px 25px;
+    background-color: #ffd582;
     border-radius: 5px;
     color: white;
+    padding: 15px 10px;
+    gap: 5px;
+    ${mediaQueries.sm} {
+        padding: 15px 25px;
+    }
 `;
 
 export const TextInfo = styled(Text).attrs({

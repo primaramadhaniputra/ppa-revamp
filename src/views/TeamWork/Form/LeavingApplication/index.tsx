@@ -1,7 +1,6 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
-import { FileContainer, ThItemContainer, Wrapper } from "./styles";
+import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -159,15 +158,17 @@ export default function LeavingApplication() {
   return (
     <Wrapper>
       {isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Leaving Application</Text>
+      <WrapperTitle>
+        <TitleText>Leaving Application</TitleText>
         <FileContainer>
           <label htmlFor="file">Leave Application</label>
           <input type='file' id="file" hidden />
         </FileContainer>
-      </Grid>
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2 table={table} />
+      </WrapperTitle>
+      <WrapperTable>
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2 table={table} />
+      </WrapperTable>
     </Wrapper>
   );
 }

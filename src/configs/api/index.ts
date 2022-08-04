@@ -25,6 +25,9 @@ const API = {
     EditUserLevel: apiRequest.patch(apiEndpoints.webAdmin, true),
     resetPasswordWebAdmin: apiRequest.patch(apiEndpoints.webAdmin, true),
     disableUserdWebAdmin: apiRequest.delete(apiEndpoints.webAdmin, true),
+
+    // MOCO
+    dayli: apiRequest.get(apiEndpoints.moco, true),
 };
 
 export default API;

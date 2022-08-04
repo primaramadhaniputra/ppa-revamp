@@ -1,13 +1,14 @@
 import { Grid } from '@hudoro/neron'
+import RevisiDropdown from 'atoms/RevisiDropdown'
 import StyledButton from 'atoms/StyledButton'
-import DateCalendar from 'molecules/Date'
-import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
+import RevisiDate from 'molecules/RevisiDate'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
+import { ButtonWrapper, Wrapper } from './styles'
 
 export default function TopFilter() {
-   const [toDateState, setToDateState] = useState(new Date())
-   const [fromDateState, setFromDateState] = useState(new Date())
+   const [toDateState, setToDateState] = useState<Date>()
+   const [fromDateState, setFromDateState] = useState<Date>()
    const handleToDateState = (e: Date) => {
       setToDateState(e)
    }
@@ -15,24 +16,26 @@ export default function TopFilter() {
       setFromDateState(e)
    }
    return (
-      <Grid container style={{ marginTop: '10px', gap: 5 }}>
-         <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />
-         <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
-         <Grid>
-            <StyledDropdownMenu title='Dept' />
+      <Wrapper>
+         <RevisiDate dateState={toDateState as Date} setDateState={handleToDateState} placeholder="To" />
+         <RevisiDate dateState={fromDateState as Date} setDateState={handleFromDateState} placeholder="From" />
+         <Grid style={{ minWidth: '200px' }}>
+            <RevisiDropdown />
          </Grid>
-         <Grid container style={{ flex: 1, minWidth: '150px' }}>
+         <ButtonWrapper>
             <StyledButton
                style={{
-                  fontSize: "25px",
+                  fontSize: "18px",
                   padding: "0",
                   fontWeight: fontWeights.bold,
                   backgroundColor: colors.orange,
+                  borderRadius: '3px',
+                  minWidth: '150px'
                }}
             >
                SHOW
             </StyledButton>
-         </Grid>
-      </Grid>
+         </ButtonWrapper>
+      </Wrapper>
    )
 }

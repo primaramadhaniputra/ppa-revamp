@@ -14,7 +14,7 @@ export default function TopFilter() {
       <Grid container style={{ marginTop: '30px', gap: 5 }}>
          <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
          <Grid>
-            <StyledDropdownMenu title='Status' />
+            <StyledDropdownMenu title='Status' activeDropdown={[]} setActiveDropdown={() => { }} />
          </Grid>
          <Grid container style={{ flex: 1, minWidth: '150px' }}>
             <StyledButton

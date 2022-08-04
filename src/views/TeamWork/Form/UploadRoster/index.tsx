@@ -1,8 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, THContainer, Wrapper } from "./styles";
+import { FileContainer, THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -42,9 +41,11 @@ export default function UploadRoster() {
       cell: (info) => info.getValue(),
       header: () => (
         <THContainer>
-          <span>
-            Date
-          </span>
+          <Grid>
+            <span>
+              Date
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -59,9 +60,11 @@ export default function UploadRoster() {
       cell: (info) => info.getValue(),
       header: () => (
         <THContainer >
-          <span>
-            File Name
-          </span>
+          <Grid>
+            <span>
+              File Name
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -74,9 +77,11 @@ export default function UploadRoster() {
       accessorKey: "mp",
       header: () => (
         <THContainer >
-          <span>
-            MP
-          </span>
+          <Grid>
+            <span>
+              MP
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -85,14 +90,15 @@ export default function UploadRoster() {
       ),
       footer: (props) => props.column.id,
     },
-
     {
       accessorKey: "day",
       header: () => (
         <THContainer >
-          <span>
-            Day
-          </span>
+          <Grid>
+            <span>
+              Day
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -105,9 +111,11 @@ export default function UploadRoster() {
       accessorKey: "status",
       header: () => (
         <THContainer >
-          <span>
-            Status
-          </span>
+          <Grid>
+            <span>
+              Status
+            </span>
+          </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
@@ -124,10 +132,6 @@ export default function UploadRoster() {
           <span>
             Remark
           </span>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -155,16 +159,18 @@ export default function UploadRoster() {
   };
   return (
     <Wrapper >
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Form / Upload Roster</Text>
+      <WrapperTitle>
+        <TitleText>Upload Roster</TitleText>
         <FileContainer>
           <label htmlFor="file"> +</label>
           <label htmlFor="file"> UPLOAD FILE</label>
           <input type='file' id="file" hidden />
         </FileContainer>
-      </Grid>
-      <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-      <TableComponent2 table={table} />
+      </WrapperTitle>
+      <WrapperTable>
+        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableComponent2 table={table} />
+      </WrapperTable>
     </Wrapper>
   );
 }

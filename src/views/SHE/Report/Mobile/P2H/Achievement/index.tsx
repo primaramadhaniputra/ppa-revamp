@@ -13,6 +13,7 @@ import {
 import { Grid } from '@hudoro/neron';
 import TopFilter from './TopFilter';
 import SecondFilter from './SecondFilter';
+import { WrapperTable } from '../../styles';
 
 const tabText = ['Operator', 'Pengawas']
 
@@ -93,12 +94,15 @@ export default function Achievement() {
                </TabText>)
             }
          </TabsContainer>
+
          <TableWrapper>
-            <TopFilter />
-            <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
-            <TableComponent2
-               table={table}
-            />
+            <WrapperTable>
+               <TopFilter />
+               <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+               <TableComponent2
+                  table={table}
+               />
+            </WrapperTable>
          </TableWrapper>
       </Wrapper>
    )

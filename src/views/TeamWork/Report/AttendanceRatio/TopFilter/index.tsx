@@ -1,19 +1,20 @@
 import { Grid } from '@hudoro/neron'
+import RevisiDropdown from 'atoms/RevisiDropdown'
 import StyledButton from 'atoms/StyledButton'
-import DateCalendar from 'molecules/Date'
-import StyledDropdownMenu from 'molecules/StyledDropdownMenu'
+import RevisiDate from 'molecules/RevisiDate'
 import React, { useState } from 'react'
 import { colors, fontWeights } from 'utils/styles'
-import { TextYear } from './styles'
+import { ButtonWrapper, Wrapper } from './styles'
 
 interface IProps {
    noDept?: boolean
    noDate?: boolean
    doubleSelect?: boolean
    withYear?: boolean
+   styles?: React.CSSProperties
 }
 
-export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IProps) {
+export default function TopFilter({ noDept, noDate, doubleSelect, styles }: IProps) {
    const [toDateState, setToDateState] = useState(new Date())
    const [fromDateState, setFromDateState] = useState(new Date())
    const handleToDateState = (e: Date) => {
@@ -23,34 +24,34 @@ export default function TopFilter({ noDept, noDate, doubleSelect, withYear }: IP
       setFromDateState(e)
    }
    return (
-      <Grid container style={{ marginTop: '10px', gap: 5 }}>
-         {!noDate && <DateCalendar title="To" dateState={toDateState} setDateState={handleToDateState} />}
-         {!noDate && <DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />}
-         {!noDept && <Grid>
-            <StyledDropdownMenu title='Dept' />
+      <Wrapper style={{ ...styles }}>
+         {!noDate && <RevisiDate placeholder="To" dateState={toDateState} setDateState={handleToDateState} />}
+         {!noDate && <RevisiDate placeholder="From" dateState={fromDateState} setDateState={handleFromDateState} />}
+         {!noDept && <Grid >
+            <RevisiDropdown />
          </Grid>}
-         <Grid>
-            <StyledDropdownMenu title='Nama' />
+         <Grid >
+            <RevisiDropdown />
          </Grid>
          {doubleSelect && <Grid>
-            <StyledDropdownMenu title='Tahun' />
+            <Grid >
+               <RevisiDropdown />
+            </Grid>
          </Grid>}
-         <Grid container style={{ flex: 1, minWidth: '150px' }}>
+         <ButtonWrapper >
             <StyledButton
                style={{
-                  fontSize: "25px",
+                  fontSize: "18px",
                   padding: "0",
                   fontWeight: fontWeights.bold,
                   backgroundColor: colors.orange,
+                  borderRadius: '3px',
+                  minWidth: '150px'
                }}
             >
                SHOW
             </StyledButton>
-         </Grid>
-         {withYear &&
-            <Grid container justifyContent='flex-end' alignItems='flex-end' style={{ flex: 1, minWidth: 'max-content' }}>
-               <TextYear>Current Year <span>2021</span></TextYear>
-            </Grid>}
-      </Grid>
+         </ButtonWrapper>
+      </Wrapper>
    )
 }

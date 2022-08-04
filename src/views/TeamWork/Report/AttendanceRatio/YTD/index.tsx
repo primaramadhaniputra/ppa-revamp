@@ -15,6 +15,7 @@ import {
 } from "@tanstack/react-table";
 import { ThItemContainer } from '../styles'
 import { ArrowDown, ArrowUp } from '../Department/Detail/styles'
+import { TextYear } from '../TopFilter/styles'
 
 interface Person {
    [x: string]: any;
@@ -24,24 +25,18 @@ const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
    return {
       Bulan: "Januari 2021",
-      MP: "123",
       D: `12`,
       N: `12`,
-      T: "12",
       IO: "12",
-      NC: "12",
-      L: "12",
+      C: "12",
       O: "12",
+      T: "12",
+      P: "12",
       S: "12",
       I: "12",
       A: "12",
       K: "12",
-      P: "12",
-      R: "12",
-      H: "12",
-      NR: "12",
-      TOTAL: "12",
-      ATR: "12",
+      ["ATR MTD"]: "100%",
    };
 });
 
@@ -53,16 +48,18 @@ export default function YTD() {
          accessorKey: item,
          cell: (info) => {
             return (
-               <span style={{ fontWeight: info.column.id === 'Bulan' || info.column.id === 'ATR' ? fontWeights.bold : fontWeights.regular }}>
+               <span style={{ fontWeight: info.column.id === 'Bulan' || info.column.id === 'ATR MTD' ? fontWeights.bold : fontWeights.regular }}>
                   {info.getValue()}
                </span>
             )
          },
          header: () => (
             <ThItemContainer key={index}>
-               <span>
-                  {item}
-               </span>
+               <Grid>
+                  <span>
+                     {item}
+                  </span>
+               </Grid>
                <Grid container flexDirection="column">
                   <ArrowUp></ArrowUp>
                   <ArrowDown></ArrowDown>
@@ -70,7 +67,7 @@ export default function YTD() {
             </ThItemContainer>
          ),
          footer: (info) => {
-            return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{info.column.id === 'Dept' ? 'Total' : '123'}</span>
+            return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{info.column.id === 'Bulan' ? 'Total' : '123'}</span>
          },
       }
    });
@@ -89,8 +86,11 @@ export default function YTD() {
    });
    return (
       <>
-         <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>YTD Personel</Text>
-         <TopFilter noDept={true} noDate={true} doubleSelect={true} withYear={true} />
+         <Grid container gap={10} alignItems='center' justifyContent='space-between' style={{ margin: '15px 0', width: '100%' }}>
+            <Text variant="h4" style={{ fontWeight: fontWeights.bold, fontSize: '15px' }}>YTD Personel</Text>
+            <TextYear>Current Year <span>2021</span></TextYear>
+         </Grid>
+         <TopFilter noDept={true} noDate={true} doubleSelect={true} styles={{ marginBottom: 40 }} />
          <TableComponent2 table={table} noPagination={true} withFooter={true} />
       </>
    )

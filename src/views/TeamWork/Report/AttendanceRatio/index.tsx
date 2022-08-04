@@ -2,7 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer, Wrapper } from "./styles";
+import { DateText, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -217,7 +217,10 @@ export default function AttendanceRatio() {
     if (activeTabs === 0) {
       return (
         <>
-          <Text variant="h4" style={{ margin: '30px 0', textAlign: 'center', fontWeight: fontWeights.semi }}>Individual Attendance Ratio</Text>
+          <Grid container justifyContent="space-between" gap={10} style={{ margin: '15px 0' }}>
+            <Text variant="h4" style={{ fontWeight: fontWeights.semi }}>Individual Attendance Ratio</Text>
+            <DateText>Current Date : <span>01-08-2022</span> </DateText>
+          </Grid>
           <TopFilter />
           <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
           <TableComponent2
@@ -237,11 +240,13 @@ export default function AttendanceRatio() {
 
   return (
     <Wrapper>
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ marginTop: '30px' }}>
-        <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Teamwork / Report / Attendance Ratio</Text>
-      </Grid>
-      <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} />
-      {renderTab()}
+      <TabsText activeTabs={activeTabs} setActiveTabs={setActiveTabs} styles={{ margin: '10px 0 20px', backgroundColor: 'white', padding: '5px 15px', borderRadius: '3px', columnGap: '40px', rowGap: '10px' }} />
+      <WrapperTitle>
+        <TitleText>Attendance Ratio</TitleText>
+      </WrapperTitle>
+      <WrapperTable>
+        {renderTab()}
+      </WrapperTable>
     </Wrapper>
   );
 }
