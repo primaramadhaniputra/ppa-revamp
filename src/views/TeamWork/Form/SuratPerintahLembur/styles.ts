@@ -23,7 +23,7 @@ export const ArrowDown = styled.div`
 
 export const FileContainer = styled.div`
     width: 100%;
-    ${mediaQueries.md} {
+    @media (min-width: 400px) {
         width: auto;
     }
     background-color: ${colors.orange};
