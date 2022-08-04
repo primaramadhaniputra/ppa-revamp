@@ -46,7 +46,7 @@ export default function RevisiDate({
             />
           </Grid>
           <DateIconContainer>
-            <IcCalendar width={20} onClick={handleDateInput} />
+            <IcCalendar width={20} onClick={handleDateInput} color="#E0E1E0" />
           </DateIconContainer>
         </Grid>
         {isDate && (
