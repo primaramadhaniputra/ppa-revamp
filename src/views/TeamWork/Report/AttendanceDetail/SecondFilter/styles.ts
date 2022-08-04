@@ -6,20 +6,29 @@ export const Wrapper = styled.div`
     margin: 15px 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    ${mediaQueries.xl} {
+    gap: 10px;
+    ${mediaQueries.md} {
         flex-direction: row;
+        justify-content: space-between;
     }
 `;
 
 export const ButtonWrapper = styled.div`
     order: 1;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-direction: column;
+
+    & button {
+        order: 1;
+    }
+
     ${mediaQueries.md} {
         flex-direction: row;
         order: 0;
+        & button {
+            order: 0;
+        }
     }
 `;
 
@@ -27,7 +36,6 @@ export const ContainerPeriode = styled(Grid).attrs({
     container: true,
     alignItems: 'center',
 })`
-    flex: 1;
     gap: 20px;
     ${mediaQueries.md} {
         gap: 70px;

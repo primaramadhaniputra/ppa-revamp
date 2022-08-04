@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 export const ButtonWrapper = styled.div`
     order: 1;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-direction: column;
     ${mediaQueries.md} {
         flex-direction: row;

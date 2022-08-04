@@ -56,7 +56,7 @@ export const InduksiContainer = styled.div`
     column-gap: 70px;
     flex-direction: column;
     display: flex;
-    ${mediaQueries.xl} {
+    ${mediaQueries['2xl']} {
         flex-direction: row;
     }
 `;

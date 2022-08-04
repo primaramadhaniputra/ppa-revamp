@@ -1,8 +1,9 @@
+import { fontFamilies, Grid, Text } from '@hudoro/neron'
 import StyledButton from 'atoms/StyledButton'
 import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
 import { colors, fontSizing, fontWeights } from 'utils/styles'
-import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from './styles'
+import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput, SearchWrapper, Button, SearchInput } from './styles'
 
 interface IProps {
    handleChangeTotalShowData: (e: {
@@ -43,12 +44,21 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
       }, [value]);
 
       return (
-         <StyledInput
-            {...props}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Search..."
-         />
+         <SearchWrapper style={{ width: '100%' }}>
+            <Grid style={{ flex: 1 }}>
+               <Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
+                  Search
+               </Text>
+            </Grid>
+            <SearchInput >
+               <StyledInput
+                  {...props}
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  placeholder="Search..."
+               />
+            </SearchInput>
+         </SearchWrapper>
       );
    }
 
@@ -62,18 +72,20 @@ export default function Filter({ table, handleChangeTotalShowData, globalFilter,
             }} handleChange={handleChangeTotalShowData} />
          </ContainerPeriode>
          <ButtonWrapper>
-            <StyledButton
-               style={{
-                  backgroundColor: '#25B78A',
-                  color: colors.white,
-                  padding: "2px 10px",
-                  fontWeight: fontWeights.bold,
-                  borderRadius: "2px",
-                  fontSize: fontSizing.lg.fontSize,
-               }}
-            >
-               EXPORT
-            </StyledButton>
+            <Button >
+               <StyledButton
+                  style={{
+                     backgroundColor: '#25B78A',
+                     color: colors.white,
+                     padding: "0 10px",
+                     fontWeight: fontWeights.bold,
+                     borderRadius: "2px",
+                     fontSize: fontSizing.lg.fontSize,
+                  }}
+               >
+                  EXPORT
+               </StyledButton>
+            </Button>
             <DebouncedInput
                value={globalFilter ?? ""}
                onChange={(e) => setGlobalFilter(String(e))}

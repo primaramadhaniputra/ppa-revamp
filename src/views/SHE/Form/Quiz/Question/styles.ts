@@ -53,6 +53,10 @@ export const TableTitle = styled(Text).attrs({
 export const ButtonContainer = styled.div`
     display: flex;
     align-items: flex-end;
+    order: 1;
+    ${mediaQueries.md} {
+        order: 0;
+    }
 `;
 
 export const IconContainer = styled(Grid).attrs({
