@@ -10,8 +10,6 @@ import {
 } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
 import { Container, IconContainer, THContainer, Wrapper } from "./styles";
-import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { DisableUserdWebAdmin, getListUsersWebAdmin, ResetPasswordWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
@@ -20,6 +18,7 @@ import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import Arrow from "atoms/Arrow";
 
 interface Person {
   [x: string]: any;
@@ -126,10 +125,7 @@ export default function AccessControl() {
           <span>
             NRP
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -143,10 +139,7 @@ export default function AccessControl() {
           <span>
             Name
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -158,10 +151,7 @@ export default function AccessControl() {
           <span>
             Dept
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -174,10 +164,7 @@ export default function AccessControl() {
           <span>
             Position
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -189,10 +176,7 @@ export default function AccessControl() {
           <span>
             Level
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,

@@ -9,11 +9,10 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp } from "../styles";
-import { Grid } from "@hudoro/neron";
 import { DoughnutWrapper, TableWrapper, THContainer, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import Arrow from "atoms/Arrow";
 
 interface Person {
   [x: string]: any;
@@ -47,10 +46,7 @@ export default function VHMSDownload() {
           <span>
             Model
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -64,10 +60,7 @@ export default function VHMSDownload() {
           <span>
             CN
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -79,10 +72,7 @@ export default function VHMSDownload() {
           <span>
             SN
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -95,10 +85,7 @@ export default function VHMSDownload() {
           <span>
             Last Download
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -110,10 +97,7 @@ export default function VHMSDownload() {
           <span>
             Last Operation
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -129,10 +113,7 @@ export default function VHMSDownload() {
               <span>
                 Pldcycn Record
               </span>
-              <Grid>
-                <ArrowUp></ArrowUp>
-                <ArrowDown></ArrowDown>
-              </Grid>
+              <Arrow />
             </THContainer>
           ),
           footer: (props) => props.column.id,
@@ -144,10 +125,7 @@ export default function VHMSDownload() {
               <span>
                 Trend Record
               </span>
-              <Grid>
-                <ArrowUp></ArrowUp>
-                <ArrowDown></ArrowDown>
-              </Grid>
+              <Arrow />
             </THContainer>
           ),
           footer: (props) => props.column.id,
@@ -161,10 +139,7 @@ export default function VHMSDownload() {
               <span>
                 Fault Record
               </span>
-              <Grid>
-                <ArrowUp></ArrowUp>
-                <ArrowDown></ArrowDown>
-              </Grid>
+              <Arrow />
             </THContainer>
           ),
           footer: (props) => props.column.id,
@@ -178,10 +153,7 @@ export default function VHMSDownload() {
               <span>
                 Machine History
               </span>
-              <Grid>
-                <ArrowUp></ArrowUp>
-                <ArrowDown></ArrowDown>
-              </Grid>
+              <Arrow />
             </THContainer>
           ),
           footer: (props) => props.column.id,

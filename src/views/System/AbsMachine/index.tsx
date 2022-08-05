@@ -8,11 +8,10 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp } from "../styles";
 import { Container, THContainer } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import Arrow from "atoms/Arrow";
 
 interface Person {
   [x: string]: any;
@@ -41,10 +40,7 @@ export default function AbsMachine() {
           <span>
             ID
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -58,10 +54,7 @@ export default function AbsMachine() {
           <span>
             IP
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -73,10 +66,7 @@ export default function AbsMachine() {
           <span>
             Lokasi
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -89,10 +79,7 @@ export default function AbsMachine() {
           <span>
             Last Download
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,

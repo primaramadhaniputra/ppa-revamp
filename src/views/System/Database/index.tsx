@@ -8,11 +8,10 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp } from "../styles";
 import { THContainer, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import Arrow from "atoms/Arrow";
 
 interface Person {
   [x: string]: any;
@@ -46,10 +45,7 @@ export default function Database() {
           <span>
             ID
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -63,10 +59,7 @@ export default function Database() {
           <span>
             User
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -78,10 +71,7 @@ export default function Database() {
           <span>
             Host
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -94,10 +84,7 @@ export default function Database() {
           <span>
             DB
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -109,10 +96,7 @@ export default function Database() {
           <span>
             Command
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -125,10 +109,7 @@ export default function Database() {
           <span>
             Time(min)
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -140,10 +121,7 @@ export default function Database() {
           <span>
             State
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -157,10 +135,7 @@ export default function Database() {
           <span>
             Info
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
@@ -174,10 +149,7 @@ export default function Database() {
           <span>
             Action
           </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
+          <Arrow />
         </THContainer>
       ),
       footer: (props) => props.column.id,
