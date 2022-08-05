@@ -9,5 +9,6 @@ export const Container = styled.div`
     ${mediaQueries.sm} {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
         padding: 20px;
+        background-color: white;
     }
 `;

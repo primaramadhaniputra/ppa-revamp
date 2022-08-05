@@ -33,7 +33,9 @@ export const Container = styled(Card)`
     padding: 0;
     box-shadow: none;
     border-radius: 3px;
+    background-color: transparent;
     ${mediaQueries.sm} {
+        background-color: white;
         padding: 20px;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     }
