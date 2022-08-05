@@ -1,6 +1,5 @@
 import React from 'react'
 import TableComponent2 from 'src/components/organism/TableComp2'
-import SecondFilter from '../SecondFilter'
 import { Container, TextInfo, Wrapper } from './styles'
 import {
    ColumnDef,
@@ -14,6 +13,7 @@ import {
 import { ArrowDown, ArrowUp, ThItemContainer } from '../styles';
 import { Grid, Text } from '@hudoro/neron';
 import { fontSizing, fontWeights } from 'utils/styles';
+import TableFilterSearch from 'src/components/organism/TableFilterSearch';
 
 interface IProps {
    [x: string]: any;
@@ -80,7 +80,7 @@ export default function TidakInduksi() {
             <Text variant='h4' style={{ fontWeight: fontWeights.bold, display: 'flex', alignItems: 'center', fontSize: fontSizing.xl.fontSize, color: '#4F5458' }} >Tidak Induksi</Text>
             <TextInfo>24 orang</TextInfo>
          </Container>
-         <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+         <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT XLS' />
          <TableComponent2
             table={table}
          />

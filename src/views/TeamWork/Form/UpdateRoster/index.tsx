@@ -14,11 +14,11 @@ import {
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "molecules/FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
-import Filter from "./Filter";
 import TopFilter from "./TopFilter";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Html } from 'next/document'
 import { WrapperTitle } from "../AttendanceRevision/styles";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
 
 interface Person {
   [x: string]: any;
@@ -238,7 +238,7 @@ export default function UpdateRoster() {
       </WrapperTitle>
       <WrapperTable>
         <TopFilter />
-        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
         <TableComponent2 table={table} />
       </WrapperTable>
     </Wrapper>

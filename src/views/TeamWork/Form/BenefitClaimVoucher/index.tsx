@@ -14,7 +14,7 @@ import {
 import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
 import TableComponent2 from "src/components/organism/TableComp2";
-import Filter from "./Filter";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
 
 interface Person {
   [x: string]: any;
@@ -107,7 +107,7 @@ export default function BenefitClaimVoucher() {
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />
         <TableComponent2
           table={table}
         />
