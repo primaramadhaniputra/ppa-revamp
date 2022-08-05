@@ -1,6 +1,5 @@
 import React from 'react'
 import TableComponent2 from 'src/components/organism/TableComp2'
-import SecondFilter from './SecondFilter'
 import { ArrowDown, ArrowUp, ThItemContainer } from './styles'
 import TopFilter from './TopFilter'
 import {
@@ -14,6 +13,7 @@ import {
 } from "@tanstack/react-table";
 import { Grid, Icon } from '@hudoro/neron'
 import { WrapperTable } from '../../styles'
+import TableFilterSearch from 'src/components/organism/TableFilterSearch'
 
 interface IProps {
    [x: string]: any;
@@ -55,7 +55,6 @@ export default function Detail() {
             </>
          },
          header: (data) => {
-            console.log(data.header.id === 'Detail')
             return (
                <ThItemContainer key={index} style={{ width: '100%', justifyContent: 'space-around' }}>
                   {
@@ -102,7 +101,7 @@ export default function Detail() {
    return (
       <WrapperTable style={{ marginTop: '20px' }} >
          <TopFilter />
-         <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+         <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
          <TableComponent2
             table={table}
          />

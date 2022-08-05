@@ -13,13 +13,13 @@ import { Container, IconContainer, THContainer, Wrapper } from "./styles";
 import { Grid } from "@hudoro/neron";
 import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
-import Filter from "./Filter";
 import { DisableUserdWebAdmin, getListUsersWebAdmin, ResetPasswordWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
 import { ISingleUser, IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
 
 interface Person {
   [x: string]: any;
@@ -264,7 +264,7 @@ export default function AccessControl() {
       <FlyingForm closeForm={closeEdit} isEdit={isEdit} dataUser={dataUser} />
       <Container style={{ position: 'relative' }} >
         {isLoading && <Loading />}
-        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />
         <TableComponent2
           table={table}
         />

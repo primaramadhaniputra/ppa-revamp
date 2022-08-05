@@ -11,7 +11,7 @@ export default function Induksi() {
   return (
     <Wrapper>
       <WrapperTitle>
-        <TitleText style={{ flex: 1 }}>Induksi Monitoring</TitleText>
+        <TitleText >Induksi Monitoring</TitleText>
         <TopFilter />
       </WrapperTitle>
       <InduksiContainer >

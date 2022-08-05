@@ -12,8 +12,8 @@ import {
 } from "@tanstack/react-table";
 import { Grid } from '@hudoro/neron';
 import TopFilter from './TopFilter';
-import SecondFilter from './SecondFilter';
 import { WrapperTable } from '../../styles';
+import TableFilterSearch from 'src/components/organism/TableFilterSearch';
 
 const tabText = ['Operator', 'Pengawas']
 
@@ -98,7 +98,7 @@ export default function Achievement() {
          <TableWrapper>
             <WrapperTable>
                <TopFilter />
-               <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+               <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />
                <TableComponent2
                   table={table}
                />

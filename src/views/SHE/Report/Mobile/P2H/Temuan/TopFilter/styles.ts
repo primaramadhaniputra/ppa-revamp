@@ -5,6 +5,7 @@ import { fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 export const Wrapper = styled(Grid).attrs({
     container: true,
 })`
+    margin-bottom: 30px;
     column-gap: 30px;
     row-gap: 10px;
     width: 100%;

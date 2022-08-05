@@ -10,7 +10,7 @@ export default function TopFilter() {
       setToDateState(e)
    }
    return (
-      <Grid container alignItems='center' style={{ gap: 20, flex: 1 }}>
+      <Grid container alignItems='center' style={{ gap: 20 }}>
          <RevisiDate placeholder='Date' dateState={toDateState as Date} setDateState={handleToDateState} />
          <Grid container style={{ flex: 1, maxWidth: '200px', minWidth: '200px' }}>
             <StyledButton

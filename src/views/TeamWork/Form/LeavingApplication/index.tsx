@@ -12,7 +12,7 @@ import {
 } from "@tanstack/react-table";
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
-import Filter from "./Filter";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
 
 interface Person {
   [x: string]: any;
@@ -166,7 +166,7 @@ export default function LeavingApplication() {
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <Filter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
         <TableComponent2 table={table} />
       </WrapperTable>
     </Wrapper>
