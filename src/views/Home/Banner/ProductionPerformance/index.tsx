@@ -1,13 +1,18 @@
 import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
-import React from "react";
+import React, { useState } from "react";
 import LabelValue from "src/components/organism/LabelValue";
 import { ProductionPerfromanceData } from "utils/dummy";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import { Item, ItemContainer } from "../styles";
-import { AchContainer, AchLabel, Container, TabsAch, TabsAchContainer, TabsText, TitleContainer } from "./styles";
+import ProductionPerformanceTabHeader from "./ProductionPerformanceTabHeader";
+import { AchContainer, AchLabel, Container, TabsAch, TabsAchContainer, TitleContainer } from "./styles";
+
+const tabsText = ['YTD', 'MTD', 'WTD']
 
 export default function ProductionPerformance() {
+  const [activeTab, setActiveTab] = useState(0)
+
   return (
     <>
       <Grid style={{ margin: "0 0 30px", }} container alignItems="center" justifyContent="space-between" >
@@ -15,15 +20,11 @@ export default function ProductionPerformance() {
           Production Performance
         </TitlePage>
         <Container  >
-          <TabsText style={{ backgroundColor: colors.orange, fontWeight: fontWeights.bold, color: 'white' }} >
-            YTD
-          </TabsText>
-          <TabsText>
-            MTD
-          </TabsText>
-          <TabsText>
-            WTD
-          </TabsText>
+          {
+            tabsText.map((item, index) =>
+              <ProductionPerformanceTabHeader title={item} key={index} id={index} setActiveTab={setActiveTab} activeTab={activeTab} />
+            )
+          }
         </Container>
       </Grid>
       <ItemContainer>
@@ -47,14 +48,6 @@ export default function ProductionPerformance() {
                       </TabsAchContainer>
                     }
                   </TitleContainer>
-
-                  {/* <Image
-                    src={`/icons/${data.icon}`}
-                    width={30}
-                    height={30}
-                    quality={100}
-                    alt="ProductionPerfromance icon"
-                  /> */}
                   <AchContainer >
                     {data.ach && <AchLabel>{data.ach}</AchLabel>}
                     <img src={`/icons/${data.icon}`} width={25} alt="ProductionPerfromance icon" />

@@ -10,8 +10,11 @@ export const Container = styled(Grid).attrs({
     cursor: pointer;
     width: 100%;
     margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(70px, 1fr));
     justify-content: space-between;
-    ${mediaQueries.md} {
+    ${mediaQueries.sm} {
+        display: inherit;
         width: auto;
         margin-top: 0;
     }
@@ -23,6 +26,7 @@ export const TabsText = styled.p`
     padding: 5px 15px;
     border-radius: 8px;
     color: ${colors.orange};
+    text-align: center;
 `;
 
 export const AchContainer = styled.div`
