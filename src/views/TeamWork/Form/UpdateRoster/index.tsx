@@ -24,23 +24,20 @@ interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-  return {
-    nrp: "HD787",
-    name: "Hd123",
-    date: `33${index}`,
-    code: "2022-17-08",
-    in: "2022-17-08",
-    out: "2022-17-08 02:12:12",
-    job: "2022-17-08 02:12:12",
-    pos: "2022-17-08 02:12:12",
-    act: "2022-17-08 02:12:12",
-  };
-});
+export const defaultDataTable = [{
+  nrp: "HD787",
+  name: "Hd123",
+  date: `33`,
+  code: "2022-17-08",
+  in: "2022-17-08",
+  out: "2022-17-08 02:12:12",
+  job: "2022-17-08 02:12:12",
+  pos: "2022-17-08 02:12:12",
+  act: "2022-17-08 02:12:12",
+}];
 
 export default function UpdateRoster() {
-
+  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -52,163 +49,36 @@ export default function UpdateRoster() {
   const closeEdit = () => {
     setIsEdit(false)
   }
-  const columns: ColumnDef<Person>[] = [
-    {
-      accessorKey: "nrp",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <ThItemContainer>
-          <Grid>
-            <span>
-              NRP
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorFn: (row) => row.name,
-      id: "name",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <ThItemContainer >
-          <Grid>
-            <span>
-              Name
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "date",
-      header: () => (
-        <ThItemContainer >
-          <Grid>
-            <span>
-              Date
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
 
-    {
-      accessorKey: "Code",
-      header: () => (
-        <ThItemContainer >
+  const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+    return {
+      accessorKey: item,
+      cell: (info) => {
+        return info.column.id === 'act' ?
           <Grid>
-            <span>
-              Code
-            </span>
+            <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={handleEdit} />
           </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "in",
-      header: () => (
-        <ThItemContainer >
-          <Grid>
-            <span>
-              In
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-
-    {
-      accessorKey: "out",
-      header: () => (
-        <ThItemContainer>
-          <Grid>
-            <span>
-              Out
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "job",
-      header: () => (
-        <ThItemContainer>
-          <Grid>
-            <span>
-              Job
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "pos",
-      header: () => (
-        <ThItemContainer>
-          <Grid>
-            <span>
-              Pos
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "act",
-      header: () => (
-        <ThItemContainer>
-          <span>
-            Act
-          </span>
-        </ThItemContainer>
-      ),
-      footer: (props) => props.column.id,
-      cell: () => <Grid>
-        <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={handleEdit} />
-      </Grid>
-    },
-  ];
+          : info.getValue()
+      },
+      header: (info) => {
+        return (
+          <ThItemContainer key={index}>
+            <Grid>
+              <span>
+                {item}
+              </span>
+            </Grid>
+            {
+              info.header.id !== 'act' && <Grid container flexDirection="column">
+                <ArrowUp></ArrowUp>
+                <AD></AD>
+              </Grid>
+            }
+          </ThItemContainer>
+        )
+      }
+    }
+  });
 
   const table = useReactTable({
     data: defaultDataTable,

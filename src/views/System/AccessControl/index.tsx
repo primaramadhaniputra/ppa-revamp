@@ -10,8 +10,6 @@ import {
 } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
 import { Container, IconContainer, THContainer, Wrapper } from "./styles";
-import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { DisableUserdWebAdmin, getListUsersWebAdmin, ResetPasswordWebAdmin } from "services/webAdmin";
 import { notify } from "utils/functions";
@@ -20,6 +18,7 @@ import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import Arrow from "atoms/Arrow";
 
 interface Person {
   [x: string]: any;
@@ -33,7 +32,6 @@ export const defaultDataTable = [
     Position: "",
     Level: "",
     Action: "",
-    Id: ''
   }];
 
 export default function AccessControl() {
@@ -45,6 +43,7 @@ export default function AccessControl() {
   const [isEdit, setIsEdit] = React.useState(false)
   const [dataUser, setDataUser] = React.useState<ISingleUser>()
   const router = useRouter()
+  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
 
   const handleEdit = async (e: { row: any }) => {
     const data = e.row.original
@@ -117,122 +116,51 @@ export default function AccessControl() {
     getAllUsers()
   }, [])
 
-  const columns: ColumnDef<Person>[] = [
-    {
-      accessorKey: "NRP",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <THContainer>
-          <span>
-            NRP
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorFn: (row) => row.Name,
-      id: "Name",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <THContainer>
-          <span>
-            Name
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Dept",
-      header: () => (
-        <THContainer>
-          <span>
-            Dept
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
+  const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+    return {
+      accessorKey: item,
+      cell: (info) => {
+        return (info.column.id === 'Action' ?
+          <Wrapper>
+            <IconContainer title="Edit">
+              <IcEdit
+                width={20}
+                cursor="pointer"
+                color="white"
+                strokeWidth={1.5}
+                onClick={() => handleEdit(info)}
 
-    {
-      accessorKey: "Position",
-      header: () => (
-        <THContainer>
-          <span>
-            Position
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
+              />
+            </IconContainer>
+            <IconContainer title="Reset Password">
+              <IcRefresh
+                width={20}
+                cursor="pointer"
+                color="white"
+                strokeWidth={1.5}
+                onClick={() => handleResetPassword(info)}
+              />
+            </IconContainer>
+            <IconContainer title="Disable">
+              <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} onClick={() => disableUser(info)} />
+            </IconContainer>
+          </Wrapper>
+          : info.getValue())
+      },
+      header: (data) => {
+        return (
+          <THContainer key={index}>
+            <span>
+              {item}
+            </span>
+            {data.column.id !== "Action" && <Arrow />}
+          </THContainer>
+        )
+      },
       footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Level",
-      header: () => (
-        <THContainer>
-          <span>
-            Level
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Action",
-      cell: (info) => (
-        <Wrapper>
-          <IconContainer title="Edit">
-            <IcEdit
-              width={20}
-              cursor="pointer"
-              color="white"
-              strokeWidth={1.5}
-              onClick={() => handleEdit(info)}
+    }
+  });
 
-            />
-          </IconContainer>
-          <IconContainer title="Reset Password">
-            <IcRefresh
-              width={20}
-              cursor="pointer"
-              color="white"
-              strokeWidth={1.5}
-              onClick={() => handleResetPassword(info)}
-            />
-          </IconContainer>
-          <IconContainer title="Disable">
-            <IcBan width={20} cursor="pointer" color="white" strokeWidth={2} onClick={() => disableUser(info)} />
-          </IconContainer>
-        </Wrapper>
-      ),
-      header: () => (
-        <span>
-          Action
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-  ];
 
   const table = useReactTable({
     data: DataTable,

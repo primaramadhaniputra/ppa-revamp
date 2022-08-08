@@ -8,96 +8,45 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp } from "../styles";
 import { Container, THContainer } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import Arrow from "atoms/Arrow";
 
 interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-  return {
-    ID: "HD787",
-    IP: "Hd123",
-    Lokasi: `33${index}`,
-    ["Last download"]: "2022-17-08",
-  };
-});
+export const defaultDataTable = [{
+  ID: "HD787",
+  IP: "Hd123",
+  Lokasi: `33`,
+  ["Last download"]: "2022-17-08",
+}];
 
 export default function AbsMachine() {
+  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const columns: ColumnDef<Person>[] = [
-    {
-      accessorKey: "ID",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <THContainer>
-          <span>
-            ID
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorFn: (row) => row.IP,
-      id: "IP",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <THContainer>
-          <span>
-            IP
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Lokasi",
-      header: () => (
-        <THContainer>
-          <span>
-            Lokasi
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
 
-    {
-      accessorKey: "Last download",
-      header: () => (
-        <THContainer>
-          <span>
-            Last Download
-          </span>
-          <Grid>
-            <ArrowUp></ArrowUp>
-            <ArrowDown></ArrowDown>
-          </Grid>
-        </THContainer>
-      ),
+  const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+    return {
+      accessorKey: item,
+      cell: (info) => info.getValue(),
+      header: () => {
+        return (
+          <THContainer key={index}>
+            <span>
+              {item}
+            </span>
+            <Arrow />
+          </THContainer>
+        )
+      },
       footer: (props) => props.column.id,
-    },
-  ];
+    }
+  });
 
   const table = useReactTable({
     data: defaultDataTable,

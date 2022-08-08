@@ -8,7 +8,6 @@ import {
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid } from "@hudoro/neron";
 import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TopFilter from "./TopFilter";
@@ -18,109 +17,36 @@ interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-  return {
-    Tanggal: "HD787",
-    NRP: "Hd123",
-    Nama: `33${index}`,
-    Posisi: "2022-17-08",
-    Status: "2022-17-08",
-    Time: "2022-17-08 02:12:12",
-    Mac: "2022-17-08 02:12:12",
-  };
-});
+export const defaultDataTable = [{
+  Tanggal: "HD787",
+  NRP: "Hd123",
+  Nama: `33`,
+  Posisi: "2022-17-08",
+  Status: "2022-17-08",
+  Time: "2022-17-08 02:12:12",
+  Mac: "2022-17-08 02:12:12",
+}];
 
 export default function DeviceMonitoring() {
+  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const columns: ColumnDef<Person>[] = [
-    {
-      accessorKey: "Tanggal",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            Tanggal
-          </span>
-        </Grid>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorFn: (row) => row.NRP,
-      id: "NRP",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            NRP
-          </span>
-        </Grid>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Nama",
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            Nama
-          </span>
-        </Grid>
-      ),
-      footer: (props) => props.column.id,
-    },
 
-    {
-      accessorKey: "Posisi",
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            Posisi
+  const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+    return {
+      accessorKey: item,
+      cell: (info) => info.getValue(),
+      header: () => {
+        return (
+          <span key={index}>
+            {item}
           </span>
-        </Grid>
-      ),
+        )
+      },
       footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Status",
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            Status
-          </span>
-        </Grid>
-      ),
-      footer: (props) => props.column.id,
-    },
-
-    {
-      accessorKey: "Time",
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            Time
-          </span>
-        </Grid>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Mac",
-      header: () => (
-        <Grid container alignItems="center" gap={7}>
-          <span>
-            Mac
-          </span>
-        </Grid>
-      ),
-      footer: (props) => props.column.id,
-      cell: (info) => <span>{info.getValue()}</span>,
-      enableColumnFilter: false,
-    },
-  ];
+    }
+  });
 
   const table = useReactTable({
     data: defaultDataTable,
