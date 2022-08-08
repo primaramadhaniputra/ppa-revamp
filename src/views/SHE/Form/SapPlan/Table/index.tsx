@@ -39,7 +39,6 @@ export const defaultDataTable = arr.map(() => {
 });
 
 export default function Table() {
-
    const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
    const [rowSelection, setRowSelection] = React.useState({});
    const [globalFilter, setGlobalFilter] = React.useState("");

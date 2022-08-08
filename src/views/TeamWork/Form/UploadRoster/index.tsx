@@ -18,125 +18,44 @@ interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-  return {
-    date: "HD787",
-    filename: "Hd123",
-    mp: `33${index}`,
-    day: "2022-17-08",
-    status: "2022-17-08",
-    remark: "2022-17-08 02:12:12",
-  };
-});
+export const defaultDataTable = [{
+  date: "HD787",
+  filename: "Hd123",
+  mp: `33`,
+  day: "2022-17-08",
+  status: "2022-17-08",
+  remark: "2022-17-08 02:12:12",
+}];
 
 export default function UploadRoster() {
-
+  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const columns: ColumnDef<Person>[] = [
-    {
-      accessorKey: "date",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <THContainer>
-          <Grid>
-            <span>
-              Date
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorFn: (row) => row.filename,
-      id: "filename",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <THContainer >
-          <Grid>
-            <span>
-              File Name
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "mp",
-      header: () => (
-        <THContainer >
-          <Grid>
-            <span>
-              MP
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "day",
-      header: () => (
-        <THContainer >
-          <Grid>
-            <span>
-              Day
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "status",
-      header: () => (
-        <THContainer >
-          <Grid>
-            <span>
-              Status
-            </span>
-          </Grid>
-          <Grid container flexDirection="column">
-            <ArrowUp></ArrowUp>
-            <AD></AD>
-          </Grid>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
 
-    {
-      accessorKey: "remark",
-      header: () => (
-        <THContainer>
-          <span>
-            Remark
-          </span>
-        </THContainer>
-      ),
-      footer: (props) => props.column.id,
-    },
-  ];
+  const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+    return {
+      accessorKey: item,
+      cell: (info) => info.getValue(),
+      header: (info) => {
+        return (
+          <THContainer key={index}>
+            <Grid>
+              <span>
+                {item}
+              </span>
+            </Grid>
+            {
+              info.header.id !== 'remark' && <Grid container flexDirection="column">
+                <ArrowUp></ArrowUp>
+                <AD></AD>
+              </Grid>
+            }
+          </THContainer>
+        )
+      }
+    }
+  });
 
   const table = useReactTable({
     data: defaultDataTable,

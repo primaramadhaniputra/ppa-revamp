@@ -20,28 +20,26 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-  return {
-    ["Perusahaan"]: "HD787",
-    ["Approver"]: "Hd123",
-    ["Status item"]: `331`,
-    ["Tgl.Claim"]: "2022-17-08",
-    ["Tgl.Kwitansi"]: "2022-17-08",
-    ["No.Claim"]: "2022-17-08 02:12:12",
-    ['No.Item']: "2022-17-08 02:12:12",
-    ['Employee']: "2022-17-08 02:12:12",
-    ['Jabatan']: "2022-17-08 02:12:12",
-    ['Dept']: "2022-17-08 02:12:12",
-    ['Nama Pasien']: "2022-17-08 02:12:12",
-    ['Kode hub']: "2022-17-08 02:12:12",
-    ['Kode Klaim']: "2022-17-08 02:12:12",
-    ['Jumlah(RP.)']: "2022-17-08 02:12:12",
-    ['File']: "",
-    ['Vendor']: "",
-    ['Modified Date']: "",
-    ['Transferred Date']: "",
-  }
-})
+export const defaultDataTable = [{
+  ["Perusahaan"]: "HD787",
+  ["Approver"]: "Hd123",
+  ["Status item"]: `331`,
+  ["Tgl.Claim"]: "2022-17-08",
+  ["Tgl.Kwitansi"]: "2022-17-08",
+  ["No.Claim"]: "2022-17-08 02:12:12",
+  ['No.Item']: "2022-17-08 02:12:12",
+  ['Employee']: "2022-17-08 02:12:12",
+  ['Jabatan']: "2022-17-08 02:12:12",
+  ['Dept']: "2022-17-08 02:12:12",
+  ['Nama Pasien']: "2022-17-08 02:12:12",
+  ['Kode hub']: "2022-17-08 02:12:12",
+  ['Kode Klaim']: "2022-17-08 02:12:12",
+  ['Jumlah(RP.)']: "2022-17-08 02:12:12",
+  ['File']: "",
+  ['Vendor']: "",
+  ['Modified Date']: "",
+  ['Transferred Date']: "",
+}]
 
 
 export default function BenefitClaimVoucher() {
