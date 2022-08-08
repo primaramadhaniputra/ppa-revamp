@@ -16,82 +16,35 @@ interface Person {
   [x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-  return {
-    ID: "HD787",
-    Event: "Hd123",
-    Repeat: `33${index}`,
-    Interval: "2022-17-08",
-    Time: "2022-17-08",
-    ["Last Executed"]: "2022-17-08",
-  };
-});
+export const defaultDataTable = [{
+  ID: "HD787",
+  Event: "Hd123",
+  Repeat: `33`,
+  Interval: "2022-17-08",
+  Time: "2022-17-08",
+  ["Last Executed"]: "2022-17-08",
+}];
 
 export default function Events() {
+  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const columns: ColumnDef<Person>[] = [
-    {
-      accessorKey: "ID",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <span>
-          ID
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorFn: (row) => row.Event,
-      id: "Event",
-      cell: (info) => info.getValue(),
-      header: () => (
-        <span>
-          Event
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Repeat",
-      header: () => (
-        <span>
-          Repeat
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
 
-    {
-      accessorKey: "Interval",
-      header: () => (
-        <span>
-          Interval
-        </span>
-      ),
+  const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+    return {
+      accessorKey: item,
+      cell: (info) => info.getValue(),
+      header: () => {
+        return (
+          <span key={index}>
+            {item}
+          </span>
+        )
+      },
       footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Time",
-      header: () => (
-        <span>
-          Time
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-    {
-      accessorKey: "Last Executed",
-      header: () => (
-        <span>
-          Last Executed
-        </span>
-      ),
-      footer: (props) => props.column.id,
-    },
-  ];
+    }
+  });
 
   const table = useReactTable({
     data: defaultDataTable,
