@@ -11,10 +11,11 @@ export const NavbarWrapper = styled.div`
   top: 0;
   z-index: 999;
   background-color: ${colors.primary};
+  ${mediaQueries.xl} {
+    padding: 8.5px 100px;
+  }
   ${mediaQueries.lg} {
     position: static !important;
-    /* padding: 25px 100px; */
-    padding: 8.5px 100px;
     margin-top: 0;
     display: flex;
     align-items: center;

@@ -39,7 +39,7 @@ export default function DesktopMenu({ position }: IProps) {
       >
         {Link.map((item, index) => (
           <Grid container key={index}>
-            <Grid container gap={5}>
+            <Grid container>
               <StyledTextDropdownUser
                 title={item.title}
                 handleClick={() => handleActiveNavbar(index)}
@@ -56,7 +56,7 @@ export default function DesktopMenu({ position }: IProps) {
         ))}
       </Container>
       <Grid container gap={8} alignItems="center">
-        <StyledTextDropdownUser user={{ name: userName }} />
+        <StyledTextDropdownUser user={{ name: userName || "Undefined" }} />
       </Grid>
     </Wrapper>
   );
