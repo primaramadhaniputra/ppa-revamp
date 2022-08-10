@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { colors } from "utils/styles";
 
 export const DateContainer = styled(Grid)`
-  /* background-color: ${colors.blueSky}; */
   border-radius: 5px;
   position: relative;
   padding: 7px 10px;
