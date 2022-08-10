@@ -17,6 +17,7 @@ export const SingleProduct = styled.div`
     box-shadow: 0px 1px 3px rgba(176, 176, 176, 0.8);
     border-radius: 5px;
     padding: 15px;
+    min-height: 134px;
 `;
 
 export const ProductText = styled.p`
