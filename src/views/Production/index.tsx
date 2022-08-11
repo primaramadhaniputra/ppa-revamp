@@ -12,7 +12,7 @@ export default function Production() {
    return (
       <Layout title="Production / Report">
          <WrapperDate>
-            <Grid container gap={5} alignItems="flex-end" style={{ height: '40px', justifyContent: 'end' }} >
+            <Grid container gap={5} alignItems="flex-end" style={{ height: '47px', justifyContent: 'end' }} >
                <Text variant="h4" style={{ fontSize: '14px' }}>TC</Text>
                <Toggler />
                <Text variant="h4" style={{ fontSize: '14px' }}>JS</Text>
