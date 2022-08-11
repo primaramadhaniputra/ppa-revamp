@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
     gap: 20px;
     ${mediaQueries.sm} {
         grid-template-columns: repeat(auto-fit, minMax(330px, 1fr));
+        row-gap: 30px;
     }
 `;
 

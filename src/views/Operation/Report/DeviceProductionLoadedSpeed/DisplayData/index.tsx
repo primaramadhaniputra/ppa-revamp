@@ -59,7 +59,7 @@ export default function DisplayData({
           <TotalText>Avg {data?.average} </TotalText>
         </WrapperTotalText>
       </Grid>
-      {activeDisplayData === 'Trend' ? <Trend datas={data?.trend} /> : <ChartData data={data?.range.data || [{}]} />}
+      {activeDisplayData === 'Trend' ? <Trend datas={data?.trend} /> : <ChartData data={data?.range?.data || [{}]} />}
     </Wrapper>
   );
 }

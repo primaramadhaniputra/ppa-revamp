@@ -50,7 +50,7 @@ export default function DisplayData({
     if (type === "Trend") {
       return <Trend datas={data?.trend} />;
     }
-    return <ChartData data={data?.range.data || [{}]} />;
+    return <ChartData data={data?.range?.data || [{}]} />;
   };
 
   return (

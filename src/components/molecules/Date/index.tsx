@@ -34,7 +34,11 @@ export default function DateCalendar({
       <LabeledInput
         name="date"
         title={title}
-        style={{ backgroundColor: " #E8F0FE", border: "2px solid #E8F0FE" }}
+        style={{
+          backgroundColor: " #E8F0FE",
+          border: "2px solid #E8F0FE",
+          padding: "10px 10px",
+        }}
         value={convert(dateState)}
         onClick={handleDateInput}
       />
