@@ -9,8 +9,20 @@ export const WrapperDate = styled(Grid).attrs({
     margin-top: 30px;
     flex-direction: column;
     gap: 15px;
-    ${mediaQueries.md} {
+    ${mediaQueries.lg} {
         flex-direction: row;
+    }
+`;
+
+export const TabsContainer = styled(Grid).attrs({
+    container: true,
+})`
+    align-items: flex-end;
+    padding: 5px 0;
+    gap: 20px;
+    order: 1;
+    ${mediaQueries.lg} {
+        order: 0;
     }
 `;
 
@@ -22,4 +34,6 @@ export const TabsText = styled.p`
     font-size: 14px;
     color: white;
     cursor: pointer;
+    flex: 1;
+    text-align: center;
 `;

@@ -74,7 +74,7 @@ export default function Product() {
                   </Grid>
                </Grid>
                <Grid container style={{ flex: 1 }} justifyContent='center' alignItems='center'>
-                  <ProductText>adf</ProductText>
+                  <ProductText>PPA</ProductText>
                </Grid>
                <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
                   <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import { colors } from "utils/styles";
 import Product from "./Product";
-import { TabsText, WrapperDate } from "./styles";
+import { TabsContainer, TabsText, WrapperDate } from "./styles";
 
 const tabs = ['MTD', 'YTD', 'WTD']
 
@@ -21,11 +21,11 @@ export default function Production() {
                <Toggler />
                <Text variant="h4" style={{ fontSize: '14px' }}>JS</Text>
             </Grid>
-            <Grid container alignItems="flex-end" style={{ padding: '5px 0' }} gap={20}>
+            <TabsContainer >
                {
                   tabs.map((item, index) => <TabsText key={index} style={{ backgroundColor: activeTabs === index ? colors.primary : '#A8A9AA' }} onClick={() => setActiveTabs(index)} >{item}</TabsText>)
                }
-            </Grid>
+            </TabsContainer>
             <Grid container >
                <DateCalendar dateState={date} setDateState={setDate} title="Date" />
             </Grid>
