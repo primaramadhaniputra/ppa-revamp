@@ -65,11 +65,17 @@ export default function Product() {
             <ProductTextContainer>
                <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
                   <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                     <Image src='/images/Ic-Target.png' height={20.5} width={16} alt='product logo' quality={100} />
+                     <Grid container gap={5}>
+                        <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                        <ProductText>P</ProductText>
+                     </Grid>
                      <ProductText>908</ProductText>
                   </Grid>
                   <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                     <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                     <Grid container gap={5}>
+                        <Image src='/images/Ic-Trophy.png' height={16} width={16} alt='product logo' quality={100} />
+                        <ProductText>A</ProductText>
+                     </Grid>
                      <ProductText>908</ProductText>
                   </Grid>
                </Grid>
@@ -78,11 +84,17 @@ export default function Product() {
                </Grid>
                <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
                   <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                     <Image src='/images/Ic-Target.png' height={20.5} width={16} alt='product logo' quality={100} />
+                     <Grid container gap={5}>
+                        <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                        <ProductText>P</ProductText>
+                     </Grid>
                      <ProductText>408</ProductText>
                   </Grid>
                   <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                     <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                     <Grid container gap={5}>
+                        <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                        <ProductText>A</ProductText>
+                     </Grid>
                      <ProductText>400</ProductText>
                   </Grid>
                </Grid>
@@ -105,11 +117,17 @@ export default function Product() {
                      <ProductTextContainer>
                         <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
                            <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                              <Image src='/images/Ic-Target.png' height={20.5} width={16} alt='product logo' quality={100} />
+                              <Grid container gap={5}>
+                                 <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                                 <ProductText>P</ProductText>
+                              </Grid>
                               <ProductText>908</ProductText>
                            </Grid>
                            <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                              <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                              <Grid container gap={5}>
+                                 <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                                 <ProductText>A</ProductText>
+                              </Grid>
                               <ProductText>908</ProductText>
                            </Grid>
                         </Grid>
@@ -118,11 +136,17 @@ export default function Product() {
                         </Grid>
                         <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
                            <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                              <Image src='/images/Ic-Target.png' height={20.5} width={16} alt='product logo' quality={100} />
+                              <Grid container gap={5}>
+                                 <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                                 <ProductText>P</ProductText>
+                              </Grid>
                               <ProductText>408</ProductText>
                            </Grid>
                            <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
-                              <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                              <Grid container gap={5}>
+                                 <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                                 <ProductText>A</ProductText>
+                              </Grid>
                               <ProductText>400</ProductText>
                            </Grid>
                         </Grid>
