@@ -40,8 +40,8 @@ export const ProductText = styled.p<IProps>`
         font-size: 13px;
     }
     ${mediaQueries.sm} {
-        font-size: 14px;
-        gap: 25px;
+        font-size: 15px;
+        gap: 15px;
     }
     ${mediaQueries.xl} {
         font-size: ${(props) => (props.variant === 'header' ? '24px' : '14px')};

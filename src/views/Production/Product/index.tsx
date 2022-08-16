@@ -57,7 +57,7 @@ export default function Product() {
                <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                   OB kbcm <SpanHeader style={{ backgroundColor: '#47BF34' }}>(105%)</SpanHeader>
                </ProductText>
-               <Image src='/images/production1.png' height={width > 350 ? 37 : 20} width={width > 350 ? 37 : 22} alt='product logo' quality={100} />
+               <Image src='/images/production1.png' height={width > 350 ? 37 : 20} width={width > 350 ? 37 : 20} alt='product logo' quality={100} />
                <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                   Coal kton <SpanHeader style={{ backgroundColor: '#EB3B3B' }}>(105%)</SpanHeader>
                </ProductText>
@@ -109,7 +109,7 @@ export default function Product() {
                         <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                            OB kbcm <SpanHeader style={{ backgroundColor: '#47BF34' }}>(105%)</SpanHeader>
                         </ProductText>
-                        <Image src={item.logo} height={width > 350 ? 37 : 20} width={width > 350 ? 37 : 22} alt='product logo' quality={100} />
+                        <Image src={item.logo} height={width > 350 ? 37 : 20} width={width > 350 ? 37 : 20} alt='product logo' quality={100} />
                         <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                            Coal kton <SpanHeader style={{ backgroundColor: '#EB3B3B' }}>(105%)</SpanHeader>
                         </ProductText>
