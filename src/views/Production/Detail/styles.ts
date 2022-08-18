@@ -5,4 +5,5 @@ export const ChartWrapper = styled.div`
     margin: auto;
     min-height: 60vh;
     align-items: center;
+    margin-top: 30px;
 `;

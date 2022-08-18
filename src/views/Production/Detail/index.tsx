@@ -27,11 +27,14 @@ export const options = {
    responsive: true,
    plugins: {
       legend: {
-         position: 'top' as const,
+         position: 'bottom' as const,
+         labels: {
+            padding: 30
+         },
       },
       title: {
          display: true,
-         text: 'Chart.js Line Chart',
+         text: 'Banana',
       },
    },
 };
@@ -42,10 +45,21 @@ export const data = {
    labels,
    datasets: [
       {
-         label: 'Dataset 1',
-         data: [100, 200, 300, 400],
-         borderColor: 'rgb(255, 99, 132)',
-         backgroundColor: 'rgba(255, 99, 132, 0.5)',
+         label: 'Plan',
+         data: [100, 200, 100, 400],
+         borderColor: '#E67C39',
+         backgroundColor: '#E67C39',
+         tension: .4,
+         pointRadius: 0,
+         pointHoverRadius: 0,
+      },
+      {
+         label: 'Produksi',
+         data: [200, 200, 200, 200],
+         borderColor: '#4571C2',
+         backgroundColor: '#4571C2',
+         pointRadius: 0,
+         pointHoverRadius: 0,
       },
 
    ],
