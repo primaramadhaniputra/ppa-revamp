@@ -1,5 +1,6 @@
 import { Grid, Text } from '@hudoro/neron'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useWindowSize } from 'utils/functions'
 import { fontWeights } from 'utils/styles'
@@ -50,9 +51,15 @@ const data = [
 
 export default function Product() {
    const { width } = useWindowSize()
+   const router = useRouter()
+
+   const showChart = () => {
+      router.push('detail/1')
+   }
+
    return (
       <>
-         <SingleProduct style={{ maxWidth: '500px', marginTop: '30px' }} >
+         <SingleProduct style={{ maxWidth: '500px', marginTop: '30px' }} onClick={showChart} >
             <HeaderContainer>
                <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                   OB kbcm <SpanHeader style={{ backgroundColor: '#47BF34' }}>(105%)</SpanHeader>
@@ -104,7 +111,7 @@ export default function Product() {
          <Wrapper>
             {
                data.map((item, index) =>
-                  <SingleProduct key={index} >
+                  <SingleProduct key={index} onClick={showChart} >
                      <HeaderContainer>
                         <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                            OB kbcm <SpanHeader style={{ backgroundColor: '#47BF34' }}>(105%)</SpanHeader>
