@@ -1,6 +1,6 @@
-import { fontFamilies, Grid } from '@hudoro/neron';
+import { fontFamilies, Grid, Text } from '@hudoro/neron';
 import styled from 'styled-components';
-import { mediaQueries } from 'utils/styles';
+import { fontWeights, mediaQueries } from 'utils/styles';
 
 interface IProps {
     variant?: string;
@@ -38,7 +38,7 @@ export const ProductText = styled.p<IProps>`
     align-items: center;
     gap: 5px;
     @media (min-width: 310px) {
-        font-size: 13px;
+        font-size: 12px;
     }
     ${mediaQueries.sm} {
         font-size: 15px;
@@ -47,6 +47,14 @@ export const ProductText = styled.p<IProps>`
     ${mediaQueries.xl} {
         font-size: ${(props) => (props.variant === 'header' ? '24px' : '14px')};
     }
+`;
+
+export const ProductTitle = styled(Text).attrs({
+    variant: 'h3',
+})`
+    font-weight: ${fontWeights.bold};
+    margin-top: 50px;
+    font-family: ${fontFamilies.poppins};
 `;
 
 export const SpanHeader = styled.span`
