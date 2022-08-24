@@ -1,10 +1,10 @@
-import { Grid, Text } from '@hudoro/neron'
+import { Grid } from '@hudoro/neron'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useWindowSize } from 'utils/functions'
 import { fontWeights } from 'utils/styles'
-import { HeaderContainer, ProductText, ProductTextContainer, SingleProduct, SpanHeader, Wrapper } from './styles'
+import { HeaderContainer, ProductText, ProductTextContainer, ProductTitle, SingleProduct, SpanHeader, Wrapper } from './styles'
 
 const data = [
    {
@@ -107,7 +107,7 @@ export default function Product() {
                </Grid>
             </ProductTextContainer>
          </SingleProduct>
-         <Text variant='h3' style={{ fontWeight: fontWeights.bold, marginTop: '50px' }} >Sites</Text>
+         <ProductTitle>Sites</ProductTitle>
          <Wrapper>
             {
                data.map((item, index) =>

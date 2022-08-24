@@ -31,9 +31,12 @@ export const TabsText = styled.p`
     border-radius: 5px;
     font-family: ${fontFamilies.poppins};
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     color: white;
     cursor: pointer;
     flex: 1;
     text-align: center;
+    ${mediaQueries.md} {
+        font-size: 14px;
+    }
 `;
