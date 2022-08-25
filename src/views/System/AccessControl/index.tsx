@@ -188,6 +188,7 @@ export default function AccessControl() {
 
   const closeEdit = () => {
     setIsEdit(false)
+    setformPosition(0)
   }
 
   isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
