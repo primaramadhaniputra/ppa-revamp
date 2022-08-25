@@ -23,7 +23,6 @@ import TableFilterSearch from "src/components/organism/TableFilterSearch";
 interface Person {
   [x: string]: any;
 }
-
 export const defaultDataTable = [{
   nrp: "HD787",
   name: "Hd123",
