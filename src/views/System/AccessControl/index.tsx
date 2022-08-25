@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -19,7 +19,8 @@ import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import Arrow from "atoms/Arrow";
-
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Html } from 'next/document'
 interface Person {
   [x: string]: any;
 }
@@ -44,11 +45,13 @@ export default function AccessControl() {
   const [dataUser, setDataUser] = React.useState<ISingleUser>()
   const router = useRouter()
   const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const [formPosition, setformPosition] = useState(0)
 
-  const handleEdit = async (e: { row: any }) => {
+  const handleEdit = async (target: any, e: { row: any }) => {
     const data = e.row.original
     setDataUser(data)
     setIsEdit(true)
+    setformPosition(target.pageY - target.clientY)
   }
   const handleResetPassword = async (e: any) => {
     const userID = e.row.original.Id
@@ -128,7 +131,7 @@ export default function AccessControl() {
                 cursor="pointer"
                 color="white"
                 strokeWidth={1.5}
-                onClick={() => handleEdit(info)}
+                onClick={(target) => handleEdit(target, info)}
 
               />
             </IconContainer>
@@ -185,11 +188,14 @@ export default function AccessControl() {
 
   const closeEdit = () => {
     setIsEdit(false)
+    setformPosition(0)
   }
+
+  isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
 
   return (
     <>
-      <FlyingForm closeForm={closeEdit} isEdit={isEdit} dataUser={dataUser} />
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} dataUser={dataUser} formPosition={formPosition} />
       <Container style={{ position: 'relative' }} >
         {isLoading && <Loading />}
         <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />

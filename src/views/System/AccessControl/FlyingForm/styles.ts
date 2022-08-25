@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors, fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
+    /* background-color: rgba(0, 0, 0, 0.3); */
     position: absolute;
     top: 0;
     /* bottom: -300px; */

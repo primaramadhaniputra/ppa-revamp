@@ -18,6 +18,7 @@ interface IProps {
   closeForm: () => void;
   isEdit?: boolean;
   dataUser: ISingleUser | undefined
+  formPosition: number
 }
 
 const levelData = [
@@ -53,7 +54,7 @@ const levelData = [
   },
 ]
 
-export default function FlyingForm({ closeForm, isEdit, dataUser }: IProps) {
+export default function FlyingForm({ closeForm, isEdit, dataUser, formPosition }: IProps) {
 
   const router = useRouter()
 
@@ -77,10 +78,9 @@ export default function FlyingForm({ closeForm, isEdit, dataUser }: IProps) {
       return notify(error.message, 'error')
     }
   }
-
   return (
     <Wrapper
-      style={{ opacity: isEdit ? "1" : "0", zIndex: isEdit ? "999" : "-999" }}
+      style={{ opacity: isEdit ? "1" : "0", zIndex: isEdit ? "999" : "-999", top: `${formPosition}px` }}
     >
       <Container
         style={{ transform: isEdit ? "translateY(0)" : "translateY(-15%)" }}
