@@ -47,8 +47,6 @@ const data = [
 ]
 
 export default function Product() {
-
-
    return (
       <>
          <TotalSites />
