@@ -36,12 +36,13 @@ export const ProductText = styled.p<IProps>`
     color: #000000;
     display: flex;
     align-items: center;
+    font-weight: ${fontWeights.medium};
     gap: 5px;
     @media (min-width: 310px) {
         font-size: 12px;
     }
     ${mediaQueries.sm} {
-        font-size: 15px;
+        font-size: 14px;
         gap: 15px;
     }
     ${mediaQueries.xl} {
@@ -55,6 +56,10 @@ export const ProductTitle = styled(Text).attrs({
     font-weight: ${fontWeights.bold};
     margin-top: 50px;
     font-family: ${fontFamilies.poppins};
+    font-size: 20px;
+    ${mediaQueries.sm} {
+        font-size: 24px;
+    }
 `;
 
 export const SpanHeader = styled.span`

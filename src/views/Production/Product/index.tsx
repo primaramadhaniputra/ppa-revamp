@@ -5,6 +5,7 @@ import React from 'react'
 import { useWindowSize } from 'utils/functions'
 import { fontWeights } from 'utils/styles'
 import { HeaderContainer, ProductText, ProductTextContainer, ProductTitle, SingleProduct, SpanHeader, Wrapper } from './styles'
+import TotalSites from './TotalSites'
 
 const data = [
    {
@@ -59,7 +60,7 @@ export default function Product() {
 
    return (
       <>
-         <SingleProduct style={{ maxWidth: '500px', marginTop: '30px' }} onClick={showChart} >
+         {/* <SingleProduct style={{ maxWidth: '500px', marginTop: '30px' }} onClick={showChart} >
             <HeaderContainer>
                <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
                   OB kbcm <SpanHeader style={{ backgroundColor: '#47BF34' }}>(105%)</SpanHeader>
@@ -106,7 +107,8 @@ export default function Product() {
                   </Grid>
                </Grid>
             </ProductTextContainer>
-         </SingleProduct>
+         </SingleProduct> */}
+         <TotalSites />
          <ProductTitle>Sites</ProductTitle>
          <Wrapper>
             {
