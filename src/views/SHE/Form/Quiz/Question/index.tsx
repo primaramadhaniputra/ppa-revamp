@@ -14,6 +14,8 @@ import {
 import { Grid, Icon } from '@hudoro/neron'
 import { IcEdit } from 'atoms/Icon';
 import FlyingForm from './FlyingForm';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Html } from 'next/document'
 
 interface IProps {
    [x: string]: any;
@@ -36,9 +38,11 @@ export default function Question() {
    const [globalFilter, setGlobalFilter] = React.useState("");
    const [sorting, setSorting] = React.useState<SortingState>([]);
    const [isEdit, setIsEdit] = React.useState(false)
+   const [formPosition, setformPosition] = React.useState(0)
 
-   const handleEdit = async () => {
+   const handleEdit = async (target: { pageY: number, clientY: number }) => {
       setIsEdit(true)
+      setformPosition(target.pageY - target.clientY)
    }
 
    const deleteQuestion = async () => {
@@ -61,7 +65,7 @@ export default function Question() {
                            cursor="pointer"
                            color="white"
                            strokeWidth={1.5}
-                           onClick={handleEdit}
+                           onClick={(target) => handleEdit(target)}
                         />
                      </IconContainer>
                      <IconContainer title='delete'>
@@ -118,11 +122,14 @@ export default function Question() {
 
    const closeEdit = () => {
       setIsEdit(false)
+      setformPosition(0)
    }
+
+   isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
 
    return (
       <>
-         <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+         <FlyingForm closeForm={closeEdit} isEdit={isEdit} formPosition={formPosition} />
          <Wrapper>
             <TableTitle variant='h4'>Data List Question Quiz</TableTitle>
             <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />

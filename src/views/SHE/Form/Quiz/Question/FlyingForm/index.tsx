@@ -15,12 +15,13 @@ import {
 interface IProps {
   closeForm: () => void;
   isEdit?: boolean;
+  formPosition: number
 }
 
-export default function FlyingForm({ closeForm, isEdit }: IProps) {
+export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) {
   return (
     <Wrapper
-      style={{ opacity: isEdit ? "1" : "0", zIndex: isEdit ? "999" : "-999" }}
+      style={{ opacity: isEdit ? "1" : "0", zIndex: isEdit ? "999" : "-999", top: `${formPosition}px` }}
     >
       <Container
         style={{ transform: isEdit ? "translateY(0)" : "translateY(-15%)" }}

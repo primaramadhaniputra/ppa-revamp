@@ -16,6 +16,8 @@ import { IcEdit } from "atoms/Icon";
 import FlyingForm from "molecules/FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Html } from 'next/document'
 
 interface Person {
   [x: string]: any;
@@ -38,12 +40,16 @@ export default function EmployeeMutation() {
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [isEdit, setIsEdit] = React.useState(false)
+  const [formPosition, setformPosition] = React.useState(0)
 
-  const handleEdit = () => {
+  const handleEdit = async (target: { pageY: number, clientY: number }) => {
     setIsEdit(true)
+    setformPosition(target.pageY - target.clientY)
   }
+
   const closeEdit = () => {
     setIsEdit(false)
+    setformPosition(0)
   }
 
   const columns: ColumnDef<Person>[] = objTitle.map(item => {
@@ -51,7 +57,7 @@ export default function EmployeeMutation() {
       accessorKey: item,
       cell: (info) => {
         return item === 'Action' ? <Grid>
-          <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={handleEdit} />
+          <IcEdit width={20} style={{ cursor: 'pointer' }} onClick={(target) => handleEdit(target)} />
         </Grid> : info.getValue()
       },
       header: () => (
@@ -88,9 +94,11 @@ export default function EmployeeMutation() {
   const handleChangeTotalShowData = (e: { target: { value: number } }) => {
     table.setPageSize(e.target.value);
   };
+
+  isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
   return (
     <Wrapper>
-      <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+      <FlyingForm closeForm={closeEdit} isEdit={isEdit} top={formPosition} />
       <WrapperTitle>
         <Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: '22px' }} >Employee Mutation</Text>
         <FileContainer>

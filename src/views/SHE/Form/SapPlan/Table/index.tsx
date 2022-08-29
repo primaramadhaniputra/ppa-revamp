@@ -15,6 +15,8 @@ import {
 import { Grid } from '@hudoro/neron'
 import { IcEdit } from 'atoms/Icon'
 import FlyingForm from './FlyingForm'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Html } from 'next/document'
 
 interface IProps {
    [x: string]: any;
@@ -44,8 +46,11 @@ export default function Table() {
    const [globalFilter, setGlobalFilter] = React.useState("");
    const [sorting, setSorting] = React.useState<SortingState>([]);
    const [isEdit, setIsEdit] = React.useState(false)
-   const handleEdit = async () => {
+   const [formPosition, setformPosition] = React.useState(0)
+
+   const handleEdit = async (target: { pageY: number, clientY: number }) => {
       setIsEdit(true)
+      setformPosition(target.pageY - target.clientY)
    }
 
    const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -54,7 +59,7 @@ export default function Table() {
          cell: (info) => {
             return <>
                {info.column.id === "Detail" ?
-                  <Grid container justifyContent='center' onClick={handleEdit}>
+                  <Grid container justifyContent='center' onClick={(target) => handleEdit(target)}>
                      <IcEdit width={18} strokeWidth={1.5} cursor='pointer' />
                   </Grid>
                   :
@@ -107,11 +112,14 @@ export default function Table() {
 
    const closeEdit = () => {
       setIsEdit(false)
+      setformPosition(0)
    }
+
+   isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any)
 
    return (
       <Wrapper>
-         <FlyingForm closeForm={closeEdit} isEdit={isEdit} />
+         <FlyingForm closeForm={closeEdit} isEdit={isEdit} formPosition={formPosition} />
          <TopFilter />
          <SecondFilter table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
          <TableComponent2

@@ -8,7 +8,7 @@ interface IType {
 
 export const Wrapper = styled.div<IType>`
   /* margin-top: 50px; */
-  padding: 10px 0;
+  padding: 15px 0;
   /* border-top: 1px solid #9b9ea2; */
   box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.5);
   ${mediaQueries.lg} {
