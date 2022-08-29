@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { colors, fontSizing, fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
+    /* background-color: rgba(0, 0, 0, 0.3); */
     position: absolute;
-    top: 0;
     /* bottom: -300px; */
     bottom: 0;
     left: 0;
@@ -29,6 +28,8 @@ export const Container = styled.form`
     border-radius: 5px;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
     transition: 1s;
+    max-height: 800px;
+    overflow-y: scroll;
 `;
 
 export const HeaderTextContainer = styled.div`
