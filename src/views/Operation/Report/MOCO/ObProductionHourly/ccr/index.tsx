@@ -17,6 +17,7 @@ import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
 import DisplayChart from "./DisplayChart";
+import { saveAs } from "file-saver";
 
 interface IProps {
   [x: string]: any;
@@ -99,6 +100,16 @@ export default function CCR() {
     setisChart(true)
   }
 
+  const exportFile = () => {
+    let lyrics =
+      "But still I'm having memories of high speeds when the cops crashed\n" +
+      "As I laugh, pushin the gas while my Glocks blast\n" +
+      "We was young and we was dumb but we had heart";
+
+    var blob = new Blob([lyrics], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "testfile1.txt");
+  }
+
   return (
     <>
       {isChart && <DisplayChart setisChart={setisChart} />}
@@ -112,7 +123,7 @@ export default function CCR() {
             <StyledButton onClick={handleShowChart}>Show Chart</StyledButton>
           </Grid>
           <Grid>
-            <StyledButton style={{ backgroundColor: colors.borderBlue }}>Export</StyledButton>
+            <StyledButton style={{ backgroundColor: colors.borderBlue }} onClick={exportFile}>Export</StyledButton>
           </Grid>
         </ShowChartWrapper>
         <TableComponent2
