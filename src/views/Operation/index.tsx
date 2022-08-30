@@ -10,6 +10,8 @@ import DeviceProductionLoadingTime from "./Report/DeviceProductionLoadingTime";
 import DeviceProductionPayload from "./Report/DeviceProductionPayload";
 import DeviceProductionSpeed from "./Report/DeviceProductionSpeed";
 import ObProductionDayli from "./Report/MOCO/ObProductionDayli";
+import ObProductionHourly from "./Report/MOCO/ObProductionHourly";
+
 import { ArrowDown, SelectContainer } from "./styles";
 
 
@@ -47,6 +49,10 @@ function renderContent(
     case "moco_obProduction_dayli":
       return (
         <ObProductionDayli />
+      );
+    case "moco_obProduction_hourly":
+      return (
+        <ObProductionHourly />
       );
     default:
       return <h1>banana</h1>;
