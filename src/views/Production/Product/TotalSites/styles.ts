@@ -11,17 +11,22 @@ export const SingleProduct = styled.div`
     box-shadow: 0px 1px 3px rgba(176, 176, 176, 0.8);
     border-radius: 5px;
     padding: 15px 20px;
-    ${mediaQueries.md} {
-        width: 325px;
-    }
 `;
 
 export const WrapperProduct = styled(Grid).attrs({
     container: true,
 })`
+    gap: 20px;
     flex-direction: column;
     ${mediaQueries.md} {
-        flex-direction: row;
+        display: grid;
+        grid-template-areas:
+            'ob coal '
+            'ore ore';
+        grid-template-columns: repeat(auto-fit, minMax(350px, 1fr));
+    }
+    ${mediaQueries['2xl']} {
+        grid-template-areas: 'ob coal ore';
     }
 `;
 
