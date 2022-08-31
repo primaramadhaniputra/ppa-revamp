@@ -1,6 +1,6 @@
 import { Grid, Text, Toggler } from "@hudoro/neron";
-import DateCalendar from "molecules/Date";
-import React, { useState } from "react";
+import DateWithRange from "molecules/DateWithRange";
+import React, { useEffect, useState } from "react";
 import Layout from "src/components/layouts/Dashboard/layout";
 import { colors } from "utils/styles";
 import Product from "./Product";
@@ -9,9 +9,50 @@ import { TabsContainer, TabsText, WrapperDate } from "./styles";
 const tabs = ['MTD', 'YTD', 'WTD']
 
 export default function Production() {
-   const [date, setDate] = useState(new Date())
    const [activeTabs, setActiveTabs] = useState(0)
+   const [date, setDate] = useState([
+      {
+         startDate: new Date(),
+         endDate: new Date(),
+         key: 'selection'
+      }
+   ]);
 
+   useEffect(() => {
+      if (activeTabs === 0) {
+         const date = new Date()
+         const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
+         setDate([
+            {
+               startDate: firstDay,
+               endDate: new Date(),
+               key: 'selection'
+            }
+         ])
+      } else if (activeTabs === 1) {
+         const date = new Date()
+         date.setMonth(0);
+         const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
+         setDate([
+            {
+               startDate: firstDay,
+               endDate: new Date(),
+               key: 'selection'
+            }
+         ])
+      } else {
+         const date = new Date();
+         date.setDate(date.getDate() - 7);
+         setDate([
+            {
+               startDate: date,
+               endDate: new Date(),
+               key: 'selection'
+            }
+         ])
+      }
+
+   }, [activeTabs])
 
    return (
       <Layout title="Production / Report">
@@ -27,7 +68,7 @@ export default function Production() {
                }
             </TabsContainer>
             <Grid container >
-               <DateCalendar dateState={date} setDateState={setDate} title="Date" />
+               <DateWithRange dateState={date} setDateState={setDate} title="Date" />
             </Grid>
          </WrapperDate>
          <Product />

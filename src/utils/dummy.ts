@@ -351,6 +351,11 @@ export const inputDropDownOperation2 = [
         values: 'moco_obProduction_dayli',
         label: ' Moco / OB Production / Dayli',
     },
+    {
+        id: 7,
+        values: 'moco_obProduction_hourly',
+        label: ' Moco / OB Production / Hourly',
+    },
 ];
 
 export const dummyValueTable = [

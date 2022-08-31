@@ -11,8 +11,8 @@ export default function TotalSites() {
             <ProductTitle style={{ marginTop: '0' }}>Total All Sites</ProductTitle>
             <Image src='/images/production1.png' width={37} height={37} alt='ppa logo' />
          </Grid>
-         <WrapperProduct gap={26}>
-            <SingleProduct>
+         <WrapperProduct >
+            <SingleProduct style={{ gridArea: 'ob' }}>
                <Grid container alignItems='center' gap={10}>
                   <Image src='/icons/CheckCircle.png' width={28} height={28} alt='circle logo' />
                   <Title >OB Kbcm</Title>
@@ -33,10 +33,31 @@ export default function TotalSites() {
                   <ProductText>908</ProductText>
                </Grid>
             </SingleProduct>
-            <SingleProduct>
+            <SingleProduct style={{ gridArea: 'coal' }}>
                <Grid container alignItems='center' gap={10}>
                   <Image src='/icons/coal.png' width={28} height={28} alt='circle logo' />
                   <Title >COAL Kton</Title>
+               </Grid>
+               <Lozenge style={{ backgroundColor: '#EB3B3B' }}>89%</Lozenge>
+               <Grid container justifyContent='space-between' style={{ marginBottom: '20px' }} >
+                  <Grid container gap={5}>
+                     <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                     <ProductText>P</ProductText>
+                  </Grid>
+                  <ProductText>908</ProductText>
+               </Grid>
+               <Grid container justifyContent='space-between'>
+                  <Grid container gap={5}>
+                     <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                     <ProductText>A</ProductText>
+                  </Grid>
+                  <ProductText>908</ProductText>
+               </Grid>
+            </SingleProduct>
+            <SingleProduct style={{ gridArea: 'ore' }}>
+               <Grid container alignItems='center' gap={10}>
+                  <Image src='/icons/coal.png' width={28} height={28} alt='circle logo' />
+                  <Title >ORE Kton</Title>
                </Grid>
                <Lozenge style={{ backgroundColor: '#EB3B3B' }}>89%</Lozenge>
                <Grid container justifyContent='space-between' style={{ marginBottom: '20px' }} >
