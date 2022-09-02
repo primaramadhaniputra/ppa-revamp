@@ -1,6 +1,6 @@
 import { ISelectItem, Select } from "@hudoro/neron";
+import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
 import Quiz from "./Quiz";
@@ -29,7 +29,10 @@ export default function Form() {
     setSelectedItem(e.values)
   }
   return (
-    <Layout title="SHE / Form" >
+    < >
+      <TitlePage type="h3" styles={{ fontSize: "22px" }}>
+        SHE / Form
+      </TitlePage>
       {width.width > 700 ? <TabsContainer>
         {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
       </TabsContainer> : <SelectContainer >
@@ -38,6 +41,6 @@ export default function Form() {
         <ArrowDown></ArrowDown>
       </SelectContainer>}
       {renderContent(selectedItem)}
-    </Layout>
+    </>
   );
 }

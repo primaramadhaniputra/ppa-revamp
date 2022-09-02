@@ -1,6 +1,6 @@
 import { ISelectItem, Select } from "@hudoro/neron";
+import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
 import AttendanceRevision from "./AttendanceRevision";
@@ -60,7 +60,10 @@ export default function Form() {
     setSelectedItem(e.values)
   }
   return (
-    <Layout title="Team Work / Form" >
+    <>
+      <TitlePage type="h3" styles={{ fontSize: "22px" }}>
+        Team Work / Form
+      </TitlePage>
       {width.width > 900 ? <TabsContainer>
         {tabsData.map((item, index) => <TabsText style={{ backgroundColor: selectedItem === item ? "white" : '', fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular }} key={index} onClick={() => setSelectedItem(item)}>{item}</TabsText>)}
       </TabsContainer> : <SelectContainer >
@@ -69,6 +72,6 @@ export default function Form() {
         <ArrowDown></ArrowDown>
       </SelectContainer>}
       {renderContent(selectedItem)}
-    </Layout>
+    </>
   );
 }

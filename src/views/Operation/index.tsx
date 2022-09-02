@@ -1,6 +1,5 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import { inputDropDownOperation2 } from "utils/dummy";
 // import { IDropdownData } from "utils/interfaces";
 // import DeviceProductionEmptySpeed from "./Report/DeviceProductionEmptySpeed";
@@ -67,12 +66,12 @@ export default function Operation() {
     setMenu(e?.values)
   }
 
-  return <Layout >
+  return <>
     <SelectContainer >
       <label>Menu</label>
       <Select items={inputDropDownOperation2} defaultValue={{ id: 0, value: "device_production_payload", label: "Device / Production / Payload" }} onChange={handleChangeMenu} />
       <ArrowDown></ArrowDown>
     </SelectContainer>
     {renderContent(menu)}
-  </Layout>;
+  </>;
 }
