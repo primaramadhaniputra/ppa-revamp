@@ -1,4 +1,5 @@
 import { Grid, Text, Toggler } from "@hudoro/neron";
+import TitlePage from "atoms/TitlePage";
 import DateWithRange from "molecules/DateWithRange";
 import React, { useEffect, useState } from "react";
 import { colors } from "utils/styles";
@@ -55,6 +56,7 @@ export default function Production() {
 
    return (
       <>
+         <TitlePage type="h3" styles={{ fontSize: "22px" }}>Production / Report</TitlePage>
          <WrapperDate>
             <Grid container gap={5} alignItems="flex-end" style={{ height: '44px', justifyContent: 'end' }} >
                <Text variant="h4" style={{ fontSize: '14px' }}>TC</Text>
