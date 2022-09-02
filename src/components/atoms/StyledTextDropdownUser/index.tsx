@@ -1,5 +1,5 @@
 import { Avatar, Grid, Icon, IIconProps, Text } from "@hudoro/neron";
-import React, { useState } from "react";
+import React from "react";
 import DeskTopSubMenu from "src/components/organism/Navbar/DesktopMenu/DeskTopSubMenu";
 import { useWindowSize } from "utils/customHooks";
 
@@ -13,6 +13,8 @@ interface IProps {
   };
   iconName?: IIconProps["iconName"];
   styles?: React.CSSProperties;
+  isDropdownUser?: boolean;
+  setIsDropdownUser?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function StyledTextDropdownUser({
@@ -21,11 +23,11 @@ export default function StyledTextDropdownUser({
   user,
   iconName = "IcArrowDown",
   styles,
+  isDropdownUser,
+  setIsDropdownUser,
 }: IProps) {
-  const [isUserDropdwon, setIsUserDropdwon] = useState(false);
-
   const handleUserDropdwon = () => {
-    return setIsUserDropdwon(!isUserDropdwon);
+    return setIsDropdownUser && setIsDropdownUser(!isDropdownUser);
   };
   const { width } = useWindowSize();
   return (
@@ -49,7 +51,7 @@ export default function StyledTextDropdownUser({
               { subMenuTitle: "Pengaturan", subMenuLink: "pengaturan" },
               { subMenuTitle: "Logout", subMenuLink: "" },
             ]}
-            isActive={isUserDropdwon}
+            isActive={isDropdownUser as boolean}
             style={{
               transform: width > 1024 ? "translateX(0px)" : "translateX(-40px)",
             }}
