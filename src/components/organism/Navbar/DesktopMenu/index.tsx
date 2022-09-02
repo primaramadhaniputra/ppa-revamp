@@ -1,5 +1,5 @@
 import { Grid, JustifyContentType } from "@hudoro/neron";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "utils/dummy";
 import StyledTextDropdownUser from "atoms/StyledTextDropdownUser";
 import { getProfile } from "services/users";
@@ -14,6 +14,33 @@ interface IProps {
 export default function DesktopMenu({ position }: IProps) {
   const [activeDropdown, setActiveDropdown] = useState(-1);
   const [userName, setUserName] = useState("");
+  const [isDropdownUser, setIsDropdownUser] = useState(false);
+
+  // function for check outside click
+  function useOutsideAlerter(ref: any) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event: any) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setActiveDropdown(-1);
+          setIsDropdownUser(false);
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
+
+  //
 
   const handleActiveNavbar = (index: number) => {
     if (activeDropdown === index) {
@@ -31,7 +58,7 @@ export default function DesktopMenu({ position }: IProps) {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       <Container
         style={{ flex: 1 }}
         container
@@ -56,7 +83,11 @@ export default function DesktopMenu({ position }: IProps) {
         ))}
       </Container>
       <Grid container gap={8} alignItems="center">
-        <StyledTextDropdownUser user={{ name: userName || "Undefined" }} />
+        <StyledTextDropdownUser
+          user={{ name: userName || "Undefined" }}
+          isDropdownUser={isDropdownUser}
+          setIsDropdownUser={setIsDropdownUser}
+        />
       </Grid>
     </Wrapper>
   );
