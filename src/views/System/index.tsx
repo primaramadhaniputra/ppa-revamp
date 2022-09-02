@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import AbsMachine from "./AbsMachine";
 import AccessControl from "./AccessControl";
 import Database from "./Database";
@@ -9,6 +8,7 @@ import Survey from "./Survey";
 import VHMSDownload from "./VHMSDownload";
 import AppVersionControl from "./AppVersionControl";
 import UserFeedback from "./UserFeedback";
+import TitlePage from "atoms/TitlePage";
 
 interface IProps {
   pageTitle: string;
@@ -38,5 +38,8 @@ const renderContent = (type: string) => {
 };
 
 export default function Sytem({ pageTitle, type }: IProps) {
-  return <Layout title={`system / ${pageTitle}`}>{renderContent(type)}</Layout>;
+  return <>
+    <TitlePage type="h3" styles={{ fontSize: "22px" }}>system / {pageTitle}</TitlePage>
+    {renderContent(type)}
+  </>;
 }

@@ -1,4 +1,3 @@
-import TitlePage from "atoms/TitlePage";
 import { useEffect, useState } from "react";
 import { currentLoginPages } from "services/pages";
 import Footer from "src/components/organism/Footer";
@@ -12,6 +11,7 @@ interface IProps {
 }
 
 export default function Layout({ title, children }: IProps) {
+  console.log(title);
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
   const [navbarPosition, setNavbarPosition] = useState<
     "start" | "center" | "end"
@@ -45,7 +45,7 @@ export default function Layout({ title, children }: IProps) {
         position={navbarPosition}
       />
       <ContentWrapper>
-        {title && (
+        {/* {title && (
           <TitlePage
             type="h3"
             styles={{
@@ -55,7 +55,7 @@ export default function Layout({ title, children }: IProps) {
           >
             {title}
           </TitlePage>
-        )}
+        )} */}
         {children}
       </ContentWrapper>
       <Footer type="dashboard" />

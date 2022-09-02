@@ -1,7 +1,6 @@
 import { Grid, Text, Toggler } from "@hudoro/neron";
 import DateWithRange from "molecules/DateWithRange";
 import React, { useEffect, useState } from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import { colors } from "utils/styles";
 import Product from "./Product";
 import { TabsContainer, TabsText, WrapperDate } from "./styles";
@@ -55,7 +54,7 @@ export default function Production() {
    }, [activeTabs])
 
    return (
-      <Layout title="Production / Report">
+      <>
          <WrapperDate>
             <Grid container gap={5} alignItems="flex-end" style={{ height: '44px', justifyContent: 'end' }} >
                <Text variant="h4" style={{ fontSize: '14px' }}>TC</Text>
@@ -72,6 +71,6 @@ export default function Production() {
             </Grid>
          </WrapperDate>
          <Product />
-      </Layout>
+      </>
    );
 }
