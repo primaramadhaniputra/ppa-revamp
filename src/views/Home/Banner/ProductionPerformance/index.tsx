@@ -9,9 +9,16 @@ import ProductionPerformanceTabHeader from "./ProductionPerformanceTabHeader";
 import { AchContainer, AchLabel, Container, TabsAch, TabsAchContainer, TitleContainer } from "./styles";
 
 const tabsText = ['YTD', 'MTD', 'WTD']
+const tabsObText = ['JS', 'TC']
 
 export default function ProductionPerformance() {
   const [activeTab, setActiveTab] = useState(0)
+  const [activeTabOb, setActiveTabOb] = useState(0)
+
+  const handleActiveOb = (no: number) => {
+    setActiveTabOb(no)
+  }
+
 
   return (
     <>
@@ -43,8 +50,9 @@ export default function ProductionPerformance() {
                     </TitlePage>
                     {data.title === 'OB' &&
                       <TabsAchContainer>
-                        <TabsAch style={{ backgroundColor: colors.orange, color: 'white' }}>JS</TabsAch>
-                        <TabsAch >TC</TabsAch>
+                        {tabsObText.map((item, number) => {
+                          return <TabsAch key={number} style={{ backgroundColor: activeTabOb === number ? colors.orange : 'inherit', color: activeTabOb === number ? 'white' : '' }} onClick={() => handleActiveOb(number)}>{item}</TabsAch>
+                        })}
                       </TabsAchContainer>
                     }
                   </TitleContainer>
