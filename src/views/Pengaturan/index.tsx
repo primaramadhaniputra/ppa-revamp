@@ -1,6 +1,6 @@
+import TitlePage from "atoms/TitlePage";
 import Tabs from "molecules/Tabs";
 import React, { useState } from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import AdminTab from "./AdminTab";
 import PasswordTab from "./PasswordTab";
 import ProfileTab from "./ProfileTab";
@@ -25,19 +25,18 @@ export default function Pengaturan({ isAdmin }: IProps) {
 
   return (
     <>
+      <TitlePage type="h3" styles={{ fontSize: "22px" }}>
+        Pengaturan
+      </TitlePage>
       {isAdmin ? (
-        <Layout title="Pengaturan">
-          <Container>
-            <TabWrapper>
-              <Tabs activeTab={activeTab} setactiveTab={setactiveTab} />
-            </TabWrapper>
-            {renderContent()}
-          </Container>
-        </Layout>
+        <Container>
+          <TabWrapper>
+            <Tabs activeTab={activeTab} setactiveTab={setactiveTab} />
+          </TabWrapper>
+          {renderContent()}
+        </Container>
       ) : (
-        <Layout title="Pengaturan">
-          <ProfileTab />
-        </Layout>
+        <ProfileTab />
       )}
     </>
   );

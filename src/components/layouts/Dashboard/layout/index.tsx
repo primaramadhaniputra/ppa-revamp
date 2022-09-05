@@ -7,11 +7,9 @@ import { ContentWrapper, Wrapper } from "./styles";
 
 interface IProps {
   children: React.ReactNode;
-  title?: string;
 }
 
-export default function Layout({ title, children }: IProps) {
-  console.log(title);
+export default function Layout({ children }: IProps) {
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
   const [navbarPosition, setNavbarPosition] = useState<
     "start" | "center" | "end"
@@ -44,20 +42,7 @@ export default function Layout({ title, children }: IProps) {
         showHamburgerMenu={showHamburgerMenu}
         position={navbarPosition}
       />
-      <ContentWrapper>
-        {/* {title && (
-          <TitlePage
-            type="h3"
-            styles={{
-              fontSize: "22px",
-              // lineHeight: fontSizing["2xl"].lineHeight,
-            }}
-          >
-            {title}
-          </TitlePage>
-        )} */}
-        {children}
-      </ContentWrapper>
+      <ContentWrapper>{children}</ContentWrapper>
       <Footer type="dashboard" />
     </Wrapper>
   );

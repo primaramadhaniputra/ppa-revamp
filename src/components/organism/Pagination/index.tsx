@@ -35,11 +35,9 @@ export default function Pagination({
       <ReactPaginate
         breakLabel="..."
         nextLabel="next"
-        // onPageChange={(e) => console.log('asdfasdfadsf', e)}
         pageRangeDisplayed={1}
         pageCount={numberOfPages}
         previousLabel="previous"
-        // renderOnZeroPageCount={(e) => e}
         activeClassName="activePage"
         initialPage={0}
         onClick={handleClick}
