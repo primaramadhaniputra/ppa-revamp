@@ -26,8 +26,6 @@ export default function TopFilter({ setDataTable }: IProps) {
       try {
          const startDate = convert(fromDateState)
          const fromDate = convert(toDateState)
-         console.log(startDate)
-         console.log(fromDate)
          const data = await getDayliMoco({
             params: {
                start: startDate,

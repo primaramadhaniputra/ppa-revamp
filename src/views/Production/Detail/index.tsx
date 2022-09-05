@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from 'src/components/layouts/Dashboard/layout';
 import {
    Chart as ChartJS,
    CategoryScale,
@@ -67,10 +66,8 @@ export const data = {
 
 export default function ProductionDetail() {
    return (
-      <Layout title="Production / Detail">
-         <ChartWrapper>
-            <Line options={options} data={data} />
-         </ChartWrapper>
-      </Layout>
+      <ChartWrapper>
+         <Line options={options} data={data} />
+      </ChartWrapper>
    );
 }

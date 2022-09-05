@@ -36,7 +36,6 @@ interface IProps {
 }
 
 export default function Trend({ datas }: IProps) {
-  console.log(datas)
   const options = {
     responsive: true,
     plugins: {

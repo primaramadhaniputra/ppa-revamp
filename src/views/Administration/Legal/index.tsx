@@ -4,7 +4,7 @@ import Layout from "src/components/layouts/Dashboard/layout";
 
 export default function Legal() {
   return (
-    <Layout title="Administration / Legal">
+    <Layout>
       <Grid style={{ maxWidth: "300px" }}>
       </Grid>
     </Layout>

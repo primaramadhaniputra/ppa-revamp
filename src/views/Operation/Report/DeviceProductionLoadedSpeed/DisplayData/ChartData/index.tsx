@@ -24,7 +24,6 @@ interface IProps {
 }
 
 export default function ChartData({ data }: IProps) {
-  console.log('adsfasdfasdfasdfasdf', data)
   const options = {
     responsive: true,
     plugins: {

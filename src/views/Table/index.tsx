@@ -1,6 +1,5 @@
 import { Card, Lozenge } from "@hudoro/neron";
 import React from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 import InputComp from "./InputComp";
 import PaginationComp from "./PaginationComp";
 import { Wrapper } from "./styles";
@@ -95,28 +94,26 @@ export default function Table() {
   };
 
   return (
-    <Layout title="Table">
-      <Wrapper style={{ marginTop: "50px" }}>
-        <Card>
-          <InputComp
-            value={{
-              id: 0,
-              values: `${table.getState().pagination.pageSize}`,
-              label: `${table.getState().pagination.pageSize}`,
-            }}
-            handleChange={handleChangeTotalShowData}
-          />
-          <TableComp table={table} />
-          <PaginationComp
-            dataPerPage={table.getRowModel().rows.length}
-            totalData={table.getPreFilteredRowModel().rows.length}
-            currentPage={table.getState().pagination.pageIndex + 1}
-            totalPage={table.getPageCount()}
-            nextButtonEvent={() => table.nextPage()}
-            previousButtonEvent={() => table.previousPage()}
-          />
-        </Card>
-      </Wrapper>
-    </Layout>
+    <Wrapper style={{ marginTop: "50px" }}>
+      <Card>
+        <InputComp
+          value={{
+            id: 0,
+            values: `${table.getState().pagination.pageSize}`,
+            label: `${table.getState().pagination.pageSize}`,
+          }}
+          handleChange={handleChangeTotalShowData}
+        />
+        <TableComp table={table} />
+        <PaginationComp
+          dataPerPage={table.getRowModel().rows.length}
+          totalData={table.getPreFilteredRowModel().rows.length}
+          currentPage={table.getState().pagination.pageIndex + 1}
+          totalPage={table.getPageCount()}
+          nextButtonEvent={() => table.nextPage()}
+          previousButtonEvent={() => table.previousPage()}
+        />
+      </Card>
+    </Wrapper>
   );
 }
