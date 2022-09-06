@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <RecoilRoot>
         <ParallaxProvider>
-          {router.pathname === "/" ? (
+          {router.pathname === "/" || router.pathname === "/forgot-password" ? (
             <Component {...pageProps} />
           ) : (
             <Layout>
