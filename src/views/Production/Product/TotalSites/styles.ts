@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { fontWeights, mediaQueries } from 'utils/styles';
 
 export const Wrapper = styled.div`
-    margin-top: 55px;
+    margin-top: 49px;
 `;
 
 export const SingleProduct = styled.div`

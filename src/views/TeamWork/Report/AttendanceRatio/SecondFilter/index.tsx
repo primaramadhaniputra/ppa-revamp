@@ -4,6 +4,7 @@ import ShowDataTable from 'molecules/ShowDataTable'
 import React from 'react'
 import { colors, fontSizing, fontWeights } from 'utils/styles'
 import { ButtonWrapper, ContainerPeriode, StyledText, Wrapper, StyledInput } from './styles'
+import { exportFile } from "utils/functions";
 
 interface IProps {
    handleChangeTotalShowData: (e: {
@@ -79,6 +80,7 @@ export default function SecondFilter({ table, handleChangeTotalShowData, globalF
                   borderRadius: "2px",
                   fontSize: fontSizing.lg.fontSize,
                }}
+               onClick={exportFile}
             >
                EXPORT XLS
             </StyledButton>

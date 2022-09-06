@@ -17,7 +17,7 @@ import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
 import DisplayChart from "./DisplayChart";
-import { saveAs } from "file-saver";
+import { exportFile } from "utils/functions";
 
 interface IProps {
   [x: string]: any;
@@ -98,12 +98,6 @@ export default function CCR() {
 
   const handleShowChart = () => {
     setisChart(true)
-  }
-
-  const exportFile = () => {
-    const data = defaultDataTable.map(data => data[10])
-    var blob = new Blob(data, { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "testfile1.txt");
   }
 
   return (

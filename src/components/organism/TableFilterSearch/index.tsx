@@ -3,6 +3,7 @@ import StyledButton from "atoms/StyledButton";
 import ShowDataTable from "molecules/ShowDataTable";
 import React from "react";
 import { colors, fontSizing, fontWeights } from "utils/styles";
+import { exportFile } from "utils/functions";
 import {
   ButtonWrapper,
   ContainerPeriode,
@@ -99,6 +100,7 @@ export default function TableFilterSearch({
               borderRadius: "2px",
               fontSize: fontSizing.lg.fontSize,
             }}
+            onClick={exportFile}
           >
             {buttonTitle}
           </StyledButton>
