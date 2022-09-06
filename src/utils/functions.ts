@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 import { NotificationType } from './types';
 import { useState, useEffect } from 'react';
+import { saveAs } from 'file-saver';
 
 export const resolveBackendValidationError = (errorData: any) => {
     if (errorData && errorData.errors) {
@@ -115,3 +116,8 @@ export function useWindowSize() {
     }, []);
     return windowSize;
 }
+
+export const exportFile = () => {
+    var blob = new Blob(['testing'], { type: 'text/plain;charset=utf-8' });
+    saveAs(blob, 'testfile1.txt');
+};
