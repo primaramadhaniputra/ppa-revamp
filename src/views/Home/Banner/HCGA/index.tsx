@@ -1,12 +1,17 @@
 import { Grid } from '@hudoro/neron'
 import TitlePage from 'atoms/TitlePage'
+import dynamic from 'next/dynamic'
 import React from 'react'
 import { fontSizing, fontWeights } from 'utils/styles'
 import { Item } from '../styles'
 import DoughnutChart from './DoughnutChart'
 import GridChart from './GridChart'
-import LineChart from './LineChart'
+// import LineChart from './LineChart'
 import PieChart from './PieChart'
+
+const LineChart = dynamic(() => import("./LineChart"), {
+   ssr: false,
+});
 
 export default function HCGA() {
    const data = {
