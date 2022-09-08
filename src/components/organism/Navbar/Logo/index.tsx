@@ -1,7 +1,7 @@
 import { Avatar, Grid, Icon } from "@hudoro/neron";
 import StyledTextDropdownUser from "atoms/StyledTextDropdownUser";
 import Router from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { HamburgerWrapper, LogoWrapper } from "./styles";
 
 interface IProps {
@@ -9,6 +9,7 @@ interface IProps {
 }
 
 export default function Logo({ handleChangeHamburgerMenu }: IProps) {
+  const [isDropdownUser, setIsDropdownUser] = useState(false);
   const backTodashboard = () => {
     return Router.push("/dashboard");
   };
@@ -31,7 +32,11 @@ export default function Logo({ handleChangeHamburgerMenu }: IProps) {
           onClick={handleChangeHamburgerMenu}
         />
         <Grid container alignItems="center" gap={8}>
-          <StyledTextDropdownUser user={{ name: "dani" }} />
+          <StyledTextDropdownUser
+            user={{ name: "dani" }}
+            isDropdownUser={isDropdownUser}
+            setIsDropdownUser={setIsDropdownUser}
+          />
         </Grid>
       </HamburgerWrapper>
     </LogoWrapper>
