@@ -8,7 +8,6 @@ export const ContentWrapper = styled.article`
   padding: 30px 15px;
   background-color: #fff;
   min-height: calc(100vh - 70px);
-  /* min-height: calc(100vh - 105px); */
   background-color: #f6f8fa;
   ${mediaQueries.md} {
     min-height: calc(100vh - 80px);
@@ -19,20 +18,3 @@ export const ContentWrapper = styled.article`
     margin-top: 0px;
   }
 `;
-
-// export const LinkWrapper = styled(Grid)`
-//   margin-top: 40px;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 20px;
-//   ${mediaQueries.lg} {
-//     display: none;
-//   }
-// `;
-
-// export const SubMenuWrapper = styled.div``;
-// export const SubMenu = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     gap: 5px;
-// `;

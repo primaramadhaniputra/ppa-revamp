@@ -39,6 +39,7 @@ export default function StyledTextDropdownUser({
             src="/images/tukang.jpg"
             size="m"
             style={{ height: "35px", width: "35px" }}
+            alt="user image"
           />
           <Icon
             iconName={iconName}

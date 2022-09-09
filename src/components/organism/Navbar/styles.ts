@@ -2,9 +2,7 @@ import styled from "styled-components";
 import { colors, mediaQueries } from "utils/styles";
 
 export const NavbarWrapper = styled.div`
-  /* padding: 25px 32px; */
   padding: 8.5px 32px;
-  /* height: 55px; */
   position: absolute;
   right: 0;
   left: 0;

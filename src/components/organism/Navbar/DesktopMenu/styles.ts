@@ -17,10 +17,5 @@ export const Wrapper = styled.div`
 export const Container = styled(Grid)`
   ${mediaQueries.md} {
     gap: 14px;
-    /* gap: 10px; */
-  }
-
-  ${mediaQueries.xl} {
-    /* gap: 32px; */
   }
 `;
