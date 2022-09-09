@@ -16,20 +16,16 @@ export default function Navbar({
   showHamburgerMenu,
   position,
 }: IProps) {
-  const renderHambrgerMenu = () => {
-    return (
-      <LinkWrapper>
-        {Link.map((item) => (
-          <HamburgerMenu item={item} />
-        ))}
-      </LinkWrapper>
-    );
-  };
-
   return (
     <NavbarWrapper>
       <Logo handleChangeHamburgerMenu={handleChangeHamburgerMenu} />
-      {showHamburgerMenu && renderHambrgerMenu()}
+      {showHamburgerMenu && (
+        <LinkWrapper>
+          {Link.map((item) => (
+            <HamburgerMenu item={item} />
+          ))}
+        </LinkWrapper>
+      )}
       <DesktopMenu position={position} />
     </NavbarWrapper>
   );

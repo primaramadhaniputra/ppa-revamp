@@ -21,6 +21,7 @@ export default function Logo({ handleChangeHamburgerMenu }: IProps) {
           size="m"
           onClick={backTodashboard}
           style={{ height: "35px", width: "35px", cursor: "pointer" }}
+          alt="ppa logo"
         />
       </Grid>
       <HamburgerWrapper>
