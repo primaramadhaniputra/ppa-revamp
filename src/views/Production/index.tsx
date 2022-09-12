@@ -12,11 +12,12 @@ import { TabsContainer, TabsText, WrapperDate } from "./styles";
 const tabs = ['MTD', 'YTD', 'WTD']
 
 export default function Production() {
-   const [activeTabs, setActiveTabs] = useState(0)
+   const [activeTabs, setActiveTabs] = useState(-1)
    const [sites, setSites] = useState<allSites[]>()
    const [date, setDate] = useState([
       {
-         startDate: new Date(),
+
+         startDate: convert(new Date().setDate(new Date().getDate() - 1)) as any,
          endDate: new Date(),
          key: 'selection'
       }
@@ -44,7 +45,7 @@ export default function Production() {
                key: 'selection'
             }
          ])
-      } else {
+      } else if (activeTabs === 2) {
          const date = new Date();
          date.setDate(date.getDate() - 7);
          setDate([
@@ -63,8 +64,10 @@ export default function Production() {
          return 'mtd'
       } else if (type === 1) {
          return 'ytd'
-      } else {
+      } else if (type === 2) {
          return 'wtd'
+      } else {
+         return 'all'
       }
    }
 
