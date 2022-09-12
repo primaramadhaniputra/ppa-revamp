@@ -12,7 +12,7 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { IcEdit } from "atoms/Icon";
-import FlyingForm from "molecules/FlyingForm";
+import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TopFilter from "./TopFilter";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
