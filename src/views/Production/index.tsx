@@ -16,8 +16,8 @@ export default function Production() {
    const [sites, setSites] = useState<allSites[]>()
    const [date, setDate] = useState([
       {
-
-         startDate: convert(new Date().setDate(new Date().getDate() - 1)) as any,
+         // startDate: convert(new Date().setDate(new Date().getDate() - 1)) as any,
+         startDate: new Date(),
          endDate: new Date(),
          key: 'selection'
       }

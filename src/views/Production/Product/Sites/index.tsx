@@ -35,14 +35,14 @@ export default function Sites({ sites }: IProps) {
                   </HeaderContainer>
                   <ProductTextContainer>
                      <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
-                        <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
+                        <Grid container justifyContent='space-between'>
                            <Grid container gap={5}>
                               <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
                               <ProductText>P</ProductText>
                            </Grid>
                            <ProductText>{item.data[0].plan || 0}</ProductText>
                         </Grid>
-                        <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
+                        <Grid container justifyContent='space-between' >
                            <Grid container gap={5}>
                               <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
                               <ProductText>A</ProductText>
@@ -54,14 +54,14 @@ export default function Sites({ sites }: IProps) {
                         <ProductText>{item.siteName}</ProductText>
                      </Grid>
                      <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
-                        <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
+                        <Grid container justifyContent='space-between' >
                            <Grid container gap={5}>
                               <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
                               <ProductText>P</ProductText>
                            </Grid>
                            <ProductText>{item.data[2].plan || 0}</ProductText>
                         </Grid>
-                        <Grid container justifyContent='space-between' style={{ flex: 1, maxWidth: '150px' }}>
+                        <Grid container justifyContent='space-between' >
                            <Grid container gap={5}>
                               <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
                               <ProductText>A</ProductText>
