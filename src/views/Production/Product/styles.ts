@@ -88,5 +88,5 @@ export const ProductTextContainer = styled(Grid).attrs({
     container: true,
 })`
     justify-content: space-between;
-    gap: 5px;
+    /* gap: 5px; */
 `;

@@ -34,7 +34,7 @@ export default function Sites({ sites }: IProps) {
                      </ProductText>
                   </HeaderContainer>
                   <ProductTextContainer>
-                     <Grid container style={{ flex: 1 }} flexDirection='column' gap={10} >
+                     <Grid container style={{ flex: 1.5 }} flexDirection='column' gap={10} >
                         <Grid container justifyContent='space-between'>
                            <Grid container gap={5}>
                               <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />

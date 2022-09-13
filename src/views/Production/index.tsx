@@ -1,4 +1,5 @@
 import { Grid, Text, Toggler } from "@hudoro/neron";
+import Loading from "atoms/Loading";
 import TitlePage from "atoms/TitlePage";
 import DateWithRange from "molecules/DateWithRange";
 import React, { useEffect, useState } from "react";
@@ -14,6 +15,7 @@ const tabs = ['MTD', 'YTD', 'WTD']
 export default function Production() {
    const [activeTabs, setActiveTabs] = useState(-1)
    const [sites, setSites] = useState<allSites[]>()
+   const [isLoading, setIsLoading] = useState(true)
    const [date, setDate] = useState([
       {
          // startDate: convert(new Date().setDate(new Date().getDate() - 1)) as any,
@@ -73,6 +75,7 @@ export default function Production() {
 
    const getSites = async () => {
       try {
+         setIsLoading(true)
          const startTime = convert(Date.parse(date[0].startDate as unknown as string))
          const endTime = convert(Date.parse(date[0].endDate as unknown as string))
 
@@ -84,8 +87,10 @@ export default function Production() {
             }
          })
          setSites(data.data.data)
+         setIsLoading(false)
          return notify('Berhasil mendapatkan data', 'success')
       } catch (error: any) {
+         setIsLoading(false)
          return notify(error.message, 'error')
       }
    }
@@ -111,7 +116,12 @@ export default function Production() {
                <DateWithRange dateState={date} setDateState={setDate} title="Date" />
             </Grid>
          </WrapperDate>
-         <Product sites={sites as allSites[]} />
+         {isLoading ?
+            <Grid style={{ marginTop: 100, position: 'relative', }}>
+               <Loading />
+            </Grid> : <Product sites={sites as allSites[]} />
+         }
+
       </>
    );
 }
