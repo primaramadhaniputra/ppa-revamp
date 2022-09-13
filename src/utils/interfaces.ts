@@ -101,3 +101,16 @@ export interface ISingleUser {
     Position: string;
     Id: string;
 }
+
+export interface site {
+    id: number;
+    plan: string | number | null;
+    production: string | number | null;
+    name: string;
+}
+
+export interface allSites {
+    id: number;
+    siteName: string;
+    data: site[];
+}

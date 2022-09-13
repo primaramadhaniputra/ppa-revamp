@@ -1,7 +1,11 @@
 import { Grid, Text, Toggler } from "@hudoro/neron";
+import Loading from "atoms/Loading";
 import TitlePage from "atoms/TitlePage";
 import DateWithRange from "molecules/DateWithRange";
 import React, { useEffect, useState } from "react";
+import { getAllSiteProduction } from "services/production";
+import { convert, notify } from "utils/functions";
+import { allSites } from "utils/interfaces";
 import { colors } from "utils/styles";
 import Product from "./Product";
 import { TabsContainer, TabsText, WrapperDate } from "./styles";
@@ -9,7 +13,9 @@ import { TabsContainer, TabsText, WrapperDate } from "./styles";
 const tabs = ['MTD', 'YTD', 'WTD']
 
 export default function Production() {
-   const [activeTabs, setActiveTabs] = useState(0)
+   const [activeTabs, setActiveTabs] = useState(-1)
+   const [sites, setSites] = useState<allSites[]>()
+   const [isLoading, setIsLoading] = useState(true)
    const [date, setDate] = useState([
       {
          startDate: new Date(),
@@ -40,7 +46,7 @@ export default function Production() {
                key: 'selection'
             }
          ])
-      } else {
+      } else if (activeTabs === 2) {
          const date = new Date();
          date.setDate(date.getDate() - 7);
          setDate([
@@ -54,6 +60,43 @@ export default function Production() {
 
    }, [activeTabs])
 
+   const groupType = (type: number) => {
+      if (type === 0) {
+         return 'mtd'
+      } else if (type === 1) {
+         return 'ytd'
+      } else if (type === 2) {
+         return 'wtd'
+      } else {
+         return 'all'
+      }
+   }
+
+   const getSites = async () => {
+      try {
+         setIsLoading(true)
+         const startTime = convert(Date.parse(date[0].startDate as unknown as string))
+         const endTime = convert(Date.parse(date[0].endDate as unknown as string))
+
+         const data = await getAllSiteProduction({
+            params: {
+               start: startTime,
+               end: endTime,
+               group: groupType(activeTabs)
+            }
+         })
+         setSites(data.data.data)
+         setIsLoading(false)
+         return notify('Berhasil mendapatkan data', 'success')
+      } catch (error: any) {
+         setIsLoading(false)
+         return notify(error.message, 'error')
+      }
+   }
+
+   useEffect(() => {
+      getSites()
+   }, [date])
    return (
       <>
          <TitlePage type="h3" styles={{ fontSize: "22px" }}>Production / Report</TitlePage>
@@ -72,7 +115,11 @@ export default function Production() {
                <DateWithRange dateState={date} setDateState={setDate} title="Date" />
             </Grid>
          </WrapperDate>
-         <Product />
+         {isLoading ?
+            <Grid style={{ marginTop: 100, position: 'relative', }}>
+               <Loading />
+            </Grid> : <Product sites={sites as allSites[]} />
+         }
       </>
    );
 }

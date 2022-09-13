@@ -28,6 +28,9 @@ const API = {
 
     // MOCO
     dayli: apiRequest.get(apiEndpoints.moco, true),
+
+    // PRODUCTION
+    getAllSiteProduction: apiRequest.get(apiEndpoints.production, true),
 };
 
 export default API;
