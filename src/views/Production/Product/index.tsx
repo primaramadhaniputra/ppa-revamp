@@ -11,7 +11,7 @@ interface IProps {
 export default function Product({ sites }: IProps) {
    return (
       <>
-         <TotalSites />
+         <TotalSites sites={sites} />
          <ProductTitle>Sites</ProductTitle>
          <Sites sites={sites} />
       </>

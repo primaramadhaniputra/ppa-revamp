@@ -18,7 +18,6 @@ export default function Production() {
    const [isLoading, setIsLoading] = useState(true)
    const [date, setDate] = useState([
       {
-         // startDate: convert(new Date().setDate(new Date().getDate() - 1)) as any,
          startDate: new Date(),
          endDate: new Date(),
          key: 'selection'
@@ -121,7 +120,6 @@ export default function Production() {
                <Loading />
             </Grid> : <Product sites={sites as allSites[]} />
          }
-
       </>
    );
 }

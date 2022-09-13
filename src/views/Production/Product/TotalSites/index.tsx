@@ -1,10 +1,32 @@
 import { Grid } from '@hudoro/neron'
 import Image from 'next/image'
 import React from 'react'
+import { allSites } from 'utils/interfaces'
 import { ProductText, ProductTitle } from '../styles'
 import { Lozenge, SingleProduct, Title, Wrapper, WrapperProduct } from './styles'
 
-export default function TotalSites() {
+interface IProps {
+   sites: allSites[]
+}
+
+export default function TotalSites({ sites }: IProps) {
+
+   const data = sites?.reduce((acc, curr) => {
+      curr.data.map(item => {
+         if (item.name === 'Over Burden') {
+            acc.obPlan += parseInt(item.plan as string) || 0
+            acc.obProduction += parseInt(item.production as string) || 0
+         } else if (item.name === 'Coal') {
+            acc.coalPlan += parseInt(item.plan as string) || 0
+            acc.coalProduction += parseInt(item.production as string) || 0
+         } else if (item.name === 'Ore') {
+            acc.orePlan += parseInt(item.plan as string) || 0
+            acc.oreProduction += parseInt(item.production as string) || 0
+         }
+      })
+      return acc
+   }, { obPlan: 0, obProduction: 0, coalPlan: 0, coalProduction: 0, orePlan: 0, oreProduction: 0 })
+
    return (
       <Wrapper>
          <Grid style={{ marginBottom: '31px' }} container alignItems='center' gap={15}>
@@ -23,14 +45,14 @@ export default function TotalSites() {
                      <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
                      <ProductText>P</ProductText>
                   </Grid>
-                  <ProductText>908</ProductText>
+                  <ProductText>{data?.obPlan || 0}</ProductText>
                </Grid>
                <Grid container justifyContent='space-between'>
                   <Grid container gap={5}>
                      <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
                      <ProductText>A</ProductText>
                   </Grid>
-                  <ProductText>908</ProductText>
+                  <ProductText>{data?.obProduction || 0}</ProductText>
                </Grid>
             </SingleProduct>
             <SingleProduct style={{ gridArea: 'coal' }}>
@@ -44,14 +66,14 @@ export default function TotalSites() {
                      <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
                      <ProductText>P</ProductText>
                   </Grid>
-                  <ProductText>908</ProductText>
+                  <ProductText>{data?.coalPlan || 0}</ProductText>
                </Grid>
                <Grid container justifyContent='space-between'>
                   <Grid container gap={5}>
                      <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
                      <ProductText>A</ProductText>
                   </Grid>
-                  <ProductText>908</ProductText>
+                  <ProductText>{data?.coalProduction || 0}</ProductText>
                </Grid>
             </SingleProduct>
             <SingleProduct style={{ gridArea: 'ore' }}>
@@ -65,14 +87,14 @@ export default function TotalSites() {
                      <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
                      <ProductText>P</ProductText>
                   </Grid>
-                  <ProductText>908</ProductText>
+                  <ProductText>{data?.orePlan || 0}</ProductText>
                </Grid>
                <Grid container justifyContent='space-between'>
                   <Grid container gap={5}>
                      <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
                      <ProductText>A</ProductText>
                   </Grid>
-                  <ProductText>908</ProductText>
+                  <ProductText>{data?.oreProduction || 0}</ProductText>
                </Grid>
             </SingleProduct>
          </WrapperProduct>
