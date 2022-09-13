@@ -14,14 +14,14 @@ export default function TotalSites({ sites }: IProps) {
    const data = sites?.reduce((acc, curr) => {
       curr.data.map(item => {
          if (item.name === 'Over Burden') {
-            acc.obPlan += parseInt(item.plan as string) || 0
-            acc.obProduction += parseInt(item.production as string) || 0
+            acc.obPlan += parseFloat(item.plan as string) || 0
+            acc.obProduction += parseFloat(item.production as string) || 0
          } else if (item.name === 'Coal') {
-            acc.coalPlan += parseInt(item.plan as string) || 0
-            acc.coalProduction += parseInt(item.production as string) || 0
+            acc.coalPlan += parseFloat(item.plan as string) || 0
+            acc.coalProduction += parseFloat(item.production as string) || 0
          } else if (item.name === 'Ore') {
-            acc.orePlan += parseInt(item.plan as string) || 0
-            acc.oreProduction += parseInt(item.production as string) || 0
+            acc.orePlan += parseFloat(item.plan as string) || 0
+            acc.oreProduction += parseFloat(item.production as string) || 0
          }
       })
       return acc
