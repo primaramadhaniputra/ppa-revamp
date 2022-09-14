@@ -121,3 +121,19 @@ export const exportFile = () => {
     var blob = new Blob(['testing'], { type: 'text/plain;charset=utf-8' });
     saveAs(blob, 'testfile1.txt');
 };
+
+export const convertDataToPercentage = (
+    plan: string | null | number,
+    production: string | null | number
+) => {
+    if (!plan && !production) {
+        return 0;
+    } else if (plan && production) {
+        return ((parseFloat(production as string) / parseFloat(plan as string)) * 100) / 100;
+    } else if (!plan && production) {
+        return ((parseFloat(production as string) / 0) * 100) / 100;
+    } else if (plan && !production) {
+        return ((parseFloat(plan as string) / 0) * 100) / 100;
+    }
+    return 0;
+};

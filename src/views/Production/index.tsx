@@ -13,7 +13,7 @@ import { TabsContainer, TabsText, WrapperDate } from "./styles";
 const tabs = ['MTD', 'YTD', 'WTD']
 
 export default function Production() {
-   const [activeTabs, setActiveTabs] = useState(-1)
+   const [activeTabs, setActiveTabs] = useState<number>()
    const [sites, setSites] = useState<allSites[]>()
    const [isLoading, setIsLoading] = useState(true)
    const [date, setDate] = useState([
@@ -82,7 +82,7 @@ export default function Production() {
             params: {
                start: startTime,
                end: endTime,
-               group: groupType(activeTabs)
+               group: groupType(activeTabs as number)
             }
          })
          setSites(data.data.data)

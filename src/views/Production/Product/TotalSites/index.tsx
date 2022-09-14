@@ -1,6 +1,7 @@
 import { Grid } from '@hudoro/neron'
 import Image from 'next/image'
 import React from 'react'
+import { convertDataToPercentage } from 'utils/functions'
 import { allSites } from 'utils/interfaces'
 import { ProductText, ProductTitle } from '../styles'
 import { Lozenge, SingleProduct, Title, Wrapper, WrapperProduct } from './styles'
@@ -27,6 +28,8 @@ export default function TotalSites({ sites }: IProps) {
       return acc
    }, { obPlan: 0, obProduction: 0, coalPlan: 0, coalProduction: 0, orePlan: 0, oreProduction: 0 })
 
+
+
    return (
       <Wrapper>
          <Grid style={{ marginBottom: '31px' }} container alignItems='center' gap={15}>
@@ -39,7 +42,7 @@ export default function TotalSites({ sites }: IProps) {
                   <Image src='/icons/CheckCircle.png' width={28} height={28} alt='circle logo' />
                   <Title >OB Kbcm</Title>
                </Grid>
-               <Lozenge>105%</Lozenge>
+               <Lozenge>{convertDataToPercentage(data?.obPlan, data?.obProduction)}%</Lozenge>
                <Grid container justifyContent='space-between' style={{ marginBottom: '20px' }} >
                   <Grid container gap={5}>
                      <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
@@ -60,7 +63,7 @@ export default function TotalSites({ sites }: IProps) {
                   <Image src='/icons/coal.png' width={28} height={28} alt='circle logo' />
                   <Title >COAL Kton</Title>
                </Grid>
-               <Lozenge style={{ backgroundColor: '#EB3B3B' }}>89%</Lozenge>
+               <Lozenge style={{ backgroundColor: '#EB3B3B' }}>{convertDataToPercentage(data?.coalPlan, data?.coalProduction)}%</Lozenge>
                <Grid container justifyContent='space-between' style={{ marginBottom: '20px' }} >
                   <Grid container gap={5}>
                      <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
@@ -81,7 +84,7 @@ export default function TotalSites({ sites }: IProps) {
                   <Image src='/icons/coal.png' width={28} height={28} alt='circle logo' />
                   <Title >ORE Kton</Title>
                </Grid>
-               <Lozenge style={{ backgroundColor: '#EB3B3B' }}>89%</Lozenge>
+               <Lozenge style={{ backgroundColor: '#EB3B3B' }}>{convertDataToPercentage(data?.orePlan, data?.oreProduction)}%</Lozenge>
                <Grid container justifyContent='space-between' style={{ marginBottom: '20px' }} >
                   <Grid container gap={5}>
                      <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
