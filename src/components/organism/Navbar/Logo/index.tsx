@@ -17,7 +17,7 @@ export default function Logo({ handleChangeHamburgerMenu }: IProps) {
     <LogoWrapper container>
       <Grid>
         <Avatar
-          src="/images/ppa.jpg"
+          src="/logo/ppa.jpg"
           size="m"
           onClick={backTodashboard}
           style={{ height: "35px", width: "35px", cursor: "pointer" }}

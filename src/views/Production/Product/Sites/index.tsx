@@ -80,7 +80,7 @@ export default function Sites({ sites }: IProps) {
                       <Grid container justifyContent="space-between">
                         <Grid container gap={5}>
                           <Image
-                            src="/images/Ic-Target.png"
+                            src="/icons/Ic-Target.png"
                             height={16}
                             width={16}
                             alt="product logo"
@@ -93,7 +93,7 @@ export default function Sites({ sites }: IProps) {
                       <Grid container justifyContent="space-between">
                         <Grid container gap={5}>
                           <Image
-                            src="/images/Ic-Trophy.png"
+                            src="/icons/Ic-Trophy.png"
                             height={20.5}
                             width={16}
                             alt="product logo"
@@ -114,7 +114,7 @@ export default function Sites({ sites }: IProps) {
                     style={{ flex: 1 }}
                   >
                     <Image
-                      src="/images/production4.png"
+                      src="/logo/production4.png"
                       height={width > 350 ? 37 : 20}
                       width={width > 350 ? 37 : 20}
                       alt="product logo"
@@ -148,7 +148,7 @@ export default function Sites({ sites }: IProps) {
                       <Grid container justifyContent="space-between">
                         <Grid container gap={5}>
                           <Image
-                            src="/images/Ic-Target.png"
+                            src="/icons/Ic-Target.png"
                             height={16}
                             width={16}
                             alt="product logo"
@@ -161,7 +161,7 @@ export default function Sites({ sites }: IProps) {
                       <Grid container justifyContent="space-between">
                         <Grid container gap={5}>
                           <Image
-                            src="/images/Ic-Trophy.png"
+                            src="/icons/Ic-Trophy.png"
                             height={20.5}
                             width={16}
                             alt="product logo"

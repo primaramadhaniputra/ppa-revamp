@@ -53,7 +53,7 @@ export default function TotalSites({ sites }: IProps) {
       >
         <ProductTitle style={{ marginTop: "0" }}>Total All Sites</ProductTitle>
         <Image
-          src="/images/production1.png"
+          src="/logo/production2.png"
           width={37}
           height={37}
           alt="ppa logo"
