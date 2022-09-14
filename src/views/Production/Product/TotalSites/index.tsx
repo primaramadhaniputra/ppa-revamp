@@ -80,7 +80,7 @@ export default function TotalSites({ sites }: IProps) {
           >
             <Grid container gap={5}>
               <Image
-                src="/images/Ic-Target.png"
+                src="/icons/Ic-Target.png"
                 height={16}
                 width={16}
                 alt="product logo"
@@ -93,7 +93,7 @@ export default function TotalSites({ sites }: IProps) {
           <Grid container justifyContent="space-between">
             <Grid container gap={5}>
               <Image
-                src="/images/Ic-Trophy.png"
+                src="/icons/Ic-Trophy.png"
                 height={20.5}
                 width={16}
                 alt="product logo"
@@ -124,7 +124,7 @@ export default function TotalSites({ sites }: IProps) {
           >
             <Grid container gap={5}>
               <Image
-                src="/images/Ic-Target.png"
+                src="/icons/Ic-Target.png"
                 height={16}
                 width={16}
                 alt="product logo"
@@ -137,7 +137,7 @@ export default function TotalSites({ sites }: IProps) {
           <Grid container justifyContent="space-between">
             <Grid container gap={5}>
               <Image
-                src="/images/Ic-Trophy.png"
+                src="/icons/Ic-Trophy.png"
                 height={20.5}
                 width={16}
                 alt="product logo"
@@ -168,7 +168,7 @@ export default function TotalSites({ sites }: IProps) {
           >
             <Grid container gap={5}>
               <Image
-                src="/images/Ic-Target.png"
+                src="/icons/Ic-Target.png"
                 height={16}
                 width={16}
                 alt="product logo"
@@ -181,7 +181,7 @@ export default function TotalSites({ sites }: IProps) {
           <Grid container justifyContent="space-between">
             <Grid container gap={5}>
               <Image
-                src="/images/Ic-Trophy.png"
+                src="/icons/Ic-Trophy.png"
                 height={20.5}
                 width={16}
                 alt="product logo"
