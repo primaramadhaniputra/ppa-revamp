@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     grid-template-columns: 1fr;
     gap: 20px;
     ${mediaQueries.sm} {
-        grid-template-columns: repeat(auto-fit, minMax(380px, 1fr));
+        grid-template-columns: repeat(auto-fit, minMax(420px, 1fr));
         row-gap: 30px;
     }
     ${mediaQueries.xl} {
@@ -46,7 +46,7 @@ export const ProductText = styled.p<IProps>`
         gap: 15px;
     }
     ${mediaQueries.xl} {
-        font-size: ${(props) => (props.variant === 'header' ? '24px' : '14px')};
+        font-size: ${(props) => (props.variant === 'header' ? '20px' : '14px')};
     }
 `;
 
@@ -69,7 +69,7 @@ export const SpanHeader = styled.span`
     color: #efefef;
     padding: 3px;
     border-radius: 5px;
-    ${mediaQueries.sm} {
+    ${mediaQueries.md} {
         font-size: 14px;
         gap: 25px;
         padding: 5px;
