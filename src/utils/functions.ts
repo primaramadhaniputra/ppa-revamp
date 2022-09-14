@@ -131,9 +131,9 @@ export const convertDataToPercentage = (
     } else if (plan && production) {
         return ((parseFloat(production as string) / parseFloat(plan as string)) * 100) / 100;
     } else if (!plan && production) {
-        return ((parseFloat(production as string) / 0) * 100) / 100;
+        return 100;
     } else if (plan && !production) {
-        return ((parseFloat(plan as string) / 0) * 100) / 100;
+        return 100;
     }
     return 0;
 };
