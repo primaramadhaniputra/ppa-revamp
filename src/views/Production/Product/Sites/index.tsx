@@ -2,7 +2,7 @@ import { Grid } from '@hudoro/neron';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react'
-// import { useWindowSize } from 'utils/functions';
+import { useWindowSize } from 'utils/functions';
 import { allSites } from 'utils/interfaces';
 import { fontWeights } from 'utils/styles';
 import { HeaderContainer, ProductText, ProductTextContainer, SingleProduct, SpanHeader, Wrapper } from '../styles';
@@ -13,7 +13,7 @@ interface IProps {
 
 export default function Sites({ sites }: IProps) {
    const router = useRouter()
-   // const { width } = useWindowSize()
+   const { width } = useWindowSize()
 
    const showChart = () => {
       router.push('detail/1')
@@ -21,6 +21,58 @@ export default function Sites({ sites }: IProps) {
 
    return (
       <Wrapper>
+         <SingleProduct  >
+            <HeaderContainer>
+               <Grid container flexDirection='column' gap={13} style={{ flex: 1.5 }}>
+                  <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
+                     OB kbcm <SpanHeader style={{ backgroundColor: '#47BF34' }}>(105%)</SpanHeader>
+                  </ProductText>
+                  <Grid container flexDirection='column' gap={10} >
+                     <Grid container justifyContent='space-between'>
+                        <Grid container gap={5}>
+                           <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                           <ProductText>P</ProductText>
+                        </Grid>
+                        <ProductText>2</ProductText>
+                     </Grid>
+                     <Grid container justifyContent='space-between' >
+                        <Grid container gap={5}>
+                           <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                           <ProductText>A</ProductText>
+                        </Grid>
+                        <ProductText>1</ProductText>
+                     </Grid>
+                  </Grid>
+               </Grid>
+               <Grid container alignItems='center' flexDirection='column' style={{ flex: 1 }}>
+                  <Image src='/images/production4.png' height={width > 350 ? 37 : 20} width={width > 350 ? 37 : 20} alt='product logo' quality={100} />
+                  <Grid container style={{ flex: 1 }} justifyContent='center' alignItems='center'>
+                     <ProductText>ABP</ProductText>
+                  </Grid>
+               </Grid>
+               <Grid container flexDirection='column' gap={13} style={{ flex: 1.5 }}>
+                  <ProductText variant='header' style={{ fontWeight: fontWeights.medium }}>
+                     Coal kton <SpanHeader style={{ backgroundColor: '#EB3B3B' }}>(105%)</SpanHeader>
+                  </ProductText>
+                  <Grid container flexDirection='column' gap={10} >
+                     <Grid container justifyContent='space-between' >
+                        <Grid container gap={5}>
+                           <Image src='/images/Ic-Target.png' height={16} width={16} alt='product logo' quality={100} />
+                           <ProductText>P</ProductText>
+                        </Grid>
+                        <ProductText>2</ProductText>
+                     </Grid>
+                     <Grid container justifyContent='space-between' >
+                        <Grid container gap={5}>
+                           <Image src='/images/Ic-Trophy.png' height={20.5} width={16} alt='product logo' quality={100} />
+                           <ProductText>A</ProductText>
+                        </Grid>
+                        <ProductText>1</ProductText>
+                     </Grid>
+                  </Grid>
+               </Grid>
+            </HeaderContainer>
+         </SingleProduct>
          {
             sites && sites.map((item, index) =>
                <SingleProduct key={index} onClick={showChart} >
