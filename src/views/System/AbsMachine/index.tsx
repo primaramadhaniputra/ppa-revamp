@@ -17,15 +17,17 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  ID: "HD787",
-  IP: "Hd123",
-  Lokasi: `33`,
-  ["Last download"]: "2022-17-08",
-}];
+export const defaultDataTable = [
+  {
+    ID: "HD787",
+    IP: "Hd123",
+    Lokasi: `33`,
+    ["Last download"]: "2022-17-08",
+  },
+];
 
 export default function AbsMachine() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -37,15 +39,13 @@ export default function AbsMachine() {
       header: () => {
         return (
           <THContainer key={index}>
-            <span>
-              {item}
-            </span>
+            <span>{item}</span>
             <Arrow />
           </THContainer>
-        )
+        );
       },
       footer: (props) => props.column.id,
-    }
+    };
   });
 
   const table = useReactTable({
@@ -69,7 +69,14 @@ export default function AbsMachine() {
   };
   return (
     <Container>
-      <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
+      <TableFilterSearch
+        table={table}
+        handleChangeTotalShowData={handleChangeTotalShowData}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        withButton={false}
+        buttonTitle="EXPORT"
+      />
       <TableComponent2 table={table} />
     </Container>
   );

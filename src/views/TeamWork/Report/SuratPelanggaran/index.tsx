@@ -1,7 +1,15 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowDown, ArrowUp, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  ArrowDown,
+  ArrowUp,
+  ThItemContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -23,14 +31,14 @@ interface IProps {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
   return {
-    ['Waktu Kejadian']: "2022-10-12||10.30",
-    ['NRP']: "Hd123",
-    ['Nama']: `33${index}`,
-    ['Posisi']: "Sayap kanan",
-    ['Sanksi']: "ee gak tau",
-    ['Jenis']: "2022-17-08 02:12:12",
+    ["Waktu Kejadian"]: "2022-10-12||10.30",
+    ["NRP"]: "Hd123",
+    ["Nama"]: `33${index}`,
+    ["Posisi"]: "Sayap kanan",
+    ["Sanksi"]: "ee gak tau",
+    ["Jenis"]: "2022-17-08 02:12:12",
     ["Status"]: "AKTIF",
-    ['Detail']: "2022-17-08 02:12:12",
+    ["Detail"]: "2022-17-08 02:12:12",
   };
 });
 
@@ -38,132 +46,131 @@ export default function SuratPelanggaran() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [isShowDetail, setIsShowDetail] = React.useState(false)
+  const [isShowDetail, setIsShowDetail] = React.useState(false);
   const handleShowDetail = () => {
-    setIsShowDetail(true)
-  }
+    setIsShowDetail(true);
+  };
   const columns: ColumnDef<IProps>[] = [
     {
-      accessorKey: 'Waktu Kejadian',
+      accessorKey: "Waktu Kejadian",
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            Waktu Kejadian
-          </span>
+          <span>Waktu Kejadian</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'NRP',
+      accessorKey: "NRP",
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            NRP
-          </span>
+          <span>NRP</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'Nama',
+      accessorKey: "Nama",
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            Nama
-          </span>
+          <span>Nama</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'Posisi',
+      accessorKey: "Posisi",
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            Posisi
-          </span>
+          <span>Posisi</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'Sanksi',
+      accessorKey: "Sanksi",
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            Sanksi
-          </span>
+          <span>Sanksi</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'Jenis',
+      accessorKey: "Jenis",
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            Jenis
-          </span>
+          <span>Jenis</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'Status',
-      cell: (info) => <span style={{ fontWeight: fontWeights.bold, color: "#3B7DDD", backgroundColor: '#E8F0FE', padding: '0 15px', borderRadius: '50px', fontSize: '13px' }}>{info.getValue()}</span>,
+      accessorKey: "Status",
+      cell: (info) => (
+        <span
+          style={{
+            fontWeight: fontWeights.bold,
+            color: "#3B7DDD",
+            backgroundColor: "#E8F0FE",
+            padding: "0 15px",
+            borderRadius: "50px",
+            fontSize: "13px",
+          }}
+        >
+          {info.getValue()}
+        </span>
+      ),
       header: () => (
         <ThItemContainer>
-          <span>
-            Status
-          </span>
+          <span>Status</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
     {
-      accessorKey: 'Detail',
-      cell: () => <Grid container style={{ justifyContent: 'center', cursor: 'pointer' }}>
-        <Icon iconName="IcEye" size={24} onClick={handleShowDetail} />
-      </Grid>,
+      accessorKey: "Detail",
+      cell: () => (
+        <Grid container style={{ justifyContent: "center", cursor: "pointer" }}>
+          <Icon iconName="IcEye" size={24} onClick={handleShowDetail} />
+        </Grid>
+      ),
       header: () => (
         <ThItemContainer>
-          <span>
-            Detail
-          </span>
+          <span>Detail</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
+      ),
     },
   ];
   const table = useReactTable({
@@ -196,10 +203,15 @@ export default function SuratPelanggaran() {
         </WrapperTitle>
         <WrapperTable>
           <TopFilter />
-          <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
-          <TableComponent2
+          <TableFilterSearch
             table={table}
+            handleChangeTotalShowData={handleChangeTotalShowData}
+            globalFilter={globalFilter}
+            setGlobalFilter={setGlobalFilter}
+            withButton={false}
+            buttonTitle="EXPORT"
           />
+          <TableComponent2 table={table} />
         </WrapperTable>
       </Wrapper>
     </>

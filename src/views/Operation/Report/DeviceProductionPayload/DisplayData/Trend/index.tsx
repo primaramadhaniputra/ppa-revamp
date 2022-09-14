@@ -25,14 +25,14 @@ ChartJS.register(
 
 interface IProps {
   datas:
-  | {
-    target: number;
-    data: {
-      date: string;
-      payload: number;
-    }[];
-  }
-  | undefined;
+    | {
+        target: number;
+        data: {
+          date: string;
+          payload: number;
+        }[];
+      }
+    | undefined;
 }
 
 export default function Trend({ datas }: IProps) {

@@ -38,8 +38,12 @@ const renderContent = (type: string) => {
 };
 
 export default function Sytem({ pageTitle, type }: IProps) {
-  return <>
-    <TitlePage type="h3" styles={{ fontSize: "22px" }}>system / {pageTitle}</TitlePage>
-    {renderContent(type)}
-  </>;
+  return (
+    <>
+      <TitlePage type="h3" styles={{ fontSize: "22px" }}>
+        system / {pageTitle}
+      </TitlePage>
+      {renderContent(type)}
+    </>
+  );
 }

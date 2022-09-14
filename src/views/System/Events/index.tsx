@@ -16,17 +16,19 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  ID: "HD787",
-  Event: "Hd123",
-  Repeat: `33`,
-  Interval: "2022-17-08",
-  Time: "2022-17-08",
-  ["Last Executed"]: "2022-17-08",
-}];
+export const defaultDataTable = [
+  {
+    ID: "HD787",
+    Event: "Hd123",
+    Repeat: `33`,
+    Interval: "2022-17-08",
+    Time: "2022-17-08",
+    ["Last Executed"]: "2022-17-08",
+  },
+];
 
 export default function Events() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -36,14 +38,10 @@ export default function Events() {
       accessorKey: item,
       cell: (info) => info.getValue(),
       header: () => {
-        return (
-          <span key={index}>
-            {item}
-          </span>
-        )
+        return <span key={index}>{item}</span>;
       },
       footer: (props) => props.column.id,
-    }
+    };
   });
 
   const table = useReactTable({
@@ -63,14 +61,20 @@ export default function Events() {
     getSortedRowModel: getSortedRowModel(),
   });
 
-
   const handleChangeTotalShowData = (e: { target: { value: number } }) => {
     table.setPageSize(e.target.value);
   };
 
   return (
     <Container>
-      <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
+      <TableFilterSearch
+        table={table}
+        handleChangeTotalShowData={handleChangeTotalShowData}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        withButton={false}
+        buttonTitle="EXPORT"
+      />
       <TableComponent2 table={table} />
     </Container>
   );

@@ -9,7 +9,14 @@ import { Item, ItemContainer } from "../styles";
 export default function PlantPerformance() {
   return (
     <>
-      <TitlePage type="h4" styles={{ margin: "30px 0 30px", fontSize: fontSizing.md.fontSize, fontWeight: fontWeights.bold }}>
+      <TitlePage
+        type="h4"
+        styles={{
+          margin: "30px 0 30px",
+          fontSize: fontSizing.md.fontSize,
+          fontWeight: fontWeights.bold,
+        }}
+      >
         {" "}
         Plant Performance{" "}
       </TitlePage>
@@ -23,10 +30,20 @@ export default function PlantPerformance() {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <TitlePage styles={{ color: colors.orange, fontSize: fontSizing.sm.fontSize }} type="h4">
+                  <TitlePage
+                    styles={{
+                      color: colors.orange,
+                      fontSize: fontSizing.sm.fontSize,
+                    }}
+                    type="h4"
+                  >
                     {data.title}
                   </TitlePage>
-                  <img src={`/icons/${data.icon}`} width={25} alt="ProductionPerfromance icon" />
+                  <img
+                    src={`/icons/${data.icon}`}
+                    width={25}
+                    alt="ProductionPerfromance icon"
+                  />
                 </Grid>
                 <Grid container flexDirection="column" gap={15}>
                   <LabelValue data={data.plan} />

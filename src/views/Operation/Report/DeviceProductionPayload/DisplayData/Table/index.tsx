@@ -3,10 +3,10 @@ import { THead, Table, TH, TBody, TD, Wrapper } from "./styles";
 
 interface IProps {
   data:
-  | {
-    [x: string]: string | number;
-  }[]
-  | undefined;
+    | {
+        [x: string]: string | number;
+      }[]
+    | undefined;
 }
 
 export default function TableData({ data }: IProps) {

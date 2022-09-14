@@ -10,9 +10,10 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js'; 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import annotationPlugin from 'chartjs-plugin-annotation';
+} from "chart.js";
+("chart.js");
+import { Bar } from "react-chartjs-2";
+import annotationPlugin from "chartjs-plugin-annotation";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -25,11 +26,13 @@ ChartJS.register(
 
 const data = {
   labels: [""],
-  datasets: [{
-    data: [1],
-    borderColor: 'rgb(75, 192, 192)',
-    backgroundColor: '#0496FF',
-  }]
+  datasets: [
+    {
+      data: [1],
+      borderColor: "rgb(75, 192, 192)",
+      backgroundColor: "#0496FF",
+    },
+  ],
 };
 
 // scales: {
@@ -49,8 +52,8 @@ export const options = {
     y: {
       ticks: {
         callback: function () {
-          return '';
-        }
+          return "";
+        },
       },
     },
   },
@@ -61,39 +64,43 @@ export const options = {
     annotation: {
       annotations: {
         box1: {
-          type: 'line',
-          borderColor: '#FF4560',
+          type: "line",
+          borderColor: "#FF4560",
           borderDashOffset: 0,
           borderWidth: 1,
           label: {
             enabled: true,
-            content: '2%',
-            position: 'center',
-            backgroundColor: 'transparent',
-            color: 'black',
+            content: "2%",
+            position: "center",
+            backgroundColor: "transparent",
+            color: "black",
             padding: 0,
             font: {
-              family: 'poppins',
-              size: 13
-            }
+              family: "poppins",
+              size: 13,
+            },
           },
-          scaleID: 'y',
+          scaleID: "y",
           value: 20,
         },
-      }
+      },
     },
     Tooltip: {
-      display: false
+      display: false,
     },
-
   },
 };
 export default function GridChart() {
   return (
-    <Wrapper  >
+    <Wrapper>
       <Text
         variant="h4"
-        style={{ color: colors.orange, fontWeight: fontWeights.semi, fontSize: fontSizing.sm.fontSize, flex: 1 }}
+        style={{
+          color: colors.orange,
+          fontWeight: fontWeights.semi,
+          fontSize: fontSizing.sm.fontSize,
+          flex: 1,
+        }}
       >
         Turn Over
       </Text>

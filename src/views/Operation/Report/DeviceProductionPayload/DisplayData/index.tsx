@@ -12,7 +12,6 @@ interface IProps {
   isLoading: boolean;
 }
 
-
 const typeDisplayData = [
   {
     id: 1,
@@ -30,12 +29,9 @@ const typeDisplayData = [
     values: "Trend",
     label: "Trend",
   },
-]
+];
 
-export default function DisplayData({
-  data,
-  isLoading,
-}: IProps) {
+export default function DisplayData({ data, isLoading }: IProps) {
   const [activeDisplayData, setActiveDisplayData] = useState(
     typeDisplayData[0].values
   );

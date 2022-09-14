@@ -28,26 +28,24 @@ export default function ChartData({ data }: IProps) {
     responsive: true,
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
     },
   };
-
 
   const datas = {
     labels: data.map((item: { label: string }) => item.label),
     datasets: [
       {
-        type: 'bar' as const,
-        label: 'actual',
-        backgroundColor: '#FA8231',
+        type: "bar" as const,
+        label: "actual",
+        backgroundColor: "#FA8231",
         data: data.map((item: { chartValue: number }) => item.chartValue),
-        borderColor: 'white',
+        borderColor: "white",
         borderWidth: 2,
-      }
-    ]
+      },
+    ],
   };
-
 
   return (
     <div style={{ maxWidth: "1400px", width: "100%" }}>

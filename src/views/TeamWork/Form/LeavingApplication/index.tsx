@@ -1,6 +1,13 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  FileContainer,
+  ThItemContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -32,15 +39,14 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function LeavingApplication() {
-
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [isShowDetail, setIsShowDetail] = React.useState(false)
+  const [isShowDetail, setIsShowDetail] = React.useState(false);
 
   const handleShowDetail = () => {
-    setIsShowDetail(true)
-  }
+    setIsShowDetail(true);
+  };
 
   const columns: ColumnDef<Person>[] = [
     {
@@ -48,89 +54,79 @@ export default function LeavingApplication() {
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            ID
-          </span>
+          <span>ID</span>
         </ThItemContainer>
       ),
     },
     {
-      header: 'Cuti',
+      header: "Cuti",
       columns: [
         {
           accessorFn: (row) => row.lapangan,
           id: "lapangan",
           cell: (info) => info.getValue(),
           header: () => (
-            <ThItemContainer >
-              <span>
-                Lapangan
-              </span>
+            <ThItemContainer>
+              <span>Lapangan</span>
             </ThItemContainer>
           ),
         },
         {
           accessorKey: "tahunan",
           header: () => (
-            <ThItemContainer >
-              <span>
-                Tahunan
-              </span>
+            <ThItemContainer>
+              <span>Tahunan</span>
             </ThItemContainer>
           ),
         },
-      ]
+      ],
     },
     {
-      header: 'Date',
+      header: "Date",
       columns: [
         {
           accessorKey: "leave",
           header: () => (
-            <ThItemContainer >
-              <span>
-                Leave
-              </span>
+            <ThItemContainer>
+              <span>Leave</span>
             </ThItemContainer>
           ),
         },
         {
           accessorKey: "back",
           header: () => (
-            <ThItemContainer >
-              <span>
-                Back
-              </span>
+            <ThItemContainer>
+              <span>Back</span>
             </ThItemContainer>
           ),
         },
-      ]
+      ],
     },
     {
       accessorKey: "status",
       header: () => (
         <ThItemContainer>
-          <span>
-            Status
-          </span>
+          <span>Status</span>
         </ThItemContainer>
       ),
     },
     {
       accessorKey: "action",
       cell: () => (
-        <Grid container justifyContent="center" style={{ cursor: 'pointer' }} onClick={handleShowDetail} >
+        <Grid
+          container
+          justifyContent="center"
+          style={{ cursor: "pointer" }}
+          onClick={handleShowDetail}
+        >
           <Icon iconName="IcEye" size={16} />
         </Grid>
       ),
       header: () => (
         <ThItemContainer>
-          <span>
-            Action
-          </span>
+          <span>Action</span>
         </ThItemContainer>
       ),
-
     },
   ];
 
@@ -162,11 +158,18 @@ export default function LeavingApplication() {
         <TitleText>Leaving Application</TitleText>
         <FileContainer>
           <label htmlFor="file">Leave Application</label>
-          <input type='file' id="file" hidden />
+          <input type="file" id="file" hidden />
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
+        <TableFilterSearch
+          table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={false}
+          buttonTitle="EXPORT"
+        />
         <TableComponent2 table={table} />
       </WrapperTable>
     </Wrapper>

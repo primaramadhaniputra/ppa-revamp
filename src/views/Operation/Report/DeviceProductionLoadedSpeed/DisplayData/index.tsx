@@ -11,7 +11,6 @@ interface IProps {
   isLoading: boolean;
 }
 
-
 const typeDisplayData = [
   {
     id: 1,
@@ -23,12 +22,9 @@ const typeDisplayData = [
     values: "Trend",
     label: "Trend",
   },
-]
+];
 
-export default function DisplayData({
-  data,
-  isLoading,
-}: IProps) {
+export default function DisplayData({ data, isLoading }: IProps) {
   const [activeDisplayData, setActiveDisplayData] = useState(
     typeDisplayData[0].values
   );
@@ -59,7 +55,11 @@ export default function DisplayData({
           <TotalText>Avg {data?.average} </TotalText>
         </WrapperTotalText>
       </Grid>
-      {activeDisplayData === 'Trend' ? <Trend datas={data?.trend} /> : <ChartData data={data?.range?.data || [{}]} />}
+      {activeDisplayData === "Trend" ? (
+        <Trend datas={data?.trend} />
+      ) : (
+        <ChartData data={data?.range?.data || [{}]} />
+      )}
     </Wrapper>
   );
 }

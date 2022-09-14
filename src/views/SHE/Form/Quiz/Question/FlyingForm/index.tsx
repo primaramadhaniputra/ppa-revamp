@@ -15,13 +15,21 @@ import {
 interface IProps {
   closeForm: () => void;
   isEdit?: boolean;
-  formPosition: number
+  formPosition: number;
 }
 
-export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) {
+export default function FlyingForm({
+  closeForm,
+  isEdit,
+  formPosition,
+}: IProps) {
   return (
     <Wrapper
-      style={{ opacity: isEdit ? "1" : "0", zIndex: isEdit ? "999" : "-999", top: `${formPosition}px` }}
+      style={{
+        opacity: isEdit ? "1" : "0",
+        zIndex: isEdit ? "999" : "-999",
+        top: `${formPosition}px`,
+      }}
     >
       <Container
         style={{ transform: isEdit ? "translateY(0)" : "translateY(-15%)" }}
@@ -37,13 +45,13 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
         <InputContainer>
           <Grid container gap={10} flexDirection="column">
             <StyledLabel>Subject Name</StyledLabel>
-            <Grid  >
+            <Grid>
               <Styledinput />
             </Grid>
           </Grid>
-          <Grid container flexDirection="column" gap={10} >
+          <Grid container flexDirection="column" gap={10}>
             <StyledLabel>Question No.1</StyledLabel>
-            <Grid >
+            <Grid>
               <Styledinput value="Selebrasi ronaldo" />
             </Grid>
           </Grid>
@@ -69,13 +77,15 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
           </AnswerWrapper>
           <AnswerWrapper>
             <Answer>
-              <Text variant="p" style={{ color: 'green' }}>Answer</Text>
+              <Text variant="p" style={{ color: "green" }}>
+                Answer
+              </Text>
               <Text variant="p">suwwwiiiiiiiiiiiii</Text>
             </Answer>
           </AnswerWrapper>
         </InputContainer>
-        <Grid >
-          <StyledButton style={{ borderRadius: '0' }}>Update</StyledButton>
+        <Grid>
+          <StyledButton style={{ borderRadius: "0" }}>Update</StyledButton>
         </Grid>
       </Container>
     </Wrapper>

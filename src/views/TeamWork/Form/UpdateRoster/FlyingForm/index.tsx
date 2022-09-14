@@ -81,7 +81,7 @@ export default function FlyingForm({ closeForm, isEdit, top }: IProps) {
             </Grid>
           </Grid>
           <Grid container justifyContent="flex-end">
-            <StyledButton style={{ maxWidth: '100px' }}>Update</StyledButton>
+            <StyledButton style={{ maxWidth: "100px" }}>Update</StyledButton>
           </Grid>
         </InputContainer>
       </Container>

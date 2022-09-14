@@ -17,15 +17,17 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  Dept: "HD787",
-  MP: "Hd123",
-  ["Sudah mengisi"]: `33`,
-  Achievment: "2022-17-08",
-}]
+export const defaultDataTable = [
+  {
+    Dept: "HD787",
+    MP: "Hd123",
+    ["Sudah mengisi"]: `33`,
+    Achievment: "2022-17-08",
+  },
+];
 
 export default function Survey() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   // const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -35,14 +37,10 @@ export default function Survey() {
       accessorKey: item,
       cell: (info) => info.getValue(),
       header: () => {
-        return (
-          <span key={index}>
-            {item}
-          </span>
-        )
+        return <span key={index}>{item}</span>;
       },
       footer: (props) => props.column.id,
-    }
+    };
   });
 
   const table = useReactTable({
@@ -64,11 +62,18 @@ export default function Survey() {
 
   return (
     <Container>
-      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi, marginBottom: '20px' }}>Survey ESG achievment MHU</Text>
-      <TableComponent2
-        table={table}
-        noPagination={true}
-      />
+      <Text
+        variant="h4"
+        style={{
+          textAlign: "center",
+          fontFamily: fontFamilies.poppins,
+          fontWeight: fontWeights.semi,
+          marginBottom: "20px",
+        }}
+      >
+        Survey ESG achievment MHU
+      </Text>
+      <TableComponent2 table={table} noPagination={true} />
     </Container>
   );
 }

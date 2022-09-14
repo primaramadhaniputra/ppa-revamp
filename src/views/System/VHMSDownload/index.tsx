@@ -42,10 +42,8 @@ export default function VHMSDownload() {
       accessorKey: "Model",
       cell: (info) => info.getValue(),
       header: () => (
-        <THContainer >
-          <span>
-            Model
-          </span>
+        <THContainer>
+          <span>Model</span>
           <Arrow />
         </THContainer>
       ),
@@ -56,10 +54,8 @@ export default function VHMSDownload() {
       id: "CN",
       cell: (info) => info.getValue(),
       header: () => (
-        <THContainer >
-          <span>
-            CN
-          </span>
+        <THContainer>
+          <span>CN</span>
           <Arrow />
         </THContainer>
       ),
@@ -68,10 +64,8 @@ export default function VHMSDownload() {
     {
       accessorKey: "SN",
       header: () => (
-        <THContainer >
-          <span>
-            SN
-          </span>
+        <THContainer>
+          <span>SN</span>
           <Arrow />
         </THContainer>
       ),
@@ -81,10 +75,8 @@ export default function VHMSDownload() {
     {
       accessorKey: "Last Download",
       header: () => (
-        <THContainer >
-          <span>
-            Last Download
-          </span>
+        <THContainer>
+          <span>Last Download</span>
           <Arrow />
         </THContainer>
       ),
@@ -93,10 +85,8 @@ export default function VHMSDownload() {
     {
       accessorKey: "Last Operation",
       header: () => (
-        <THContainer >
-          <span>
-            Last Operation
-          </span>
+        <THContainer>
+          <span>Last Operation</span>
           <Arrow />
         </THContainer>
       ),
@@ -109,10 +99,8 @@ export default function VHMSDownload() {
         {
           accessorKey: "Pldcycn Record",
           header: () => (
-            <THContainer >
-              <span>
-                Pldcycn Record
-              </span>
+            <THContainer>
+              <span>Pldcycn Record</span>
               <Arrow />
             </THContainer>
           ),
@@ -121,10 +109,8 @@ export default function VHMSDownload() {
         {
           accessorKey: "Trend Record",
           header: () => (
-            <THContainer >
-              <span>
-                Trend Record
-              </span>
+            <THContainer>
+              <span>Trend Record</span>
               <Arrow />
             </THContainer>
           ),
@@ -135,10 +121,8 @@ export default function VHMSDownload() {
         {
           accessorKey: "Fault Record",
           header: () => (
-            <THContainer >
-              <span>
-                Fault Record
-              </span>
+            <THContainer>
+              <span>Fault Record</span>
               <Arrow />
             </THContainer>
           ),
@@ -149,10 +133,8 @@ export default function VHMSDownload() {
         {
           accessorKey: "Machine History",
           header: () => (
-            <THContainer >
-              <span>
-                Machine History
-              </span>
+            <THContainer>
+              <span>Machine History</span>
               <Arrow />
             </THContainer>
           ),
@@ -177,7 +159,7 @@ export default function VHMSDownload() {
     getPaginationRowModel: getPaginationRowModel(),
     debugTable: true,
     getSortedRowModel: getSortedRowModel(),
-    sortDescFirst: true
+    sortDescFirst: true,
   });
 
   const handleChangeTotalShowData = (e: { target: { value: number } }) => {
@@ -185,14 +167,19 @@ export default function VHMSDownload() {
   };
 
   return (
-    <Wrapper >
-      <TableWrapper >
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />
-        <TableComponent2
+    <Wrapper>
+      <TableWrapper>
+        <TableFilterSearch
           table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={true}
+          buttonTitle="EXPORT"
         />
+        <TableComponent2 table={table} />
       </TableWrapper>
-      <DoughnutWrapper >
+      <DoughnutWrapper>
         <DoughnutChart />
       </DoughnutWrapper>
     </Wrapper>

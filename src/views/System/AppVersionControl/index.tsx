@@ -36,52 +36,81 @@ export default function AppVersionControl() {
     {
       accessorKey: "Dept",
       cell: (info) => info.getValue(),
-      header: () => (
-        <span>
-          Dept
+      header: () => <span>Dept</span>,
+      footer: () => (
+        <span
+          style={{
+            fontWeight: fontWeights.bold,
+            fontFamily: fontFamilies.poppins,
+          }}
+        >
+          TOTAL
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>TOTAL</span>,
     },
     {
       accessorFn: (row) => row.MP,
       id: "MP",
       cell: (info) => info.getValue(),
-      header: () => (
-        <span>
-          MP
+      header: () => <span>MP</span>,
+      footer: () => (
+        <span
+          style={{
+            fontWeight: fontWeights.bold,
+            fontFamily: fontFamilies.poppins,
+          }}
+        >
+          123.23
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
     {
       accessorKey: "New Version",
-      cell: (info) => <span style={{ color: colors.blueGrey }}>{info.getValue()}</span>,
-      header: () => (
-        <span>
-          New Version
+      cell: (info) => (
+        <span style={{ color: colors.blueGrey }}>{info.getValue()}</span>
+      ),
+      header: () => <span>New Version</span>,
+      footer: () => (
+        <span
+          style={{
+            fontWeight: fontWeights.bold,
+            fontFamily: fontFamilies.poppins,
+          }}
+        >
+          123.23
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
     {
       accessorKey: "Old Version",
-      cell: (info) => <span style={{ color: colors.blueGrey }}>{info.getValue()}</span>,
-      header: () => (
-        <span>
-          Old Version
+      cell: (info) => (
+        <span style={{ color: colors.blueGrey }}>{info.getValue()}</span>
+      ),
+      header: () => <span>Old Version</span>,
+      footer: () => (
+        <span
+          style={{
+            fontWeight: fontWeights.bold,
+            fontFamily: fontFamilies.poppins,
+          }}
+        >
+          123.23
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
     {
       accessorKey: "Updated",
-      header: () => (
-        <span>
-          Updated
+      header: () => <span>Updated</span>,
+      footer: () => (
+        <span
+          style={{
+            fontWeight: fontWeights.bold,
+            fontFamily: fontFamilies.poppins,
+          }}
+        >
+          123.23
         </span>
       ),
-      footer: () => <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>123.23</span>,
     },
   ];
 
@@ -104,7 +133,17 @@ export default function AppVersionControl() {
 
   return (
     <Container>
-      <Text variant="h4" style={{ textAlign: 'center', fontFamily: fontFamilies.poppins, fontWeight: fontWeights.semi, marginBottom: '20px' }}>Mobile App Version Control MHU</Text>
+      <Text
+        variant="h4"
+        style={{
+          textAlign: "center",
+          fontFamily: fontFamilies.poppins,
+          fontWeight: fontWeights.semi,
+          marginBottom: "20px",
+        }}
+      >
+        Mobile App Version Control MHU
+      </Text>
       <TableComponent2 table={table} noPagination={true} withFooter={true} />
     </Container>
   );

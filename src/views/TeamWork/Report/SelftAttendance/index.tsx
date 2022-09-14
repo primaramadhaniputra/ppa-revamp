@@ -1,5 +1,16 @@
 import React from "react";
-import { Box, BoxContainer, DateText, StatusText, TableTitle, TitleText, Wrapper, WrapperStatus, WrapperTable, WrapperTitle } from "./styles";
+import {
+  Box,
+  BoxContainer,
+  DateText,
+  StatusText,
+  TableTitle,
+  TitleText,
+  Wrapper,
+  WrapperStatus,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -23,7 +34,6 @@ export const defaultDataTable = arr.map(() => {
     ["in"]: "HD787",
     ["Out"]: "HD787",
     ["Job"]: "HD787",
-
   };
 });
 
@@ -35,20 +45,12 @@ export default function SelfAttendance() {
     {
       accessorKey: "Date",
       cell: (info) => info.getValue(),
-      header: () => (
-        <span >
-          Date
-        </span>
-      )
+      header: () => <span>Date</span>,
     },
     {
       accessorKey: "#",
       cell: (info) => info.getValue(),
-      header: () => (
-        <span>
-          #
-        </span>
-      )
+      header: () => <span>#</span>,
     },
     {
       header: "Check",
@@ -57,33 +59,21 @@ export default function SelfAttendance() {
         {
           accessorKey: "In",
           cell: (info) => info.getValue(),
-          header: () => (
-            <span >
-              In
-            </span>
-          )
+          header: () => <span>In</span>,
         },
         {
           accessorKey: "Out",
           cell: (info) => info.getValue(),
-          header: () => (
-            <span>
-              Out
-            </span>
-          )
+          header: () => <span>Out</span>,
         },
-      ]
+      ],
     },
     {
       accessorKey: "Job",
       cell: (info) => info.getValue(),
-      header: () => (
-        <span >
-          Job
-        </span>
-      )
+      header: () => <span>Job</span>,
     },
-  ]
+  ];
 
   const table = useReactTable({
     data: defaultDataTable,
@@ -105,25 +95,24 @@ export default function SelfAttendance() {
     <Wrapper>
       <WrapperTitle>
         <TitleText>Self Attendance</TitleText>
-        <DateText>Current Date : <span>01-09-2022</span></DateText>
+        <DateText>
+          Current Date : <span>01-09-2022</span>
+        </DateText>
       </WrapperTitle>
       <WrapperTable>
-        <TableTitle variant="h4" >Self Attendance</TableTitle>
-        <TableComponent2
-          table={table}
-          noPagination={true}
-        />
+        <TableTitle variant="h4">Self Attendance</TableTitle>
+        <TableComponent2 table={table} noPagination={true} />
         <WrapperStatus>
-          <BoxContainer >
-            <Box style={{ backgroundColor: '#EFE44C' }}></Box>
+          <BoxContainer>
+            <Box style={{ backgroundColor: "#EFE44C" }}></Box>
             <StatusText>On Going</StatusText>
           </BoxContainer>
-          <BoxContainer >
-            <Box style={{ backgroundColor: '#25B78A' }}></Box>
+          <BoxContainer>
+            <Box style={{ backgroundColor: "#25B78A" }}></Box>
             <StatusText>Ok</StatusText>
           </BoxContainer>
-          <BoxContainer >
-            <Box style={{ backgroundColor: '#FF0008' }}></Box>
+          <BoxContainer>
+            <Box style={{ backgroundColor: "#FF0008" }}></Box>
             <StatusText>Rejected</StatusText>
           </BoxContainer>
         </WrapperStatus>

@@ -17,18 +17,20 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  Tanggal: "HD787",
-  NRP: "Hd123",
-  Nama: `33`,
-  Posisi: "2022-17-08",
-  Status: "2022-17-08",
-  Time: "2022-17-08 02:12:12",
-  Mac: "2022-17-08 02:12:12",
-}];
+export const defaultDataTable = [
+  {
+    Tanggal: "HD787",
+    NRP: "Hd123",
+    Nama: `33`,
+    Posisi: "2022-17-08",
+    Status: "2022-17-08",
+    Time: "2022-17-08 02:12:12",
+    Mac: "2022-17-08 02:12:12",
+  },
+];
 
 export default function DeviceMonitoring() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -38,14 +40,10 @@ export default function DeviceMonitoring() {
       accessorKey: item,
       cell: (info) => info.getValue(),
       header: () => {
-        return (
-          <span key={index}>
-            {item}
-          </span>
-        )
+        return <span key={index}>{item}</span>;
       },
       footer: (props) => props.column.id,
-    }
+    };
   });
 
   const table = useReactTable({
@@ -72,10 +70,15 @@ export default function DeviceMonitoring() {
   return (
     <Container>
       <TopFilter />
-      <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
-      <TableComponent2
+      <TableFilterSearch
         table={table}
+        handleChangeTotalShowData={handleChangeTotalShowData}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        withButton={false}
+        buttonTitle="EXPORT"
       />
+      <TableComponent2 table={table} />
     </Container>
   );
 }

@@ -15,13 +15,21 @@ import {
 interface IProps {
   closeForm: () => void;
   isEdit?: boolean;
-  formPosition: number
+  formPosition: number;
 }
 
-export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) {
+export default function FlyingForm({
+  closeForm,
+  isEdit,
+  formPosition,
+}: IProps) {
   return (
     <Wrapper
-      style={{ opacity: isEdit ? "1" : "0", zIndex: isEdit ? "999" : "-999", top: `${formPosition}px` }}
+      style={{
+        opacity: isEdit ? "1" : "0",
+        zIndex: isEdit ? "999" : "-999",
+        top: `${formPosition}px`,
+      }}
     >
       <Container
         style={{ transform: isEdit ? "translateY(0)" : "translateY(-15%)" }}
@@ -37,12 +45,12 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
         <InputContainer>
           <SingleInputContainer>
             <StyledLabel>NRP</StyledLabel>
-            <Grid >
+            <Grid>
               <Styledinput />
             </Grid>
           </SingleInputContainer>
           <InputWrapper>
-            <SingleInputContainer >
+            <SingleInputContainer>
               <StyledLabel>Bulan</StyledLabel>
               <Grid>
                 <Styledinput />
@@ -50,7 +58,7 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
             </SingleInputContainer>
             <SingleInputContainer>
               <StyledLabel>Tahun</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
@@ -58,7 +66,7 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
           <InputWrapper>
             <SingleInputContainer>
               <StyledLabel>KTA</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
@@ -72,13 +80,13 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
           <InputWrapper>
             <SingleInputContainer>
               <StyledLabel>Inspeksi</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
             <SingleInputContainer>
               <StyledLabel>Observasi</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
@@ -86,13 +94,13 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
           <InputWrapper>
             <SingleInputContainer>
               <StyledLabel>P.KRITIS</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
             <SingleInputContainer>
               <StyledLabel>WAKE UP CALL</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
@@ -100,19 +108,19 @@ export default function FlyingForm({ closeForm, isEdit, formPosition }: IProps) 
           <InputWrapper>
             <SingleInputContainer>
               <StyledLabel>S.MEETING</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
             <SingleInputContainer>
               <StyledLabel>CHOACING</StyledLabel>
-              <Grid >
+              <Grid>
                 <Styledinput />
               </Grid>
             </SingleInputContainer>
           </InputWrapper>
         </InputContainer>
-        <Grid >
+        <Grid>
           <StyledButton>Update</StyledButton>
         </Grid>
       </Container>

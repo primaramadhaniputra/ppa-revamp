@@ -1,73 +1,72 @@
-import React from 'react'
+import React from "react";
 import {
-   Chart as ChartJS,
-   CategoryScale,
-   LinearScale,
-   PointElement,
-   LineElement,
-   Title,
-   Tooltip,
-   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { ChartWrapper } from './styles';
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { ChartWrapper } from "./styles";
 
 ChartJS.register(
-   CategoryScale,
-   LinearScale,
-   PointElement,
-   LineElement,
-   Title,
-   Tooltip,
-   Legend
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
 );
 
 export const options = {
-   responsive: true,
-   plugins: {
-      legend: {
-         position: 'bottom' as const,
-         labels: {
-            padding: 30
-         },
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom" as const,
+      labels: {
+        padding: 30,
       },
-      title: {
-         display: true,
-         text: 'Banana',
-      },
-   },
+    },
+    title: {
+      display: true,
+      text: "Banana",
+    },
+  },
 };
 
-const labels = ['January', 'February', 'March', 'April'];
+const labels = ["January", "February", "March", "April"];
 
 export const data = {
-   labels,
-   datasets: [
-      {
-         label: 'Plan',
-         data: [100, 200, 100, 400],
-         borderColor: '#E67C39',
-         backgroundColor: '#E67C39',
-         tension: .4,
-         pointRadius: 0,
-         pointHoverRadius: 0,
-      },
-      {
-         label: 'Produksi',
-         data: [200, 200, 200, 200],
-         borderColor: '#4571C2',
-         backgroundColor: '#4571C2',
-         pointRadius: 0,
-         pointHoverRadius: 0,
-      },
-
-   ],
+  labels,
+  datasets: [
+    {
+      label: "Plan",
+      data: [100, 200, 100, 400],
+      borderColor: "#E67C39",
+      backgroundColor: "#E67C39",
+      tension: 0.4,
+      pointRadius: 0,
+      pointHoverRadius: 0,
+    },
+    {
+      label: "Produksi",
+      data: [200, 200, 200, 200],
+      borderColor: "#4571C2",
+      backgroundColor: "#4571C2",
+      pointRadius: 0,
+      pointHoverRadius: 0,
+    },
+  ],
 };
 
 export default function ProductionDetail() {
-   return (
-      <ChartWrapper>
-         <Line options={options} data={data} />
-      </ChartWrapper>
-   );
+  return (
+    <ChartWrapper>
+      <Line options={options} data={data} />
+    </ChartWrapper>
+  );
 }
