@@ -14,7 +14,7 @@ export default function Form({ order }: IProps) {
   return (
     <Grid style={{ position: "relative", order }}>
       <FormWrapper>
-        <Image src="/images/logo2.png" width={354} height={34} alt="ppa-logo" />
+        <Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
         <WelcomeTextComponent />
         <FormInput />
       </FormWrapper>
