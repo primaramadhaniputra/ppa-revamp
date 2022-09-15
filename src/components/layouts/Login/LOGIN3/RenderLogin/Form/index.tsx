@@ -7,20 +7,20 @@ import WelcomeTextComponent from "src/components/organism/WelcomeText";
 import { FooterContainer, FormWrapper } from "./styles";
 
 interface IProps {
-  order?: number;
+	order?: number;
 }
 
 export default function Form({ order }: IProps) {
-  return (
-    <Grid style={{ position: "relative", order }}>
-      <FormWrapper>
-        <Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
-        <WelcomeTextComponent />
-        <FormInput />
-      </FormWrapper>
-      <FooterContainer>
-        <Footer />
-      </FooterContainer>
-    </Grid>
-  );
+	return (
+		<Grid style={{ position: "relative", order }}>
+			<FormWrapper>
+				<Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
+				<WelcomeTextComponent />
+				<FormInput />
+			</FormWrapper>
+			<FooterContainer>
+				<Footer />
+			</FooterContainer>
+		</Grid>
+	);
 }

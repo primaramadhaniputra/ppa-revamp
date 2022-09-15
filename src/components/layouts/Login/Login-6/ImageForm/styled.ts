@@ -18,23 +18,23 @@ import { mediaQueries } from "utils/styles";
 //   }
 // `;
 export const LoginSlider = styled.div`
-  height: 400px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  display: none;
-  ${mediaQueries.lg} {
-    height: 745px;
-    width: 100%;
-    flex: 1;
-    border-radius: 5px;
-  }
+	height: 400px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	display: none;
+	${mediaQueries.lg} {
+		height: 745px;
+		width: 100%;
+		flex: 1;
+		border-radius: 5px;
+	}
 `;
 export const SliderButton = styled.div`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  bottom: 20px;
-  justify-content: center;
-  gap: 30px;
+	display: flex;
+	position: absolute;
+	width: 100%;
+	bottom: 20px;
+	justify-content: center;
+	gap: 30px;
 `;

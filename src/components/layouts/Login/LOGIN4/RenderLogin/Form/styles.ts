@@ -3,46 +3,46 @@ import styled from "styled-components";
 import { mediaQueries } from "utils/styles";
 
 interface IWrapper {
-  type?: string;
+	type?: string;
 }
 
 export const Wrapper = styled(Grid)<IWrapper>`
-  ${mediaQueries.lg} {
-    position: absolute !important;
-    z-index: 99;
-    right: ${(props) => (props.type ? "-235px" : "auto")};
-    left: ${(props) => (props.type ? "auto" : "-235px")};
-    top: 50%;
-    transform: translateY(-50%);
-  }
+	${mediaQueries.lg} {
+		position: absolute !important;
+		z-index: 99;
+		right: ${(props) => (props.type ? "-235px" : "auto")};
+		left: ${(props) => (props.type ? "auto" : "-235px")};
+		top: 50%;
+		transform: translateY(-50%);
+	}
 `;
 
 export const Container = styled.div`
-  background-color: white;
-  ${mediaQueries.lg} {
-    border-radius: 5px;
-  }
+	background-color: white;
+	${mediaQueries.lg} {
+		border-radius: 5px;
+	}
 `;
 
 export const FormWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  height: calc(100vh - 64px);
-  min-height: 600px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px;
+	height: calc(100vh - 64px);
+	min-height: 600px;
 
-  ${mediaQueries.lg} {
-    height: auto;
-    justify-content: flex-start;
-  }
+	${mediaQueries.lg} {
+		height: auto;
+		justify-content: flex-start;
+	}
 `;
 
 export const FooterContainer = styled.div`
-  display: none;
-  ${mediaQueries.lg} {
-    display: block;
-    width: 100%;
-  }
+	display: none;
+	${mediaQueries.lg} {
+		display: block;
+		width: 100%;
+	}
 `;

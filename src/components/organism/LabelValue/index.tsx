@@ -3,15 +3,15 @@ import React from "react";
 import { StyledText } from "./styles";
 
 interface IProps {
-  data: string[];
+	data: string[];
 }
 
 export default function LabelValue({ data }: IProps) {
-  return (
-    <Grid container justifyContent="space-between">
-      {data.map((item, index) => (
-        <StyledText key={index}>{item}</StyledText>
-      ))}
-    </Grid>
-  );
+	return (
+		<Grid container justifyContent="space-between">
+			{data.map((item, index) => (
+				<StyledText key={index}>{item}</StyledText>
+			))}
+		</Grid>
+	);
 }

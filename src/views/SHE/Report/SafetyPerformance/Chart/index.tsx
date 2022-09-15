@@ -5,13 +5,13 @@ import GrafikIncident from "./GrafikIncident";
 import SafetyPerformanceBar from "./SafetyPerformanceBar";
 
 export default function Chart() {
-  return (
-    <>
-      <ChartKecelakaan />
-      <CartWrapper>
-        <GrafikIncident />
-        <SafetyPerformanceBar />
-      </CartWrapper>
-    </>
-  );
+	return (
+		<>
+			<ChartKecelakaan />
+			<CartWrapper>
+				<GrafikIncident />
+				<SafetyPerformanceBar />
+			</CartWrapper>
+		</>
+	);
 }

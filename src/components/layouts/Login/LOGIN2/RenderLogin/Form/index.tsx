@@ -5,15 +5,15 @@ import WelcomeTextComponent from "src/components/organism/WelcomeText";
 import { FormWrapper } from "./styles";
 
 interface IProps {
-  nameLogin?: string;
+	nameLogin?: string;
 }
 
 export default function Form({ nameLogin }: IProps) {
-  return (
-    <FormWrapper nameLogin={nameLogin}>
-      <Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
-      <WelcomeTextComponent />
-      <FormInput />
-    </FormWrapper>
-  );
+	return (
+		<FormWrapper nameLogin={nameLogin}>
+			<Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
+			<WelcomeTextComponent />
+			<FormInput />
+		</FormWrapper>
+	);
 }

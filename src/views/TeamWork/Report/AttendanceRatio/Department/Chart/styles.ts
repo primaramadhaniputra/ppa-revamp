@@ -4,9 +4,9 @@ import { mediaQueries } from "utils/styles";
 export const Wrapper = styled.div``;
 
 export const ChartWrapper = styled.div`
-  width: 100%;
+	width: 100%;
 
-  ${mediaQueries.xl} {
-    width: 50%;
-  }
+	${mediaQueries.xl} {
+		width: 50%;
+	}
 `;

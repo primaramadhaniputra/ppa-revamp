@@ -4,10 +4,10 @@ import Site from "./Site";
 import { Wrapper } from "./styles";
 
 export default function AdminTab() {
-  return (
-    <Wrapper>
-      <Site />
-      <Layout />
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<Site />
+			<Layout />
+		</Wrapper>
+	);
 }

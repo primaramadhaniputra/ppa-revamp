@@ -6,22 +6,22 @@ import LoginForm from "./LoginForm";
 import NavbarForm from "./NavbarForm";
 
 export default function Layout() {
-  return (
-    <>
-      <TitlePage
-        type="h4"
-        styles={{
-          margin: "50px 0 30px",
-          fontSize: fontSizing.xl.fontSize,
-          fontWeight: fontWeights.bold,
-        }}
-      >
-        Layout
-      </TitlePage>
-      <Grid container flexDirection="column" gap={30}>
-        <LoginForm />
-        <NavbarForm />
-      </Grid>
-    </>
-  );
+	return (
+		<>
+			<TitlePage
+				type="h4"
+				styles={{
+					margin: "50px 0 30px",
+					fontSize: fontSizing.xl.fontSize,
+					fontWeight: fontWeights.bold,
+				}}
+			>
+				Layout
+			</TitlePage>
+			<Grid container flexDirection="column" gap={30}>
+				<LoginForm />
+				<NavbarForm />
+			</Grid>
+		</>
+	);
 }

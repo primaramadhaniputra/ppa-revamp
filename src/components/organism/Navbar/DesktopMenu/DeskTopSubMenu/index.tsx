@@ -6,40 +6,35 @@ import { notify } from "utils/functions";
 import { StyledCard, StyledText } from "./styles";
 
 interface IProps {
-  data: {
-    [x: string]: any;
-  }[];
-  isActive: boolean;
-  style?: React.CSSProperties;
-  width?: string;
+	data: {
+		[x: string]: any;
+	}[];
+	isActive: boolean;
+	style?: React.CSSProperties;
+	width?: string;
 }
 
-export default function DeskTopSubMenu({
-  data,
-  isActive,
-  style,
-  width,
-}: IProps) {
-  const handleLogout = (e: string) => {
-    if (e === "Logout") {
-      Cookies.remove("token");
-      notify("Anda berhasil logout", "success");
-      return Router.reload();
-    }
-    return e;
-  };
+export default function DeskTopSubMenu({ data, isActive, style, width }: IProps) {
+	const handleLogout = (e: string) => {
+		if (e === "Logout") {
+			Cookies.remove("token");
+			notify("Anda berhasil logout", "success");
+			return Router.reload();
+		}
+		return e;
+	};
 
-  return (
-    <StyledCard isActive={isActive} style={style} width={width}>
-      {data.map((item, index) => {
-        return (
-          <Link href={`/dashboard/${item.subMenuLink}`} key={index}>
-            <StyledText onClick={() => handleLogout(item.subMenuTitle)}>
-              {item.subMenuTitle}
-            </StyledText>
-          </Link>
-        );
-      })}
-    </StyledCard>
-  );
+	return (
+		<StyledCard isActive={isActive} style={style} width={width}>
+			{data.map((item, index) => {
+				return (
+					<Link href={`/dashboard/${item.subMenuLink}`} key={index}>
+						<StyledText onClick={() => handleLogout(item.subMenuTitle)}>
+							{item.subMenuTitle}
+						</StyledText>
+					</Link>
+				);
+			})}
+		</StyledCard>
+	);
 }

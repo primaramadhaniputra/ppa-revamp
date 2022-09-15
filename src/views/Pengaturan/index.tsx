@@ -7,37 +7,37 @@ import ProfileTab from "./ProfileTab";
 import { Container, TabWrapper } from "./styles";
 
 interface IProps {
-  isAdmin: boolean;
+	isAdmin: boolean;
 }
 
 export default function Pengaturan({ isAdmin }: IProps) {
-  const [activeTab, setactiveTab] = useState(0);
+	const [activeTab, setactiveTab] = useState(0);
 
-  const renderContent = () => {
-    if (activeTab === 0) {
-      return <ProfileTab />;
-    } else if (activeTab === 1) {
-      return <PasswordTab />;
-    } else {
-      return <AdminTab />;
-    }
-  };
+	const renderContent = () => {
+		if (activeTab === 0) {
+			return <ProfileTab />;
+		} else if (activeTab === 1) {
+			return <PasswordTab />;
+		} else {
+			return <AdminTab />;
+		}
+	};
 
-  return (
-    <>
-      <TitlePage type="h3" styles={{ fontSize: "22px" }}>
-        Pengaturan
-      </TitlePage>
-      {isAdmin ? (
-        <Container>
-          <TabWrapper>
-            <Tabs activeTab={activeTab} setactiveTab={setactiveTab} />
-          </TabWrapper>
-          {renderContent()}
-        </Container>
-      ) : (
-        <ProfileTab />
-      )}
-    </>
-  );
+	return (
+		<>
+			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
+				Pengaturan
+			</TitlePage>
+			{isAdmin ? (
+				<Container>
+					<TabWrapper>
+						<Tabs activeTab={activeTab} setactiveTab={setactiveTab} />
+					</TabWrapper>
+					{renderContent()}
+				</Container>
+			) : (
+				<ProfileTab />
+			)}
+		</>
+	);
 }

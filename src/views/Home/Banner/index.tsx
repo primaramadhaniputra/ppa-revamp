@@ -6,12 +6,12 @@ import ProductionPerformance from "./ProductionPerformance";
 import { Wrapper } from "./styles";
 
 export default function Banner() {
-  return (
-    <Wrapper>
-      <ProductionPerformance />
-      <HaulerPerformance />
-      <PlantPerformance />
-      <HCGA />
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<ProductionPerformance />
+			<HaulerPerformance />
+			<PlantPerformance />
+			<HCGA />
+		</Wrapper>
+	);
 }
