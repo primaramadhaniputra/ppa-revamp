@@ -4,21 +4,21 @@ import dynamic from "next/dynamic";
 const OperationView = dynamic(() => import("views/Operation"));
 
 export default function OperationPage() {
-  return <OperationView />;
+	return <OperationView />;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    return {
-      props: {
-        data: [],
-      },
-    };
-  } catch (error: any) {
-    return {
-      props: {
-        pokemons: [],
-      },
-    };
-  }
+	try {
+		return {
+			props: {
+				data: [],
+			},
+		};
+	} catch (error: any) {
+		return {
+			props: {
+				pokemons: [],
+			},
+		};
+	}
 };

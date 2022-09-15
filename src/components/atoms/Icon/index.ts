@@ -10,14 +10,14 @@ import IcRefresh from "./IcRefresh";
 import IcReset from "./IcReset";
 
 export {
-  IcClose,
-  IcEdit,
-  IcRefresh,
-  IcBan,
-  IcCalendar,
-  IcImage,
-  IcPrinter,
-  IcPlusCircle,
-  IcMinusCircle,
-  IcReset,
+	IcClose,
+	IcEdit,
+	IcRefresh,
+	IcBan,
+	IcCalendar,
+	IcImage,
+	IcPrinter,
+	IcPlusCircle,
+	IcMinusCircle,
+	IcReset,
 };

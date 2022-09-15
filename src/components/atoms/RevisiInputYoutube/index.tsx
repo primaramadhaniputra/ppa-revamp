@@ -6,12 +6,12 @@ import { FormField, FormGroup, FormLabel, Wrapper } from "./styles";
 // }
 
 export default function RevisiInputYoutube() {
-  return (
-    <Wrapper>
-      <FormGroup>
-        <FormField type="input" placeholder="Name" />
-        <FormLabel htmlFor="name">Subject Name</FormLabel>
-      </FormGroup>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<FormGroup>
+				<FormField type="input" placeholder="Name" />
+				<FormLabel htmlFor="name">Subject Name</FormLabel>
+			</FormGroup>
+		</Wrapper>
+	);
 }

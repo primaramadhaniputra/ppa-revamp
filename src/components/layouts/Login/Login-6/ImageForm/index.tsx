@@ -4,12 +4,12 @@ import SlideImage from "./ImageSlide";
 import { LoginSlider } from "./styled";
 
 export default function ImageForm() {
-  const [image] = useState(ImageUrl);
-  const [index] = useState(0);
+	const [image] = useState(ImageUrl);
+	const [index] = useState(0);
 
-  return (
-    <LoginSlider>
-      <SlideImage image={image} index={index} />
-    </LoginSlider>
-  );
+	return (
+		<LoginSlider>
+			<SlideImage image={image} index={index} />
+		</LoginSlider>
+	);
 }

@@ -9,31 +9,31 @@ import "../styles/globals.css";
 import "../styles/react-toastify.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  return (
-    <>
-      <ToastContainer
-        draggable={false}
-        position="bottom-left"
-        autoClose={3000}
-        newestOnTop={true}
-        limit={3}
-        pauseOnFocusLoss
-      />
-      <GlobalStyle />
-      <RecoilRoot>
-        <ParallaxProvider>
-          {router.pathname === "/" || router.pathname === "/forgot-password" ? (
-            <Component {...pageProps} />
-          ) : (
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          )}
-        </ParallaxProvider>
-      </RecoilRoot>
-    </>
-  );
+	const router = useRouter();
+	return (
+		<>
+			<ToastContainer
+				draggable={false}
+				position="bottom-left"
+				autoClose={3000}
+				newestOnTop={true}
+				limit={3}
+				pauseOnFocusLoss
+			/>
+			<GlobalStyle />
+			<RecoilRoot>
+				<ParallaxProvider>
+					{router.pathname === "/" || router.pathname === "/forgot-password" ? (
+						<Component {...pageProps} />
+					) : (
+						<Layout>
+							<Component {...pageProps} />
+						</Layout>
+					)}
+				</ParallaxProvider>
+			</RecoilRoot>
+		</>
+	);
 }
 
 export default MyApp;

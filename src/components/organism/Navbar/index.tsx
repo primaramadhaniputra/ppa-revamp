@@ -6,27 +6,23 @@ import Logo from "./Logo";
 import { LinkWrapper, NavbarWrapper } from "./styles";
 
 interface IProps {
-  handleChangeHamburgerMenu: () => void;
-  showHamburgerMenu: boolean;
-  position: "start" | "center" | "end";
+	handleChangeHamburgerMenu: () => void;
+	showHamburgerMenu: boolean;
+	position: "start" | "center" | "end";
 }
 
-export default function Navbar({
-  handleChangeHamburgerMenu,
-  showHamburgerMenu,
-  position,
-}: IProps) {
-  return (
-    <NavbarWrapper>
-      <Logo handleChangeHamburgerMenu={handleChangeHamburgerMenu} />
-      {showHamburgerMenu && (
-        <LinkWrapper>
-          {Link.map((item) => (
-            <HamburgerMenu item={item} />
-          ))}
-        </LinkWrapper>
-      )}
-      <DesktopMenu position={position} />
-    </NavbarWrapper>
-  );
+export default function Navbar({ handleChangeHamburgerMenu, showHamburgerMenu, position }: IProps) {
+	return (
+		<NavbarWrapper>
+			<Logo handleChangeHamburgerMenu={handleChangeHamburgerMenu} />
+			{showHamburgerMenu && (
+				<LinkWrapper>
+					{Link.map((item) => (
+						<HamburgerMenu item={item} />
+					))}
+				</LinkWrapper>
+			)}
+			<DesktopMenu position={position} />
+		</NavbarWrapper>
+	);
 }

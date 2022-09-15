@@ -12,33 +12,33 @@ import Login51 from "src/components/layouts/Login/LOGIN4/Login-5.1";
 import Login6 from "src/components/layouts/Login/Login-6";
 
 interface IProps {
-  id: number;
+	id: number;
 }
 
 export default function Home({ id }: IProps) {
-  const renderLayout = () => {
-    if (id === 1) {
-      return <Login1 />;
-    } else if (id === 2) {
-      return <Login2 />;
-    } else if (id === 3) {
-      return <Login22 />;
-    } else if (id === 4) {
-      return <Login3 />;
-    } else if (id === 5) {
-      return <Login31 />;
-    } else if (id === 6) {
-      return <Login4 />;
-    } else if (id === 7) {
-      return <Login41 />;
-    } else if (id === 8) {
-      return <Login5 />;
-    } else if (id === 9) {
-      return <Login51 />;
-    } else {
-      return <Login6 />;
-    }
-  };
+	const renderLayout = () => {
+		if (id === 1) {
+			return <Login1 />;
+		} else if (id === 2) {
+			return <Login2 />;
+		} else if (id === 3) {
+			return <Login22 />;
+		} else if (id === 4) {
+			return <Login3 />;
+		} else if (id === 5) {
+			return <Login31 />;
+		} else if (id === 6) {
+			return <Login4 />;
+		} else if (id === 7) {
+			return <Login41 />;
+		} else if (id === 8) {
+			return <Login5 />;
+		} else if (id === 9) {
+			return <Login51 />;
+		} else {
+			return <Login6 />;
+		}
+	};
 
-  return <>{renderLayout()}</>;
+	return <>{renderLayout()}</>;
 }

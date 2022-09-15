@@ -4,21 +4,21 @@ import dynamic from "next/dynamic";
 const TableView = dynamic(() => import("views/Table"));
 
 export default function TablePage() {
-  return <TableView />;
+	return <TableView />;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    return {
-      props: {
-        pokemons: [],
-      },
-    };
-  } catch (error: any) {
-    return {
-      props: {
-        pokemons: [],
-      },
-    };
-  }
+	try {
+		return {
+			props: {
+				pokemons: [],
+			},
+		};
+	} catch (error: any) {
+		return {
+			props: {
+				pokemons: [],
+			},
+		};
+	}
 };

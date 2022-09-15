@@ -5,14 +5,14 @@ import RightChart from "./RightChart";
 import { ChartWrapper } from "./styles";
 
 export default function ChartComponent() {
-  return (
-    <Grid container style={{ marginTop: "50px" }}>
-      <ChartWrapper>
-        <LeftChart />
-      </ChartWrapper>
-      <ChartWrapper>
-        <RightChart />
-      </ChartWrapper>
-    </Grid>
-  );
+	return (
+		<Grid container style={{ marginTop: "50px" }}>
+			<ChartWrapper>
+				<LeftChart />
+			</ChartWrapper>
+			<ChartWrapper>
+				<RightChart />
+			</ChartWrapper>
+		</Grid>
+	);
 }
