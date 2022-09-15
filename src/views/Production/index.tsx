@@ -1,16 +1,12 @@
-import { Grid, Text, Toggler } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import Loading from "atoms/Loading";
 import TitlePage from "atoms/TitlePage";
-import DateWithRange from "molecules/DateWithRange";
 import React, { useEffect, useState } from "react";
 import { getAllSiteProduction } from "services/production";
 import { convert, notify } from "utils/functions";
 import { allSites } from "utils/interfaces";
-import { colors } from "utils/styles";
 import Product from "./Product";
-import { TabsContainer, TabsText, WrapperDate } from "./styles";
-
-const tabs = ["MTD", "YTD", "WTD"];
+import TopFilter from "./TopFIlter";
 
 export default function Production() {
   const [activeTabs, setActiveTabs] = useState<number>();
@@ -103,39 +99,7 @@ export default function Production() {
       <TitlePage type="h3" styles={{ fontSize: "22px" }}>
         Production / Report
       </TitlePage>
-      <WrapperDate>
-        <Grid
-          container
-          gap={5}
-          alignItems="flex-end"
-          style={{ height: "44px", justifyContent: "end" }}
-        >
-          <Text variant="h4" style={{ fontSize: "14px" }}>
-            TC
-          </Text>
-          <Toggler />
-          <Text variant="h4" style={{ fontSize: "14px" }}>
-            JS
-          </Text>
-        </Grid>
-        <TabsContainer>
-          {tabs.map((item, index) => (
-            <TabsText
-              key={index}
-              style={{
-                backgroundColor:
-                  activeTabs === index ? colors.primary : "#A8A9AA",
-              }}
-              onClick={() => setActiveTabs(index)}
-            >
-              {item}
-            </TabsText>
-          ))}
-        </TabsContainer>
-        <Grid container>
-          <DateWithRange dateState={date} setDateState={setDate} title="Date" />
-        </Grid>
-      </WrapperDate>
+      <TopFilter activeTabs={activeTabs} setActiveTabs={setActiveTabs} date={date} setDate={setDate} />
       {isLoading ? (
         <Grid style={{ marginTop: 100, position: "relative" }}>
           <Loading />
