@@ -7,21 +7,20 @@ import TopFilter from "./TopFilter";
 import TotalInduksi from "./TotalInduksi";
 
 export default function Induksi() {
-
   return (
     <Wrapper>
       <WrapperTitle>
-        <TitleText >Induksi Monitoring</TitleText>
+        <TitleText>Induksi Monitoring</TitleText>
         <TopFilter />
       </WrapperTitle>
-      <InduksiContainer >
+      <InduksiContainer>
         <JadwalInduksi />
         <TotalInduksi />
       </InduksiContainer>
-      <InduksiContainer style={{ marginTop: '30px' }}>
+      <InduksiContainer style={{ marginTop: "30px" }}>
         <TidakInduksi />
         <TidakSesuaiJadwal />
       </InduksiContainer>
-    </Wrapper >
+    </Wrapper>
   );
 }

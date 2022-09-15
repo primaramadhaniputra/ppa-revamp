@@ -1,7 +1,14 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  FileContainer,
+  ThItemContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -18,18 +25,20 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  nrp: "HD787",
-  name: "Hd123",
-  date: `33`,
-  in: "2022-17-08",
-  out: "2022-17-08",
-  status: "2022-17-08 02:12:12",
-  ['revision date']: "2022-17-08 02:12:12",
-}];
+export const defaultDataTable = [
+  {
+    nrp: "HD787",
+    name: "Hd123",
+    date: `33`,
+    in: "2022-17-08",
+    out: "2022-17-08",
+    status: "2022-17-08 02:12:12",
+    ["revision date"]: "2022-17-08 02:12:12",
+  },
+];
 
 export default function AttendanceRevision() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -42,18 +51,16 @@ export default function AttendanceRevision() {
         return (
           <ThItemContainer key={index}>
             <Grid>
-              <span>
-                {item}
-              </span>
+              <span>{item}</span>
             </Grid>
             <Grid container flexDirection="column">
               <ArrowUp></ArrowUp>
               <AD></AD>
             </Grid>
           </ThItemContainer>
-        )
-      }
-    }
+        );
+      },
+    };
   });
 
   const table = useReactTable({
@@ -77,16 +84,23 @@ export default function AttendanceRevision() {
   };
   return (
     <Wrapper>
-      <WrapperTitle >
-        <TitleText >Attendance Revision</TitleText>
-        <FileContainer >
+      <WrapperTitle>
+        <TitleText>Attendance Revision</TitleText>
+        <FileContainer>
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>
-          <input type='file' id="file" hidden />
+          <input type="file" id="file" hidden />
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
+        <TableFilterSearch
+          table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={false}
+          buttonTitle="EXPORT"
+        />
         <TableComponent2 table={table} />
       </WrapperTable>
     </Wrapper>

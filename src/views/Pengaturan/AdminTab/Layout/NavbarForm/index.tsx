@@ -54,7 +54,7 @@ export default function NavbarForm() {
   };
 
   return (
-    <Container >
+    <Container>
       <SelectLabel>Pilih posisi navbar</SelectLabel>
       <Select
         items={layout}

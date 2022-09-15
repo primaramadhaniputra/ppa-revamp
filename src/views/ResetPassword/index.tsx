@@ -9,35 +9,34 @@ import { notify } from "utils/functions";
 import { LoginWrapper, StyledCard, Title, Wrapper } from "./styles";
 
 interface IProps {
-  token: string
+  token: string;
 }
 
 export default function ResetPassword({ token }: IProps) {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
-      form.preventDefault()
-      const formData = new FormData(form.currentTarget)
-      const email = formData.get('email')
-      const newPassword = formData.get('newPassword')
-      const confirmNewPassword = formData.get('confirmNewPassword')
+      form.preventDefault();
+      const formData = new FormData(form.currentTarget);
+      const email = formData.get("email");
+      const newPassword = formData.get("newPassword");
+      const confirmNewPassword = formData.get("confirmNewPassword");
       await resetPassword({
         body: {
           email,
           newPassword,
           confirmNewPassword,
-          token
+          token,
         },
-        path: '/reset-password'
-      })
-      notify('Berhasil merubah password', 'success')
-      return router.push('/')
+        path: "/reset-password",
+      });
+      notify("Berhasil merubah password", "success");
+      return router.push("/");
     } catch (error: any) {
-      return notify(error.message, 'error')
+      return notify(error.message, "error");
     }
-  }
+  };
 
   return (
     <Wrapper>
@@ -45,20 +44,14 @@ export default function ResetPassword({ token }: IProps) {
         <StyledCard>
           <Title>Forgot Password</Title>
           <Grid container flexDirection="column" gap={20}>
-            <LabeledInput
-              title="Email"
-              name="email"
-            />
-            <LabeledInput
-              title="Password baru"
-              name="newPassword"
-            />
+            <LabeledInput title="Email" name="email" />
+            <LabeledInput title="Password baru" name="newPassword" />
             <LabeledInput
               title="Konfirmasi password"
               name="confirmNewPassword"
             />
           </Grid>
-          <StyledButton style={{ marginTop: '20px' }}>Submit</StyledButton>
+          <StyledButton style={{ marginTop: "20px" }}>Submit</StyledButton>
         </StyledCard>
       </LoginWrapper>
       <Footer />

@@ -1,7 +1,14 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  FileContainer,
+  ThItemContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -26,37 +33,33 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
     ["Dept"]: "2022-17-08",
     ["Posisi"]: "2022-17-08",
     ["Roster"]: "2022-17-08 02:12:12",
-    ['Start']: "2022-17-08 02:12:12",
-    ['Finish']: "2022-17-08 02:12:12",
-    ['Tugas']: "2022-17-08 02:12:12",
-  }
-})
-
+    ["Start"]: "2022-17-08 02:12:12",
+    ["Finish"]: "2022-17-08 02:12:12",
+    ["Tugas"]: "2022-17-08 02:12:12",
+  };
+});
 
 export default function SuratPerintahLembur() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
 
-
-  const columns: ColumnDef<Person>[] = objTitle.map(item => {
+  const columns: ColumnDef<Person>[] = objTitle.map((item) => {
     return {
       accessorKey: item,
       cell: (info) => info.getValue(),
       header: () => (
         <ThItemContainer>
-          <span>
-            {item}
-          </span>
+          <span>{item}</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
         </ThItemContainer>
-      )
-    }
-  })
+      ),
+    };
+  });
   const table = useReactTable({
     data: defaultDataTable,
     columns,
@@ -85,11 +88,18 @@ export default function SuratPerintahLembur() {
         <FileContainer>
           <label htmlFor="file">+</label>
           <label htmlFor="file">Input</label>
-          <input type='file' id="file" hidden />
+          <input type="file" id="file" hidden />
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
+        <TableFilterSearch
+          table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={false}
+          buttonTitle="EXPORT"
+        />
         <TableComponent2 table={table} />
       </WrapperTable>
     </Wrapper>

@@ -1,7 +1,12 @@
 import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { SingleStatus, StatusContainer, ThItemContainer, Wrapper } from "./styles";
+import {
+  SingleStatus,
+  StatusContainer,
+  ThItemContainer,
+  Wrapper,
+} from "./styles";
 // ArrowDown, ArrowUp,
 import {
   ColumnDef,
@@ -23,26 +28,27 @@ interface IProps {
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
   return {
-    ['LOADER']: "",
-    ['BL']: "",
-    ['DW']: ``,
-    ['MUD 100%']: "",
+    ["LOADER"]: "",
+    ["BL"]: "",
+    ["DW"]: ``,
+    ["MUD 100%"]: "",
     ["MUD CAIR"]: "",
-    ['MUD ORI 1']: "",
-    ['MUD ORI']: "",
-    ['OB']: "",
-    ['SOIL']: "",
-    ['TOTAL']: "",
-    ['PLAN']: "",
-    ['ACH']: "",
+    ["MUD ORI 1"]: "",
+    ["MUD ORI"]: "",
+    ["OB"]: "",
+    ["SOIL"]: "",
+    ["TOTAL"]: "",
+    ["PLAN"]: "",
+    ["ACH"]: "",
   };
 });
 
 export default function ObProductionDayli() {
-  const [dataTable, setDataTable] = React.useState(defaultDataTable)
-  const objTitle = Object.keys(dataTable.map(item => item)[0])
+  const [dataTable, setDataTable] = React.useState(defaultDataTable);
+  const objTitle = Object.keys(dataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
-  const [globalFilter,
+  const [
+    globalFilter,
     // setGlobalFilter
   ] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -51,22 +57,35 @@ export default function ObProductionDayli() {
     return {
       accessorKey: item,
       cell: (info) => {
-        return info.getValue()
+        return info.getValue();
       },
       header: () => (
         <ThItemContainer key={index}>
-          <span>
-            {item}
-          </span>
+          <span>{item}</span>
         </ThItemContainer>
       ),
       footer: (info) => {
-        const headerId = info.header.id !== 'LOADER' ? info.header.id : ''
-        const data = info.table.options.data.map(e => e[headerId]).filter(e => e !== null).filter(e => e !== undefined)
-        const totalData = data.length > 0 ? data.reduce((total, num) => parseInt(total) + parseInt(num)) : 0
-        return <span style={{ fontWeight: fontWeights.bold, fontFamily: fontFamilies.poppins }}>{info.header.id === 'LOADER' ? "TOTAL" : `${totalData}`}</span>
+        const headerId = info.header.id !== "LOADER" ? info.header.id : "";
+        const data = info.table.options.data
+          .map((e) => e[headerId])
+          .filter((e) => e !== null)
+          .filter((e) => e !== undefined);
+        const totalData =
+          data.length > 0
+            ? data.reduce((total, num) => parseInt(total) + parseInt(num))
+            : 0;
+        return (
+          <span
+            style={{
+              fontWeight: fontWeights.bold,
+              fontFamily: fontFamilies.poppins,
+            }}
+          >
+            {info.header.id === "LOADER" ? "TOTAL" : `${totalData}`}
+          </span>
+        );
       },
-    }
+    };
   });
   const table = useReactTable({
     data: dataTable,
@@ -91,33 +110,52 @@ export default function ObProductionDayli() {
 
   return (
     <Wrapper>
-      <Grid container gap={20} justifyContent='space-between' alignItems="center" style={{ margin: '30px 0' }}>
-        <Text variant="h4" style={{ fontWeight: fontWeights.semi }} >Operation / Report</Text>
+      <Grid
+        container
+        gap={20}
+        justifyContent="space-between"
+        alignItems="center"
+        style={{ margin: "30px 0" }}
+      >
+        <Text variant="h4" style={{ fontWeight: fontWeights.semi }}>
+          Operation / Report
+        </Text>
       </Grid>
       <TopFilter setDataTable={setDataTable} />
-      <StatusContainer style={{ margin: '20px  0 5px 0' }}>
-        <SingleStatus >
-          <Text variant="h4" >PLAN</Text>
-          <Text variant="p" >0,00</Text>
+      <StatusContainer style={{ margin: "20px  0 5px 0" }}>
+        <SingleStatus>
+          <Text variant="h4">PLAN</Text>
+          <Text variant="p">0,00</Text>
         </SingleStatus>
-        <SingleStatus container gap={10} flexDirection='column' alignItems="center" >
-          <Text variant="h4" >TOTAL TC</Text>
-          <Text variant="p" >281.203,75</Text>
+        <SingleStatus
+          container
+          gap={10}
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Text variant="h4">TOTAL TC</Text>
+          <Text variant="p">281.203,75</Text>
         </SingleStatus>
-        <SingleStatus container gap={10} flexDirection='column' alignItems="center" >
-          <Text variant="h4" >TOTAL JS</Text>
-          <Text variant="p" >281.203,75</Text>
+        <SingleStatus
+          container
+          gap={10}
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Text variant="h4">TOTAL JS</Text>
+          <Text variant="p">281.203,75</Text>
         </SingleStatus>
-        <SingleStatus container gap={10} flexDirection='column' alignItems="center" >
-          <Text variant="h4" >ACHIEVEMENT</Text>
-          <Text variant="p" >Infinity %</Text>
+        <SingleStatus
+          container
+          gap={10}
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Text variant="h4">ACHIEVEMENT</Text>
+          <Text variant="p">Infinity %</Text>
         </SingleStatus>
       </StatusContainer>
-      <TableComponent2
-        table={table}
-        noPagination={true}
-        withFooter={true}
-      />
+      <TableComponent2 table={table} noPagination={true} withFooter={true} />
     </Wrapper>
   );
 }

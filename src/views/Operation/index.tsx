@@ -13,65 +13,56 @@ import ObProductionHourly from "./Report/MOCO/ObProductionHourly";
 
 import { ArrowDown, SelectContainer } from "./styles";
 
-
-function renderContent(
-  queryName: string,
-
-) {
+function renderContent(queryName: string) {
   switch (queryName) {
     case "device_production_payload":
-      return (
-        <DeviceProductionPayload />
-      );
+      return <DeviceProductionPayload />;
     case "device_production_empty_stop":
-      return (
-        <DeviceProductionEmptyStop />
-      );
+      return <DeviceProductionEmptyStop />;
     case "device_production_loading_time":
-      return (
-        <DeviceProductionLoadingTime />
-      );
+      return <DeviceProductionLoadingTime />;
 
     case "device_production_loaded_speed":
-      return (
-        <DeviceProductionLoadedSpeed />
-      );
+      return <DeviceProductionLoadedSpeed />;
 
     // case "device_production_empty_speed":
     //   return (
     //     <DeviceProductionEmptySpeed />
     //   );
     case "device_production_speed":
-      return (
-        <DeviceProductionSpeed />
-      );
+      return <DeviceProductionSpeed />;
     case "moco_obProduction_dayli":
-      return (
-        <ObProductionDayli />
-      );
+      return <ObProductionDayli />;
     case "moco_obProduction_hourly":
-      return (
-        <ObProductionHourly />
-      );
+      return <ObProductionHourly />;
     default:
       return <h1>banana</h1>;
   }
 }
 
 export default function Operation() {
-
-  const [menu, setMenu] = useState('device_production_payload')
+  const [menu, setMenu] = useState("device_production_payload");
 
   const handleChangeMenu = (e: ISelectItem | ISelectItem[] | null) => {
-    setMenu(e?.values)
-  }
+    setMenu(e?.values);
+  };
 
-  return <>
-    <SelectContainer >
-      <label>Menu</label>
-      <Select items={inputDropDownOperation2} defaultValue={{ id: 0, value: "device_production_payload", label: "Device / Production / Payload" }} onChange={handleChangeMenu} />
-      <ArrowDown></ArrowDown>
-    </SelectContainer>
-    {renderContent(menu)}
-  </>;
+  return (
+    <>
+      <SelectContainer>
+        <label>Menu</label>
+        <Select
+          items={inputDropDownOperation2}
+          defaultValue={{
+            id: 0,
+            value: "device_production_payload",
+            label: "Device / Production / Payload",
+          }}
+          onChange={handleChangeMenu}
+        />
+        <ArrowDown></ArrowDown>
+      </SelectContainer>
+      {renderContent(menu)}
+    </>
+  );
 }

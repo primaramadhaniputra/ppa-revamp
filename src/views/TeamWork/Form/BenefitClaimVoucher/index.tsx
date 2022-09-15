@@ -1,7 +1,14 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  FileContainer,
+  ThItemContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -20,58 +27,65 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  ["Perusahaan"]: "HD787",
-  ["Approver"]: "Hd123",
-  ["Status item"]: `331`,
-  ["Tgl.Claim"]: "2022-17-08",
-  ["Tgl.Kwitansi"]: "2022-17-08",
-  ["No.Claim"]: "2022-17-08 02:12:12",
-  ['No.Item']: "2022-17-08 02:12:12",
-  ['Employee']: "2022-17-08 02:12:12",
-  ['Jabatan']: "2022-17-08 02:12:12",
-  ['Dept']: "2022-17-08 02:12:12",
-  ['Nama Pasien']: "2022-17-08 02:12:12",
-  ['Kode hub']: "2022-17-08 02:12:12",
-  ['Kode Klaim']: "2022-17-08 02:12:12",
-  ['Jumlah(RP.)']: "2022-17-08 02:12:12",
-  ['File']: "",
-  ['Vendor']: "",
-  ['Modified Date']: "",
-  ['Transferred Date']: "",
-}]
-
+export const defaultDataTable = [
+  {
+    ["Perusahaan"]: "HD787",
+    ["Approver"]: "Hd123",
+    ["Status item"]: `331`,
+    ["Tgl.Claim"]: "2022-17-08",
+    ["Tgl.Kwitansi"]: "2022-17-08",
+    ["No.Claim"]: "2022-17-08 02:12:12",
+    ["No.Item"]: "2022-17-08 02:12:12",
+    ["Employee"]: "2022-17-08 02:12:12",
+    ["Jabatan"]: "2022-17-08 02:12:12",
+    ["Dept"]: "2022-17-08 02:12:12",
+    ["Nama Pasien"]: "2022-17-08 02:12:12",
+    ["Kode hub"]: "2022-17-08 02:12:12",
+    ["Kode Klaim"]: "2022-17-08 02:12:12",
+    ["Jumlah(RP.)"]: "2022-17-08 02:12:12",
+    ["File"]: "",
+    ["Vendor"]: "",
+    ["Modified Date"]: "",
+    ["Transferred Date"]: "",
+  },
+];
 
 export default function BenefitClaimVoucher() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [isImage, setIsImage] = React.useState(false)
+  const [isImage, setIsImage] = React.useState(false);
 
   const handleImage = () => {
-    setIsImage(!isImage)
-  }
+    setIsImage(!isImage);
+  };
 
-  const columns: ColumnDef<Person>[] = objTitle.map(item => {
+  const columns: ColumnDef<Person>[] = objTitle.map((item) => {
     return {
       accessorKey: item,
       cell: (info) => {
-        return item === "File" ? <IcImage width={20} style={{ cursor: 'pointer' }} onClick={handleImage} /> : info.getValue()
+        return item === "File" ? (
+          <IcImage
+            width={20}
+            style={{ cursor: "pointer" }}
+            onClick={handleImage}
+          />
+        ) : (
+          info.getValue()
+        );
       },
       header: () => (
         <ThItemContainer>
-          <span>
-            {item}
-          </span>
+          <span>{item}</span>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <AD></AD>
           </Grid>
         </ThItemContainer>
-      )
-    }
-  })
+      ),
+    };
+  });
   const table = useReactTable({
     data: defaultDataTable,
     columns,
@@ -97,19 +111,24 @@ export default function BenefitClaimVoucher() {
     <Wrapper>
       {isImage && <FormImage onclick={handleImage} />}
       <WrapperTitle>
-        <TitleText >Benefit Claim Voucher(BCV)</TitleText>
+        <TitleText>Benefit Claim Voucher(BCV)</TitleText>
         <FileContainer>
           <label htmlFor="file">+</label>
           <label htmlFor="file">UPLOAD FILE</label>
-          <input type='file' id="file" hidden />
+          <input type="file" id="file" hidden />
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />
-        <TableComponent2
+        <TableFilterSearch
           table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={true}
+          buttonTitle="EXPORT"
         />
+        <TableComponent2 table={table} />
       </WrapperTable>
-    </Wrapper >
+    </Wrapper>
   );
 }

@@ -9,8 +9,7 @@ import { fontWeights } from "utils/styles";
 import { ButtonWrapper, Container, TextForgotPassword } from "./styles";
 
 export default function PasswordTab() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
     try {
@@ -35,17 +34,26 @@ export default function PasswordTab() {
   };
 
   const handleForgotPassword = async () => {
-    return router.replace('/forgot-password')
-  }
+    return router.replace("/forgot-password");
+  };
 
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <Text variant='p' style={{ fontFamily: fontFamilies.poppins, fontWeight: fontWeights.bold, marginBottom: '20px' }}>Ubah password</Text>
+        <Text
+          variant="p"
+          style={{
+            fontFamily: fontFamilies.poppins,
+            fontWeight: fontWeights.bold,
+            marginBottom: "20px",
+          }}
+        >
+          Ubah password
+        </Text>
         <Grid container flexDirection="column" gap={30}>
           <Grid container flexDirection="column" gap={7}>
             <LabeledInput name="currentPassword" title="Password saat ini" />
-            <TextForgotPassword onClick={handleForgotPassword} >
+            <TextForgotPassword onClick={handleForgotPassword}>
               Lupa password?
             </TextForgotPassword>
           </Grid>

@@ -52,7 +52,7 @@ export default function LoginForm() {
   };
 
   return (
-    <Container >
+    <Container>
       <SelectLabel>Pilih layout login</SelectLabel>
       <Select
         items={layout}

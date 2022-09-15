@@ -114,3 +114,9 @@ export interface allSites {
     siteName: string;
     data: site[];
 }
+
+export interface IDate {
+    startDate: Date;
+    endDate: Date;
+    key: string;
+}

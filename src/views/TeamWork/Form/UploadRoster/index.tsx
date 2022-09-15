@@ -1,7 +1,14 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  FileContainer,
+  THContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -18,17 +25,19 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  date: "HD787",
-  filename: "Hd123",
-  mp: `33`,
-  day: "2022-17-08",
-  status: "2022-17-08",
-  remark: "2022-17-08 02:12:12",
-}];
+export const defaultDataTable = [
+  {
+    date: "HD787",
+    filename: "Hd123",
+    mp: `33`,
+    day: "2022-17-08",
+    status: "2022-17-08",
+    remark: "2022-17-08 02:12:12",
+  },
+];
 
 export default function UploadRoster() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -41,20 +50,18 @@ export default function UploadRoster() {
         return (
           <THContainer key={index}>
             <Grid>
-              <span>
-                {item}
-              </span>
+              <span>{item}</span>
             </Grid>
-            {
-              info.header.id !== 'remark' && <Grid container flexDirection="column">
+            {info.header.id !== "remark" && (
+              <Grid container flexDirection="column">
                 <ArrowUp></ArrowUp>
                 <AD></AD>
               </Grid>
-            }
+            )}
           </THContainer>
-        )
-      }
-    }
+        );
+      },
+    };
   });
 
   const table = useReactTable({
@@ -77,17 +84,24 @@ export default function UploadRoster() {
     table.setPageSize(e.target.value);
   };
   return (
-    <Wrapper >
+    <Wrapper>
       <WrapperTitle>
         <TitleText>Upload Roster</TitleText>
         <FileContainer>
           <label htmlFor="file"> +</label>
           <label htmlFor="file"> UPLOAD FILE</label>
-          <input type='file' id="file" hidden />
+          <input type="file" id="file" hidden />
         </FileContainer>
       </WrapperTitle>
       <WrapperTable>
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
+        <TableFilterSearch
+          table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={false}
+          buttonTitle="EXPORT"
+        />
         <TableComponent2 table={table} />
       </WrapperTable>
     </Wrapper>

@@ -1,6 +1,14 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ArrowDown, ArrowUp, ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import {
+  ArrowDown,
+  ArrowUp,
+  ThItemContainer,
+  TitleText,
+  Wrapper,
+  WrapperTable,
+  WrapperTitle,
+} from "./styles";
 import {
   ColumnDef,
   getCoreRowModel,
@@ -36,7 +44,7 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function AttendanceDetail() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -48,17 +56,15 @@ export default function AttendanceDetail() {
       header: () => (
         <ThItemContainer key={index}>
           <Grid>
-            <span>
-              {item}
-            </span>
+            <span>{item}</span>
           </Grid>
           <Grid container flexDirection="column">
             <ArrowUp></ArrowUp>
             <ArrowDown></ArrowDown>
           </Grid>
         </ThItemContainer>
-      )
-    }
+      ),
+    };
   });
   const table = useReactTable({
     data: defaultDataTable,
@@ -88,11 +94,16 @@ export default function AttendanceDetail() {
       </WrapperTitle>
       <WrapperTable>
         <TopFilter />
-        <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={true} buttonTitle='EXPORT' />
-        <TableComponent2
+        <TableFilterSearch
           table={table}
+          handleChangeTotalShowData={handleChangeTotalShowData}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          withButton={true}
+          buttonTitle="EXPORT"
         />
+        <TableComponent2 table={table} />
       </WrapperTable>
-    </Wrapper >
+    </Wrapper>
   );
 }

@@ -17,20 +17,22 @@ interface Person {
   [x: string]: any;
 }
 
-export const defaultDataTable = [{
-  ID: "HD787",
-  User: "Hd123",
-  Host: `33}`,
-  DB: "2022-17-08",
-  Command: "2022-17-08",
-  Time: "2022-17-08 02:12:12",
-  State: "2022-17-08 02:12:12",
-  Info: "2022-17-08 02:12:12",
-  Action: "",
-}];
+export const defaultDataTable = [
+  {
+    ID: "HD787",
+    User: "Hd123",
+    Host: `33}`,
+    DB: "2022-17-08",
+    Command: "2022-17-08",
+    Time: "2022-17-08 02:12:12",
+    State: "2022-17-08 02:12:12",
+    Info: "2022-17-08 02:12:12",
+    Action: "",
+  },
+];
 
 export default function Database() {
-  const objTitle = Object.keys(defaultDataTable.map(item => item)[0])
+  const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -42,15 +44,13 @@ export default function Database() {
       header: (data) => {
         return (
           <THContainer key={index}>
-            <span>
-              {item}
-            </span>
+            <span>{item}</span>
             {data.column.id !== "Action" && <Arrow />}
           </THContainer>
-        )
+        );
       },
       footer: (props) => props.column.id,
-    }
+    };
   });
 
   const table = useReactTable({
@@ -73,13 +73,17 @@ export default function Database() {
     table.setPageSize(e.target.value);
   };
 
-
   return (
     <Wrapper>
-      <TableFilterSearch table={table} handleChangeTotalShowData={handleChangeTotalShowData} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} withButton={false} buttonTitle='EXPORT' />
-      <TableComponent2
+      <TableFilterSearch
         table={table}
+        handleChangeTotalShowData={handleChangeTotalShowData}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        withButton={false}
+        buttonTitle="EXPORT"
       />
+      <TableComponent2 table={table} />
     </Wrapper>
   );
 }

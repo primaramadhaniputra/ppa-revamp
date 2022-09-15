@@ -9,42 +9,41 @@ export default function DeviceProductionLoadedSpeed() {
   const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
   const [isLoading, setIsLoading] = useState(true);
 
-  const [toDate, setToDate] = useState(new Date())
-  const [fromDate, setFromDate] = useState(new Date())
+  const [toDate, setToDate] = useState(new Date());
+  const [fromDate, setFromDate] = useState(new Date());
 
   const handleFromDate = (e: Date) => {
-    setFromDate(e)
-  }
+    setFromDate(e);
+  };
   const handleToDate = (e: Date) => {
-    setToDate(e)
-  }
+    setToDate(e);
+  };
 
   const getData = async () => {
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       const data = await getOperationReport({
         params: {
           startedAt: convert(fromDate),
-          endedAt: convert(toDate)
+          endedAt: convert(toDate),
         },
         headers: {
-          Tenant: "MHU"
+          Tenant: "MHU",
         },
-        path: '/loaded-speed'
-      })
+        path: "/loaded-speed",
+      });
       setDataChart(data.data.data);
       setIsLoading(false);
-      return notify('Berhasil mendapatkan data', 'success')
+      return notify("Berhasil mendapatkan data", "success");
     } catch (error: any) {
-      setIsLoading(false)
-      return notify(error.message, 'error')
+      setIsLoading(false);
+      return notify(error.message, "error");
     }
-  }
+  };
 
   useEffect(() => {
-    getData()
-  }, [])
-
+    getData();
+  }, []);
 
   return (
     <>
@@ -55,10 +54,7 @@ export default function DeviceProductionLoadedSpeed() {
         handleToDate={handleToDate}
         getData={getData}
       />
-      <DisplayData
-        data={dataChart}
-        isLoading={isLoading}
-      />
+      <DisplayData data={dataChart} isLoading={isLoading} />
     </>
   );
 }

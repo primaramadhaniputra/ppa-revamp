@@ -2,11 +2,21 @@ import React, { useRef } from "react";
 import { Grid, Text } from "@hudoro/neron";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
-import { Chart as ChartJS, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, Title, Filler } from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import zoomPlugin from 'chartjs-plugin-zoom';
+import {
+  Chart as ChartJS,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Filler,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import zoomPlugin from "chartjs-plugin-zoom";
 // import * as Zoom from "chartjs-plugin-zoom";
-import annotationPlugin from 'chartjs-plugin-annotation';
+import annotationPlugin from "chartjs-plugin-annotation";
 import { IcMinusCircle, IcPlusCircle } from "atoms/Icon";
 import IcReset from "atoms/Icon/IcReset";
 ChartJS.register(
@@ -23,16 +33,18 @@ ChartJS.register(
 );
 
 const data = {
-  labels: ["", "", "", "", '', '', "", '', '', '', '', ''],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [10, 12, 8, 9, 16, 13, 40, 10, 30, 1, 10, 10],
-    borderColor: '#44ACFA',
-    tension: .3,
-    pointBorderWidth: -100,
-    fill: true,
-    backgroundColor: '#ACD7F8'
-  }]
+  labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
+  datasets: [
+    {
+      label: "My First Dataset",
+      data: [10, 12, 8, 9, 16, 13, 40, 10, 30, 1, 10, 10],
+      borderColor: "#44ACFA",
+      tension: 0.3,
+      pointBorderWidth: -100,
+      fill: true,
+      backgroundColor: "#ACD7F8",
+    },
+  ],
 };
 
 export const options = {
@@ -42,13 +54,13 @@ export const options = {
       ticks: {
         callback: function (value: string) {
           return `${parseInt(value)}%`;
-        }
+        },
       },
     },
     x: {
       grid: {
-        display: false
-      }
+        display: false,
+      },
     },
   },
   plugins: {
@@ -58,14 +70,14 @@ export const options = {
           enabled: true,
         },
         pinch: {
-          enabled: true
+          enabled: true,
         },
-        mode: 'xy',
+        mode: "xy",
       },
       pan: {
         enabled: true,
-        mode: 'xy',
-      }
+        mode: "xy",
+      },
     },
     legend: {
       display: false,
@@ -73,19 +85,19 @@ export const options = {
     annotation: {
       annotations: {
         box1: {
-          type: 'line',
-          borderColor: '#FF4560',
+          type: "line",
+          borderColor: "#FF4560",
           borderWidth: 1,
           label: {
             enabled: true,
-            content: 'Target 20%',
-            position: 'end',
-            backgroundColor: '#FF4560',
+            content: "Target 20%",
+            position: "end",
+            backgroundColor: "#FF4560",
           },
-          scaleID: 'y',
+          scaleID: "y",
           value: 20,
         },
-      }
+      },
     },
   },
 };
@@ -96,18 +108,23 @@ export default function LineChart() {
   const zoomOut = () => (chartRef.current as any).zoom(0.9);
 
   return (
-    <Wrapper >
+    <Wrapper>
       <Text
         variant="h4"
-        style={{ color: colors.orange, fontWeight: fontWeights.semi, fontSize: fontSizing.sm.fontSize, flex: 1 }}
+        style={{
+          color: colors.orange,
+          fontWeight: fontWeights.semi,
+          fontSize: fontSizing.sm.fontSize,
+          flex: 1,
+        }}
       >
         Trend ATR
       </Text>
       <DonatContainer>
         <Grid container alignItems="center" justifyContent="flex-end" gap={5}>
-          <IcReset width={17} cursor='pointer' onClick={resetZoom} />
-          <IcPlusCircle width={17} cursor='pointer' onClick={zoomIn} />
-          <IcMinusCircle width={17} cursor='pointer' onClick={zoomOut} />
+          <IcReset width={17} cursor="pointer" onClick={resetZoom} />
+          <IcPlusCircle width={17} cursor="pointer" onClick={zoomIn} />
+          <IcMinusCircle width={17} cursor="pointer" onClick={zoomOut} />
         </Grid>
         <Line options={options as any} data={data} ref={chartRef} />
       </DonatContainer>
