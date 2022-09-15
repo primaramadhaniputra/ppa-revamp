@@ -19,12 +19,7 @@ export default function Form() {
     <Wrapper>
       <Wrapper2>
         <FormWrapper>
-          <Image
-            src="/images/logo2.png"
-            width={354}
-            height={34}
-            alt="ppa-logo"
-          />
+          <Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
           <WelcomeTextComponent styles={{ color: colors.blue }} />
           <FormInput color={colors.blue} />
         </FormWrapper>
