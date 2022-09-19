@@ -5,15 +5,15 @@ import { colors } from "utils/styles";
 export const DateContainer = styled(Grid)`
 	border-radius: 5px;
 	position: relative;
-	/* padding: 7px 10px; */
-	padding-bottom: 3px;
+	padding: 5px 10px;
 	z-index: 99;
 	width: 350px;
+	background-color: ${colors.blueSea};
 	@media (max-width: 380px) {
 		width: auto;
 	}
 	& label {
-		line-height: 5px;
+		/* line-height: 0; */
 		font-size: 12px;
 		color: ${colors.darkGrey};
 	}
@@ -22,7 +22,7 @@ export const DateContainer = styled(Grid)`
 export const DateIconContainer = styled.div`
 	position: absolute;
 	right: 15px;
-	top: 21px;
+	top: 28px;
 	cursor: pointer;
 `;
 

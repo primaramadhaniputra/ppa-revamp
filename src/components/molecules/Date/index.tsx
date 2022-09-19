@@ -2,7 +2,8 @@ import LabeledInput from "atoms/LabeledInput";
 import React, { useState } from "react";
 import { Calendar } from "react-date-range";
 import { convert } from "utils/functions";
-import { Container, DateContainer } from "./styles";
+import { IcCalendar } from "atoms/Icon";
+import { Container, DateContainer, DateIconContainer } from "./styles";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
@@ -30,16 +31,15 @@ export default function DateCalendar({ title, dateState, setDateState, styles }:
 				name="date"
 				title={title}
 				style={{
-					backgroundColor: " #E8F0FE",
-					border: "2px solid #E8F0FE",
-					padding: "10px 10px",
+					backgroundColor: "transparent",
+					border: "none",
 				}}
 				value={convert(dateState)}
 				onClick={handleDateInput}
 			/>
-			{/* <DateIconContainer>
-        <IcCalendar width={20} />
-      </DateIconContainer> */}
+			<DateIconContainer>
+				<IcCalendar width={20} />
+			</DateIconContainer>
 			{isDate && (
 				<Container>
 					<Calendar date={dateState} onChange={handleSelectDate} />
