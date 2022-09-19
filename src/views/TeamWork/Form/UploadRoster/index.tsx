@@ -27,12 +27,12 @@ interface Person {
 
 export const defaultDataTable = [
 	{
-		date: "HD787",
-		filename: "Hd123",
-		mp: `33`,
-		day: "2022-17-08",
-		status: "2022-17-08",
-		remark: "2022-17-08 02:12:12",
+		Date: "HD787",
+		Filename: "Hd123",
+		MP: `33`,
+		Day: "2022-17-08",
+		Status: "2022-17-08",
+		Remark: "2022-17-08 02:12:12",
 	},
 ];
 
