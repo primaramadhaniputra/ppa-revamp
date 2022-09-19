@@ -25,15 +25,15 @@ interface Person {
 }
 export const defaultDataTable = [
 	{
-		nrp: "HD787",
-		name: "Hd123",
-		date: `33`,
-		code: "2022-17-08",
-		in: "2022-17-08",
-		out: "2022-17-08 02:12:12",
-		job: "2022-17-08 02:12:12",
-		pos: "2022-17-08 02:12:12",
-		act: "2022-17-08 02:12:12",
+		NRP: "HD787",
+		Name: "Hd123",
+		Date: `33`,
+		Code: "2022-17-08",
+		In: "2022-17-08",
+		Out: "2022-17-08 02:12:12",
+		Job: "2022-17-08 02:12:12",
+		Pos: "2022-17-08 02:12:12",
+		Act: "2022-17-08 02:12:12",
 	},
 ];
 
@@ -55,7 +55,7 @@ export default function UpdateRoster() {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return info.column.id === "act" ? (
+				return info.column.id === "Act" ? (
 					<Grid>
 						<IcEdit width={20} style={{ cursor: "pointer" }} onClick={handleEdit} />
 					</Grid>
@@ -69,7 +69,7 @@ export default function UpdateRoster() {
 						<Grid>
 							<span>{item}</span>
 						</Grid>
-						{info.header.id !== "act" && (
+						{info.header.id !== "Act" && (
 							<Grid container flexDirection="column">
 								<ArrowUp></ArrowUp>
 								<AD></AD>
