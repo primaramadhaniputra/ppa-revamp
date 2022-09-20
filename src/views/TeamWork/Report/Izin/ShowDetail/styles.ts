@@ -9,10 +9,10 @@ export const Wrapper = styled.div`
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 999;
 	display: flex;
 	justify-content: center;
 	padding: 0 20px;
+	transition: opacity 0.3s;
 `;
 
 export const Container = styled.div`
