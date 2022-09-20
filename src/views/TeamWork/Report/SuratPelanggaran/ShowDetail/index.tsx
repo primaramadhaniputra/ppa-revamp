@@ -1,14 +1,16 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { Container, DataContainer, StyledP, Table, Title, Wrapper } from "./styles";
+import { Container, DataContainer, P, StyledP, Table, Title, Wrapper } from "./styles";
 
 interface IProps {
 	onclick: () => void;
+	styles?: React.CSSProperties;
+	top: number;
 }
 
-export default function ShowDetail({ onclick }: IProps) {
+export default function ShowDetail({ onclick, styles, top }: IProps) {
 	return (
-		<Wrapper onClick={onclick}>
+		<Wrapper onClick={onclick} style={{ top: `${top}px`, ...styles }}>
 			<Container>
 				<Grid
 					container
@@ -19,58 +21,78 @@ export default function ShowDetail({ onclick }: IProps) {
 					<Title>KT08/HCG/2102/CUTI/00072</Title>
 					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={onclick} />
 				</Grid>
-				<Grid container gap={20}>
+				<Grid container gap={20} flexDirection="column">
 					<DataContainer>
-						<StyledP>Name :</StyledP>
-						<p>AGUS EKA PRASETYA</p>
+						<StyledP>NRP / Nama </StyledP>
+						<P>: AGUS EKA PRASETYA</P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>Position :</StyledP>
-						<p>GROUP LEADER SYSTEM DEVELOPER</p>
+						<StyledP>Perusahaan </StyledP>
+						<P>: AMM</P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>Date :</StyledP>
-						<p>2020-12-16 to 2020-12-30</p>
+						<StyledP>Dept / Posisi </StyledP>
+						<P>: FLO / FUELMAN</P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>POH :</StyledP>
-						<p>2020-12-16 to 2020-12-30</p>
+						<StyledP>Sanksi Pelanggaran </StyledP>
+						<P>: Teguran</P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>Hiring Date :</StyledP>
-						<p>2020-12-16 to 2020-12-30</p>
+						<StyledP>Jenis Pelanggaran </StyledP>
+						<P>: Hasil Kerja</P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>Status :</StyledP>
-						<p>2020-12-16 to 2020-12-30</p>
+						<StyledP>Lokasi Kejadian </StyledP>
+						<P>: Fuel Sentuk</P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>Leave :</StyledP>
-						<p>2020-12-16 to 2020-12-30</p>
+						<StyledP>Uraian </StyledP>
+						<P>
+							: Keliru hasil pengisian di input pada FT lain (Pengisian menggunakan FT52609 di input
+							di FT52610)
+						</P>
+					</DataContainer>
+					<StyledP style={{ textDecoration: "underline" }}>Mine license penalty </StyledP>
+					<DataContainer>
+						<StyledP>- Minerpermit </StyledP>
+						<P>: </P>
 					</DataContainer>
 					<DataContainer>
-						<StyledP>Address :</StyledP>
-						<p>DUSUN MANTING RT. 018 RW. 003 KEL. TAWANGSARI KEC. PUJON KAB. MALANG JAWA TIMUR</p>
+						<StyledP>- Simper </StyledP>
+						<P>: </P>
 					</DataContainer>
-					<DataContainer style={{ flexDirection: "column" }}>
-						<StyledP>Approval History :</StyledP>
-						<p style={{ paddingLeft: "20px" }}>
-							{" "}
-							[SH] Approved by DWI HENDRA IRAWAN with no message on 2020-12-13 17:40:19
-						</p>
+					<StyledP style={{ textDecoration: "underline" }}>Grounded </StyledP>
+					<DataContainer>
+						<StyledP>- Masa Grounded </StyledP>
+						<P>: </P>
+					</DataContainer>
+					<DataContainer>
+						<StyledP>- Jadwal Grounded </StyledP>
+						<P>: </P>
+					</DataContainer>
+					<DataContainer>
+						<StyledP>- Jadwal Dirumahkan </StyledP>
+						<P>: </P>
+					</DataContainer>
+					<DataContainer>
+						<StyledP>Dibuat oleh </StyledP>
+						<P>: </P>
+					</DataContainer>
+					<DataContainer>
+						<StyledP>Pada tanggal </StyledP>
+						<P>: </P>
 					</DataContainer>
 					<DataContainer style={{ flexDirection: "column", width: "100%" }}>
-						<StyledP>Requested Ticket :</StyledP>
+						<StyledP style={{ marginBottom: "15px" }}>Riwayat pelanggaran :</StyledP>
 						<Table>
 							<thead>
 								<tr>
-									<th>Name</th>
-									<th>Age</th>
-									<th>Ticket for</th>
+									<th>No</th>
 									<th>Date</th>
-									<th>From</th>
-									<th>To</th>
-									<th>action</th>
+									<th>Sanksi</th>
+									<th>Jenis</th>
+									<th>Status</th>
 								</tr>
 							</thead>
 							{/* <tbody>

@@ -9,16 +9,17 @@ export const Wrapper = styled.div`
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 999;
 	display: flex;
 	justify-content: center;
 	padding: 0 20px;
+	transition: opacity 0.3s;
+	min-height: 100vh;
 `;
 
 export const Container = styled.div`
 	background-color: white;
 	height: max-content;
-	margin-top: 10px;
+	margin-top: 50px;
 	width: 100%;
 	max-width: 500px;
 	padding: 20px;
@@ -27,17 +28,20 @@ export const Container = styled.div`
 export const Title = styled.p`
 	font-family: ${fontFamilies.poppins};
 `;
+export const P = styled.p`
+	font-family: ${fontFamilies.poppins};
+	line-height: 15px;
+`;
 
 export const StyledP = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: ${fontWeights.bold};
 	font-size: ${fontSizing.xs.fontSize};
-	min-width: 70px;
+	min-width: 140px;
 `;
 
 export const DataContainer = styled.div`
 	display: flex;
-	gap: 10px;
 	& :nth-child(2) {
 		font-family: ${fontFamilies.poppins};
 		font-size: ${fontSizing.xs.fontSize};

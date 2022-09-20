@@ -20,6 +20,8 @@ import {
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { Html } from "next/document";
 
 interface Person {
 	[x: string]: any;
@@ -43,9 +45,16 @@ export default function LeavingApplication() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleShowDetail = () => {
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleHideDetail = () => {
+		setIsShowDetail(false);
+		setformPosition(0);
 	};
 
 	const columns: ColumnDef<Person>[] = [
@@ -151,9 +160,20 @@ export default function LeavingApplication() {
 		table.setPageSize(e.target.value);
 	};
 
+	isShowDetail
+		? disableBodyScroll(Html as unknown as HTMLElement | Element)
+		: enableBodyScroll(Html as unknown as HTMLElement | Element);
+
 	return (
 		<Wrapper>
-			{isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
+			<ShowDetail
+				onclick={handleHideDetail}
+				styles={{
+					zIndex: `${isShowDetail ? "999" : "-999"}`,
+					opacity: `${isShowDetail ? "1" : "0"}`,
+				}}
+				top={formPosition}
+			/>
 			<WrapperTitle>
 				<TitleText>Leaving Application</TitleText>
 				<FileContainer>

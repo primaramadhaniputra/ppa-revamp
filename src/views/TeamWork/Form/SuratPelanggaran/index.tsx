@@ -23,6 +23,8 @@ import IcPrinter from "atoms/Icon/IcPrinter";
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { Html } from "next/document";
 
 interface Person {
 	[x: string]: any;
@@ -48,9 +50,16 @@ export default function SuratPelanggaran() {
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [activeTab, setActiveTab] = React.useState(0);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleShowDetail = () => {
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleHideDetail = () => {
+		setIsShowDetail(false);
+		setformPosition(0);
 	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
@@ -102,9 +111,21 @@ export default function SuratPelanggaran() {
 	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
 		table.setPageSize(e.target.value);
 	};
+
+	isShowDetail
+		? disableBodyScroll(Html as unknown as HTMLElement | Element)
+		: enableBodyScroll(Html as unknown as HTMLElement | Element);
+
 	return (
 		<Wrapper>
-			{isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
+			<ShowDetail
+				onclick={handleHideDetail}
+				styles={{
+					zIndex: `${isShowDetail ? "999" : "-999"}`,
+					opacity: `${isShowDetail ? "1" : "0"}`,
+				}}
+				top={formPosition}
+			/>
 			<WrapperTitle style={{ marginBottom: "20px " }}>
 				<Grid>
 					<Tabs activeTab={activeTab} setActiveTab={setActiveTab} />

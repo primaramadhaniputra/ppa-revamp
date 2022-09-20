@@ -4,11 +4,13 @@ import { Container, DataContainer, StyledP, Table, Title, Wrapper } from "./styl
 
 interface IProps {
 	onclick: () => void;
+	styles?: React.CSSProperties;
+	top: number;
 }
 
-export default function ShowDetail({ onclick }: IProps) {
+export default function ShowDetail({ onclick, styles, top }: IProps) {
 	return (
-		<Wrapper onClick={onclick}>
+		<Wrapper onClick={onclick} style={{ top: `${top}px`, ...styles }}>
 			<Container>
 				<Grid
 					container

@@ -9,16 +9,17 @@ export const Wrapper = styled.div`
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 999;
 	display: flex;
 	justify-content: center;
 	padding: 0 20px;
+	transition: opacity 0.3s;
+	min-height: 100vh;
 `;
 
 export const Container = styled.div`
 	background-color: white;
 	height: max-content;
-	margin-top: 10px;
+	margin-top: 70px;
 	width: 100%;
 	max-width: 500px;
 	padding: 20px;

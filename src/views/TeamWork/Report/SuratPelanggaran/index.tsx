@@ -1,6 +1,5 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import {
 	ArrowDown,
 	ArrowUp,
@@ -23,6 +22,8 @@ import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { Html } from "next/document";
 
 interface IProps {
 	[x: string]: any;
@@ -43,136 +44,51 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function SuratPelanggaran() {
+	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
-	const handleShowDetail = () => {
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
 	};
-	const columns: ColumnDef<IProps>[] = [
-		{
-			accessorKey: "Waktu Kejadian",
-			cell: (info) => info.getValue(),
+
+	const handleHideDetail = () => {
+		setIsShowDetail(false);
+		setformPosition(0);
+	};
+
+	const columns: ColumnDef<IProps>[] = objTitle.map((item) => {
+		return {
+			accessorKey: item,
+			cell: (info) => {
+				return item === "Detail" ? (
+					<Grid container justifyContent="center" gap={30}>
+						<Icon
+							iconName="IcEye"
+							size={24}
+							style={{ cursor: "pointer" }}
+							onClick={handleShowDetail}
+						/>
+					</Grid>
+				) : (
+					info.getValue()
+				);
+			},
 			header: () => (
 				<ThItemContainer>
-					<span>Waktu Kejadian</span>
+					<span>{item}</span>
 					<Grid container flexDirection="column">
 						<ArrowUp></ArrowUp>
 						<ArrowDown></ArrowDown>
 					</Grid>
 				</ThItemContainer>
 			),
-		},
-		{
-			accessorKey: "NRP",
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer>
-					<span>NRP</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-		{
-			accessorKey: "Nama",
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer>
-					<span>Nama</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-		{
-			accessorKey: "Posisi",
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer>
-					<span>Posisi</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-		{
-			accessorKey: "Sanksi",
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer>
-					<span>Sanksi</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-		{
-			accessorKey: "Jenis",
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer>
-					<span>Jenis</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-		{
-			accessorKey: "Status",
-			cell: (info) => (
-				<span
-					style={{
-						fontWeight: fontWeights.bold,
-						color: "#3B7DDD",
-						backgroundColor: "#E8F0FE",
-						padding: "0 15px",
-						borderRadius: "50px",
-						fontSize: "13px",
-					}}
-				>
-					{info.getValue()}
-				</span>
-			),
-			header: () => (
-				<ThItemContainer>
-					<span>Status</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-		{
-			accessorKey: "Detail",
-			cell: () => (
-				<Grid container style={{ justifyContent: "center", cursor: "pointer" }}>
-					<Icon iconName="IcEye" size={24} onClick={handleShowDetail} />
-				</Grid>
-			),
-			header: () => (
-				<ThItemContainer>
-					<span>Detail</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
-		},
-	];
+		};
+	});
 	const table = useReactTable({
 		data: defaultDataTable,
 		columns,
@@ -194,9 +110,20 @@ export default function SuratPelanggaran() {
 		table.setPageSize(e.target.value);
 	};
 
+	isShowDetail
+		? disableBodyScroll(Html as unknown as HTMLElement | Element)
+		: enableBodyScroll(Html as unknown as HTMLElement | Element);
+
 	return (
 		<>
-			{isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
+			<ShowDetail
+				onclick={handleHideDetail}
+				styles={{
+					zIndex: `${isShowDetail ? "999" : "-999"}`,
+					opacity: `${isShowDetail ? "1" : "0"}`,
+				}}
+				top={formPosition}
+			/>
 			<Wrapper>
 				<WrapperTitle>
 					<TitleText>Surat Pelanggaran</TitleText>
