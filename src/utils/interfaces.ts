@@ -115,6 +115,18 @@ export interface allSites {
 	data: site[];
 }
 
+export interface IOB {
+	plan: number;
+	production: number;
+	percent: number;
+}
+
+export interface ITotalAllSites {
+	overBurden: IOB;
+	ore: IOB;
+	coal: IOB;
+}
+
 export interface IDate {
 	startDate: Date;
 	endDate: Date;

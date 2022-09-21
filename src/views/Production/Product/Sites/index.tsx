@@ -47,7 +47,6 @@ export default function Sites({ sites }: IProps) {
 			<Wrapper>
 				{sites &&
 					sites.map((item, index) => {
-						console.log(item);
 						return (
 							<SingleProduct onClick={showChart} key={index}>
 								<HeaderContainer>

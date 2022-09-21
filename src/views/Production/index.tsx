@@ -4,13 +4,14 @@ import TitlePage from "atoms/TitlePage";
 import React, { useEffect, useState } from "react";
 import { getAllSiteProduction } from "services/production";
 import { convert, notify } from "utils/functions";
-import { allSites } from "utils/interfaces";
+import { allSites, ITotalAllSites } from "utils/interfaces";
 import Product from "./Product";
 import TopFilter from "./TopFIlter";
 
 export default function Production() {
 	const [activeTabs, setActiveTabs] = useState<number>();
 	const [sites, setSites] = useState<allSites[]>();
+	const [totalDataSites, setTotalDataSites] = useState<ITotalAllSites>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [date, setDate] = useState([
 		{
@@ -80,7 +81,8 @@ export default function Production() {
 					group: groupType(activeTabs as number),
 				},
 			});
-			setSites(data.data.data);
+			setSites(data.data.data.resource);
+			setTotalDataSites(data.data.data.total);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
@@ -92,6 +94,7 @@ export default function Production() {
 	useEffect(() => {
 		getSites();
 	}, [date]);
+
 	return (
 		<>
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
@@ -108,7 +111,7 @@ export default function Production() {
 					<Loading />
 				</Grid>
 			) : (
-				<Product sites={sites as allSites[]} />
+				<Product sites={sites as allSites[]} totalDataSites={totalDataSites as ITotalAllSites} />
 			)}
 		</>
 	);

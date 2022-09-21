@@ -1,42 +1,15 @@
 import { Grid } from "@hudoro/neron";
 import Image from "next/image";
 import React from "react";
-import { convertDataToPercentage } from "utils/functions";
-import { allSites } from "utils/interfaces";
+import { ITotalAllSites } from "utils/interfaces";
 import { ProductText, ProductTitle } from "../styles";
 import { Lozenge, SingleProduct, Title, Wrapper, WrapperProduct } from "./styles";
 
 interface IProps {
-	sites: allSites[];
+	totalDataSites: ITotalAllSites;
 }
 
-export default function TotalSites({ sites }: IProps) {
-	const data = sites?.reduce(
-		(acc, curr) => {
-			curr.data.map((item) => {
-				if (item.name === "Over Burden") {
-					acc.obPlan += parseFloat(item.plan as string) || 0;
-					acc.obProduction += parseFloat(item.production as string) || 0;
-				} else if (item.name === "Coal") {
-					acc.coalPlan += parseFloat(item.plan as string) || 0;
-					acc.coalProduction += parseFloat(item.production as string) || 0;
-				} else if (item.name === "Ore") {
-					acc.orePlan += parseFloat(item.plan as string) || 0;
-					acc.oreProduction += parseFloat(item.production as string) || 0;
-				}
-			});
-			return acc;
-		},
-		{
-			obPlan: 0,
-			obProduction: 0,
-			coalPlan: 0,
-			coalProduction: 0,
-			orePlan: 0,
-			oreProduction: 0,
-		},
-	);
-
+export default function TotalSites({ totalDataSites }: IProps) {
 	return (
 		<Wrapper>
 			<Grid style={{ marginBottom: "31px" }} container alignItems="center" gap={15}>
@@ -49,7 +22,7 @@ export default function TotalSites({ sites }: IProps) {
 						<Image src="/icons/CheckCircle.png" width={28} height={28} alt="circle logo" />
 						<Title>OB Kbcm</Title>
 					</Grid>
-					<Lozenge>{convertDataToPercentage(data?.obPlan, data?.obProduction)}%</Lozenge>
+					<Lozenge>{totalDataSites ? totalDataSites["overBurden"].percent : 0}%</Lozenge>
 					<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
 						<Grid container gap={5}>
 							<Image
@@ -61,7 +34,7 @@ export default function TotalSites({ sites }: IProps) {
 							/>
 							<ProductText>P</ProductText>
 						</Grid>
-						<ProductText>{data?.obPlan || 0}</ProductText>
+						<ProductText>{totalDataSites ? totalDataSites["overBurden"].plan : 0}</ProductText>
 					</Grid>
 					<Grid container justifyContent="space-between">
 						<Grid container gap={5}>
@@ -74,7 +47,9 @@ export default function TotalSites({ sites }: IProps) {
 							/>
 							<ProductText>A</ProductText>
 						</Grid>
-						<ProductText>{data?.obProduction || 0}</ProductText>
+						<ProductText>
+							{totalDataSites ? totalDataSites["overBurden"].production : 0}
+						</ProductText>
 					</Grid>
 				</SingleProduct>
 				<SingleProduct style={{ gridArea: "coal" }}>
@@ -83,7 +58,7 @@ export default function TotalSites({ sites }: IProps) {
 						<Title>COAL Kton</Title>
 					</Grid>
 					<Lozenge style={{ backgroundColor: "#EB3B3B" }}>
-						{convertDataToPercentage(data?.coalPlan, data?.coalProduction)}%
+						{totalDataSites ? totalDataSites["coal"].percent : 0}%
 					</Lozenge>
 					<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
 						<Grid container gap={5}>
@@ -96,7 +71,7 @@ export default function TotalSites({ sites }: IProps) {
 							/>
 							<ProductText>P</ProductText>
 						</Grid>
-						<ProductText>{data?.coalPlan || 0}</ProductText>
+						<ProductText>{totalDataSites ? totalDataSites["coal"].plan : 0}</ProductText>
 					</Grid>
 					<Grid container justifyContent="space-between">
 						<Grid container gap={5}>
@@ -109,7 +84,7 @@ export default function TotalSites({ sites }: IProps) {
 							/>
 							<ProductText>A</ProductText>
 						</Grid>
-						<ProductText>{data?.coalProduction || 0}</ProductText>
+						<ProductText>{totalDataSites ? totalDataSites["coal"].production : 0}</ProductText>
 					</Grid>
 				</SingleProduct>
 				<SingleProduct style={{ gridArea: "ore" }}>
@@ -118,7 +93,7 @@ export default function TotalSites({ sites }: IProps) {
 						<Title>ORE Kton</Title>
 					</Grid>
 					<Lozenge style={{ backgroundColor: "#EB3B3B" }}>
-						{convertDataToPercentage(data?.orePlan, data?.oreProduction)}%
+						{totalDataSites ? totalDataSites["ore"].percent : 0}%
 					</Lozenge>
 					<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
 						<Grid container gap={5}>
@@ -131,7 +106,7 @@ export default function TotalSites({ sites }: IProps) {
 							/>
 							<ProductText>P</ProductText>
 						</Grid>
-						<ProductText>{data?.orePlan || 0}</ProductText>
+						<ProductText>{totalDataSites ? totalDataSites["ore"].plan : 0}</ProductText>
 					</Grid>
 					<Grid container justifyContent="space-between">
 						<Grid container gap={5}>
@@ -144,7 +119,7 @@ export default function TotalSites({ sites }: IProps) {
 							/>
 							<ProductText>A</ProductText>
 						</Grid>
-						<ProductText>{data?.oreProduction || 0}</ProductText>
+						<ProductText>{totalDataSites ? totalDataSites["ore"].production : 0}</ProductText>
 					</Grid>
 				</SingleProduct>
 			</WrapperProduct>
