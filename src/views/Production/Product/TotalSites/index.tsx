@@ -9,7 +9,12 @@ interface IProps {
 	totalDataSites: ITotalAllSites;
 }
 
+const iconUrl = ['CheckCircle.png', 'coal.png', 'coal.png']
+const gridArea = ['ob', 'coal', 'ore']
+
 export default function TotalSites({ totalDataSites }: IProps) {
+	const obj = totalDataSites ? Object.entries(totalDataSites) : []
+	console.log(obj.map(item => console.log(item[1])))
 	return (
 		<Wrapper>
 			<Grid style={{ marginBottom: "31px" }} container alignItems="center" gap={15}>
@@ -17,111 +22,45 @@ export default function TotalSites({ totalDataSites }: IProps) {
 				<Image src="/logo/production2.png" width={37} height={37} alt="ppa logo" />
 			</Grid>
 			<WrapperProduct>
-				<SingleProduct style={{ gridArea: "ob" }}>
-					<Grid container alignItems="center" gap={10}>
-						<Image src="/icons/CheckCircle.png" width={28} height={28} alt="circle logo" />
-						<Title>OB Kbcm</Title>
-					</Grid>
-					<Lozenge>{totalDataSites ? totalDataSites["overBurden"].percent : 0}%</Lozenge>
-					<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
-						<Grid container gap={5}>
-							<Image
-								src="/icons/Ic-Target.png"
-								height={16}
-								width={16}
-								alt="product logo"
-								quality={100}
-							/>
-							<ProductText>P</ProductText>
-						</Grid>
-						<ProductText>{totalDataSites ? totalDataSites["overBurden"].plan : 0}</ProductText>
-					</Grid>
-					<Grid container justifyContent="space-between">
-						<Grid container gap={5}>
-							<Image
-								src="/icons/Ic-Trophy.png"
-								height={20.5}
-								width={16}
-								alt="product logo"
-								quality={100}
-							/>
-							<ProductText>A</ProductText>
-						</Grid>
-						<ProductText>
-							{totalDataSites ? totalDataSites["overBurden"].production : 0}
-						</ProductText>
-					</Grid>
-				</SingleProduct>
-				<SingleProduct style={{ gridArea: "coal" }}>
-					<Grid container alignItems="center" gap={10}>
-						<Image src="/icons/coal.png" width={28} height={28} alt="circle logo" />
-						<Title>COAL Kton</Title>
-					</Grid>
-					<Lozenge style={{ backgroundColor: "#EB3B3B" }}>
-						{totalDataSites ? totalDataSites["coal"].percent : 0}%
-					</Lozenge>
-					<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
-						<Grid container gap={5}>
-							<Image
-								src="/icons/Ic-Target.png"
-								height={16}
-								width={16}
-								alt="product logo"
-								quality={100}
-							/>
-							<ProductText>P</ProductText>
-						</Grid>
-						<ProductText>{totalDataSites ? totalDataSites["coal"].plan : 0}</ProductText>
-					</Grid>
-					<Grid container justifyContent="space-between">
-						<Grid container gap={5}>
-							<Image
-								src="/icons/Ic-Trophy.png"
-								height={20.5}
-								width={16}
-								alt="product logo"
-								quality={100}
-							/>
-							<ProductText>A</ProductText>
-						</Grid>
-						<ProductText>{totalDataSites ? totalDataSites["coal"].production : 0}</ProductText>
-					</Grid>
-				</SingleProduct>
-				<SingleProduct style={{ gridArea: "ore" }}>
-					<Grid container alignItems="center" gap={10}>
-						<Image src="/icons/coal.png" width={28} height={28} alt="circle logo" />
-						<Title>ORE Kton</Title>
-					</Grid>
-					<Lozenge style={{ backgroundColor: "#EB3B3B" }}>
-						{totalDataSites ? totalDataSites["ore"].percent : 0}%
-					</Lozenge>
-					<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
-						<Grid container gap={5}>
-							<Image
-								src="/icons/Ic-Target.png"
-								height={16}
-								width={16}
-								alt="product logo"
-								quality={100}
-							/>
-							<ProductText>P</ProductText>
-						</Grid>
-						<ProductText>{totalDataSites ? totalDataSites["ore"].plan : 0}</ProductText>
-					</Grid>
-					<Grid container justifyContent="space-between">
-						<Grid container gap={5}>
-							<Image
-								src="/icons/Ic-Trophy.png"
-								height={20.5}
-								width={16}
-								alt="product logo"
-								quality={100}
-							/>
-							<ProductText>A</ProductText>
-						</Grid>
-						<ProductText>{totalDataSites ? totalDataSites["ore"].production : 0}</ProductText>
-					</Grid>
-				</SingleProduct>
+				{
+					obj.length > 0 && obj.map((item, index) =>
+						<SingleProduct style={{ gridArea: gridArea[index] }}>
+							<Grid container alignItems="center" gap={10}>
+								<Image src={`/icons/${iconUrl[index]}`} width={28} height={28} alt="circle logo" />
+								<Title>{item[0]} Kbcm</Title>
+							</Grid>
+							<Lozenge>{item[1].percent}%</Lozenge>
+							<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
+								<Grid container gap={5}>
+									<Image
+										src="/icons/Ic-Target.png"
+										height={16}
+										width={16}
+										alt="product logo"
+										quality={100}
+									/>
+									<ProductText>P</ProductText>
+								</Grid>
+								<ProductText>{item[1].plan}</ProductText>
+							</Grid>
+							<Grid container justifyContent="space-between">
+								<Grid container gap={5}>
+									<Image
+										src="/icons/Ic-Trophy.png"
+										height={20.5}
+										width={16}
+										alt="product logo"
+										quality={100}
+									/>
+									<ProductText>A</ProductText>
+								</Grid>
+								<ProductText>
+									{item[1].production}
+								</ProductText>
+							</Grid>
+						</SingleProduct>
+					)
+				}
 			</WrapperProduct>
 		</Wrapper>
 	);
