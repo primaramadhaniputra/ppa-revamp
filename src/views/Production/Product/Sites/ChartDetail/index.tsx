@@ -25,19 +25,25 @@ export const options = {
 		},
 		title: {
 			display: true,
-			text: "Banana",
+			text: "Data chart",
 		},
 	},
 };
 
-const labels = ["January", "February", "March", "April"];
+const labels = [
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+	28, 29, 30,
+];
 
 export const data = {
 	labels,
 	datasets: [
 		{
 			label: "Plan",
-			data: [100, 200, 100, 400],
+			data: [
+				100, 200, 100, 400, 50, 70, 10, 300, 800, 100, 30, 134, 600, 500, 200, 630, 123, 456, 741,
+				300, 210, 320, 500, 10, 20, 300, 400, 50, 600, 90,
+			],
 			borderColor: "#E67C39",
 			backgroundColor: "#E67C39",
 			tension: 0.4,
@@ -46,7 +52,10 @@ export const data = {
 		},
 		{
 			label: "Produksi",
-			data: [200, 200, 200, 200],
+			data: [
+				200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+				200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+			],
 			borderColor: "#4571C2",
 			backgroundColor: "#4571C2",
 			pointRadius: 0,
