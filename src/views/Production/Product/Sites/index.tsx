@@ -14,6 +14,19 @@ interface IProps {
 	sites: allSites[];
 }
 
+const logoUrl = [
+	"bibLogo.png",
+	"mhuLogo.png",
+	"abpLogo.png",
+	"kjbLogo.png",
+	"sksLogo.png",
+	"baLogo.png",
+	"mipLogo.png",
+	"mipLogo.png",
+	"mlpLogo.png",
+	"hsmLogo.png",
+];
+
 export default function Sites({ sites }: IProps) {
 	const [isShowChart, setisShowChart] = useState(false);
 	const [formPosition, setformPosition] = useState(0);
@@ -85,7 +98,7 @@ export default function Sites({ sites }: IProps) {
 									</Grid>
 									<Grid container alignItems="center" flexDirection="column" style={{ flex: 1 }}>
 										<Image
-											src="/logo/production4.png"
+											src={`/logo/${logoUrl[index]}`}
 											height={width > 350 ? 37 : 20}
 											width={width > 350 ? 37 : 20}
 											alt="product logo"
