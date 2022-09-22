@@ -6,15 +6,16 @@ export const ChartWrapper = styled.div`
 	right: 0;
 	left: 0;
 	bottom: 0;
-	z-index: 999;
 	background-color: rgba(0, 0, 0, 0.3);
 	min-height: 100vh;
+	transition: opacity 0.3s;
 `;
 
 export const Chart = styled.div`
 	max-width: 850px;
-	margin: 50px auto 0;
+	margin: auto;
 	background-color: white;
 	padding: 15px;
 	border-radius: 5px;
+	transition: transform 0.3s;
 `;

@@ -55,7 +55,7 @@ export const data = {
 	],
 };
 
-export default function ProductionDetail() {
+export default function ChartDetail() {
 	return (
 		<ChartWrapper>
 			<Line options={options} data={data} />
