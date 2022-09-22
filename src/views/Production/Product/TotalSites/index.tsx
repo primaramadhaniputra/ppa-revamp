@@ -28,7 +28,7 @@ export default function TotalSites({ totalDataSites }: IProps) {
 							<Image src={`/icons/${iconUrl[index]}`} width={28} height={28} alt="circle logo" />
 							<Title>{item[0]} Kbcm</Title>
 						</Grid>
-						<Lozenge>{item[1].percent}%</Lozenge>
+						<Lozenge>{item[1].percent.toFixed(2)}%</Lozenge>
 						<Grid container justifyContent="space-between" style={{ marginBottom: "20px" }}>
 							<Grid container gap={5}>
 								<Image

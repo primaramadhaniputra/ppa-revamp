@@ -103,6 +103,7 @@ export interface ISingleUser {
 }
 
 export interface site {
+	percent: number;
 	id: number;
 	plan: string | number | null;
 	production: string | number | null;

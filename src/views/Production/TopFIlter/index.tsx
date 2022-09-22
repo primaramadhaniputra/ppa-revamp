@@ -12,9 +12,16 @@ interface IProps {
 	setActiveTabs: React.Dispatch<React.SetStateAction<number | undefined>>;
 	date: IDate[];
 	setDate: React.Dispatch<React.SetStateAction<IDate[]>>;
+	handleChangeActiveType: () => void;
 }
 
-export default function TopFilter({ activeTabs, setActiveTabs, date, setDate }: IProps) {
+export default function TopFilter({
+	activeTabs,
+	setActiveTabs,
+	date,
+	setDate,
+	handleChangeActiveType,
+}: IProps) {
 	return (
 		<WrapperDate>
 			<Grid
@@ -26,7 +33,7 @@ export default function TopFilter({ activeTabs, setActiveTabs, date, setDate }: 
 				<Text variant="h4" style={{ fontSize: "14px" }}>
 					TC
 				</Text>
-				<Toggler />
+				<Toggler onChange={handleChangeActiveType} />
 				<Text variant="h4" style={{ fontSize: "14px" }}>
 					JS
 				</Text>
