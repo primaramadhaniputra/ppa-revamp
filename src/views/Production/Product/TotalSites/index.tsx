@@ -1,6 +1,7 @@
 import { Grid } from "@hudoro/neron";
 import Image from "next/image";
 import React from "react";
+import { numberWithCommas } from "utils/functions";
 import { ITotalAllSites } from "utils/interfaces";
 import { ProductText, ProductTitle } from "../styles";
 import { Lozenge, SingleProduct, Title, Wrapper, WrapperProduct } from "./styles";
@@ -14,7 +15,6 @@ const gridArea = ["ob", "coal", "ore"];
 
 export default function TotalSites({ totalDataSites }: IProps) {
 	const obj = totalDataSites ? Object.entries(totalDataSites) : [];
-
 	return (
 		<Wrapper>
 			<Grid style={{ marginBottom: "31px" }} container alignItems="center" gap={15}>
@@ -40,7 +40,7 @@ export default function TotalSites({ totalDataSites }: IProps) {
 								/>
 								<ProductText>P</ProductText>
 							</Grid>
-							<ProductText>{item[1].plan}</ProductText>
+							<ProductText>{numberWithCommas(item[1].plan)}</ProductText>
 						</Grid>
 						<Grid container justifyContent="space-between">
 							<Grid container gap={5}>
@@ -53,7 +53,7 @@ export default function TotalSites({ totalDataSites }: IProps) {
 								/>
 								<ProductText>A</ProductText>
 							</Grid>
-							<ProductText>{item[1].production}</ProductText>
+							<ProductText>{numberWithCommas(item[1].production)}</ProductText>
 						</Grid>
 					</SingleProduct>
 				))}
