@@ -1,7 +1,7 @@
 import { Grid, Icon } from "@hudoro/neron";
 import Image from "next/image";
 import React, { useState } from "react";
-import { useWindowSize } from "utils/functions";
+import { numberWithCommas, useWindowSize } from "utils/functions";
 import { allSites } from "utils/interfaces";
 import { fontWeights } from "utils/styles";
 import ChartDetail from "views/Production/Product/Sites/ChartDetail";
@@ -86,7 +86,7 @@ export default function Sites({ sites }: IProps) {
 													/>
 													<ProductText>P</ProductText>
 												</Grid>
-												<ProductText>{item.data[0].plan || 0}</ProductText>
+												<ProductText>{numberWithCommas(item.data[0].plan as number)}</ProductText>
 											</Grid>
 											<Grid container justifyContent="space-between">
 												<Grid container gap={5}>
@@ -99,7 +99,9 @@ export default function Sites({ sites }: IProps) {
 													/>
 													<ProductText>A</ProductText>
 												</Grid>
-												<ProductText>{item.data[0].production || 0}</ProductText>
+												<ProductText>
+													{numberWithCommas(item.data[0].production as number)}
+												</ProductText>
 											</Grid>
 										</Grid>
 									</Grid>
@@ -134,7 +136,7 @@ export default function Sites({ sites }: IProps) {
 													/>
 													<ProductText>P</ProductText>
 												</Grid>
-												<ProductText>{item.data[1].plan || 0}</ProductText>
+												<ProductText>{numberWithCommas(item.data[1].plan as number)}</ProductText>
 											</Grid>
 											<Grid container justifyContent="space-between">
 												<Grid container gap={5}>
@@ -147,7 +149,9 @@ export default function Sites({ sites }: IProps) {
 													/>
 													<ProductText>A</ProductText>
 												</Grid>
-												<ProductText>{item.data[1].production || 0}</ProductText>
+												<ProductText>
+													{numberWithCommas(item.data[1].production as number)}
+												</ProductText>
 											</Grid>
 										</Grid>
 									</Grid>
