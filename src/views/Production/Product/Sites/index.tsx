@@ -69,7 +69,10 @@ export default function Sites({ sites }: IProps) {
 								<HeaderContainer>
 									<Grid container flexDirection="column" gap={13} style={{ flex: 1.5 }}>
 										<ProductText variant="header" style={{ fontWeight: fontWeights.medium }}>
-											OB kbcm <SpanHeader style={{ backgroundColor: "#47BF34" }}>(105%)</SpanHeader>
+											OB kbcm{" "}
+											<SpanHeader style={{ backgroundColor: "#47BF34" }}>
+												{item.data[0].percent.toFixed(2)}%
+											</SpanHeader>
 										</ProductText>
 										<Grid container flexDirection="column" gap={10}>
 											<Grid container justifyContent="space-between">
@@ -114,8 +117,10 @@ export default function Sites({ sites }: IProps) {
 									</Grid>
 									<Grid container flexDirection="column" gap={13} style={{ flex: 1.5 }}>
 										<ProductText variant="header" style={{ fontWeight: fontWeights.medium }}>
-											Coal kton{" "}
-											<SpanHeader style={{ backgroundColor: "#EB3B3B" }}>(105%)</SpanHeader>
+											{item.data[1].name} kton
+											<SpanHeader style={{ backgroundColor: "#EB3B3B" }}>
+												{item.data[0].percent.toFixed(2)}%
+											</SpanHeader>
 										</ProductText>
 										<Grid container flexDirection="column" gap={10}>
 											<Grid container justifyContent="space-between">
@@ -129,7 +134,7 @@ export default function Sites({ sites }: IProps) {
 													/>
 													<ProductText>P</ProductText>
 												</Grid>
-												<ProductText>{item.data[2].plan || 0}</ProductText>
+												<ProductText>{item.data[1].plan || 0}</ProductText>
 											</Grid>
 											<Grid container justifyContent="space-between">
 												<Grid container gap={5}>
@@ -142,7 +147,7 @@ export default function Sites({ sites }: IProps) {
 													/>
 													<ProductText>A</ProductText>
 												</Grid>
-												<ProductText>{item.data[2].production || 0}</ProductText>
+												<ProductText>{item.data[1].production || 0}</ProductText>
 											</Grid>
 										</Grid>
 									</Grid>

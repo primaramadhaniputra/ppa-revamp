@@ -10,6 +10,7 @@ import TopFilter from "./TopFIlter";
 
 export default function Production() {
 	const [activeTabs, setActiveTabs] = useState<number>();
+	const [activeType, seActivetType] = useState(false);
 	const [sites, setSites] = useState<allSites[]>();
 	const [totalDataSites, setTotalDataSites] = useState<ITotalAllSites>();
 	const [isLoading, setIsLoading] = useState(true);
@@ -56,18 +57,6 @@ export default function Production() {
 		}
 	}, [activeTabs]);
 
-	const groupType = (type: number) => {
-		if (type === 0) {
-			return "mtd";
-		} else if (type === 1) {
-			return "ytd";
-		} else if (type === 2) {
-			return "wtd";
-		} else {
-			return "all";
-		}
-	};
-
 	const getSites = async () => {
 		try {
 			setIsLoading(true);
@@ -78,7 +67,7 @@ export default function Production() {
 				params: {
 					start: startTime,
 					end: endTime,
-					group: groupType(activeTabs as number),
+					type: activeType ? "tc" : "js",
 				},
 			});
 			setSites(data.data.data.resource);
@@ -93,7 +82,11 @@ export default function Production() {
 
 	useEffect(() => {
 		getSites();
-	}, [date]);
+	}, [date, activeType]);
+
+	const handleChangeActiveType = () => {
+		seActivetType(!activeType);
+	};
 
 	return (
 		<>
@@ -105,6 +98,7 @@ export default function Production() {
 				setActiveTabs={setActiveTabs}
 				date={date}
 				setDate={setDate}
+				handleChangeActiveType={handleChangeActiveType}
 			/>
 			{isLoading ? (
 				<Grid style={{ marginTop: 100, position: "relative" }}>
