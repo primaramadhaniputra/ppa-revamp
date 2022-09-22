@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { allSites } from "utils/interfaces";
 import { fontWeights } from "utils/styles";
-import ProductionDetail from "views/Production/Detail";
+import ChartDetail from "views/Production/Product/Sites/ChartDetail";
 import { HeaderContainer, ProductText, SingleProduct, SpanHeader, Wrapper } from "../styles";
 import { Chart, ChartWrapper } from "./styles";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -47,16 +47,20 @@ export default function Sites({ sites }: IProps) {
 		: enableBodyScroll(Html as unknown as HTMLElement | Element);
 	return (
 		<>
-			{isShowChart && (
-				<ChartWrapper style={{ top: `${formPosition}px` }}>
-					<Chart>
-						<Grid container justifyContent="flex-end">
-							<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={closeChart} />
-						</Grid>
-						<ProductionDetail />
-					</Chart>
-				</ChartWrapper>
-			)}
+			<ChartWrapper
+				style={{
+					top: `${formPosition}px`,
+					zIndex: isShowChart ? 99 : -10,
+					opacity: isShowChart ? 1 : ".3",
+				}}
+			>
+				<Chart style={{ transform: isShowChart ? "translateY(100px)" : "translateY(0)" }}>
+					<Grid container justifyContent="flex-end">
+						<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={closeChart} />
+					</Grid>
+					<ChartDetail />
+				</Chart>
+			</ChartWrapper>
 			<Wrapper>
 				{sites &&
 					sites.map((item, index) => {
