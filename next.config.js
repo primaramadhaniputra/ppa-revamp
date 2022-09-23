@@ -10,7 +10,7 @@ module.exports = {
 		styledComponents: true,
 	},
 	images: {
-		domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS.split(","),
+		domains: ["https://apirevamp.transformore.net"],
 	},
 };
 // module.exports = nextConfig;
