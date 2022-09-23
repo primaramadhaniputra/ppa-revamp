@@ -10,7 +10,7 @@ module.exports = {
 		styledComponents: true,
 	},
 	images: {
-		domains: [process.env.NEXT_PUBLIC_IMAGE_DOMAINS],
+		domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS.split(","),
 	},
 };
 // module.exports = nextConfig;
