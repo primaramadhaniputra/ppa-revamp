@@ -14,19 +14,6 @@ interface IProps {
 	sites: allSites[];
 }
 
-const logoUrl = [
-	"bibLogo.png",
-	"mhuLogo.png",
-	"abpLogo.png",
-	"kjbLogo.png",
-	"sksLogo.png",
-	"baLogo.png",
-	"mipLogo.png",
-	"mipLogo.png",
-	"mlpLogo.png",
-	"hsmLogo.png",
-];
-
 export default function Sites({ sites }: IProps) {
 	const [isShowChart, setisShowChart] = useState(false);
 	const [formPosition, setformPosition] = useState(0);
@@ -64,6 +51,7 @@ export default function Sites({ sites }: IProps) {
 			<Wrapper>
 				{sites &&
 					sites.map((item, index) => {
+						const src = item.logo;
 						return (
 							<SingleProduct onClick={showChart} key={index}>
 								<HeaderContainer>
@@ -107,7 +95,8 @@ export default function Sites({ sites }: IProps) {
 									</Grid>
 									<Grid container alignItems="center" flexDirection="column" style={{ flex: 1 }}>
 										<Image
-											src={`/logo/${logoUrl[index]}`}
+											loader={() => src}
+											src={src}
 											height={width > 350 ? 37 : 20}
 											width={width > 350 ? 37 : 20}
 											alt="product logo"

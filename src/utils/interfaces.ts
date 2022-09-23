@@ -111,6 +111,7 @@ export interface site {
 }
 
 export interface allSites {
+	logo: string;
 	id: number;
 	siteName: string;
 	data: site[];
