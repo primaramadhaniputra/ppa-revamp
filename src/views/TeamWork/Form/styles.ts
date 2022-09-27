@@ -1,6 +1,6 @@
 import { Card, fontFamilies, Grid, Text } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontWeights, mediaQueries } from "utils/styles";
+import { fontSizing, fontWeights, mediaQueries, colors } from "utils/styles";
 
 export const TabsContainer = styled.div`
 	margin: 15px 0 0 0;
@@ -56,5 +56,30 @@ export const WrapperTable = styled(Grid)`
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;
+	}
+`;
+
+export const FileContainer = styled.div`
+	width: 100%;
+	@media (min-width: 350px) {
+		width: auto;
+	}
+	background-color: ${colors.orange};
+	color: white;
+	display: block;
+	font-weight: ${fontWeights.bold};
+	font-family: ${fontFamilies.poppins};
+	font-size: ${fontSizing.md.fontSize};
+	padding: 5px 15px;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	& label {
+		cursor: pointer;
+	}
+	& :nth-child(1) {
+		font-size: 30px;
 	}
 `;

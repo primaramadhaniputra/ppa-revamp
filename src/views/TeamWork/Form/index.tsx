@@ -12,6 +12,7 @@ import { TabsContainer, TabsText } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import SuratPerintahLembur from "./SuratPerintahLembur";
 import UpdateRoster from "./UpdateRoster";
+import UploadDar from "./UploadDar";
 import UploadRoster from "./UploadRoster";
 import { ArrowDown, SelectContainer } from "./UploadRoster/styles";
 import UploadSpl from "./UploadSpl";
@@ -65,6 +66,8 @@ const renderContent = (type: string) => {
 		return <EmployeeMutation />;
 	} else if (type === "Upload SPL") {
 		return <UploadSpl />;
+	} else if (type === "Upload DAR") {
+		return <UploadDar />;
 	}
 };
 

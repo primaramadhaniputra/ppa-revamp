@@ -1,11 +1,11 @@
 import React from "react";
 import { FileContainer, TitleText, Wrapper, WrapperTitle } from "../styles";
 
-export default function UploadSpl() {
+export default function UploadDar() {
 	return (
 		<Wrapper>
 			<WrapperTitle>
-				<TitleText>Upload SPL</TitleText>
+				<TitleText>Upload DAR</TitleText>
 				<FileContainer>
 					<label htmlFor="file"> +</label>
 					<label htmlFor="file"> UPLOAD FILE</label>
