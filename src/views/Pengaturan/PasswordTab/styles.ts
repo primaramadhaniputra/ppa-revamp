@@ -9,7 +9,6 @@ export const ButtonWrapper = styled.div`
 
 export const Container = styled(Card)`
 	width: 100%;
-	border: 1px solid rgba(0, 0, 0, 0.2);
 	flex: 3;
 	margin-top: 30px;
 `;

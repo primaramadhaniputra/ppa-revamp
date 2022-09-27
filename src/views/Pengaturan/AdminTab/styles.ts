@@ -5,7 +5,6 @@ import { fontSizing, fontWeights } from "utils/styles";
 export const Wrapper = styled(Card)`
 	width: 100%;
 	flex: 3;
-	border: 1px solid rgba(0, 0, 0, 0.2);
 	margin-top: 30px;
 `;
 
