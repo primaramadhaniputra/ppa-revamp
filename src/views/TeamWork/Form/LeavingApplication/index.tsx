@@ -1,13 +1,6 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import {
-	FileContainer,
-	ThItemContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-} from "./styles";
+import { FileContainer, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -22,6 +15,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
 interface Person {
 	[x: string]: any;

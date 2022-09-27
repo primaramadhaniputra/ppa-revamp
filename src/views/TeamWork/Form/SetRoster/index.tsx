@@ -1,13 +1,14 @@
 import { Grid, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import { colors, fontSizing, fontWeights } from "utils/styles";
-import { FormCard, FormContainer, StylingText, TextHeaderContainer, Wrapper } from "./styles";
+import { FormCard, FormContainer, Wrapper } from "./styles";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import StyledButton from "atoms/StyledButton";
 import RevisiInput from "atoms/RevisiInput";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import RevisiDate from "molecules/RevisiDate";
+import { TitleText, WrapperTitle } from "../styles";
 
 export default function SetRoster() {
 	const [fromCalendar, setFromCalendar] = useState<Date>();
@@ -21,9 +22,9 @@ export default function SetRoster() {
 
 	return (
 		<Wrapper>
-			<TextHeaderContainer>
-				<StylingText> Set Roster</StylingText>
-			</TextHeaderContainer>
+			<WrapperTitle>
+				<TitleText> Set Roster</TitleText>
+			</WrapperTitle>
 			<FormContainer>
 				<Text variant="h4" style={{ fontWeight: fontWeights.bold, fontSize: "16px" }}>
 					Form Roster

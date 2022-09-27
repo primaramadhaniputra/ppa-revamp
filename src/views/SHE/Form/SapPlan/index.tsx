@@ -1,5 +1,5 @@
 import React from "react";
-import { TitleText, WrapperTable, WrapperTitle } from "./styles";
+import { TitleText, WrapperTable, WrapperTitle } from "../styles";
 import Table from "./Table";
 
 export default function SapPlan() {

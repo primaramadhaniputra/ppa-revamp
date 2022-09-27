@@ -1,14 +1,6 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import {
-	ArrowDown,
-	ArrowUp,
-	ThItemContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-} from "./styles";
+import { ArrowDown, ArrowUp, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -24,6 +16,7 @@ import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
 interface IProps {
 	[x: string]: any;

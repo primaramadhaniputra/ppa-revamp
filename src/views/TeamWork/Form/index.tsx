@@ -14,6 +14,7 @@ import SuratPerintahLembur from "./SuratPerintahLembur";
 import UpdateRoster from "./UpdateRoster";
 import UploadRoster from "./UploadRoster";
 import { ArrowDown, SelectContainer } from "./UploadRoster/styles";
+import UploadSpl from "./UploadSpl";
 
 const selectItems = [
 	{ id: 1, values: "Upload Roster", label: "Upload Roster" },
@@ -62,6 +63,8 @@ const renderContent = (type: string) => {
 		return <SuratPelanggaran />;
 	} else if (type === "Employee Mutation") {
 		return <EmployeeMutation />;
+	} else if (type === "Upload SPL") {
+		return <UploadSpl />;
 	}
 };
 

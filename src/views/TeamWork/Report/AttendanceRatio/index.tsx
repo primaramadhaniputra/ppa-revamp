@@ -2,14 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import {
-	DateText,
-	ThItemContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-} from "./styles";
+import { DateText, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -26,6 +19,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TabsText from "./TabsText";
 import Department from "./Department";
 import YTD from "./YTD";
+import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
 interface IProps {
 	[x: string]: any;
