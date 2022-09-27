@@ -1,6 +1,7 @@
 import React from "react";
+import { TitleText, Wrapper, WrapperTitle } from "../styles";
 import JadwalInduksi from "./JadwalInduksi";
-import { InduksiContainer, TitleText, Wrapper, WrapperTitle } from "./styles";
+import { InduksiContainer } from "./styles";
 import TidakInduksi from "./TidakInduksi";
 import TidakSesuaiJadwal from "./TidakSesuaiJadwal";
 import TopFilter from "./TopFilter";

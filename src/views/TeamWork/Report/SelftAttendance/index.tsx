@@ -1,16 +1,5 @@
 import React from "react";
-import {
-	Box,
-	BoxContainer,
-	DateText,
-	StatusText,
-	TableTitle,
-	TitleText,
-	Wrapper,
-	WrapperStatus,
-	WrapperTable,
-	WrapperTitle,
-} from "./styles";
+import { Box, BoxContainer, DateText, StatusText, TableTitle, WrapperStatus } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -21,6 +10,7 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
+import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
 interface Person {
 	[x: string]: any;
