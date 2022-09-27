@@ -1,7 +1,7 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer } from "./styles";
+import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -15,7 +15,7 @@ import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { FileContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
 interface Person {
 	[x: string]: any;
