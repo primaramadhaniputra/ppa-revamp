@@ -1,11 +1,12 @@
-import { Grid } from "@hudoro/neron";
+import TitlePage from "atoms/TitlePage";
 import React from "react";
-import Layout from "src/components/layouts/Dashboard/layout";
 
 export default function GA() {
 	return (
-		<Layout>
-			<Grid style={{ maxWidth: "300px" }}></Grid>
-		</Layout>
+		<>
+			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
+				Administration / GA
+			</TitlePage>
+		</>
 	);
 }
