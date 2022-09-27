@@ -1,15 +1,6 @@
-export const Wrapper = styled(Card)`
-	margin-top: 10px;
-	padding: 0px;
-	box-shadow: none;
-	background-color: transparent;
-	border-radius: 3px;
-	${mediaQueries.sm} {
-	}
-`;
-import { Card, fontFamilies, Grid, Text } from "@hudoro/neron";
+import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing, fontWeights, mediaQueries } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const SelectContainer = styled.div`
 	position: relative;
@@ -59,33 +50,4 @@ export const ThItemContainer = styled(Grid).attrs({
 	gap: 7,
 })`
 	width: 100%;
-`;
-
-export const WrapperTitle = styled(Grid).attrs({
-	container: true,
-})`
-	gap: 20px;
-	justify-content: space-between;
-	align-items: center;
-	${mediaQueries.md} {
-		background-color: white;
-		padding: 10px 15px;
-	}
-`;
-export const WrapperTable = styled(Grid)`
-	margin-top: 20px;
-	${mediaQueries.md} {
-		background-color: white;
-		padding: 15px;
-	}
-`;
-
-export const TitleText = styled(Text).attrs({
-	variant: "h3",
-})`
-	font-weight: ${fontWeights.bold};
-	font-size: 18px;
-	${mediaQueries.md} {
-		font-size: 22px;
-	}
 `;

@@ -1,8 +1,7 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
 import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { FileContainer, ThItemContainer, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import { FileContainer, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -18,6 +17,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
 interface Person {
 	[x: string]: any;
@@ -104,9 +104,7 @@ export default function EmployeeMutation() {
 		<Wrapper>
 			<FlyingForm closeForm={closeEdit} isEdit={isEdit} top={formPosition} />
 			<WrapperTitle>
-				<Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: "22px" }}>
-					Employee Mutation
-				</Text>
+				<TitleText>Employee Mutation</TitleText>
 				<FileContainer>
 					<label htmlFor="file">+</label>
 					<label htmlFor="file">Input</label>
