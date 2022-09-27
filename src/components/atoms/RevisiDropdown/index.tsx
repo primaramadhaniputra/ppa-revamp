@@ -3,7 +3,11 @@ import { ArrowDown, DropdownContainer, Item, StyledInput, Wrapper } from "./styl
 
 const data = ["banan", "potato", "watermelon", "strawberry"];
 
-export default function RevisiDropdown() {
+interface IProps {
+	placeholder?: string;
+}
+
+export default function RevisiDropdown({ placeholder }: IProps) {
 	const [isDropdown, setIsDropdown] = useState(false);
 	const [inputValue, setInputValue] = useState("");
 
@@ -13,7 +17,7 @@ export default function RevisiDropdown() {
 	return (
 		<Wrapper>
 			<StyledInput
-				placeholder="Revisi dropdown"
+				placeholder={placeholder || "Revisi dropdown"}
 				onClick={handleDropdown}
 				value={inputValue}
 				onChange={() => {}}

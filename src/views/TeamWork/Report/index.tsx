@@ -8,6 +8,7 @@ import AttendanceRatio from "./AttendanceRatio";
 import Induksi from "./Induksi";
 import Izin from "./Izin";
 import OperatorHours from "./OperatorHours";
+import RankingOperator from "./RankingOperator";
 import SelfAttendance from "./SelftAttendance";
 import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
@@ -53,6 +54,8 @@ const renderContent = (type: string) => {
 		return <TurnOver />;
 	} else if (type === "Self Attendance") {
 		return <SelfAttendance />;
+	} else if (type === "Ranking Operator") {
+		return <RankingOperator />;
 	}
 };
 
