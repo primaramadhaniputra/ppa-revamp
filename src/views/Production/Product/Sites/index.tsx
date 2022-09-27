@@ -5,7 +5,14 @@ import { numberWithCommas, useWindowSize } from "utils/functions";
 import { allSites } from "utils/interfaces";
 import { fontWeights } from "utils/styles";
 import ChartDetail from "views/Production/Product/Sites/ChartDetail";
-import { HeaderContainer, ProductText, SingleProduct, SpanHeader, Wrapper } from "../styles";
+import {
+	HeaderContainer,
+	ProductText,
+	ProductTitle,
+	SingleProduct,
+	SpanHeader,
+	Wrapper,
+} from "../styles";
 import { Chart, ChartWrapper } from "./styles";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
@@ -48,6 +55,7 @@ export default function Sites({ sites }: IProps) {
 					<ChartDetail />
 				</Chart>
 			</ChartWrapper>
+			<ProductTitle>Sites</ProductTitle>
 			<Wrapper>
 				{sites &&
 					sites.map((item, index) => {
