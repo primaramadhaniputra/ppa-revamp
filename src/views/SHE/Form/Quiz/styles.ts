@@ -1,12 +1,10 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
+import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, fontWeights, mediaQueries } from "utils/styles";
 
 interface IProps {
 	activeTab?: boolean;
 }
-
-export const Wrapper = styled.div``;
 
 export const TabText = styled.p<IProps>`
 	font-family: ${fontFamilies.poppins};
@@ -34,35 +32,5 @@ export const TabsWrapper = styled(Grid).attrs({
 	}
 	${mediaQueries.lg} {
 		margin-top: 0;
-	}
-`;
-
-export const WrapperTitle = styled(Grid).attrs({
-	container: true,
-})`
-	margin-top: 20px;
-	gap: 20px;
-	justify-content: space-between;
-	align-items: center;
-	${mediaQueries.md} {
-		background-color: white;
-		padding: 15px;
-	}
-`;
-export const WrapperTable = styled(Grid)`
-	margin-top: 20px;
-	${mediaQueries.md} {
-		background-color: white;
-		padding: 15px;
-	}
-`;
-
-export const TitleText = styled(Text).attrs({
-	variant: "h3",
-})`
-	font-weight: ${fontWeights.bold};
-	font-size: 18px;
-	${mediaQueries.md} {
-		font-size: 22px;
 	}
 `;

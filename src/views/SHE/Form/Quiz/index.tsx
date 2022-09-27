@@ -1,9 +1,8 @@
-import { Text } from "@hudoro/neron";
 import React, { useState } from "react";
-import { fontWeights } from "utils/styles";
+import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import Question from "./Question";
 import Schedule from "./Schedule";
-import { TabsWrapper, TabText, Wrapper, WrapperTable, WrapperTitle } from "./styles";
+import { TabsWrapper, TabText } from "./styles";
 import Table from "./Table";
 
 const tabTitle = ["Subject", "Question", "Schedule"];
@@ -37,10 +36,8 @@ export default function Quiz() {
 					</TabText>
 				))}
 			</TabsWrapper>
-			<WrapperTitle>
-				<Text variant="h3" style={{ fontWeight: fontWeights.bold, fontSize: "22px" }}>
-					{tabTitle[activeTab]}
-				</Text>
+			<WrapperTitle style={{ margin: "20px 0" }}>
+				<TitleText>{tabTitle[activeTab]}</TitleText>
 			</WrapperTitle>
 			<WrapperTable>{renderContent(activeTab)}</WrapperTable>
 		</Wrapper>
