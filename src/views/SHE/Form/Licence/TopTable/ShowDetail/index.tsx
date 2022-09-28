@@ -90,7 +90,7 @@ export default function ShowDetail({ onclick, styles, top }: IProps) {
 	return (
 		<Wrapper style={{ top: `${top}px`, ...styles }}>
 			<Container>
-				<Grid style={{ marginBottom: 30 }}>
+				<Grid container justifyContent="flex-end" style={{ marginBottom: 30 }}>
 					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={onclick} />
 				</Grid>
 				<TableFilterSearch

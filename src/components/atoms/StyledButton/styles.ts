@@ -14,4 +14,10 @@ export const StyledButton = styled.button`
 	font-size: ${fontSizing.sm.fontSize};
 	text-align: center;
 	color: white;
+	&:hover {
+		opacity: 0.8;
+	}
+	&:active {
+		opacity: 1;
+	}
 `;

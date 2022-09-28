@@ -12,6 +12,8 @@ import {
 } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ThItemContainer } from "../styles";
 import { Grid } from "@hudoro/neron";
+import StyledButton from "atoms/StyledButton";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -80,6 +82,20 @@ export default function BottomTable() {
 
 	return (
 		<>
+			<Grid style={{ maxWidth: "80px" }}>
+				<StyledButton
+					style={{
+						backgroundColor: colors.primary,
+						color: colors.white,
+						padding: "0 5px",
+						fontWeight: fontWeights.bold,
+						borderRadius: "15px",
+						fontSize: fontSizing.md.fontSize,
+					}}
+				>
+					+ Data
+				</StyledButton>
+			</Grid>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}
