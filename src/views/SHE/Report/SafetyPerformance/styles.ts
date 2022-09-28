@@ -22,8 +22,6 @@ export const Container = styled.div`
 export const TabsContainer = styled(Grid).attrs({
 	container: true,
 })`
-	/* margin-top: 10px; */
-	/* background-color: ${colors.orangeGrey}; */
 	color: ${colors.orange};
 	display: flex;
 	border-radius: 50px;

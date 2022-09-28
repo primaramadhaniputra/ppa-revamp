@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-	/* box-shadow: 10px 10px 10px 10px black; */
 	margin-top: 20px;
 `;
 

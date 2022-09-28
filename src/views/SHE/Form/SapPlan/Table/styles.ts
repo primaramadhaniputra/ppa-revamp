@@ -1,6 +1,5 @@
 import { Card } from "@hudoro/neron";
 import styled from "styled-components";
-import { mediaQueries } from "utils/styles";
 
 export const Wrapper = styled(Card)`
 	padding: 0;
@@ -8,10 +7,6 @@ export const Wrapper = styled(Card)`
 	border-radius: 3px;
 	flex: 5;
 	background-color: transparent;
-	/* ${mediaQueries.sm} {
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-        padding: 20px;
-    } */
 `;
 
 export const ArrowUp = styled.div`

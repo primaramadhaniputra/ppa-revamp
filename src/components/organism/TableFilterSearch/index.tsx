@@ -93,7 +93,7 @@ export default function TableFilterSearch({
 				{withButton && (
 					<StyledButton
 						style={{
-							backgroundColor: "#25B78A",
+							backgroundColor: colors.green,
 							color: colors.white,
 							padding: "0 10px",
 							fontWeight: fontWeights.bold,
