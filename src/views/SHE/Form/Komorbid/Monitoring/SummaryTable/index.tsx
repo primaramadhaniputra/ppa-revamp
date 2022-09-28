@@ -6,10 +6,13 @@ import {
 	getFilteredRowModel,
 	getPaginationRowModel,
 	useReactTable,
-	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { ThItemContainer } from "../../../Licence/styles";
+import { P } from "./styles";
+import ShowDetail from "./ShowDetail";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { Html } from "next/document";
 
 interface IProps {
 	[x: string]: any;
@@ -29,14 +32,30 @@ export const defaultDataTable = arr.map(() => {
 
 export default function SummaryTable() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleHideDetail = () => {
+		setIsShowDetail(false);
+		setformPosition(0);
+	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return <>{info.getValue()}</>;
+				return info.column.id === "DEPARTEMENT" ? (
+					<span style={{ padding: "5px" }}>{info.getValue()}</span>
+				) : (
+					<P style={{ padding: "5px" }} onClick={handleShowDetail}>
+						{info.getValue()}
+					</P>
+				);
 			},
 			header: () => {
 				return (
@@ -50,21 +69,28 @@ export default function SummaryTable() {
 	const table = useReactTable({
 		data: defaultDataTable,
 		columns,
-		state: {
-			sorting,
-			rowSelection,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
 		getCoreRowModel: getCoreRowModel(),
 		getFilteredRowModel: getFilteredRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
 		debugTable: true,
 		getSortedRowModel: getSortedRowModel(),
 	});
+
+	isShowDetail
+		? disableBodyScroll(Html as unknown as HTMLElement | Element)
+		: enableBodyScroll(Html as unknown as HTMLElement | Element);
+
 	return (
 		<>
-			<TableComponent2 table={table} />
+			<ShowDetail
+				onclick={handleHideDetail}
+				styles={{
+					zIndex: `${isShowDetail ? "999" : "-999"}`,
+					opacity: `${isShowDetail ? "1" : "0"}`,
+				}}
+				top={formPosition}
+			/>
+			<TableComponent2 table={table} noPagination={true} />
 		</>
 	);
 }

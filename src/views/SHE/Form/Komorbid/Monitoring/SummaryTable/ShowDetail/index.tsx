@@ -1,6 +1,6 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { ArrowDown, ArrowUp, ThItemContainer } from "./styles";
+import { Container, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -10,69 +10,61 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { Wrapper, WrapperTable } from "../../styles";
 
-interface IProps {
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import TableComponent2 from "src/components/organism/TableComp2";
+import { ArrowDown, ArrowUp, ThItemContainer } from "../../../Riwayat/styles";
+
+interface ITable {
 	[x: string]: any;
 }
 
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["NRP"]: "120029",
-		["Nama"]: "M.Syarif",
-		["Perusahaan"]: "AMM",
-		["Dept"]: "PRO",
-		["Posisi"]: "OPERATOR PC2000",
-		["Hiring Date"]: "2017-02-20	",
-		["Masa Kerja(Bulan)"]: "67",
-		["Model"]: "PC1250-8R",
-		["Loader"]: "-",
-		["Material"]: "OB",
-		["Produktivitas"]: "0.00",
-		["ATR"]: "100",
-		["SP"]: "0",
-		["P2H"]: "100",
-		["Time Sheet"]: "50",
-		["Poin Prod"]: "50",
-		["Poin ATR"]: "50",
-		["Poin SP"]: "50",
-		["Poin P2H"]: "50",
-		["Poin Time Sheet"]: "50",
-		["Total"]: "50",
-		["Syarat Masa Kerja"]: "1",
-		["Syarat Produktivitas"]: "1",
-		["Syarat SP"]: "1",
-		["Syarat ATR"]: "1",
-		["Pra Syarat"]: "3",
-		["Kategori"]: "BP",
+		["ROL"]: "ROL",
+		["DEPT"]: "ENG",
+		["PERUSAHAAN"]: "AMM",
+		["MASA SIMPER"]: "30-09-2022",
+		["MASA MINEPERMIT"]: "30-09-2023",
+		["MASA MCU"]: "20-03-2023",
+		["EXP.SIMPER"]: "-2 HARI",
+		["EXP.PERMIT"]: "-120 HARI",
+		["EXP.MCU"]: "-120 HARI",
 	};
 });
 
-export default function Riwayat() {
+interface IProps {
+	onclick: () => void;
+	styles?: React.CSSProperties;
+	top: number;
+}
+
+export default function ShowDetail({ onclick, styles, top }: IProps) {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
+	const columns: ColumnDef<ITable>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer key={index}>
-					<Grid>
-						<span>{item}</span>
-					</Grid>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
-				</ThItemContainer>
-			),
+			cell: (info) => {
+				return <>{info.getValue()}</>;
+			},
+			header: () => {
+				return (
+					<ThItemContainer key={index} style={{ gap: "10px" }}>
+						<>
+							<span>{item}</span>
+							<Grid container flexDirection="column">
+								<ArrowUp></ArrowUp>
+								<ArrowDown></ArrowDown>
+							</Grid>
+						</>
+					</ThItemContainer>
+				);
+			},
 		};
 	});
 	const table = useReactTable({
@@ -97,9 +89,11 @@ export default function Riwayat() {
 	};
 
 	return (
-		<Wrapper>
-			<WrapperTable>
-				<TopFilter />
+		<Wrapper style={{ top: `${top}px`, ...styles }}>
+			<Container>
+				<Grid container justifyContent="flex-end" style={{ marginBottom: 30 }}>
+					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={onclick} />
+				</Grid>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -109,7 +103,7 @@ export default function Riwayat() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
+			</Container>
 		</Wrapper>
 	);
 }

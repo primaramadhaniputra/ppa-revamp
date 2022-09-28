@@ -28,12 +28,6 @@ export const TABLE = styled.table`
 	text-align: center;
 	border-collapse: collapse;
 	font-size: ${fontSizing.md.fontSize};
-	& td {
-		padding: 3px 10px;
-	}
-
-	& tr {
-	}
 
 	& th {
 		padding: 5px;
@@ -50,9 +44,6 @@ export const TABLE = styled.table`
 	}
 	& tr th:nth-child(1) {
 		border-left: 0;
-	}
-
-	& thead {
 	}
 
 	& tbody {

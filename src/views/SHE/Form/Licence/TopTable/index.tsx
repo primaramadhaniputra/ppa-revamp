@@ -6,7 +6,6 @@ import {
 	getFilteredRowModel,
 	getPaginationRowModel,
 	useReactTable,
-	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { ThItemContainer } from "../styles";
@@ -35,8 +34,6 @@ export const defaultDataTable = arr.map(() => {
 
 export default function TopTable() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -68,12 +65,6 @@ export default function TopTable() {
 	const table = useReactTable({
 		data: defaultDataTable,
 		columns,
-		state: {
-			sorting,
-			rowSelection,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
 		getCoreRowModel: getCoreRowModel(),
 		getFilteredRowModel: getFilteredRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
