@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
 import Monitoring from "./Monitoring";
+import Riwayat from "./Riwayat";
 import { TabsWrapper, TabText } from "./styles";
 
 const tabTitle = ["Monitoring", "Riwayat"];
@@ -28,7 +29,7 @@ export default function Komorbid() {
 					</TabText>
 				))}
 			</TabsWrapper>
-			{activeTab === 0 ? <Monitoring /> : <h1>testing</h1>}
+			{activeTab === 0 ? <Monitoring /> : <Riwayat />}
 		</>
 	);
 }
