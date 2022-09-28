@@ -3,6 +3,7 @@ import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
+import Licence from "./Licence";
 import Quiz from "./Quiz";
 import SapPlan from "./SapPlan";
 import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
@@ -17,6 +18,8 @@ const renderContent = (type: string) => {
 		return <Quiz />;
 	} else if (type === "SAP Plan") {
 		return <SapPlan />;
+	} else if (type === "Licence") {
+		return <Licence />;
 	}
 };
 

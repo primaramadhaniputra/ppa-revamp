@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 	padding: 20px;
 	transition: 1s;
 	z-index: 999;
+	position: absolute;
 `;
 
 export const Container = styled.form`
