@@ -1,6 +1,6 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ArrowDown, ArrowUp, ThItemContainer } from "./styles";
+import { ThItemContainer } from "./styles";
 import TopFilter from "./TopFilter";
 import {
 	ColumnDef,
@@ -14,6 +14,7 @@ import {
 import { Grid, Icon } from "@hudoro/neron";
 import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -64,10 +65,7 @@ export default function Detail() {
 						) : (
 							<>
 								<span>{item}</span>
-								<Grid container flexDirection="column">
-									<ArrowUp></ArrowUp>
-									<ArrowDown></ArrowDown>
-								</Grid>
+								<CompleteArrow />
 							</>
 						)}
 					</ThItemContainer>

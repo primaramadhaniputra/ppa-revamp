@@ -83,3 +83,25 @@ export const FileContainer = styled.div`
 		font-size: 30px;
 	}
 `;
+export const THContainer = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-content: space-between;
+	width: 100%;
+`;
+
+export const SelectContainer = styled.div`
+	margin: 25px 0;
+	position: relative;
+	& * {
+		font-family: ${fontFamilies.poppins};
+		font-size: 12px;
+	}
+	& label {
+		margin-bottom: 5px;
+		display: block;
+		font-family: ${fontFamilies.poppins};
+		font-size: ${fontSizing.sm.fontSize};
+	}
+`;

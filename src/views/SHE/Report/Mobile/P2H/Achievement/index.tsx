@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import {
-	ArrowDown,
-	ArrowUp,
-	TableWrapper,
-	TabsContainer,
-	TabText,
-	ThItemContainer,
-	Wrapper,
-} from "./styles";
+import { TableWrapper, TabsContainer, TabText, ThItemContainer, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -18,10 +10,10 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid } from "@hudoro/neron";
 import TopFilter from "./TopFilter";
 import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import CompleteArrow from "atoms/CompleteArrow";
 
 const tabText = ["Operator", "Pengawas"];
 
@@ -61,10 +53,7 @@ export default function Achievement() {
 			header: () => (
 				<ThItemContainer key={index}>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
+					<CompleteArrow />
 				</ThItemContainer>
 			),
 		};

@@ -1,7 +1,6 @@
 import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
 import { DateText, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
@@ -20,6 +19,7 @@ import TabsText from "./TabsText";
 import Department from "./Department";
 import YTD from "./YTD";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -64,12 +64,7 @@ export default function AttendanceRatio() {
 						<Grid>
 							<span>{item}</span>
 						</Grid>
-						{data.column.id !== "Act" && (
-							<Grid container flexDirection="column">
-								<ArrowUp></ArrowUp>
-								<AD></AD>
-							</Grid>
-						)}
+						{data.column.id !== "Act" && <CompleteArrow />}
 					</ThItemContainer>
 				);
 			},

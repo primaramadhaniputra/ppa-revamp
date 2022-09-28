@@ -1,6 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
 import { StyledSpan, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
@@ -15,6 +14,7 @@ import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -66,10 +66,7 @@ export default function OperatorHours() {
 			header: () => (
 				<ThItemContainer>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<AD></AD>
-					</Grid>
+					<CompleteArrow />
 				</ThItemContainer>
 			),
 		};

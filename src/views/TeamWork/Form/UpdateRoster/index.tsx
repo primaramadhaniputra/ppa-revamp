@@ -1,7 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import React, { useState } from "react";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -18,7 +16,8 @@ import TopFilter from "./TopFilter";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -65,17 +64,12 @@ export default function UpdateRoster() {
 			},
 			header: (info) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<Grid>
 							<span>{item}</span>
 						</Grid>
-						{info.header.id !== "Act" && (
-							<Grid container flexDirection="column">
-								<ArrowUp></ArrowUp>
-								<AD></AD>
-							</Grid>
-						)}
-					</ThItemContainer>
+						{info.header.id !== "Act" && <CompleteArrow />}
+					</THContainer>
 				);
 			},
 		};

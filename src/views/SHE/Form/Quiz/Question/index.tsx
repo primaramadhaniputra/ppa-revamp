@@ -1,15 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import {
-	ArrowDown,
-	ArrowUp,
-	IconContainer,
-	IconWrapper,
-	TableTitle,
-	ThItemContainer,
-	Wrapper,
-} from "./styles";
+import { IconContainer, IconWrapper, TableTitle, ThItemContainer, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -19,11 +11,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid, Icon } from "@hudoro/neron";
+import { Icon } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -95,10 +88,7 @@ export default function Question() {
 						) : (
 							<>
 								<span>{item}</span>
-								<Grid container flexDirection="column">
-									<ArrowUp></ArrowUp>
-									<ArrowDown></ArrowDown>
-								</Grid>
+								<CompleteArrow />
 							</>
 						)}
 					</ThItemContainer>

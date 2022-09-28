@@ -13,7 +13,8 @@ import {
 
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ArrowDown, ArrowUp, ThItemContainer } from "../../../Riwayat/styles";
+import { ThItemContainer } from "../../../Riwayat/styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface ITable {
 	[x: string]: any;
@@ -55,13 +56,8 @@ export default function ShowDetail({ onclick, styles, top }: IProps) {
 			header: () => {
 				return (
 					<ThItemContainer key={index} style={{ gap: "10px" }}>
-						<>
-							<span>{item}</span>
-							<Grid container flexDirection="column">
-								<ArrowUp></ArrowUp>
-								<ArrowDown></ArrowDown>
-							</Grid>
-						</>
+						<span>{item}</span>
+						<CompleteArrow />
 					</ThItemContainer>
 				);
 			},

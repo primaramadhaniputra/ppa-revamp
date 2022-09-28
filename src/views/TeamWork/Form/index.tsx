@@ -8,13 +8,12 @@ import BenefitClaimVoucher from "./BenefitClaimVoucher";
 import EmployeeMutation from "./EmployeeMutation";
 import LeavingApplication from "./LeavingApplication";
 import SetRoster from "./SetRoster";
-import { TabsContainer, TabsText } from "./styles";
+import { SelectContainer, TabsContainer, TabsText } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import SuratPerintahLembur from "./SuratPerintahLembur";
 import UpdateRoster from "./UpdateRoster";
 import UploadDar from "./UploadDar";
 import UploadRoster from "./UploadRoster";
-import { ArrowDown, SelectContainer } from "./UploadRoster/styles";
 import UploadSpl from "./UploadSpl";
 
 const selectItems = [
@@ -105,7 +104,6 @@ export default function Form() {
 						defaultValue={{ id: 1, values: selectedItem, label: selectedItem }}
 						onChange={handleSelect as any}
 					/>
-					<ArrowDown></ArrowDown>
 				</SelectContainer>
 			)}
 			{renderContent(selectedItem)}

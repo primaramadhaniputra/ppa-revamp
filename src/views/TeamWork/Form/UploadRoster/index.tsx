@@ -1,7 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { THContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -13,7 +11,15 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import {
+	FileContainer,
+	TitleText,
+	Wrapper,
+	WrapperTable,
+	WrapperTitle,
+	THContainer,
+} from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -46,12 +52,7 @@ export default function UploadRoster() {
 						<Grid>
 							<span>{item}</span>
 						</Grid>
-						{info.header.id !== "remark" && (
-							<Grid container flexDirection="column">
-								<ArrowUp></ArrowUp>
-								<AD></AD>
-							</Grid>
-						)}
+						{info.header.id !== "remark" && <CompleteArrow />}
 					</THContainer>
 				);
 			},

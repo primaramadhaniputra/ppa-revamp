@@ -14,8 +14,8 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { ThItemContainer } from "../styles";
-import { ArrowDown, ArrowUp } from "../Department/Detail/styles";
 import { TextYear } from "../TopFilter/styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -65,10 +65,7 @@ export default function YTD() {
 					<Grid>
 						<span>{item}</span>
 					</Grid>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
+					<CompleteArrow />
 				</ThItemContainer>
 			),
 			footer: (info) => {

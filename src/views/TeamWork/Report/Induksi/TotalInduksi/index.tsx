@@ -10,11 +10,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ThItemContainer } from "../styles";
+import { ThItemContainer } from "../styles";
 import { Grid, Icon, Text } from "@hudoro/neron";
 import { fontSizing, fontWeights } from "utils/styles";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -70,10 +71,7 @@ export default function TotalInduksi() {
 			header: () => (
 				<ThItemContainer key={index}>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
+					<CompleteArrow />
 				</ThItemContainer>
 			),
 		};

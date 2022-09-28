@@ -7,7 +7,7 @@ import Komorbid from "./Komorbid";
 import Licence from "./Licence";
 import Quiz from "./Quiz";
 import SapPlan from "./SapPlan";
-import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
+import { SelectContainer, TabsContainer, TabsText } from "./styles";
 
 const selectItems = [
 	{ id: 0, values: "Quiz", label: "Quiz" },
@@ -64,7 +64,6 @@ export default function Form() {
 						defaultValue={{ id: 1, values: selectedItem, label: selectedItem }}
 						onChange={handleSelect as any}
 					/>
-					<ArrowDown></ArrowDown>
 				</SelectContainer>
 			)}
 			{renderContent(selectedItem)}
