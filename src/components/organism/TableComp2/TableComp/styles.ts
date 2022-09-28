@@ -43,7 +43,7 @@ export const TABLE = styled.table`
 		vertical-align: middle;
 		border-bottom: 1px solid #e4e4e4;
 		border-top: 1px solid #e4e4e4;
-		padding: 10px 0;
+		padding: 10px 5px;
 	}
 	& tbody tr:nth-child(odd) {
 		background: ${colors.blueSky};
