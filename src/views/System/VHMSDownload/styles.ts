@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 export const TableWrapper = styled.div`
 	width: 100%;
 	box-shadow: none;
-	/* margin-top: 20px; */
 	border-radius: 3px;
 	padding: 0;
 	${mediaQueries.sm} {

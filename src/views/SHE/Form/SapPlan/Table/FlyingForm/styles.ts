@@ -1,11 +1,9 @@
 import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing, fontWeights, mediaQueries } from "utils/styles";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const Wrapper = styled.div`
-	/* background-color: rgba(0, 0, 0, 0.3); */
 	position: absolute;
-	/* bottom: -300px; */
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -13,9 +11,6 @@ export const Wrapper = styled.div`
 	padding: 20px;
 	transition: 1s;
 	z-index: 999;
-	${mediaQueries.lg} {
-		/* bottom: -200px; */
-	}
 `;
 
 export const Container = styled.form`

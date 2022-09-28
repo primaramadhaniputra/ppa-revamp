@@ -83,7 +83,7 @@ export default function SecondFilter({
 			<ButtonWrapper>
 				<StyledButton
 					style={{
-						backgroundColor: "#25B78A",
+						backgroundColor: colors.green,
 						color: colors.white,
 						padding: "2px 15px",
 						fontWeight: fontWeights.bold,

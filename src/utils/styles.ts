@@ -101,10 +101,11 @@ export const colors = {
 	blue: "#3E4095",
 	borderBlue: "rgba(37, 40, 43, 0.2)",
 	blueSky: "#F7FBFE",
-	orange: "#F89D5C",
+	orange: "#F89D5C", // use
 	blueGrey: "#7376B4",
 	orangeGrey: "#FFECDE",
 	blueSea: "#E8F0FE",
+	green: "#25B78A", //use
 };
 
 /**
