@@ -1,6 +1,6 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { ArrowDown, ArrowUp, ThItemContainer } from "./styles";
+import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -17,6 +17,7 @@ import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -77,10 +78,7 @@ export default function Izin() {
 			header: () => (
 				<ThItemContainer key={index}>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
+					<CompleteArrow />
 				</ThItemContainer>
 			),
 		};

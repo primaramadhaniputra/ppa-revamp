@@ -5,7 +5,7 @@ import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
 import Mobile from "./Mobile";
 import SafetyPerformance from "./SafetyPerformance";
-import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
+import { SelectContainer, TabsContainer, TabsText } from "./styles";
 
 const selectItems = [
 	{ id: 1, values: "Safety Performance", label: "Safety Performance" },
@@ -56,7 +56,6 @@ export default function Report() {
 						defaultValue={{ id: 1, values: selectedItem, label: selectedItem }}
 						onChange={handleSelect as any}
 					/>
-					<ArrowDown></ArrowDown>
 				</SelectContainer>
 			)}
 			{renderContent(selectedItem)}

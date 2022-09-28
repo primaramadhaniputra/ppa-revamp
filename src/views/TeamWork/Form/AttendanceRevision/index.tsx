@@ -1,7 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -13,7 +11,15 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import {
+	FileContainer,
+	THContainer,
+	TitleText,
+	Wrapper,
+	WrapperTable,
+	WrapperTitle,
+} from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -43,15 +49,12 @@ export default function AttendanceRevision() {
 			cell: (info) => info.getValue(),
 			header: () => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<Grid>
 							<span>{item}</span>
 						</Grid>
-						<Grid container flexDirection="column">
-							<ArrowUp></ArrowUp>
-							<AD></AD>
-						</Grid>
-					</ThItemContainer>
+						<CompleteArrow />
+					</THContainer>
 				);
 			},
 		};

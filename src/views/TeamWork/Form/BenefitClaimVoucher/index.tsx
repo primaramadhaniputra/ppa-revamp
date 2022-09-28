@@ -1,7 +1,4 @@
-import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -15,7 +12,15 @@ import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import {
+	FileContainer,
+	THContainer,
+	TitleText,
+	Wrapper,
+	WrapperTable,
+	WrapperTitle,
+} from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -66,13 +71,10 @@ export default function BenefitClaimVoucher() {
 				);
 			},
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<AD></AD>
-					</Grid>
-				</ThItemContainer>
+					<CompleteArrow />
+				</THContainer>
 			),
 		};
 	});

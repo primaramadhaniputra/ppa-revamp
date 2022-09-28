@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from "./styles";
+import { ThItemContainer, Wrapper } from "./styles";
 import TopFilter from "./TopFilter";
 import {
 	ColumnDef,
@@ -17,6 +17,7 @@ import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -77,10 +78,7 @@ export default function Table() {
 						) : (
 							<>
 								<span>{item}</span>
-								<Grid container flexDirection="column">
-									<ArrowUp></ArrowUp>
-									<ArrowDown></ArrowDown>
-								</Grid>
+								<CompleteArrow />
 							</>
 						)}
 					</ThItemContainer>

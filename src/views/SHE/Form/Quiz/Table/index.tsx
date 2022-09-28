@@ -1,15 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import {
-	ArrowDown,
-	ArrowUp,
-	ButtonContainer,
-	TableTitle,
-	ThItemContainer,
-	Wrapper,
-	WrapperInput,
-} from "./styles";
+import { ButtonContainer, TableTitle, ThItemContainer, Wrapper, WrapperInput } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -24,6 +16,7 @@ import { IcEdit } from "atoms/Icon";
 import StyledButton from "atoms/StyledButton";
 import { colors } from "utils/styles";
 import RevisiInputYoutube from "atoms/RevisiInputYoutube";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -74,10 +67,7 @@ export default function Table() {
 						) : (
 							<>
 								<span>{item}</span>
-								<Grid container flexDirection="column">
-									<ArrowUp></ArrowUp>
-									<ArrowDown></ArrowDown>
-								</Grid>
+								<CompleteArrow />
 							</>
 						)}
 					</ThItemContainer>

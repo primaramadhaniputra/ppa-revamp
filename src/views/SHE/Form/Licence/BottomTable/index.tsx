@@ -10,10 +10,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ThItemContainer } from "../styles";
+import { ThItemContainer } from "../styles";
 import { Grid } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -47,13 +48,8 @@ export default function BottomTable() {
 			header: () => {
 				return (
 					<ThItemContainer key={index} style={{ gap: "10px" }}>
-						<>
-							<span>{item}</span>
-							<Grid container flexDirection="column">
-								<ArrowUp></ArrowUp>
-								<ArrowDown></ArrowDown>
-							</Grid>
-						</>
+						<span>{item}</span>
+						<CompleteArrow />
 					</ThItemContainer>
 				);
 			},

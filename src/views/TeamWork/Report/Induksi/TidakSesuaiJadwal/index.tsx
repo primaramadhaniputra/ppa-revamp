@@ -10,10 +10,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ThItemContainer } from "../styles";
-import { Grid, Text } from "@hudoro/neron";
+import { ThItemContainer } from "../styles";
+import { Text } from "@hudoro/neron";
 import { fontSizing, fontWeights } from "utils/styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -43,10 +44,7 @@ export default function TidakSesuaiJadwal() {
 			header: () => (
 				<ThItemContainer key={index}>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<ArrowDown></ArrowDown>
-					</Grid>
+					<CompleteArrow />
 				</ThItemContainer>
 			),
 		};

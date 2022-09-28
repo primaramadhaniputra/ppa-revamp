@@ -10,8 +10,8 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid } from "@hudoro/neron";
-import { ArrowDown, ArrowUp, ThItemContainer } from "../../../Licence/styles";
+import { ThItemContainer } from "../../../Licence/styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -63,10 +63,7 @@ export default function DataTable() {
 					<ThItemContainer key={index} style={{ gap: "10px" }}>
 						<>
 							<span>{item}</span>
-							<Grid container flexDirection="column">
-								<ArrowUp></ArrowUp>
-								<ArrowDown></ArrowDown>
-							</Grid>
+							<CompleteArrow />
 						</>
 					</ThItemContainer>
 				);

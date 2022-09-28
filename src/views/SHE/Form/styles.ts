@@ -16,15 +16,6 @@ export const SelectContainer = styled.div`
 	}
 `;
 
-export const ArrowDown = styled.div`
-	border-left: 9px solid transparent;
-	border-right: 9px solid transparent;
-	border-top: 9px solid #000;
-	position: absolute;
-	right: 15px;
-	top: 34px;
-`;
-
 export const TabsContainer = styled.div`
 	margin: 15px 0 0 0;
 	display: flex;

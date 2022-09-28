@@ -1,5 +1,7 @@
 import IcBan from "./IcBan";
 import IcCalendar from "./IcCalendar";
+import IcCaretDown from "./IcCaretDown";
+import IcCaretUp from "./IcCaretUp";
 import IcClose from "./IcClose";
 import IcEdit from "./IcEdit";
 import IcImage from "./IcImage";
@@ -20,4 +22,6 @@ export {
 	IcPlusCircle,
 	IcMinusCircle,
 	IcReset,
+	IcCaretUp,
+	IcCaretDown,
 };

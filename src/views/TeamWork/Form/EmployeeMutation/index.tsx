@@ -1,7 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ArrowUp, ArrowDown as AD } from "views/System/styles";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -17,7 +15,15 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
-import { FileContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import {
+	FileContainer,
+	THContainer,
+	TitleText,
+	Wrapper,
+	WrapperTable,
+	WrapperTitle,
+} from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -68,13 +74,10 @@ export default function EmployeeMutation() {
 				);
 			},
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>{item}</span>
-					<Grid container flexDirection="column">
-						<ArrowUp></ArrowUp>
-						<AD></AD>
-					</Grid>
-				</ThItemContainer>
+					<CompleteArrow />
+				</THContainer>
 			),
 		};
 	});

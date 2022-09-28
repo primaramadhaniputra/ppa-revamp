@@ -1,13 +1,6 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import {
-	ArrowDown,
-	ArrowUp,
-	IconContainer,
-	IconText,
-	ImageContainer,
-	ThItemContainer,
-} from "./styles";
+import { IconContainer, IconText, ImageContainer, ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -20,6 +13,7 @@ import {
 import { Card, Grid, Icon, Text } from "@hudoro/neron";
 import { fontWeights } from "utils/styles";
 import { WrapperTable } from "../../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
 	[x: string]: any;
@@ -68,10 +62,7 @@ export default function Monitoring() {
 						) : (
 							<>
 								<span>{item}</span>
-								<Grid container flexDirection="column">
-									<ArrowUp></ArrowUp>
-									<ArrowDown></ArrowDown>
-								</Grid>
+								<CompleteArrow />
 							</>
 						)}
 					</ThItemContainer>
