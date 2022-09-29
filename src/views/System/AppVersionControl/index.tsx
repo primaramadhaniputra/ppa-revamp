@@ -12,6 +12,7 @@ import { colors, fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
 import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
+import { ThItemContainer } from "../styles";
 
 interface Person {
 	[x: string]: any;
@@ -36,7 +37,11 @@ export default function AppVersionControl() {
 		{
 			accessorKey: "Dept",
 			cell: (info) => info.getValue(),
-			header: () => <span>Dept</span>,
+			header: () => (
+				<ThItemContainer>
+					<span>Dept</span>
+				</ThItemContainer>
+			),
 			footer: () => (
 				<span
 					style={{

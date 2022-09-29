@@ -1,19 +1,11 @@
 import styled from "styled-components";
 
-export const ArrowUp = styled.div`
-	width: 0;
-	height: 0;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-
-	border-bottom: 5.5px solid black;
-`;
-
-export const ArrowDown = styled.div`
-	width: 0;
-	height: 0;
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	margin-top: 2px;
-	border-top: 5.5px solid black;
+export const ThItemContainer = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 4px;
+	justify-content: center;
 `;

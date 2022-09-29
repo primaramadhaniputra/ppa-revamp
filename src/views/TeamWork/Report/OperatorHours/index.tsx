@@ -1,6 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { StyledSpan, ThItemContainer } from "./styles";
+import { StyledSpan } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -13,7 +13,7 @@ import {
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {

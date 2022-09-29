@@ -1,6 +1,5 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer } from "./styles";
 import TopFilter from "./TopFilter";
 import {
 	ColumnDef,
@@ -15,6 +14,7 @@ import { Grid, Icon } from "@hudoro/neron";
 import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "views/SHE/Report/styles";
 
 interface IProps {
 	[x: string]: any;

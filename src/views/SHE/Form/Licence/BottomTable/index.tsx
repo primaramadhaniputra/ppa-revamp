@@ -10,11 +10,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../styles";
 import { Grid } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
 interface IProps {
 	[x: string]: any;

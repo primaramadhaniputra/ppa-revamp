@@ -13,6 +13,7 @@ import { fontWeights } from "utils/styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { fontFamilies } from "@hudoro/neron";
 import { WrapperTable } from "../../styles";
+import { ThItemContainer } from "views/SHE/Report/styles";
 
 interface Person {
 	[x: string]: any;
@@ -48,7 +49,11 @@ export default function Insiden() {
 		return {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
-			header: () => <span>{item}</span>,
+			header: () => (
+				<ThItemContainer>
+					<span>{item}</span>
+				</ThItemContainer>
+			),
 			footer: (data) => {
 				return (
 					<span

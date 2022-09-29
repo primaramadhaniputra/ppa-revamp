@@ -15,12 +15,6 @@ export const Wrapper = styled(Card)`
 	}
 `;
 
-export const ThItemContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;
-
 export const TableTitle = styled(Text).attrs({
 	variant: "h4",
 })`

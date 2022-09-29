@@ -1,6 +1,6 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { IconContainer, IconText, ImageContainer, ThItemContainer } from "./styles";
+import { IconContainer, IconText, ImageContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -14,6 +14,7 @@ import { Card, Grid, Icon, Text } from "@hudoro/neron";
 import { fontWeights } from "utils/styles";
 import { WrapperTable } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "views/SHE/Report/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -56,7 +57,7 @@ export default function Monitoring() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index} style={{ width: "100%", justifyContent: "space-around" }}>
+					<ThItemContainer key={index}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (

@@ -12,6 +12,8 @@ import { fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
 import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
+import { ThItemContainer } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -37,7 +39,12 @@ export default function Survey() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => {
-				return <span key={index}>{item}</span>;
+				return (
+					<ThItemContainer>
+						<span key={index}>{item}</span>
+						<CompleteArrow />
+					</ThItemContainer>
+				);
 			},
 			footer: (props) => props.column.id,
 		};

@@ -9,7 +9,7 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
-import { Container, IconContainer, THContainer, Wrapper } from "./styles";
+import { Container, IconContainer, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import {
 	DisableUserdWebAdmin,
@@ -22,9 +22,10 @@ import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import Arrow from "atoms/Arrow";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import { ThItemContainer } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 interface Person {
 	[x: string]: any;
 }
@@ -164,10 +165,10 @@ export default function AccessControl() {
 			},
 			header: (data) => {
 				return (
-					<THContainer key={index}>
+					<ThItemContainer key={index}>
 						<span>{item}</span>
-						{data.column.id !== "Action" && <Arrow />}
-					</THContainer>
+						{data.column.id !== "Action" && <CompleteArrow />}
+					</ThItemContainer>
 				);
 			},
 			footer: (props) => props.column.id,

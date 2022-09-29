@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import { ButtonContainer, TableTitle, ThItemContainer, Wrapper, WrapperInput } from "./styles";
+import { ButtonContainer, TableTitle, Wrapper, WrapperInput } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -17,6 +17,7 @@ import StyledButton from "atoms/StyledButton";
 import { colors } from "utils/styles";
 import RevisiInputYoutube from "atoms/RevisiInputYoutube";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
 interface IProps {
 	[x: string]: any;
@@ -61,7 +62,7 @@ export default function Table() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index} style={{ width: "100%", justifyContent: "space-around" }}>
+					<ThItemContainer key={index}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (

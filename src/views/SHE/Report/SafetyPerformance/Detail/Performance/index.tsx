@@ -11,6 +11,7 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { WrapperTable } from "../../styles";
+import { ThItemContainer } from "views/SHE/Report/styles";
 
 interface Person {
 	[x: string]: any;
@@ -46,7 +47,11 @@ export default function Performance() {
 		return {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
-			header: () => <span>{item}</span>,
+			header: () => (
+				<ThItemContainer>
+					<span>{item}</span>
+				</ThItemContainer>
+			),
 		};
 	});
 

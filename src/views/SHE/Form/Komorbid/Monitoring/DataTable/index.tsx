@@ -10,8 +10,8 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../../../Licence/styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "views/SHE/Form/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -60,7 +60,7 @@ export default function DataTable() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index} style={{ gap: "10px" }}>
+					<ThItemContainer key={index} style={{ minWidth: "120px" }}>
 						<>
 							<span>{item}</span>
 							<CompleteArrow />

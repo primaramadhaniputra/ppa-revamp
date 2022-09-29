@@ -1,4 +1,3 @@
-import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -49,9 +48,7 @@ export default function UploadRoster() {
 			header: (info) => {
 				return (
 					<THContainer key={index}>
-						<Grid>
-							<span>{item}</span>
-						</Grid>
+						<span>{item}</span>
 						{info.header.id !== "remark" && <CompleteArrow />}
 					</THContainer>
 				);

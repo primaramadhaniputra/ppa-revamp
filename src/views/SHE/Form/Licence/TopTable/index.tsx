@@ -14,6 +14,7 @@ import { HoverP } from "./styles";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import ShowDetail from "./ShowDetail";
+import { colors } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -51,11 +52,26 @@ export default function TopTable() {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return <HoverP onClick={handleShowDetail}>{info.getValue()}</HoverP>;
+				return info.column.id === "DEPARTEMENT" ? (
+					<span style={{ padding: "8px 5px" }}>{info.getValue()}</span>
+				) : (
+					<HoverP onClick={handleShowDetail} style={{ padding: "8px 5px" }}>
+						{info.getValue()}
+					</HoverP>
+				);
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index} style={{ gap: "10px" }}>
+					<ThItemContainer
+						key={index}
+						style={{
+							gap: "10px",
+							backgroundColor: colors.primary,
+							width: "100%",
+							color: "white",
+							padding: "10px 0",
+						}}
+					>
 						<span>{item}</span>
 					</ThItemContainer>
 				);

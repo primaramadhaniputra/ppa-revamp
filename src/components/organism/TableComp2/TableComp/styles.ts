@@ -29,9 +29,6 @@ export const TABLE = styled.table`
 	border-collapse: collapse;
 	font-size: ${fontSizing.md.fontSize};
 
-	& th {
-		padding: 5px;
-	}
 	& tbody tr td {
 		text-align: center;
 		vertical-align: middle;
@@ -75,15 +72,6 @@ export const TABLE = styled.table`
 			font-size: 16px;
 		}
 	}
-
-	& thead th > div > div {
-		display: flex;
-		justify-content: center;
-	}
-	& thead th > div > span > span {
-		display: inline-block;
-		transform: rotate(90deg);
-	}
 	& tfoot {
 		font-size: 12px;
 		line-height: 21px;
@@ -95,27 +83,12 @@ export const TABLE = styled.table`
 	& tfoot > tr > th div label {
 		text-align: start;
 	}
-
-	/* & tfoot {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 21px;
-        color: #000000;
-        color: black;
-        text-align: center;
-    }
-
-    & tfoot td {
-        font-size: 14px;
-    } */
 `;
 
 export const ThItemContainer = styled.div`
 	cursor: pointer;
 	min-width: 20px;
 	display: flex;
-	gap: 7px;
 	justify-content: center;
+	align-items: center;
 `;

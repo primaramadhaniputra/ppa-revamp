@@ -13,9 +13,3 @@ export const Wrapper = styled(Card)`
 		padding: 20px;
 	}
 `;
-
-export const ThItemContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;
