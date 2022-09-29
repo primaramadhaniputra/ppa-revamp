@@ -100,7 +100,7 @@ export default function BottomTable() {
 				withButton={true}
 				buttonTitle="EXPORT"
 			/>
-			<TableComponent2 table={table} />
+			<TableComponent2 table={table} withFooter={true} />
 		</>
 	);
 }

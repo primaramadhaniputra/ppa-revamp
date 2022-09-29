@@ -1,5 +1,6 @@
-import React from "react";
-import { flexRender } from "@tanstack/react-table";
+import React, { ReactNode } from "react";
+import { Column, flexRender, Table } from "@tanstack/react-table";
+import LabeledInput from "atoms/LabeledInput";
 import { TABLE, ThItemContainer, Wrapper } from "./styles";
 
 interface IProps {
@@ -8,6 +9,27 @@ interface IProps {
 }
 
 export default function TableComp({ table, withFooter }: IProps) {
+	const Filter = ({
+		column,
+	}: // title,
+	{
+		column: Column<any>;
+		table: Table<any>;
+		title: Element | ReactNode;
+	}) => {
+		return (
+			<LabeledInput
+				name="asdf"
+				style={{ width: "150px", margin: "20px 0" }}
+				title={""}
+				type="text"
+				value={(column.getFilterValue() ?? "") as string}
+				onChange={(e) => column.setFilterValue(e.target.value)}
+				placeholder={`Search...`}
+			/>
+		);
+	};
+
 	return (
 		<Wrapper>
 			<TABLE className="paleBlueRows">
@@ -85,16 +107,34 @@ export default function TableComp({ table, withFooter }: IProps) {
 				{withFooter && (
 					<tfoot>
 						{table
-							.getFooterGroups()
-							.map((footerGroup: { id: React.Key | null | undefined; headers: any[] }) => (
-								<tr key={footerGroup.id}>
-									{footerGroup.headers.map((header) => {
+							.getHeaderGroups()
+							.map((headerGroup: { id: React.Key | null | undefined; headers: any[] }) => (
+								<tr key={headerGroup.id}>
+									{headerGroup.headers.map((header) => {
+										const title = flexRender(header.column.columnDef.header, header.getContext());
 										return (
-											<th key={header.id}>
-												{header.isPlaceholder
-													? null
-													: flexRender(header.column.columnDef.footer, header.getContext())}
-											</th>
+											header.column.getCanFilter() && (
+												<th key={header.id} colSpan={header.colSpan}>
+													{header.isPlaceholder ? null : (
+														<div
+															style={{
+																display: "flex",
+																justifyContent: "center",
+															}}
+														>
+															<div style={{ display: "none" }}>
+																{" "}
+																{flexRender(header.column.columnDef.header, header.getContext())}
+															</div>
+															{header.column.getCanFilter() ? (
+																<div>
+																	<Filter column={header.column} table={table} title={title} />
+																</div>
+															) : null}
+														</div>
+													)}
+												</th>
+											)
 										);
 									})}
 								</tr>
