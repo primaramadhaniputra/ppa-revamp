@@ -1,6 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -13,7 +12,7 @@ import {
 import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {

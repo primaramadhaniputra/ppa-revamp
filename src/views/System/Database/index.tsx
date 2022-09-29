@@ -8,10 +8,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { THContainer, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import Arrow from "atoms/Arrow";
+import { ThItemContainer } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -43,10 +44,10 @@ export default function Database() {
 			cell: (info) => info.getValue(),
 			header: (data) => {
 				return (
-					<THContainer key={index}>
+					<ThItemContainer key={index}>
 						<span>{item}</span>
-						{data.column.id !== "Action" && <Arrow />}
-					</THContainer>
+						{data.column.id !== "Action" && <CompleteArrow />}
+					</ThItemContainer>
 				);
 			},
 			footer: (props) => props.column.id,

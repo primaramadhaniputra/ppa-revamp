@@ -9,10 +9,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { DoughnutWrapper, TableWrapper, THContainer, Wrapper } from "./styles";
+import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import Arrow from "atoms/Arrow";
+import { ThItemContainer } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -42,10 +43,10 @@ export default function VHMSDownload() {
 			accessorKey: "Model",
 			cell: (info) => info.getValue(),
 			header: () => (
-				<THContainer>
+				<ThItemContainer>
 					<span>Model</span>
-					<Arrow />
-				</THContainer>
+					<CompleteArrow />
+				</ThItemContainer>
 			),
 			footer: (props) => props.column.id,
 		},
@@ -54,20 +55,20 @@ export default function VHMSDownload() {
 			id: "CN",
 			cell: (info) => info.getValue(),
 			header: () => (
-				<THContainer>
+				<ThItemContainer>
 					<span>CN</span>
-					<Arrow />
-				</THContainer>
+					<CompleteArrow />
+				</ThItemContainer>
 			),
 			footer: (props) => props.column.id,
 		},
 		{
 			accessorKey: "SN",
 			header: () => (
-				<THContainer>
+				<ThItemContainer>
 					<span>SN</span>
-					<Arrow />
-				</THContainer>
+					<CompleteArrow />
+				</ThItemContainer>
 			),
 			footer: (props) => props.column.id,
 		},
@@ -75,20 +76,20 @@ export default function VHMSDownload() {
 		{
 			accessorKey: "Last Download",
 			header: () => (
-				<THContainer>
+				<ThItemContainer>
 					<span>Last Download</span>
-					<Arrow />
-				</THContainer>
+					<CompleteArrow />
+				</ThItemContainer>
 			),
 			footer: (props) => props.column.id,
 		},
 		{
 			accessorKey: "Last Operation",
 			header: () => (
-				<THContainer>
+				<ThItemContainer>
 					<span>Last Operation</span>
-					<Arrow />
-				</THContainer>
+					<CompleteArrow />
+				</ThItemContainer>
 			),
 			footer: (props) => props.column.id,
 		},
@@ -99,20 +100,20 @@ export default function VHMSDownload() {
 				{
 					accessorKey: "Pldcycn Record",
 					header: () => (
-						<THContainer>
+						<ThItemContainer>
 							<span>Pldcycn Record</span>
-							<Arrow />
-						</THContainer>
+							<CompleteArrow />
+						</ThItemContainer>
 					),
 					footer: (props) => props.column.id,
 				},
 				{
 					accessorKey: "Trend Record",
 					header: () => (
-						<THContainer>
+						<ThItemContainer>
 							<span>Trend Record</span>
-							<Arrow />
-						</THContainer>
+							<CompleteArrow />
+						</ThItemContainer>
 					),
 					footer: (props) => props.column.id,
 					cell: (info) => <span>{info.getValue()}</span>,
@@ -121,10 +122,10 @@ export default function VHMSDownload() {
 				{
 					accessorKey: "Fault Record",
 					header: () => (
-						<THContainer>
+						<ThItemContainer>
 							<span>Fault Record</span>
-							<Arrow />
-						</THContainer>
+							<CompleteArrow />
+						</ThItemContainer>
 					),
 					footer: (props) => props.column.id,
 					cell: (info) => <span>{info.getValue()}</span>,
@@ -133,10 +134,10 @@ export default function VHMSDownload() {
 				{
 					accessorKey: "Machine History",
 					header: () => (
-						<THContainer>
+						<ThItemContainer>
 							<span>Machine History</span>
-							<Arrow />
-						</THContainer>
+							<CompleteArrow />
+						</ThItemContainer>
 					),
 					footer: (props) => props.column.id,
 				},

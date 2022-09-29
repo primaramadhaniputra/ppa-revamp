@@ -40,9 +40,3 @@ export const TableWrapper = styled(Card)`
 	flex: 5;
 	background-color: transparent;
 `;
-
-export const ThItemContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;

@@ -1,6 +1,5 @@
 import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -16,7 +15,7 @@ import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {

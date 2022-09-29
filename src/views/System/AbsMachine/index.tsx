@@ -8,10 +8,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Container, THContainer } from "./styles";
+import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import Arrow from "atoms/Arrow";
+import { ThItemContainer } from "../styles";
+import CompleteArrow from "atoms/CompleteArrow";
 
 interface Person {
 	[x: string]: any;
@@ -38,10 +39,10 @@ export default function AbsMachine() {
 			cell: (info) => info.getValue(),
 			header: () => {
 				return (
-					<THContainer key={index}>
+					<ThItemContainer key={index}>
 						<span>{item}</span>
-						<Arrow />
-					</THContainer>
+						<CompleteArrow />
+					</ThItemContainer>
 				);
 			},
 			footer: (props) => props.column.id,

@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import { ThItemContainer, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
 import TopFilter from "./TopFilter";
 import {
 	ColumnDef,
@@ -18,6 +18,7 @@ import FlyingForm from "./FlyingForm";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
 interface IProps {
 	[x: string]: any;

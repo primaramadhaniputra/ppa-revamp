@@ -1,6 +1,4 @@
-import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -13,7 +11,7 @@ import {
 import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { Wrapper, WrapperTable } from "../../styles";
+import { ThItemContainer, Wrapper, WrapperTable } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
@@ -64,10 +62,8 @@ export default function Riwayat() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index}>
-					<Grid>
-						<span>{item}</span>
-					</Grid>
+				<ThItemContainer key={index} style={{ minWidth: "120px" }}>
+					<span>{item}</span>
 					<CompleteArrow />
 				</ThItemContainer>
 			),

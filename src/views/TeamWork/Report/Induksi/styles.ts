@@ -2,13 +2,6 @@ import { fontFamilies, Text } from "@hudoro/neron";
 import styled from "styled-components";
 import { fontSizing, fontWeights, mediaQueries } from "utils/styles";
 
-export const ThItemContainer = styled.div`
-	width: 100%;
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;
-
 export const Container = styled.div`
 	display: flex;
 	gap: 20px;

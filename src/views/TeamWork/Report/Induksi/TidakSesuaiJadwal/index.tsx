@@ -10,11 +10,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../styles";
 import { Text } from "@hudoro/neron";
 import { fontSizing, fontWeights } from "utils/styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
 interface IProps {
 	[x: string]: any;

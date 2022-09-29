@@ -13,9 +13,9 @@ import {
 	// SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../styles";
 import { TextYear } from "../TopFilter/styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
 interface Person {
 	[x: string]: any;

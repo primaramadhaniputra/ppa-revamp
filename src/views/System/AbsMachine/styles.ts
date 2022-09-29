@@ -11,9 +11,3 @@ export const Container = styled.div`
 		background-color: white;
 	}
 `;
-
-export const THContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;

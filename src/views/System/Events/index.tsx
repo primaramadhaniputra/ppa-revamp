@@ -11,6 +11,7 @@ import {
 import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import { ThItemContainer } from "../styles";
 
 interface Person {
 	[x: string]: any;
@@ -38,7 +39,11 @@ export default function Events() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => {
-				return <span key={index}>{item}</span>;
+				return (
+					<ThItemContainer>
+						<span key={index}>{item}</span>
+					</ThItemContainer>
+				);
 			},
 			footer: (props) => props.column.id,
 		};

@@ -14,8 +14,3 @@ export const Wrapper = styled(Card)`
 		box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 	}
 `;
-export const THContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;

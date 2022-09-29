@@ -8,11 +8,11 @@ import {
 	useReactTable,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../../../Licence/styles";
 import { P } from "./styles";
 import ShowDetail from "./ShowDetail";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
+import { ThItemContainer } from "views/SHE/Form/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -59,7 +59,7 @@ export default function SummaryTable() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index} style={{ gap: "10px" }}>
+					<ThItemContainer key={index}>
 						<span>{item}</span>
 					</ThItemContainer>
 				);

@@ -1,7 +1,7 @@
 import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { DateText, ThItemContainer } from "./styles";
+import { DateText } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -18,7 +18,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TabsText from "./TabsText";
 import Department from "./Department";
 import YTD from "./YTD";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 
 interface IProps {
@@ -61,9 +61,7 @@ export default function AttendanceRatio() {
 			header: (data) => {
 				return (
 					<ThItemContainer key={index}>
-						<Grid>
-							<span>{item}</span>
-						</Grid>
+						<span>{item}</span>
 						{data.column.id !== "Act" && <CompleteArrow />}
 					</ThItemContainer>
 				);

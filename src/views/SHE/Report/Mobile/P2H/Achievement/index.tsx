@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { TableWrapper, TabsContainer, TabText, ThItemContainer, Wrapper } from "./styles";
+import { TableWrapper, TabsContainer, TabText, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -14,6 +14,7 @@ import TopFilter from "./TopFilter";
 import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "views/SHE/Report/styles";
 
 const tabText = ["Operator", "Pengawas"];
 

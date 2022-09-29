@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import { IconContainer, IconWrapper, TableTitle, ThItemContainer, Wrapper } from "./styles";
+import { IconContainer, IconWrapper, TableTitle, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -17,6 +17,7 @@ import FlyingForm from "./FlyingForm";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
 interface IProps {
 	[x: string]: any;
@@ -85,7 +86,7 @@ export default function Schedule() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index} style={{ width: "100%", justifyContent: "space-around" }}>
+					<ThItemContainer key={index}>
 						{data.header.id === "Action" ? (
 							<span>{item}</span>
 						) : (
