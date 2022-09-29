@@ -5,6 +5,41 @@ import { TitleText, WrapperTable, WrapperTitle } from "../styles";
 import BottomTable from "./BottomTable";
 import TopTable from "./TopTable";
 
+const ket = [
+	{
+		title: "MP",
+		desc: "Manpower",
+	},
+	{
+		title: "FAI",
+		desc: "First Aid Injury",
+	},
+	{
+		title: "LTI",
+		desc: "Lost Time Injury",
+	},
+	{
+		title: "FTL",
+		desc: "Fatal",
+	},
+	{
+		title: "PDM",
+		desc: "Property Damage",
+	},
+	{
+		title: "NMS",
+		desc: "Near Miss",
+	},
+	{
+		title: "MTI",
+		desc: "Medical Treatment",
+	},
+	{
+		title: "FC",
+		desc: "Fire Case",
+	},
+];
+
 export default function Insiden() {
 	return (
 		<>
@@ -25,12 +60,16 @@ export default function Insiden() {
 					>
 						Keterangan
 					</TitleText>
-					<Grid container gap={20}>
-						<TitleText style={{ fontSize: "14px", fontWeight: fontWeights.medium }}>MP</TitleText>
-						<TitleText style={{ fontSize: "14px", fontWeight: fontWeights.medium }}>
-							: Manpower
-						</TitleText>
-					</Grid>
+					{ket.map((item, index) => (
+						<Grid container gap={5} key={index} style={{ marginBottom: "5px" }}>
+							<TitleText style={{ fontSize: "14px", fontWeight: fontWeights.medium }}>
+								{item.title}
+							</TitleText>
+							<TitleText style={{ fontSize: "14px", fontWeight: fontWeights.regular }}>
+								: {item.desc}
+							</TitleText>
+						</Grid>
+					))}
 				</Grid>
 			</WrapperTable>
 			<WrapperTable style={{ marginTop: "20px" }}>
