@@ -1,6 +1,6 @@
-import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { Container, Wrapper } from "./styles";
+import TableComponent2 from "src/components/organism/TableComp2";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -10,43 +10,35 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../../styles";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import TableComponent2 from "src/components/organism/TableComp2";
+import { Grid } from "@hudoro/neron";
+import StyledButton from "atoms/StyledButton";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer } from "../../styles";
 
-interface ITable {
+interface IProps {
 	[x: string]: any;
 }
 
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["ROL"]: "ROL",
-		["DEPT"]: "ENG",
-		["PERUSAHAAN"]: "AMM",
-		["MASA SIMPER"]: "30-09-2022",
-		["MASA MINEPERMIT"]: "30-09-2023",
-		["MASA MCU"]: "20-03-2023",
-		["EXP.SIMPER"]: "-2 HARI",
-		["EXP.PERMIT"]: "-120 HARI",
-		["EXP.MCU"]: "-120 HARI",
+		["TGL.Kejadian"]: "-",
+		["Korban"]: "-",
+		["Kategori"]: "-",
+		["Kerugian"]: "-",
+		["Deskripsi"]: "-",
+		["File"]: "-",
 	};
 });
 
-interface IProps {
-	onclick: () => void;
-	styles?: React.CSSProperties;
-	top: number;
-}
-
-export default function ShowDetail({ onclick, styles, top }: IProps) {
+export default function BottomTable() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
-	const columns: ColumnDef<ITable>[] = objTitle.map((item, index) => {
+	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
 			cell: (info) => {
@@ -60,6 +52,7 @@ export default function ShowDetail({ onclick, styles, top }: IProps) {
 					</ThItemContainer>
 				);
 			},
+			enableColumnFilter: item === "File" ? false : item === "Deskripsi" ? false : true,
 		};
 	});
 	const table = useReactTable({
@@ -84,21 +77,30 @@ export default function ShowDetail({ onclick, styles, top }: IProps) {
 	};
 
 	return (
-		<Wrapper style={{ top: `${top}px`, ...styles }}>
-			<Container>
-				<Grid container justifyContent="flex-end" style={{ marginBottom: 30 }}>
-					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={onclick} />
-				</Grid>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} withFooter={true} />
-			</Container>
-		</Wrapper>
+		<>
+			<Grid style={{ maxWidth: "80px" }}>
+				<StyledButton
+					style={{
+						backgroundColor: colors.primary,
+						color: colors.white,
+						padding: "0 5px",
+						fontWeight: fontWeights.bold,
+						borderRadius: "15px",
+						fontSize: fontSizing.md.fontSize,
+					}}
+				>
+					+ Data
+				</StyledButton>
+			</Grid>
+			<TableFilterSearch
+				table={table}
+				handleChangeTotalShowData={handleChangeTotalShowData}
+				globalFilter={globalFilter}
+				setGlobalFilter={setGlobalFilter}
+				withButton={true}
+				buttonTitle="EXPORT"
+			/>
+			<TableComponent2 table={table} withFooter={true} />
+		</>
 	);
 }

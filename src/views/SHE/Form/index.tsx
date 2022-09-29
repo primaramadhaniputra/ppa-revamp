@@ -3,6 +3,7 @@ import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
+import Insiden from "./Insiden";
 import Komorbid from "./Komorbid";
 import Licence from "./Licence";
 import Quiz from "./Quiz";
@@ -14,6 +15,7 @@ const selectItems = [
 	{ id: 1, values: "SAP Plan", label: "SAP Plan" },
 	{ id: 2, values: "Licence", label: "Licence" },
 	{ id: 3, values: "Komorbid", label: "Komorbid" },
+	{ id: 4, values: "Insiden", label: "Insiden" },
 ];
 
 const renderContent = (type: string) => {
@@ -25,6 +27,8 @@ const renderContent = (type: string) => {
 		return <Licence />;
 	} else if (type === "Komorbid") {
 		return <Komorbid />;
+	} else if (type === "Insiden") {
+		return <Insiden />;
 	}
 };
 

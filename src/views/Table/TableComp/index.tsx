@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { TABLE, Wrapper } from "./styles";
-
 import { Column, flexRender, Table } from "@tanstack/react-table";
 import LabeledInput from "atoms/LabeledInput";
 

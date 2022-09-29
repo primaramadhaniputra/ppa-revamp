@@ -11,8 +11,7 @@ interface IProps {
 export default function TableComp({ table, withFooter }: IProps) {
 	const Filter = ({
 		column,
-	}: // title,
-	{
+	}: {
 		column: Column<any>;
 		table: Table<any>;
 		title: Element | ReactNode;
@@ -20,7 +19,7 @@ export default function TableComp({ table, withFooter }: IProps) {
 		return (
 			<LabeledInput
 				name="asdf"
-				style={{ width: "150px", margin: "20px 0" }}
+				style={{ minWidth: "100px", margin: "20px 5px" }}
 				title={""}
 				type="text"
 				value={(column.getFilterValue() ?? "") as string}
