@@ -3,10 +3,12 @@ import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
+import Insiden from "./Insiden";
 import Komorbid from "./Komorbid";
 import Licence from "./Licence";
 import Quiz from "./Quiz";
 import SapPlan from "./SapPlan";
+import SetWakeUpCall from "./SetWakeUpCall";
 import { SelectContainer, TabsContainer, TabsText } from "./styles";
 
 const selectItems = [
@@ -14,6 +16,8 @@ const selectItems = [
 	{ id: 1, values: "SAP Plan", label: "SAP Plan" },
 	{ id: 2, values: "Licence", label: "Licence" },
 	{ id: 3, values: "Komorbid", label: "Komorbid" },
+	{ id: 4, values: "Insiden", label: "Insiden" },
+	{ id: 5, values: "Set Wake Up Call", label: "Set Wake Up Call" },
 ];
 
 const renderContent = (type: string) => {
@@ -25,6 +29,10 @@ const renderContent = (type: string) => {
 		return <Licence />;
 	} else if (type === "Komorbid") {
 		return <Komorbid />;
+	} else if (type === "Insiden") {
+		return <Insiden />;
+	} else if (type === "Set Wake Up Call") {
+		return <SetWakeUpCall />;
 	}
 };
 

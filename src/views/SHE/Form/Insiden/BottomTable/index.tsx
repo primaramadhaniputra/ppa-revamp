@@ -23,13 +23,12 @@ interface IProps {
 const arr = new Array(100).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["TGL.INPUT"]: "31-08-2022",
-		["NRP"]: "0123955",
-		["GOL.DARAH"]: "O",
-		["NAMA"]: "MISTIADI",
-		["DEPT"]: "HCG",
-		["POSISI"]: "DRIVER LV",
-		["PERUSAHAAN"]: "SPA",
+		["TGL.Kejadian"]: "-",
+		["Korban"]: "-",
+		["Kategori"]: "-",
+		["Kerugian"]: "-",
+		["Deskripsi"]: "-",
+		["File"]: "-",
 	};
 });
 
@@ -53,6 +52,7 @@ export default function BottomTable() {
 					</ThItemContainer>
 				);
 			},
+			enableColumnFilter: item === "File" ? false : item === "Deskripsi" ? false : true,
 		};
 	});
 	const table = useReactTable({

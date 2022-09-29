@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { TABLE, Wrapper } from "./styles";
-
 import { Column, flexRender, Table } from "@tanstack/react-table";
 import LabeledInput from "atoms/LabeledInput";
 
@@ -86,11 +85,6 @@ function Filter({
 	table: Table<any>;
 	title: Element | ReactNode;
 }) {
-	// table,
-	// const firstValue = table
-	//    .getPreFilteredRowModel()
-	//    .flatRows[0]?.getValue(column.id)
-
 	return (
 		<LabeledInput
 			name="asdf"
