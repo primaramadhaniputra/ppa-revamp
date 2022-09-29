@@ -3,6 +3,7 @@ import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { fontWeights } from "utils/styles";
+import Device from "./Device";
 import Mobile from "./Mobile";
 import SafetyPerformance from "./SafetyPerformance";
 import { SelectContainer, TabsContainer, TabsText } from "./styles";
@@ -10,6 +11,7 @@ import { SelectContainer, TabsContainer, TabsText } from "./styles";
 const selectItems = [
 	{ id: 1, values: "Safety Performance", label: "Safety Performance" },
 	{ id: 2, values: "Mobile", label: "Mobile" },
+	{ id: 3, values: "Device", label: "Device" },
 ];
 
 const tabsData = ["Mobile", "Device", "Safety Performance"];
@@ -19,6 +21,8 @@ const renderContent = (type: string) => {
 		return <SafetyPerformance />;
 	} else if (type === "Mobile") {
 		return <Mobile />;
+	} else if (type === "Device") {
+		return <Device />;
 	}
 };
 
