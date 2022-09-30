@@ -1,68 +1,63 @@
 import { ISelectItem, Select } from "@hudoro/neron";
+import TitlePage from "atoms/TitlePage";
+import TabV1 from "molecules/TabV1";
 import React, { useState } from "react";
-import { inputDropDownOperation2 } from "utils/dummy";
-// import { IDropdownData } from "utils/interfaces";
-// import DeviceProductionEmptySpeed from "./Report/DeviceProductionEmptySpeed";
-import DeviceProductionEmptyStop from "./Report/DeviceProductionEmptyStop";
-import DeviceProductionLoadedSpeed from "./Report/DeviceProductionLoadedSpeed";
-import DeviceProductionLoadingTime from "./Report/DeviceProductionLoadingTime";
-import DeviceProductionPayload from "./Report/DeviceProductionPayload";
-import DeviceProductionSpeed from "./Report/DeviceProductionSpeed";
-import ObProductionDayli from "./Report/MOCO/ObProductionDayli";
-import ObProductionHourly from "./Report/MOCO/ObProductionHourly";
+import { useWindowSize } from "utils/functions";
+import BaseControl from "./Report/BaseControl";
+import Device from "./Report/Device";
+import Mobile from "./Report/Mobile";
+import Mocos from "./Report/Mocos";
 
 import { ArrowDown, SelectContainer } from "./styles";
 
+const tabsData = ["Device", "Mobile", "Moco", "Base Control", "Cost Parameter"];
+
+const selectItems = [
+	{ id: 1, values: "Device", label: "Device" },
+	{ id: 2, values: "Mobile", label: "Mobile" },
+	{ id: 3, values: "Moco", label: "Moco" },
+	{ id: 4, values: "Base Control", label: "Base Control" },
+	{ id: 5, values: "Cost Parameter", label: "Cost Parameter" },
+];
+
 function renderContent(queryName: string) {
-	switch (queryName) {
-		case "device_production_payload":
-			return <DeviceProductionPayload />;
-		case "device_production_empty_stop":
-			return <DeviceProductionEmptyStop />;
-		case "device_production_loading_time":
-			return <DeviceProductionLoadingTime />;
-
-		case "device_production_loaded_speed":
-			return <DeviceProductionLoadedSpeed />;
-
-		// case "device_production_empty_speed":
-		//   return (
-		//     <DeviceProductionEmptySpeed />
-		//   );
-		case "device_production_speed":
-			return <DeviceProductionSpeed />;
-		case "moco_obProduction_dayli":
-			return <ObProductionDayli />;
-		case "moco_obProduction_hourly":
-			return <ObProductionHourly />;
-		default:
-			return <h1>banana</h1>;
+	if (queryName === "Device") {
+		return <Device />;
+	} else if (queryName === "Mobile") {
+		return <Mobile />;
+	} else if (queryName === "Moco") {
+		return <Mocos />;
+	} else if (queryName === "Base Control") {
+		return <BaseControl />;
 	}
 }
 
 export default function Operation() {
-	const [menu, setMenu] = useState("device_production_payload");
-
-	const handleChangeMenu = (e: ISelectItem | ISelectItem[] | null) => {
-		setMenu(e?.values);
+	const width = useWindowSize();
+	const [selectedItem, setSelectedItem] = useState("Device");
+	const handleSelect = (e: ISelectItem | ISelectItem[]) => {
+		setSelectedItem(e.values);
 	};
 
 	return (
 		<>
-			<SelectContainer>
-				<label>Menu</label>
-				<Select
-					items={inputDropDownOperation2}
-					defaultValue={{
-						id: 0,
-						value: "device_production_payload",
-						label: "Device / Production / Payload",
-					}}
-					onChange={handleChangeMenu}
-				/>
-				<ArrowDown></ArrowDown>
-			</SelectContainer>
-			{renderContent(menu)}
+			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
+				Operation / Report
+			</TitlePage>
+			{width.width > 700 ? (
+				<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+			) : (
+				<SelectContainer style={{ margin: "15px 0" }}>
+					<label>Menu</label>
+					<Select
+						items={selectItems}
+						defaultValue={{ id: 1, values: selectedItem, label: selectedItem }}
+						onChange={handleSelect as any}
+					/>
+					<ArrowDown></ArrowDown>
+				</SelectContainer>
+			)}
+			{renderContent(selectedItem)}
 		</>
 	);
 }

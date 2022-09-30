@@ -5,7 +5,7 @@ import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "./TopFilter";
 
-export default function DeviceProductionLoadedSpeed() {
+export default function LoadingTime() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +30,7 @@ export default function DeviceProductionLoadedSpeed() {
 				headers: {
 					Tenant: "MHU",
 				},
-				path: "/loaded-speed",
+				path: "/loading-time",
 			});
 			setDataChart(data.data.data);
 			setIsLoading(false);
