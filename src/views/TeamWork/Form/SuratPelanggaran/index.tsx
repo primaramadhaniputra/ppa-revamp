@@ -9,7 +9,6 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import Tabs from "./Tabs";
 import IcPrinter from "atoms/Icon/IcPrinter";
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
@@ -25,6 +24,7 @@ import {
 	WrapperTitle,
 } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import TabV2 from "molecules/TabV2";
 
 interface Person {
 	[x: string]: any;
@@ -42,6 +42,13 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 		["Action"]: "2022-17-08 02:12:12",
 	};
 });
+
+const tabTitle = [
+	"Sanksi Teguran",
+	"Sanksi Peringatan Pertama",
+	"Sanksi Peringatan Kedua",
+	"Sanksi Peringatan Terakhir",
+];
 
 export default function SuratPelanggaran() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
@@ -123,10 +130,8 @@ export default function SuratPelanggaran() {
 				}}
 				top={formPosition}
 			/>
-			<WrapperTitle style={{ marginBottom: "20px " }}>
-				<Grid>
-					<Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-				</Grid>
+			<WrapperTitle style={{ marginBottom: "20px ", padding: 0 }}>
+				<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
 			</WrapperTitle>
 			<WrapperTitle>
 				<TitleText> Data Pelanggaran Aktif Karyawan</TitleText>

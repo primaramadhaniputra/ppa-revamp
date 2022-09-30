@@ -1,8 +1,8 @@
 import { Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
+import TabV1 from "molecules/TabV1";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import { fontWeights } from "utils/styles";
 import AttendanceDetail from "./AttendanceDetail";
 import AttendanceRatio from "./AttendanceRatio";
 import Induksi from "./Induksi";
@@ -10,7 +10,7 @@ import Izin from "./Izin";
 import OperatorHours from "./OperatorHours";
 import RankingOperator from "./RankingOperator";
 import SelfAttendance from "./SelftAttendance";
-import { ArrowDown, SelectContainer, TabsContainer, TabsText } from "./styles";
+import { ArrowDown, SelectContainer } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import TurnOver from "./TurnOver";
 
@@ -72,20 +72,7 @@ export default function Form() {
 				Team Work / Report
 			</TitlePage>
 			{width.width > 900 ? (
-				<TabsContainer>
-					{tabsData.map((item, index) => (
-						<TabsText
-							style={{
-								backgroundColor: selectedItem === item ? "white" : "",
-								fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular,
-							}}
-							key={index}
-							onClick={() => setSelectedItem(item)}
-						>
-							{item}
-						</TabsText>
-					))}
-				</TabsContainer>
+				<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
 			) : (
 				<SelectContainer>
 					<label>Menu</label>

@@ -15,15 +15,17 @@ import { IcEdit } from "atoms/Icon";
 import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import TabsText from "./TabsText";
 import Department from "./Department";
 import YTD from "./YTD";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import TabV2 from "molecules/TabV2";
 
 interface IProps {
 	[x: string]: any;
 }
+
+const tabTitle = ["Individual", "Department", "Manpower", "YTD"];
 
 export const defaultDataTable = [
 	{
@@ -123,18 +125,7 @@ export default function AttendanceRatio() {
 
 	return (
 		<Wrapper>
-			<TabsText
-				activeTabs={activeTabs}
-				setActiveTabs={setActiveTabs}
-				styles={{
-					margin: "10px 0 20px",
-					backgroundColor: "white",
-					padding: "5px 15px",
-					borderRadius: "3px",
-					columnGap: "40px",
-					rowGap: "10px",
-				}}
-			/>
+			<TabV2 tabsData={tabTitle} activeTab={activeTabs} setActiveTab={setActiveTabs} />
 			<WrapperTitle>
 				<TitleText>Attendance Ratio</TitleText>
 			</WrapperTitle>
