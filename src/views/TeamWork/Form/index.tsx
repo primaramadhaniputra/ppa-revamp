@@ -1,14 +1,14 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
+import TabV1 from "molecules/TabV1";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import { fontWeights } from "utils/styles";
 import AttendanceRevision from "./AttendanceRevision";
 import BenefitClaimVoucher from "./BenefitClaimVoucher";
 import EmployeeMutation from "./EmployeeMutation";
 import LeavingApplication from "./LeavingApplication";
 import SetRoster from "./SetRoster";
-import { SelectContainer, TabsContainer, TabsText } from "./styles";
+import { SelectContainer } from "./styles";
 import SuratPelanggaran from "./SuratPelanggaran";
 import SuratPerintahLembur from "./SuratPerintahLembur";
 import UpdateRoster from "./UpdateRoster";
@@ -82,20 +82,7 @@ export default function Form() {
 				Team Work / Form
 			</TitlePage>
 			{width.width > 900 ? (
-				<TabsContainer>
-					{tabsData.map((item, index) => (
-						<TabsText
-							style={{
-								backgroundColor: selectedItem === item ? "white" : "",
-								fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular,
-							}}
-							key={index}
-							onClick={() => setSelectedItem(item)}
-						>
-							{item}
-						</TabsText>
-					))}
-				</TabsContainer>
+				<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
 			) : (
 				<SelectContainer>
 					<label>Menu</label>

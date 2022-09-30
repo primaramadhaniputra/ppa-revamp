@@ -1,13 +1,13 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
+import TabV1 from "molecules/TabV1";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import { fontWeights } from "utils/styles";
 import BenefitClaim from "./BenefitClaim";
 import Grade from "./Grade";
 import LeavingApplication from "./LeavingApplication";
 import Manpower from "./Manpower";
-import { SelectContainer, TabsContainer, TabsText } from "./styles";
+import { SelectContainer } from "./styles";
 import SuratPerintahLembur from "./SuratPerintahLembur";
 import TimeManagement from "./TimeManagement";
 
@@ -57,20 +57,7 @@ export default function Report() {
 				Administration / HC
 			</TitlePage>
 			{width.width > 700 ? (
-				<TabsContainer>
-					{tabsData.map((item, index) => (
-						<TabsText
-							style={{
-								backgroundColor: selectedItem === item ? "white" : "",
-								fontWeight: selectedItem === item ? fontWeights.extraBold : fontWeights.regular,
-							}}
-							key={index}
-							onClick={() => setSelectedItem(item)}
-						>
-							{item}
-						</TabsText>
-					))}
-				</TabsContainer>
+				<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
 			) : (
 				<SelectContainer>
 					<label>Menu</label>

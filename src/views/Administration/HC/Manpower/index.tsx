@@ -1,11 +1,6 @@
+import TabV2 from "molecules/TabV2";
 import React, { useState } from "react";
-import {
-	Wrapper,
-	TabsWrapper,
-	TabText,
-	WrapperTitle,
-	TitleText,
-} from "views/Administration/styles";
+import { Wrapper, WrapperTitle, TitleText } from "views/Administration/styles";
 import Assessment from "./Assessment";
 
 const tabTitle = [
@@ -21,23 +16,9 @@ const tabTitle = [
 export default function Manpower() {
 	const [activeTab, setActiveTab] = useState(0);
 
-	const handleActiveTab = (index: number) => {
-		setActiveTab(index);
-	};
-
 	return (
 		<Wrapper>
-			<TabsWrapper>
-				{tabTitle.map((item, index) => (
-					<TabText
-						key={index}
-						activeTab={activeTab === index ? true : false}
-						onClick={() => handleActiveTab(index)}
-					>
-						{item}
-					</TabText>
-				))}
-			</TabsWrapper>
+			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
 			{activeTab === 3 ? (
 				<Assessment />
 			) : (

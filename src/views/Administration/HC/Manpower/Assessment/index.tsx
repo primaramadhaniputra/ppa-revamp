@@ -1,6 +1,7 @@
+import TabV3 from "molecules/TabV3";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "views/Administration/styles";
-import { TabContainer, TabText, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
 
 const p2hTab = ["End Contract", "Promotion", "Monitoring pkwtt"];
 
@@ -11,23 +12,9 @@ const p2hTab = ["End Contract", "Promotion", "Monitoring pkwtt"];
 export default function Assessment() {
 	const [activeTab, setActiveTab] = useState(0);
 
-	const handleActiveTab = (index: number) => {
-		setActiveTab(index);
-	};
-
 	return (
 		<Wrapper>
-			<TabContainer>
-				{p2hTab.map((item, index) => (
-					<TabText
-						key={index}
-						activeTab={activeTab === index ? true : false}
-						onClick={() => handleActiveTab(index)}
-					>
-						{item}
-					</TabText>
-				))}
-			</TabContainer>
+			<TabV3 tabsData={p2hTab} activeTab={activeTab} setActiveTab={setActiveTab} />
 			<WrapperTitle>
 				<TitleText>{p2hTab[activeTab]}</TitleText>
 			</WrapperTitle>
