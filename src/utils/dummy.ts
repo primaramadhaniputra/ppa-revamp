@@ -34,7 +34,7 @@ export const Link = [
 			},
 			{
 				subMenuTitle: "ACCESS & DATA ENTRY",
-				subMenuLink: "access_data_entry",
+				subMenuLink: "operation/access_data_entry",
 			},
 		],
 	},

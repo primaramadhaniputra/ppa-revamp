@@ -3,10 +3,10 @@ import TitlePage from "atoms/TitlePage";
 import TabV1 from "molecules/TabV1";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import BaseControl from "./Report/BaseControl";
-import Device from "./Report/Device";
-import Mobile from "./Report/Mobile";
-import Mocos from "./Report/Mocos";
+import BaseControl from "./BaseControl";
+import Device from "./Device";
+import Mobile from "./Mobile";
+import Mocos from "./Mocos";
 
 import { ArrowDown, SelectContainer } from "./styles";
 

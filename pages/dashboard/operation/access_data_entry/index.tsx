@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
-const OperationView = dynamic(() => import("views/Operation/Report"));
+const OperationView = dynamic(() => import("views/Operation/AccessDataEntry"));
 
 export default function OperationPage() {
 	return <OperationView />;
