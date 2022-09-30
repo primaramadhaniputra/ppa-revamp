@@ -38,7 +38,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-export default function ObProductionDayli() {
+export default function Dayli() {
 	const [dataTable, setDataTable] = React.useState(defaultDataTable);
 	const objTitle = Object.keys(dataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
@@ -115,7 +115,7 @@ export default function ObProductionDayli() {
 				</Text>
 			</Grid>
 			<TopFilter setDataTable={setDataTable} />
-			<StatusContainer style={{ margin: "20px  0 5px 0" }}>
+			<StatusContainer style={{ margin: "30px  0 40px 0" }}>
 				<SingleStatus>
 					<Text variant="h4">PLAN</Text>
 					<Text variant="p">0,00</Text>

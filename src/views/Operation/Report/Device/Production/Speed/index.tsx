@@ -5,7 +5,7 @@ import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "./TopFilter";
 
-export default function DeviceProductionSpeed() {
+export default function Speed() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
 	const [isLoading, setIsLoading] = useState(true);
 

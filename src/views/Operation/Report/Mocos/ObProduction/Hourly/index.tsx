@@ -6,7 +6,7 @@ import { TabsText, Wrapper } from "./styles";
 
 const tabs = ["CCR", "VHMS"];
 
-export default function ObProductionHourly() {
+export default function Hourly() {
 	const [activeTabs, setActiveTabs] = useState(0);
 
 	const handleActiveTabs = (index: number) => {

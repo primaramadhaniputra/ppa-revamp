@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getOperationReport } from "services/operationReport";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "./TopFilter";
+import { getOperationReport } from "services/operationReport";
 
-export default function DeviceProductionLoadingTime() {
+export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
 	const [isLoading, setIsLoading] = useState(true);
-
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
 
@@ -30,7 +29,7 @@ export default function DeviceProductionLoadingTime() {
 				headers: {
 					Tenant: "MHU",
 				},
-				path: "/loading-time",
+				path: "/payloads",
 			});
 			setDataChart(data.data.data);
 			setIsLoading(false);
