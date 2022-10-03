@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import TableComponent2 from "src/components/organism/TableComp2";
-import { TableWrapper, Wrapper } from "./styles";
+import { Grid } from "@hudoro/neron";
+import React from "react";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -11,34 +10,31 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "./TopFilter";
-import { WrapperTable } from "../../styles";
+import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
-import TabV4 from "molecules/TabV4";
-
-const tabText = ["Operator", "Pengawas"];
+import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../../styles";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+const arr = new Array(10).fill(0);
+export const defaultDataTable = arr.map(() => {
 	return {
-		NRP: "HD787",
-		Name: "Hd123",
-		Perusahaan: `33${index}`,
-		Dept: "2022-17-08",
-		Posisi: "2022-17-08",
-		Checkin: "2022-17-08 02:12:12",
-		P2H: "2022-17-08 02:12:12",
-		Achievement: "2022-17-08 02:12:12",
+		["Date"]: "2022-09-30",
+		["NRP"]: "1231231",
+		["Name"]: "RUDI KURNIA LUGAS",
+		["Unit"]: "AMM01",
+		["Activity"]: "Non PPA Non Fleet",
+		["HM Start"]: "100715.00",
+		["HM Stop"]: "100715.00",
+		["HM"]: "56.00",
+		["Operation"]: "56.00",
 	};
 });
 
-export default function Achievement() {
-	const [activeTab, setActiveTab] = useState(0);
+export default function HmByActivity() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -49,8 +45,10 @@ export default function Achievement() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index}>
-					<span>{item}</span>
+				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
+					<Grid>
+						<span>{item}</span>
+					</Grid>
 					<CompleteArrow />
 				</ThItemContainer>
 			),
@@ -78,9 +76,11 @@ export default function Achievement() {
 	};
 
 	return (
-		<Wrapper>
-			<TabV4 tabText={tabText} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<TableWrapper>
+		<>
+			<WrapperTitle>
+				<TitleText>REPORT HM BY ACTIVIVTY</TitleText>
+			</WrapperTitle>
+			<Wrapper>
 				<WrapperTable>
 					<TopFilter />
 					<TableFilterSearch
@@ -93,7 +93,7 @@ export default function Achievement() {
 					/>
 					<TableComponent2 table={table} />
 				</WrapperTable>
-			</TableWrapper>
-		</Wrapper>
+			</Wrapper>
+		</>
 	);
 }

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { TableWrapper, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -11,34 +10,31 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "./TopFilter";
-import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
-import TabV4 from "molecules/TabV4";
-
-const tabText = ["Operator", "Pengawas"];
+import { WrapperTable } from "../../../styles";
+import { TableWrapper } from "../styles";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+const arr = new Array(10).fill(0);
+export const defaultDataTable = arr.map(() => {
 	return {
-		NRP: "HD787",
-		Name: "Hd123",
-		Perusahaan: `33${index}`,
-		Dept: "2022-17-08",
-		Posisi: "2022-17-08",
-		Checkin: "2022-17-08 02:12:12",
-		P2H: "2022-17-08 02:12:12",
-		Achievement: "2022-17-08 02:12:12",
+		["Transaction ID"]: "AMM02/FLO/2210/FUEL/02592",
+		["Unit"]: "AMM63",
+		["Date"]: "10-03",
+		["Sft"]: "1",
+		["Time"]: "10:45:40",
+		["Vol"]: "15,0",
+		["HM"]: "-",
+		["FT"]: "POM01",
 	};
 });
 
-export default function Achievement() {
-	const [activeTab, setActiveTab] = useState(0);
+export default function Refueling() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -78,22 +74,19 @@ export default function Achievement() {
 	};
 
 	return (
-		<Wrapper>
-			<TabV4 tabText={tabText} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<TableWrapper>
-				<WrapperTable>
-					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</TableWrapper>
-		</Wrapper>
+		<TableWrapper>
+			<WrapperTable>
+				<TopFilter />
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</TableWrapper>
 	);
 }
