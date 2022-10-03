@@ -1,5 +1,4 @@
 import React from "react";
-import { WrapperTable } from "../../styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -104,9 +103,9 @@ export default function TopTable() {
 				}}
 				top={formPosition}
 			/>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			<div style={{ margin: "20px 0" }}>
 				<TableComponent2 table={table} noPagination={true} />
-			</WrapperTable>
+			</div>
 		</>
 	);
 }

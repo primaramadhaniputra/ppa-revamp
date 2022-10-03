@@ -56,6 +56,7 @@ export const WrapperTable = styled(Grid)`
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 	}
 `;
 export const ThItemContainer = styled.div`

@@ -96,23 +96,25 @@ export default function UpdateRoster() {
 	};
 	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
 	return (
-		<Wrapper>
+		<>
 			<FlyingForm closeForm={closeEdit} isEdit={isEdit} top={window.pageYOffset} />
 			<WrapperTitle>
 				<TitleText>Update Roster</TitleText>
 			</WrapperTitle>
-			<WrapperTable>
-				<TopFilter />
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			<Wrapper>
+				<WrapperTable>
+					<TopFilter />
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={false}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
+				</WrapperTable>
+			</Wrapper>
+		</>
 	);
 }

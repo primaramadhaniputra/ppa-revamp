@@ -2,6 +2,7 @@ import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper } from "../styles";
+import All from "./All";
 
 const tabs = [
 	"Payload",
@@ -34,6 +35,8 @@ const renderContent = (type: number) => {
 		return <DynamicLoadedSpeedView />;
 	} else if (type === 5) {
 		return <DynamicEmptyStopView />;
+	} else if (type === 6) {
+		return <All />;
 	}
 };
 
@@ -42,7 +45,7 @@ export default function Production() {
 	return (
 		<>
 			<TabV3 tabsData={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<Wrapper style={{ marginTop: "40px" }}>{renderContent(activeTab)}</Wrapper>
+			<Wrapper>{renderContent(activeTab)}</Wrapper>
 		</>
 	);
 }

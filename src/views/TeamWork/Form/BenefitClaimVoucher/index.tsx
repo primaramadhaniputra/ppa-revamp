@@ -100,7 +100,7 @@ export default function BenefitClaimVoucher() {
 	};
 
 	return (
-		<Wrapper>
+		<>
 			{isImage && <FormImage onclick={handleImage} />}
 			<WrapperTitle>
 				<TitleText>Benefit Claim Voucher(BCV)</TitleText>
@@ -110,17 +110,19 @@ export default function BenefitClaimVoucher() {
 					<input type="file" id="file" hidden />
 				</FileContainer>
 			</WrapperTitle>
-			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			<Wrapper>
+				<WrapperTable>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={true}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
+				</WrapperTable>
+			</Wrapper>
+		</>
 	);
 }

@@ -15,6 +15,9 @@ export const FormContainer = styled(Card)`
 	${mediaQueries.sm} {
 		padding: 20px;
 	}
+	${mediaQueries.md} {
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+	}
 `;
 
 export const FormCard = styled.div`
