@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import {
 	ArrowDown,
-	DropdownMenuContainer,
+	DropdownContainer,
 	DropdownText,
 	DropdownTextAll,
 	StyledInput,
-	StyledLabel,
 	Wrapper,
 } from "./styles";
 
@@ -16,12 +15,7 @@ interface IProps {
 	setActiveDropdown: React.Dispatch<React.SetStateAction<never[]>>;
 }
 
-export default function StyledDropdownMenu({
-	title,
-	data,
-	activeDropdown,
-	setActiveDropdown,
-}: IProps) {
+export default function MultipleDropdownMenu({ data, activeDropdown, setActiveDropdown }: IProps) {
 	const [isDropdownMenu, setIsDropdownMenu] = useState(false);
 
 	const handleShowDropdownMenu = () => {
@@ -46,11 +40,10 @@ export default function StyledDropdownMenu({
 
 	return (
 		<Wrapper>
-			<StyledLabel>{title}</StyledLabel>
-			<StyledInput onClick={handleShowDropdownMenu} value={activeDropdown} placeholder="..." />
+			<StyledInput onClick={handleShowDropdownMenu} value={activeDropdown} placeholder="Model" />
 			<ArrowDown />
 			{isDropdownMenu && (
-				<DropdownMenuContainer>
+				<DropdownContainer>
 					<DropdownTextAll onClick={handleActiveAllDropdown}>ALL</DropdownTextAll>
 					{data?.map((item, index) => {
 						const isActive = activeDropdown.find((e) => e === item);
@@ -64,7 +57,7 @@ export default function StyledDropdownMenu({
 							</DropdownText>
 						);
 					})}
-				</DropdownMenuContainer>
+				</DropdownContainer>
 			)}
 		</Wrapper>
 	);
