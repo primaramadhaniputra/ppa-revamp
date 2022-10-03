@@ -10,7 +10,6 @@ import {
 
 interface IProps {
 	data?: string[] | number[];
-	title: string;
 	activeDropdown: never[];
 	setActiveDropdown: React.Dispatch<React.SetStateAction<never[]>>;
 }
