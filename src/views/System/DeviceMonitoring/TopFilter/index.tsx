@@ -5,17 +5,26 @@ import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import React, { useState } from "react";
 import { colors, fontWeights } from "utils/styles";
 
+const data = ["a", "b", "c"];
+
 export default function TopFilter() {
 	const [fromDateState, setFromDateState] = useState(new Date());
 	const handleFromDateState = (e: Date) => {
 		setFromDateState(e);
 	};
+	const [activeDropDown, setactiveDropDown] = useState([]);
+
 	return (
 		<Grid container style={{ marginTop: "30px", gap: 5 }}>
 			<DateCalendar title="From" dateState={fromDateState} setDateState={handleFromDateState} />
 			<DateCalendar title="To" dateState={fromDateState} setDateState={handleFromDateState} />
 			<Grid style={{ flex: 1 }} container>
-				<StyledDropdownMenu title="Status" activeDropdown={[]} setActiveDropdown={() => {}} />
+				<StyledDropdownMenu
+					title="Status"
+					activeDropdown={activeDropDown}
+					setActiveDropdown={setactiveDropDown}
+					data={data}
+				/>
 			</Grid>
 			<Grid container style={{ flex: 1, minWidth: "150px" }}>
 				<StyledButton
