@@ -20,5 +20,6 @@ export const Wrapper = styled(Grid).attrs({
 	width: 100%;
 	${mediaQueries.md} {
 		width: 80%;
+		padding: 10px;
 	}
 `;

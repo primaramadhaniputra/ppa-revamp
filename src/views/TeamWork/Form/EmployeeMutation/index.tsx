@@ -104,7 +104,7 @@ export default function EmployeeMutation() {
 
 	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
 	return (
-		<Wrapper>
+		<>
 			<FlyingForm closeForm={closeEdit} isEdit={isEdit} top={formPosition} />
 			<WrapperTitle>
 				<TitleText>Employee Mutation</TitleText>
@@ -114,17 +114,19 @@ export default function EmployeeMutation() {
 					<input type="file" id="file" hidden />
 				</FileContainer>
 			</WrapperTitle>
-			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			<Wrapper>
+				<WrapperTable>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={false}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
+				</WrapperTable>
+			</Wrapper>
+		</>
 	);
 }

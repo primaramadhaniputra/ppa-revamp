@@ -66,6 +66,9 @@ export const WrapperTable = styled(Grid)`
 		background-color: white;
 		padding: 15px;
 	}
+	${mediaQueries.md} {
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+	}
 `;
 export const ThItemContainer = styled.div`
 	display: flex;

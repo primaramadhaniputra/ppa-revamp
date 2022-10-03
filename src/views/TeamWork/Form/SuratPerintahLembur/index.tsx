@@ -78,7 +78,7 @@ export default function SuratPerintahLembur() {
 	};
 
 	return (
-		<Wrapper>
+		<>
 			<WrapperTitle>
 				<TitleText>Surat Perintah Lembur</TitleText>
 				<FileContainer>
@@ -87,17 +87,19 @@ export default function SuratPerintahLembur() {
 					<input type="file" id="file" hidden />
 				</FileContainer>
 			</WrapperTitle>
-			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			<Wrapper>
+				<WrapperTable>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={false}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
+				</WrapperTable>
+			</Wrapper>
+		</>
 	);
 }

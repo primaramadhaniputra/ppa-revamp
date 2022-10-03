@@ -1,3 +1,4 @@
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -8,54 +9,58 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
+import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import {
-	FileContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-	THContainer,
-} from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { ThItemContainer, Wrapper, WrapperTable } from "../../styles";
 
-interface Person {
+interface IProps {
 	[x: string]: any;
 }
 
-export const defaultDataTable = [
-	{
-		Date: "HD787",
-		Filename: "Hd123",
-		MP: `33`,
-		Day: "2022-17-08",
-		Status: "2022-17-08",
-		Remark: "2022-17-08 02:12:12",
-	},
-];
+const arr = new Array(10).fill(0);
+export const defaultDataTable = arr.map(() => {
+	return {
+		["CN"]: "H57033",
+		["Cycle"]: "45",
+		["Pld(ton)"]: "90,6",
+		["EST(min)"]: "1,3",
+		["ES(km/h)"]: "22",
+		["LS(km/h)"]: "17",
+		["Speed(km/h)"]: "19,5",
+		["EDT(min)"]: "9,1",
+		["LDT(min)"]: "11,5",
+		["LST(min)"]: "11,5",
+		["LT(min)"]: "11,5",
+		["CT(min)"]: "11,5",
+		["LDD(km)"]: "11,5",
+		["Prod(BCM)"]: "11,5",
+		["Prdty(BCM/h)"]: "11,5",
+		["TF"]: "11,5",
+	};
+});
 
-export default function UploadRoster() {
+export default function All() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
-			header: (info) => {
-				return (
-					<THContainer key={index}>
+			header: () => (
+				<ThItemContainer key={index}>
+					<Grid>
 						<span>{item}</span>
-						{info.header.id !== "remark" && <CompleteArrow />}
-					</THContainer>
-				);
-			},
+					</Grid>
+					<CompleteArrow />
+				</ThItemContainer>
+			),
 		};
 	});
-
 	const table = useReactTable({
 		data: defaultDataTable,
 		columns,
@@ -72,32 +77,28 @@ export default function UploadRoster() {
 		debugTable: true,
 		getSortedRowModel: getSortedRowModel(),
 	});
+
 	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
 		table.setPageSize(e.target.value);
 	};
+
 	return (
-		<>
-			<WrapperTitle>
-				<TitleText>Upload Roster</TitleText>
-				<FileContainer>
-					<label htmlFor="file"> +</label>
-					<label htmlFor="file"> UPLOAD FILE</label>
-					<input type="file" id="file" hidden />
-				</FileContainer>
-			</WrapperTitle>
-			<Wrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
-		</>
+		<Wrapper>
+			{/* <WrapperTitle>
+            <TitleText>ALL</TitleText>
+         </WrapperTitle> */}
+			<WrapperTable>
+				<TopFilter />
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</Wrapper>
 	);
 }

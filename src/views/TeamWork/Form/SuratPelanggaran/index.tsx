@@ -121,7 +121,7 @@ export default function SuratPelanggaran() {
 		: enableBodyScroll(Html as unknown as HTMLElement | Element);
 
 	return (
-		<Wrapper>
+		<>
 			<ShowDetail
 				onclick={handleHideDetail}
 				styles={{
@@ -141,17 +141,19 @@ export default function SuratPelanggaran() {
 					<input type="file" id="file" hidden />
 				</FileContainer>
 			</WrapperTitle>
-			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			<Wrapper>
+				<WrapperTable>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={false}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
+				</WrapperTable>
+			</Wrapper>
+		</>
 	);
 }

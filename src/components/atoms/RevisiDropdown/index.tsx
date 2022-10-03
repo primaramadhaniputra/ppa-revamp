@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ArrowDown, DropdownContainer, Item, StyledInput, Wrapper } from "./styles";
 
-const data = ["banan", "potato", "watermelon", "strawberry"];
+const data = ["All", "1", "2"];
 
 interface IProps {
 	placeholder?: string;
