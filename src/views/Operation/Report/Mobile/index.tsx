@@ -1,5 +1,6 @@
 import TabV2 from "molecules/TabV2";
 import React, { useState } from "react";
+import HmByActivity from "./HmByActivity";
 import HmOperator from "./HmOperator";
 import SupportActivity from "./SupportActivity";
 
@@ -8,8 +9,9 @@ const tabTitle = ["HM Operator", "HM By Activity", "Support Activity", "ACH Oper
 const renderContent = (activeTab: number) => {
 	if (activeTab === 0) {
 		return <HmOperator />;
-	}
-	if (activeTab === 2) {
+	} else if (activeTab === 1) {
+		return <HmByActivity />;
+	} else if (activeTab === 2) {
 		return <SupportActivity />;
 	}
 };
