@@ -20,7 +20,7 @@ export default function TopFilter() {
 			<RevisiDate placeholder="To" dateState={toDateState} setDateState={handleToDateState} />
 			<RevisiDate placeholder="From" dateState={fromDateState} setDateState={handleFromDateState} />
 			<Grid style={{ minWidth: "150px" }}>
-				<RevisiDropdown placeholder="shift" />
+				<RevisiDropdown placeholder="FT" />
 			</Grid>
 			<ButtonWrapper>
 				<StyledButton
