@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper } from "../styles";
 import All from "./All";
+import AllByLoader from "./AllByLoader";
 
 const tabs = [
 	"Payload",
@@ -13,7 +14,6 @@ const tabs = [
 	"Empty Speed",
 	"All",
 	"All By Loader",
-	"All By Loader V-2",
 ];
 
 const DynamicPayloadView = dynamic(() => import("./Payload"));
@@ -37,6 +37,8 @@ const renderContent = (type: number) => {
 		return <DynamicEmptyStopView />;
 	} else if (type === 6) {
 		return <All />;
+	} else if (type === 7) {
+		return <AllByLoader />;
 	}
 };
 
