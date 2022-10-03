@@ -41,7 +41,9 @@ export default function Payload() {
 	};
 
 	useEffect(() => {
+		// const abortController = new AbortController();
 		getData();
+		// return () => abortController.abort();
 	}, []);
 
 	return (
