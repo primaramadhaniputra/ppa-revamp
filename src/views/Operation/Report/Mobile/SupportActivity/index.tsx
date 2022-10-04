@@ -3,15 +3,17 @@ import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
 import Fuel from "./Fuel";
 import Lube from "./Lube";
+import Transportation from "./Transportation";
 
 const tabTitle = ["Fuel", "Lube", "Transportation"];
 
 const renderContent = (type: string) => {
 	if (type === "Fuel") {
 		return <Fuel />;
-	}
-	if (type === "Lube") {
+	} else if (type === "Lube") {
 		return <Lube />;
+	} else if (type === "Transportation") {
+		return <Transportation />;
 	}
 };
 
