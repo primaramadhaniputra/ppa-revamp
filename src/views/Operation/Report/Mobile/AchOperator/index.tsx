@@ -1,6 +1,7 @@
 import TabV3 from "molecules/TabV3";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
+import P2H from "./P2H";
 import TimeSheet from "./TimeSheet";
 
 const tabTitle = ["Time Sheet", "P2H"];
@@ -8,6 +9,8 @@ const tabTitle = ["Time Sheet", "P2H"];
 const renderContent = (type: string) => {
 	if (type === "Time Sheet") {
 		return <TimeSheet />;
+	} else if (type === "P2H") {
+		return <P2H />;
 	}
 };
 
