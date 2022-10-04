@@ -1,5 +1,6 @@
 import TabV2 from "molecules/TabV2";
 import React, { useState } from "react";
+import AchOperator from "./AchOperator";
 import HmByActivity from "./HmByActivity";
 import HmOperator from "./HmOperator";
 import SupportActivity from "./SupportActivity";
@@ -13,6 +14,8 @@ const renderContent = (activeTab: number) => {
 		return <HmByActivity />;
 	} else if (activeTab === 2) {
 		return <SupportActivity />;
+	} else if (activeTab === 3) {
+		return <AchOperator />;
 	}
 };
 
