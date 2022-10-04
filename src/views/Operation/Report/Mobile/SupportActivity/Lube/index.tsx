@@ -1,6 +1,7 @@
 import TabV4 from "molecules/TabV4";
 import React, { useState } from "react";
 import Detail from "./Detail";
+import History from "./History";
 import { Wrapper } from "./styles";
 
 const tabText = ["Detail", "History"];
@@ -8,6 +9,8 @@ const tabText = ["Detail", "History"];
 const renderContent = (type: string) => {
 	if (type === "Detail") {
 		return <Detail />;
+	} else if (type === "History") {
+		return <History />;
 	}
 };
 
