@@ -22,7 +22,7 @@ export const WrapperTitle = styled(Grid).attrs({
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 `;
 
