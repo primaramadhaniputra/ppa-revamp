@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
 import TimeSheet from "./TimeSheet";
 
-const tabTitle = ["Time Sheet", 'P2H'];
+const tabTitle = ["Time Sheet", "P2H"];
 
 const renderContent = (type: string) => {
-	if (type === 'Time Sheet') {
-		return <TimeSheet />
+	if (type === "Time Sheet") {
+		return <TimeSheet />;
 	}
 };
 

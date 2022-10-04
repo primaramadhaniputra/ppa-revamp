@@ -86,25 +86,25 @@ export default function TimeSheet() {
 				withButton={true}
 				buttonTitle="EXPORT"
 			/>
-			<Grid container gap={10} style={{ marginBottom: '15px' }}>
+			<Grid container gap={10} style={{ marginBottom: "15px" }}>
 				<PointContainer>
 					<PointDesc>Point : 100</PointDesc>
 					<PointValue>Istimewa</PointValue>
 				</PointContainer>
 				<PointContainer>
 					<PointDesc>Point : 90</PointDesc>
-					<PointValue style={{ backgroundColor: '#605CA8' }}>Baik Sekali</PointValue>
+					<PointValue style={{ backgroundColor: "#605CA8" }}>Baik Sekali</PointValue>
 				</PointContainer>
 				<PointContainer>
 					<PointDesc>Point : 80</PointDesc>
-					<PointValue style={{ backgroundColor: '#3C8DBC' }}>Baik</PointValue>
+					<PointValue style={{ backgroundColor: "#3C8DBC" }}>Baik</PointValue>
 				</PointContainer>
 				<PointContainer>
 					<PointDesc>Point : 70</PointDesc>
-					<PointValue style={{ backgroundColor: '#F39C12' }}>Butuh Perbaikan</PointValue>
+					<PointValue style={{ backgroundColor: "#F39C12" }}>Butuh Perbaikan</PointValue>
 				</PointContainer>
 			</Grid>
 			<TableComponent2 table={table} />
-		</WrapperTable >
+		</WrapperTable>
 	);
 }
