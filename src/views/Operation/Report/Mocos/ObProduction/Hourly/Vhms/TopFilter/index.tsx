@@ -7,20 +7,20 @@ import { colors, fontWeights } from "utils/styles";
 import { ButtonWrapper, Wrapper } from "./styles";
 
 export default function TopFilter() {
-	const [toDateState, setToDateState] = useState(new Date());
-	const [fromDateState, setFromDateState] = useState(new Date());
+	const [toDateState, setToDateState] = useState<Date>();
 	const handleToDateState = (e: Date) => {
 		setToDateState(e);
 	};
-	const handleFromDateState = (e: Date) => {
-		setFromDateState(e);
-	};
+
 	return (
 		<Wrapper>
-			<RevisiDate placeholder="To" dateState={toDateState} setDateState={handleToDateState} />
-			<RevisiDate placeholder="From" dateState={fromDateState} setDateState={handleFromDateState} />
-			<Grid style={{ minWidth: "150px" }}>
-				<RevisiDropdown placeholder="Shift" />
+			<RevisiDate
+				dateState={toDateState as Date}
+				setDateState={handleToDateState}
+				placeholder="Date"
+			/>
+			<Grid style={{ minWidth: "200px" }}>
+				<RevisiDropdown placeholder="Type" />
 			</Grid>
 			<ButtonWrapper>
 				<StyledButton

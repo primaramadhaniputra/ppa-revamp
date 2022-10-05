@@ -10,8 +10,8 @@ export const Wrapper = styled(Grid).attrs({
 	row-gap: 10px;
 	width: 100%;
 	align-items: center;
-	${mediaQueries.lg} {
-		width: 100%;
+	${mediaQueries["xl"]} {
+		width: 65%;
 	}
 `;
 

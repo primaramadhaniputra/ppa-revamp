@@ -1,33 +1,27 @@
-import { Grid } from "@hudoro/neron";
+import TabV4 from "molecules/TabV4";
 import React, { useState } from "react";
-import { colors } from "utils/styles";
 import CCR from "./ccr";
-import { TabsText, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
+import VHMS from "./Vhms";
 
-const tabs = ["CCR", "VHMS"];
+const tabs = ["CCR", "VHMS", "FMS DT", "FMS HD"];
+
+const renderContent = (type: string) => {
+	if (type === "CCR") {
+		return <CCR />;
+	}
+	if (type === "VHMS") {
+		return <VHMS />;
+	}
+};
 
 export default function Hourly() {
-	const [activeTabs, setActiveTabs] = useState(0);
+	const [activeTab, setActiveTab] = useState(0);
 
-	const handleActiveTabs = (index: number) => {
-		setActiveTabs(index);
-	};
 	return (
 		<Wrapper>
-			<Grid container style={{ margin: "20px 0" }}>
-				{tabs.map((item, index) => (
-					<TabsText
-						key={index}
-						style={{
-							borderBottom: activeTabs === index ? `2px solid ${colors.orange}` : "",
-						}}
-						onClick={() => handleActiveTabs(index)}
-					>
-						{item}
-					</TabsText>
-				))}
-			</Grid>
-			{activeTabs === 0 && <CCR />}
+			<TabV4 tabText={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+			{renderContent(tabs[activeTab])}
 		</Wrapper>
 	);
 }
