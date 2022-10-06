@@ -1,14 +1,18 @@
-import { fontFamilies, Grid } from "@hudoro/neron";
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, mediaQueries } from "utils/styles";
+import { colors, fontWeights, mediaQueries } from "utils/styles";
 
 interface IProps {
 	showMenu?: boolean;
+	activeSubMenu?: boolean;
 }
 
-const renderAreas = () => {
-	return `"logo logo  users"
+const renderAreas = (showMenu: boolean | undefined) => {
+	if (!showMenu) {
+		return `"logo logo  users"
 	"links links links"`;
+	}
+	return `"logo logo  users"`;
 };
 
 export const Wrapper = styled.div<IProps>`
@@ -20,10 +24,13 @@ export const Wrapper = styled.div<IProps>`
 	display: grid;
 	gap: 14px;
 	grid-template-columns: 1fr 1fr;
-	grid-template-areas: ${() => renderAreas()};
+	grid-template-areas: ${(props) => renderAreas(props.showMenu)};
 	${mediaQueries.lg} {
-		grid-template-columns: 40px 5fr 1fr;
+		grid-template-columns: 50px 5fr 1fr;
 		grid-template-areas: "logo links links links users";
+		padding: 0 50px;
+	}
+	${mediaQueries.xl} {
 		padding: 0 100px;
 	}
 `;
@@ -40,7 +47,12 @@ export const ContainerUser = styled.div`
 	align-items: center;
 	grid-area: users;
 	max-width: 100px;
-	width: 60px;
+	gap: 5px;
+	position: relative;
+	cursor: pointer;
+	bg ${mediaQueries.lg} {
+		gap: 5px;
+	}
 `;
 export const ContainerLinks = styled.div`
 	margin-top: 10px;
@@ -54,9 +66,27 @@ export const ContainerLinks = styled.div`
 		margin-top: 0;
 		gap: 20px;
 	}
-	${mediaQueries.xl} {
-		gap: 50px;
+`;
+
+export const UserOverFlay = styled.div`
+	position: absolute;
+	top: 40px;
+	background-color: ${colors.primary};
+	right: 0;
+	left: -50px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	${mediaQueries.lg} {
+		left: 0;
 	}
+`;
+
+export const UserOverlayText = styled(Text).attrs({
+	variant: "h4",
+})`
+	font-size: 12px;
+	font-weight: ${fontWeights.semi};
+	padding: 10px;
 `;
 
 export const SingleLink = styled(Grid).attrs({
@@ -83,17 +113,22 @@ export const Styledtext = styled.p`
 	font-size: 14px;
 `;
 
-export const ContainerSubmenu = styled.div`
+export const ContainerSubmenu = styled.div<IProps>`
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: 15px;
+	display: ${(props) => (props.activeSubMenu ? "inherit" : "none")};
 	${mediaQueries.lg} {
 		background-color: ${colors.primary};
 		position: absolute;
-		top: 45px;
+		top: ${(props) => (props.activeSubMenu ? "45px" : "70px")};
 		left: 0;
 		right: -100px;
 		border-radius: 5px;
+		transition: 0.3s;
+		display: inherit;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+		z-index: ${(props) => (props.activeSubMenu ? "99" : "-99")};
 	}
 `;
 
