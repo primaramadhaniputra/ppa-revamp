@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { currentLoginPages } from "services/pages";
 import Footer from "src/components/organism/Footer";
 import Navbar from "src/components/organism/Navbar";
+// import Navbar2 from "src/components/organism/Navbar2";
 import { notify } from "utils/functions";
 import { ContentWrapper, Wrapper } from "./styles";
 
@@ -40,6 +41,7 @@ export default function Layout({ children }: IProps) {
 				showHamburgerMenu={showHamburgerMenu}
 				position={navbarPosition}
 			/>
+			{/* <Navbar2 /> */}
 			<ContentWrapper>{children}</ContentWrapper>
 			<Footer type="dashboard" />
 		</Wrapper>
