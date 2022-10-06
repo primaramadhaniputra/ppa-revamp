@@ -1,4 +1,4 @@
-import { Card, Grid } from "@hudoro/neron";
+import { Card } from "@hudoro/neron";
 import styled from "styled-components";
 import { mediaQueries } from "utils/styles";
 
@@ -35,17 +35,5 @@ export const Wrapper = styled(Card)`
 		box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 		padding: 20px;
 		background-color: white;
-	}
-`;
-
-export const ShowChartWrapper = styled(Grid).attrs({
-	container: true,
-})`
-	margin: 10px 0;
-	flex-direction: column;
-	gap: 10px;
-	${mediaQueries.md} {
-		flex-direction: row;
-		max-width: 350px;
 	}
 `;
