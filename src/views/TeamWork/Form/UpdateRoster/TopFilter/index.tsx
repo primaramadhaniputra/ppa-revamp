@@ -8,33 +8,39 @@ import { ButtonWrapper, Wrapper } from "./styles";
 
 export default function TopFilter() {
 	const [fromDateState, setFromDateState] = useState<Date>();
+	const [isShowFilter, setIsShowFilter] = useState(false);
+
 	const handleFromDateState = (e: Date) => {
 		setFromDateState(e);
 	};
+
 	return (
-		<Wrapper>
-			<RevisiDate
-				dateState={fromDateState as Date}
-				setDateState={handleFromDateState}
-				placeholder="From"
-			/>
-			<Grid style={{ minWidth: "200px" }}>
-				<RevisiDropdown />
-			</Grid>
-			<ButtonWrapper style={{ minWidth: "150px" }}>
-				<StyledButton
-					style={{
-						fontSize: "18px",
-						padding: "0",
-						fontWeight: fontWeights.bold,
-						backgroundColor: colors.orange,
-						borderRadius: "3px",
-						minWidth: "150px",
-					}}
-				>
-					SHOW
-				</StyledButton>
-			</ButtonWrapper>
-		</Wrapper>
+		<>
+			<button onClick={() => setIsShowFilter(!isShowFilter)}>show</button>
+			<Wrapper style={{ height: isShowFilter ? 30 : 0, overflow: "hidden", transition: ".3s" }}>
+				<RevisiDate
+					dateState={fromDateState as Date}
+					setDateState={handleFromDateState}
+					placeholder="From"
+				/>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown />
+				</Grid>
+				<ButtonWrapper style={{ minWidth: "150px" }}>
+					<StyledButton
+						style={{
+							fontSize: "18px",
+							padding: "0",
+							fontWeight: fontWeights.bold,
+							backgroundColor: colors.orange,
+							borderRadius: "3px",
+							minWidth: "150px",
+						}}
+					>
+						SHOW
+					</StyledButton>
+				</ButtonWrapper>
+			</Wrapper>
+		</>
 	);
 }
