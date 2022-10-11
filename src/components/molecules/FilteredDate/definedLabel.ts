@@ -8,7 +8,9 @@ import {
 	startOfWeek,
 	endOfWeek,
 	isSameDay,
-	differenceInCalendarDays,
+	startOfYear,
+	endOfYear,
+	addYears,
 } from "date-fns";
 
 const defineds = {
@@ -24,6 +26,10 @@ const defineds = {
 	endOfMonth: endOfMonth(new Date()),
 	startOfLastMonth: startOfMonth(addMonths(new Date(), -1)),
 	endOfLastMonth: endOfMonth(addMonths(new Date(), -1)),
+	startOfYears: startOfYear(addYears(new Date(), 0)),
+	endOfYears: endOfYear(addYears(new Date(), 0)),
+	startOfLastYears: startOfYear(addYears(new Date(), -1)),
+	endOfLastYears: endOfYear(addYears(new Date(), -1)),
 };
 
 const staticRangeHandler = {
@@ -85,36 +91,18 @@ export const defaultStaticRanges = createStaticRanges([
 			endDate: defineds.endOfLastMonth,
 		}),
 	},
+	{
+		label: "This Years",
+		range: () => ({
+			startDate: defineds.startOfYears,
+			endDate: defineds.endOfYears,
+		}),
+	},
+	{
+		label: "Last Years",
+		range: () => ({
+			startDate: defineds.startOfLastYears,
+			endDate: defineds.endOfLastYears,
+		}),
+	},
 ]);
-
-export const defaultInputRanges = [
-	{
-		label: "days up to today",
-		range(value: any) {
-			return {
-				startDate: addDays(defineds.startOfToday, (Math.max(Number(value), 1) - 1) * -1),
-				endDate: defineds.endOfToday,
-			};
-		},
-		getCurrentValue(range: { endDate: number | Date; startDate: number | Date }) {
-			if (!isSameDay(range.endDate, defineds.endOfToday)) return "-";
-			if (!range.startDate) return "∞";
-			return differenceInCalendarDays(defineds.endOfToday, range.startDate) + 1;
-		},
-	},
-	{
-		label: "days starting today",
-		range(value: any) {
-			const today = new Date();
-			return {
-				startDate: today,
-				endDate: addDays(today, Math.max(Number(value), 1) - 1),
-			};
-		},
-		getCurrentValue(range: { startDate: number | Date; endDate: number | Date }) {
-			if (!isSameDay(range.startDate, defineds.startOfToday)) return "-";
-			if (!range.endDate) return "∞";
-			return differenceInCalendarDays(range.endDate, defineds.startOfToday) + 1;
-		},
-	},
-];
