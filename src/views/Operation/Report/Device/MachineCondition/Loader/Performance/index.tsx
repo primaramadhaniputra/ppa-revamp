@@ -1,4 +1,4 @@
-import TabV1 from "molecules/TabV1";
+import TabV5 from "molecules/TabV5";
 import React, { useState } from "react";
 
 const tabsData = [
@@ -16,7 +16,7 @@ const Performance = () => {
 	const [selectedItem, setSelectedItem] = useState("FUEL");
 	return (
 		<>
-			<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+			<TabV5 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
 		</>
 	);
 };

@@ -1,4 +1,4 @@
-import TabV1 from "molecules/TabV1";
+import TabV5 from "molecules/TabV5";
 import React, { useState } from "react";
 
 const tabsData = ["ALL CODE"];
@@ -7,7 +7,7 @@ const Fault = () => {
 	const [selectedItem, setSelectedItem] = useState("ALL CODE");
 	return (
 		<>
-			<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+			<TabV5 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
 		</>
 	);
 };
