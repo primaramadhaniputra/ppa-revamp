@@ -1,6 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import styled from "styled-components";
-import { mediaQueries } from "utils/styles";
+import { colors, mediaQueries } from "utils/styles";
 
 export const Wrapper = styled(Grid).attrs({
 	container: true,
@@ -24,4 +24,17 @@ export const ButtonWrapper = styled.div`
 	${mediaQueries.lg} {
 		width: auto;
 	}
+`;
+
+export const IconContainer = styled.div`
+	background-color: ${colors.blue};
+	width: max-content;
+	border-radius: 100%;
+	padding: 10px;
+	cursor: pointer;
+	margin-left: auto;
+`;
+
+export const Container = styled.div`
+	transition: 0.3s;
 `;
