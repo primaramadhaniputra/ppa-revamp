@@ -20,6 +20,7 @@ import {
 	WrapperTable,
 	WrapperTitle,
 } from "../../../../styles";
+import Chart from "./Chart";
 
 interface IProps {
 	[x: string]: any;
@@ -28,17 +29,8 @@ interface IProps {
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Date"]: "2022-09-30",
-		["Shift"]: "D",
-		["NRP"]: "1231231",
-		["Name"]: "RUDI KURNIA LUGAS",
-		["Dept"]: "HCG",
-		["Unit"]: "AMM01",
-		["HM Start"]: "100715.00",
-		["HM Stop"]: "100715.00",
-		["HM"]: "56.00",
-		["Activity"]: "Non PPA Non Fleet",
-		["Parking"]: "-",
+		["CN"]: "E52015",
+		["Fuel Consumption Rate L/H"]: "127.2",
 	};
 });
 
@@ -119,7 +111,9 @@ export default function Fuel() {
 				/>
 			</Grid>
 			{showChart ? (
-				<h1>banana</h1>
+				<Wrapper>
+					<Chart />
+				</Wrapper>
 			) : (
 				<Wrapper>
 					<WrapperTable>
