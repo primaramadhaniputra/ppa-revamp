@@ -7,11 +7,12 @@ interface Person {
 	noPagination?: boolean;
 	withFooter?: boolean;
 	[x: string]: any;
+	styles?: React.CSSProperties;
 }
 
-export default function TableComponent2({ table, noPagination, withFooter }: Person) {
+export default function TableComponent2({ table, styles, noPagination, withFooter }: Person) {
 	return (
-		<Wrapper>
+		<Wrapper style={{ ...styles }}>
 			<TableComp table={table} withFooter={withFooter} />
 			{!noPagination && (
 				<PaginationComp

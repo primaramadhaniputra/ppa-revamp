@@ -21,6 +21,7 @@ import {
 	WrapperTitle,
 } from "../../../../styles";
 import Chart from "./Chart";
+import DataDetail from "./DataDetail";
 
 interface IProps {
 	[x: string]: any;
@@ -53,11 +54,26 @@ export default function Fuel() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [showChart, setShowChart] = React.useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) => info.getValue(),
+			cell: (info) => {
+				return info.column.id === "CN" ? (
+					<span style={{ color: "blue", cursor: "pointer" }} onClick={handleShowDetail}>
+						{info.getValue()}
+					</span>
+				) : (
+					info.getValue()
+				);
+			},
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
 					<Grid>
@@ -99,6 +115,11 @@ export default function Fuel() {
 
 	return (
 		<>
+			<DataDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>Fuel Consumption Rate</TitleText>
 			</WrapperTitle>
