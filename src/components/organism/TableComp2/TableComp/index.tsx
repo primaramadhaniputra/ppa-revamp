@@ -5,10 +5,11 @@ import { TABLE, ThItemContainer, Wrapper } from "./styles";
 
 interface IProps {
 	withFooter?: boolean;
+	tableTdStyles?: React.CSSProperties;
 	[x: string]: any;
 }
 
-export default function TableComp({ table, withFooter }: IProps) {
+export default function TableComp({ table, withFooter, tableTdStyles }: IProps) {
 	const Filter = ({
 		column,
 	}: {
@@ -95,7 +96,7 @@ export default function TableComp({ table, withFooter }: IProps) {
 							return (
 								<tr key={row.id}>
 									{row.getVisibleCells().map((cell) => (
-										<td key={cell.id}>
+										<td key={cell.id} style={{ ...tableTdStyles }}>
 											{flexRender(cell.column.columnDef.cell, cell.getContext())}
 										</td>
 									))}
