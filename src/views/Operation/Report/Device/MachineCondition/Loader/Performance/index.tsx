@@ -1,13 +1,15 @@
 import TabV5 from "molecules/TabV5";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Temperature from "./Temperature";
 
 const Boost = dynamic(() => import("./Boost"));
 const Fuel = dynamic(() => import("./Fuel"));
 const Exhaust = dynamic(() => import("./Exhaust"));
 const EnginePower = dynamic(() => import("./EnginePower"));
 const EngineSpeed = dynamic(() => import("./EngineSpeed"));
+const OilPressure = dynamic(() => import("./OilPressure"));
+const Temperature = dynamic(() => import("./Temperature"));
+const Torque = dynamic(() => import("./Torque"));
 
 const tabsData = [
 	"FUEL",
@@ -33,6 +35,10 @@ const renderContent = (type: string) => {
 		return <EngineSpeed />;
 	} else if (type === "TEMPERATURE") {
 		return <Temperature />;
+	} else if (type === "OIL PRESSURE") {
+		return <OilPressure />;
+	} else if (type === "TORQUE") {
+		return <Torque />;
 	}
 };
 
