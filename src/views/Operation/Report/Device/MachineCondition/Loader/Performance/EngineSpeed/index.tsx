@@ -22,6 +22,7 @@ import {
 } from "../../../../styles";
 import Chart from "./Chart";
 import DataDetail from "./DataDetail";
+import { TextTable } from "./styles";
 
 interface IProps {
 	[x: string]: any;
@@ -31,7 +32,9 @@ const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["CN"]: "E52015",
-		["Fuel Consumption Rate L/H"]: "127.2",
+		["RPM AVE"]: "127.2",
+		["RPM MAX"]: "127.2",
+		["Status"]: "Warning",
 	};
 });
 
@@ -48,7 +51,7 @@ const items = [
 	},
 ];
 
-export default function Fuel() {
+export default function EngineSpeed() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -62,17 +65,29 @@ export default function Fuel() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
+	const renderTdText = (type: string, info: IProps) => {
+		if (type === "CN") {
+			return (
+				<TextTable style={{ color: "blue", cursor: "pointer" }} onClick={handleShowDetail}>
+					{info.getValue()}
+				</TextTable>
+			);
+		} else if (type === "Status") {
+			return (
+				<TextTable style={{ backgroundColor: "#FCE168", borderBottom: "1px solid white" }}>
+					{info.getValue()}
+				</TextTable>
+			);
+		} else {
+			return <TextTable>{info.getValue()}</TextTable>;
+		}
+	};
+
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return info.column.id === "CN" ? (
-					<span style={{ color: "blue", cursor: "pointer" }} onClick={handleShowDetail}>
-						{info.getValue()}
-					</span>
-				) : (
-					info.getValue()
-				);
+				return renderTdText(info.column.id, info);
 			},
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
@@ -121,7 +136,7 @@ export default function Fuel() {
 				formPosition={formPosition}
 			/>
 			<WrapperTitle style={{ marginTop: "20px" }}>
-				<TitleText>Fuel Consumption Rate</TitleText>
+				<TitleText>Engine Speed</TitleText>
 			</WrapperTitle>
 			<Grid container alignItems="center">
 				<Select
@@ -147,7 +162,7 @@ export default function Fuel() {
 							withButton={true}
 							buttonTitle="EXPORT"
 						/>
-						<TableComponent2 table={table} />
+						<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
 					</WrapperTable>
 				</Wrapper>
 			)}

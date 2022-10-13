@@ -8,12 +8,19 @@ interface Person {
 	withFooter?: boolean;
 	[x: string]: any;
 	styles?: React.CSSProperties;
+	tableTdStyles?: React.CSSProperties;
 }
 
-export default function TableComponent2({ table, styles, noPagination, withFooter }: Person) {
+export default function TableComponent2({
+	table,
+	styles,
+	noPagination,
+	withFooter,
+	tableTdStyles,
+}: Person) {
 	return (
 		<Wrapper style={{ ...styles }}>
-			<TableComp table={table} withFooter={withFooter} />
+			<TableComp table={table} withFooter={withFooter} tableTdStyles={tableTdStyles} />
 			{!noPagination && (
 				<PaginationComp
 					dataPerPage={table.getRowModel().rows.length}

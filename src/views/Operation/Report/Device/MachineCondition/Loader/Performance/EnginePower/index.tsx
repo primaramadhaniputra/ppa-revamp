@@ -31,7 +31,8 @@ const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["CN"]: "E52015",
-		["Fuel Consumption Rate L/H"]: "127.2",
+		["Engine Power Max(KW)"]: "127.2",
+		["Engine Power Ave(KW)"]: "127.2",
 	};
 });
 
@@ -48,7 +49,7 @@ const items = [
 	},
 ];
 
-export default function Fuel() {
+export default function EnginePower() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -121,7 +122,7 @@ export default function Fuel() {
 				formPosition={formPosition}
 			/>
 			<WrapperTitle style={{ marginTop: "20px" }}>
-				<TitleText>Fuel Consumption Rate</TitleText>
+				<TitleText>Engine Power</TitleText>
 			</WrapperTitle>
 			<Grid container alignItems="center">
 				<Select
