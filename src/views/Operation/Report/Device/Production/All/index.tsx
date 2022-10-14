@@ -9,12 +9,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, WrapperTable } from "../../styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -85,9 +85,14 @@ export default function All() {
 
 	return (
 		<WrapperTable>
-			<FilterLayouts>
-				<TopFilter />
-			</FilterLayouts>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Shift" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Unit" />
+				</Grid>
+			</TopFilter>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}

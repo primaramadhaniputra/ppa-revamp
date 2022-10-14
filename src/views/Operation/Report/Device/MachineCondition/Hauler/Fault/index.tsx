@@ -1,12 +1,13 @@
-import TabV1 from "molecules/TabV1";
+import TabV5 from "molecules/TabV5";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
 const AllCode = dynamic(() => import("./AllCode"));
+const EngineOverrun = dynamic(() => import("./EngineOverrun"));
 
 const tabsData = [
 	"ALL CODE",
-	"ENGINE OVER",
+	"ENGINE OVERRUN",
 	"NEUTRAL COAST",
 	"HIGH BLOWBY",
 	"DROP IN OIL",
@@ -16,6 +17,8 @@ const tabsData = [
 const renderContent = (type: string) => {
 	if (type === "ALL CODE") {
 		return <AllCode />;
+	} else if (type === "ENGINE OVERRUN") {
+		return <EngineOverrun />;
 	}
 };
 
@@ -23,7 +26,7 @@ const Fault = () => {
 	const [selectedItem, setSelectedItem] = useState("ALL CODE");
 	return (
 		<>
-			<TabV1 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+			<TabV5 tabsData={tabsData} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
 			{renderContent(selectedItem)}
 		</>
 	);

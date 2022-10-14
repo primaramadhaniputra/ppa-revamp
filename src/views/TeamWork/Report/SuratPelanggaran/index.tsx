@@ -9,7 +9,6 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
@@ -17,7 +16,8 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import RevisiDropdown from "atoms/RevisiDropdown";
+import TopFilter from "src/components/organism/TopFilter";
 
 interface IProps {
 	[x: string]: any;
@@ -120,9 +120,14 @@ export default function SuratPelanggaran() {
 					<TitleText>Surat Pelanggaran</TitleText>
 				</WrapperTitle>
 				<WrapperTable>
-					<FilterLayouts>
-						<TopFilter />
-					</FilterLayouts>
+					<TopFilter noDate={true}>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Loader" />
+						</Grid>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Loader" />
+						</Grid>
+					</TopFilter>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

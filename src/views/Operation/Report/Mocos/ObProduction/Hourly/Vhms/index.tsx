@@ -9,10 +9,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { Grid } from "@hudoro/neron";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -83,9 +84,11 @@ export default function VHMS() {
 	return (
 		<>
 			<Wrapper>
-				<FilterLayouts>
-					<TopFilter />
-				</FilterLayouts>
+				<TopFilter>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Type" />
+					</Grid>
+				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

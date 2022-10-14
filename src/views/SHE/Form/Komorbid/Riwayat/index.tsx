@@ -8,12 +8,13 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer, Wrapper, WrapperTable } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { Grid } from "@hudoro/neron";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -94,9 +95,17 @@ export default function Riwayat() {
 	return (
 		<Wrapper>
 			<WrapperTable>
-				<FilterLayouts>
-					<TopFilter />
-				</FilterLayouts>
+				<TopFilter noDate={true}>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Perusahaan" />
+					</Grid>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Dept" />
+					</Grid>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Karyawan" />
+					</Grid>
+				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

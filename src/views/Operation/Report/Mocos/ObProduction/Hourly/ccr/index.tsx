@@ -12,13 +12,13 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 // import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
 import DisplayChart from "./DisplayChart";
 import { exportFile } from "utils/functions";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -127,9 +127,11 @@ export default function CCR() {
 						Hourly Production
 					</Text>
 				</Grid>
-				<FilterLayouts>
-					<TopFilter />
-				</FilterLayouts>
+				<TopFilter>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Shift" />
+					</Grid>
+				</TopFilter>
 				<ShowChartWrapper>
 					<Grid>
 						<StyledButton onClick={handleShowChart}>Show Chart</StyledButton>

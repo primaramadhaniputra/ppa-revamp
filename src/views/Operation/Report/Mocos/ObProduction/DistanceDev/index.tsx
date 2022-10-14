@@ -9,12 +9,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -77,9 +76,7 @@ export default function DistanceDev() {
 				<TitleText>REPORT HM OPERATOR</TitleText>
 			</WrapperTitle>
 			<Wrapper>
-				<FilterLayouts>
-					<TopFilter />
-				</FilterLayouts>
+				<TopFilter />
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
