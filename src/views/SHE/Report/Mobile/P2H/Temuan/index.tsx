@@ -15,6 +15,7 @@ import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -93,7 +94,9 @@ export default function Temuan() {
 
 	return (
 		<WrapperTable style={{ marginTop: "20px" }}>
-			<TopFilter />
+			<FilterLayouts>
+				<TopFilter />
+			</FilterLayouts>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}

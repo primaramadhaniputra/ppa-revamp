@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getOperationReport } from "services/operationReport";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
-import TopFilter from "./TopFilter";
+import TopFilter from "../TopFilter";
 
 export default function Speed() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
@@ -47,13 +48,15 @@ export default function Speed() {
 
 	return (
 		<>
-			<TopFilter
-				toDate={toDate}
-				fromDate={fromDate}
-				handleFromDate={handleFromDate}
-				handleToDate={handleToDate}
-				getData={getData}
-			/>
+			<FilterLayouts>
+				<TopFilter
+					toDate={toDate}
+					fromDate={fromDate}
+					handleFromDate={handleFromDate}
+					handleToDate={handleToDate}
+					getData={getData}
+				/>
+			</FilterLayouts>
 			<DisplayData data={dataChart} isLoading={isLoading} />
 		</>
 	);

@@ -17,6 +17,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -122,7 +123,9 @@ export default function Izin() {
 					<TitleText>Report Izin</TitleText>
 				</WrapperTitle>
 				<WrapperTable>
-					<TopFilter />
+					<FilterLayouts>
+						<TopFilter />
+					</FilterLayouts>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

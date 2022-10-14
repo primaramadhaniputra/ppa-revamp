@@ -19,6 +19,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -118,7 +119,9 @@ export default function Table() {
 	return (
 		<Wrapper>
 			<FlyingForm closeForm={closeEdit} isEdit={isEdit} formPosition={formPosition} />
-			<TopFilter />
+			<FilterLayouts>
+				<TopFilter />
+			</FilterLayouts>
 			<SecondFilter
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}

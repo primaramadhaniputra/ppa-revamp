@@ -13,7 +13,8 @@ import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, Wrapper, WrapperTable } from "../../styles";
+import { ThItemContainer, WrapperTable } from "../../styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -86,22 +87,19 @@ export default function AllByLoader() {
 	};
 
 	return (
-		<Wrapper>
-			{/* <WrapperTitle>
-            <TitleText>ALL</TitleText>
-         </WrapperTitle> */}
-			<WrapperTable>
+		<WrapperTable>
+			<FilterLayouts>
 				<TopFilter />
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			</FilterLayouts>
+			<TableFilterSearch
+				table={table}
+				handleChangeTotalShowData={handleChangeTotalShowData}
+				globalFilter={globalFilter}
+				setGlobalFilter={setGlobalFilter}
+				withButton={true}
+				buttonTitle="EXPORT"
+			/>
+			<TableComponent2 table={table} />
+		</WrapperTable>
 	);
 }

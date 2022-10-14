@@ -16,6 +16,7 @@ import {
 import { TextYear } from "../TopFilter/styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface Person {
 	[x: string]: any;
@@ -111,7 +112,9 @@ export default function YTD() {
 					Current Year <span>2021</span>
 				</TextYear>
 			</Grid>
-			<TopFilter noDept={true} noDate={true} doubleSelect={true} styles={{ marginBottom: 40 }} />
+			<FilterLayouts>
+				<TopFilter noDept={true} noDate={true} doubleSelect={true} styles={{ marginBottom: 40 }} />
+			</FilterLayouts>
 			<TableComponent2 table={table} noPagination={true} withFooter={true} />
 		</>
 	);

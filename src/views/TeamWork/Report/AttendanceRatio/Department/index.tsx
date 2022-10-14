@@ -1,5 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useState } from "react";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 import TopFilter from "../TopFilter";
 import ChartComponent from "./Chart";
 import Detail from "./Detail";
@@ -30,7 +31,9 @@ export default function Department() {
 					))}
 				</TabsContainer>
 			</Grid>
-			<TopFilter noDept={true} />
+			<FilterLayouts>
+				<TopFilter noDept={true} />
+			</FilterLayouts>
 			{activeTab === 0 ? <ChartComponent /> : <Detail />}
 		</>
 	);
