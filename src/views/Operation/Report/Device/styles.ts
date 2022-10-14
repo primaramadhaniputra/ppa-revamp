@@ -33,7 +33,7 @@ export const Wrapper = styled(Card)`
 	border-radius: 3px;
 	background-color: transparent;
 	${mediaQueries.sm} {
-		padding: 0;
+		padding: 10px;
 	}
 	${mediaQueries.md} {
 		background-color: white;
@@ -42,7 +42,6 @@ export const Wrapper = styled(Card)`
 `;
 
 export const WrapperTable = styled(Grid)`
-	margin-top: 20px;
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;

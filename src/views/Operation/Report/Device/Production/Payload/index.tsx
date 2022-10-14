@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
-import TopFilter from "./TopFilter";
+import TopFilter from "../TopFilter";
 import { getOperationReport } from "services/operationReport";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
@@ -41,20 +42,20 @@ export default function Payload() {
 	};
 
 	useEffect(() => {
-		// const abortController = new AbortController();
 		getData();
-		// return () => abortController.abort();
 	}, []);
 
 	return (
 		<>
-			<TopFilter
-				toDate={toDate}
-				fromDate={fromDate}
-				handleFromDate={handleFromDate}
-				handleToDate={handleToDate}
-				getData={getData}
-			/>
+			<FilterLayouts>
+				<TopFilter
+					toDate={toDate}
+					fromDate={fromDate}
+					handleFromDate={handleFromDate}
+					handleToDate={handleToDate}
+					getData={getData}
+				/>
+			</FilterLayouts>
 			<DisplayData data={dataChart} isLoading={isLoading} />
 		</>
 	);

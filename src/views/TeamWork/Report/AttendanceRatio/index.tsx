@@ -20,6 +20,7 @@ import YTD from "./YTD";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -104,7 +105,9 @@ export default function AttendanceRatio() {
 							Current Date : <span>01-08-2022</span>{" "}
 						</DateText>
 					</Grid>
-					<TopFilter />
+					<FilterLayouts>
+						<TopFilter />
+					</FilterLayouts>
 					<SecondFilter
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

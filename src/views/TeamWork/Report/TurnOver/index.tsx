@@ -1,4 +1,5 @@
 import React from "react";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import LeftItem from "./LeftItem";
 import RightItem from "./RightItem";
@@ -12,7 +13,9 @@ export default function TurnOver() {
 				<TitleText> Turn Over</TitleText>
 			</WrapperTitle>
 			<WrapperTable>
-				<TopFilter />
+				<FilterLayouts>
+					<TopFilter />
+				</FilterLayouts>
 				<ItemContainer>
 					<LeftItem />
 					<RightItem />

@@ -1,9 +1,8 @@
-import { Grid } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
-import DateCalendar from "molecules/Date";
+import RevisiDate from "molecules/RevisiDate";
 import React from "react";
 import { colors, fontWeights } from "utils/styles";
-import { Wrapper } from "./styles";
+import { ButtonWrapper, Wrapper } from "./styles";
 
 interface IProps {
 	toDate: Date;
@@ -22,21 +21,23 @@ export default function TopFilter({
 }: IProps) {
 	return (
 		<Wrapper>
-			<DateCalendar title="From" dateState={fromDate} setDateState={handleFromDate} />
-			<DateCalendar title="To" dateState={toDate} setDateState={handleToDate} />
-			<Grid container style={{ flex: 1, minWidth: "150px" }}>
+			<RevisiDate dateState={fromDate as Date} setDateState={handleFromDate} placeholder="From" />
+			<RevisiDate dateState={toDate as Date} setDateState={handleToDate} placeholder="To" />
+			<ButtonWrapper>
 				<StyledButton
 					style={{
-						fontSize: "25px",
+						fontSize: "18px",
 						padding: "0",
 						fontWeight: fontWeights.bold,
 						backgroundColor: colors.orange,
+						borderRadius: "3px",
+						minWidth: "150px",
 					}}
 					onClick={getData}
 				>
 					SHOW
 				</StyledButton>
-			</Grid>
+			</ButtonWrapper>
 		</Wrapper>
 	);
 }

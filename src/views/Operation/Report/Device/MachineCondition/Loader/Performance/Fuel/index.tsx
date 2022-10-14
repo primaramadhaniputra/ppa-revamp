@@ -22,6 +22,7 @@ import {
 } from "../../../../styles";
 import Chart from "./Chart";
 import DataDetail from "./DataDetail";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -131,6 +132,9 @@ export default function Fuel() {
 					onChange={handleShowChart}
 				/>
 			</Grid>
+			<FilterLayouts>
+				<TopFilter />
+			</FilterLayouts>
 			{showChart ? (
 				<Wrapper>
 					<Chart />
@@ -138,7 +142,7 @@ export default function Fuel() {
 			) : (
 				<Wrapper>
 					<WrapperTable>
-						<TopFilter />
+						{/* <TopFilter /> */}
 						<TableFilterSearch
 							table={table}
 							handleChangeTotalShowData={handleChangeTotalShowData}

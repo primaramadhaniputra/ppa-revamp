@@ -14,6 +14,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -83,7 +84,9 @@ export default function AttendanceDetail() {
 				<TitleText>Attendance Detail</TitleText>
 			</WrapperTitle>
 			<WrapperTable>
-				<TopFilter />
+				<FilterLayouts>
+					<TopFilter />
+				</FilterLayouts>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

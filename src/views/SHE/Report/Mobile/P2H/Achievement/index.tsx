@@ -16,6 +16,7 @@ import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
 import TabV4 from "molecules/TabV4";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 const tabText = ["Operator", "Pengawas"];
 
@@ -82,7 +83,9 @@ export default function Achievement() {
 			<TabV4 tabText={tabText} activeTab={activeTab} setActiveTab={setActiveTab} />
 			<TableWrapper>
 				<WrapperTable>
-					<TopFilter />
+					<FilterLayouts>
+						<TopFilter />
+					</FilterLayouts>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}
