@@ -2,7 +2,7 @@ import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
 import { Wrapper } from "./styles";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -19,7 +19,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -119,9 +119,11 @@ export default function Table() {
 	return (
 		<Wrapper>
 			<FlyingForm closeForm={closeEdit} isEdit={isEdit} formPosition={formPosition} />
-			<FilterLayouts>
-				<TopFilter />
-			</FilterLayouts>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Ranking" />
+				</Grid>
+			</TopFilter>
 			<SecondFilter
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}

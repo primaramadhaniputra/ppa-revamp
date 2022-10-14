@@ -10,13 +10,14 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
 import TabV4 from "molecules/TabV4";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { Grid } from "@hudoro/neron";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 const tabText = ["Operator", "Pengawas"];
 
@@ -83,9 +84,11 @@ export default function Achievement() {
 			<TabV4 tabText={tabText} activeTab={activeTab} setActiveTab={setActiveTab} />
 			<TableWrapper>
 				<WrapperTable>
-					<FilterLayouts>
-						<TopFilter />
-					</FilterLayouts>
+					<TopFilter>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Operator" />
+						</Grid>
+					</TopFilter>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

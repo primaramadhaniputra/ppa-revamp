@@ -9,13 +9,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
 import { WrapperTable } from "../../../styles";
 import { TableWrapper } from "../styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -75,9 +74,7 @@ export default function Summary() {
 	return (
 		<TableWrapper>
 			<WrapperTable>
-				<FilterLayouts>
-					<TopFilter />
-				</FilterLayouts>
+				<TopFilter />
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

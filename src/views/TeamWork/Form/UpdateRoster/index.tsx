@@ -12,12 +12,13 @@ import {
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
-import TopFilter from "./TopFilter";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import RevisiDropdown from "atoms/RevisiDropdown";
+import TopFilter from "src/components/organism/TopFilter";
 
 interface Person {
 	[x: string]: any;
@@ -103,7 +104,11 @@ export default function UpdateRoster() {
 			</WrapperTitle>
 			<Wrapper>
 				<WrapperTable>
-					<TopFilter />
+					<TopFilter>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Loader" />
+						</Grid>
+					</TopFilter>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

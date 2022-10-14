@@ -9,12 +9,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -100,9 +100,14 @@ export default function RankingOperator() {
 				<TitleText>Ranking Operator</TitleText>
 			</WrapperTitle>
 			<WrapperTable>
-				<FilterLayouts>
-					<TopFilter />
-				</FilterLayouts>
+				<TopFilter>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Ranking" />
+					</Grid>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Operator" />
+					</Grid>
+				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

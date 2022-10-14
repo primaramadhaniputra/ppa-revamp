@@ -12,7 +12,7 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { IcEdit } from "atoms/Icon";
-import TopFilter from "./TopFilter";
+// import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import Department from "./Department";
@@ -20,7 +20,8 @@ import YTD from "./YTD";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import RevisiDropdown from "atoms/RevisiDropdown";
+import TopFilter from "src/components/organism/TopFilter";
 
 interface IProps {
 	[x: string]: any;
@@ -105,9 +106,14 @@ export default function AttendanceRatio() {
 							Current Date : <span>01-08-2022</span>{" "}
 						</DateText>
 					</Grid>
-					<FilterLayouts>
-						<TopFilter />
-					</FilterLayouts>
+					<TopFilter>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Loader" />
+						</Grid>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Loader" />
+						</Grid>
+					</TopFilter>
 					<SecondFilter
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

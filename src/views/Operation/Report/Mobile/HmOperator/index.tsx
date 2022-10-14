@@ -9,12 +9,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../../styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../styles";
+import TopFilter from "src/components/organism/TopFilter";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -84,20 +84,20 @@ export default function HmOperator() {
 				<TitleText>REPORT HM OPERATOR</TitleText>
 			</WrapperTitle>
 			<Wrapper>
-				<WrapperTable>
-					<FilterLayouts>
-						<TopFilter />
-					</FilterLayouts>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
+				<TopFilter>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Loader" />
+					</Grid>
+				</TopFilter>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
 			</Wrapper>
 		</>
 	);

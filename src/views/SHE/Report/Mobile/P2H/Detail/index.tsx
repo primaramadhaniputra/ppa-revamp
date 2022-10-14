@@ -1,6 +1,6 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import TopFilter from "./TopFilter";
+import TopFilter from "src/components/organism/TopFilter";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -15,7 +15,6 @@ import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -97,9 +96,7 @@ export default function Detail() {
 
 	return (
 		<WrapperTable style={{ marginTop: "20px" }}>
-			<FilterLayouts>
-				<TopFilter />
-			</FilterLayouts>
+			<TopFilter />
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}

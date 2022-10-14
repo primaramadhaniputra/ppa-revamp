@@ -60,7 +60,6 @@ export const Wrapper = styled(Card)`
 `;
 
 export const WrapperTable = styled(Grid)`
-	margin-top: 20px;
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;
