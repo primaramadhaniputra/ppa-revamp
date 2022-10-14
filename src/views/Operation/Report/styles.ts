@@ -50,7 +50,8 @@ export const Wrapper = styled(Card)`
 	border-radius: 3px;
 	background-color: transparent;
 	${mediaQueries.sm} {
-		padding: 0;
+		background-color: white;
+		padding: 15px;
 	}
 	${mediaQueries.md} {
 		background-color: white;

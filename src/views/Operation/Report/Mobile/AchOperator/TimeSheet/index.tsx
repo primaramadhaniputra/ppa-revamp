@@ -16,6 +16,7 @@ import { ThItemContainer } from "views/SHE/Report/styles";
 import { WrapperTable } from "../../../styles";
 import { PointContainer, PointDesc, PointValue } from "./styles";
 import { Grid } from "@hudoro/neron";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -77,7 +78,9 @@ export default function TimeSheet() {
 
 	return (
 		<WrapperTable>
-			<TopFilter />
+			<FilterLayouts>
+				<TopFilter />
+			</FilterLayouts>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}

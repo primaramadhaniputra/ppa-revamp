@@ -41,7 +41,7 @@ export const Wrapper = styled(Card)`
 export const ShowChartWrapper = styled(Grid).attrs({
 	container: true,
 })`
-	margin: 10px 0;
+	margin: 20px 0;
 	flex-direction: column;
 	gap: 10px;
 	${mediaQueries.md} {

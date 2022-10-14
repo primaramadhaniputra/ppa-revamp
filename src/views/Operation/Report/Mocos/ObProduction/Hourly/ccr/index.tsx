@@ -18,6 +18,7 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
 import DisplayChart from "./DisplayChart";
 import { exportFile } from "utils/functions";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -120,13 +121,15 @@ export default function CCR() {
 					gap={20}
 					justifyContent="space-between"
 					alignItems="center"
-					style={{ margin: "30px 0" }}
+					style={{ margin: "20px 0" }}
 				>
 					<Text variant="h4" style={{ fontWeight: fontWeights.semi }}>
 						Hourly Production
 					</Text>
 				</Grid>
-				<TopFilter />
+				<FilterLayouts>
+					<TopFilter />
+				</FilterLayouts>
 				<ShowChartWrapper>
 					<Grid>
 						<StyledButton onClick={handleShowChart}>Show Chart</StyledButton>
