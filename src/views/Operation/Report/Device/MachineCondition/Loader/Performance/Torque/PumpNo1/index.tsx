@@ -17,12 +17,12 @@ import {
 	ThItemContainer,
 	TitleText,
 	Wrapper,
-	WrapperTable,
 	WrapperTitle,
 } from "../../../../../styles";
 import Chart from "./Chart";
 import DataDetail from "./DataDetail";
 import { TextTable } from "./styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -152,18 +152,18 @@ export default function PumpNo1() {
 				</Wrapper>
 			) : (
 				<Wrapper>
-					<WrapperTable>
+					<FilterLayouts>
 						<TopFilter />
-						<TableFilterSearch
-							table={table}
-							handleChangeTotalShowData={handleChangeTotalShowData}
-							globalFilter={globalFilter}
-							setGlobalFilter={setGlobalFilter}
-							withButton={true}
-							buttonTitle="EXPORT"
-						/>
-						<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
-					</WrapperTable>
+					</FilterLayouts>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={true}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
 				</Wrapper>
 			)}
 		</>

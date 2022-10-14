@@ -32,12 +32,10 @@ export const Wrapper = styled(Card)`
 	box-shadow: none;
 	border-radius: 3px;
 	background-color: transparent;
-	${mediaQueries.sm} {
-		padding: 10px;
-	}
 	${mediaQueries.md} {
 		background-color: white;
 		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+		padding: 15px;
 	}
 `;
 
