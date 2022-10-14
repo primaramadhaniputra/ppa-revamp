@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 const AllCode = dynamic(() => import("./AllCode"));
 const EngineOverrun = dynamic(() => import("./EngineOverrun"));
+const NeutralCoast = dynamic(() => import("./NeutralCoast"));
 
 const tabsData = [
 	"ALL CODE",
@@ -19,6 +20,8 @@ const renderContent = (type: string) => {
 		return <AllCode />;
 	} else if (type === "ENGINE OVERRUN") {
 		return <EngineOverrun />;
+	} else if (type === "NEUTRAL COAST") {
+		return <NeutralCoast />;
 	}
 };
 
