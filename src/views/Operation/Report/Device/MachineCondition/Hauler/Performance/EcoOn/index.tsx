@@ -13,15 +13,10 @@ import TopFilter from "../TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import {
-	ThItemContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-} from "../../../../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import Chart from "./Chart";
 import DataDetail from "./DataDetail";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -137,18 +132,18 @@ export default function EcoOn() {
 				</Wrapper>
 			) : (
 				<Wrapper>
-					<WrapperTable>
+					<FilterLayouts>
 						<TopFilter />
-						<TableFilterSearch
-							table={table}
-							handleChangeTotalShowData={handleChangeTotalShowData}
-							globalFilter={globalFilter}
-							setGlobalFilter={setGlobalFilter}
-							withButton={true}
-							buttonTitle="EXPORT"
-						/>
-						<TableComponent2 table={table} />
-					</WrapperTable>
+					</FilterLayouts>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={true}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
 				</Wrapper>
 			)}
 		</>

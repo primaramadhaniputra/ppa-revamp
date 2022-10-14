@@ -12,7 +12,7 @@ import {
 import TopFilter from "./TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { WrapperTable } from "../../styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -83,18 +83,18 @@ export default function VHMS() {
 	return (
 		<>
 			<Wrapper>
-				<WrapperTable>
+				<FilterLayouts>
 					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} noPagination={true} />
-				</WrapperTable>
+				</FilterLayouts>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} noPagination={true} />
 			</Wrapper>
 		</>
 	);

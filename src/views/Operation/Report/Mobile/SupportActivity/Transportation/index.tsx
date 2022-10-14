@@ -15,6 +15,7 @@ import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
 import { WrapperTable } from "../../../styles";
 import { TableWrapper } from "../Lube/styles";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
 
 interface IProps {
 	[x: string]: any;
@@ -78,7 +79,9 @@ export default function Transportation() {
 	return (
 		<TableWrapper>
 			<WrapperTable>
-				<TopFilter />
+				<FilterLayouts>
+					<TopFilter />
+				</FilterLayouts>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

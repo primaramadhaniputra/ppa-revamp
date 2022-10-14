@@ -13,12 +13,7 @@ import TopFilter from "../TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import {
-	ThItemContainer,
-	TitleText,
-	Wrapper,
-	WrapperTitle,
-} from "../../../../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import Chart from "./Chart";
 import DataDetail from "./DataDetail";
 import FilterLayouts from "src/components/layouts/FilterLayouts";

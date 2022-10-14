@@ -128,7 +128,7 @@ export const ContainerSubmenu = styled.div<IProps>`
 		transition: 0.3s;
 		display: inherit;
 		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-		z-index: ${(props) => (props.activeSubMenu ? "99" : "-99")};
+		z-index: ${(props) => (props.activeSubMenu ? "999" : "-999")};
 	}
 `;
 
