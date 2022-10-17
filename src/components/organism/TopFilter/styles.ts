@@ -9,6 +9,7 @@ export const Wrapper = styled(Grid).attrs({
 	row-gap: 10px;
 	width: 100%;
 	align-items: center;
+	margin-top: 20px;
 	${mediaQueries["2xl"]} {
 		width: 80%;
 	}
