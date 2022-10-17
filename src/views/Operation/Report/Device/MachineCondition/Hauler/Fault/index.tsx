@@ -5,6 +5,9 @@ import React, { useState } from "react";
 const AllCode = dynamic(() => import("./AllCode"));
 const EngineOverrun = dynamic(() => import("./EngineOverrun"));
 const NeutralCoast = dynamic(() => import("./NeutralCoast"));
+const HighBlowby = dynamic(() => import("./HighBlowby"));
+const DropInOil = dynamic(() => import("./DropInOil"));
+const PcvError = dynamic(() => import("./PcvError"));
 
 const tabsData = [
 	"ALL CODE",
@@ -22,6 +25,12 @@ const renderContent = (type: string) => {
 		return <EngineOverrun />;
 	} else if (type === "NEUTRAL COAST") {
 		return <NeutralCoast />;
+	} else if (type === "HIGH BLOWBY") {
+		return <HighBlowby />;
+	} else if (type === "DROP IN OIL") {
+		return <DropInOil />;
+	} else if (type === "PCV ERROR") {
+		return <PcvError />;
 	}
 };
 
