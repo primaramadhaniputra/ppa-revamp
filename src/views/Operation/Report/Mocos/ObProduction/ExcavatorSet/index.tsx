@@ -29,7 +29,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-export default function DistanceDev() {
+export default function ExcavatorSet() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -73,7 +73,7 @@ export default function DistanceDev() {
 	return (
 		<>
 			<WrapperTitle>
-				<TitleText>DISTANCE DEV</TitleText>
+				<TitleText>EXCAVATOR SET</TitleText>
 			</WrapperTitle>
 			<Wrapper>
 				<TopFilter />

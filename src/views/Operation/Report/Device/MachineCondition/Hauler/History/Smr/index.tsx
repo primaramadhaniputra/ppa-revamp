@@ -13,7 +13,7 @@ import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 
 interface IProps {
 	[x: string]: any;
@@ -22,14 +22,14 @@ interface IProps {
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Loader"]: "E1224PPA",
-		["Prod"]: "31.036,4",
-		["DistXProd"]: "119.997.520",
-		["Distance"]: "3.866,3",
+		["CN"]: "C577001",
+		["Start HM"]: "-",
+		["End HM"]: "-",
+		["HM"]: "-",
 	};
 });
 
-export default function DistanceDev() {
+export default function Smr() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -72,8 +72,8 @@ export default function DistanceDev() {
 
 	return (
 		<>
-			<WrapperTitle>
-				<TitleText>DISTANCE DEV</TitleText>
+			<WrapperTitle style={{ marginTop: "20px" }}>
+				<TitleText>SMR</TitleText>
 			</WrapperTitle>
 			<Wrapper>
 				<TopFilter />
