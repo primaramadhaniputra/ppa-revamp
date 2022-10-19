@@ -1,9 +1,11 @@
 import TabV3 from "molecules/TabV3";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
-import Fuel from "./Fuel";
-import Lube from "./Lube";
-import Transportation from "./Transportation";
+
+const Transportation = dynamic(() => import("./Transportation"));
+const Lube = dynamic(() => import("./Lube"));
+const Fuel = dynamic(() => import("./Fuel"));
 
 const tabTitle = ["Fuel", "Lube", "Transportation"];
 

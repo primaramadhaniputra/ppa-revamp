@@ -1,7 +1,11 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import P2H from "./P2H";
 import { Wrapper } from "./styles";
+
+const P2H = dynamic(() => import("./P2H"), {
+	ssr: false,
+});
 
 const tabTitle = ["P2H", "Saya Peduli", "SAP", "Fit To Work"];
 

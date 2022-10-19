@@ -1,11 +1,21 @@
 import TabV3 from "molecules/TabV3";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
-import Achievement from "./Achievement";
-import Detail from "./Detail";
-import Monitoring from "./Monitoring";
 import { Wrapper } from "./styles";
-import Temuan from "./Temuan";
+
+const Temuan = dynamic(() => import("./Temuan"), {
+	ssr: false,
+});
+const Achievement = dynamic(() => import("./Achievement"), {
+	ssr: false,
+});
+const Monitoring = dynamic(() => import("./Monitoring"), {
+	ssr: false,
+});
+const Detail = dynamic(() => import("./Detail"), {
+	ssr: false,
+});
 
 const p2hTab = ["Detail", "Monitoring", "Temuan", "Achievement"];
 

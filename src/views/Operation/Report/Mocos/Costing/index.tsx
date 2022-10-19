@@ -4,15 +4,9 @@ import React, { useState } from "react";
 
 const tabs = ["Equipment", "Fuel", "Wet"];
 
-const Equipment = dynamic(() => import("./Equipment"), {
-	ssr: false,
-});
-const Fuel = dynamic(() => import("./Fuel"), {
-	ssr: false,
-});
-const Wet = dynamic(() => import("./Wet"), {
-	ssr: false,
-});
+const Equipment = dynamic(() => import("./Equipment"));
+const Fuel = dynamic(() => import("./Fuel"));
+const Wet = dynamic(() => import("./Wet"));
 
 const renderContent = (type: string) => {
 	if (type === "Equipment") {

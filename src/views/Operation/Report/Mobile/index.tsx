@@ -1,9 +1,11 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import AchOperator from "./AchOperator";
-import HmByActivity from "./HmByActivity";
-import HmOperator from "./HmOperator";
-import SupportActivity from "./SupportActivity";
+
+const SupportActivity = dynamic(() => import("./SupportActivity"));
+const HmOperator = dynamic(() => import("./HmOperator"));
+const HmByActivity = dynamic(() => import("./HmByActivity"));
+const AchOperator = dynamic(() => import("./AchOperator"));
 
 const tabTitle = ["HM Operator", "HM By Activity", "Support Activity", "ACH Operator"];
 

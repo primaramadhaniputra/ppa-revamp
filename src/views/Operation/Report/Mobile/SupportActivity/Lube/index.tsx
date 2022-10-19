@@ -1,8 +1,10 @@
 import TabV4 from "molecules/TabV4";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Detail from "./Detail";
-import History from "./History";
 import { Wrapper } from "./styles";
+
+const History = dynamic(() => import("./History"));
+const Detail = dynamic(() => import("./Detail"));
 
 const tabText = ["Detail", "History"];
 

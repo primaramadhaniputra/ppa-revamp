@@ -1,8 +1,14 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
-import Monitoring from "./Monitoring";
-import Riwayat from "./Riwayat";
+
+const Riwayat = dynamic(() => import("./Riwayat"), {
+	ssr: false,
+});
+const Monitoring = dynamic(() => import("./Monitoring"), {
+	ssr: false,
+});
 
 const tabTitle = ["Monitoring", "Riwayat"];
 

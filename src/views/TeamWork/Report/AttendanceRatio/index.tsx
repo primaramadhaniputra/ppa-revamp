@@ -15,17 +15,23 @@ import { IcEdit } from "atoms/Icon";
 // import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import Department from "./Department";
-import YTD from "./YTD";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
+import dynamic from "next/dynamic";
 
 interface IProps {
 	[x: string]: any;
 }
+
+const YTD = dynamic(() => import("./YTD"), {
+	ssr: false,
+});
+const Department = dynamic(() => import("./Department"), {
+	ssr: false,
+});
 
 const tabTitle = ["Individual", "Department", "Manpower", "YTD"];
 

@@ -1,8 +1,10 @@
 import TabV3 from "molecules/TabV3";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
-import P2H from "./P2H";
-import TimeSheet from "./TimeSheet";
+
+const TimeSheet = dynamic(() => import("./TimeSheet"));
+const P2H = dynamic(() => import("./P2H"));
 
 const tabTitle = ["Time Sheet", "P2H"];
 

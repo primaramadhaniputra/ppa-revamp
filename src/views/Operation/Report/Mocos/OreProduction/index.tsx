@@ -4,12 +4,8 @@ import React, { useState } from "react";
 
 const tabs = ["Hourly", "Daily"];
 
-const Hourly = dynamic(() => import("./Hourly"), {
-	ssr: false,
-});
-const Daily = dynamic(() => import("./Daily"), {
-	ssr: false,
-});
+const Hourly = dynamic(() => import("./Hourly"));
+const Daily = dynamic(() => import("./Daily"));
 
 const renderContent = (tab: string) => {
 	if (tab === "Hourly") {

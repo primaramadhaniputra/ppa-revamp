@@ -1,7 +1,11 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper, WrapperTitle, TitleText } from "views/Administration/styles";
-import Assessment from "./Assessment";
+
+const Assessment = dynamic(() => import("./Assessment"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"PERSONEL",

@@ -1,9 +1,17 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
-import Question from "./Question";
-import Schedule from "./Schedule";
-import Table from "./Table";
+
+const Table = dynamic(() => import("./Table"), {
+	ssr: false,
+});
+const Question = dynamic(() => import("./Question"), {
+	ssr: false,
+});
+const Schedule = dynamic(() => import("./Schedule"), {
+	ssr: false,
+});
 
 const tabTitle = ["Subject", "Question", "Schedule"];
 

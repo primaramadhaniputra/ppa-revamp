@@ -1,7 +1,13 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import MachineCondition from "./MachineCondition";
-import Production from "./Production";
+
+const Production = dynamic(() => import("./Production"), {
+	ssr: false,
+});
+const MachineCondition = dynamic(() => import("./MachineCondition"), {
+	ssr: false,
+});
 
 const tabTitle = ["Production", "Machine Condition"];
 

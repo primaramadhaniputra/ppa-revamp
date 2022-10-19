@@ -1,9 +1,15 @@
 import { Grid } from "@hudoro/neron";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Chart from "./Chart";
-import Detail from "./Detail";
 import { Container, StyledText, TabsContainer, TitleText } from "./styles";
 import TopFilter from "./TopFilter";
+
+const Chart = dynamic(() => import("./Chart"), {
+	ssr: false,
+});
+const Detail = dynamic(() => import("./Detail"), {
+	ssr: false,
+});
 
 const tabs = ["Chart", "Detail"];
 

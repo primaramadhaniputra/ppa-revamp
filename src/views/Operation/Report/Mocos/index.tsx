@@ -1,12 +1,14 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Bapa from "./Bapa";
-import CoalProdution from "./CoalProduction";
-import Costing from "./Costing";
-import ObProdution from "./ObProduction";
-import OreProdution from "./OreProduction";
-import Productivity from "./Productivity";
-import Unit from "./Unit";
+
+const Unit = dynamic(() => import("./Unit"));
+const Productivity = dynamic(() => import("./Productivity"));
+const OreProduction = dynamic(() => import("./OreProduction"));
+const ObProduction = dynamic(() => import("./ObProduction"));
+const Costing = dynamic(() => import("./Costing"));
+const CoalProduction = dynamic(() => import("./CoalProduction"));
+const Bapa = dynamic(() => import("./Bapa"));
 
 const tabTitle = [
 	"OB Production",
@@ -21,11 +23,11 @@ const tabTitle = [
 
 const renderContent = (activeTab: number) => {
 	if (activeTab === 0) {
-		return <ObProdution />;
+		return <ObProduction />;
 	} else if (activeTab === 1) {
-		return <CoalProdution />;
+		return <CoalProduction />;
 	} else if (activeTab === 2) {
-		return <OreProdution />;
+		return <OreProduction />;
 	} else if (activeTab === 3) {
 		return <Costing />;
 	} else if (activeTab === 4) {

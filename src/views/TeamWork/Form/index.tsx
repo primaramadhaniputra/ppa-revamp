@@ -1,20 +1,44 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import TabV1 from "molecules/TabV1";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import AttendanceRevision from "./AttendanceRevision";
-import BenefitClaimVoucher from "./BenefitClaimVoucher";
-import EmployeeMutation from "./EmployeeMutation";
-import LeavingApplication from "./LeavingApplication";
-import SetRoster from "./SetRoster";
 import { SelectContainer } from "./styles";
-import SuratPelanggaran from "./SuratPelanggaran";
-import SuratPerintahLembur from "./SuratPerintahLembur";
-import UpdateRoster from "./UpdateRoster";
-import UploadDar from "./UploadDar";
-import UploadRoster from "./UploadRoster";
-import UploadSpl from "./UploadSpl";
+
+const UploadSpl = dynamic(() => import("./UploadSpl"), {
+	ssr: false,
+});
+const UploadRoster = dynamic(() => import("./UploadRoster"), {
+	ssr: false,
+});
+const UploadDar = dynamic(() => import("./UploadDar"), {
+	ssr: false,
+});
+const UpdateRoster = dynamic(() => import("./UpdateRoster"), {
+	ssr: false,
+});
+const SuratPerintahLembur = dynamic(() => import("./SuratPerintahLembur"), {
+	ssr: false,
+});
+const SuratPelanggaran = dynamic(() => import("./SuratPelanggaran"), {
+	ssr: false,
+});
+const LeavingApplication = dynamic(() => import("./LeavingApplication"), {
+	ssr: false,
+});
+const SetRoster = dynamic(() => import("./SetRoster"), {
+	ssr: false,
+});
+const EmployeeMutation = dynamic(() => import("./EmployeeMutation"), {
+	ssr: false,
+});
+const BenefitClaimVoucher = dynamic(() => import("./BenefitClaimVoucher"), {
+	ssr: false,
+});
+const AttendanceRevision = dynamic(() => import("./AttendanceRevision"), {
+	ssr: false,
+});
 
 const selectItems = [
 	{ id: 1, values: "Upload Roster", label: "Upload Roster" },

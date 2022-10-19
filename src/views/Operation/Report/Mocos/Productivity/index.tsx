@@ -3,6 +3,12 @@ import React, { useState } from "react";
 
 const tabs = ["By HM", "By Material", "By Operator", "By Operator(Beta)"];
 
+// const renderContent = (type:string) => {
+// 	if(type === 'By HM') {
+
+// 	}
+// }
+
 export default function Productivity() {
 	const [activeTab, setActiveTab] = useState(0);
 
