@@ -7,10 +7,20 @@ const tabs = ["Equipment", "Fuel", "Wet"];
 const Equipment = dynamic(() => import("./Equipment"), {
 	ssr: false,
 });
+const Fuel = dynamic(() => import("./Fuel"), {
+	ssr: false,
+});
+const Wet = dynamic(() => import("./Wet"), {
+	ssr: false,
+});
 
 const renderContent = (type: string) => {
 	if (type === "Equipment") {
 		return <Equipment />;
+	} else if (type === "Fuel") {
+		return <Fuel />;
+	} else if (type === "Wet") {
+		return <Wet />;
 	}
 };
 

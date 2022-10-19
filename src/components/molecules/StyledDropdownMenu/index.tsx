@@ -5,7 +5,6 @@ import {
 	DropdownText,
 	DropdownTextAll,
 	StyledInput,
-	StyledLabel,
 	Wrapper,
 } from "./styles";
 
@@ -46,8 +45,7 @@ export default function StyledDropdownMenu({
 
 	return (
 		<Wrapper>
-			<StyledLabel>{title}</StyledLabel>
-			<StyledInput onClick={handleShowDropdownMenu} value={activeDropdown} placeholder="..." />
+			<StyledInput onClick={handleShowDropdownMenu} value={activeDropdown} placeholder={title} />
 			<ArrowDown />
 			{isDropdownMenu && (
 				<DropdownMenuContainer>

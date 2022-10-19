@@ -16,6 +16,7 @@ import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import Chart from "./Chart";
 import { TextTable } from "./styles";
+import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 
 interface IProps {
 	[x: string]: any;
@@ -54,6 +55,7 @@ export default function ABC() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [showChart, setShowChart] = React.useState(false);
+	const [activeShiftDropDown, setActiveShiftDropDown] = React.useState([]);
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
@@ -117,7 +119,16 @@ export default function ABC() {
 				</Wrapper>
 			) : (
 				<>
-					<TopFilter />
+					<TopFilter>
+						<Grid>
+							<StyledDropdownMenu
+								title="Activity"
+								data={[1, 2]}
+								activeDropdown={activeShiftDropDown}
+								setActiveDropdown={setActiveShiftDropDown}
+							/>
+						</Grid>
+					</TopFilter>
 					<Wrapper>
 						<TableFilterSearch
 							table={table}
