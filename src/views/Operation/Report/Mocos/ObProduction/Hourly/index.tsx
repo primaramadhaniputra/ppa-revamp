@@ -1,8 +1,10 @@
 import TabV4 from "molecules/TabV4";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import CCR from "./ccr";
 import { Wrapper } from "./styles";
-import VHMS from "./Vhms";
+
+const VHMS = dynamic(() => import("./Vhms"));
+const CCR = dynamic(() => import("./ccr"));
 
 const tabs = ["CCR", "VHMS", "FMS DT", "FMS HD"];
 

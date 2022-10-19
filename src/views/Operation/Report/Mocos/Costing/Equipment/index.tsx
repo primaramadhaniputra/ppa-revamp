@@ -5,12 +5,8 @@ import React, { useState } from "react";
 
 const tabs = ["Detail", "ABC"];
 
-const Detail = dynamic(() => import("./Detail"), {
-	ssr: false,
-});
-const ABC = dynamic(() => import("./ABC"), {
-	ssr: false,
-});
+const Detail = dynamic(() => import("./Detail"));
+const ABC = dynamic(() => import("./ABC"));
 
 const renderContent = (type: string) => {
 	if (type === "Detail") {

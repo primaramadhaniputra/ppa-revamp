@@ -1,19 +1,39 @@
 import React from "react";
-import AbsMachine from "./AbsMachine";
-import AccessControl from "./AccessControl";
-import Database from "./Database";
-import DeviceMonitoring from "./DeviceMonitoring";
-import Events from "./Events";
-import Survey from "./Survey";
-import VHMSDownload from "./VHMSDownload";
-import AppVersionControl from "./AppVersionControl";
-import UserFeedback from "./UserFeedback";
 import TitlePage from "atoms/TitlePage";
+import dynamic from "next/dynamic";
 
 interface IProps {
 	pageTitle: string;
 	type: string;
 }
+
+const AbsMachine = dynamic(() => import("./AbsMachine"), {
+	ssr: false,
+});
+const AccessControl = dynamic(() => import("./AccessControl"), {
+	ssr: false,
+});
+const Database = dynamic(() => import("./Database"), {
+	ssr: false,
+});
+const DeviceMonitoring = dynamic(() => import("./DeviceMonitoring"), {
+	ssr: false,
+});
+const Events = dynamic(() => import("./Events"), {
+	ssr: false,
+});
+const Survey = dynamic(() => import("./Survey"), {
+	ssr: false,
+});
+const VHMSDownload = dynamic(() => import("./VHMSDownload"), {
+	ssr: false,
+});
+const AppVersionControl = dynamic(() => import("./AppVersionControl"), {
+	ssr: false,
+});
+const UserFeedback = dynamic(() => import("./UserFeedback"), {
+	ssr: false,
+});
 
 const renderContent = (type: string) => {
 	if (type === "vhms_download") {

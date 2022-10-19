@@ -1,9 +1,11 @@
 import TabV4 from "molecules/TabV4";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Flowmeter from "./Flowmeter";
-import Refueling from "./Refueling";
 import { Wrapper } from "./styles";
-import Summary from "./Summary";
+
+const Summary = dynamic(() => import("./Summary"));
+const Refueling = dynamic(() => import("./Refueling"));
+const Flowmeter = dynamic(() => import("./Flowmeter"));
 
 const tabText = ["SUMMARY", "REFUELING", "FLOWMETER"];
 

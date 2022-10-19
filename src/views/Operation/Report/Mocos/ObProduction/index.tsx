@@ -4,18 +4,10 @@ import React, { useState } from "react";
 
 const tabs = ["Hourly", "Daily", "Daily V.2", "Excavator Set", "Distance Dev"];
 
-const Hourly = dynamic(() => import("./Hourly"), {
-	ssr: false,
-});
-const ExcavatorSet = dynamic(() => import("./ExcavatorSet"), {
-	ssr: false,
-});
-const DistanceDev = dynamic(() => import("./DistanceDev"), {
-	ssr: false,
-});
-const Dayli = dynamic(() => import("./Dayli"), {
-	ssr: false,
-});
+const Hourly = dynamic(() => import("./Hourly"));
+const ExcavatorSet = dynamic(() => import("./ExcavatorSet"));
+const DistanceDev = dynamic(() => import("./DistanceDev"));
+const Dayli = dynamic(() => import("./Dayli"));
 
 const renderContent = (activeTab: number) => {
 	if (activeTab === 0) {

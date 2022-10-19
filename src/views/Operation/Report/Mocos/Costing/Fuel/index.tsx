@@ -5,15 +5,9 @@ import React, { useState } from "react";
 
 const tabs = ["Detail", "ABFC", "FUEL COST"];
 
-const Detail = dynamic(() => import("./Detail"), {
-	ssr: false,
-});
-const Abfc = dynamic(() => import("./Abfc"), {
-	ssr: false,
-});
-const FuelCost = dynamic(() => import("./FuelCost"), {
-	ssr: false,
-});
+const Detail = dynamic(() => import("./Detail"));
+const Abfc = dynamic(() => import("./Abfc"));
+const FuelCost = dynamic(() => import("./FuelCost"));
 
 const renderContent = (type: string) => {
 	if (type === "Detail") {

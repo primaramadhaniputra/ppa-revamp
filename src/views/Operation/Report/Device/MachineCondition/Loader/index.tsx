@@ -1,8 +1,14 @@
 import { Grid } from "@hudoro/neron";
 import TabV4 from "molecules/TabV4";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Fault from "./Fault";
-import Performance from "./Performance";
+
+const Performance = dynamic(() => import("./Performance"), {
+	ssr: false,
+});
+const Fault = dynamic(() => import("./Fault"), {
+	ssr: false,
+});
 
 const tabs = ["Performance", "Fault"];
 

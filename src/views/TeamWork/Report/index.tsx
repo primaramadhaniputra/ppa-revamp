@@ -1,18 +1,38 @@
 import { Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import TabV1 from "molecules/TabV1";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import AttendanceDetail from "./AttendanceDetail";
-import AttendanceRatio from "./AttendanceRatio";
-import Induksi from "./Induksi";
-import Izin from "./Izin";
-import OperatorHours from "./OperatorHours";
-import RankingOperator from "./RankingOperator";
-import SelfAttendance from "./SelftAttendance";
 import { ArrowDown, SelectContainer } from "./styles";
-import SuratPelanggaran from "./SuratPelanggaran";
-import TurnOver from "./TurnOver";
+
+const TurnOver = dynamic(() => import("./TurnOver"), {
+	ssr: false,
+});
+const AttendanceDetail = dynamic(() => import("./AttendanceDetail"), {
+	ssr: false,
+});
+const AttendanceRatio = dynamic(() => import("./AttendanceRatio"), {
+	ssr: false,
+});
+const Induksi = dynamic(() => import("./Induksi"), {
+	ssr: false,
+});
+const SuratPelanggaran = dynamic(() => import("./SuratPelanggaran"), {
+	ssr: false,
+});
+const SelfAttendance = dynamic(() => import("./SelftAttendance"), {
+	ssr: false,
+});
+const RankingOperator = dynamic(() => import("./RankingOperator"), {
+	ssr: false,
+});
+const OperatorHours = dynamic(() => import("./OperatorHours"), {
+	ssr: false,
+});
+const Izin = dynamic(() => import("./Izin"), {
+	ssr: false,
+});
 
 const selectItems = [
 	{ id: 1, values: "Attendance Ratio", label: "Attendance Ratio" },
