@@ -13,7 +13,7 @@ import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 // import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../styles";
+import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
@@ -23,11 +23,29 @@ interface IProps {
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["-"]: "-",
+		["CN"]: "-",
+		["Activity"]: "-",
+		["HM Start"]: "-",
+		["HM Stop"]: "-",
+		["HM Total"]: "-",
+		["HM Opr"]: "-",
+		["HM Pit"]: "-",
+		["HM Diff"]: "-",
+		["WH"]: "-",
+		["Delivered"]: "-",
+		["Plan PA"]: "-",
+		["Ach PA"]: "-",
+		["Min Hour"]: "-",
+		["Opr Rate"]: "-",
+		["Opr Cost"]: "-",
+		["Stb Rate"]: "-",
+		["Stb Cost"]: "-",
+		["Total Cost"]: "-",
+		["Cost"]: "-",
 	};
 });
 
-export default function Daily() {
+export default function Detail() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -71,11 +89,14 @@ export default function Daily() {
 	return (
 		<>
 			<WrapperTitle>
-				<TitleText>Ore Production / Daily</TitleText>
+				<TitleText>Equipment / Detail</TitleText>
 			</WrapperTitle>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Shift" />
+					<RevisiDropdown placeholder="Activity" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Model" />
 				</Grid>
 			</TopFilter>
 			<Wrapper>

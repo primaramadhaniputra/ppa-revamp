@@ -138,13 +138,13 @@ export default function AllCode() {
 					<Chart />
 				</Wrapper>
 			) : (
-				<Wrapper>
+				<>
+					<TopFilter>
+						<Grid style={{ minWidth: "200px" }}>
+							<RevisiDropdown placeholder="Operator" />
+						</Grid>
+					</TopFilter>
 					<WrapperTable>
-						<TopFilter>
-							<Grid style={{ minWidth: "200px" }}>
-								<RevisiDropdown placeholder="Operator" />
-							</Grid>
-						</TopFilter>
 						{/* <TableFilterSearch
 							table={table}
 							handleChangeTotalShowData={handleChangeTotalShowData}
@@ -155,7 +155,7 @@ export default function AllCode() {
 						/>
 						<TableComponent2 table={table} /> */}
 					</WrapperTable>
-				</Wrapper>
+				</>
 			)}
 		</>
 	);

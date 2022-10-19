@@ -83,12 +83,12 @@ export default function HmOperator() {
 			<WrapperTitle>
 				<TitleText>REPORT HM OPERATOR</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+			</TopFilter>
 			<Wrapper>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Loader" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

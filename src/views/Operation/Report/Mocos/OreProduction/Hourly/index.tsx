@@ -73,12 +73,12 @@ export default function Hourly() {
 			<WrapperTitle>
 				<TitleText>Ore Production / Hourly</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Shift" />
+				</Grid>
+			</TopFilter>
 			<Wrapper>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Shift" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

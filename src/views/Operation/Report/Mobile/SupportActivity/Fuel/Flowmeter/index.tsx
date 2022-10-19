@@ -77,12 +77,12 @@ export default function Flowmeter() {
 
 	return (
 		<TableWrapper>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="FT" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="FT" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

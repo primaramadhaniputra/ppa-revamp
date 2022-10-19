@@ -77,15 +77,15 @@ export default function Detail() {
 
 	return (
 		<TableWrapper>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Model" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Material" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Model" />
-					</Grid>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Material" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

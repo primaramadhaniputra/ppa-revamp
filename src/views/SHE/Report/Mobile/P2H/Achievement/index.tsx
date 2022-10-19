@@ -83,12 +83,12 @@ export default function Achievement() {
 		<Wrapper>
 			<TabV4 tabText={tabText} activeTab={activeTab} setActiveTab={setActiveTab} />
 			<TableWrapper>
+				<TopFilter>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Operator" />
+					</Grid>
+				</TopFilter>
 				<WrapperTable>
-					<TopFilter>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Operator" />
-						</Grid>
-					</TopFilter>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

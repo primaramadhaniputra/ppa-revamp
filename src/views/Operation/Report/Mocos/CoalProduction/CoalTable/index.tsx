@@ -77,15 +77,15 @@ export default function CoalTable() {
 			<WrapperTitle>
 				<TitleText>Coal Production</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Contractor" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Pit" />
+				</Grid>
+			</TopFilter>
 			<Wrapper>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Contractor" />
-					</Grid>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Pit" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

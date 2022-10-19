@@ -5,6 +5,7 @@ import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "../TopFilter";
+import { Wrapper } from "../../styles";
 
 export default function EmptyStop() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
@@ -57,7 +58,9 @@ export default function EmptyStop() {
 					getData={getData}
 				/>
 			</FilterLayouts>
-			<DisplayData data={dataChart} isLoading={isLoading} />
+			<Wrapper>
+				<DisplayData data={dataChart} isLoading={isLoading} />
+			</Wrapper>
 		</>
 	);
 }

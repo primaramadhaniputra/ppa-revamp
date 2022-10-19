@@ -94,18 +94,18 @@ export default function Riwayat() {
 
 	return (
 		<Wrapper>
+			<TopFilter noDate={true}>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Perusahaan" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Dept" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Karyawan" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>
-				<TopFilter noDate={true}>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Perusahaan" />
-					</Grid>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Dept" />
-					</Grid>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Karyawan" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

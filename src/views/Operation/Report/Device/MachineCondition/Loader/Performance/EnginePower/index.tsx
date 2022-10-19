@@ -131,18 +131,20 @@ export default function EnginePower() {
 					<Chart />
 				</Wrapper>
 			) : (
-				<Wrapper>
+				<>
 					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</Wrapper>
+					<Wrapper>
+						<TableFilterSearch
+							table={table}
+							handleChangeTotalShowData={handleChangeTotalShowData}
+							globalFilter={globalFilter}
+							setGlobalFilter={setGlobalFilter}
+							withButton={true}
+							buttonTitle="EXPORT"
+						/>
+						<TableComponent2 table={table} />
+					</Wrapper>
+				</>
 			)}
 		</>
 	);

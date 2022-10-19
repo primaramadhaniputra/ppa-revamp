@@ -75,8 +75,8 @@ export default function ExcavatorSet() {
 			<WrapperTitle>
 				<TitleText>EXCAVATOR SET</TitleText>
 			</WrapperTitle>
+			<TopFilter />
 			<Wrapper>
-				<TopFilter />
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

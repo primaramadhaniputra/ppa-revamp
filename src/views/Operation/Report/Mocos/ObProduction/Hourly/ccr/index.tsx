@@ -115,6 +115,11 @@ export default function CCR() {
 	return (
 		<>
 			{isChart && <DisplayChart setisChart={setisChart} />}
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Shift" />
+				</Grid>
+			</TopFilter>
 			<Wrapper>
 				<Grid
 					container
@@ -127,11 +132,6 @@ export default function CCR() {
 						Hourly Production
 					</Text>
 				</Grid>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Shift" />
-					</Grid>
-				</TopFilter>
 				<ShowChartWrapper>
 					<Grid>
 						<StyledButton onClick={handleShowChart}>Show Chart</StyledButton>

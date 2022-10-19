@@ -147,18 +147,20 @@ export default function Exhaust() {
 					<Chart />
 				</Wrapper>
 			) : (
-				<Wrapper>
+				<>
 					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
-				</Wrapper>
+					<Wrapper>
+						<TableFilterSearch
+							table={table}
+							handleChangeTotalShowData={handleChangeTotalShowData}
+							globalFilter={globalFilter}
+							setGlobalFilter={setGlobalFilter}
+							withButton={true}
+							buttonTitle="EXPORT"
+						/>
+						<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
+					</Wrapper>
+				</>
 			)}
 		</>
 	);

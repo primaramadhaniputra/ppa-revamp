@@ -75,8 +75,8 @@ export default function DistanceDev() {
 			<WrapperTitle>
 				<TitleText>DISTANCE DEV</TitleText>
 			</WrapperTitle>
+			<TopFilter />
 			<Wrapper>
-				<TopFilter />
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

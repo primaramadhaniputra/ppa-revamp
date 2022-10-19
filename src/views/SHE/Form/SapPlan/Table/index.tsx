@@ -18,7 +18,7 @@ import FlyingForm from "./FlyingForm";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../styles";
+import { ThItemContainer, WrapperTable } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
@@ -124,13 +124,15 @@ export default function Table() {
 					<RevisiDropdown placeholder="Ranking" />
 				</Grid>
 			</TopFilter>
-			<SecondFilter
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-			/>
-			<TableComponent2 table={table} />
+			<WrapperTable>
+				<SecondFilter
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
 		</Wrapper>
 	);
 }

@@ -77,12 +77,12 @@ export default function History() {
 
 	return (
 		<TableWrapper>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Shift" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Shift" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

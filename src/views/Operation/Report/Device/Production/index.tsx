@@ -1,7 +1,6 @@
 import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { Wrapper } from "../styles";
 import All from "./All";
 import AllByLoader from "./AllByLoader";
 
@@ -47,7 +46,7 @@ export default function Production() {
 	return (
 		<>
 			<TabV3 tabsData={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<Wrapper>{renderContent(activeTab)}</Wrapper>
+			{renderContent(activeTab)}
 		</>
 	);
 }

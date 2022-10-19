@@ -11,8 +11,8 @@ export default function TurnOver() {
 			<WrapperTitle>
 				<TitleText> Turn Over</TitleText>
 			</WrapperTitle>
+			<TopFilter />
 			<WrapperTable>
-				<TopFilter />
 				<ItemContainer>
 					<LeftItem />
 					<RightItem />

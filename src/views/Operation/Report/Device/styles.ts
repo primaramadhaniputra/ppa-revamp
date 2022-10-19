@@ -27,7 +27,7 @@ export const TitleText = styled(Text).attrs({
 `;
 
 export const Wrapper = styled(Card)`
-	margin-top: 30px;
+	margin-top: 20px;
 	padding: 0;
 	box-shadow: none;
 	border-radius: 3px;

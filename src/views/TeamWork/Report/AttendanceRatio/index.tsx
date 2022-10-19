@@ -106,14 +106,6 @@ export default function AttendanceRatio() {
 							Current Date : <span>01-08-2022</span>{" "}
 						</DateText>
 					</Grid>
-					<TopFilter>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Loader" />
-						</Grid>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Loader" />
-						</Grid>
-					</TopFilter>
 					<SecondFilter
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}
@@ -138,6 +130,14 @@ export default function AttendanceRatio() {
 			<WrapperTitle>
 				<TitleText>Attendance Ratio</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>{renderTab()}</WrapperTable>
 		</Wrapper>
 	);
