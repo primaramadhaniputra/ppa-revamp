@@ -6,39 +6,17 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { SelectContainer } from "./styles";
 
-const UploadSpl = dynamic(() => import("./UploadSpl"), {
-	ssr: false,
-});
-const UploadRoster = dynamic(() => import("./UploadRoster"), {
-	ssr: false,
-});
-const UploadDar = dynamic(() => import("./UploadDar"), {
-	ssr: false,
-});
-const UpdateRoster = dynamic(() => import("./UpdateRoster"), {
-	ssr: false,
-});
-const SuratPerintahLembur = dynamic(() => import("./SuratPerintahLembur"), {
-	ssr: false,
-});
-const SuratPelanggaran = dynamic(() => import("./SuratPelanggaran"), {
-	ssr: false,
-});
-const LeavingApplication = dynamic(() => import("./LeavingApplication"), {
-	ssr: false,
-});
-const SetRoster = dynamic(() => import("./SetRoster"), {
-	ssr: false,
-});
-const EmployeeMutation = dynamic(() => import("./EmployeeMutation"), {
-	ssr: false,
-});
-const BenefitClaimVoucher = dynamic(() => import("./BenefitClaimVoucher"), {
-	ssr: false,
-});
-const AttendanceRevision = dynamic(() => import("./AttendanceRevision"), {
-	ssr: false,
-});
+const UploadSpl = dynamic(() => import("./UploadSpl"));
+const UploadRoster = dynamic(() => import("./UploadRoster"));
+const UploadDar = dynamic(() => import("./UploadDar"));
+const UpdateRoster = dynamic(() => import("./UpdateRoster"));
+const SuratPerintahLembur = dynamic(() => import("./SuratPerintahLembur"));
+const SuratPelanggaran = dynamic(() => import("./SuratPelanggaran"));
+const LeavingApplication = dynamic(() => import("./LeavingApplication"));
+const SetRoster = dynamic(() => import("./SetRoster"));
+const EmployeeMutation = dynamic(() => import("./EmployeeMutation"));
+const BenefitClaimVoucher = dynamic(() => import("./BenefitClaimVoucher"));
+const AttendanceRevision = dynamic(() => import("./AttendanceRevision"));
 
 const selectItems = [
 	{ id: 1, values: "Upload Roster", label: "Upload Roster" },

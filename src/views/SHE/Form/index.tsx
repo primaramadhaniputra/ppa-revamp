@@ -6,24 +6,12 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { SelectContainer } from "./styles";
 
-const Insiden = dynamic(() => import("./Insiden"), {
-	ssr: false,
-});
-const Komorbid = dynamic(() => import("./Komorbid"), {
-	ssr: false,
-});
-const Quiz = dynamic(() => import("./Quiz"), {
-	ssr: false,
-});
-const Licence = dynamic(() => import("./Licence"), {
-	ssr: false,
-});
-const SapPlan = dynamic(() => import("./SapPlan"), {
-	ssr: false,
-});
-const SetWakeUpCall = dynamic(() => import("./SetWakeUpCall"), {
-	ssr: false,
-});
+const Insiden = dynamic(() => import("./Insiden"));
+const Komorbid = dynamic(() => import("./Komorbid"));
+const Quiz = dynamic(() => import("./Quiz"));
+const Licence = dynamic(() => import("./Licence"));
+const SapPlan = dynamic(() => import("./SapPlan"));
+const SetWakeUpCall = dynamic(() => import("./SetWakeUpCall"));
 
 const selectItems = [
 	{ id: 0, values: "Quiz", label: "Quiz" },

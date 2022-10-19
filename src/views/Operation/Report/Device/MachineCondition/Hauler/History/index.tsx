@@ -4,13 +4,9 @@ import React, { useState } from "react";
 
 const tabsData = ["KEY ON", "SMR"];
 
-const KeyOn = dynamic(() => import("./KeyOn"), {
-	ssr: false,
-});
+const KeyOn = dynamic(() => import("./KeyOn"));
 
-const Smr = dynamic(() => import("./Smr"), {
-	ssr: false,
-});
+const Smr = dynamic(() => import("./Smr"));
 
 const renderContent = (type: string) => {
 	if (type === "KEY ON") {

@@ -6,15 +6,9 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { SelectContainer } from "./styles";
 
-const Device = dynamic(() => import("./Device"), {
-	ssr: false,
-});
-const SafetyPerformance = dynamic(() => import("./SafetyPerformance"), {
-	ssr: false,
-});
-const Mobile = dynamic(() => import("./Mobile"), {
-	ssr: false,
-});
+const Device = dynamic(() => import("./Device"));
+const SafetyPerformance = dynamic(() => import("./SafetyPerformance"));
+const Mobile = dynamic(() => import("./Mobile"));
 
 const selectItems = [
 	{ id: 1, values: "Safety Performance", label: "Safety Performance" },
