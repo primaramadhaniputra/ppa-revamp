@@ -3,12 +3,8 @@ import TabV4 from "molecules/TabV4";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const Performance = dynamic(() => import("./Performance"), {
-	ssr: false,
-});
-const Fault = dynamic(() => import("./Fault"), {
-	ssr: false,
-});
+const Performance = dynamic(() => import("./Performance"));
+const Fault = dynamic(() => import("./Fault"));
 
 const tabs = ["Performance", "Fault"];
 

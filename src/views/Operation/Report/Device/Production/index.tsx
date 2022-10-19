@@ -18,12 +18,8 @@ const DynamicEmptyStopView = dynamic(() => import("./EmptyStop"));
 const DynamicLoadingTimeView = dynamic(() => import("./LoadingTime"));
 const DynamicSpeedView = dynamic(() => import("./Speed"));
 const DynamicLoadedSpeedView = dynamic(() => import("./LoadedSpeed"));
-const All = dynamic(() => import("./All"), {
-	ssr: false,
-});
-const AllByLoader = dynamic(() => import("./AllByLoader"), {
-	ssr: false,
-});
+const All = dynamic(() => import("./All"));
+const AllByLoader = dynamic(() => import("./AllByLoader"));
 
 const renderContent = (type: number) => {
 	if (type === 0) {

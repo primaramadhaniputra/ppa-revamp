@@ -26,12 +26,8 @@ interface IProps {
 	[x: string]: any;
 }
 
-const YTD = dynamic(() => import("./YTD"), {
-	ssr: false,
-});
-const Department = dynamic(() => import("./Department"), {
-	ssr: false,
-});
+const YTD = dynamic(() => import("./YTD"));
+const Department = dynamic(() => import("./Department"));
 
 const tabTitle = ["Individual", "Department", "Manpower", "YTD"];
 

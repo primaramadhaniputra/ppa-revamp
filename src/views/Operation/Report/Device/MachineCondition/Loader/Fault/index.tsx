@@ -2,9 +2,7 @@ import TabV5 from "molecules/TabV5";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const AllCode = dynamic(() => import("./AllCode"), {
-	ssr: false,
-});
+const AllCode = dynamic(() => import("./AllCode"));
 
 const tabsData = ["ALL CODE"];
 

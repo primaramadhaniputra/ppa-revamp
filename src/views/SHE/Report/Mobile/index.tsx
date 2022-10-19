@@ -3,9 +3,7 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper } from "./styles";
 
-const P2H = dynamic(() => import("./P2H"), {
-	ssr: false,
-});
+const P2H = dynamic(() => import("./P2H"));
 
 const tabTitle = ["P2H", "Saya Peduli", "SAP", "Fit To Work"];
 

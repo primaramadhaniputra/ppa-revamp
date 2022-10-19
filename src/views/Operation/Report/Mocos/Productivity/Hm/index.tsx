@@ -25,14 +25,15 @@ interface IProps {
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Activity"]: "Plant Support",
-		["Opr Cost"]: "1.208,0",
-		["Stb Cost"]: "564,0",
-		["Total Cost"]: "564,0",
-		["Act $/BCM"]: "0,000",
-		["Plan $/BCM"]: "0,000",
-		["Deviasi"]: "0,000",
-		["%"]: "100%",
+		["CN"]: "E1224PPA",
+		["Model"]: "PC1250-8R",
+		["Activity"]: "Overburden Loading",
+		["HM"]: "0,00",
+		["PA"]: "100,00 %",
+		["UA"]: "0,00 %",
+		["Distance"]: "4.237,43",
+		["Production"]: "4.237,43",
+		["Productivity"]: "4.237,43",
 	};
 });
 
@@ -123,6 +124,14 @@ export default function HM() {
 						<Grid>
 							<StyledDropdownMenu
 								title="Activity"
+								data={[1, 2]}
+								activeDropdown={activeShiftDropDown}
+								setActiveDropdown={setActiveShiftDropDown}
+							/>
+						</Grid>
+						<Grid>
+							<StyledDropdownMenu
+								title="Model"
 								data={[1, 2]}
 								activeDropdown={activeShiftDropDown}
 								setActiveDropdown={setActiveShiftDropDown}

@@ -7,33 +7,15 @@ interface IProps {
 	type: string;
 }
 
-const AbsMachine = dynamic(() => import("./AbsMachine"), {
-	ssr: false,
-});
-const AccessControl = dynamic(() => import("./AccessControl"), {
-	ssr: false,
-});
-const Database = dynamic(() => import("./Database"), {
-	ssr: false,
-});
-const DeviceMonitoring = dynamic(() => import("./DeviceMonitoring"), {
-	ssr: false,
-});
-const Events = dynamic(() => import("./Events"), {
-	ssr: false,
-});
-const Survey = dynamic(() => import("./Survey"), {
-	ssr: false,
-});
-const VHMSDownload = dynamic(() => import("./VHMSDownload"), {
-	ssr: false,
-});
-const AppVersionControl = dynamic(() => import("./AppVersionControl"), {
-	ssr: false,
-});
-const UserFeedback = dynamic(() => import("./UserFeedback"), {
-	ssr: false,
-});
+const AbsMachine = dynamic(() => import("./AbsMachine"));
+const AccessControl = dynamic(() => import("./AccessControl"));
+const Database = dynamic(() => import("./Database"));
+const DeviceMonitoring = dynamic(() => import("./DeviceMonitoring"));
+const Events = dynamic(() => import("./Events"));
+const Survey = dynamic(() => import("./Survey"));
+const VHMSDownload = dynamic(() => import("./VHMSDownload"));
+const AppVersionControl = dynamic(() => import("./AppVersionControl"));
+const UserFeedback = dynamic(() => import("./UserFeedback"));
 
 const renderContent = (type: string) => {
 	if (type === "vhms_download") {

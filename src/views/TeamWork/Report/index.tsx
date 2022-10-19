@@ -6,33 +6,15 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { ArrowDown, SelectContainer } from "./styles";
 
-const TurnOver = dynamic(() => import("./TurnOver"), {
-	ssr: false,
-});
-const AttendanceDetail = dynamic(() => import("./AttendanceDetail"), {
-	ssr: false,
-});
-const AttendanceRatio = dynamic(() => import("./AttendanceRatio"), {
-	ssr: false,
-});
-const Induksi = dynamic(() => import("./Induksi"), {
-	ssr: false,
-});
-const SuratPelanggaran = dynamic(() => import("./SuratPelanggaran"), {
-	ssr: false,
-});
-const SelfAttendance = dynamic(() => import("./SelftAttendance"), {
-	ssr: false,
-});
-const RankingOperator = dynamic(() => import("./RankingOperator"), {
-	ssr: false,
-});
-const OperatorHours = dynamic(() => import("./OperatorHours"), {
-	ssr: false,
-});
-const Izin = dynamic(() => import("./Izin"), {
-	ssr: false,
-});
+const TurnOver = dynamic(() => import("./TurnOver"));
+const AttendanceDetail = dynamic(() => import("./AttendanceDetail"));
+const AttendanceRatio = dynamic(() => import("./AttendanceRatio"));
+const Induksi = dynamic(() => import("./Induksi"));
+const SuratPelanggaran = dynamic(() => import("./SuratPelanggaran"));
+const SelfAttendance = dynamic(() => import("./SelftAttendance"));
+const RankingOperator = dynamic(() => import("./RankingOperator"));
+const OperatorHours = dynamic(() => import("./OperatorHours"));
+const Izin = dynamic(() => import("./Izin"));
 
 const selectItems = [
 	{ id: 1, values: "Attendance Ratio", label: "Attendance Ratio" },

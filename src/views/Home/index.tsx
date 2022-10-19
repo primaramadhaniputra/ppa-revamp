@@ -1,6 +1,9 @@
 import TitlePage from "atoms/TitlePage";
+import dynamic from "next/dynamic";
 import React from "react";
-import Banner from "views/Home/Banner";
+
+const Banner = dynamic(() => import("./Banner"));
+
 export default function Home() {
 	return (
 		<>

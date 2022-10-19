@@ -3,15 +3,9 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 
-const Table = dynamic(() => import("./Table"), {
-	ssr: false,
-});
-const Question = dynamic(() => import("./Question"), {
-	ssr: false,
-});
-const Schedule = dynamic(() => import("./Schedule"), {
-	ssr: false,
-});
+const Table = dynamic(() => import("./Table"));
+const Question = dynamic(() => import("./Question"));
+const Schedule = dynamic(() => import("./Schedule"));
 
 const tabTitle = ["Subject", "Question", "Schedule"];
 

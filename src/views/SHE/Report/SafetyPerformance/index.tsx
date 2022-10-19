@@ -4,12 +4,8 @@ import React, { useState } from "react";
 import { Container, StyledText, TabsContainer, TitleText } from "./styles";
 import TopFilter from "./TopFilter";
 
-const Chart = dynamic(() => import("./Chart"), {
-	ssr: false,
-});
-const Detail = dynamic(() => import("./Detail"), {
-	ssr: false,
-});
+const Chart = dynamic(() => import("./Chart"));
+const Detail = dynamic(() => import("./Detail"));
 
 const tabs = ["Chart", "Detail"];
 
