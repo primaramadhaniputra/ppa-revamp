@@ -99,15 +99,15 @@ export default function RankingOperator() {
 			<WrapperTitle>
 				<TitleText>Ranking Operator</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Ranking" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Operator" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Ranking" />
-					</Grid>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Operator" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

@@ -73,8 +73,8 @@ export default function Summary() {
 
 	return (
 		<TableWrapper>
+			<TopFilter />
 			<WrapperTable>
-				<TopFilter />
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

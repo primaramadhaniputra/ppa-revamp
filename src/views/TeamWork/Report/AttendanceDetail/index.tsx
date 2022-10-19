@@ -83,12 +83,12 @@ export default function AttendanceDetail() {
 			<WrapperTitle>
 				<TitleText>Attendance Detail</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+			</TopFilter>
 			<WrapperTable>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Loader" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

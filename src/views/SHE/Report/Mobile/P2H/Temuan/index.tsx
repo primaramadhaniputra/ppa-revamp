@@ -93,21 +93,23 @@ export default function Temuan() {
 	};
 
 	return (
-		<WrapperTable style={{ marginTop: "20px" }}>
+		<>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Operator" />
 				</Grid>
 			</TopFilter>
-			<TableFilterSearch
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-				withButton={true}
-				buttonTitle="EXPORT"
-			/>
-			<TableComponent2 table={table} />
-		</WrapperTable>
+			<WrapperTable style={{ marginTop: "20px" }}>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</>
 	);
 }

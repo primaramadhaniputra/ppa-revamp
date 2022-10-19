@@ -132,7 +132,7 @@ export default function PumpNo1() {
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>Pump No.1 Pressure MAX</TitleText>
 			</WrapperTitle>
-			<Grid container alignItems="center">
+			<Grid container alignItems="center" style={{ maxWidth: "200px", margin: "20px auto" }}>
 				<Select
 					placeholder="Table"
 					items={items}
@@ -145,18 +145,20 @@ export default function PumpNo1() {
 					<Chart />
 				</Wrapper>
 			) : (
-				<Wrapper>
+				<>
 					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
-				</Wrapper>
+					<Wrapper>
+						<TableFilterSearch
+							table={table}
+							handleChangeTotalShowData={handleChangeTotalShowData}
+							globalFilter={globalFilter}
+							setGlobalFilter={setGlobalFilter}
+							withButton={true}
+							buttonTitle="EXPORT"
+						/>
+						<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
+					</Wrapper>
+				</>
 			)}
 		</>
 	);

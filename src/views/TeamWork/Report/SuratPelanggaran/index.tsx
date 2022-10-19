@@ -119,15 +119,15 @@ export default function SuratPelanggaran() {
 				<WrapperTitle>
 					<TitleText>Surat Pelanggaran</TitleText>
 				</WrapperTitle>
+				<TopFilter noDate={true}>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Loader" />
+					</Grid>
+					<Grid style={{ minWidth: "200px" }}>
+						<RevisiDropdown placeholder="Loader" />
+					</Grid>
+				</TopFilter>
 				<WrapperTable>
-					<TopFilter noDate={true}>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Loader" />
-						</Grid>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Loader" />
-						</Grid>
-					</TopFilter>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

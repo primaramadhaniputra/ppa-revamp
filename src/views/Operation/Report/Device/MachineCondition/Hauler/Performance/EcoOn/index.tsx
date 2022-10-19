@@ -117,7 +117,7 @@ export default function EcoOn() {
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>Economy Mode</TitleText>
 			</WrapperTitle>
-			<Grid container alignItems="center">
+			<Grid container alignItems="center" style={{ maxWidth: "200px", margin: "20px auto" }}>
 				<Select
 					placeholder="Table"
 					items={items}
@@ -130,18 +130,20 @@ export default function EcoOn() {
 					<Chart />
 				</Wrapper>
 			) : (
-				<Wrapper>
+				<>
 					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</Wrapper>
+					<Wrapper>
+						<TableFilterSearch
+							table={table}
+							handleChangeTotalShowData={handleChangeTotalShowData}
+							globalFilter={globalFilter}
+							setGlobalFilter={setGlobalFilter}
+							withButton={true}
+							buttonTitle="EXPORT"
+						/>
+						<TableComponent2 table={table} />
+					</Wrapper>
+				</>
 			)}
 		</>
 	);

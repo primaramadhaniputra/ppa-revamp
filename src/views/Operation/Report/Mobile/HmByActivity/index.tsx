@@ -13,7 +13,7 @@ import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../../styles";
+import { ThItemContainer, TitleText, WrapperTable, WrapperTitle } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
@@ -81,24 +81,22 @@ export default function HmByActivity() {
 			<WrapperTitle>
 				<TitleText>REPORT HM BY ACTIVIVTY</TitleText>
 			</WrapperTitle>
-			<Wrapper>
-				<WrapperTable>
-					<TopFilter>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Activity" />
-						</Grid>
-					</TopFilter>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Activity" />
+				</Grid>
+			</TopFilter>
+			<WrapperTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
 		</>
 	);
 }

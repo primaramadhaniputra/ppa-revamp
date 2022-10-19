@@ -75,21 +75,23 @@ export default function P2H() {
 	};
 
 	return (
-		<WrapperTable>
+		<>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Dept" />
 				</Grid>
 			</TopFilter>
-			<TableFilterSearch
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-				withButton={true}
-				buttonTitle="EXPORT"
-			/>
-			<TableComponent2 table={table} />
-		</WrapperTable>
+			<WrapperTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</>
 	);
 }

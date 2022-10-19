@@ -84,7 +84,7 @@ export default function All() {
 	};
 
 	return (
-		<WrapperTable>
+		<>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Shift" />
@@ -93,15 +93,17 @@ export default function All() {
 					<RevisiDropdown placeholder="Unit" />
 				</Grid>
 			</TopFilter>
-			<TableFilterSearch
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-				withButton={true}
-				buttonTitle="EXPORT"
-			/>
-			<TableComponent2 table={table} />
-		</WrapperTable>
+			<WrapperTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</>
 	);
 }

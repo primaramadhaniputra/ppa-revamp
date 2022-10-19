@@ -95,17 +95,19 @@ export default function Detail() {
 	};
 
 	return (
-		<WrapperTable style={{ marginTop: "20px" }}>
+		<>
 			<TopFilter />
-			<TableFilterSearch
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-				withButton={false}
-				buttonTitle="EXPORT"
-			/>
-			<TableComponent2 table={table} />
-		</WrapperTable>
+			<WrapperTable style={{ marginTop: "20px" }}>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</>
 	);
 }

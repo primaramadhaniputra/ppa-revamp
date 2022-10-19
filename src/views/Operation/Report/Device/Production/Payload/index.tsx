@@ -5,6 +5,7 @@ import DisplayData from "./DisplayData";
 import TopFilter from "../TopFilter";
 import { getOperationReport } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { Wrapper } from "../../styles";
 
 export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
@@ -56,7 +57,9 @@ export default function Payload() {
 					getData={getData}
 				/>
 			</FilterLayouts>
-			<DisplayData data={dataChart} isLoading={isLoading} />
+			<Wrapper>
+				<DisplayData data={dataChart} isLoading={isLoading} />
+			</Wrapper>
 		</>
 	);
 }

@@ -121,8 +121,8 @@ export default function Izin() {
 				<WrapperTitle style={{ margin: "20px 0 30px" }}>
 					<TitleText>Report Izin</TitleText>
 				</WrapperTitle>
+				<TopFilter />
 				<WrapperTable>
-					<TopFilter />
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

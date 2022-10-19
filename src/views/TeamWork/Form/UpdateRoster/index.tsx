@@ -102,13 +102,13 @@ export default function UpdateRoster() {
 			<WrapperTitle>
 				<TitleText>Update Roster</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+			</TopFilter>
 			<Wrapper>
 				<WrapperTable>
-					<TopFilter>
-						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown placeholder="Loader" />
-						</Grid>
-					</TopFilter>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

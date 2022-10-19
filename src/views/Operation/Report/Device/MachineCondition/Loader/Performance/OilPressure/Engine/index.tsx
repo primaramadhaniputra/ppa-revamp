@@ -133,7 +133,7 @@ export default function Engine() {
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>Engine Oil Press</TitleText>
 			</WrapperTitle>
-			<Grid container alignItems="center">
+			<Grid container alignItems="center" style={{ maxWidth: "200px", margin: "20px auto" }}>
 				<Select
 					placeholder="Table"
 					items={items}
@@ -146,18 +146,20 @@ export default function Engine() {
 					<Chart />
 				</Wrapper>
 			) : (
-				<Wrapper>
+				<>
 					<TopFilter />
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
-				</Wrapper>
+					<Wrapper>
+						<TableFilterSearch
+							table={table}
+							handleChangeTotalShowData={handleChangeTotalShowData}
+							globalFilter={globalFilter}
+							setGlobalFilter={setGlobalFilter}
+							withButton={true}
+							buttonTitle="EXPORT"
+						/>
+						<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
+					</Wrapper>
+				</>
 			)}
 		</>
 	);
