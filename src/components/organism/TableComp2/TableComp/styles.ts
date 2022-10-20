@@ -29,6 +29,13 @@ export const TABLE = styled.table`
 	border-collapse: collapse;
 	font-size: ${fontSizing.md.fontSize};
 
+	& tbody tr {
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1) !important;
+			transition: 0.1s;
+		}
+	}
+
 	& tbody tr td {
 		text-align: center;
 		vertical-align: middle;
@@ -45,12 +52,15 @@ export const TABLE = styled.table`
 	& tr th:nth-child(1) {
 		border-left: 0;
 	}
+	& tr th {
+		min-width: 140px;
+		padding: 5px 10px;
+	}
 
 	& tbody {
 		font-family: ${fontFamilies.poppins};
 		font-style: normal;
 		font-size: 12px;
-		color: rgba(0, 0, 0, 0.8);
 		${mediaQueries.md} {
 			font-size: 14px;
 		}
@@ -61,11 +71,12 @@ export const TABLE = styled.table`
 		font-weight: ${fontWeights.semi};
 		font-size: 12px;
 		line-height: 21px;
-		color: #4a5259;
 		text-align: center;
 		border-left: 1px solid rgba(0, 0, 0, 0.1);
 		border-top: 1px solid rgba(0, 0, 0, 0.1);
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		/* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+		/* background-color: #035aa6; */
+		/* color: white; */
 		&.hidden {
 			display: none;
 		}

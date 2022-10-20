@@ -9,6 +9,8 @@ const ObProduction = dynamic(() => import("./ObProduction"));
 const Costing = dynamic(() => import("./Costing"));
 const CoalProduction = dynamic(() => import("./CoalProduction"));
 const Bapa = dynamic(() => import("./Bapa"));
+const Hpr = dynamic(() => import("./Hpr"));
+const MohhDaily = dynamic(() => import("./MohhDaily"));
 
 const tabTitle = [
 	"OB Production",
@@ -19,6 +21,7 @@ const tabTitle = [
 	"BAPA",
 	"Unit",
 	"HPR",
+	"MOHH DAILY",
 ];
 
 const renderContent = (activeTab: number) => {
@@ -36,6 +39,10 @@ const renderContent = (activeTab: number) => {
 		return <Bapa />;
 	} else if (activeTab === 6) {
 		return <Unit />;
+	} else if (activeTab === 7) {
+		return <Hpr />;
+	} else if (activeTab === 8) {
+		return <MohhDaily />;
 	}
 };
 
