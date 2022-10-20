@@ -11,10 +11,8 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import CompleteArrow from "atoms/CompleteArrow";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import { ThItemContainer } from "../../../../../../styles";
-import { Wrapper } from "./styles";
+import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -73,45 +71,17 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 		setIsShowDetail(false);
 	};
 
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
-
 	return (
-		<>
-			<Wrapper
-				style={{
-					zIndex: isShowDetail ? 999 : -999,
-					opacity: isShowDetail ? 1 : 0,
-					top: `${formPosition}px`,
-				}}
-				onClick={handleCloseShowDetail}
-			>
-				<Grid
-					container
-					flexDirection="column"
-					gap={20}
-					style={{
-						maxWidth: "800px",
-						margin: "30px auto",
-						backgroundColor: "white",
-						padding: "20px 10px",
-					}}
-				>
-					<Grid container alignItems="center" justifyContent="space-between">
-						<Text variant="h3">E52015 Cycle Data</Text>
-						<Icon
-							iconName="IcClose"
-							style={{ cursor: "pointer" }}
-							onClick={handleCloseShowDetail}
-						/>
-					</Grid>
-					<TableComponent2
-						table={table}
-						styles={{ backgroundColor: "white", borderRadius: "5px" }}
-					/>
-				</Grid>
-			</Wrapper>
-		</>
+		<LayoutOverlayData
+			isShowDetail={isShowDetail}
+			setIsShowDetail={setIsShowDetail}
+			formPosition={formPosition}
+		>
+			<Grid container alignItems="center" justifyContent="space-between">
+				<Text variant="h3">E52015 Cycle Data</Text>
+				<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
+			</Grid>
+			<TableComponent2 table={table} styles={{ backgroundColor: "white", borderRadius: "5px" }} />
+		</LayoutOverlayData>
 	);
 }

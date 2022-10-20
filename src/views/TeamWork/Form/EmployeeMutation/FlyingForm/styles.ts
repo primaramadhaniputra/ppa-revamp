@@ -10,7 +10,7 @@ export const HeaderTextContainer = styled.div`
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
-export const InputContainer = styled.form`
+export const InputContainer = styled.div`
 	padding: 30px 50px;
 	display: flex;
 	flex-direction: column;

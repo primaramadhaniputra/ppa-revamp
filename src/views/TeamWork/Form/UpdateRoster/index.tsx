@@ -1,5 +1,5 @@
 import { Grid } from "@hudoro/neron";
-import React, { useState } from "react";
+import React from "react";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -12,8 +12,6 @@ import {
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
@@ -42,13 +40,12 @@ export default function UpdateRoster() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isEdit, setIsEdit] = useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleEdit = () => {
-		setIsEdit(true);
-	};
-	const closeEdit = () => {
-		setIsEdit(false);
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
 	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
@@ -57,7 +54,7 @@ export default function UpdateRoster() {
 			cell: (info) => {
 				return info.column.id === "Act" ? (
 					<Grid>
-						<IcEdit width={20} style={{ cursor: "pointer" }} onClick={handleEdit} />
+						<IcEdit width={20} style={{ cursor: "pointer" }} onClick={handleShowDetail} />
 					</Grid>
 				) : (
 					info.getValue()
@@ -95,10 +92,14 @@ export default function UpdateRoster() {
 	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
 		table.setPageSize(e.target.value);
 	};
-	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
+
 	return (
 		<>
-			<FlyingForm closeForm={closeEdit} isEdit={isEdit} top={window.pageYOffset} />
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<WrapperTitle>
 				<TitleText>Update Roster</TitleText>
 			</WrapperTitle>

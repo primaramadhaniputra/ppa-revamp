@@ -1,4 +1,4 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -11,10 +11,8 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import CompleteArrow from "atoms/CompleteArrow";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import { ThItemContainer } from "../../../../styles";
-import { Container, Wrapper } from "./styles";
+import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -75,43 +73,16 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 		getSortedRowModel: getSortedRowModel(),
 	});
 
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
-	};
-
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
-
 	return (
-		<>
-			<Wrapper
-				style={{
-					zIndex: isShowDetail ? 999 : -999,
-					opacity: isShowDetail ? 1 : 0,
-					top: `${formPosition}px`,
-				}}
-				onClick={handleCloseShowDetail}
-			>
-				<Container
-					style={{
-						transform: isShowDetail ? "translateY(100px)" : "translateY(0)",
-					}}
-				>
-					<Grid container alignItems="center" justifyContent="space-between">
-						<Text variant="h4">19019713 - ANDIKA SETYO LAKSONO</Text>
-						<Icon
-							iconName="IcClose"
-							style={{ cursor: "pointer" }}
-							onClick={handleCloseShowDetail}
-						/>
-					</Grid>
-					<TableComponent2
-						table={table}
-						styles={{ backgroundColor: "white", borderRadius: "5px" }}
-					/>
-				</Container>
-			</Wrapper>
-		</>
+		<LayoutOverlayData
+			isShowDetail={isShowDetail}
+			setIsShowDetail={setIsShowDetail}
+			formPosition={formPosition}
+		>
+			<Grid container alignItems="center" justifyContent="space-between">
+				<Text variant="h4">19019713 - ANDIKA SETYO LAKSONO</Text>
+			</Grid>
+			<TableComponent2 table={table} styles={{ backgroundColor: "white", borderRadius: "5px" }} />
+		</LayoutOverlayData>
 	);
 }
