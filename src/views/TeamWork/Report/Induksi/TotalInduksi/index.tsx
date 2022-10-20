@@ -39,9 +39,11 @@ export default function TotalInduksi() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleShowDetail = () => {
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
 	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -98,7 +100,11 @@ export default function TotalInduksi() {
 	};
 	return (
 		<>
-			{isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
+			<ShowDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<Wrapper>
 				<Container>
 					<Text

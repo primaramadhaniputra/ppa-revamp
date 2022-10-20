@@ -1,5 +1,4 @@
-import { Grid, Icon, Select, Text } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
+import { Grid, Select, Text } from "@hudoro/neron";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import { inputDropDownOperation } from "utils/dummy";
@@ -20,7 +19,6 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 		>
 			<HeaderTextContainer>
 				<Text variant="h4">Update Form</Text>
-				<Icon iconName="IcClose" style={{ cursor: "pointer" }} />
 			</HeaderTextContainer>
 			<InputContainer>
 				<Grid container gap={10} alignItems="center">
@@ -61,12 +59,14 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 				</Grid>
 				<Grid container gap={10} alignItems="center">
 					<StyledLabel>Pos</StyledLabel>
-					<Grid container gap={10} style={{ flex: 1 }}>
-						<Styledinput />
+					<Grid container gap={10}>
+						<Grid>
+							<Styledinput />
+						</Grid>
+						<Grid>
+							<Styledinput />
+						</Grid>
 					</Grid>
-				</Grid>
-				<Grid container justifyContent="flex-end">
-					<StyledButton style={{ maxWidth: "100px" }}>Update</StyledButton>
 				</Grid>
 			</InputContainer>
 		</LayoutOverlayData>

@@ -2,29 +2,6 @@ import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 
-export const Wrapper = styled.div`
-	bottom: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	padding: 20px;
-	transition: 1s;
-	z-index: 999;
-	position: absolute;
-`;
-
-export const Container = styled.form`
-	background-color: white;
-	margin: 30px auto;
-	height: max-content;
-	width: 100%;
-	max-width: 600px;
-	box-sizing: border-box;
-	border-radius: 5px;
-	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-	transition: 1s;
-`;
-
 export const HeaderTextContainer = styled.div`
 	display: flex;
 	align-items: center;

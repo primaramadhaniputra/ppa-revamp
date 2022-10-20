@@ -14,8 +14,6 @@ import {
 import { Icon } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
 
@@ -39,11 +37,11 @@ export default function Question() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isEdit, setIsEdit] = React.useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleEdit = async (target: { pageY: number; clientY: number }) => {
-		setIsEdit(true);
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
 	};
 
@@ -68,7 +66,7 @@ export default function Question() {
 										cursor="pointer"
 										color="white"
 										strokeWidth={1.5}
-										onClick={(target) => handleEdit(target)}
+										onClick={(target) => handleShowDetail(target)}
 									/>
 								</IconContainer>
 								<IconContainer title="delete">
@@ -118,16 +116,13 @@ export default function Question() {
 		table.setPageSize(e.target.value);
 	};
 
-	const closeEdit = () => {
-		setIsEdit(false);
-		setformPosition(0);
-	};
-
-	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
-
 	return (
 		<>
-			<FlyingForm closeForm={closeEdit} isEdit={isEdit} formPosition={formPosition} />
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<Wrapper>
 				<TableTitle variant="h4">Data List Question Quiz</TableTitle>
 				<SecondFilter

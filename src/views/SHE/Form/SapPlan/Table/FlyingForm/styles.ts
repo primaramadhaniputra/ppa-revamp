@@ -2,31 +2,6 @@ import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 
-export const Wrapper = styled.div`
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	padding: 20px;
-	transition: 1s;
-	z-index: 999;
-`;
-
-export const Container = styled.form`
-	background-color: white;
-	margin: 30px auto;
-	height: max-content;
-	width: 100%;
-	max-width: 700px;
-	box-sizing: border-box;
-	border-radius: 5px;
-	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-	transition: 1s;
-	max-height: 800px;
-	overflow-y: scroll;
-`;
-
 export const HeaderTextContainer = styled.div`
 	display: flex;
 	align-items: center;
@@ -40,6 +15,7 @@ export const InputContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	height: 50vh;
 `;
 
 export const StyledLabel = styled.label`

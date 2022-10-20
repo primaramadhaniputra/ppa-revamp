@@ -13,8 +13,6 @@ import IcPrinter from "atoms/Icon/IcPrinter";
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import {
 	FileContainer,
 	THContainer,
@@ -64,11 +62,6 @@ export default function SuratPelanggaran() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const handleHideDetail = () => {
-		setIsShowDetail(false);
-		setformPosition(0);
-	};
-
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
 		return {
 			accessorKey: item,
@@ -116,19 +109,12 @@ export default function SuratPelanggaran() {
 		table.setPageSize(e.target.value);
 	};
 
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
-
 	return (
 		<>
 			<ShowDetail
-				onclick={handleHideDetail}
-				styles={{
-					zIndex: `${isShowDetail ? "999" : "-999"}`,
-					opacity: `${isShowDetail ? "1" : "0"}`,
-				}}
-				top={formPosition}
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
 			/>
 			<WrapperTitle style={{ marginBottom: "20px ", padding: 0 }}>
 				<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />

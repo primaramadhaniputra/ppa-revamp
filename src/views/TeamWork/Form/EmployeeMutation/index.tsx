@@ -10,11 +10,9 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { IcEdit } from "atoms/Icon";
-import FlyingForm from "molecules/FlyingForm";
+import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import {
 	FileContainer,
 	THContainer,
@@ -44,17 +42,12 @@ export default function EmployeeMutation() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isEdit, setIsEdit] = React.useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleEdit = async (target: { pageY: number; clientY: number }) => {
-		setIsEdit(true);
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
-	};
-
-	const closeEdit = () => {
-		setIsEdit(false);
-		setformPosition(0);
 	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
@@ -66,7 +59,7 @@ export default function EmployeeMutation() {
 						<IcEdit
 							width={20}
 							style={{ cursor: "pointer" }}
-							onClick={(target) => handleEdit(target)}
+							onClick={(target) => handleShowDetail(target)}
 						/>
 					</Grid>
 				) : (
@@ -101,11 +94,13 @@ export default function EmployeeMutation() {
 	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
 		table.setPageSize(e.target.value);
 	};
-
-	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
 	return (
 		<>
-			<FlyingForm closeForm={closeEdit} isEdit={isEdit} top={formPosition} />
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<WrapperTitle>
 				<TitleText>Employee Mutation</TitleText>
 				<FileContainer>

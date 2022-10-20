@@ -15,8 +15,6 @@ import {
 import { Grid } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, WrapperTable } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
@@ -48,11 +46,11 @@ export default function Table() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isEdit, setIsEdit] = React.useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleEdit = async (target: { pageY: number; clientY: number }) => {
-		setIsEdit(true);
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
 	};
 
@@ -63,7 +61,11 @@ export default function Table() {
 				return (
 					<>
 						{info.column.id === "Detail" ? (
-							<Grid container justifyContent="center" onClick={(target) => handleEdit(target)}>
+							<Grid
+								container
+								justifyContent="center"
+								onClick={(target) => handleShowDetail(target)}
+							>
 								<IcEdit width={18} strokeWidth={1.5} cursor="pointer" />
 							</Grid>
 						) : (
@@ -109,16 +111,13 @@ export default function Table() {
 		table.setPageSize(e.target.value);
 	};
 
-	const closeEdit = () => {
-		setIsEdit(false);
-		setformPosition(0);
-	};
-
-	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
-
 	return (
 		<Wrapper>
-			<FlyingForm closeForm={closeEdit} isEdit={isEdit} formPosition={formPosition} />
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Ranking" />

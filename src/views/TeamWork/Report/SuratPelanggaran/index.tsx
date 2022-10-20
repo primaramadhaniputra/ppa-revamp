@@ -12,8 +12,6 @@ import {
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
@@ -48,11 +46,6 @@ export default function SuratPelanggaran() {
 	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
-	};
-
-	const handleHideDetail = () => {
-		setIsShowDetail(false);
-		setformPosition(0);
 	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item) => {
@@ -101,19 +94,12 @@ export default function SuratPelanggaran() {
 		table.setPageSize(e.target.value);
 	};
 
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
-
 	return (
 		<>
 			<ShowDetail
-				onclick={handleHideDetail}
-				styles={{
-					zIndex: `${isShowDetail ? "999" : "-999"}`,
-					opacity: `${isShowDetail ? "1" : "0"}`,
-				}}
-				top={formPosition}
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
 			/>
 			<Wrapper>
 				<WrapperTitle>
