@@ -6,10 +6,18 @@ import { TABLE, ThItemContainer, Wrapper } from "./styles";
 interface IProps {
 	withFooter?: boolean;
 	tableTdStyles?: React.CSSProperties;
+	tableThStyles?: React.CSSProperties;
+	tableTheadStyles?: React.CSSProperties;
 	[x: string]: any;
 }
 
-export default function TableComp({ table, withFooter, tableTdStyles }: IProps) {
+export default function TableComp({
+	table,
+	withFooter,
+	tableTdStyles,
+	tableThStyles,
+	tableTheadStyles,
+}: IProps) {
 	const Filter = ({
 		column,
 	}: {
@@ -33,7 +41,7 @@ export default function TableComp({ table, withFooter, tableTdStyles }: IProps) 
 	return (
 		<Wrapper>
 			<TABLE className="paleBlueRows">
-				<thead>
+				<thead style={{ ...tableTheadStyles }}>
 					{table
 						.getHeaderGroups()
 						.map((headerGroup: { id: React.Key | null | undefined; headers: any[] }) => (
@@ -42,7 +50,12 @@ export default function TableComp({ table, withFooter, tableTdStyles }: IProps) 
 									return (
 										<>
 											{header.isPlaceholder ? (
-												<th key={header.id} rowSpan={2} colSpan={header.colSpan}>
+												<th
+													key={header.id}
+													rowSpan={2}
+													colSpan={header.colSpan}
+													style={{ ...tableThStyles }}
+												>
 													<ThItemContainer
 														{...{
 															className: header.column.getCanSort()
@@ -50,6 +63,7 @@ export default function TableComp({ table, withFooter, tableTdStyles }: IProps) 
 																: "",
 															onClick: header.column.getToggleSortingHandler(),
 														}}
+														style={{ ...tableThStyles }}
 													>
 														{flexRender(header.column.columnDef.header, header.getContext())}
 														{{
@@ -74,6 +88,7 @@ export default function TableComp({ table, withFooter, tableTdStyles }: IProps) 
 																: "",
 															onClick: header.column.getToggleSortingHandler(),
 														}}
+														style={{ ...tableThStyles }}
 													>
 														{flexRender(header.column.columnDef.header, header.getContext())}
 														{{

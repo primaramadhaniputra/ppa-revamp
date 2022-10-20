@@ -9,6 +9,8 @@ const tabs = ["A2B", "A2S"];
 const renderContent = (type: string) => {
 	if (type === "A2B") {
 		return <A2B />;
+	} else if (type === "A2S") {
+		return <A2B />;
 	}
 };
 

@@ -9,6 +9,8 @@ interface Person {
 	[x: string]: any;
 	styles?: React.CSSProperties;
 	tableTdStyles?: React.CSSProperties;
+	tableThStyles?: React.CSSProperties;
+	tableTheadStyles?: React.CSSProperties;
 }
 
 export default function TableComponent2({
@@ -17,10 +19,18 @@ export default function TableComponent2({
 	noPagination,
 	withFooter,
 	tableTdStyles,
+	tableThStyles,
+	tableTheadStyles,
 }: Person) {
 	return (
 		<Wrapper style={{ ...styles }}>
-			<TableComp table={table} withFooter={withFooter} tableTdStyles={tableTdStyles} />
+			<TableComp
+				table={table}
+				withFooter={withFooter}
+				tableTdStyles={tableTdStyles}
+				tableThStyles={tableThStyles}
+				tableTheadStyles={tableTheadStyles}
+			/>
 			{!noPagination && (
 				<PaginationComp
 					dataPerPage={table.getRowModel().rows.length}

@@ -1,7 +1,7 @@
-import { Grid } from "@hudoro/neron";
+// import { Grid } from "@hudoro/neron";
 import { ColumnDef } from "@tanstack/react-table";
-import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../ObProduction/Dayli/styles";
+// import CompleteArrow from "atoms/CompleteArrow";
+// import { ThItemContainer } from "../../ObProduction/Dayli/styles";
 import { TextTable } from "./styles";
 
 interface IProps {
@@ -13,14 +13,7 @@ export const dataTable: ColumnDef<IProps>[] = [
 		accessorKey: "Model",
 		cell: (info) => <TextTable>{info.getValue()}</TextTable>,
 		footer: (props) => props.column.id,
-		header: () => (
-			<ThItemContainer style={{ minWidth: "100px" }}>
-				<Grid>
-					<span>Model</span>
-				</Grid>
-				<CompleteArrow />
-			</ThItemContainer>
-		),
+		header: () => "Model",
 	},
 	{
 		accessorKey: "Code Unit",
@@ -56,6 +49,12 @@ export const dataTable: ColumnDef<IProps>[] = [
 				cell: (info) => info.getValue(),
 				footer: (props) => props.column.id,
 			},
+		],
+	},
+	{
+		header: "Working Hours",
+		footer: (props) => props.column.id,
+		columns: [
 			{
 				accessorKey: "TOH",
 				cell: (info) => info.getValue(),
@@ -81,6 +80,12 @@ export const dataTable: ColumnDef<IProps>[] = [
 				cell: (info) => info.getValue(),
 				footer: (props) => props.column.id,
 			},
+		],
+	},
+	{
+		header: "HM",
+		footer: (props) => props.column.id,
+		columns: [
 			{
 				accessorKey: "DL",
 				cell: (info) => info.getValue(),
@@ -156,7 +161,7 @@ export const dataTable: ColumnDef<IProps>[] = [
 		footer: (props) => props.column.id,
 	},
 	{
-		header: "PA - UA",
+		header: "PA",
 		footer: (props) => props.column.id,
 		columns: [
 			{
@@ -174,6 +179,12 @@ export const dataTable: ColumnDef<IProps>[] = [
 				cell: (info) => info.getValue(),
 				footer: (props) => props.column.id,
 			},
+		],
+	},
+	{
+		header: "UA",
+		footer: (props) => props.column.id,
+		columns: [
 			{
 				accessorKey: "With No Opt",
 				cell: (info) => info.getValue(),
