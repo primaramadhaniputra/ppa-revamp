@@ -1,7 +1,6 @@
 import { GlobalStyle } from "atoms/GlobalStyles";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { ParallaxProvider } from "react-scroll-parallax";
 import { ToastContainer } from "react-toastify";
 import { RecoilRoot } from "recoil";
 import Layout from "src/components/layouts/Dashboard/layout";
@@ -22,15 +21,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 			/>
 			<GlobalStyle />
 			<RecoilRoot>
-				<ParallaxProvider>
-					{router.pathname === "/" || router.pathname === "/forgot-password" ? (
+				{router.pathname === "/" || router.pathname === "/forgot-password" ? (
+					<Component {...pageProps} />
+				) : (
+					<Layout>
 						<Component {...pageProps} />
-					) : (
-						<Layout>
-							<Component {...pageProps} />
-						</Layout>
-					)}
-				</ParallaxProvider>
+					</Layout>
+				)}
 			</RecoilRoot>
 		</>
 	);
