@@ -10,6 +10,7 @@ const BaseControl = dynamic(() => import("./BaseControl"));
 const Device = dynamic(() => import("./Device"));
 const Mobile = dynamic(() => import("./Mobile"));
 const Mocos = dynamic(() => import("./Mocos"));
+const CostParameter = dynamic(() => import("./CostParameter"));
 
 const tabsData = ["Device", "Mobile", "Moco", "Base Control", "Cost Parameter"];
 
@@ -30,6 +31,8 @@ function renderContent(queryName: string) {
 		return <Mocos />;
 	} else if (queryName === "Base Control") {
 		return <BaseControl />;
+	} else {
+		return <CostParameter />;
 	}
 }
 
