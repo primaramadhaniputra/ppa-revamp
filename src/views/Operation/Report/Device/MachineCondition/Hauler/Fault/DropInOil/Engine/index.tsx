@@ -76,12 +76,12 @@ export default function Engine() {
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>Drop in Engine Oil Level</TitleText>
 			</WrapperTitle>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="CN" />
+				</Grid>
+			</TopFilter>
 			<Wrapper>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="CN" />
-					</Grid>
-				</TopFilter>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

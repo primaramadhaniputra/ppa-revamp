@@ -11,8 +11,11 @@ interface IProps {
 }
 
 const LayoutOverlayData = ({ isShowDetail, setIsShowDetail, formPosition, children }: IProps) => {
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
+	const handleCloseShowDetail = (e: { target: { classList: string } }) => {
+		const WrapperClass = [...e.target.classList];
+		if (WrapperClass.includes("wrapper")) {
+			setIsShowDetail(false);
+		}
 	};
 
 	useEffect(() => {
@@ -29,7 +32,8 @@ const LayoutOverlayData = ({ isShowDetail, setIsShowDetail, formPosition, childr
 				opacity: isShowDetail ? 1 : 0,
 				top: `${formPosition}px`,
 			}}
-			onClick={handleCloseShowDetail}
+			onClick={handleCloseShowDetail as any}
+			className="wrapper"
 		>
 			<Container
 				style={{

@@ -17,10 +17,18 @@ export const Container = styled(Grid).attrs({
 })`
 	flex-direction: column;
 	gap: 20px;
-	max-width: 1400px;
+	max-width: 1000px;
 	margin: auto;
 	background-color: white;
 	padding: 20px 10px;
 	transition: 0.3s;
 	overflow-x: scroll;
+	::-webkit-scrollbar {
+		height: 3px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
 `;

@@ -9,6 +9,8 @@ import { ArrowDown, SelectContainer } from "./styles";
 const Moco = dynamic(() => import("./Moco"));
 const BaseControl = dynamic(() => import("./BaseControl"));
 const Academy = dynamic(() => import("./Academy"));
+const RefuelingAccess = dynamic(() => import("./RefuelingAccess"));
+const CheckerAccess = dynamic(() => import("./CheckerAccess"));
 
 const tabsData = [
 	"Academy",
@@ -47,6 +49,10 @@ function renderContent(queryName: string) {
 		return <Moco />;
 	} else if (queryName === "Base Control") {
 		return <BaseControl />;
+	} else if (queryName === "Refueling Access") {
+		return <RefuelingAccess />;
+	} else if (queryName === "Checker Access") {
+		return <CheckerAccess />;
 	}
 }
 

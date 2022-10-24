@@ -133,6 +133,11 @@ export default function AllCode() {
 					onChange={handleShowChart}
 				/>
 			</Grid>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Operator" />
+				</Grid>
+			</TopFilter>
 			{showChart ? (
 				<Wrapper>
 					<Chart />
@@ -140,11 +145,6 @@ export default function AllCode() {
 			) : (
 				<Wrapper>
 					<WrapperTable>
-						<TopFilter>
-							<Grid style={{ minWidth: "200px" }}>
-								<RevisiDropdown placeholder="Operator" />
-							</Grid>
-						</TopFilter>
 						{/* <TableFilterSearch
 							table={table}
 							handleChangeTotalShowData={handleChangeTotalShowData}
