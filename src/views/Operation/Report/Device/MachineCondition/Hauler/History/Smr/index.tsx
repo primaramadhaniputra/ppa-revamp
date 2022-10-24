@@ -75,8 +75,8 @@ export default function Smr() {
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>SMR</TitleText>
 			</WrapperTitle>
+			<TopFilter />
 			<Wrapper>
-				<TopFilter />
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}

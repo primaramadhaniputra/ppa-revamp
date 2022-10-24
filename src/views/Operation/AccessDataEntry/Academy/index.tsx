@@ -1,13 +1,16 @@
 import TabV2 from "molecules/TabV2";
 import TabV3 from "molecules/TabV3";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
+
+const Subject = dynamic(() => import("./Subject"));
 
 const tabTitle = ["Post Test"];
 const tabTitle2 = ["Subject", "Question", "Schedule"];
 
-const renderContent = (activeTab: number) => {
-	if (activeTab === 2) {
-		// return <SupportActivity />;
+const renderContent = (activeTab: string) => {
+	if (activeTab === "Subject") {
+		return <Subject />;
 	}
 };
 
@@ -19,7 +22,7 @@ export default function Academy() {
 		<>
 			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
 			<TabV3 tabsData={tabTitle2} activeTab={activeTab2} setActiveTab={setActiveTab2} />
-			{renderContent(activeTab)}
+			{renderContent(tabTitle2[activeTab2])}
 		</>
 	);
 }

@@ -109,13 +109,13 @@ export default function KeyOn() {
 					onChange={handleShowChart}
 				/>
 			</Grid>
+			<TopFilter />
 			{showChart ? (
 				<Wrapper>
 					<Chart />
 				</Wrapper>
 			) : (
 				<Wrapper>
-					<TopFilter />
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}

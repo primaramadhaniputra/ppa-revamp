@@ -1,4 +1,4 @@
-import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -9,12 +9,13 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
-import Chart from "./Chart";
+import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../styles";
+import { TextTable } from "../styles";
+import StyledButton from "atoms/StyledButton";
+import { colors, fontSizing, fontWeights } from "utils/styles";
 import DataDetail from "./DataDetail";
 
 interface IProps {
@@ -24,30 +25,19 @@ interface IProps {
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["CN"]: "E52015",
-		["Fuel Consumption Rate L/H"]: "127.2",
+		["NRP"]: "-",
+		["Name"]: "-",
+		["Password"]: "-",
+		["Last login"]: "-",
+		["Action"]: "-",
 	};
 });
 
-const items = [
-	{
-		id: "1",
-		label: "Table",
-		values: "Table",
-	},
-	{
-		id: "2",
-		label: "Chart",
-		values: "Chart",
-	},
-];
-
-export default function EngineOverrun() {
+export default function RefuelingAccess() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [showChart, setShowChart] = React.useState(false);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -60,13 +50,7 @@ export default function EngineOverrun() {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return info.column.id === "CN" ? (
-					<span style={{ color: "blue", cursor: "pointer" }} onClick={handleShowDetail}>
-						{info.getValue()}
-					</span>
-				) : (
-					info.getValue()
-				);
+				return <TextTable>{info.getValue()}</TextTable>;
 			},
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
@@ -99,14 +83,6 @@ export default function EngineOverrun() {
 		table.setPageSize(e.target.value);
 	};
 
-	const handleShowChart = (value: ISelectItem | ISelectItem[] | null) => {
-		if (value?.values === "Table") {
-			setShowChart(false);
-		} else {
-			setShowChart(true);
-		}
-	};
-
 	return (
 		<>
 			<DataDetail
@@ -115,34 +91,32 @@ export default function EngineOverrun() {
 				formPosition={formPosition}
 			/>
 			<WrapperTitle style={{ marginTop: "20px" }}>
-				<TitleText>Engine Overrun</TitleText>
+				<TitleText>Refuelling Access</TitleText>
+				<Grid style={{ maxWidth: "100px" }}>
+					<StyledButton
+						style={{
+							backgroundColor: colors.orange,
+							fontSize: fontSizing.md.fontSize,
+							padding: "3px 0",
+							fontWeight: fontWeights.bold,
+						}}
+						onClick={handleShowDetail}
+					>
+						+ Add
+					</StyledButton>
+				</Grid>
 			</WrapperTitle>
-			<Grid container alignItems="center">
-				<Select
-					placeholder="Table"
-					items={items}
-					defaultValue={items[0]}
-					onChange={handleShowChart}
+			<Wrapper>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
 				/>
-			</Grid>
-			<TopFilter />
-			{showChart ? (
-				<Wrapper>
-					<Chart />
-				</Wrapper>
-			) : (
-				<Wrapper>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</Wrapper>
-			)}
+				<TableComponent2 table={table} tableTdStyles={{ padding: 0 }} />
+			</Wrapper>
 		</>
 	);
 }
