@@ -13,10 +13,10 @@ import {
 	// SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { TextYear } from "../TopFilter/styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
+import DateText from "atoms/DateText";
 
 interface Person {
 	[x: string]: any;
@@ -108,9 +108,7 @@ export default function YTD() {
 				<Text variant="h4" style={{ fontWeight: fontWeights.bold, fontSize: "15px" }}>
 					YTD Personel
 				</Text>
-				<TextYear>
-					Current Year <span>2021</span>
-				</TextYear>
+				<DateText />
 			</Grid>
 			<FilterLayouts>
 				<TopFilter noDept={true} noDate={true} doubleSelect={true} styles={{ marginBottom: 40 }} />

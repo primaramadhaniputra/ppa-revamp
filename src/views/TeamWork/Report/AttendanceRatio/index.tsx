@@ -1,7 +1,6 @@
 import { Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { fontWeights } from "utils/styles";
-import { DateText } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -21,6 +20,7 @@ import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
 import dynamic from "next/dynamic";
+import DateText from "atoms/DateText";
 
 interface IProps {
 	[x: string]: any;
@@ -104,9 +104,7 @@ export default function AttendanceRatio() {
 						<Text variant="h4" style={{ fontWeight: fontWeights.semi }}>
 							Individual Attendance Ratio
 						</Text>
-						<DateText>
-							Current Date : <span>01-08-2022</span>{" "}
-						</DateText>
+						<DateText />
 					</Grid>
 					<SecondFilter
 						table={table}
