@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import { FileContainer, ThItemContainer } from "./styles";
 import {
@@ -14,6 +14,8 @@ import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { IcEye } from "atoms/Icon";
+import { colors } from "utils/styles";
 
 interface Person {
 	[x: string]: any;
@@ -115,7 +117,7 @@ export default function LeavingApplication() {
 					style={{ cursor: "pointer" }}
 					onClick={handleShowDetail}
 				>
-					<Icon iconName="IcEye" size={16} />
+					<IcEye width={18} color={colors.blue} />
 				</Grid>
 			),
 			header: () => (

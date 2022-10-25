@@ -1,6 +1,6 @@
 import { Grid, Text } from "@hudoro/neron";
 import React from "react";
-import { fontWeights } from "utils/styles";
+import { colors, fontWeights } from "utils/styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -58,7 +58,7 @@ export default function AttendanceRatio() {
 			cell: (info) => {
 				return info.column.id === "Act" ? (
 					<Grid>
-						<IcEdit width={20} style={{ cursor: "pointer" }} />
+						<IcEdit width={20} style={{ cursor: "pointer" }} color={colors.blue} />
 					</Grid>
 				) : (
 					info.getValue()

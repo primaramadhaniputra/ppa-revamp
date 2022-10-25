@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -16,6 +16,8 @@ import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from 
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
+import { IcEye } from "atoms/Icon";
+import { colors } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -54,11 +56,11 @@ export default function SuratPelanggaran() {
 			cell: (info) => {
 				return item === "Detail" ? (
 					<Grid container justifyContent="center" gap={30}>
-						<Icon
-							iconName="IcEye"
-							size={24}
+						<IcEye
+							width={20}
 							style={{ cursor: "pointer" }}
 							onClick={handleShowDetail}
+							color={colors.blue}
 						/>
 					</Grid>
 				) : (

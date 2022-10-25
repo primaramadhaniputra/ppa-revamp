@@ -21,6 +21,7 @@ import {
 	WrapperTitle,
 } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { colors } from "utils/styles";
 
 interface Person {
 	[x: string]: any;
@@ -65,7 +66,12 @@ export default function BenefitClaimVoucher() {
 			accessorKey: item,
 			cell: (info) => {
 				return item === "File" ? (
-					<IcImage width={20} style={{ cursor: "pointer" }} onClick={handleImage} />
+					<IcImage
+						width={20}
+						style={{ cursor: "pointer" }}
+						onClick={handleImage}
+						color={colors.blue}
+					/>
 				) : (
 					info.getValue()
 				);

@@ -22,6 +22,7 @@ import {
 	WrapperTitle,
 } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { colors } from "utils/styles";
 
 interface Person {
 	[x: string]: any;
@@ -57,9 +58,10 @@ export default function EmployeeMutation() {
 				return item === "Action" ? (
 					<Grid>
 						<IcEdit
-							width={20}
+							width={18}
 							style={{ cursor: "pointer" }}
 							onClick={(target) => handleShowDetail(target)}
+							color={colors.blue}
 						/>
 					</Grid>
 				) : (

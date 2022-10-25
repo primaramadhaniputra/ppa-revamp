@@ -51,7 +51,7 @@ export default function FlowMeter() {
 			accessorKey: item,
 			cell: (info) => {
 				return info.column.id === "Action" ? (
-					<IcEdit width={24} color={colors.primary} onClick={handleShowDetail} />
+					<IcEdit width={18} color={colors.blue} onClick={handleShowDetail} />
 				) : (
 					<TextTable>{info.getValue()}</TextTable>
 				);

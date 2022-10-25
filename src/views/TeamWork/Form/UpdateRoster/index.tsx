@@ -17,6 +17,7 @@ import { THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
+import { colors } from "utils/styles";
 
 interface Person {
 	[x: string]: any;
@@ -54,7 +55,12 @@ export default function UpdateRoster() {
 			cell: (info) => {
 				return info.column.id === "Act" ? (
 					<Grid>
-						<IcEdit width={20} style={{ cursor: "pointer" }} onClick={handleShowDetail} />
+						<IcEdit
+							width={20}
+							style={{ cursor: "pointer" }}
+							onClick={handleShowDetail}
+							color={colors.blue}
+						/>
 					</Grid>
 				) : (
 					info.getValue()
