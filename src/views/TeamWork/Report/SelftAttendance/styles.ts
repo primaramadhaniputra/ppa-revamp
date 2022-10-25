@@ -63,21 +63,3 @@ export const TableTitle = styled(Text).attrs({
 		font-size: 17px;
 	}
 `;
-export const DateText = styled(Text).attrs({
-	variant: "p",
-})`
-	font-family: ${fontFamilies.poppins};
-	font-size: 12px;
-	color: #969799;
-	& span {
-		font-weight: ${fontWeights.bold};
-		font-size: 16px;
-	}
-	${mediaQueries.md} {
-		font-size: 14px;
-		& span {
-			font-weight: ${fontWeights.bold};
-			font-size: 23px;
-		}
-	}
-`;

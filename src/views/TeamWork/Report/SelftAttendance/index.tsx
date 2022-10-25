@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, BoxContainer, DateText, StatusText, TableTitle, WrapperStatus } from "./styles";
+import { Box, BoxContainer, StatusText, TableTitle, WrapperStatus } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -11,6 +11,7 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import DateText from "atoms/DateText";
 
 interface Person {
 	[x: string]: any;
@@ -85,9 +86,7 @@ export default function SelfAttendance() {
 		<Wrapper>
 			<WrapperTitle>
 				<TitleText>Self Attendance</TitleText>
-				<DateText>
-					Current Date : <span>01-09-2022</span>
-				</DateText>
+				<DateText />
 			</WrapperTitle>
 			<WrapperTable>
 				<TableTitle variant="h4">Self Attendance</TableTitle>

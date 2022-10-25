@@ -11,6 +11,11 @@ const BaseControl = dynamic(() => import("./BaseControl"));
 const Academy = dynamic(() => import("./Academy"));
 const RefuelingAccess = dynamic(() => import("./RefuelingAccess"));
 const CheckerAccess = dynamic(() => import("./CheckerAccess"));
+const PushCheckedOut = dynamic(() => import("./PushCheckedOut"));
+const MonitoringUnitOperasi = dynamic(() => import("./MonitoringUnitOperasi"));
+const RefuelVersion = dynamic(() => import("./RefuelVersion"));
+const FuelRate = dynamic(() => import("./FuelRate"));
+const FuelStation = dynamic(() => import("./FuelStation"));
 
 const tabsData = [
 	"Academy",
@@ -53,6 +58,16 @@ function renderContent(queryName: string) {
 		return <RefuelingAccess />;
 	} else if (queryName === "Checker Access") {
 		return <CheckerAccess />;
+	} else if (queryName === "Push Check Out") {
+		return <PushCheckedOut />;
+	} else if (queryName === "Monitoring Unit Operasi") {
+		return <MonitoringUnitOperasi />;
+	} else if (queryName === "Refuel Version") {
+		return <RefuelVersion />;
+	} else if (queryName === "Fuel Rate") {
+		return <FuelRate />;
+	} else if (queryName === "Fuel Station") {
+		return <FuelStation />;
 	}
 }
 
