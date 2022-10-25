@@ -2,6 +2,7 @@ import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
 import FlowMeter from "./Flowmeter";
+import Station from "./Station";
 
 const data = [
 	{
@@ -30,7 +31,7 @@ export default function FuelStation() {
 			<Grid style={{ margin: "10px auto", maxWidth: "250px" }}>
 				<Select items={data} defaultValue={data[0]} onChange={handleChange} />
 			</Grid>
-			{tableType === "Flowmeter" ? <FlowMeter /> : <FlowMeter />}
+			{tableType === "Flowmeter" ? <FlowMeter /> : <Station />}
 		</>
 	);
 }

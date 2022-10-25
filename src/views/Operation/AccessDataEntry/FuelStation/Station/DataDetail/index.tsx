@@ -23,13 +23,13 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 				formPosition={formPosition}
 			>
 				<Grid container alignItems="center" justifyContent="space-between">
-					<Text variant="h3">Update Flowmeter</Text>
+					<Text variant="h3">Update Station</Text>
 					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
 				</Grid>
-				<LabeledInput name="date" title="Date" />
-				<LabeledInput name="time" title="Time" />
-				<LabeledInput name="ft" title="Ft" />
-				<LabeledInput name="seri" title="Seri" />
+				<LabeledInput name="cn" title="Cn" />
+				<LabeledInput name="mainPlant" title="Main Plant" />
+				<LabeledInput name="storageLocation" title="Storage Location" />
+				<LabeledInput name="gasStation" title="Gas Station" />
 				<StyledButton>Save</StyledButton>
 			</LayoutOverlayData>
 		</>
