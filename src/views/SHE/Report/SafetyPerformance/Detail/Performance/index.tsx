@@ -20,8 +20,8 @@ interface Person {
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Description"]: "Karna tauran",
-		["Sebelumnya"]: "Kena senggol jadi lansung bacok",
+		["Description"]: "-",
+		["Sebelumnya"]: "-",
 		["JAN"]: "0",
 		["FEB"]: "0",
 		["MAR"]: "0",

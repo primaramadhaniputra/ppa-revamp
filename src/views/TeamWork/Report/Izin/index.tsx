@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -15,6 +15,8 @@ import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { IcEye } from "atoms/Icon";
+import { colors } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -57,11 +59,11 @@ export default function Izin() {
 			cell: (info) =>
 				info.column.id === "Detail" ? (
 					<Grid container justifyContent="center" style={{ padding: "3px 0", borderRadius: 3 }}>
-						<Icon
-							iconName="IcEye"
+						<IcEye
 							style={{ cursor: "pointer" }}
-							size={24}
+							width={20}
 							onClick={handleShowDetail}
+							color={colors.blue}
 						/>
 					</Grid>
 				) : (

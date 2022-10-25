@@ -52,7 +52,7 @@ export default function Table() {
 					<>
 						{info.column.id === "Detail" ? (
 							<Grid container justifyContent="center">
-								<IcEdit width={18} cursor="pointer" strokeWidth={2} />
+								<IcEdit width={18} cursor="pointer" strokeWidth={2} color={colors.blue} />
 							</Grid>
 						) : (
 							info.getValue()

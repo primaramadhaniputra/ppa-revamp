@@ -18,6 +18,7 @@ import FlyingForm from "./FlyingForm";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, WrapperTable } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import { colors } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -66,7 +67,7 @@ export default function Table() {
 								justifyContent="center"
 								onClick={(target) => handleShowDetail(target)}
 							>
-								<IcEdit width={18} strokeWidth={1.5} cursor="pointer" />
+								<IcEdit width={18} cursor="pointer" color={colors.blue} />
 							</Grid>
 						) : (
 							info.getValue()

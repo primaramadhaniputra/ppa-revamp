@@ -4,6 +4,7 @@ import IcCaretDown from "./IcCaretDown";
 import IcCaretUp from "./IcCaretUp";
 import IcClose from "./IcClose";
 import IcEdit from "./IcEdit";
+import IcEye from "./IcEye";
 import IcImage from "./IcImage";
 import IcMinusCircle from "./IcMinusCircle";
 import IcPlusCircle from "./IcPlusCircle";
@@ -24,4 +25,5 @@ export {
 	IcReset,
 	IcCaretUp,
 	IcCaretDown,
+	IcEye,
 };

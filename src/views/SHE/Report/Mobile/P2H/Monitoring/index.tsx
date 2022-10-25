@@ -10,11 +10,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Card, Grid, Icon, Text } from "@hudoro/neron";
-import { fontWeights } from "utils/styles";
+import { Card, Grid, Text } from "@hudoro/neron";
+import { colors, fontWeights } from "utils/styles";
 import { WrapperTable } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
+import { IcEye } from "atoms/Icon";
 
 interface IProps {
 	[x: string]: any;
@@ -47,7 +48,7 @@ export default function Monitoring() {
 					<>
 						{info.column.id === "Status APPR" ? (
 							<Grid container justifyContent="center">
-								<Icon iconName="IcEye" style={{ cursor: "pointer" }} />
+								<IcEye width={18} color={colors.blue} style={{ cursor: "pointer" }} />
 							</Grid>
 						) : (
 							info.getValue()

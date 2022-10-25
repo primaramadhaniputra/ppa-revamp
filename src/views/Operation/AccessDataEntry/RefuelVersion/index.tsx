@@ -63,8 +63,8 @@ export default function RevuelVersion() {
 			cell: (info) => {
 				return info.column.id === "Action" ? (
 					<IcEdit
-						width={24}
-						color={colors.primary}
+						width={18}
+						color={colors.blue}
 						style={{ cursor: "pointer" }}
 						onClick={handleShowDetail}
 					/>

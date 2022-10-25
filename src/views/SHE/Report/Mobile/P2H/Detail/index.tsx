@@ -10,11 +10,13 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
+import { IcEye } from "atoms/Icon";
+import { colors } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -49,7 +51,7 @@ export default function Detail() {
 					<>
 						{info.column.id === "Detail" ? (
 							<Grid container justifyContent="center">
-								<Icon iconName="IcEye" style={{ cursor: "pointer" }} />
+								<IcEye width={18} style={{ cursor: "pointer" }} color={colors.blue} />
 							</Grid>
 						) : (
 							info.getValue()

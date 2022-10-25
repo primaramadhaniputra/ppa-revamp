@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -18,6 +18,7 @@ import { TextTable } from "./styles";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import { colors } from "utils/styles";
 import DataDetail from "./DataDetail";
+import { IcEye } from "atoms/Icon";
 
 interface IProps {
 	[x: string]: any;
@@ -60,11 +61,10 @@ export default function Operator() {
 				if (info.column.id === "Detail") {
 					return (
 						<Grid container justifyContent="center">
-							<Icon
-								iconName="IcEye"
-								color={colors.blueGrey}
+							<IcEye
+								color={colors.blue}
 								style={{ cursor: "pointer" }}
-								size={24}
+								width={20}
 								onClick={handleShowDetail}
 							/>
 						</Grid>

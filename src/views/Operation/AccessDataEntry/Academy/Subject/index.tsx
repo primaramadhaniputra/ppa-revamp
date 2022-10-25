@@ -17,6 +17,7 @@ import { TextTable } from "../../styles";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import DataDetail from "./DataDetail";
+import { IcEdit, IcEye, IcPlusCircle } from "atoms/Icon";
 
 interface IProps {
 	[x: string]: any;
@@ -51,7 +52,15 @@ export default function Subject() {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return <TextTable>{info.getValue()}</TextTable>;
+				return info.column.id === "Action" ? (
+					<Grid container justifyContent="center" alignItems="center" gap={5}>
+						<IcPlusCircle width={20} color={colors.blue} />
+						<IcEdit width={20} color={colors.blue} />
+						<IcEye width={20} color={colors.blue} />
+					</Grid>
+				) : (
+					<TextTable>{info.getValue()}</TextTable>
+				);
 			},
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>

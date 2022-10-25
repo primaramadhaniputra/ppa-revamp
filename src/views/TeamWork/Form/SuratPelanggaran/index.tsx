@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -23,6 +23,8 @@ import {
 } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
+import { IcEye } from "atoms/Icon";
+import { colors } from "utils/styles";
 
 interface Person {
 	[x: string]: any;
@@ -67,11 +69,11 @@ export default function SuratPelanggaran() {
 			accessorKey: item,
 			cell: (info) => {
 				return item === "Action" ? (
-					<Grid container justifyContent="center" gap={30}>
-						<IcPrinter width={24} style={{ cursor: "pointer" }} />
-						<Icon
-							iconName="IcEye"
-							size={24}
+					<Grid container justifyContent="center" gap={10}>
+						<IcPrinter width={20} color={colors.blue} style={{ cursor: "pointer" }} />
+						<IcEye
+							width={20}
+							color={colors.blue}
 							style={{ cursor: "pointer" }}
 							onClick={handleShowDetail}
 						/>
