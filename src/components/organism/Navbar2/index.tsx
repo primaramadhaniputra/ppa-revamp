@@ -98,8 +98,9 @@ const Navbar2 = () => {
 					{Links.map((item, index) => (
 						<SingleLink
 							key={index}
-							onMouseEnter={() => handleShowSubMenu(index)}
-							onMouseLeave={() => handleShowSubMenu(-1)}
+							onMouseEnter={() => (width > 1024 ? handleShowSubMenu(index) : {})}
+							onMouseLeave={() => (width > 1024 ? handleShowSubMenu(-1) : {})}
+							onClick={() => (width > 1024 ? {} : handleShowSubMenu(index))}
 						>
 							<Grid container gap={3} alignItems="center" style={{ cursor: "pointer" }}>
 								<Styledtext>{item.title}</Styledtext>
