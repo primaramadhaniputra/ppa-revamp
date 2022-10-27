@@ -10,6 +10,7 @@ interface IProps {
 	formPosition: number;
 	children: React.ReactNode;
 	title?: string;
+	width?: number;
 }
 
 const LayoutOverlayData = ({
@@ -18,6 +19,7 @@ const LayoutOverlayData = ({
 	formPosition,
 	children,
 	title,
+	width,
 }: IProps) => {
 	const handleCloseShowDetail = (e: { target: { classList: string } }) => {
 		const WrapperClass = [...e.target.classList];
@@ -32,7 +34,6 @@ const LayoutOverlayData = ({
 		}
 		return enableBodyScroll(Html as unknown as HTMLElement | Element);
 	}, [isShowDetail]);
-
 	return (
 		<Wrapper
 			style={{
@@ -46,6 +47,7 @@ const LayoutOverlayData = ({
 			<Container
 				style={{
 					transform: isShowDetail ? "translateY(100px)" : "translateY(0)",
+					maxWidth: `${width}px`,
 				}}
 			>
 				{title && (
