@@ -2,9 +2,6 @@ import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 
-export const Title = styled.p`
-	font-family: ${fontFamilies.poppins};
-`;
 export const P = styled.p`
 	font-family: ${fontFamilies.poppins};
 	line-height: 15px;

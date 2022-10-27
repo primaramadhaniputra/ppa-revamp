@@ -1,4 +1,4 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
@@ -11,22 +11,17 @@ interface IProps {
 }
 
 export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
-	};
-
 	return (
 		<>
 			<LayoutOverlayData
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
+				title="Form Create Post Test"
 			>
-				<Grid container alignItems="center" justifyContent="space-between">
-					<Text variant="h3">Form Create Post Test</Text>
-					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
+				<Grid style={{ margin: "10px 0" }}>
+					<LabeledInput name="name" title="Subject Name" />
 				</Grid>
-				<LabeledInput name="name" title="Subject Name" />
 				<StyledButton>Save</StyledButton>
 			</LayoutOverlayData>
 		</>

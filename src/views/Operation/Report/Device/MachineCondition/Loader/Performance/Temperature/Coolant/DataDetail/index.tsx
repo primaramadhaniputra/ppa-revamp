@@ -1,4 +1,4 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -67,21 +67,16 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 		getSortedRowModel: getSortedRowModel(),
 	});
 
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
-	};
-
 	return (
 		<LayoutOverlayData
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
+			title="E52015 Cycle Data"
 		>
-			<Grid container alignItems="center" justifyContent="space-between">
-				<Text variant="h3">E52015 Cycle Data</Text>
-				<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
+			<Grid style={{ padding: "10px" }}>
+				<TableComponent2 table={table} />
 			</Grid>
-			<TableComponent2 table={table} styles={{ backgroundColor: "white", borderRadius: "5px" }} />
 		</LayoutOverlayData>
 	);
 }

@@ -2,14 +2,7 @@ import { Grid, Text } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import {
-	Answer,
-	AnswerWrapper,
-	HeaderTextContainer,
-	InputContainer,
-	Styledinput,
-	StyledLabel,
-} from "./styles";
+import { Answer, AnswerWrapper, InputContainer, Styledinput, StyledLabel } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -23,10 +16,8 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
+			title="Form Update Question Quiz"
 		>
-			<HeaderTextContainer>
-				<Text variant="h4">Form Update Question Quiz</Text>
-			</HeaderTextContainer>
 			<InputContainer>
 				<Grid container gap={10} flexDirection="column">
 					<StyledLabel>Subject Name</StyledLabel>

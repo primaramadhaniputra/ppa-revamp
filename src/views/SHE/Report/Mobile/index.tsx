@@ -1,6 +1,7 @@
 import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
+import Sap from "./Sap";
 import { Wrapper } from "./styles";
 
 const P2H = dynamic(() => import("./P2H"));
@@ -13,6 +14,8 @@ const renderContent = (type: string) => {
 		return <P2H />;
 	} else if (type === "Saya Peduli") {
 		return <SayaPeduli />;
+	} else if (type === "SAP") {
+		return <Sap />;
 	}
 };
 

@@ -1,7 +1,7 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { DataContainer, StyledP, Table, Title } from "./styles";
+import { DataContainer, StyledP, Table } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -15,16 +15,9 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
+			title="KT08/HCG/2102/CUTI/00072"
 		>
-			<Grid
-				container
-				justifyContent="space-between"
-				alignItems="center"
-				style={{ marginBottom: 30 }}
-			>
-				<Title>KT08/HCG/2102/CUTI/00072</Title>
-			</Grid>
-			<Grid container flexDirection="column" gap={20}>
+			<Grid container flexDirection="column" gap={20} style={{ padding: "10px" }}>
 				<DataContainer>
 					<StyledP>Name :</StyledP>
 					<p>AGUS EKA PRASETYA</p>

@@ -1,4 +1,4 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -66,26 +66,15 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 		getSortedRowModel: getSortedRowModel(),
 	});
 
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
-	};
-
 	return (
 		<>
 			<LayoutOverlayData
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
+				title="KT08/OPR/RPBD/2209/01900"
 			>
-				<Grid container alignItems="center" justifyContent="space-between">
-					<Text variant="h3">KT08/OPR/RPBD/2209/01900</Text>
-					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
-				</Grid>
-				<TableComponent2
-					table={table}
-					styles={{ backgroundColor: "white", borderRadius: "5px" }}
-					noPagination={true}
-				/>
+				<TableComponent2 table={table} noPagination={true} />
 			</LayoutOverlayData>
 		</>
 	);

@@ -1,9 +1,8 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import {
-	HeaderTextContainer,
 	InputContainer,
 	InputWrapper,
 	SingleInputContainer,
@@ -23,10 +22,8 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
+			title="Update SAP Plan"
 		>
-			<HeaderTextContainer>
-				<Text variant="h4">Update SAP Plan</Text>
-			</HeaderTextContainer>
 			<InputContainer>
 				<SingleInputContainer>
 					<StyledLabel>NRP</StyledLabel>

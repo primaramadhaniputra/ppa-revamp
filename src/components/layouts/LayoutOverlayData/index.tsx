@@ -1,16 +1,24 @@
 import React, { useEffect } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
-import { Container, Wrapper } from "./styles";
+import { Grid } from "@hudoro/neron";
+import { Container, ContainerTitle, Title, Wrapper } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
 	setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
 	formPosition: number;
 	children: React.ReactNode;
+	title?: string;
 }
 
-const LayoutOverlayData = ({ isShowDetail, setIsShowDetail, formPosition, children }: IProps) => {
+const LayoutOverlayData = ({
+	isShowDetail,
+	setIsShowDetail,
+	formPosition,
+	children,
+	title,
+}: IProps) => {
 	const handleCloseShowDetail = (e: { target: { classList: string } }) => {
 		const WrapperClass = [...e.target.classList];
 		if (WrapperClass.includes("wrapper")) {
@@ -40,7 +48,12 @@ const LayoutOverlayData = ({ isShowDetail, setIsShowDetail, formPosition, childr
 					transform: isShowDetail ? "translateY(100px)" : "translateY(0)",
 				}}
 			>
-				{children}
+				{title && (
+					<ContainerTitle>
+						<Title>{title}</Title>
+					</ContainerTitle>
+				)}
+				<Grid style={{ padding: "10px" }}>{children}</Grid>
 			</Container>
 		</Wrapper>
 	);

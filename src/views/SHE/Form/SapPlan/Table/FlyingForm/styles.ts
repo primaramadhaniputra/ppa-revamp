@@ -2,16 +2,8 @@ import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 
-export const HeaderTextContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 20px 20px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-`;
-
 export const InputContainer = styled.div`
-	padding: 30px 30px;
+	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
