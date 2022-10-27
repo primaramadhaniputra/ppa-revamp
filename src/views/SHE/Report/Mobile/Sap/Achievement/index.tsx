@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 const Individual = dynamic(() => import("./Individual"));
 const Department = dynamic(() => import("./Department"));
+const IndividualYtd = dynamic(() => import("./IndividualYtd"));
 
 const p2hTab = ["INDIVIDUAL", "DEPARTMENT", "INDIVIDUAL YTD"];
 
@@ -13,6 +14,8 @@ function renderTabContent(e: String) {
 		return <Individual />;
 	} else if (e === "DEPARTMENT") {
 		return <Department />;
+	} else if (e === "INDIVIDUAL YTD") {
+		return <IndividualYtd />;
 	}
 }
 

@@ -22,7 +22,7 @@ export default function Department() {
 			<TableWrapper>
 				<TopFilter>
 					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Dept" />
+						<RevisiDropdown placeholder="SAP" />
 					</Grid>
 					<Grid style={{ minWidth: "200px" }}>
 						<StyledDropdownMenu

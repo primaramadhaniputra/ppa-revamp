@@ -9,10 +9,11 @@ import {
 	Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-// import annotationPlugin from "chartjs-plugin-annotation";
+import annotationPlugin from "chartjs-plugin-annotation";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import { fontFamilies } from "@hudoro/neron";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, annotationPlugin);
 
 export const options = {
 	responsive: true,
@@ -31,6 +32,14 @@ export const options = {
 		},
 	},
 	plugins: {
+		datalabels: {
+			display: true,
+			color: "black",
+			formatter: Math.round,
+			anchor: "end",
+			offset: -20,
+			align: "start",
+		},
 		legend: {
 			position: "top" as const,
 			display: false,
@@ -56,7 +65,7 @@ export const options = {
 						content: "",
 					},
 					scaleID: "y",
-					value: 430,
+					value: 400,
 				},
 			},
 		},
@@ -76,5 +85,5 @@ export const data = {
 };
 
 export function BarChart() {
-	return <Bar options={options as any} data={data} />;
+	return <Bar options={options as any} data={data} plugins={[ChartDataLabels]} />;
 }
