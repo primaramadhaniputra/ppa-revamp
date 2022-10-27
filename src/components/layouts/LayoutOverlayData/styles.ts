@@ -1,6 +1,6 @@
 import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontSizing } from "utils/styles";
+import { colors, fontSizing } from "utils/styles";
 
 export const Wrapper = styled.div`
 	background-color: rgba(0, 0, 0, 0.2);
@@ -22,16 +22,20 @@ export const Container = styled(Grid).attrs({
 	margin: auto;
 	background-color: white;
 	transition: 0.3s;
-	overflow-x: scroll;
+	overflow-x: scroll !important;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 	border-radius: 3px;
 	::-webkit-scrollbar {
-		height: 3px;
+		height: 5px;
 	}
 
-	/* Track */
 	::-webkit-scrollbar-track {
 		background: #f1f1f1;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background: ${colors.blue};
 	}
 `;
 
