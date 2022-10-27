@@ -6,6 +6,7 @@ import { Wrapper } from "./styles";
 
 const P2H = dynamic(() => import("./P2H"));
 const SayaPeduli = dynamic(() => import("./SayaPeduli"));
+const FitToWork = dynamic(() => import("./FitToWork"));
 
 const tabTitle = ["P2H", "Saya Peduli", "SAP", "Fit To Work"];
 
@@ -16,6 +17,8 @@ const renderContent = (type: string) => {
 		return <SayaPeduli />;
 	} else if (type === "SAP") {
 		return <Sap />;
+	} else if (type === "Fit To Work") {
+		return <FitToWork />;
 	}
 };
 
