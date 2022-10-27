@@ -12,7 +12,6 @@ export const TabText = styled.p`
 	align-items: center;
 	font-family: ${fontFamilies.poppins};
 	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
 	padding: 10px 0;
 	cursor: pointer;
 	&:hover {

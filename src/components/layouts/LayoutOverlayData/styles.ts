@@ -1,5 +1,6 @@
-import { Grid } from "@hudoro/neron";
+import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
+import { fontSizing } from "utils/styles";
 
 export const Wrapper = styled.div`
 	background-color: rgba(0, 0, 0, 0.2);
@@ -20,11 +21,10 @@ export const Container = styled(Grid).attrs({
 	max-width: 1000px;
 	margin: auto;
 	background-color: white;
-	padding: 20px 10px;
 	transition: 0.3s;
-	overflow: scroll;
+	overflow-x: scroll;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
+	border-radius: 3px;
 	::-webkit-scrollbar {
 		height: 3px;
 	}
@@ -33,4 +33,14 @@ export const Container = styled(Grid).attrs({
 	::-webkit-scrollbar-track {
 		background: #f1f1f1;
 	}
+`;
+
+export const Title = styled.p`
+	font-family: ${fontFamilies.poppins};
+	font-size: ${fontSizing.lg.fontSize};
+`;
+
+export const ContainerTitle = styled.div`
+	padding: 20px 10px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 `;

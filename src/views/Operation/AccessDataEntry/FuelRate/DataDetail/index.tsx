@@ -1,4 +1,4 @@
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
@@ -11,23 +11,18 @@ interface IProps {
 }
 
 export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
-	};
-
 	return (
 		<>
 			<LayoutOverlayData
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
+				title="Fuel Rate"
 			>
-				<Grid container alignItems="center" justifyContent="space-between">
-					<Text variant="h3">Fuel Rate</Text>
-					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
+				<Grid container flexDirection="column" gap={20} style={{ marginBottom: "20px" }}>
+					<LabeledInput name="date" title="Date" />
+					<LabeledInput name="rate" title="Rate" />
 				</Grid>
-				<LabeledInput name="date" title="Date" />
-				<LabeledInput name="rate" title="Rate" />
 				<StyledButton>Save</StyledButton>
 			</LayoutOverlayData>
 		</>

@@ -1,4 +1,4 @@
-import { Grid, Icon, Lozenge, Text } from "@hudoro/neron";
+import { Grid, Lozenge, Text } from "@hudoro/neron";
 import React, { useState } from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import { TabContainer, TabText } from "./styles";
@@ -13,10 +13,6 @@ const tabsData = ["Location", "Question Response"];
 export default function DataDetailTable({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const [activeTab, setActiveTab] = useState(0);
 
-	const handleCloseShowDetail = () => {
-		setIsShowDetail(false);
-	};
-
 	const handleChangeActiveTab = (id: number) => {
 		setActiveTab(id);
 	};
@@ -27,16 +23,8 @@ export default function DataDetailTable({ isShowDetail, setIsShowDetail, formPos
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
+				title="AAN FITRINSYAH"
 			>
-				<Grid
-					container
-					alignItems="center"
-					justifyContent="space-between"
-					style={{ borderBottom: "1px solid rgba(0,0,0,.1)", paddingBottom: "10px" }}
-				>
-					<Text variant="h3">AAN FITRINSYAH</Text>
-					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={handleCloseShowDetail} />
-				</Grid>
 				<Grid container justifyContent="space-around" gap={10}>
 					<Grid
 						container

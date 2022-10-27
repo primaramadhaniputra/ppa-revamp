@@ -1,9 +1,9 @@
-import { Grid, Icon, Select, Text } from "@hudoro/neron";
+import { Grid, Select } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import { inputDropDownOperation } from "utils/dummy";
-import { HeaderTextContainer, InputContainer, Styledinput, StyledLabel } from "./styles";
+import { InputContainer, Styledinput, StyledLabel } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -17,11 +17,8 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
+			title="Update Form"
 		>
-			<HeaderTextContainer>
-				<Text variant="h4">Update Form</Text>
-				<Icon iconName="IcClose" style={{ cursor: "pointer" }} />
-			</HeaderTextContainer>
 			<InputContainer>
 				<Grid container gap={10} alignItems="center">
 					<StyledLabel>NRP</StyledLabel>

@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -72,11 +72,11 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
+			title="E52015 Cycle Data"
 		>
-			<Grid container alignItems="center" justifyContent="space-between">
-				<Text variant="h3">E52015 Cycle Data</Text>
+			<Grid style={{ padding: "10px" }}>
+				<TableComponent2 table={table} />
 			</Grid>
-			<TableComponent2 table={table} styles={{ backgroundColor: "white", borderRadius: "5px" }} />
 		</LayoutOverlayData>
 	);
 }
