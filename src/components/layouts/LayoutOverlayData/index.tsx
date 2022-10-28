@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import { Grid } from "@hudoro/neron";
+import Image from "next/image";
 import { Container, ContainerTitle, Title, Wrapper } from "./styles";
 
 interface IProps {
@@ -53,6 +54,13 @@ const LayoutOverlayData = ({
 				{title && (
 					<ContainerTitle>
 						<Title>{title}</Title>
+						<Image
+							width={150}
+							height={36}
+							quality={100}
+							alt="logo"
+							src="http://ppa-mhu.net/assets/img/ss6-logo-panjang.png"
+						/>
 					</ContainerTitle>
 				)}
 				<Grid style={{ padding: "10px" }}>{children}</Grid>

@@ -1,40 +1,40 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing, fontWeights } from "utils/styles";
+import { fontSizing, fontWeights, mediaQueries } from "utils/styles";
 
 export const StyledP = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: ${fontWeights.bold};
+	font-size: ${fontSizing.md.fontSize};
+	${mediaQueries.md} {
+		font-weight: ${fontWeights.bold};
+		font-size: ${fontSizing.lg.fontSize};
+	}
+`;
+export const P = styled.p`
+	font-family: ${fontFamilies.poppins};
 	font-size: ${fontSizing.xs.fontSize};
-	min-width: 70px;
+	${mediaQueries.md} {
+		font-size: ${fontSizing.md.fontSize};
+	}
 `;
 
 export const DataContainer = styled.div`
 	display: flex;
 	gap: 10px;
-	& :nth-child(2) {
-		font-family: ${fontFamilies.poppins};
-		font-size: ${fontSizing.xs.fontSize};
-	}
+	justify-content: space-between;
 `;
 
 export const Table = styled.table`
-	border: 1px solid #1c6ea4;
-	background-color: #eeeeee;
-	width: 100%;
-	text-align: left;
-	border-collapse: collapse;
-	& td,
-	& th {
-		border: 1px solid #aaaaaa;
-		padding: 3px 2px;
-		text-align: center;
-	}
-	& tbody td {
-		font-size: 13px;
-	}
-
-	& thead {
-		background: ${colors.blueSky};
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	& td {
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		font-family: ${fontFamilies.poppins};
+		padding: 10px;
+		font-family: ${fontFamilies.poppins};
+		font-size: ${fontSizing.xs.fontSize};
+		${mediaQueries.md} {
+			font-size: ${fontSizing.md.fontSize};
+		}
 	}
 `;
