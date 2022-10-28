@@ -2,7 +2,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
 import { useSetSystemType } from "recoil/SystemType/atom";
 
-const SystemView = dynamic(() => import("views/System"));
+const SystemView = dynamic(() => import("views/System"), { ssr: false });
 
 interface IProps {
 	type: string;

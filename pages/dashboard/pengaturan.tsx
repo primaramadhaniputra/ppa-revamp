@@ -5,7 +5,7 @@ import { useSetLoginDefaultValue } from "recoil/loginDefaultValue/atom";
 import { useSetNavbarDefaultValue } from "recoil/navbarDefaultValue/atom";
 import { listPages } from "services/pages";
 
-const PengaturanView = dynamic(() => import("views/Pengaturan"));
+const PengaturanView = dynamic(() => import("views/Pengaturan"), { ssr: false });
 
 interface IProps {
 	loginDefaultValue: ISelectItem | ISelectItem[];
