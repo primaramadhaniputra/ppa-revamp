@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
 
-const ResetPasswordView = dynamic(() => import("views/ResetPassword"));
+const ResetPasswordView = dynamic(() => import("views/ResetPassword"), { ssr: false });
 
 interface IProps {
 	token: string;

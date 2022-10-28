@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
 
-const ADMView = dynamic(() => import("views/Administration"));
+const ADMView = dynamic(() => import("views/Administration"), { ssr: false });
 
 interface IProps {
 	id: string;
