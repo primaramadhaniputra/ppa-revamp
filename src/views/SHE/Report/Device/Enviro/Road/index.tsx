@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Wrapper } from "../../styles";
 
 const RoadGrade = dynamic(() => import("./RoadGrade"));
+const Distance = dynamic(() => import("./Distance"));
 
 const tabTitle = [
 	{
@@ -21,6 +22,8 @@ const tabTitle = [
 const renderContent = (type: string) => {
 	if (type === "Road Grade") {
 		return <RoadGrade />;
+	} else if (type === "Distance") {
+		return <Distance />;
 	}
 };
 
