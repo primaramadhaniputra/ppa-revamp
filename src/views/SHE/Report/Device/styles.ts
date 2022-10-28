@@ -18,8 +18,10 @@ export const WrapperTitle = styled(Grid).attrs({
 	}
 `;
 export const WrapperTable = styled(Grid)`
+	background-color: white;
+	padding: 10px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 	${mediaQueries.md} {
-		background-color: white;
 		padding: 15px 40px;
 	}
 `;

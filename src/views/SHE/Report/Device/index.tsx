@@ -1,6 +1,11 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { TitleText, Wrapper, WrapperTitle } from "./styles";
+import { Wrapper } from "./styles";
+
+const Enviro = dynamic(() => import("./Enviro"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"Road Tracking",
@@ -11,15 +16,19 @@ const tabTitle = [
 	"Enviro",
 ];
 
+const renderContet = (type: string) => {
+	if (type === "Enviro") {
+		return <Enviro />;
+	}
+};
+
 export default function Device() {
 	const [activeTab, setActiveTab] = useState(0);
 
 	return (
 		<Wrapper>
 			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<WrapperTitle>
-				<TitleText>{tabTitle[activeTab]}</TitleText>
-			</WrapperTitle>
+			{renderContet(tabTitle[activeTab])}
 		</Wrapper>
 	);
 }
