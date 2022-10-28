@@ -45,6 +45,9 @@ export const Title = styled.p`
 `;
 
 export const ContainerTitle = styled.div`
-	padding: 20px 10px;
+	padding: 10px;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `;
