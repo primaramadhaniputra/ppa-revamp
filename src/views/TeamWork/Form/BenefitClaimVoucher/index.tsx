@@ -22,6 +22,7 @@ import {
 } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
+import ShowDetail from "./ShowDetail";
 
 interface Person {
 	[x: string]: any;
@@ -56,6 +57,13 @@ export default function BenefitClaimVoucher() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isImage, setIsImage] = React.useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const handleImage = () => {
 		setIsImage(!isImage);
@@ -107,13 +115,17 @@ export default function BenefitClaimVoucher() {
 
 	return (
 		<>
+			<ShowDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			{isImage && <FormImage onclick={handleImage} />}
 			<WrapperTitle>
 				<TitleText>Benefit Claim Voucher(BCV)</TitleText>
-				<FileContainer>
-					<label htmlFor="file">+</label>
-					<label htmlFor="file">UPLOAD FILE</label>
-					<input type="file" id="file" hidden />
+				<FileContainer onClick={handleShowDetail}>
+					<label>+</label>
+					<label>Add Claim</label>
 				</FileContainer>
 			</WrapperTitle>
 			<Wrapper>

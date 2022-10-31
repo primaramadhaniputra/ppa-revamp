@@ -35,7 +35,7 @@ export default function SetRoster() {
 							<RevisiInput placeholder="Nrp" />
 						</Grid>
 						<Grid style={{ minWidth: "200px" }}>
-							<RevisiDropdown />
+							<RevisiDropdown placeholder="Roster" />
 						</Grid>
 					</Grid>
 					<Grid container gap={30} style={{ textAlign: "start", marginBottom: "20px" }}>

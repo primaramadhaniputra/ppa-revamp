@@ -41,8 +41,6 @@ export default function DateWithRange({ title, dateState, setDateState, styles }
 				name="date"
 				title={title}
 				style={{
-					backgroundColor: " #E8F0FE",
-					border: "2px solid #E8F0FE",
 					padding: "10px 10px",
 				}}
 				value={`${convert(dateState[0].startDate)} ~ ${convert(dateState[0].endDate)}`}

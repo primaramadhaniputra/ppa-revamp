@@ -27,6 +27,7 @@ export const Container = styled(Grid).attrs({
 	border-radius: 3px;
 	::-webkit-scrollbar {
 		height: 5px;
+		width: 3px;
 	}
 
 	::-webkit-scrollbar-track {

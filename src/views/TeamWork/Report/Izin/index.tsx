@@ -17,6 +17,7 @@ import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from 
 import CompleteArrow from "atoms/CompleteArrow";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
+import RevisiDropdown from "atoms/RevisiDropdown";
 
 interface IProps {
 	[x: string]: any;
@@ -106,10 +107,14 @@ export default function Izin() {
 				formPosition={formPosition}
 			/>
 			<Wrapper>
-				<WrapperTitle style={{ margin: "20px 0 30px" }}>
+				<WrapperTitle>
 					<TitleText>Report Izin</TitleText>
 				</WrapperTitle>
-				<TopFilter />
+				<TopFilter>
+					<Grid>
+						<RevisiDropdown placeholder="Status" />
+					</Grid>
+				</TopFilter>
 				<WrapperTable>
 					<TableFilterSearch
 						table={table}

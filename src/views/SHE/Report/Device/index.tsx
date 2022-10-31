@@ -6,6 +6,9 @@ import { Wrapper } from "./styles";
 const Enviro = dynamic(() => import("./Enviro"), {
 	ssr: false,
 });
+const RoadTracking = dynamic(() => import("./RoadTracking"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"Road Tracking",
@@ -19,6 +22,8 @@ const tabTitle = [
 const renderContet = (type: string) => {
 	if (type === "Enviro") {
 		return <Enviro />;
+	} else if (type === "Road Tracking") {
+		return <RoadTracking />;
 	}
 };
 
