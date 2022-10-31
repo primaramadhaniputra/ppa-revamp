@@ -13,6 +13,8 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { Grid, Icon } from "@hudoro/neron";
+import { notify } from "utils/functions";
 
 interface Person {
 	[x: string]: any;
@@ -38,10 +40,29 @@ export default function Database() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
+	const handleKillProccess = () => {
+		if (confirm("are you sure dude")) {
+			return notify("okey", "success");
+		}
+	};
+
 	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) => info.getValue(),
+			cell: (info) => {
+				return info.column.id === "Action" ? (
+					<Grid
+						container
+						justifyContent="center"
+						style={{ cursor: "pointer" }}
+						onClick={handleKillProccess}
+					>
+						<Icon iconName="IcClose" size={12} />
+					</Grid>
+				) : (
+					info.getValue()
+				);
+			},
 			header: (data) => {
 				return (
 					<ThItemContainer key={index}>

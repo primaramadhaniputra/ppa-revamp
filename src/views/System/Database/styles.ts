@@ -11,6 +11,6 @@ export const Wrapper = styled(Card)`
 	${mediaQueries.sm} {
 		background-color: white;
 		padding: 20px;
-		box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 	}
 `;
