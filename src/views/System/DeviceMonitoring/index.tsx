@@ -10,9 +10,11 @@ import {
 } from "@tanstack/react-table";
 import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
-import TopFilter from "./TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer } from "../styles";
+import TopFilter from "src/components/organism/TopFilter";
+import StyledDropdownMenu from "molecules/StyledDropdownMenu";
+import { Grid } from "@hudoro/neron";
 
 interface Person {
 	[x: string]: any;
@@ -30,11 +32,14 @@ export const defaultDataTable = [
 	},
 ];
 
+const data = ["a", "b", "c"];
+
 export default function DeviceMonitoring() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [activeDropDown, setactiveDropDown] = React.useState([]);
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
 		return {
@@ -73,17 +78,29 @@ export default function DeviceMonitoring() {
 	};
 
 	return (
-		<Container>
-			<TopFilter />
-			<TableFilterSearch
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-				withButton={false}
-				buttonTitle="EXPORT"
-			/>
-			<TableComponent2 table={table} />
-		</Container>
+		<>
+			<TopFilter>
+				<Grid style={{ flex: 1 }} container>
+					<StyledDropdownMenu
+						title="Status"
+						activeDropdown={activeDropDown}
+						setActiveDropdown={setactiveDropDown}
+						data={data}
+					/>
+				</Grid>
+			</TopFilter>
+			<Container>
+				{/* <TopFilter /> */}
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</Container>
+		</>
 	);
 }

@@ -5,7 +5,7 @@ import { colors, fontSizing, fontWeights } from "utils/styles";
 export const Wrapper = styled(Card)`
 	width: 100%;
 	margin: auto;
-	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 `;
 export const DonatContainer = styled.div`
 	max-width: 450px;

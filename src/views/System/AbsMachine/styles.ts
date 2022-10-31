@@ -7,7 +7,7 @@ export const Container = styled.div`
 	padding: 0;
 	${mediaQueries.sm} {
 		padding: 20px;
-		box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 		background-color: white;
 	}
 `;
