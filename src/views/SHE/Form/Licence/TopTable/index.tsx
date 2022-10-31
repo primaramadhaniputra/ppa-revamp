@@ -61,16 +61,7 @@ export default function TopTable() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer
-						key={index}
-						style={{
-							gap: "10px",
-							backgroundColor: colors.primary,
-							width: "100%",
-							color: "white",
-							padding: "10px 0",
-						}}
-					>
+					<ThItemContainer key={index}>
 						<span>{item}</span>
 					</ThItemContainer>
 				);
@@ -101,7 +92,12 @@ export default function TopTable() {
 				}}
 				top={formPosition}
 			/>
-			<TableComponent2 table={table} noPagination={true} />
+			<TableComponent2
+				table={table}
+				noPagination={true}
+				tableTheadStyles={{ backgroundColor: colors.primary, color: "white" }}
+				tableThStyles={{ padding: "20px 5px" }}
+			/>
 		</>
 	);
 }

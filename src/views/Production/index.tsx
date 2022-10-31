@@ -1,7 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import Loading from "atoms/Loading";
 import TitlePage from "atoms/TitlePage";
-// import FilteredDate from "molecules/FilteredDate";
 import React, { useEffect, useState } from "react";
 import { getAllSiteProduction } from "services/production";
 import { convert, notify } from "utils/functions";
@@ -94,7 +93,6 @@ export default function Production() {
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
 				Production / Report
 			</TitlePage>
-			{/* <FilteredDate /> */}
 			<TopFilter
 				activeTabs={activeTabs}
 				setActiveTabs={setActiveTabs}
