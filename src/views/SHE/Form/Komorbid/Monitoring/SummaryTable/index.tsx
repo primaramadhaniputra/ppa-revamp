@@ -13,6 +13,7 @@ import ShowDetail from "./ShowDetail";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import { ThItemContainer } from "views/SHE/Form/styles";
+import { colors } from "utils/styles";
 
 interface IProps {
 	[x: string]: any;
@@ -90,7 +91,11 @@ export default function SummaryTable() {
 				}}
 				top={formPosition}
 			/>
-			<TableComponent2 table={table} noPagination={true} />
+			<TableComponent2
+				table={table}
+				noPagination={true}
+				tableTheadStyles={{ backgroundColor: colors.primary, color: "white" }}
+			/>
 		</>
 	);
 }
