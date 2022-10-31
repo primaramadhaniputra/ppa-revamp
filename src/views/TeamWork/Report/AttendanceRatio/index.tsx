@@ -1,6 +1,6 @@
 import { Grid, Text } from "@hudoro/neron";
 import React from "react";
-import { colors, fontWeights } from "utils/styles";
+import { fontWeights } from "utils/styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -10,8 +10,6 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { IcEdit } from "atoms/Icon";
-// import TopFilter from "./TopFilter";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
@@ -33,15 +31,27 @@ const tabTitle = ["Individual", "Department", "Manpower", "YTD"];
 
 export const defaultDataTable = [
 	{
-		NRP: "HD787",
-		Name: "Hd123",
-		Date: `33`,
-		Code: "2022-17-08",
-		In: "2022-17-08",
-		Out: "2022-17-08 02:12:12",
-		Job: "2022-17-08 02:12:12",
-		Pos: "2022-17-08 02:12:12",
-		Act: "2022-17-08 02:12:12",
+		["Nrp"]: "-",
+		["Name"]: "-",
+		["Dept"]: "-",
+		["Posisi"]: "-",
+		["Comp"]: "-",
+		["D"]: "-",
+		["N"]: "-",
+		["IO"]: "-",
+		["NC"]: "-",
+		["L"]: "-",
+		["T"]: "-",
+		["O"]: "-",
+		["S"]: "-",
+		["I"]: "-",
+		["A"]: "-",
+		["K"]: "-",
+		["P"]: "-",
+		["R"]: "-",
+		["H"]: "-",
+		["NR"]: "-",
+		["ATR"]: "-",
 	},
 ];
 
@@ -55,15 +65,7 @@ export default function AttendanceRatio() {
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) => {
-				return info.column.id === "Act" ? (
-					<Grid>
-						<IcEdit width={20} style={{ cursor: "pointer" }} color={colors.blue} />
-					</Grid>
-				) : (
-					info.getValue()
-				);
-			},
+			cell: (info) => info.getValue(),
 			header: (data) => {
 				return (
 					<ThItemContainer key={index}>

@@ -1,4 +1,4 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, Lozenge } from "@hudoro/neron";
 import React from "react";
 import {
 	ColumnDef,
@@ -50,23 +50,29 @@ export default function SuratPelanggaran() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
+	const renderText = (type: any) => {
+		if (type.column.id === "Detail") {
+			return (
+				<Grid container justifyContent="center" gap={30}>
+					<IcEye
+						width={20}
+						style={{ cursor: "pointer" }}
+						onClick={handleShowDetail}
+						color={colors.blue}
+					/>
+				</Grid>
+			);
+		} else if (type.column.id === "Status") {
+			return <Lozenge label={type.getValue()} variant="primary-strong" />;
+		} else {
+			return type.getValue();
+		}
+	};
+
 	const columns: ColumnDef<IProps>[] = objTitle.map((item) => {
 		return {
 			accessorKey: item,
-			cell: (info) => {
-				return item === "Detail" ? (
-					<Grid container justifyContent="center" gap={30}>
-						<IcEye
-							width={20}
-							style={{ cursor: "pointer" }}
-							onClick={handleShowDetail}
-							color={colors.blue}
-						/>
-					</Grid>
-				) : (
-					info.getValue()
-				);
-			},
+			cell: (info) => renderText(info),
 			header: () => (
 				<ThItemContainer>
 					<span>{item}</span>

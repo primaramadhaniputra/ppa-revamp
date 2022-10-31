@@ -24,12 +24,7 @@ export default function TopFilter({
 }: IProps) {
 	return (
 		<WrapperDate>
-			<Grid
-				container
-				gap={5}
-				alignItems="flex-end"
-				style={{ height: "44px", justifyContent: "end" }}
-			>
+			<Grid container gap={5} alignItems="center" style={{ height: "44px", justifyContent: "end" }}>
 				<Text variant="h4" style={{ fontSize: "14px" }}>
 					TC
 				</Text>
@@ -52,7 +47,12 @@ export default function TopFilter({
 				))}
 			</TabsContainer>
 			<Grid container>
-				<DateWithRange dateState={date} setDateState={setDate} title="Date" />
+				<DateWithRange
+					dateState={date}
+					setDateState={setDate}
+					title="Date"
+					styles={{ backgroundColor: "transparent" }}
+				/>
 			</Grid>
 		</WrapperDate>
 	);

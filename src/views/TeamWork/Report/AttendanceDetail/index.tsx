@@ -20,20 +20,20 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+const arr = new Array(1).fill(0);
+export const defaultDataTable = arr.map(() => {
 	return {
-		NRP: "HD787",
-		Nama: "Hd123",
-		Tanggal: `33${index}`,
-		In: "2022-17-08",
-		Out: "2022-17-08",
-		Job: "2022-17-08 02:12:12",
-		Dep: "2022-17-08 02:12:12",
-		Company: "2022-17-08 02:12:12",
-		Code: "2022-17-08 02:12:12",
-		Device: "2022-17-08 02:12:12",
-		Owner: "2022-17-08 02:12:12",
+		NRP: "-",
+		Nama: "-",
+		Tanggal: `-`,
+		In: "-",
+		Out: "-",
+		Job: "-",
+		Dep: "-",
+		Company: "-",
+		Code: "-",
+		Device: "-",
+		Owner: "-",
 	};
 });
 
@@ -85,7 +85,7 @@ export default function AttendanceDetail() {
 			</WrapperTitle>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Loader" />
+					<RevisiDropdown placeholder="Dept" />
 				</Grid>
 			</TopFilter>
 			<WrapperTable>

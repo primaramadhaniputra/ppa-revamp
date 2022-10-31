@@ -10,11 +10,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import DataDetail from "./DataDetail";
 
 interface Person {
 	[x: string]: any;
@@ -44,9 +44,11 @@ export default function OperatorHours() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleShowDetail = () => {
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
 	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
@@ -92,22 +94,28 @@ export default function OperatorHours() {
 		table.setPageSize(e.target.value);
 	};
 	return (
-		<Wrapper>
-			{isShowDetail && <ShowDetail onclick={() => setIsShowDetail(false)} />}
-			<WrapperTitle>
-				<TitleText>Operator Hours</TitleText>
-			</WrapperTitle>
-			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+		<>
+			<DataDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
+			<Wrapper>
+				<WrapperTitle>
+					<TitleText>Operator Hours</TitleText>
+				</WrapperTitle>
+				<WrapperTable>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={false}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2 table={table} />
+				</WrapperTable>
+			</Wrapper>
+		</>
 	);
 }

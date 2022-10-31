@@ -111,7 +111,7 @@ export default function UpdateRoster() {
 			</WrapperTitle>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Loader" />
+					<RevisiDropdown placeholder="Name" />
 				</Grid>
 			</TopFilter>
 			<Wrapper>

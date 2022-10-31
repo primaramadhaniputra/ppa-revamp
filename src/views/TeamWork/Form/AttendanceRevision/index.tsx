@@ -27,13 +27,13 @@ interface Person {
 
 export const defaultDataTable = [
 	{
-		NRP: "HD787",
-		Name: "Hd123",
-		Date: `33`,
-		In: "2022-17-08",
-		Out: "2022-17-08",
-		Status: "2022-17-08 02:12:12",
-		["Revision Date"]: "2022-17-08 02:12:12",
+		NRP: "-",
+		Name: "-",
+		Date: `-`,
+		In: "-",
+		Out: "-",
+		Status: "-",
+		["Revision Date"]: "-",
 	},
 ];
 

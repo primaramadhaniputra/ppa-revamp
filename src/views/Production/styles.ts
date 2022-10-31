@@ -9,6 +9,7 @@ export const WrapperDate = styled(Grid).attrs({
 	margin-top: 30px;
 	flex-direction: column;
 	gap: 15px;
+	align-items: center;
 	${mediaQueries.lg} {
 		flex-direction: row;
 	}
