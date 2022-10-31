@@ -4,7 +4,6 @@ import TitlePage from "atoms/TitlePage";
 import React, { useEffect, useState } from "react";
 import { getProfile } from "services/users";
 import { fontSizing } from "utils/styles";
-import { Wrapper } from "./styles";
 
 export default function Profile() {
 	const [users, setUsers] = useState({
@@ -26,7 +25,7 @@ export default function Profile() {
 	}, []);
 
 	return (
-		<Wrapper>
+		<>
 			<TitlePage type="h4" styles={{ fontSize: fontSizing.xl.fontSize, marginBottom: "30px" }}>
 				Profile
 			</TitlePage>
@@ -48,6 +47,6 @@ export default function Profile() {
 					</Grid>
 				</Grid>
 			</Grid>
-		</Wrapper>
+		</>
 	);
 }
