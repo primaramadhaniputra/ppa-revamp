@@ -2,7 +2,6 @@ import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { fontWeights } from "utils/styles";
-import TopFilter from "../TopFilter";
 
 import {
 	ColumnDef,
@@ -15,7 +14,6 @@ import {
 } from "@tanstack/react-table";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
 import DateText from "atoms/DateText";
 
 interface Person {
@@ -110,9 +108,6 @@ export default function YTD() {
 				</Text>
 				<DateText />
 			</Grid>
-			<FilterLayouts>
-				<TopFilter noDept={true} noDate={true} doubleSelect={true} styles={{ marginBottom: 40 }} />
-			</FilterLayouts>
 			<TableComponent2 table={table} noPagination={true} withFooter={true} />
 		</>
 	);

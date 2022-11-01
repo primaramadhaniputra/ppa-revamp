@@ -1,45 +1,56 @@
-import React from "react";
-import TableComponent2 from "src/components/organism/TableComp2";
+import { Grid } from "@hudoro/neron";
 import {
 	ColumnDef,
 	getCoreRowModel,
 	getFilteredRowModel,
 	getPaginationRowModel,
-	useReactTable,
-	SortingState,
 	getSortedRowModel,
+	SortingState,
+	useReactTable,
 } from "@tanstack/react-table";
-import TopFilter from "src/components/organism/TopFilter";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
+import RevisiDropdown from "atoms/RevisiDropdown";
+import StyledDropdownMenu from "molecules/StyledDropdownMenu";
+import React from "react";
+import TableComponent2 from "src/components/organism/TableComp2";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import TopFilter from "src/components/organism/TopFilter";
 import { ThItemContainer } from "views/SHE/Report/styles";
 import { WrapperTable } from "../../../styles";
 import { TableWrapper } from "../styles";
-import RevisiDropdown from "atoms/RevisiDropdown";
-import { Grid } from "@hudoro/neron";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Transaction ID"]: "AMM02/FLO/2210/FUEL/02592",
-		["Unit"]: "AMM63",
-		["Date"]: "10-03",
-		["Sft"]: "1",
-		["Time"]: "10:45:40",
-		["Vol"]: "15,0",
-		["HM"]: "-",
-		["FT"]: "POM01",
+		["CN"]: "-",
+		["Model"]: "-",
+		["Break Coolant"]: "-",
+		["Damper"]: "-",
+		["Differential"]: "-",
+		["Engine"]: "-",
+		["Final Drive"]: "-",
+		["Hydroulic"]: "-",
+		["Power Take Off"]: "-",
+		["Swing Circle"]: "-",
+		["Swing Machinery"]: "-",
+		["Tandem"]: "-",
+		["Transmission"]: "-",
+		["Black"]: "-",
+		["Total"]: "-",
 	};
 });
+
+const dataDummy = ["a", "b", "c"];
 
 export default function Detail() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
+	const [activeDropdown, setActiveDropdown] = React.useState([]);
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -79,7 +90,12 @@ export default function Detail() {
 		<TableWrapper>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Model" />
+					<StyledDropdownMenu
+						title="Model"
+						activeDropdown={activeDropdown}
+						setActiveDropdown={setActiveDropdown}
+						data={dataDummy}
+					/>
 				</Grid>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Material" />

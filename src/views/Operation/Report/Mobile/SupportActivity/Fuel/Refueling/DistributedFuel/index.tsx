@@ -9,36 +9,26 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import TopFilter from "src/components/organism/TopFilter";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
-import { WrapperTable } from "../../../styles";
-import { Grid } from "@hudoro/neron";
-import RevisiDropdown from "atoms/RevisiDropdown";
+import { TitleText, WrapperTable, WrapperTitle } from "../../../../styles";
+import { TableWrapper } from "../../styles";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["NRP"]: "-",
-		["Nama"]: "-",
-		["Perusahaan"]: "-",
-		["Dept"]: "-",
-		["Posisi"]: "-",
-		["Checkin"]: "-",
-		["P2H"]: "-",
-		["Achievement"]: "-",
+		["FT"]: "-",
+		["Volume"]: "-",
 	};
 });
 
-export default function P2H() {
+export default function DistributedFuel() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -59,7 +49,6 @@ export default function P2H() {
 		state: {
 			sorting,
 			rowSelection,
-			globalFilter,
 		},
 		onSortingChange: setSorting,
 		onRowSelectionChange: setRowSelection,
@@ -69,29 +58,14 @@ export default function P2H() {
 		debugTable: true,
 		getSortedRowModel: getSortedRowModel(),
 	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
-
 	return (
-		<>
-			<TopFilter>
-				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Dept" />
-				</Grid>
-			</TopFilter>
+		<TableWrapper>
+			<WrapperTitle>
+				<TitleText>Distributed Fuel</TitleText>
+			</WrapperTitle>
 			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<TableComponent2 table={table} noPagination={true} />
 			</WrapperTable>
-		</>
+		</TableWrapper>
 	);
 }

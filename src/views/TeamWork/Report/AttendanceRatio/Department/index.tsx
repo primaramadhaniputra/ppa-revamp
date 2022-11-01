@@ -1,7 +1,5 @@
 import { Grid } from "@hudoro/neron";
-import RevisiDropdown from "atoms/RevisiDropdown";
 import React, { useState } from "react";
-import TopFilter from "src/components/organism/TopFilter";
 import ChartComponent from "./Chart";
 import Detail from "./Detail";
 import { TabsContainer, StyledText, DepartmentText } from "./styles";
@@ -31,14 +29,6 @@ export default function Department() {
 					))}
 				</TabsContainer>
 			</Grid>
-			<TopFilter>
-				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Loader" />
-				</Grid>
-				<Grid style={{ minWidth: "200px" }}>
-					<RevisiDropdown placeholder="Loader" />
-				</Grid>
-			</TopFilter>
 			{activeTab === 0 ? <ChartComponent /> : <Detail />}
 		</>
 	);

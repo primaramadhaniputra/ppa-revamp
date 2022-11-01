@@ -1,7 +1,6 @@
 import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { TitleText, WrapperTitle } from "../styles";
 
 const Transportation = dynamic(() => import("./Transportation"));
 const Lube = dynamic(() => import("./Lube"));
@@ -25,9 +24,6 @@ export default function SupportActivity() {
 	return (
 		<>
 			<TabV3 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<WrapperTitle>
-				<TitleText>{tabTitle[activeTab]}</TitleText>
-			</WrapperTitle>
 			{renderContent(tabTitle[activeTab])}
 		</>
 	);
