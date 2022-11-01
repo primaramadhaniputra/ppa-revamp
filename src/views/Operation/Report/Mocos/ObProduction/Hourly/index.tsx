@@ -5,15 +5,17 @@ import { Wrapper } from "./styles";
 
 const VHMS = dynamic(() => import("./Vhms"));
 const CCR = dynamic(() => import("./ccr"));
+const FmsDt = dynamic(() => import("./FmsDt"));
 
 const tabs = ["CCR", "VHMS", "FMS DT", "FMS HD"];
 
 const renderContent = (type: string) => {
 	if (type === "CCR") {
 		return <CCR />;
-	}
-	if (type === "VHMS") {
+	} else if (type === "VHMS") {
 		return <VHMS />;
+	} else if (type === "FMS DT") {
+		return <FmsDt />;
 	}
 };
 
