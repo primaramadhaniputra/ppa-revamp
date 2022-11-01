@@ -22,17 +22,29 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Transaction ID"]: "AMM02/FLO/2210/FUEL/02592",
-		["Unit"]: "AMM63",
-		["Date"]: "10-03",
-		["Sft"]: "1",
-		["Time"]: "10:45:40",
-		["Vol"]: "15,0",
+		["Transaction ID"]: "-",
+		["Date"]: "-",
+		["Plant"]: "-",
+		["Unit"]: "-",
 		["HM"]: "-",
-		["FT"]: "POM01",
+		["Sft"]: "-",
+		["Mechanic"]: "-",
+		["LT"]: "-",
+		["Loc"]: "-",
+		["Oil & Grease type"]: "-",
+		["Component"]: "-",
+		["Position"]: "-",
+		["Qty"]: "-",
+		["Uom"]: "-",
+		["Status"]: "-",
+		["Wo"]: "-",
+		["Input By"]: "-",
+		["Created"]: "-",
+		["#"]: "-",
+		["Updated By"]: "-",
 	};
 });
 

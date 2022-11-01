@@ -14,6 +14,7 @@ export const Container = styled(Card)`
 	overflow: hidden;
 	width: 100%;
 	box-shadow: 0px 1px 3px ${colors.blue};
+	cursor: pointer;
 	${mediaQueries.lg} {
 		width: auto;
 	}

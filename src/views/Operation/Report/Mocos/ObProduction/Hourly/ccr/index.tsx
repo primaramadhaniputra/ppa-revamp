@@ -16,31 +16,31 @@ import TopFilter from "src/components/organism/TopFilter";
 // import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
-import DisplayChart from "./DisplayChart";
 import { exportFile } from "utils/functions";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import DataDetail from "./DataDetail";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		LOADER: "123",
-		["06"]: "123",
-		["07"]: `123`,
-		["08"]: "123",
-		["09"]: "123",
-		["10"]: "123",
-		["11"]: "123",
-		["12"]: "123",
-		["13"]: "123",
-		["14"]: "123",
-		["15"]: "123",
-		["16"]: "123",
-		["17"]: "123",
-		["TOTAL"]: "123",
+		LOADER: "-",
+		["06"]: "-",
+		["07"]: `-`,
+		["08"]: "-",
+		["09"]: "-",
+		["10"]: "-",
+		["11"]: "-",
+		["12"]: "-",
+		["13"]: "-",
+		["14"]: "-",
+		["15"]: "-",
+		["16"]: "-",
+		["17"]: "-",
+		["TOTAL"]: "-",
 	};
 });
 
@@ -53,7 +53,13 @@ export default function CCR() {
 		// setGlobalFilter
 	] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isChart, setisChart] = React.useState(false);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
@@ -107,14 +113,13 @@ export default function CCR() {
 	// const handleChangeTotalShowData = (e: { target: { value: number } }) => {
 	//   table.setPageSize(e.target.value);
 	// };
-
-	const handleShowChart = () => {
-		setisChart(true);
-	};
-
 	return (
 		<>
-			{isChart && <DisplayChart setisChart={setisChart} />}
+			<DataDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Shift" />
@@ -134,7 +139,7 @@ export default function CCR() {
 				</Grid>
 				<ShowChartWrapper>
 					<Grid>
-						<StyledButton onClick={handleShowChart}>Show Chart</StyledButton>
+						<StyledButton onClick={handleShowDetail}>Show Chart</StyledButton>
 					</Grid>
 					<Grid>
 						<StyledButton style={{ backgroundColor: colors.borderBlue }} onClick={exportFile}>

@@ -13,31 +13,30 @@ import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
-import { WrapperTable } from "../../../styles";
-import { PointContainer, PointDesc, PointValue } from "./styles";
-import { Grid } from "@hudoro/neron";
+import { TitleText, WrapperTable, WrapperTitle } from "../../../../styles";
+import { TableWrapper } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import { Grid } from "@hudoro/neron";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["NRP"]: "-",
-		["Nama"]: "-",
-		["Dept"]: "-",
-		["Posisi"]: "-",
-		["True"]: "-",
-		["False"]: "-",
-		["Total"]: "-",
-		["Ach"]: "-",
-		["Point"]: "-",
+		["Transaction ID"]: "-",
+		["Unit"]: "-",
+		["Date"]: "-",
+		["Sft"]: "-",
+		["Time"]: "-",
+		["Vol"]: "-",
+		["HM"]: "-",
+		["FT"]: "-",
 	};
 });
 
-export default function TimeSheet() {
+export default function RefuellingTransaction() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -77,12 +76,15 @@ export default function TimeSheet() {
 	};
 
 	return (
-		<>
+		<TableWrapper>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Shift" />
 				</Grid>
 			</TopFilter>
+			<WrapperTitle>
+				<TitleText>Refueling Transaction</TitleText>
+			</WrapperTitle>
 			<WrapperTable>
 				<TableFilterSearch
 					table={table}
@@ -92,26 +94,8 @@ export default function TimeSheet() {
 					withButton={true}
 					buttonTitle="EXPORT"
 				/>
-				<Grid container gap={10} style={{ marginBottom: "15px" }}>
-					<PointContainer>
-						<PointDesc>Point : 100</PointDesc>
-						<PointValue>Istimewa</PointValue>
-					</PointContainer>
-					<PointContainer>
-						<PointDesc>Point : 90</PointDesc>
-						<PointValue style={{ backgroundColor: "#605CA8" }}>Baik Sekali</PointValue>
-					</PointContainer>
-					<PointContainer>
-						<PointDesc>Point : 80</PointDesc>
-						<PointValue style={{ backgroundColor: "#3C8DBC" }}>Baik</PointValue>
-					</PointContainer>
-					<PointContainer>
-						<PointDesc>Point : 70</PointDesc>
-						<PointValue style={{ backgroundColor: "#F39C12" }}>Butuh Perbaikan</PointValue>
-					</PointContainer>
-				</Grid>
 				<TableComponent2 table={table} />
 			</WrapperTable>
-		</>
+		</TableWrapper>
 	);
 }

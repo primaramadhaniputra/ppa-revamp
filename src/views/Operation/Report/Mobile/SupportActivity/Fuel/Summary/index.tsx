@@ -20,15 +20,15 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["FT"]: "FT2501PPA",
-		["Flowmeter"]: "170.690",
-		["Refueling"]: "170.690",
+		["FT"]: "-",
+		["Flowmeter"]: "-",
+		["Refueling"]: "-",
 		["Tranfer"]: "-",
 		["Flushing"]: "-",
-		["Devisi"]: "0",
+		["Devisi"]: "-",
 	};
 });
 

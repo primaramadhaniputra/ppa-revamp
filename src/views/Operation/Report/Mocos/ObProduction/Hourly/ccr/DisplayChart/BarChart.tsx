@@ -14,11 +14,9 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export const options = {
 	plugins: {
-		title: {
-			display: true,
-		},
 		legend: {
 			position: "bottom" as const,
+			display: false,
 		},
 	},
 	responsive: true,

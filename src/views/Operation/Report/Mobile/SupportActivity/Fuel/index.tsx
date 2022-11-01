@@ -1,13 +1,28 @@
-import TabV4 from "molecules/TabV4";
+import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { Wrapper } from "./styles";
 
 const Summary = dynamic(() => import("./Summary"));
 const Refueling = dynamic(() => import("./Refueling"));
 const Flowmeter = dynamic(() => import("./Flowmeter"));
 
-const tabText = ["SUMMARY", "REFUELING", "FLOWMETER"];
+const selectData = [
+	{
+		id: "0",
+		label: "SUMMARY",
+		values: "SUMMARY",
+	},
+	{
+		id: "1",
+		label: "REFUELING",
+		values: "REFUELING",
+	},
+	{
+		id: "2",
+		label: "FLOWMETER",
+		values: "FLOWMETER",
+	},
+];
 
 const renderContent = (type: string) => {
 	if (type === "SUMMARY") {
@@ -20,12 +35,18 @@ const renderContent = (type: string) => {
 };
 
 export default function Fuel() {
-	const [activeTab, setActiveTab] = useState(0);
+	const [activeTab, setActiveTab] = useState("SUMMARY");
+
+	const handleChange = (e: ISelectItem | ISelectItem[] | null) => {
+		setActiveTab(e?.values);
+	};
 
 	return (
-		<Wrapper>
-			<TabV4 tabText={tabText} activeTab={activeTab} setActiveTab={setActiveTab} />
-			{renderContent(tabText[activeTab])}
-		</Wrapper>
+		<>
+			<Grid style={{ maxWidth: "250px", margin: "20px auto 0" }}>
+				<Select items={selectData} defaultValue={selectData[0]} onChange={handleChange} />
+			</Grid>
+			{renderContent(activeTab)}
+		</>
 	);
 }
