@@ -10,8 +10,10 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import DateText from "atoms/DateText";
+import TitleText from "atoms/TitleText";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { Grid } from "@hudoro/neron";
 
 interface Person {
 	[x: string]: any;
@@ -83,12 +85,14 @@ export default function SelfAttendance() {
 		getSortedRowModel: getSortedRowModel(),
 	});
 	return (
-		<Wrapper>
-			<WrapperTitle>
-				<TitleText>Self Attendance</TitleText>
-				<DateText />
-			</WrapperTitle>
-			<WrapperTable>
+		<>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>Self Attendance</TitleText>
+					<DateText />
+				</Grid>
+			</LayoutTable>
+			<LayoutTable>
 				<TableTitle variant="h4">Self Attendance</TableTitle>
 				<TableComponent2 table={table} noPagination={true} />
 				<WrapperStatus>
@@ -105,7 +109,7 @@ export default function SelfAttendance() {
 						<StatusText>Rejected</StatusText>
 					</BoxContainer>
 				</WrapperStatus>
-			</WrapperTable>
-		</Wrapper>
+			</LayoutTable>
+		</>
 	);
 }

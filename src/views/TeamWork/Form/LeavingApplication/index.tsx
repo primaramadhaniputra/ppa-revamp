@@ -13,9 +13,10 @@ import {
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface Person {
 	[x: string]: any;
@@ -156,26 +157,26 @@ export default function LeavingApplication() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<WrapperTitle>
-				<TitleText>Leaving Application</TitleText>
-				<FileContainer>
-					<label htmlFor="file">Leave Application</label>
-					<input type="file" id="file" hidden />
-				</FileContainer>
-			</WrapperTitle>
-			<Wrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>Leaving Application</TitleText>
+					<FileContainer>
+						<label htmlFor="file">Leave Application</label>
+						<input type="file" id="file" hidden />
+					</FileContainer>
+				</Grid>
+			</LayoutTable>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

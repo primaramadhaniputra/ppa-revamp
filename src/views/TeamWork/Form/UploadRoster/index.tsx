@@ -10,15 +10,11 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import {
-	FileContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-	THContainer,
-} from "../styles";
+import { FileContainer, THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { Grid } from "@hudoro/neron";
+import TitleText from "atoms/TitleText";
 
 interface Person {
 	[x: string]: any;
@@ -77,27 +73,27 @@ export default function UploadRoster() {
 	};
 	return (
 		<>
-			<WrapperTitle>
-				<TitleText>Upload Roster</TitleText>
-				<FileContainer>
-					<label htmlFor="file"> +</label>
-					<label htmlFor="file"> UPLOAD FILE</label>
-					<input type="file" id="file" hidden />
-				</FileContainer>
-			</WrapperTitle>
-			<Wrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>Upload Roster</TitleText>
+					<FileContainer>
+						<label htmlFor="file"> +</label>
+						<label htmlFor="file"> UPLOAD FILE</label>
+						<input type="file" id="file" hidden />
+					</FileContainer>
+				</Grid>
+			</LayoutTable>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

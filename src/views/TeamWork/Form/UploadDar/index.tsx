@@ -1,17 +1,20 @@
+import { Grid } from "@hudoro/neron";
+import TitleText from "atoms/TitleText";
 import React from "react";
-import { FileContainer, TitleText, Wrapper, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { FileContainer } from "../styles";
 
 export default function UploadDar() {
 	return (
-		<Wrapper>
-			<WrapperTitle>
+		<LayoutTable style={{ marginTop: "10px" }}>
+			<Grid container alignItems="center" justifyContent="space-between">
 				<TitleText>Upload DAR</TitleText>
 				<FileContainer>
 					<label htmlFor="file"> +</label>
 					<label htmlFor="file"> UPLOAD FILE</label>
 					<input type="file" id="file" hidden />
 				</FileContainer>
-			</WrapperTitle>
-		</Wrapper>
+			</Grid>
+		</LayoutTable>
 	);
 }

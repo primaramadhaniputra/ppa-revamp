@@ -12,17 +12,13 @@ import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import {
-	FileContainer,
-	THContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-} from "../styles";
+import { FileContainer, THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
 import ShowDetail from "./ShowDetail";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
+import { Grid } from "@hudoro/neron";
 
 interface Person {
 	[x: string]: any;
@@ -30,24 +26,24 @@ interface Person {
 
 export const defaultDataTable = [
 	{
-		["Perusahaan"]: "HD787",
-		["Approver"]: "Hd123",
-		["Status item"]: `331`,
-		["Tgl.Claim"]: "2022-17-08",
-		["Tgl.Kwitansi"]: "2022-17-08",
-		["No.Claim"]: "2022-17-08 02:12:12",
-		["No.Item"]: "2022-17-08 02:12:12",
-		["Employee"]: "2022-17-08 02:12:12",
-		["Jabatan"]: "2022-17-08 02:12:12",
-		["Dept"]: "2022-17-08 02:12:12",
-		["Nama Pasien"]: "2022-17-08 02:12:12",
-		["Kode hub"]: "2022-17-08 02:12:12",
-		["Kode Klaim"]: "2022-17-08 02:12:12",
-		["Jumlah(RP.)"]: "2022-17-08 02:12:12",
-		["File"]: "",
-		["Vendor"]: "",
-		["Modified Date"]: "",
-		["Transferred Date"]: "",
+		["Perusahaan"]: "-",
+		["Approver"]: "-",
+		["Status item"]: `-`,
+		["Tgl.Claim"]: "-",
+		["Tgl.Kwitansi"]: "-",
+		["No.Claim"]: "-",
+		["No.Item"]: "-",
+		["Employee"]: "-",
+		["Jabatan"]: "-",
+		["Dept"]: "-",
+		["Nama Pasien"]: "-",
+		["Kode hub"]: "-",
+		["Kode Klaim"]: "-",
+		["Jumlah(RP.)"]: "-",
+		["File"]: "-",
+		["Vendor"]: "-",
+		["Modified Date"]: "-",
+		["Transferred Date"]: "-",
 	},
 ];
 
@@ -121,26 +117,26 @@ export default function BenefitClaimVoucher() {
 				formPosition={formPosition}
 			/>
 			{isImage && <FormImage onclick={handleImage} />}
-			<WrapperTitle>
-				<TitleText>Benefit Claim Voucher(BCV)</TitleText>
-				<FileContainer onClick={handleShowDetail}>
-					<label>+</label>
-					<label>Add Claim</label>
-				</FileContainer>
-			</WrapperTitle>
-			<Wrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>Benefit Claim Voucher(BCV)</TitleText>
+					<FileContainer onClick={handleShowDetail}>
+						<label>+</label>
+						<label>Add Claim</label>
+					</FileContainer>
+				</Grid>
+			</LayoutTable>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }
