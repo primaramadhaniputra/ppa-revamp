@@ -1,7 +1,8 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
+import LayoutTable from "src/components/layouts/LayoutTable";
 import { fontWeights } from "utils/styles";
-import { TitleText, WrapperTable, WrapperTitle } from "../styles";
+import { TitleText } from "../styles";
 import BottomTable from "./BottomTable";
 import TopTable from "./TopTable";
 
@@ -43,10 +44,10 @@ const ket = [
 export default function Insiden() {
 	return (
 		<>
-			<WrapperTitle>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>Insiden</TitleText>
-			</WrapperTitle>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			</LayoutTable>
+			<LayoutTable>
 				<TitleText style={{ fontSize: "15px", textAlign: "center" }}>Summary Insiden</TitleText>
 				<TopTable />
 				<Grid>
@@ -71,10 +72,10 @@ export default function Insiden() {
 						</Grid>
 					))}
 				</Grid>
-			</WrapperTable>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			</LayoutTable>
+			<LayoutTable>
 				<BottomTable />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }

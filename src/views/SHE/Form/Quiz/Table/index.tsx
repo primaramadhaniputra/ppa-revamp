@@ -1,7 +1,7 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import SecondFilter from "./SecondFilter";
-import { ButtonContainer, TableTitle, Wrapper, WrapperInput } from "./styles";
+import { ButtonContainer, TableTitle, WrapperInput } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -118,7 +118,7 @@ export default function Table() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<Wrapper>
+			<>
 				<TableTitle variant="h4">Form Create Subject Quiz</TableTitle>
 				<WrapperInput>
 					<Grid style={{ flex: 1 }}>
@@ -147,7 +147,7 @@ export default function Table() {
 					setGlobalFilter={setGlobalFilter}
 				/>
 				<TableComponent2 table={table} />
-			</Wrapper>
+			</>
 		</>
 	);
 }

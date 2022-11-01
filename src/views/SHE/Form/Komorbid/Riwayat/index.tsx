@@ -11,10 +11,11 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer, Wrapper, WrapperTable } from "../../styles";
+import { ThItemContainer } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -93,7 +94,7 @@ export default function Riwayat() {
 	};
 
 	return (
-		<Wrapper>
+		<>
 			<TopFilter noDate={true}>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Perusahaan" />
@@ -105,7 +106,7 @@ export default function Riwayat() {
 					<RevisiDropdown placeholder="Karyawan" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -115,7 +116,7 @@ export default function Riwayat() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			</LayoutTable>
+		</>
 	);
 }

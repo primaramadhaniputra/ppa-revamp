@@ -13,11 +13,12 @@ import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, THContainer } from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
@@ -101,11 +102,7 @@ export default function EmployeeMutation() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<TitleText>Employee Mutation</TitleText>
-					<FileContainer>
-						<label htmlFor="file">+</label>
-						<label htmlFor="file">Input</label>
-						<input type="file" id="file" hidden />
-					</FileContainer>
+					<ButtonFile title="INPUT" />
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>

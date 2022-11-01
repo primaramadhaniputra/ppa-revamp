@@ -13,11 +13,13 @@ import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -106,27 +108,25 @@ export default function Izin() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<Wrapper>
-				<WrapperTitle>
-					<TitleText>Report Izin</TitleText>
-				</WrapperTitle>
-				<TopFilter>
-					<Grid>
-						<RevisiDropdown placeholder="Status" />
-					</Grid>
-				</TopFilter>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable>
+				<TitleText>Report Izin</TitleText>
+			</LayoutTable>
+			<TopFilter>
+				<Grid>
+					<RevisiDropdown placeholder="Status" />
+				</Grid>
+			</TopFilter>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

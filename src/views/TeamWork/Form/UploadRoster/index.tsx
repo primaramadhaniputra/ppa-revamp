@@ -10,11 +10,12 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, THContainer } from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import { Grid } from "@hudoro/neron";
 import TitleText from "atoms/TitleText";
+import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
@@ -76,11 +77,7 @@ export default function UploadRoster() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<TitleText>Upload Roster</TitleText>
-					<FileContainer>
-						<label htmlFor="file"> +</label>
-						<label htmlFor="file"> UPLOAD FILE</label>
-						<input type="file" id="file" hidden />
-					</FileContainer>
+					<ButtonFile title="UPLOAD FILE" />
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>

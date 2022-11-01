@@ -10,11 +10,12 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, THContainer } from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import { Grid } from "@hudoro/neron";
+import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
@@ -78,11 +79,7 @@ export default function SuratPerintahLembur() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<TitleText>Surat Perintah Lembur</TitleText>
-					<FileContainer>
-						<label htmlFor="file">+</label>
-						<label htmlFor="file">Input</label>
-						<input type="file" id="file" hidden />
-					</FileContainer>
+					<ButtonFile title="INPUT" />
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>

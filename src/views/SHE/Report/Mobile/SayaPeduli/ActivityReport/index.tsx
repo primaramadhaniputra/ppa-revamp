@@ -1,6 +1,5 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { TableWrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -11,7 +10,7 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-import { TitleText, WrapperTable, WrapperTitle } from "../../styles";
+import { TitleText } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
@@ -22,6 +21,7 @@ import { colors, fontSizing, fontWeights } from "utils/styles";
 import DataDetail from "./DataDetail";
 import { IcEye } from "atoms/Icon";
 import DataDetailTable from "./DataDetailTable";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -113,40 +113,40 @@ export default function ActivityReport() {
 				setIsShowDetail={setIsShowDetailTable}
 				formPosition={formPosition}
 			/>
-			<WrapperTitle>
-				<TitleText>ACTIVITY REPORT</TitleText>
-				<Grid style={{ maxWidth: "150px" }}>
-					<StyledButton
-						style={{
-							backgroundColor: colors.blue,
-							fontSize: fontSizing.md.fontSize,
-							padding: "5px 0",
-							fontWeight: fontWeights.bold,
-						}}
-						onClick={handleShowDetail}
-					>
-						Show Cart
-					</StyledButton>
-				</Grid>
-			</WrapperTitle>
-			<TableWrapper>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Dept" />
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>ACTIVITY REPORT</TitleText>
+					<Grid style={{ maxWidth: "150px" }}>
+						<StyledButton
+							style={{
+								backgroundColor: colors.blue,
+								fontSize: fontSizing.md.fontSize,
+								padding: "5px 0",
+								fontWeight: fontWeights.bold,
+							}}
+							onClick={handleShowDetail}
+						>
+							Show Cart
+						</StyledButton>
 					</Grid>
-				</TopFilter>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={true}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</TableWrapper>
+				</Grid>
+			</LayoutTable>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Dept" />
+				</Grid>
+			</TopFilter>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

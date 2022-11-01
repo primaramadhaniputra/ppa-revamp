@@ -12,12 +12,14 @@ import {
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -109,30 +111,28 @@ export default function SuratPelanggaran() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<Wrapper>
-				<WrapperTitle>
-					<TitleText>Surat Pelanggaran</TitleText>
-				</WrapperTitle>
-				<TopFilter noDate={true}>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Loader" />
-					</Grid>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Loader" />
-					</Grid>
-				</TopFilter>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<TitleText>Surat Pelanggaran</TitleText>
+			</LayoutTable>
+			<TopFilter noDate={true}>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Loader" />
+				</Grid>
+			</TopFilter>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

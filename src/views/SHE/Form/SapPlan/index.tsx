@@ -1,13 +1,14 @@
+import TitleText from "atoms/TitleText";
 import React from "react";
-import { TitleText, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 import Table from "./Table";
 
 export default function SapPlan() {
 	return (
 		<>
-			<WrapperTitle>
-				<TitleText>SAP Plan</TitleText>
-			</WrapperTitle>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<TitleText>Komorbid</TitleText>
+			</LayoutTable>
 			<Table />
 		</>
 	);

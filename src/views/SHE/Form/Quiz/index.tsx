@@ -1,7 +1,8 @@
+import TitleText from "atoms/TitleText";
 import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 const Table = dynamic(() => import("./Table"));
 const Question = dynamic(() => import("./Question"));
@@ -23,12 +24,12 @@ export default function Quiz() {
 	const [activeTab, setActiveTab] = useState(0);
 
 	return (
-		<Wrapper>
+		<>
 			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<WrapperTitle style={{ margin: "20px 0" }}>
-				<TitleText>{tabTitle[activeTab]}</TitleText>
-			</WrapperTitle>
-			<WrapperTable>{renderContent(activeTab)}</WrapperTable>
-		</Wrapper>
+			<LayoutTable>
+				<TitleText> {tabTitle[activeTab]}</TitleText>
+			</LayoutTable>
+			<LayoutTable>{renderContent(activeTab)}</LayoutTable>
+		</>
 	);
 }

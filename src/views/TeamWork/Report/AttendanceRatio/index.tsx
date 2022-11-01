@@ -12,7 +12,7 @@ import {
 } from "@tanstack/react-table";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer, TitleText, Wrapper } from "../styles";
+import { ThItemContainer, Wrapper } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
@@ -20,6 +20,7 @@ import TopFilter from "src/components/organism/TopFilter";
 import dynamic from "next/dynamic";
 import DateText from "atoms/DateText";
 import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;

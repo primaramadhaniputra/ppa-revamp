@@ -1,23 +1,24 @@
 import React from "react";
-import { TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
 import LeftItem from "./LeftItem";
 import RightItem from "./RightItem";
 import { ItemContainer } from "./styles";
 import TopFilter from "src/components/organism/TopFilter";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 export default function TurnOver() {
 	return (
-		<Wrapper>
-			<WrapperTitle>
+		<>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText> Turn Over</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter />
-			<WrapperTable>
+			<LayoutTable>
 				<ItemContainer>
 					<LeftItem />
 					<RightItem />
 				</ItemContainer>
-			</WrapperTable>
-		</Wrapper>
+			</LayoutTable>
+		</>
 	);
 }

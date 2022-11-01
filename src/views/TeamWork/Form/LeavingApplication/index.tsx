@@ -1,6 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { FileContainer, ThItemContainer } from "./styles";
+import { ThItemContainer } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -17,6 +17,7 @@ import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
@@ -160,10 +161,7 @@ export default function LeavingApplication() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<TitleText>Leaving Application</TitleText>
-					<FileContainer>
-						<label htmlFor="file">Leave Application</label>
-						<input type="file" id="file" hidden />
-					</FileContainer>
+					<ButtonFile title="LEAVE APPLICATION" />
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>

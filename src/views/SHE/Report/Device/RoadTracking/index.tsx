@@ -2,8 +2,9 @@ import { Grid } from "@hudoro/neron";
 import InputTime from "atoms/InputTime";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import React, { ChangeEvent, useState } from "react";
+import LayoutTable from "src/components/layouts/LayoutTable";
 import TopFilter from "src/components/organism/TopFilter";
-import { TitleText, WrapperTitle } from "../styles";
+import { TitleText } from "../styles";
 
 const data = ["ABC", "CBA"];
 
@@ -16,9 +17,9 @@ export default function RoadTracking() {
 
 	return (
 		<>
-			<WrapperTitle>
+			<LayoutTable>
 				<TitleText>Safety & Enviro Road Tracking</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter>
 				<Grid>
 					<StyledDropdownMenu
