@@ -8,7 +8,8 @@ import StyledButton from "atoms/StyledButton";
 import RevisiInput from "atoms/RevisiInput";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import RevisiDate from "molecules/RevisiDate";
-import { TitleText, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 export default function SetRoster() {
 	const [fromCalendar, setFromCalendar] = useState<Date>();
@@ -22,9 +23,9 @@ export default function SetRoster() {
 
 	return (
 		<Wrapper>
-			<WrapperTitle>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText> Set Roster</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<FormContainer>
 				<Text variant="h4" style={{ fontWeight: fontWeights.bold, fontSize: "16px" }}>
 					Form Roster

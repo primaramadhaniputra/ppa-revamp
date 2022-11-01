@@ -12,9 +12,11 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -95,10 +97,10 @@ export default function RankingOperator() {
 	};
 
 	return (
-		<Wrapper>
-			<WrapperTitle>
+		<>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>Ranking Operator</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Ranking" />
@@ -107,7 +109,7 @@ export default function RankingOperator() {
 					<RevisiDropdown placeholder="Operator" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -117,7 +119,7 @@ export default function RankingOperator() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
-		</Wrapper>
+			</LayoutTable>
+		</>
 	);
 }

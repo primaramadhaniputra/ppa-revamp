@@ -19,6 +19,7 @@ export const WrapperStatus = styled(Grid).attrs({
 	justify-content: flex-end;
 	column-gap: 30px;
 	row-gap: 15px;
+	margin: 20px 0;
 `;
 
 export const StatusText = styled(Text).attrs({

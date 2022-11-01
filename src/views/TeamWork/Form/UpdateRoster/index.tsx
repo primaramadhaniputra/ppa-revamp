@@ -13,11 +13,13 @@ import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
 import { colors } from "utils/styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface Person {
 	[x: string]: any;
@@ -106,27 +108,25 @@ export default function UpdateRoster() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<WrapperTitle>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>Update Roster</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Name" />
 				</Grid>
 			</TopFilter>
-			<Wrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

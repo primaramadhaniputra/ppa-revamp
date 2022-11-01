@@ -1,5 +1,7 @@
+import { Grid } from "@hudoro/neron";
+import TitleText from "atoms/TitleText";
 import React from "react";
-import { TitleText, Wrapper, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 import JadwalInduksi from "./JadwalInduksi";
 import { InduksiContainer } from "./styles";
 import TidakInduksi from "./TidakInduksi";
@@ -9,11 +11,13 @@ import TotalInduksi from "./TotalInduksi";
 
 export default function Induksi() {
 	return (
-		<Wrapper>
-			<WrapperTitle>
-				<TitleText>Induksi Monitoring</TitleText>
-				<TopFilter />
-			</WrapperTitle>
+		<>
+			<LayoutTable style={{ margin: "10px 0" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>Induksi Monitoring</TitleText>
+					<TopFilter />
+				</Grid>
+			</LayoutTable>
 			<InduksiContainer>
 				<JadwalInduksi />
 				<TotalInduksi />
@@ -22,6 +26,6 @@ export default function Induksi() {
 				<TidakInduksi />
 				<TidakSesuaiJadwal />
 			</InduksiContainer>
-		</Wrapper>
+		</>
 	);
 }

@@ -12,9 +12,11 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import DataDetail from "./DataDetail";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface Person {
 	[x: string]: any;
@@ -100,22 +102,20 @@ export default function OperatorHours() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<Wrapper>
-				<WrapperTitle>
-					<TitleText>Operator Hours</TitleText>
-				</WrapperTitle>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<TitleText>Operator Hours</TitleText>
+			</LayoutTable>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

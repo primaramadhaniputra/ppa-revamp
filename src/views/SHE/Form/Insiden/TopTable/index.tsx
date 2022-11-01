@@ -66,10 +66,6 @@ export default function TopTable() {
 					<ThItemContainer
 						key={index}
 						style={{
-							gap: "10px",
-							backgroundColor: colors.primary,
-							width: "100%",
-							color: "white",
 							padding: "10px 0",
 						}}
 					>
@@ -104,7 +100,11 @@ export default function TopTable() {
 				top={formPosition}
 			/>
 			<div style={{ margin: "20px 0" }}>
-				<TableComponent2 table={table} noPagination={true} />
+				<TableComponent2
+					table={table}
+					noPagination={true}
+					tableTheadStyles={{ backgroundColor: colors.blue, color: "white" }}
+				/>
 			</div>
 		</>
 	);

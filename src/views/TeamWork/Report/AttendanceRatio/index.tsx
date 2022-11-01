@@ -12,13 +12,15 @@ import {
 } from "@tanstack/react-table";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer, TitleText, Wrapper, WrapperTable, WrapperTitle } from "../styles";
+import { ThItemContainer, Wrapper } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
 import dynamic from "next/dynamic";
 import DateText from "atoms/DateText";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -129,9 +131,9 @@ export default function AttendanceRatio() {
 	return (
 		<Wrapper>
 			<TabV2 tabsData={tabTitle} activeTab={activeTabs} setActiveTab={setActiveTabs} />
-			<WrapperTitle>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>Attendance Ratio</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Loader" />
@@ -140,7 +142,7 @@ export default function AttendanceRatio() {
 					<RevisiDropdown placeholder="Loader" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>{renderTab()}</WrapperTable>
+			<LayoutTable>{renderTab()}</LayoutTable>
 		</Wrapper>
 	);
 }

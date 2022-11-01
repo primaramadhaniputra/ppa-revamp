@@ -1,17 +1,16 @@
+import { Grid } from "@hudoro/neron";
+import ButtonFile from "atoms/ButtonFile";
+import TitleText from "atoms/TitleText";
 import React from "react";
-import { FileContainer, TitleText, Wrapper, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 export default function UploadSpl() {
 	return (
-		<Wrapper>
-			<WrapperTitle>
+		<LayoutTable style={{ marginTop: "10px" }}>
+			<Grid container alignItems="center" justifyContent="space-between">
 				<TitleText>Upload SPL</TitleText>
-				<FileContainer>
-					<label htmlFor="file"> +</label>
-					<label htmlFor="file"> UPLOAD FILE</label>
-					<input type="file" id="file" hidden />
-				</FileContainer>
-			</WrapperTitle>
-		</Wrapper>
+				<ButtonFile title="UPLOAD FILE" />
+			</Grid>
+		</LayoutTable>
 	);
 }

@@ -1,7 +1,8 @@
 import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { TitleText, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { TitleText } from "../styles";
 import { Wrapper } from "./styles";
 
 const Temuan = dynamic(() => import("./Temuan"));
@@ -29,9 +30,9 @@ export default function P2H() {
 	return (
 		<Wrapper>
 			<TabV3 tabsData={p2hTab} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<WrapperTitle>
+			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>{p2hTab[activeTab]}</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			{renderTabContent(activeTab)}
 		</Wrapper>
 	);

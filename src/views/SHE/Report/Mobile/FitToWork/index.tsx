@@ -1,6 +1,5 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { TableWrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -11,13 +10,14 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-import { TitleText, WrapperTable, WrapperTitle } from "../styles";
+import { TitleText } from "../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import StatusCard from "./StatusCard";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -84,28 +84,26 @@ export default function FitToWork() {
 
 	return (
 		<>
-			<WrapperTitle>
+			<LayoutTable>
 				<TitleText>Fit to Work</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<StatusCard />
-			<TableWrapper>
-				<TopFilter>
-					<Grid style={{ minWidth: "200px" }}>
-						<RevisiDropdown placeholder="Status" />
-					</Grid>
-				</TopFilter>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</TableWrapper>
+			<TopFilter>
+				<Grid style={{ minWidth: "200px" }}>
+					<RevisiDropdown placeholder="Status" />
+				</Grid>
+			</TopFilter>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

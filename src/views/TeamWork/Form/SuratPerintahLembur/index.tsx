@@ -10,31 +10,28 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import {
-	FileContainer,
-	THContainer,
-	TitleText,
-	Wrapper,
-	WrapperTable,
-	WrapperTitle,
-} from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
+import { Grid } from "@hudoro/neron";
+import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
+export const defaultDataTable = new Array(1).fill(0).map(() => {
 	return {
-		["Date"]: "HD787",
-		["NRP"]: "Hd123",
-		["Name"]: `331`,
-		["Dept"]: "2022-17-08",
-		["Posisi"]: "2022-17-08",
-		["Roster"]: "2022-17-08 02:12:12",
-		["Start"]: "2022-17-08 02:12:12",
-		["Finish"]: "2022-17-08 02:12:12",
-		["Tugas"]: "2022-17-08 02:12:12",
+		["Date"]: "-",
+		["NRP"]: "-",
+		["Name"]: `-`,
+		["Dept"]: "-",
+		["Posisi"]: "-",
+		["Roster"]: "-",
+		["Start"]: "-",
+		["Finish"]: "-",
+		["Tugas"]: "-",
 	};
 });
 
@@ -79,27 +76,23 @@ export default function SuratPerintahLembur() {
 
 	return (
 		<>
-			<WrapperTitle>
-				<TitleText>Surat Perintah Lembur</TitleText>
-				<FileContainer>
-					<label htmlFor="file">+</label>
-					<label htmlFor="file">Input</label>
-					<input type="file" id="file" hidden />
-				</FileContainer>
-			</WrapperTitle>
-			<Wrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</Wrapper>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<Grid container alignItems="center" justifyContent="space-between">
+					<TitleText>Surat Perintah Lembur</TitleText>
+					<ButtonFile title="INPUT" />
+				</Grid>
+			</LayoutTable>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

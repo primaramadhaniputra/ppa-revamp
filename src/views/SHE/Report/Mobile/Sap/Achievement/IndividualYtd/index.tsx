@@ -1,6 +1,5 @@
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { TableWrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -10,10 +9,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { TitleText, WrapperTable, WrapperTitle } from "../../../styles";
+import { TitleText } from "../../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -71,22 +71,20 @@ export default function IndividualYtd() {
 
 	return (
 		<>
-			<WrapperTitle style={{ margin: "20px 0" }}>
+			<LayoutTable>
 				<TitleText>ACH Individual This Year</TitleText>
-			</WrapperTitle>
-			<TableWrapper>
-				<WrapperTable>
-					<TableFilterSearch
-						table={table}
-						handleChangeTotalShowData={handleChangeTotalShowData}
-						globalFilter={globalFilter}
-						setGlobalFilter={setGlobalFilter}
-						withButton={false}
-						buttonTitle="EXPORT"
-					/>
-					<TableComponent2 table={table} />
-				</WrapperTable>
-			</TableWrapper>
+			</LayoutTable>
+			<LayoutTable>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={false}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</LayoutTable>
 		</>
 	);
 }

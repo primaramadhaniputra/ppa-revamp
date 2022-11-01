@@ -1,5 +1,5 @@
 import React from "react";
-import { WrapperTable } from "../../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 import { TableTitle, TopWrapper } from "../styles";
 import DataTable from "./DataTable";
 import PieChartTable from "./PieChart";
@@ -9,23 +9,23 @@ export default function Monitoring() {
 	return (
 		<>
 			<TopWrapper>
-				<WrapperTable>
+				<LayoutTable>
 					<TableTitle variant="h4" style={{ marginBottom: "30px" }}>
 						Summary Komorbid
 					</TableTitle>
 					<SummaryTable />
-				</WrapperTable>
-				<WrapperTable>
+				</LayoutTable>
+				<LayoutTable>
 					<TableTitle variant="h4" style={{ marginBottom: "30px" }}>
 						Chart Komorbid
 					</TableTitle>
 					<PieChartTable />
-				</WrapperTable>
+				</LayoutTable>
 			</TopWrapper>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			<LayoutTable>
 				<TableTitle variant="h4">LIST MONITORING KOMORBID</TableTitle>
 				<DataTable />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }

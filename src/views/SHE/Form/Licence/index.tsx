@@ -1,20 +1,21 @@
 import React from "react";
-import { TitleText, WrapperTable, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { TitleText } from "../styles";
 import BottomTable from "./BottomTable";
 import TopTable from "./TopTable";
 
 export default function Licence() {
 	return (
 		<>
-			<WrapperTitle>
-				<TitleText>Monitoring Licence</TitleText>
-			</WrapperTitle>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			<LayoutTable style={{ marginTop: "10px" }}>
+				<TitleText> Monitoring Licence</TitleText>
+			</LayoutTable>
+			<LayoutTable>
 				<TopTable />
-			</WrapperTable>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			</LayoutTable>
+			<LayoutTable>
 				<BottomTable />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }
