@@ -11,6 +11,8 @@ import IcPlusCircle from "./IcPlusCircle";
 import IcPrinter from "./IcPrinter";
 import IcRefresh from "./IcRefresh";
 import IcReset from "./IcReset";
+import IcCheckedSquare from "./IcCheckedSquare";
+import IcSquare from "./IcSquare";
 
 export {
 	IcClose,
@@ -26,4 +28,6 @@ export {
 	IcCaretUp,
 	IcCaretDown,
 	IcEye,
+	IcCheckedSquare,
+	IcSquare,
 };
