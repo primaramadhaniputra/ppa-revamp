@@ -5,6 +5,11 @@ import React, { ChangeEvent, useState } from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TopFilter from "src/components/organism/TopFilter";
 import { TitleText } from "../styles";
+import dynamic from "next/dynamic";
+
+const MapWithNoSSR = dynamic(() => import("./map"), {
+	ssr: false,
+});
 
 const data = ["ABC", "CBA"];
 
@@ -36,6 +41,9 @@ export default function RoadTracking() {
 					<InputTime label="End" name="end" type="time" onChange={handleChange} />
 				</Grid>
 			</TopFilter>
+			<LayoutTable>
+				<MapWithNoSSR />
+			</LayoutTable>
 		</>
 	);
 }
