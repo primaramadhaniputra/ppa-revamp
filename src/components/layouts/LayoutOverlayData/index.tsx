@@ -47,7 +47,7 @@ const LayoutOverlayData = ({
 		>
 			<Container
 				style={{
-					transform: isShowDetail ? "translateY(100px)" : "translateY(0)",
+					transform: isShowDetail ? "translateY(30px)" : "translateY(0)",
 					maxWidth: `${width}px`,
 				}}
 			>

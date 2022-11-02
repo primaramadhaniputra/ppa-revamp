@@ -16,13 +16,14 @@ export const Wrapper = styled.div`
 export const Container = styled(Grid).attrs({
 	container: true,
 })`
-	flex-direction: column;
+	flex-direction: row;
 	gap: 20px;
 	max-width: 1000px;
 	margin: auto;
 	background-color: white;
 	transition: 0.3s;
-	overflow-x: scroll !important;
+	overflow: scroll;
+	max-height: calc(100vh - 70px);
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 	border-radius: 3px;
 	::-webkit-scrollbar {
@@ -51,4 +52,5 @@ export const ContainerTitle = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 100%;
 `;

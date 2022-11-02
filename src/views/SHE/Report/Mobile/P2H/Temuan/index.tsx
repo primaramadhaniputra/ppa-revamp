@@ -18,6 +18,7 @@ import { ThItemContainer } from "views/SHE/Report/styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
+import ShowDetail from "./ShowDetail";
 
 interface IProps {
 	[x: string]: any;
@@ -40,6 +41,13 @@ export default function Temuan() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
@@ -49,7 +57,12 @@ export default function Temuan() {
 					<>
 						{info.column.id === "Detail" ? (
 							<Grid container justifyContent="center">
-								<IcEye width={18} color={colors.blue} style={{ cursor: "pointer" }} />
+								<IcEye
+									width={18}
+									color={colors.blue}
+									style={{ cursor: "pointer" }}
+									onClick={handleShowDetail}
+								/>
 							</Grid>
 						) : (
 							info.getValue()
@@ -96,6 +109,11 @@ export default function Temuan() {
 
 	return (
 		<>
+			<ShowDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Operator" />
