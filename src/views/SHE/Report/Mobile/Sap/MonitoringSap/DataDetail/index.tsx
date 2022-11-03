@@ -50,6 +50,17 @@ const dataDummy = [
 	},
 ];
 
+const dataDummyTemuan = [
+	{
+		title: "Temuan",
+		imageUrl: "/images/traktor.jpeg",
+	},
+	{
+		title: "Tindakan Perbaikan",
+		imageUrl: "/images/traktor.jpeg",
+	},
+];
+
 export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	return (
 		<>
@@ -61,25 +72,25 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 			>
 				<Grid container flexDirection="column" gap={10} style={{ padding: "0 10px 20px" }}>
 					{dataDummy.map((item, index) => (
-						<Grid container alignItems="center" gap={50} key={index}>
-							<Grid>
+						<Grid container alignItems="center" key={index} gap={10}>
+							<Grid style={{ flex: 1 }}>
 								<Title>{item.title}</Title>
 							</Grid>
-							<Grid>
-								<Description>{item.desc}</Description>
+							<Grid style={{ flex: 2 }}>
+								<Description>: {item.desc}</Description>
 							</Grid>
 						</Grid>
 					))}
 				</Grid>
 				<Grid container gap={20}>
-					<Card style={{ flex: "1" }}>
-						<Title style={{ marginBottom: "10px", color: colors.orange }}>Temuan</Title>
-						<Image src="/images/traktor.jpeg" width={200} height={200} layout="responsive" />
-					</Card>
-					<Card style={{ flex: "1" }}>
-						<Title style={{ marginBottom: "10px", color: colors.orange }}>Tindakan Perbaikan</Title>
-						<Image src="/images/traktor.jpeg" width={200} height={200} layout="responsive" />
-					</Card>
+					{dataDummyTemuan.map((data, index) => (
+						<Card key={index} style={{ flex: "1", boxShadow: "0 1px 3px rgba(0,0,0,.25)" }}>
+							<Title style={{ marginBottom: "10px", color: colors.orange, minWidth: "250px" }}>
+								{data.title}
+							</Title>
+							<Image src={data.imageUrl} width={200} height={200} layout="responsive" />
+						</Card>
+					))}
 				</Grid>
 			</LayoutOverlayData>
 		</>

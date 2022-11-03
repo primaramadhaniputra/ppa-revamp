@@ -4,7 +4,7 @@ import { fontSizing, fontWeights } from "utils/styles";
 
 export const Title = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-weight: ${fontWeights.bold};
+	font-weight: ${fontWeights.semi};
 `;
 export const Description = styled.p`
 	font-family: ${fontFamilies.poppins};
