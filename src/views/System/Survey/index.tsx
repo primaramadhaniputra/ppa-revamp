@@ -10,10 +10,11 @@ import {
 } from "@tanstack/react-table";
 import { fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
-import { Container } from "./styles";
+import { Container, StyledText } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import DataDetail from "./DataDetail";
 
 interface Person {
 	[x: string]: any;
@@ -21,10 +22,10 @@ interface Person {
 
 export const defaultDataTable = [
 	{
-		Dept: "HD787",
-		MP: "Hd123",
-		["Sudah mengisi"]: `33`,
-		Achievment: "2022-17-08",
+		["Dept"]: "COE",
+		["MP"]: "123",
+		["SUDAH MENGISI"]: "0",
+		["ACHIEVEMENT"]: "1",
 	},
 ];
 
@@ -33,11 +34,24 @@ export default function Survey() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	// const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) => info.getValue(),
+			cell: (info) => {
+				return info.column.id === "MP" ? (
+					<StyledText onClick={handleShowDetail}>{info.getValue()}</StyledText>
+				) : (
+					info.getValue()
+				);
+			},
 			header: () => {
 				return (
 					<ThItemContainer>
@@ -68,19 +82,26 @@ export default function Survey() {
 	});
 
 	return (
-		<Container>
-			<Text
-				variant="h4"
-				style={{
-					textAlign: "center",
-					fontFamily: fontFamilies.poppins,
-					fontWeight: fontWeights.semi,
-					marginBottom: "20px",
-				}}
-			>
-				Survey ESG achievment MHU
-			</Text>
-			<TableComponent2 table={table} noPagination={true} />
-		</Container>
+		<>
+			<DataDetail
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
+			<Container>
+				<Text
+					variant="h4"
+					style={{
+						textAlign: "center",
+						fontFamily: fontFamilies.poppins,
+						fontWeight: fontWeights.semi,
+						marginBottom: "20px",
+					}}
+				>
+					Survey ESG achievment MHU
+				</Text>
+				<TableComponent2 table={table} noPagination={true} />
+			</Container>
+		</>
 	);
 }
