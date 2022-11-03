@@ -1,6 +1,6 @@
 import React from "react";
 import { colors, fontWeights } from "utils/styles";
-import { TabsText } from "../styles";
+import { TabsText } from "../../styles";
 
 interface IProps {
 	title: string;
