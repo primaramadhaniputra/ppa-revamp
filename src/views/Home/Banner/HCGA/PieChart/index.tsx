@@ -42,11 +42,28 @@ export const options = {
 	},
 };
 
-interface IProps {
-	data: any;
-}
+const data = {
+	labels: ["ENG", "FLO", "HCG", "PAC", "PLT", "PRO", "SHE"],
+	datasets: [
+		{
+			label: "# of Votes",
+			data: [12, 19, 3, 5, 7, 8, 9],
+			backgroundColor: [
+				"#0496FF",
+				"#00E396",
+				"#FEB019",
+				"#546E7A",
+				"#FF4560",
+				"#775DD0",
+				"#00A859",
+			],
+			borderColor: ["#0496FF", "#00E396", "#FEB019", "#546E7A", "#FF4560", "#775DD0", "#00A859"],
+			borderWidth: 1,
+		},
+	],
+};
 
-export default function PieChart({ data }: IProps) {
+export default function PieChart() {
 	return (
 		<Wrapper>
 			<Text

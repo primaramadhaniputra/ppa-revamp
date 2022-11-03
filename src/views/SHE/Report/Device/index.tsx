@@ -9,6 +9,15 @@ const Enviro = dynamic(() => import("./Enviro"), {
 const RoadTracking = dynamic(() => import("./RoadTracking"), {
 	ssr: false,
 });
+const FatigueMonitor = dynamic(() => import("./FatigueMonitor"), {
+	ssr: false,
+});
+const Speed = dynamic(() => import("./Speed"), {
+	ssr: false,
+});
+const DumpControl = dynamic(() => import("./DumpControl"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"Road Tracking",
@@ -24,6 +33,12 @@ const renderContet = (type: string) => {
 		return <Enviro />;
 	} else if (type === "Road Tracking") {
 		return <RoadTracking />;
+	} else if (type === "Fatigue Monitor") {
+		return <FatigueMonitor />;
+	} else if (type === "Speed") {
+		return <Speed />;
+	} else if (type === "Dump Control") {
+		return <DumpControl />;
 	}
 };
 
