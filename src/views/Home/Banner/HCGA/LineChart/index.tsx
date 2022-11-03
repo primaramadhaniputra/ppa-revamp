@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Grid, Text } from "@hudoro/neron";
+import React, { useRef, useState } from "react";
+import { Grid, Icon, Text } from "@hudoro/neron";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
 import {
@@ -19,6 +19,7 @@ import zoomPlugin from "chartjs-plugin-zoom";
 import annotationPlugin from "chartjs-plugin-annotation";
 import { IcMinusCircle, IcPlusCircle } from "atoms/Icon";
 import IcReset from "atoms/Icon/IcReset";
+import DonwloadButton from "./DonwloadButton";
 ChartJS.register(
 	CategoryScale,
 	LinearScale,
@@ -102,10 +103,15 @@ export const options = {
 	},
 };
 export default function LineChart() {
+	const [isShowDonwloadButton, setIsShowDonwloadButton] = useState(false);
 	const chartRef = useRef(null);
 	const resetZoom = () => (chartRef.current as any).resetZoom();
 	const zoomIn = () => (chartRef.current as any).zoom(1.1);
 	const zoomOut = () => (chartRef.current as any).zoom(0.9);
+
+	const handleShowDownloadButton = () => {
+		setIsShowDonwloadButton(!isShowDonwloadButton);
+	};
 
 	return (
 		<Wrapper>
@@ -121,12 +127,24 @@ export default function LineChart() {
 				Trend ATR
 			</Text>
 			<DonatContainer>
-				<Grid container alignItems="center" justifyContent="flex-end" gap={5}>
-					<IcReset width={17} cursor="pointer" onClick={resetZoom} />
-					<IcPlusCircle width={17} cursor="pointer" onClick={zoomIn} />
-					<IcMinusCircle width={17} cursor="pointer" onClick={zoomOut} />
+				<Grid
+					container
+					alignItems="center"
+					justifyContent="flex-end"
+					gap={5}
+					style={{ position: "relative" }}
+				>
+					<IcReset width={16} cursor="pointer" onClick={resetZoom} />
+					<IcPlusCircle width={16} cursor="pointer" onClick={zoomIn} />
+					<IcMinusCircle width={16} cursor="pointer" onClick={zoomOut} />
+					<Icon
+						iconName="IcHamburger"
+						style={{ cursor: "pointer" }}
+						onClick={handleShowDownloadButton}
+					/>
+					{isShowDonwloadButton && <DonwloadButton />}
 				</Grid>
-				<Line options={options as any} data={data} ref={chartRef} />
+				<Line options={options as any} data={data} ref={chartRef} id="chartLine" />
 			</DonatContainer>
 		</Wrapper>
 	);
