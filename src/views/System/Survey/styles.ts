@@ -1,5 +1,6 @@
+import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { mediaQueries } from "utils/styles";
+import { colors, fontSizing, mediaQueries } from "utils/styles";
 
 export const Container = styled.div`
 	margin-top: 30px;
@@ -11,4 +12,12 @@ export const Container = styled.div`
 		padding: 20px;
 		background-color: white;
 	}
+`;
+
+export const StyledText = styled.p`
+	font-size: ${fontSizing.sm.fontSize};
+	color: ${colors.primary};
+	cursor: pointer;
+	font-style: italic;
+	font-family: ${fontFamilies.poppins};
 `;
