@@ -5,6 +5,7 @@ import LabelValue from "src/components/organism/LabelValue";
 import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import { HaulerPerformanceData } from "utils/dummy";
+import Image from "next/image";
 
 const DataHauler = () => {
 	return (
@@ -23,7 +24,13 @@ const DataHauler = () => {
 								>
 									{data.title}
 								</TitlePage>
-								<img src={`/icons/${data.icon}`} width={25} alt="ProductionPerfromance icon" />
+								<Image
+									src={`/icons/${data.icon}`}
+									width={25}
+									height={25}
+									alt="ProductionPerfromance icon"
+									quality={100}
+								/>
 							</Grid>
 							<Grid container flexDirection="column" gap={15}>
 								<LabelValue data={data.plan} />
