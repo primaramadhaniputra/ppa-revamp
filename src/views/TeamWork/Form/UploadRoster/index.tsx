@@ -16,6 +16,7 @@ import LayoutTable from "src/components/layouts/LayoutTable";
 import { Grid } from "@hudoro/neron";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
+import Table from "./Table";
 
 interface Person {
 	[x: string]: any;
@@ -79,6 +80,9 @@ export default function UploadRoster() {
 					<TitleText>Upload Roster</TitleText>
 					<ButtonFile title="UPLOAD FILE" />
 				</Grid>
+			</LayoutTable>
+			<LayoutTable>
+				<Table />
 			</LayoutTable>
 			<LayoutTable>
 				<TableFilterSearch

@@ -20,8 +20,4 @@ export const StyledInput = styled.input`
 	&::placeholder {
 		font-family: ${fontFamilies.poppins};
 	}
-	/* &:focus {
-		background: ${colors.blueSky};
-		outline: 1px solid ${colors.primary};
-	} */
 `;
