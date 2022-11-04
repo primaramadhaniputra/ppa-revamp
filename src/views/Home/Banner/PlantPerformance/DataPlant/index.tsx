@@ -1,5 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
+import Image from "next/image";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
 import { PlanPerfromanceData } from "utils/dummy";
@@ -23,7 +24,13 @@ const DataPlant = () => {
 								>
 									{data.title}
 								</TitlePage>
-								<img src={`/icons/${data.icon}`} width={25} alt="ProductionPerfromance icon" />
+								<Image
+									src={`/icons/${data.icon}`}
+									width={25}
+									height={25}
+									alt="ProductionPerfromance icon"
+									quality={100}
+								/>
 							</Grid>
 							<Grid container flexDirection="column" gap={15}>
 								<LabelValue data={data.plan} />

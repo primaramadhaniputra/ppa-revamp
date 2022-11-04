@@ -6,6 +6,7 @@ import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import { AchContainer, AchLabel, TabsAch, TabsAchContainer, TitleContainer } from "../styles";
 import { ProductionPerfromanceData } from "utils/dummy";
+import Image from "next/image";
 
 const tabsObText = ["JS", "TC"];
 
@@ -54,7 +55,13 @@ const DataProduction = () => {
 								</TitleContainer>
 								<AchContainer>
 									{data.ach && <AchLabel>{data.ach}</AchLabel>}
-									<img src={`/icons/${data.icon}`} width={25} alt="ProductionPerfromance icon" />
+									<Image
+										src={`/icons/${data.icon}`}
+										width={25}
+										height={25}
+										alt="ProductionPerfromance icon"
+										quality={100}
+									/>
 								</AchContainer>
 							</Grid>
 							<Grid container flexDirection="column" gap={15}>
