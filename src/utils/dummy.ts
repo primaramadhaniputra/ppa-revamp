@@ -408,23 +408,8 @@ export const InputDropdownTeamworkForm = [
 	},
 ];
 
-export const Dummy = [
-	{
-		data: ["b", "a", "n", "a", "n", "a"],
-	},
-	{
-		data: ["b", "u", "n", "a", "n", "a"],
-	},
-	{
-		data: ["b", "e", "n", "a", "n", "a"],
-	},
-	{
-		data: ["b", "i", "n", "a", "n", "a"],
-	},
-	{
-		data: ["b", "z", "n", "a", "n", "a"],
-	},
-	{
-		data: ["b", "p", "n", "a", "n", "a"],
-	},
+export const dataText = [
+	{ date: "bs", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
+	{ date: "b", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
+	{ date: "u", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
 ];

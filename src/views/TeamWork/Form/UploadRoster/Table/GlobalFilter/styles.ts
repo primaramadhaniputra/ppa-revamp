@@ -5,4 +5,5 @@ export const Wrapper = styled.div`
 	justify-content: space-between;
 	flex-wrap: wrap;
 	margin: 10px 0 20px;
+	gap: 10px;
 `;
