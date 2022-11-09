@@ -16,6 +16,7 @@ import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
+import Image from "next/image";
 
 interface IProps {
 	[x: string]: any;
@@ -107,18 +108,27 @@ export default function TotalInduksi() {
 			/>
 			<Wrapper>
 				<Container>
-					<Text
-						variant="h4"
-						style={{
-							fontWeight: fontWeights.bold,
-							display: "flex",
-							alignItems: "center",
-							fontSize: fontSizing.xl.fontSize,
-							color: "#4F5458",
-						}}
-					>
-						Total Induksi
-					</Text>
+					<Grid container gap={10} alignItems="center">
+						<Image
+							width={35}
+							height={35}
+							quality={100}
+							alt="logo"
+							src={"http://ppa-mhu.net/assets/img/induksi/induksi_sesuai_jdwl.png"}
+						/>
+						<Text
+							variant="h4"
+							style={{
+								fontWeight: fontWeights.bold,
+								display: "flex",
+								alignItems: "center",
+								fontSize: fontSizing.xl.fontSize,
+								color: "#4F5458",
+							}}
+						>
+							Total Induksi
+						</Text>
+					</Grid>
 					<TextInfo>24 orang</TextInfo>
 				</Container>
 				<TableFilterSearch
