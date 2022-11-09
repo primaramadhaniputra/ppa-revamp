@@ -10,11 +10,12 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import { fontSizing, fontWeights } from "utils/styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
+import Image from "next/image";
 
 interface IProps {
 	[x: string]: any;
@@ -72,18 +73,27 @@ export default function JadwalInduksi() {
 	return (
 		<Wrapper>
 			<Container>
-				<Text
-					variant="h4"
-					style={{
-						fontWeight: fontWeights.bold,
-						display: "flex",
-						alignItems: "center",
-						fontSize: fontSizing.xl.fontSize,
-						color: "#4F5458",
-					}}
-				>
-					Jadwal Induksi
-				</Text>
+				<Grid container alignItems="center" gap={10}>
+					<Image
+						width={35}
+						height={35}
+						quality={100}
+						alt="logo"
+						src={"http://ppa-mhu.net/assets/img/induksi/induksi.png"}
+					/>
+					<Text
+						variant="h4"
+						style={{
+							fontWeight: fontWeights.bold,
+							display: "flex",
+							alignItems: "center",
+							fontSize: fontSizing.xl.fontSize,
+							color: "#4F5458",
+						}}
+					>
+						Jadwal Induksi
+					</Text>
+				</Grid>
 				<TextInfo>24 orang</TextInfo>
 			</Container>
 			<TableFilterSearch

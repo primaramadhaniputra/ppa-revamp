@@ -407,3 +407,9 @@ export const InputDropdownTeamworkForm = [
 		label: "Set roster",
 	},
 ];
+
+export const dataText = [
+	{ date: "bs", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
+	{ date: "b", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
+	{ date: "u", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
+];

@@ -1,8 +1,13 @@
 import { Grid } from "@hudoro/neron";
+import dynamic from "next/dynamic";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import DoughnutCart from "./DoughnutCart";
 import LineChart from "./LineChart";
+import { WrapperChart } from "./styles";
+
+const DoughnutCart = dynamic(() => import("./DoughnutCart"), {
+	suspense: true,
+});
 
 interface IProps {
 	isShowDetail: boolean;
@@ -19,20 +24,18 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 				formPosition={formPosition}
 				title="Activity Chart"
 			>
-				<Grid style={{ padding: "10px" }}>
-					<LineChart />
-					<Grid container justifyContent="space-evenly">
-						<div>
-							<DoughnutCart />
-						</div>
-						<div>
-							<DoughnutCart />
-						</div>
-						<div>
-							<DoughnutCart />
-						</div>
+				<LineChart />
+				<WrapperChart>
+					<Grid container alignItems="center" justifyContent="center">
+						<DoughnutCart />
 					</Grid>
-				</Grid>
+					<Grid container alignItems="center" justifyContent="center">
+						<DoughnutCart />
+					</Grid>
+					<Grid container alignItems="center" justifyContent="center">
+						<DoughnutCart />
+					</Grid>
+				</WrapperChart>
 			</LayoutOverlayData>
 		</>
 	);

@@ -21,7 +21,7 @@ export const Container = styled(Grid).attrs({
 	padding: 15px 10px;
 	gap: 5px;
 	${mediaQueries.sm} {
-		padding: 15px 25px;
+		padding: 15px 20px;
 	}
 `;
 

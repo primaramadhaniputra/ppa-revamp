@@ -13,6 +13,8 @@ import IcRefresh from "./IcRefresh";
 import IcReset from "./IcReset";
 import IcCheckedSquare from "./IcCheckedSquare";
 import IcSquare from "./IcSquare";
+import IcShortAscending from "./IcShortAscending";
+import IcShortDescending from "./IcShortDescending";
 
 export {
 	IcClose,
@@ -30,4 +32,6 @@ export {
 	IcEye,
 	IcCheckedSquare,
 	IcSquare,
+	IcShortAscending,
+	IcShortDescending,
 };

@@ -10,7 +10,7 @@ export const StyledLabel = styled.label`
 	color: black;
 `;
 
-export const StyledInput = styled.input`
+export const StyledTextarea = styled.textarea`
 	outline: none;
 	border: 1px solid ${colors.borderBlue};
 	border-radius: 5px;
@@ -20,8 +20,4 @@ export const StyledInput = styled.input`
 	&::placeholder {
 		font-family: ${fontFamilies.poppins};
 	}
-	/* &:focus {
-		background: ${colors.blueSky};
-		outline: 1px solid ${colors.primary};
-	} */
 `;

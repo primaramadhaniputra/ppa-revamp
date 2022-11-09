@@ -18,12 +18,14 @@ import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import DataDetail from "./DataDetail";
 import { IcEdit, IcEye, IcPlusCircle } from "atoms/Icon";
+import DataDetailByTable from "./DataDetailByTable";
+import AddGroup from "./AddGroup";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["No"]: "-",
@@ -41,10 +43,22 @@ export default function Subject() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [isShowDetailByTable, setIsShowDetailByTable] = React.useState(false);
+	const [isShowAddGroup, setIsShowAddGroup] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
 	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleShowDetailByTable = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetailByTable(true);
+		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleShowAddGroup = (target: { pageY: number; clientY: number }) => {
+		setIsShowAddGroup(true);
 		setformPosition(target.pageY - target.clientY);
 	};
 
@@ -54,9 +68,19 @@ export default function Subject() {
 			cell: (info) => {
 				return info.column.id === "Action" ? (
 					<Grid container justifyContent="center" alignItems="center" gap={5}>
-						<IcPlusCircle width={20} color={colors.blue} />
-						<IcEdit width={20} color={colors.blue} />
-						<IcEye width={20} color={colors.blue} />
+						<IcPlusCircle
+							width={20}
+							color={colors.blue}
+							cursor="pointer"
+							onClick={handleShowAddGroup}
+						/>
+						<IcEdit width={20} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+						<IcEye
+							width={20}
+							color={colors.blue}
+							cursor="pointer"
+							onClick={handleShowDetailByTable}
+						/>
 					</Grid>
 				) : (
 					<TextTable>{info.getValue()}</TextTable>
@@ -98,6 +122,16 @@ export default function Subject() {
 			<DataDetail
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
+			<DataDetailByTable
+				isShowDetail={isShowDetailByTable}
+				setIsShowDetail={setIsShowDetailByTable}
+				formPosition={formPosition}
+			/>
+			<AddGroup
+				isShowDetail={isShowAddGroup}
+				setIsShowDetail={setIsShowAddGroup}
 				formPosition={formPosition}
 			/>
 			<WrapperTitle style={{ marginTop: "20px" }}>

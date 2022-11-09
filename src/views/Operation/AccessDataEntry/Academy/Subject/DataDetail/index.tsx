@@ -19,7 +19,7 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 				formPosition={formPosition}
 				title="Form Create Post Test"
 			>
-				<Grid style={{ margin: "10px 0" }}>
+				<Grid style={{ margin: "0px 0 10px" }}>
 					<LabeledInput name="name" title="Subject Name" />
 				</Grid>
 				<StyledButton>Save</StyledButton>
