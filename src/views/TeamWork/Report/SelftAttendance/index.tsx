@@ -19,14 +19,14 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Date"]: "HD787",
-		["#"]: "HD787",
-		["in"]: "HD787",
-		["Out"]: "HD787",
-		["Job"]: "HD787",
+		["Date"]: "-",
+		["#"]: "-",
+		["in"]: "-",
+		["Out"]: "-",
+		["Job"]: "-",
 	};
 });
 
@@ -43,14 +43,14 @@ export default function SelfAttendance() {
 		{
 			accessorKey: "#",
 			cell: (info) => info.getValue(),
-			header: () => <span>#</span>,
+			header: () => <span></span>,
 		},
 		{
 			header: "Check",
 			footer: (props) => props.column.id,
 			columns: [
 				{
-					accessorKey: "In",
+					accessorKey: "in",
 					cell: (info) => info.getValue(),
 					header: () => <span>In</span>,
 				},
