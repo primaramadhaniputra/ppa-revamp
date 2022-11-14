@@ -1,8 +1,9 @@
-import { Grid, Select } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import InputTime from "atoms/InputTime";
 import { StyledInput } from "atoms/InputTime/styles";
 import RevisiInputYoutube from "atoms/RevisiInputYoutube";
 import StyledButton from "atoms/StyledButton";
+import StyledSelectInput from "atoms/StyledSelectInput";
 import RevisiDate from "molecules/RevisiDate";
 import React, { useState } from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
@@ -13,19 +14,6 @@ interface IProps {
 	setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
 	formPosition: number;
 }
-
-const dummySelect = [
-	{
-		id: "0",
-		label: "Dani",
-		values: "Dani",
-	},
-	{
-		id: "1",
-		label: "Dani Ganteng",
-		values: "Dani Ganteng",
-	},
-];
 
 export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const [date, setDate] = useState(new Date());
@@ -40,10 +28,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			width={800}
 		>
 			<InputContainer>
-				<Grid container alignItems="center" gap={20}>
-					<Label>Name</Label>
-					<Select items={dummySelect} defaultValue={dummySelect[1]} />
-				</Grid>
+				<StyledSelectInput title="Name" />
 				<Grid container alignItems="center" gap={50}>
 					<Grid container flexDirection="column" gap={20} style={{ flex: 1 }}>
 						<Label>Date</Label>
