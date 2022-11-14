@@ -18,6 +18,7 @@ import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
+import FlyingForm from "./FlyingForm";
 
 interface Person {
 	[x: string]: any;
@@ -42,6 +43,15 @@ export default function LeavingApplication() {
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
+
+	// leave app
+	const [isShowLeaveApp, setIsShowLeaveApp] = React.useState(false);
+	const [formLeaveAppPosition, setformLeaveAppPosition] = React.useState(0);
+
+	const handleShowLeaveApp = (target: { pageY: number; clientY: number }) => {
+		setIsShowLeaveApp(true);
+		setformLeaveAppPosition(target.pageY - target.clientY);
+	};
 
 	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
@@ -153,13 +163,23 @@ export default function LeavingApplication() {
 
 	return (
 		<>
+			<FlyingForm
+				isShowDetail={isShowLeaveApp}
+				setIsShowDetail={setIsShowLeaveApp}
+				formPosition={formLeaveAppPosition}
+			/>
 			<ShowDetail
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
 			<LayoutTable style={{ marginTop: "10px" }}>
-				<Grid container alignItems="center" justifyContent="space-between">
+				<Grid
+					container
+					alignItems="center"
+					justifyContent="space-between"
+					onClick={handleShowLeaveApp}
+				>
 					<TitleText>Leaving Application</TitleText>
 					<ButtonFile title="LEAVE APPLICATION" />
 				</Grid>

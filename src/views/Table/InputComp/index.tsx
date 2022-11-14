@@ -1,7 +1,6 @@
 import { Grid, ISelectItem, Select, Text } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
-import { dummyValueTable } from "utils/dummy";
 import { colors } from "utils/styles";
 import { ButtonWrapper, Wrapper } from "./styles";
 
@@ -9,6 +8,24 @@ interface IInputComp {
 	value: ISelectItem[] | ISelectItem;
 	handleChange: (e: any) => void;
 }
+
+const dummyValueTable = [
+	{
+		id: 0,
+		values: "10",
+		label: "10",
+	},
+	{
+		id: 1,
+		values: "20",
+		label: "20",
+	},
+	{
+		id: 2,
+		values: "30",
+		label: "30",
+	},
+];
 
 export default function InputComp({ value, handleChange }: IInputComp) {
 	return (

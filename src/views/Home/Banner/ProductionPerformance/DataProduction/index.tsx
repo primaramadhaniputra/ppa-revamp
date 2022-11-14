@@ -5,10 +5,39 @@ import LabelValue from "src/components/organism/LabelValue";
 import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import { AchContainer, AchLabel, TabsAch, TabsAchContainer, TitleContainer } from "../styles";
-import { ProductionPerfromanceData } from "utils/dummy";
 import Image from "next/image";
 
 const tabsObText = ["JS", "TC"];
+
+export const ProductionPerfromanceData = [
+	{
+		title: " Cost @ 1 Km",
+		plan: ["MTD", "**"],
+		act: ["YTD", "**"],
+		icon: "ach_cost.png",
+		ach: "Ach.10%",
+	},
+	{
+		title: " Coal ",
+		plan: ["Plan", "2.203.117 ton"],
+		act: ["Act", "2.314.285 ton"],
+		icon: "ach_coal_production.png",
+		ach: "Ach.103%",
+	},
+	{
+		title: "OB",
+		plan: ["Plan", "2.203.117 ton"],
+		act: ["Act", "2.314.285 ton"],
+		icon: "ach_ob_production.png",
+		ach: "Ach.103%",
+	},
+	{
+		title: "MP PRDTY",
+		plan: ["Plan", "2.203.117 ton"],
+		act: ["Act", "2.314.285 ton"],
+		icon: "mp_productivity.png",
+	},
+];
 
 const DataProduction = () => {
 	const [activeTabOb, setActiveTabOb] = useState(0);

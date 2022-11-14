@@ -10,7 +10,6 @@ const ButtonFile = ({ title }: IProps) => {
 		<FileContainer>
 			<label htmlFor="file"> +</label>
 			<label htmlFor="file">{title}</label>
-			<input type="file" id="file" hidden />
 		</FileContainer>
 	);
 };
