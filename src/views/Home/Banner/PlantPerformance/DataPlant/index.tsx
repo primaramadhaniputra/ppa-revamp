@@ -3,9 +3,35 @@ import TitlePage from "atoms/TitlePage";
 import Image from "next/image";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
-import { PlanPerfromanceData } from "utils/dummy";
 import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
+
+export const PlanPerfromanceData = [
+	{
+		title: "PA",
+		plan: ["Plan", "** %"],
+		act: ["Act", "** %"],
+		icon: "pa.png",
+	},
+	{
+		title: "UA",
+		plan: ["Plan", "** %"],
+		act: ["Act", "** %"],
+		icon: "ua.png",
+	},
+	{
+		title: "MTBF",
+		plan: ["Plan", "** %"],
+		act: ["Act", "** %"],
+		icon: "MTBF.png",
+	},
+	{
+		title: "MTTR",
+		plan: ["Plan", "** %"],
+		act: ["Act", "** %"],
+		icon: "MTTR.png",
+	},
+];
 
 const DataPlant = () => {
 	return (

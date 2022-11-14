@@ -16,6 +16,7 @@ import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import { Grid } from "@hudoro/neron";
 import ButtonFile from "atoms/ButtonFile";
+import FlyingForm from "./FlyingForm";
 
 interface Person {
 	[x: string]: any;
@@ -40,6 +41,13 @@ export default function SuratPerintahLembur() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
 		return {
@@ -76,8 +84,18 @@ export default function SuratPerintahLembur() {
 
 	return (
 		<>
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<LayoutTable style={{ marginTop: "10px" }}>
-				<Grid container alignItems="center" justifyContent="space-between">
+				<Grid
+					container
+					alignItems="center"
+					justifyContent="space-between"
+					onClick={handleShowDetail}
+				>
 					<TitleText>Surat Perintah Lembur</TitleText>
 					<ButtonFile title="INPUT" />
 				</Grid>

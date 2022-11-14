@@ -16,6 +16,7 @@ import LayoutTable from "src/components/layouts/LayoutTable";
 import { Grid } from "@hudoro/neron";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
+import FlyingForm from "./FlyingForm";
 
 interface Person {
 	[x: string]: any;
@@ -37,6 +38,13 @@ export default function UploadRoster() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
 		return {
@@ -74,8 +82,18 @@ export default function UploadRoster() {
 	};
 	return (
 		<>
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
 			<LayoutTable style={{ marginTop: "10px" }}>
-				<Grid container alignItems="center" justifyContent="space-between">
+				<Grid
+					container
+					alignItems="center"
+					justifyContent="space-between"
+					onClick={handleShowDetail}
+				>
 					<TitleText>Upload Roster</TitleText>
 					<ButtonFile title="UPLOAD FILE" />
 				</Grid>

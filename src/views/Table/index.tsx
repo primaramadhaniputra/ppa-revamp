@@ -12,11 +12,23 @@ import {
 	getPaginationRowModel,
 	useReactTable,
 } from "@tanstack/react-table";
-import { defaultDataTable } from "utils/dummy";
 
 interface Person {
 	[x: string]: any;
 }
+export const defaultDataTable = new Array(1).fill(0).map(() => {
+	return {
+		["Date"]: "-",
+		["NRP"]: "-",
+		["Name"]: `-`,
+		["Dept"]: "-",
+		["Posisi"]: "-",
+		["Roster"]: "-",
+		["Start"]: "-",
+		["Finish"]: "-",
+		["Tugas"]: "-",
+	};
+});
 
 export default function Table() {
 	const [rowSelection, setRowSelection] = React.useState({});

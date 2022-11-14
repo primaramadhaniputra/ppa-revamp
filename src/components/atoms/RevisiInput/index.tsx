@@ -1,8 +1,8 @@
 import React from "react";
 import { StyledInput } from "./styles";
 
-interface IProps {
-	placeholder: string;
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+	// placeholder: string;
 }
 
 export default function RevisiInput({ ...rest }: IProps) {
