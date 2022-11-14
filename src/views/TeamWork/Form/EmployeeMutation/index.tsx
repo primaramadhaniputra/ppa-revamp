@@ -18,7 +18,6 @@ import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
-import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
@@ -102,7 +101,6 @@ export default function EmployeeMutation() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<TitleText>Employee Mutation</TitleText>
-					<ButtonFile title="INPUT" />
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
