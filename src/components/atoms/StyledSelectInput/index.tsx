@@ -5,13 +5,13 @@ import { Label, SelectContainer } from "./styles";
 const dummySelect = [
 	{
 		id: "0",
-		label: "Dani",
-		values: "Dani",
+		label: "Pisang",
+		values: "Pisang",
 	},
 	{
 		id: "1",
-		label: "Dani Ganteng",
-		values: "Dani Ganteng",
+		label: "Banana",
+		values: "Banana",
 	},
 ];
 
@@ -22,8 +22,10 @@ interface IProps {
 const StyledSelectInput = ({ title }: IProps) => {
 	return (
 		<Grid container alignItems="center" gap={20}>
-			<Label>{title}</Label>
-			<SelectContainer>
+			<Grid style={{ maxWidth: "50px" }}>
+				<Label>{title}</Label>
+			</Grid>
+			<SelectContainer style={{ flex: 1 }}>
 				<Select items={dummySelect} defaultValue={dummySelect[1]} />
 			</SelectContainer>
 		</Grid>
