@@ -1,9 +1,10 @@
-import { Grid, Select } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
+import RevisiInput from "atoms/RevisiInput";
 import StyledButton from "atoms/StyledButton";
+import StyledSelectInput from "atoms/StyledSelectInput";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { inputDropDownOperation } from "utils/dummy";
-import { InputContainer, Styledinput, StyledLabel } from "./styles";
+import { InputContainer, StyledLabel } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -20,50 +21,35 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			title="Update Form"
 		>
 			<InputContainer>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>NRP</StyledLabel>
-					<Grid>
-						<Styledinput />
+				<StyledSelectInput title="NRP" />
+				<StyledSelectInput title="Name" />
+				<StyledSelectInput title="Date" />
+				<Grid container gap={20}>
+					<Grid style={{ minWidth: "250px" }}>
+						<StyledSelectInput title="Code" />
+					</Grid>
+					<Grid style={{ minWidth: "250px" }}>
+						<StyledSelectInput title="Day" />
 					</Grid>
 				</Grid>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Name</StyledLabel>
-					<Grid>
-						<Styledinput />
+				<Grid container gap={30} alignItems="center">
+					<Grid container style={{ minWidth: "250px" }} gap={30}>
+						<Grid>
+							<StyledSelectInput title="Job" />
+						</Grid>
+						<Grid container>
+							<RevisiInput />
+						</Grid>
 					</Grid>
-				</Grid>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Date</StyledLabel>
-					<Grid>
-						<Styledinput />
-					</Grid>
-				</Grid>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Code</StyledLabel>
-					<Grid>
-						<Select items={inputDropDownOperation} />
-					</Grid>
-				</Grid>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Day</StyledLabel>
-					<Grid>
-						<Select items={inputDropDownOperation} />
-					</Grid>
-				</Grid>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Job</StyledLabel>
-					<Grid>
-						<Select items={inputDropDownOperation} />
-					</Grid>
-				</Grid>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Pos</StyledLabel>
-					<Grid container gap={10} style={{ flex: 1 }}>
-						<Styledinput />
+					<Grid container alignItems="center" style={{ flex: 1 }}>
+						<StyledLabel>Pos</StyledLabel>
+						<Grid>
+							<RevisiInput />
+						</Grid>
 					</Grid>
 				</Grid>
 				<Grid container justifyContent="flex-end">
-					<StyledButton style={{ maxWidth: "100px" }}>Update</StyledButton>
+					<StyledButton style={{ maxWidth: "250px" }}>Update</StyledButton>
 				</Grid>
 			</InputContainer>
 		</LayoutOverlayData>
