@@ -25,17 +25,21 @@ export const Table = styled.table`
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
+	font-family: ${fontFamilies.poppins};
 	& td,
 	& th {
 		border: 1px solid #aaaaaa;
-		padding: 3px 2px;
+		padding: 15px 2px;
 		text-align: center;
+		font-size: 13px;
+		vertical-align: middle;
 	}
 	& tbody td {
 		font-size: 13px;
 	}
 
 	& thead {
-		background: ${colors.blueSky};
+		background: ${colors.blue};
+		color: white;
 	}
 `;

@@ -1,5 +1,9 @@
-import { Grid, Select } from "@hudoro/neron";
-import React from "react";
+import { Grid } from "@hudoro/neron";
+import { IcCalendar } from "atoms/Icon";
+import RevisiInput from "atoms/RevisiInput";
+import StyledSelectInput from "atoms/StyledSelectInput";
+import RevisiDate from "molecules/RevisiDate";
+import React, { useState } from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import { DataContainer, StyledP, Table } from "./styles";
 
@@ -9,71 +13,63 @@ interface IProps {
 	formPosition: number;
 }
 
-const dummy = [
-	{
-		id: "0",
-		label: "testing",
-		values: "testing",
-	},
-	{
-		id: "1",
-		label: "testing",
-		values: "testing",
-	},
-];
-
 export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
+	const [date, setDate] = useState(new Date());
+
 	return (
 		<LayoutOverlayData
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
-			title="KT08/HCG/2102/CUTI/00072"
+			title="Claim Application"
 		>
-			<Grid flexDirection="row" container gap={60} style={{ padding: "20px 10px" }}>
-				<Grid flexDirection="column" container gap={20} style={{ flex: 1, minWidth: "250px" }}>
-					<DataContainer>
-						<StyledP>NRP</StyledP>
-						<Select placeholder="Nrp" items={dummy} />
-					</DataContainer>
-					<DataContainer>
-						<StyledP>Claim</StyledP>
-						<Select placeholder="Claim" items={dummy} />
-					</DataContainer>
-					<DataContainer>
-						<StyledP>Hub</StyledP>
-						<Select placeholder="Hub" items={dummy} />
-					</DataContainer>
-					<DataContainer>
-						<StyledP>Pasien</StyledP>
-						<Select placeholder="Hub" items={dummy} />
-					</DataContainer>
-					<DataContainer>
-						<StyledP>File</StyledP>
-						<Select placeholder="Hub" items={dummy} />
+			<Grid container flexDirection="column" gap={30} style={{ marginBottom: "50px" }}>
+				<Grid container justifyContent="space-between" gap={50}>
+					<Grid>
+						<StyledSelectInput title="NRP" />
+					</Grid>
+					<Grid>
+						<StyledSelectInput title="Dept" />
+					</Grid>
+				</Grid>
+				<Grid container justifyContent="space-between" gap={50}>
+					<Grid>
+						<StyledSelectInput title="Claim" />
+					</Grid>
+					<DataContainer style={{ flex: 1 }}>
+						<StyledP>
+							<IcCalendar width={16} />
+						</StyledP>
+						<RevisiDate placeholder="..." dateState={date} setDateState={setDate} />
 					</DataContainer>
 				</Grid>
-				<Grid flexDirection="column" container gap={20} style={{ flex: 1, minWidth: "250px" }}>
-					<DataContainer>
-						<StyledP>Dept</StyledP>
-						<Select placeholder="Nrp" items={dummy} />
-					</DataContainer>
-					<DataContainer>
-						<StyledP>Date</StyledP>
-						<Select placeholder="Claim" items={dummy} />
-					</DataContainer>
-					<DataContainer>
+				<Grid container justifyContent="space-between" gap={50}>
+					<Grid>
+						<StyledSelectInput title="Hub" />
+					</Grid>
+					<DataContainer style={{ flex: 1 }}>
 						<StyledP>Rp</StyledP>
-						<Select placeholder="Hub" items={dummy} />
+						<RevisiInput type="number" min={0} />
 					</DataContainer>
-					<DataContainer>
+				</Grid>
+				<Grid container justifyContent="space-between" gap={50}>
+					<DataContainer style={{ flex: 1 }}>
+						<StyledP>Pasien</StyledP>
+						<RevisiInput />
+					</DataContainer>
+					<DataContainer style={{ flex: 1 }}>
 						<StyledP>Saldo Plafom</StyledP>
-						<Select placeholder="Hub" items={dummy} />
+						<RevisiInput type="number" min={0} />
 					</DataContainer>
-					<DataContainer>
-						<StyledP>Vendor</StyledP>
-						<Select placeholder="Hub" items={dummy} />
+				</Grid>
+				<Grid container justifyContent="space-between" gap={50}>
+					<DataContainer style={{ flex: 1 }}>
+						<StyledP>File</StyledP>
+						<RevisiInput type="file" />
 					</DataContainer>
+					<Grid>
+						<StyledSelectInput title="Vendor" />
+					</Grid>
 				</Grid>
 			</Grid>
 			<DataContainer style={{ flexDirection: "column", width: "100%" }}>

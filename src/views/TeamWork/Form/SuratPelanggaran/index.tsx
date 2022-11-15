@@ -21,6 +21,7 @@ import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
+import ShowFormPelanggaran from "./ShowFormPelanggaran";
 
 interface Person {
 	[x: string]: any;
@@ -52,12 +53,21 @@ export default function SuratPelanggaran() {
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [activeTab, setActiveTab] = React.useState(0);
+
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
+
+	const [isShowForm, setIsShowForm] = React.useState(false);
+	const [formPelanggaranPosition, setformPelanggaranPosition] = React.useState(0);
 
 	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleShowFormPelanggaran = (target: { pageY: number; clientY: number }) => {
+		setIsShowForm(true);
+		setformPelanggaranPosition(target.pageY - target.clientY);
 	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
@@ -114,11 +124,21 @@ export default function SuratPelanggaran() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
+			<ShowFormPelanggaran
+				isShowDetail={isShowForm}
+				setIsShowDetail={setIsShowForm}
+				formPosition={formPelanggaranPosition}
+			/>
 			<WrapperTitle style={{ marginBottom: "20px ", padding: 0 }}>
 				<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
 			</WrapperTitle>
 			<LayoutTable>
-				<Grid container alignItems="center" justifyContent="space-between">
+				<Grid
+					container
+					alignItems="center"
+					justifyContent="space-between"
+					onClick={handleShowFormPelanggaran}
+				>
 					<TitleText> Data Pelanggaran Aktif Karyawan</TitleText>
 					<ButtonFile title="INPUT" />
 				</Grid>
