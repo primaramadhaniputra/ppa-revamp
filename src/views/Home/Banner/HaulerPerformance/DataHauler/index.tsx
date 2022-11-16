@@ -64,8 +64,8 @@ const DataHauler = () => {
 								</TitlePage>
 								<Image
 									src={`/icons/${data.icon}`}
-									width={25}
-									height={25}
+									width={index === 1 ? 32 : 25}
+									height={index === 1 ? 19 : 25}
 									alt="ProductionPerfromance icon"
 									quality={100}
 								/>
