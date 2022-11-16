@@ -49,7 +49,13 @@ export default function FormInput({ color }: IProps) {
 			<Grid container flexDirection="column" gap={50}>
 				<Grid container flexDirection="column" gap={20}>
 					<LabeledInput color={color} name="nrp" title="NRP" />
-					<LabeledInput color={color} title="Password" name="password" type="password" />
+					<LabeledInput
+						icon={true}
+						color={color}
+						title="Password"
+						name="password"
+						type="password"
+					/>
 					<RadioWrapper container alignItems="center" justifyContent="space-between">
 						<Radio
 							label="Remember me"
