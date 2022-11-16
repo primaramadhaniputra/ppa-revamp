@@ -18,7 +18,6 @@ import { colors } from "utils/styles";
 import RevisiInputYoutube from "atoms/RevisiInputYoutube";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "../../styles";
-import FlyingForm from "./FlyingForm";
 
 interface IProps {
 	[x: string]: any;
@@ -44,13 +43,6 @@ export default function Table() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isShowDetail, setIsShowDetail] = React.useState(false);
-	const [formPosition, setformPosition] = React.useState(0);
-
-	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
-		setIsShowDetail(true);
-		setformPosition(target.pageY - target.clientY);
-	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
@@ -60,13 +52,7 @@ export default function Table() {
 					<>
 						{info.column.id === "Detail" ? (
 							<Grid container justifyContent="center">
-								<IcEdit
-									width={18}
-									cursor="pointer"
-									strokeWidth={2}
-									color={colors.blue}
-									onClick={handleShowDetail}
-								/>
+								<IcEdit width={18} cursor="pointer" strokeWidth={2} color={colors.blue} />
 							</Grid>
 						) : (
 							info.getValue()
@@ -113,11 +99,6 @@ export default function Table() {
 
 	return (
 		<>
-			<FlyingForm
-				isShowDetail={isShowDetail}
-				setIsShowDetail={setIsShowDetail}
-				formPosition={formPosition}
-			/>
 			<>
 				<TableTitle variant="h4">Form Create Subject Quiz</TableTitle>
 				<WrapperInput>

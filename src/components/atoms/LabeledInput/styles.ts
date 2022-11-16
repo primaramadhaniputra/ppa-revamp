@@ -25,3 +25,10 @@ export const StyledInput = styled.input`
 		outline: 1px solid ${colors.primary};
 	} */
 `;
+
+export const IconContainer = styled.div`
+	position: absolute;
+	right: 10px;
+	bottom: 7px;
+	cursor: pointer;
+`;
