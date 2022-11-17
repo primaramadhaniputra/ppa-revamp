@@ -10,8 +10,6 @@ import {
 import { ThItemContainer } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { HoverP } from "./styles";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import ShowDetail from "./ShowDetail";
 import { colors } from "utils/styles";
 
@@ -72,10 +70,6 @@ export default function TopTable() {
 		debugTable: true,
 		getSortedRowModel: getSortedRowModel(),
 	});
-
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
 
 	return (
 		<>

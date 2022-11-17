@@ -10,8 +10,6 @@ import {
 } from "@tanstack/react-table";
 import { P } from "./styles";
 import ShowDetail from "./ShowDetail";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import { ThItemContainer } from "views/SHE/Form/styles";
 import { colors } from "utils/styles";
 
@@ -71,10 +69,6 @@ export default function SummaryTable() {
 		debugTable: true,
 		getSortedRowModel: getSortedRowModel(),
 	});
-
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
 
 	return (
 		<>
