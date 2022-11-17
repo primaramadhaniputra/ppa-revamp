@@ -71,12 +71,21 @@ export default function SuratPelanggaran() {
 	};
 
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
+		<div>
+			<button onClick={() => window.print()}>PRINT</button>
+			<p>Click above button opens print preview with these words on page</p>
+		</div>;
 		return {
 			accessorKey: item,
 			cell: (info) => {
 				return item === "Action" ? (
 					<Grid container justifyContent="center" gap={10}>
-						<IcPrinter width={20} color={colors.blue} style={{ cursor: "pointer" }} />
+						<IcPrinter
+							width={20}
+							color={colors.blue}
+							style={{ cursor: "pointer" }}
+							onClick={() => window.print()}
+						/>
 						<IcEye
 							width={20}
 							color={colors.blue}

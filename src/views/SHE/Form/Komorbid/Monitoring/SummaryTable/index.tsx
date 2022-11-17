@@ -41,11 +41,6 @@ export default function SummaryTable() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const handleHideDetail = () => {
-		setIsShowDetail(false);
-		setformPosition(0);
-	};
-
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
@@ -84,12 +79,9 @@ export default function SummaryTable() {
 	return (
 		<>
 			<ShowDetail
-				onclick={handleHideDetail}
-				styles={{
-					zIndex: `${isShowDetail ? "999" : "-999"}`,
-					opacity: `${isShowDetail ? "1" : "0"}`,
-				}}
-				top={formPosition}
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
 			/>
 			<TableComponent2
 				table={table}

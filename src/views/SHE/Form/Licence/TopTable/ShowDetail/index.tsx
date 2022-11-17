@@ -1,6 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
 import React from "react";
-import { Container, Wrapper } from "./styles";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -14,6 +12,7 @@ import { ThItemContainer } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import TableComponent2 from "src/components/organism/TableComp2";
 import CompleteArrow from "atoms/CompleteArrow";
+import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 
 interface ITable {
 	[x: string]: any;
@@ -35,12 +34,12 @@ export const defaultDataTable = arr.map(() => {
 });
 
 interface IProps {
-	onclick: () => void;
-	styles?: React.CSSProperties;
-	top: number;
+	isShowDetail: boolean;
+	setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
+	formPosition: number;
 }
 
-export default function ShowDetail({ onclick, styles, top }: IProps) {
+export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
@@ -84,21 +83,21 @@ export default function ShowDetail({ onclick, styles, top }: IProps) {
 	};
 
 	return (
-		<Wrapper style={{ top: `${top}px`, ...styles }}>
-			<Container>
-				<Grid container justifyContent="flex-end" style={{ marginBottom: 30 }}>
-					<Icon iconName="IcClose" style={{ cursor: "pointer" }} onClick={onclick} />
-				</Grid>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} withFooter={true} />
-			</Container>
-		</Wrapper>
+		<LayoutOverlayData
+			isShowDetail={isShowDetail}
+			setIsShowDetail={setIsShowDetail}
+			formPosition={formPosition}
+			title="LIST SIMPER AKTIF < 30 HARI DEPT ENG"
+		>
+			<TableFilterSearch
+				table={table}
+				handleChangeTotalShowData={handleChangeTotalShowData}
+				globalFilter={globalFilter}
+				setGlobalFilter={setGlobalFilter}
+				withButton={true}
+				buttonTitle="EXPORT"
+			/>
+			<TableComponent2 table={table} withFooter={true} />
+		</LayoutOverlayData>
 	);
 }
