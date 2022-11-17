@@ -1,3 +1,4 @@
+import Loading from "atoms/Loading";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { currentLoginPages } from "services/pages";
@@ -5,7 +6,7 @@ import { currentLoginPages } from "services/pages";
 const LoginView = dynamic(() => import("views/Login"), { ssr: false });
 
 export default function LoginPage() {
-	const [id, setId] = useState(1);
+	const [id, setId] = useState();
 	const getData = async () => {
 		try {
 			const data = await currentLoginPages({
@@ -32,5 +33,5 @@ export default function LoginPage() {
 	useEffect(() => {
 		getData();
 	}, []);
-	return <LoginView id={id} />;
+	return id ? <LoginView id={id} /> : <Loading />;
 }
