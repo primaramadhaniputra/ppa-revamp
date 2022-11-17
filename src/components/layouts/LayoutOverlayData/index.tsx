@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
-import { Grid } from "@hudoro/neron";
 import Image from "next/image";
-import { Container, ContainerTitle, Title, Wrapper } from "./styles";
+import { Container, ContainerChildren, ContainerTitle, Title, Wrapper } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -63,7 +62,7 @@ const LayoutOverlayData = ({
 						/>
 					</ContainerTitle>
 				)}
-				<Grid style={{ padding: "10px" }}>{children}</Grid>
+				<ContainerChildren style={{ padding: "10px" }}>{children}</ContainerChildren>
 			</Container>
 		</Wrapper>
 	);
