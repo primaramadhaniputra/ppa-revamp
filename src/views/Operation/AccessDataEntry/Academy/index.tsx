@@ -3,7 +3,12 @@ import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const Subject = dynamic(() => import("./Subject"));
+const Subject = dynamic(() => import("./Subject"), {
+	ssr: false,
+});
+const Question = dynamic(() => import("./Question"), {
+	ssr: false,
+});
 
 const tabTitle = ["Post Test"];
 const tabTitle2 = ["Subject", "Question", "Schedule"];
@@ -11,6 +16,8 @@ const tabTitle2 = ["Subject", "Question", "Schedule"];
 const renderContent = (activeTab: string) => {
 	if (activeTab === "Subject") {
 		return <Subject />;
+	} else if (activeTab === "Question") {
+		return <Question />;
 	}
 };
 

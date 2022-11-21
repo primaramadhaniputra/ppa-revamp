@@ -4,7 +4,7 @@ import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const StyledButton = styled.button`
 	background: ${colors.primary};
-	border-radius: 5px;
+	border-radius: 3px;
 	width: 100%;
 	border: none;
 	padding: 10px 0;

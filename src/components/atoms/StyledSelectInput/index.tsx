@@ -22,7 +22,7 @@ interface IProps {
 const StyledSelectInput = ({ title }: IProps) => {
 	return (
 		<Grid container alignItems="center" gap={20}>
-			<Grid style={{ maxWidth: "50px" }}>
+			<Grid container>
 				<Label>{title}</Label>
 			</Grid>
 			<SelectContainer style={{ flex: 1 }}>
