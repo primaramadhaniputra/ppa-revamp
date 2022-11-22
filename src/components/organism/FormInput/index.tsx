@@ -1,4 +1,5 @@
 import { Grid, Radio, Text } from "@hudoro/neron";
+import { IcLoading } from "atoms/Icon";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import Cookies from "js-cookie";
@@ -15,9 +16,12 @@ interface IProps {
 
 export default function FormInput({ color }: IProps) {
 	const [checkedRadio, setCheckedRadio] = useState(false);
+	const [isLogin, setIsLogin] = useState(false);
+
 	const router = useRouter();
 	const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
 		try {
+			setIsLogin(true);
 			form.preventDefault();
 			const formData = new FormData(form.currentTarget);
 			const nrp = formData.get("nrp");
@@ -34,6 +38,8 @@ export default function FormInput({ color }: IProps) {
 			return notify("selamat kamu berhasil login", "success");
 		} catch (error: any) {
 			return notify(error.message, "error");
+		} finally {
+			setIsLogin(false);
 		}
 	};
 	const handleRadio = () => {
@@ -72,7 +78,9 @@ export default function FormInput({ color }: IProps) {
 						</Text>
 					</RadioWrapper>
 				</Grid>
-				<StyledButton onClick={() => {}}>Login</StyledButton>
+				<StyledButton onClick={() => {}}>
+					{isLogin ? <IcLoading width={18} /> : "Login"}
+				</StyledButton>
 			</Grid>
 		</form>
 	);
