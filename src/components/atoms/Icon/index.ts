@@ -16,6 +16,7 @@ import IcSquare from "./IcSquare";
 import IcShortAscending from "./IcShortAscending";
 import IcShortDescending from "./IcShortDescending";
 import IcCloseCircleFilled from "./IcCloseCircleFilled";
+import IcLoading from "./IcLoading";
 
 export {
 	IcClose,
@@ -36,4 +37,5 @@ export {
 	IcShortAscending,
 	IcShortDescending,
 	IcCloseCircleFilled,
+	IcLoading,
 };
