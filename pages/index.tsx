@@ -2,13 +2,17 @@ import Loading from "atoms/Loading";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { currentLoginPages } from "services/pages";
+import { notify } from "utils/functions";
 
 const LoginView = dynamic(() => import("views/Login"), { ssr: false });
 
 export default function LoginPage() {
 	const [id, setId] = useState();
+	const [isLoading, setIsLoading] = useState(false);
+
 	const getData = async () => {
 		try {
+			setIsLoading(true);
 			const data = await currentLoginPages({
 				path: "pages",
 				params: {
@@ -17,21 +21,19 @@ export default function LoginPage() {
 			});
 			const idLogin = data.data.data.pageId;
 			setId(idLogin);
-			return {
-				props: {
-					id: idLogin,
-				},
-			};
 		} catch (error: any) {
-			return {
-				props: {
-					pokemons: [],
-				},
-			};
+			notify(error.message, "error");
+		} finally {
+			setIsLoading(false);
 		}
 	};
 	useEffect(() => {
 		getData();
 	}, []);
-	return id ? <LoginView id={id} /> : <Loading />;
+
+	if (isLoading) {
+		return <Loading />;
+	}
+
+	return <LoginView id={id || 1} />;
 }
