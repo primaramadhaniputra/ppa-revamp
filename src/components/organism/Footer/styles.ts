@@ -9,6 +9,7 @@ interface IType {
 export const Wrapper = styled.div<IType>`
 	padding: 15px 0;
 	box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.5);
+	background-color: white;
 	${mediaQueries.lg} {
 		display: ${(props) => (props.type === "dashboard" ? "flex" : null)};
 		justify-content: ${(props) => (props.type === "dashboard" ? "space-between" : null)};

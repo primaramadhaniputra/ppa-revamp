@@ -24,6 +24,7 @@ export const Input = styled.input`
 `;
 
 export const SelectWrapper = styled(Grid)`
+	position: relative;
 	& p {
 		font-family: ${fontFamilies.poppins};
 	}
@@ -39,6 +40,17 @@ export const SelectWrapper = styled(Grid)`
 		font-size: 14px;
 		padding: 5px;
 	}
+	& > div > div * svg {
+		display: none !important;
+	}
 `;
 
 export const StyledSelect = styled(Select)``;
+
+export const SelectIconContainer = styled.div`
+	width: max-content;
+	position: absolute;
+	bottom: -5px;
+	right: -5px;
+	transform: rotate(-45deg);
+`;

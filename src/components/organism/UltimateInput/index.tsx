@@ -1,6 +1,7 @@
 import { Grid } from "@hudoro/neron";
+import { IcCaretDown } from "atoms/Icon";
 import React from "react";
-import { Input, Label, SelectWrapper, StyledSelect, Wrapper } from "./Styles";
+import { Input, Label, SelectIconContainer, SelectWrapper, StyledSelect, Wrapper } from "./Styles";
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	multiple?: boolean;
@@ -39,6 +40,9 @@ const UltimateInput = ({
 						]}
 						multiple={multiple && multiple}
 					/>
+					<SelectIconContainer>
+						<IcCaretDown width={18} color="rgba(0,0,0,.3)" />
+					</SelectIconContainer>
 				</SelectWrapper>
 			)}
 		</Wrapper>
