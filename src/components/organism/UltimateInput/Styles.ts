@@ -54,3 +54,8 @@ export const SelectIconContainer = styled.div`
 	right: -5px;
 	transform: rotate(-45deg);
 `;
+
+export const DateContainer = styled.div`
+	position: absolute;
+	z-index: 999;
+`;

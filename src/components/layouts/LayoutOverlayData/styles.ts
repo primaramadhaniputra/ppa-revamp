@@ -22,7 +22,7 @@ export const Container = styled(Grid).attrs({
 	margin: auto;
 	background-color: white;
 	transition: 0.3s;
-	overflow: scroll;
+	/* overflow-x: scroll; */
 	max-height: calc(100vh - 70px);
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 	border-radius: 3px;
@@ -42,7 +42,7 @@ export const Container = styled(Grid).attrs({
 `;
 
 export const ContainerChildren = styled(Grid).attrs({})`
-	overflow: scroll;
+	/* overflow-x: scroll; */
 	::-webkit-scrollbar {
 		height: 5px;
 		width: 3px;

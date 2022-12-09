@@ -22,7 +22,7 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
+const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["NO"]: "-",

@@ -1,7 +1,18 @@
 import { Grid } from "@hudoro/neron";
 import { IcCaretDown } from "atoms/Icon";
-import React from "react";
-import { Input, Label, SelectIconContainer, SelectWrapper, StyledSelect, Wrapper } from "./Styles";
+import React, { useState } from "react";
+import { Calendar } from "react-date-range";
+import {
+	DateContainer,
+	Input,
+	Label,
+	SelectIconContainer,
+	SelectWrapper,
+	StyledSelect,
+	Wrapper,
+} from "./Styles";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	multiple?: boolean;
@@ -9,6 +20,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	isInputSelect?: boolean;
 	isLabel?: boolean;
 	title?: string;
+	isDate?: boolean;
 }
 
 const UltimateInput = ({
@@ -16,14 +28,28 @@ const UltimateInput = ({
 	isInput,
 	isInputSelect,
 	isLabel,
+	isDate,
 	title = "dani ganteng",
 	...rest
 }: IProps) => {
+	const [date, setDate] = useState(new Date());
+	const [isShowDate, setIsShowDate] = useState(false);
+
 	return (
 		<Wrapper>
 			{isLabel && (
-				<Grid container>
+				<Grid container style={{ flex: 1, maxWidth: "250px" }}>
 					<Label>{title}</Label>
+				</Grid>
+			)}
+			{isDate && (
+				<Grid style={{ position: "relative" }}>
+					<Input onClick={() => setIsShowDate(!isShowDate)} value={date.toLocaleDateString()} />
+					{isShowDate && (
+						<DateContainer>
+							<Calendar date={date} onChange={(e) => setDate(e)} />
+						</DateContainer>
+					)}
 				</Grid>
 			)}
 			{isInput && (

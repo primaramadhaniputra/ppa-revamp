@@ -19,16 +19,30 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 				formPosition={formPosition}
 				title="Form Schedule Post Test"
 			>
-				<Grid container gap={10} flexDirection="column" style={{ marginBottom: "20px" }}>
+				<Grid container gap={20} flexDirection="column" style={{ marginBottom: "20px" }}>
 					<UltimateInput isLabel={true} title="Name Post Test" isInput={true} />
 					<UltimateInput isLabel={true} isInputSelect={true} title="Subject Post Test" />
 					<UltimateInput isLabel={true} title="Total Question" isInput={true} type="number" />
 					<UltimateInput isLabel={true} title="Peserta" isInput={true} />
 					<UltimateInput isLabel={true} title="Duration Time" isInput={true} type="number" />
-					<UltimateInput isLabel={true} title="Date & Time Open" isInput={true} type="time" />
-					<UltimateInput isLabel={true} title="Date & Close" isInput={true} type="time" />
+					<UltimateInput
+						isLabel={true}
+						title="Date & Open"
+						isDate={true}
+						isInput={true}
+						type="time"
+					/>
+					<UltimateInput
+						isLabel={true}
+						title="Date & Close"
+						isDate={true}
+						isInput={true}
+						type="time"
+					/>
 				</Grid>
-				<StyledButton>Save</StyledButton>
+				<Grid container justifyContent="flex-end" style={{ marginTop: "50px" }}>
+					<StyledButton style={{ maxWidth: "150px" }}>Save</StyledButton>
+				</Grid>
 			</LayoutOverlayData>
 		</>
 	);
