@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 
 export const FormGroup = styled.div`
 	position: relative;
-	padding: 10px 0 0;
-	margin-top: 10px;
+	/* padding: 10px 0 0; */
 	width: 100%;
 `;
 
@@ -35,20 +34,20 @@ export const FormField = styled.input`
 	&:placeholder-shown ~ label {
 		/* font-size: 1rem; */
 		cursor: text;
-		top: 20px;
+		top: 10px;
 	}
 
-	&:focus {
-		/* padding-bottom: 6px; */
-		/* font-weight: 700; */
-		/* border-width: 3px; */
-		/* border-image: linear-gradient(to right, #ff0062, #00ffff); */
-		/* border-image-slice: 1; */
-	}
+	/* &:focus {
+		padding-bottom: 6px;
+		font-weight: 700;
+		border-width: 3px;
+		border-image: linear-gradient(to right, #ff0062, #00ffff);
+		border-image-slice: 1;
+	} */
 
 	&:focus ~ label {
 		position: absolute;
-		top: 0;
+		top: -10px;
 		display: block;
 		transition: 0.2s;
 		font-size: 12px;
@@ -59,7 +58,7 @@ export const FormField = styled.input`
 
 export const FormLabel = styled.label`
 	position: absolute;
-	top: 0;
+	top: -10px;
 	display: block;
 	transition: 0.2s;
 	font-size: 12px;

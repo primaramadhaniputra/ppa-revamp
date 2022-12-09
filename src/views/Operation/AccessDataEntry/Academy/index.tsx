@@ -9,6 +9,9 @@ const Subject = dynamic(() => import("./Subject"), {
 const Question = dynamic(() => import("./Question"), {
 	ssr: false,
 });
+const Schedule = dynamic(() => import("./Schedule"), {
+	ssr: false,
+});
 
 const tabTitle = ["Post Test"];
 const tabTitle2 = ["Subject", "Question", "Schedule"];
@@ -18,6 +21,8 @@ const renderContent = (activeTab: string) => {
 		return <Subject />;
 	} else if (activeTab === "Question") {
 		return <Question />;
+	} else if (activeTab === "Schedule") {
+		return <Schedule />;
 	}
 };
 
