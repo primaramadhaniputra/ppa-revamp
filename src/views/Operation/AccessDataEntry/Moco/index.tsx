@@ -8,6 +8,9 @@ import Upload from "./Upload";
 const HmBreakdownRevision = dynamic(() => import("./HmBreakdownRevision"), {
 	ssr: false,
 });
+const Breakdown = dynamic(() => import("./Breakdown"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"HM Revision",
@@ -31,6 +34,8 @@ const renderContent = (activeTab: number) => {
 		return <Upload />;
 	} else if (activeTab === 1) {
 		return <HmBreakdownRevision />;
+	} else if (activeTab === 3) {
+		return <Breakdown />;
 	}
 };
 

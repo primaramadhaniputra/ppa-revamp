@@ -21,6 +21,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	isLabel?: boolean;
 	title?: string;
 	isDate?: boolean;
+	maxLableWidth?: string;
 }
 
 const UltimateInput = ({
@@ -30,6 +31,7 @@ const UltimateInput = ({
 	isLabel,
 	isDate,
 	title = "dani ganteng",
+	maxLableWidth,
 	...rest
 }: IProps) => {
 	const [date, setDate] = useState(new Date());
@@ -38,7 +40,7 @@ const UltimateInput = ({
 	return (
 		<Wrapper>
 			{isLabel && (
-				<Grid container style={{ flex: 1, maxWidth: "250px" }}>
+				<Grid container style={{ flex: 1, maxWidth: maxLableWidth || "250px" }}>
 					<Label>{title}</Label>
 				</Grid>
 			)}
