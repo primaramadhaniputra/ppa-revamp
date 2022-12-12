@@ -24,7 +24,7 @@ export const Container = styled(Grid).attrs({
 	transition: 0.3s;
 	/* overflow-x: scroll; */
 	max-height: calc(100vh - 70px);
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 	border-radius: 3px;
 	::-webkit-scrollbar {
 		height: 5px;
