@@ -17,6 +17,7 @@ const RefuelVersion = dynamic(() => import("./RefuelVersion"), { ssr: false });
 const FuelRate = dynamic(() => import("./FuelRate"), { ssr: false });
 const FuelStation = dynamic(() => import("./FuelStation"), { ssr: false });
 const OperasionalPlan = dynamic(() => import("./OperasionalPlan"), { ssr: false });
+const GreaseOilCoolan = dynamic(() => import("./GreaseOilCoolan"), { ssr: false });
 
 const tabsData = [
 	"Academy",
@@ -71,6 +72,8 @@ function renderContent(queryName: string) {
 		return <FuelStation />;
 	} else if (queryName === "Operasional Plan") {
 		return <OperasionalPlan />;
+	} else if (queryName === "Grease,Oil & Coolan") {
+		return <GreaseOilCoolan />;
 	}
 }
 
