@@ -38,7 +38,7 @@ const UltimateInput = ({
 	const [isShowDate, setIsShowDate] = useState(false);
 
 	return (
-		<Wrapper>
+		<Wrapper style={{ minWidth: "220px" }}>
 			{isLabel && (
 				<Grid container style={{ flex: 1, maxWidth: maxLableWidth || "250px" }}>
 					<Label>{title}</Label>
