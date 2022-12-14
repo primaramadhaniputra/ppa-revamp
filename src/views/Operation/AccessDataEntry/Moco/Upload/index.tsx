@@ -19,6 +19,9 @@ const Mincon = dynamic(() => import("./Mincon"), {
 const Ore = dynamic(() => import("./Ore"), {
 	ssr: false,
 });
+const CoalHauling = dynamic(() => import("./CoalHauling"), {
+	ssr: false,
+});
 
 const renderContent = (type: string) => {
 	if (type === "HPR") {
@@ -31,6 +34,8 @@ const renderContent = (type: string) => {
 		return <Mincon />;
 	} else if (type === "Ore") {
 		return <Ore />;
+	} else if (type === "Coal Hauling") {
+		return <CoalHauling />;
 	}
 };
 

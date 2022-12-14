@@ -28,8 +28,9 @@ export const WrapperTitle = styled(Grid).attrs({
 	justify-content: space-between;
 	align-items: center;
 	margin: 20px 0;
+	padding: 15px 5px;
+	background-color: white;
 	${mediaQueries.md} {
-		background-color: white;
 		padding: 15px;
 	}
 `;
