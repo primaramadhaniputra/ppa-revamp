@@ -1,10 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import RevisiInput from "atoms/RevisiInput";
-import StyledButton from "atoms/StyledButton";
-import StyledSelectInput from "atoms/StyledSelectInput";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { InputContainer, StyledLabel } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { InputContainer } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -21,31 +19,17 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			title="EMPLOYEE MUTATION"
 		>
 			<InputContainer>
-				<Grid container gap={10} alignItems="center">
-					<StyledLabel>Name</StyledLabel>
-					<Grid>
-						<RevisiInput />
-					</Grid>
-				</Grid>
+				<UltimateInput isInput={true} title="Name" maxLableWidth="70px" />
 				<Grid container gap={30}>
-					<Grid container gap={10} alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>NRP</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="NRP" maxLableWidth="70px" />
 					</Grid>
-					<Grid container gap={10} alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Dept</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Dept" maxLableWidth="70px" />
 					</Grid>
 				</Grid>
-				<StyledSelectInput title="Jabatan" />
-				<StyledSelectInput title="Position" />
-				<Grid container justifyContent="flex-end">
-					<StyledButton style={{ maxWidth: "250px" }}>Update</StyledButton>
-				</Grid>
+				<UltimateInput isInputSelect={true} title="Jabatan" maxLableWidth="70px" />
+				<UltimateInput isInputSelect={true} title="Position" maxLableWidth="70px" />
 			</InputContainer>
 		</LayoutOverlayData>
 	);

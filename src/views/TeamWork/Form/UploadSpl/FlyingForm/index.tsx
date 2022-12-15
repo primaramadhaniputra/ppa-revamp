@@ -1,8 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { Input, InputContainer, Label } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { Label } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -18,15 +18,10 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			formPosition={formPosition}
 			title="Upload SPL"
 		>
-			<InputContainer>
-				<Grid container flexDirection="column" gap={10}>
-					<Label>Select Excel File</Label>
-					<Input type="file" />
-				</Grid>
-				<Grid container justifyContent="flex-end">
-					<StyledButton style={{ maxWidth: "100px" }}>Upload</StyledButton>
-				</Grid>
-			</InputContainer>
+			<Grid container flexDirection="column" gap={10}>
+				<Label>Select Excel File</Label>
+				<UltimateInput isInput={true} type="file" />
+			</Grid>
 		</LayoutOverlayData>
 	);
 }

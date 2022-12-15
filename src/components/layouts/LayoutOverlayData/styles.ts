@@ -22,7 +22,7 @@ export const Container = styled(Grid).attrs({
 	margin: auto;
 	background-color: white;
 	transition: 0.3s;
-	/* overflow-x: scroll; */
+	overflow-x: scroll;
 	max-height: calc(100vh - 70px);
 	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 	border-radius: 3px;

@@ -1,13 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import InputTime from "atoms/InputTime";
-import { StyledInput } from "atoms/InputTime/styles";
-import RevisiInputYoutube from "atoms/RevisiInputYoutube";
-import StyledButton from "atoms/StyledButton";
-import StyledSelectInput from "atoms/StyledSelectInput";
-import RevisiDate from "molecules/RevisiDate";
-import React, { useState } from "react";
+import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { InputContainer, Label } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { InputContainer } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -16,8 +11,6 @@ interface IProps {
 }
 
 export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
-	const [date, setDate] = useState(new Date());
-
 	return (
 		<LayoutOverlayData
 			isShowDetail={isShowDetail}
@@ -28,35 +21,25 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			width={800}
 		>
 			<InputContainer>
-				<StyledSelectInput title="Name" />
+				<UltimateInput isInputSelect={true} title="Name" maxLableWidth="70px" />
 				<Grid container alignItems="center" gap={50}>
 					<Grid container flexDirection="column" gap={20} style={{ flex: 1 }}>
-						<Label>Date</Label>
-						<RevisiDate dateState={date} setDateState={setDate} placeholder="" />
+						<UltimateInput isDate={true} title="Date" maxLableWidth="70px" />
 					</Grid>
 					<Grid container flexDirection="column" gap={20} style={{ flex: 1 }}>
-						<Label>Roster</Label>
-						<StyledInput />
+						<UltimateInput isInput={true} title="Roster" maxLableWidth="70px" />
 					</Grid>
 				</Grid>
 				<Grid container alignItems="center" gap={50}>
 					<Grid container flexDirection="column" gap={20} style={{ flex: 1 }}>
-						<Label>In</Label>
-						<InputTime name="in" label="" type="time" />
+						<UltimateInput isInput={true} title="In" maxLableWidth="70px" type="time" />
 					</Grid>
 					<Grid container flexDirection="column" gap={20} style={{ flex: 1 }}>
-						<Label>Out</Label>
-						<InputTime name="in" label="" type="time" />
+						<UltimateInput isInput={true} title="Out" maxLableWidth="70px" type="time" />
 					</Grid>
 				</Grid>
-				<StyledSelectInput title="Reason" />
-				<Grid container alignItems="center">
-					<Label>Remark</Label>
-					<RevisiInputYoutube />
-				</Grid>
-				<Grid container justifyContent="flex-end">
-					<StyledButton style={{ maxWidth: "100px" }}>Submit</StyledButton>
-				</Grid>
+				<UltimateInput isInputSelect={true} title="Reason" maxLableWidth="70px" />
+				<UltimateInput isInput={true} title="Remark" maxLableWidth="70px" />
 			</InputContainer>
 		</LayoutOverlayData>
 	);

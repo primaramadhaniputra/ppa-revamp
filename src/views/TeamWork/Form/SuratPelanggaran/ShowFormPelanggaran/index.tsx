@@ -1,12 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import InputTime from "atoms/InputTime";
-import RevisiInput from "atoms/RevisiInput";
-import RevisiInputYoutube from "atoms/RevisiInputYoutube";
-import StyledSelectInput from "atoms/StyledSelectInput";
-import RevisiDate from "molecules/RevisiDate";
-import React, { useState } from "react";
+import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { B, StyledLabel } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { B } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -19,8 +15,6 @@ export default function ShowFormPelanggaran({
 	setIsShowDetail,
 	formPosition,
 }: IProps) {
-	const [date, setDate] = useState(new Date());
-
 	return (
 		<LayoutOverlayData
 			isShowDetail={isShowDetail}
@@ -29,53 +23,34 @@ export default function ShowFormPelanggaran({
 			title="Form Surat Pelanggaran Karyawan"
 		>
 			<Grid container flexDirection="column" gap={40}>
-				<StyledSelectInput title="Nama" />
+				<UltimateInput isInput={true} title="Nama" maxLableWidth="80px" />
 				<Grid container alignItems="center" gap={50}>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Riwayat</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
-					</Grid>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Exp</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
-					</Grid>
-				</Grid>
-				<StyledSelectInput title="Level" />
-				<Grid container alignItems="center" gap={50}>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Tanggal</StyledLabel>
-						<Grid>
-							<RevisiDate dateState={date} setDateState={setDate} placeholder="..." />
-						</Grid>
-					</Grid>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<Grid>
-							<InputTime name="time" type="time" label="Jam" />
-						</Grid>
-					</Grid>
-				</Grid>
-				<Grid container alignItems="center" gap={50}>
-					<Grid style={{ minWidth: "250px" }}>
-						<StyledSelectInput title="Kategori" />
-					</Grid>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Lokasi</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
-					</Grid>
-				</Grid>
-				<Grid>
-					<StyledLabel>Uraian Singkat</StyledLabel>
 					<Grid>
-						<RevisiInputYoutube />
+						<UltimateInput isInput={true} title="Riwayat" maxLableWidth="80px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Exp" maxLableWidth="80px" />
 					</Grid>
 				</Grid>
-				<StyledSelectInput title="Pembuat" />
+				<UltimateInput isInputSelect={true} title="Level" maxLableWidth="80px" />
+				<Grid container alignItems="center" gap={50}>
+					<Grid>
+						<UltimateInput isDate={true} title="Tanggal" maxLableWidth="80px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="🕜" maxLableWidth="80px" type="time" />
+					</Grid>
+				</Grid>
+				<Grid container alignItems="center" gap={50}>
+					<Grid>
+						<UltimateInput isInputSelect={true} title="Kategori" maxLableWidth="80px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Lokasi" maxLableWidth="80px" />
+					</Grid>
+				</Grid>
+				<UltimateInput isInput={true} title="Uraian " maxLableWidth="80px" />
+				<UltimateInput isInputSelect={true} title="Pembuat" maxLableWidth="80px" />
 			</Grid>
 			<hr style={{ margin: "50px 0" }} />
 			<B>
@@ -83,25 +58,19 @@ export default function ShowFormPelanggaran({
 			</B>
 			<Grid container flexDirection="column" gap={40}>
 				<Grid container alignItems="center" gap={50}>
-					<Grid style={{ minWidth: "250px" }}>
-						<StyledSelectInput title="Minepermit" />
+					<Grid>
+						<UltimateInput isInputSelect={true} title="Minepermit" maxLableWidth="80px" />
 					</Grid>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Riwayat</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Riwayat" maxLableWidth="80px" />
 					</Grid>
 				</Grid>
 				<Grid container alignItems="center" gap={50}>
-					<Grid style={{ minWidth: "250px" }}>
-						<StyledSelectInput title="Simper" />
+					<Grid>
+						<UltimateInput isInputSelect={true} title="Simper" maxLableWidth="80px" />
 					</Grid>
-					<Grid container alignItems="center" style={{ flex: 1, minWidth: "250px" }}>
-						<StyledLabel>Riwayat</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Riwayat" maxLableWidth="80px" />
 					</Grid>
 				</Grid>
 			</Grid>

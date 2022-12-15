@@ -1,10 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import RevisiInput from "atoms/RevisiInput";
-import StyledButton from "atoms/StyledButton";
-import StyledSelectInput from "atoms/StyledSelectInput";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { InputContainer, StyledLabel } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { InputContainer } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -21,35 +19,29 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			title="Update Form"
 		>
 			<InputContainer>
-				<StyledSelectInput title="NRP" />
-				<StyledSelectInput title="Name" />
-				<StyledSelectInput title="Date" />
-				<Grid container gap={20}>
-					<Grid style={{ minWidth: "250px" }}>
-						<StyledSelectInput title="Code" />
+				<UltimateInput isInputSelect={true} title={"NRP"} maxLableWidth="60px" />
+				<UltimateInput isInputSelect={true} title={"Name"} maxLableWidth="60px" />
+				<UltimateInput isDate={true} title={"Date"} maxLableWidth="60px" />
+				<Grid container gap={30}>
+					<Grid>
+						<UltimateInput isInputSelect={true} title={"Code"} maxLableWidth="60px" />
 					</Grid>
-					<Grid style={{ minWidth: "250px" }}>
-						<StyledSelectInput title="Day" />
+					<Grid>
+						<UltimateInput isInputSelect={true} title={"Day"} maxLableWidth="60px" />
 					</Grid>
 				</Grid>
 				<Grid container gap={30} alignItems="center">
-					<Grid container style={{ minWidth: "250px" }} gap={30}>
+					<Grid container gap={30}>
 						<Grid>
-							<StyledSelectInput title="Job" />
+							<UltimateInput isInputSelect={true} title={"Job"} maxLableWidth="60px" />
 						</Grid>
 						<Grid container>
-							<RevisiInput />
+							<UltimateInput isInput={true} />
 						</Grid>
 					</Grid>
-					<Grid container alignItems="center" style={{ flex: 1 }}>
-						<StyledLabel>Pos</StyledLabel>
-						<Grid>
-							<RevisiInput />
-						</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title={"Pos"} maxLableWidth="60px" />
 					</Grid>
-				</Grid>
-				<Grid container justifyContent="flex-end">
-					<StyledButton style={{ maxWidth: "250px" }}>Update</StyledButton>
 				</Grid>
 			</InputContainer>
 		</LayoutOverlayData>

@@ -10,8 +10,6 @@ export const InputContainer = styled.form`
 		padding: 10px 50px;
 	}
 `;
-
-export const Input = styled.input``;
 export const Label = styled.label`
 	font-family: ${fontFamilies.poppins};
 	font-size: 13px;
