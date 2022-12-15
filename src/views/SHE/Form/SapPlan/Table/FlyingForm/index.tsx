@@ -1,14 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import {
-	InputContainer,
-	InputWrapper,
-	SingleInputContainer,
-	Styledinput,
-	StyledLabel,
-} from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { InputContainer } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -23,88 +17,51 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Update SAP Plan"
+			button={true}
 		>
 			<InputContainer>
-				<SingleInputContainer>
-					<StyledLabel>NRP</StyledLabel>
+				<UltimateInput isInput={true} title="NRP" maxLableWidth="100px" />
+				<Grid container alignItems="center" gap={50}>
 					<Grid>
-						<Styledinput />
+						<UltimateInput isInput={true} title="Bulan" maxLableWidth="100px" />
 					</Grid>
-				</SingleInputContainer>
-				<InputWrapper>
-					<SingleInputContainer>
-						<StyledLabel>Bulan</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-					<SingleInputContainer>
-						<StyledLabel>Tahun</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-				</InputWrapper>
-				<InputWrapper>
-					<SingleInputContainer>
-						<StyledLabel>KTA</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-					<SingleInputContainer>
-						<StyledLabel>TTA</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-				</InputWrapper>
-				<InputWrapper>
-					<SingleInputContainer>
-						<StyledLabel>Inspeksi</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-					<SingleInputContainer>
-						<StyledLabel>Observasi</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-				</InputWrapper>
-				<InputWrapper>
-					<SingleInputContainer>
-						<StyledLabel>P.KRITIS</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-					<SingleInputContainer>
-						<StyledLabel>WAKE UP CALL</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-				</InputWrapper>
-				<InputWrapper>
-					<SingleInputContainer>
-						<StyledLabel>S.MEETING</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-					<SingleInputContainer>
-						<StyledLabel>CHOACING</StyledLabel>
-						<Grid>
-							<Styledinput />
-						</Grid>
-					</SingleInputContainer>
-				</InputWrapper>
+					<Grid>
+						<UltimateInput isInput={true} title="Tahun" maxLableWidth="100px" />
+					</Grid>
+				</Grid>
+				<Grid container alignItems="center" gap={50}>
+					<Grid>
+						<UltimateInput isInput={true} title="KTA" maxLableWidth="100px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="TTA" maxLableWidth="100px" />
+					</Grid>
+				</Grid>
+				<Grid container alignItems="center" gap={50}>
+					<Grid>
+						<UltimateInput isInput={true} title="Inspeksi" maxLableWidth="100px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Observasi" maxLableWidth="100px" />
+					</Grid>
+				</Grid>
+				<Grid container alignItems="center" gap={50}>
+					<Grid>
+						<UltimateInput isInput={true} title="P.KRITIS" maxLableWidth="100px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="WAKE UP CALL" maxLableWidth="100px" />
+					</Grid>
+				</Grid>
+				<Grid container alignItems="center" gap={50}>
+					<Grid>
+						<UltimateInput isInput={true} title="S.MEETING" maxLableWidth="100px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="CHOACING" maxLableWidth="100px" />
+					</Grid>
+				</Grid>
 			</InputContainer>
-			<Grid>
-				<StyledButton>Update</StyledButton>
-			</Grid>
 		</LayoutOverlayData>
 	);
 }

@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 
 const tabs = ["Breakdown Monitoring", "HM Monitoring"];
 
-const BreakDownMonitoring = dynamic(() => import("./BreakdownMonitoring"));
-const HmMonitoring = dynamic(() => import("./HmMonitoring"));
+const BreakDownMonitoring = dynamic(() => import("./BreakdownMonitoring"), { ssr: false });
+const HmMonitoring = dynamic(() => import("./HmMonitoring"), { ssr: false });
 
 const renderContent = (type: string) => {
 	if (type === "Breakdown Monitoring") {

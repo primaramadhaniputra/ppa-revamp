@@ -6,11 +6,11 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { SelectContainer } from "./styles";
 
-const FlightTicketView = dynamic(() => import("./FlightTicket"));
-const TravelView = dynamic(() => import("./Travel"));
-const STView = dynamic(() => import("./ST"));
-const PackMealsView = dynamic(() => import("./PackMeals"));
-const MessView = dynamic(() => import("./Mess"));
+const FlightTicketView = dynamic(() => import("./FlightTicket"), { ssr: false });
+const TravelView = dynamic(() => import("./Travel"), { ssr: false });
+const STView = dynamic(() => import("./ST"), { ssr: false });
+const PackMealsView = dynamic(() => import("./PackMeals"), { ssr: false });
+const MessView = dynamic(() => import("./Mess"), { ssr: false });
 
 const selectItems = [
 	{ id: 1, values: "FLIGHT TICKET", label: "FLIGHT TICKET" },

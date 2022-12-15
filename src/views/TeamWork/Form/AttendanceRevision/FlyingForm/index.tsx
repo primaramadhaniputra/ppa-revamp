@@ -16,8 +16,8 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
-			title="Attendance Revision Form
-			"
+			title="Attendance Revision Form"
+			button={true}
 			width={800}
 		>
 			<InputContainer>

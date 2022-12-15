@@ -1,12 +1,12 @@
 import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import Sap from "./Sap";
 import { Wrapper } from "./styles";
 
-const P2H = dynamic(() => import("./P2H"));
-const SayaPeduli = dynamic(() => import("./SayaPeduli"));
-const FitToWork = dynamic(() => import("./FitToWork"));
+const P2H = dynamic(() => import("./P2H"), { ssr: false });
+const Sap = dynamic(() => import("./Sap"), { ssr: false });
+const SayaPeduli = dynamic(() => import("./SayaPeduli"), { ssr: false });
+const FitToWork = dynamic(() => import("./FitToWork"), { ssr: false });
 
 const tabTitle = ["P2H", "Saya Peduli", "SAP", "Fit To Work"];
 

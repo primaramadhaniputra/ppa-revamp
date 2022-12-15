@@ -17,6 +17,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Update Form"
+			button={true}
 		>
 			<InputContainer>
 				<UltimateInput isInputSelect={true} title={"NRP"} maxLableWidth="60px" />

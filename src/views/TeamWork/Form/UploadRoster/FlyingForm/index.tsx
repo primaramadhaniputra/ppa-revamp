@@ -17,6 +17,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Upload Roster"
+			button={true}
 		>
 			<InputContainer>
 				<Grid container flexDirection="column" gap={10}>

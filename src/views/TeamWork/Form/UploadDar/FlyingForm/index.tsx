@@ -17,6 +17,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Upload DAR"
+			button={true}
 		>
 			<Grid container flexDirection="column" gap={10}>
 				<Label>Select Excel File</Label>

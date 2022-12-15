@@ -5,9 +5,9 @@ interface IProps {
 	id: string;
 }
 
-const GAView = dynamic(() => import("./GA"));
-const HCView = dynamic(() => import("./HC"));
-const LegalView = dynamic(() => import("./Legal"));
+const GAView = dynamic(() => import("./GA"), { ssr: false });
+const HCView = dynamic(() => import("./HC"), { ssr: false });
+const LegalView = dynamic(() => import("./Legal"), { ssr: false });
 
 const renderContent = (type: string) => {
 	if (type === "hc") {

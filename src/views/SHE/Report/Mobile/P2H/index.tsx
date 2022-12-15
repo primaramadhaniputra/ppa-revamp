@@ -5,10 +5,10 @@ import LayoutTable from "src/components/layouts/LayoutTable";
 import { TitleText } from "../styles";
 import { Wrapper } from "./styles";
 
-const Temuan = dynamic(() => import("./Temuan"));
-const Achievement = dynamic(() => import("./Achievement"));
-const Monitoring = dynamic(() => import("./Monitoring"));
-const Detail = dynamic(() => import("./Detail"));
+const Temuan = dynamic(() => import("./Temuan"), { ssr: false });
+const Achievement = dynamic(() => import("./Achievement"), { ssr: false });
+const Monitoring = dynamic(() => import("./Monitoring"), { ssr: false });
+const Detail = dynamic(() => import("./Detail"), { ssr: false });
 
 const p2hTab = ["Detail", "Monitoring", "Temuan", "Achievement"];
 

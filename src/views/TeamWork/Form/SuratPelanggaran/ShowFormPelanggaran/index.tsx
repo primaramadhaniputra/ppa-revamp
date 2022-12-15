@@ -21,6 +21,7 @@ export default function ShowFormPelanggaran({
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Form Surat Pelanggaran Karyawan"
+			button={true}
 		>
 			<Grid container flexDirection="column" gap={40}>
 				<UltimateInput isInput={true} title="Nama" maxLableWidth="80px" />

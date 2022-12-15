@@ -15,16 +15,16 @@ const tabsData = [
 	"OIL PRESS",
 ];
 
-const Fuel = dynamic(() => import("./Fuel"));
-const Boost = dynamic(() => import("./Boost"));
-const EcoOn = dynamic(() => import("./EcoOn"));
-const BreakOil = dynamic(() => import("./BreakOil"));
-const TravelSpeed = dynamic(() => import("./TravelSpeed"));
-const ExhaustTemp = dynamic(() => import("./ExhaustTemp"));
-const Temperature = dynamic(() => import("./Temperature"));
-const BlowBy = dynamic(() => import("./BlowBy"));
-const EngineSpeed = dynamic(() => import("./EngineSpeed"));
-const OilPressure = dynamic(() => import("./OilPressure"));
+const Fuel = dynamic(() => import("./Fuel"), { ssr: false });
+const Boost = dynamic(() => import("./Boost"), { ssr: false });
+const EcoOn = dynamic(() => import("./EcoOn"), { ssr: false });
+const BreakOil = dynamic(() => import("./BreakOil"), { ssr: false });
+const TravelSpeed = dynamic(() => import("./TravelSpeed"), { ssr: false });
+const ExhaustTemp = dynamic(() => import("./ExhaustTemp"), { ssr: false });
+const Temperature = dynamic(() => import("./Temperature"), { ssr: false });
+const BlowBy = dynamic(() => import("./BlowBy"), { ssr: false });
+const EngineSpeed = dynamic(() => import("./EngineSpeed"), { ssr: false });
+const OilPressure = dynamic(() => import("./OilPressure"), { ssr: false });
 
 const renderContent = (selectedItem: string) => {
 	if (selectedItem === "FUEL") {

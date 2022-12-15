@@ -1,9 +1,11 @@
 import TabV2 from "molecules/TabV2";
+import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import BreakDown from "./BreakDown";
-import HmMonitoring from "./HmMonitoring";
-import OffFire from "./OffFire";
-import PhysicalAvailability from "./PhysicalAvailability";
+
+const BreakDown = dynamic(() => import("./BreakDown"), { ssr: false });
+const HmMonitoring = dynamic(() => import("./HmMonitoring"), { ssr: false });
+const OffFire = dynamic(() => import("./OffFire"), { ssr: false });
+const PhysicalAvailability = dynamic(() => import("./PhysicalAvailability"), { ssr: false });
 
 const tabTitle = ["Off Fire", "Breakdown", "Physical Availability", "HM Monitoring"];
 

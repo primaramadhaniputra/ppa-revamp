@@ -3,8 +3,8 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper } from "./styles";
 
-const Achievement = dynamic(() => import("./Achievement"));
-const ActivityReport = dynamic(() => import("./ActivityReport"));
+const Achievement = dynamic(() => import("./Achievement"), { ssr: false });
+const ActivityReport = dynamic(() => import("./ActivityReport"), { ssr: false });
 
 const p2hTab = ["ACHIEVEMENT", "ACTIVITY REPORT"];
 

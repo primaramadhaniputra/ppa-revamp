@@ -16,7 +16,6 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="KT08/HCG/2102/CUTI/00072"
-			noButton={true}
 		>
 			<Grid flexDirection="column" container gap={20} style={{ padding: "20px 10px" }}>
 				<DataContainer>

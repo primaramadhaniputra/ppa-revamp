@@ -13,7 +13,7 @@ interface IProps {
 	children: React.ReactNode;
 	title?: string;
 	width?: number;
-	noButton?: boolean;
+	button?: boolean;
 }
 
 const LayoutOverlayData = ({
@@ -23,7 +23,7 @@ const LayoutOverlayData = ({
 	children,
 	title,
 	width,
-	noButton,
+	button,
 }: IProps) => {
 	const handleCloseShowDetail = (e: { target: { classList: string } }) => {
 		const WrapperClass = [...e.target.classList];
@@ -68,7 +68,7 @@ const LayoutOverlayData = ({
 				)}
 				<ContainerChildren style={{ padding: "10px" }}>
 					{children}
-					{!noButton && (
+					{button && (
 						<Grid container justifyContent="flex-end" style={{ margin: "30px 0 10px" }}>
 							<StyledButton style={{ maxWidth: "100px" }}>Save</StyledButton>
 						</Grid>

@@ -17,6 +17,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="EMPLOYEE MUTATION"
+			button={true}
 		>
 			<InputContainer>
 				<UltimateInput isInput={true} title="Name" maxLableWidth="70px" />

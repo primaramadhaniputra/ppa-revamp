@@ -2,9 +2,9 @@ import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const Hm = dynamic(() => import("./Hm"));
-const Material = dynamic(() => import("./Material"));
-const Operator = dynamic(() => import("./Operator"));
+const Hm = dynamic(() => import("./Hm"), { ssr: false });
+const Material = dynamic(() => import("./Material"), { ssr: false });
+const Operator = dynamic(() => import("./Operator"), { ssr: false });
 
 const tabs = ["By HM", "By Material", "By Operator", "By Operator(Beta)"];
 

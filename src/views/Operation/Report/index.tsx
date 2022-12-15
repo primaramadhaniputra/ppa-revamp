@@ -6,11 +6,11 @@ import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { ArrowDown, SelectContainer } from "./styles";
 
-const BaseControl = dynamic(() => import("./BaseControl"));
-const Device = dynamic(() => import("./Device"));
-const Mobile = dynamic(() => import("./Mobile"));
-const Mocos = dynamic(() => import("./Mocos"));
-const CostParameter = dynamic(() => import("./CostParameter"));
+const BaseControl = dynamic(() => import("./BaseControl"), { ssr: false });
+const Device = dynamic(() => import("./Device"), { ssr: false });
+const Mobile = dynamic(() => import("./Mobile"), { ssr: false });
+const Mocos = dynamic(() => import("./Mocos"), { ssr: false });
+const CostParameter = dynamic(() => import("./CostParameter"), { ssr: false });
 
 const tabsData = ["Device", "Mobile", "Moco", "Base Control", "Cost Parameter"];
 

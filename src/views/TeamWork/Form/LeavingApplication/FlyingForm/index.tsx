@@ -19,6 +19,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Upload DAR"
+			button={true}
 		>
 			<InputContainer>
 				<UltimateInput isInput={true} title="Name" maxLableWidth="120px" />

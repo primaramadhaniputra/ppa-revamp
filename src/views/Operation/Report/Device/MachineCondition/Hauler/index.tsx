@@ -5,9 +5,9 @@ import React, { useState } from "react";
 
 const tabs = ["Performance", "Fault", "History"];
 
-const Performance = dynamic(() => import("./Performance"));
-const History = dynamic(() => import("./History"));
-const Fault = dynamic(() => import("./Fault"));
+const Performance = dynamic(() => import("./Performance"), { ssr: false });
+const History = dynamic(() => import("./History"), { ssr: false });
+const Fault = dynamic(() => import("./Fault"), { ssr: false });
 
 const renderContent = (type: number) => {
 	if (type === 0) {

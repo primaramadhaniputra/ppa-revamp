@@ -2,7 +2,7 @@ import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const CoalTable = dynamic(() => import("./CoalTable"));
+const CoalTable = dynamic(() => import("./CoalTable"), { ssr: false });
 
 const tabs = ["Daily"];
 
