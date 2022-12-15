@@ -12,12 +12,9 @@ import {
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, WrapperTable, WrapperTitle } from "../../styles";
+import { ThItemContainer, WrapperTable } from "../../../styles";
 import TopFilter from "src/components/organism/TopFilter";
 import UltimateInput from "src/components/organism/UltimateInput";
-import { IcEdit } from "atoms/Icon";
-import { colors } from "utils/styles";
-import FlyingForm from "./FlyingForm";
 
 interface IProps {
 	[x: string]: any;
@@ -26,43 +23,34 @@ interface IProps {
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Date"]: "",
-		["Nrp"]: "",
-		["Name"]: "",
+		["NRP"]: "",
+		["Nama"]: "",
 		["Dept"]: "",
-		["Posisi"]: "",
-		["Roster"]: "",
-		["Start"]: "",
-		["Finish"]: "",
-		["Tugas"]: "",
-		["Approved By"]: "",
-		["Approved Date"]: "",
-		["Action"]: "",
+		["Jabatan"]: "",
+		["Usia"]: "",
+		["POH"]: "",
+		["Departure"]: "",
+		["Arrived"]: "",
+		["Flight"]: "",
+		["Departure Time"]: "",
+		["Arrival Time"]: "",
+		["Airline"]: "",
+		["Emergency Number"]: "",
+		["Status"]: "",
+		["File Ticket"]: "",
 	};
 });
 
-export default function SuratPerintahLembur() {
+export default function ReportTicket() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isShowDetail, setIsShowDetail] = React.useState(false);
-	const [formPosition, setformPosition] = React.useState(0);
-
-	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
-		setIsShowDetail(true);
-		setformPosition(target.pageY - target.clientY);
-	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) =>
-				info.column.id === "Action" ? (
-					<IcEdit width={14} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
-				) : (
-					info.getValue()
-				),
+			cell: (info) => info.getValue(),
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
 					<Grid>
@@ -96,17 +84,9 @@ export default function SuratPerintahLembur() {
 
 	return (
 		<>
-			<FlyingForm
-				isShowDetail={isShowDetail}
-				setIsShowDetail={setIsShowDetail}
-				formPosition={formPosition}
-			/>
-			<WrapperTitle>
-				<TitleText>Surat Perintah Lembur</TitleText>
-			</WrapperTitle>
 			<TopFilter>
 				<Grid>
-					<UltimateInput isInputSelect={true} title="Dept" maxLableWidth="30px" />
+					<UltimateInput isInputSelect={true} title="Status" maxLableWidth="50px" />
 				</Grid>
 			</TopFilter>
 			<WrapperTable>
