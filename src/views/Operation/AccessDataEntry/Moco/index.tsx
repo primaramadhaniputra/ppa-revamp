@@ -29,6 +29,9 @@ const FormDeviasiFuel = dynamic(() => import("./FormDeviasiFuel"), {
 const RuasJalan = dynamic(() => import("./RuasJalan"), {
 	ssr: false,
 });
+const HmRevision = dynamic(() => import("./HmRevision"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"HM Revision",
@@ -62,6 +65,8 @@ const renderContent = (activeTab: number) => {
 		return <FormDeviasiFuel />;
 	} else if (activeTab === 9) {
 		return <RuasJalan />;
+	} else if (activeTab === 0) {
+		return <HmRevision />;
 	}
 };
 
