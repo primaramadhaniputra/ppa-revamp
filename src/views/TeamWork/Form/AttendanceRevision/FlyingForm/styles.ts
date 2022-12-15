@@ -1,6 +1,5 @@
-import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontWeights, mediaQueries } from "utils/styles";
+import { mediaQueries } from "utils/styles";
 
 export const InputContainer = styled.form`
 	display: flex;
@@ -12,8 +11,3 @@ export const InputContainer = styled.form`
 `;
 
 export const Input = styled.input``;
-export const Label = styled.label`
-	font-family: ${fontFamilies.poppins};
-	font-size: 13px;
-	font-weight: ${fontWeights.bold};
-`;

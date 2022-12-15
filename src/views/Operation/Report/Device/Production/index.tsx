@@ -13,13 +13,13 @@ const tabs = [
 	"All By Loader",
 ];
 
-const DynamicPayloadView = dynamic(() => import("./Payload"));
-const DynamicEmptyStopView = dynamic(() => import("./EmptyStop"));
-const DynamicLoadingTimeView = dynamic(() => import("./LoadingTime"));
-const DynamicSpeedView = dynamic(() => import("./Speed"));
-const DynamicLoadedSpeedView = dynamic(() => import("./LoadedSpeed"));
-const All = dynamic(() => import("./All"));
-const AllByLoader = dynamic(() => import("./AllByLoader"));
+const DynamicPayloadView = dynamic(() => import("./Payload"), { ssr: false });
+const DynamicEmptyStopView = dynamic(() => import("./EmptyStop"), { ssr: false });
+const DynamicLoadingTimeView = dynamic(() => import("./LoadingTime"), { ssr: false });
+const DynamicSpeedView = dynamic(() => import("./Speed"), { ssr: false });
+const DynamicLoadedSpeedView = dynamic(() => import("./LoadedSpeed"), { ssr: false });
+const All = dynamic(() => import("./All"), { ssr: false });
+const AllByLoader = dynamic(() => import("./AllByLoader"), { ssr: false });
 
 const renderContent = (type: number) => {
 	if (type === 0) {

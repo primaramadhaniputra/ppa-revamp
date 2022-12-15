@@ -1,8 +1,8 @@
-import { Grid, Text } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
+import { Text } from "@hudoro/neron";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { Answer, AnswerWrapper, InputContainer, Styledinput, StyledLabel } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { Answer, AnswerWrapper, InputContainer } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -17,20 +17,11 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
 			title="Form Update Question Quiz"
+			button={true}
 		>
 			<InputContainer>
-				<Grid container gap={10} flexDirection="column">
-					<StyledLabel>Subject Name</StyledLabel>
-					<Grid>
-						<Styledinput />
-					</Grid>
-				</Grid>
-				<Grid container flexDirection="column" gap={10}>
-					<StyledLabel>Question No.1</StyledLabel>
-					<Grid>
-						<Styledinput value="Selebrasi ronaldo" />
-					</Grid>
-				</Grid>
+				<UltimateInput isInput={true} title="Subject Name" maxLableWidth="120px" />
+				<UltimateInput isInput={true} title="Question No.1" maxLableWidth="120px" />
 				<AnswerWrapper>
 					<Answer>
 						<Text variant="p">A</Text>
@@ -60,9 +51,6 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 					</Answer>
 				</AnswerWrapper>
 			</InputContainer>
-			<Grid>
-				<StyledButton style={{ borderRadius: "0" }}>Update</StyledButton>
-			</Grid>
 		</LayoutOverlayData>
 	);
 }

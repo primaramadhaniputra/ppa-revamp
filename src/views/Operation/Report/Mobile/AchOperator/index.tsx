@@ -3,8 +3,8 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { TitleText, WrapperTitle } from "../styles";
 
-const TimeSheet = dynamic(() => import("./TimeSheet"));
-const P2H = dynamic(() => import("./P2H"));
+const TimeSheet = dynamic(() => import("./TimeSheet"), { ssr: false });
+const P2H = dynamic(() => import("./P2H"), { ssr: false });
 
 const tabTitle = ["Time Sheet", "P2H"];
 

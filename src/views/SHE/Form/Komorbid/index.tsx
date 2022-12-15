@@ -4,8 +4,8 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 
-const Riwayat = dynamic(() => import("./Riwayat"));
-const Monitoring = dynamic(() => import("./Monitoring"));
+const Riwayat = dynamic(() => import("./Riwayat"), { ssr: false });
+const Monitoring = dynamic(() => import("./Monitoring"), { ssr: false });
 
 const tabTitle = ["Monitoring", "Riwayat"];
 

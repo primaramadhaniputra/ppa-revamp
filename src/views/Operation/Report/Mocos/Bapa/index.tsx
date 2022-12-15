@@ -2,7 +2,7 @@ import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const A2B = dynamic(() => import("./A2B"));
+const A2B = dynamic(() => import("./A2B"), { ssr: false });
 
 const tabs = ["A2B", "A2S"];
 

@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 export const Label = styled.label`
 	font-family: ${fontFamilies.poppins};
 	font-size: 14px;
+	font-weight: bold;
 `;
 
 export const Input = styled.input`

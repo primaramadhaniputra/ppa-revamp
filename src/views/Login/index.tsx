@@ -1,15 +1,16 @@
 import React from "react";
-// LOGIN
-import Login1 from "src/components/layouts/Login/Login-1";
-import Login2 from "src/components/layouts/Login/LOGIN2/Login-2";
-import Login22 from "src/components/layouts/Login/LOGIN2/Login-2.2";
-import Login3 from "src/components/layouts/Login/LOGIN3/Login-3";
-import Login31 from "src/components/layouts/Login/LOGIN3/Login-3.1";
-import Login4 from "src/components/layouts/Login/LOGIN4/Login-4";
-import Login41 from "src/components/layouts/Login/LOGIN4/Login-4.1";
-import Login5 from "src/components/layouts/Login/LOGIN4/Login-5";
-import Login51 from "src/components/layouts/Login/LOGIN4/Login-5.1";
-import Login6 from "src/components/layouts/Login/Login-6";
+import dynamic from "next/dynamic";
+
+const Login6 = dynamic(() => import("src/components/layouts/Login/Login-6"), { ssr: false });
+const Login51 = dynamic(() => import("src/components/layouts/Login/LOGIN4/Login-5.1"), { ssr: false });
+const Login5 = dynamic(() => import("src/components/layouts/Login/LOGIN4/Login-5"), { ssr: false });
+const Login41 = dynamic(() => import("src/components/layouts/Login/LOGIN4/Login-4.1"), { ssr: false });
+const Login4 = dynamic(() => import("src/components/layouts/Login/LOGIN4/Login-4"), { ssr: false });
+const Login1 = dynamic(() => import("src/components/layouts/Login/Login-1"), { ssr: false });
+const Login2 = dynamic(() => import("src/components/layouts/Login/LOGIN2/Login-2"), { ssr: false });
+const Login22 = dynamic(() => import("src/components/layouts/Login/LOGIN2/Login-2.2"), { ssr: false });
+const Login3 = dynamic(() => import("src/components/layouts/Login/LOGIN3/Login-3"), { ssr: false });
+const Login31 = dynamic(() => import("src/components/layouts/Login/LOGIN3/Login-3.1"), { ssr: false });
 
 interface IProps {
 	id: number;

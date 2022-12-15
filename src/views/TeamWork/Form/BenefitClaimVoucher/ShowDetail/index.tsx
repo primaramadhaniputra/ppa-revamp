@@ -1,11 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import { IcCalendar } from "atoms/Icon";
-import RevisiInput from "atoms/RevisiInput";
-import StyledSelectInput from "atoms/StyledSelectInput";
-import RevisiDate from "molecules/RevisiDate";
-import React, { useState } from "react";
+import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import { DataContainer, StyledP, Table } from "./styles";
+import UltimateInput from "src/components/organism/UltimateInput";
+import { DataContainer, Table } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -14,8 +11,6 @@ interface IProps {
 }
 
 export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
-	const [date, setDate] = useState(new Date());
-
 	return (
 		<LayoutOverlayData
 			isShowDetail={isShowDetail}
@@ -26,49 +21,42 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			<Grid container flexDirection="column" gap={30} style={{ marginBottom: "50px" }}>
 				<Grid container justifyContent="space-between" gap={50}>
 					<Grid>
-						<StyledSelectInput title="NRP" />
+						<UltimateInput isInputSelect={true} title="NRP" maxLableWidth="70px" />
 					</Grid>
 					<Grid>
-						<StyledSelectInput title="Dept" />
+						<UltimateInput isInputSelect={true} title="Dept" maxLableWidth="70px" />
 					</Grid>
 				</Grid>
 				<Grid container justifyContent="space-between" gap={50}>
 					<Grid>
-						<StyledSelectInput title="Claim" />
+						<UltimateInput isInputSelect={true} title="Claim" maxLableWidth="70px" />
 					</Grid>
-					<DataContainer style={{ flex: 1 }}>
-						<StyledP>
-							<IcCalendar width={16} />
-						</StyledP>
-						<RevisiDate placeholder="..." dateState={date} setDateState={setDate} />
-					</DataContainer>
+					<Grid>
+						<UltimateInput isDate={true} title="📅" maxLableWidth="70px" />
+					</Grid>
 				</Grid>
 				<Grid container justifyContent="space-between" gap={50}>
 					<Grid>
-						<StyledSelectInput title="Hub" />
+						<UltimateInput isInputSelect={true} title="Hub" maxLableWidth="70px" />
 					</Grid>
-					<DataContainer style={{ flex: 1 }}>
-						<StyledP>Rp</StyledP>
-						<RevisiInput type="number" min={0} />
-					</DataContainer>
-				</Grid>
-				<Grid container justifyContent="space-between" gap={50}>
-					<DataContainer style={{ flex: 1 }}>
-						<StyledP>Pasien</StyledP>
-						<RevisiInput />
-					</DataContainer>
-					<DataContainer style={{ flex: 1 }}>
-						<StyledP>Saldo Plafom</StyledP>
-						<RevisiInput type="number" min={0} />
-					</DataContainer>
-				</Grid>
-				<Grid container justifyContent="space-between" gap={50}>
-					<DataContainer style={{ flex: 1 }}>
-						<StyledP>File</StyledP>
-						<RevisiInput type="file" />
-					</DataContainer>
 					<Grid>
-						<StyledSelectInput title="Vendor" />
+						<UltimateInput isInput={true} title="Rp" maxLableWidth="70px" type="number" />
+					</Grid>
+				</Grid>
+				<Grid container justifyContent="space-between" gap={50}>
+					<Grid>
+						<UltimateInput isInput={true} title="Pasien" maxLableWidth="70px" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInput={true} title="Saldo Plafom" maxLableWidth="70px" type="number" />
+					</Grid>
+				</Grid>
+				<Grid container justifyContent="space-between" gap={50}>
+					<Grid>
+						<UltimateInput isInput={true} title="File" maxLableWidth="70px" type="File" />
+					</Grid>
+					<Grid>
+						<UltimateInput isInputSelect={true} title="Vendor" maxLableWidth="70px" />
 					</Grid>
 				</Grid>
 			</Grid>

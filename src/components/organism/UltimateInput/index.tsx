@@ -28,9 +28,9 @@ const UltimateInput = ({
 	multiple,
 	isInput,
 	isInputSelect,
-	isLabel,
+	// isLabel,
 	isDate,
-	title = "dani ganteng",
+	title,
 	maxLableWidth,
 	...rest
 }: IProps) => {
@@ -39,7 +39,7 @@ const UltimateInput = ({
 
 	return (
 		<Wrapper style={{ minWidth: "220px" }}>
-			{isLabel && (
+			{title && (
 				<Grid container style={{ flex: 1, maxWidth: maxLableWidth || "250px" }}>
 					<Label>{title}</Label>
 				</Grid>

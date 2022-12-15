@@ -1,13 +1,6 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing, fontWeights } from "utils/styles";
-
-export const StyledP = styled.label`
-	font-family: ${fontFamilies.poppins};
-	font-weight: ${fontWeights.bold};
-	font-size: ${fontSizing.xs.fontSize};
-	min-width: 70px;
-`;
+import { colors, fontSizing } from "utils/styles";
 
 export const DataContainer = styled.div`
 	display: flex;

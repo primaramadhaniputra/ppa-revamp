@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
 import Image from "next/image";
+import { Grid } from "@hudoro/neron";
+import StyledButton from "atoms/StyledButton";
 import { Container, ContainerChildren, ContainerTitle, Title, Wrapper } from "./styles";
 
 interface IProps {
@@ -11,6 +13,7 @@ interface IProps {
 	children: React.ReactNode;
 	title?: string;
 	width?: number;
+	button?: boolean;
 }
 
 const LayoutOverlayData = ({
@@ -20,6 +23,7 @@ const LayoutOverlayData = ({
 	children,
 	title,
 	width,
+	button,
 }: IProps) => {
 	const handleCloseShowDetail = (e: { target: { classList: string } }) => {
 		const WrapperClass = [...e.target.classList];
@@ -62,7 +66,14 @@ const LayoutOverlayData = ({
 						/>
 					</ContainerTitle>
 				)}
-				<ContainerChildren style={{ padding: "10px" }}>{children}</ContainerChildren>
+				<ContainerChildren style={{ padding: "10px" }}>
+					{children}
+					{button && (
+						<Grid container justifyContent="flex-end" style={{ margin: "30px 0 10px" }}>
+							<StyledButton style={{ maxWidth: "100px" }}>Save</StyledButton>
+						</Grid>
+					)}
+				</ContainerChildren>
 			</Container>
 		</Wrapper>
 	);

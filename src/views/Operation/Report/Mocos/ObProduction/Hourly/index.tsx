@@ -3,9 +3,9 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper } from "./styles";
 
-const VHMS = dynamic(() => import("./Vhms"));
-const CCR = dynamic(() => import("./ccr"));
-const FmsDt = dynamic(() => import("./FmsDt"));
+const VHMS = dynamic(() => import("./Vhms"), { ssr: false });
+const CCR = dynamic(() => import("./ccr"), { ssr: false });
+const FmsDt = dynamic(() => import("./FmsDt"), { ssr: false });
 
 const tabs = ["CCR", "VHMS", "FMS DT", "FMS HD"];
 

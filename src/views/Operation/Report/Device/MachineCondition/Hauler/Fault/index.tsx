@@ -2,12 +2,12 @@ import TabV5 from "molecules/TabV5";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const AllCode = dynamic(() => import("./AllCode"));
-const EngineOverrun = dynamic(() => import("./EngineOverrun"));
-const NeutralCoast = dynamic(() => import("./NeutralCoast"));
-const HighBlowby = dynamic(() => import("./HighBlowby"));
-const DropInOil = dynamic(() => import("./DropInOil"));
-const PcvError = dynamic(() => import("./PcvError"));
+const AllCode = dynamic(() => import("./AllCode"), { ssr: false });
+const EngineOverrun = dynamic(() => import("./EngineOverrun"), { ssr: false });
+const NeutralCoast = dynamic(() => import("./NeutralCoast"), { ssr: false });
+const HighBlowby = dynamic(() => import("./HighBlowby"), { ssr: false });
+const DropInOil = dynamic(() => import("./DropInOil"), { ssr: false });
+const PcvError = dynamic(() => import("./PcvError"), { ssr: false });
 
 const tabsData = [
 	"ALL CODE",

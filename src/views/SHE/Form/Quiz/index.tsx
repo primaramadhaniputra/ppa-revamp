@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 
-const Table = dynamic(() => import("./Table"));
-const Question = dynamic(() => import("./Question"));
-const Schedule = dynamic(() => import("./Schedule"));
+const Table = dynamic(() => import("./Table"), { ssr: false });
+const Question = dynamic(() => import("./Question"), { ssr: false });
+const Schedule = dynamic(() => import("./Schedule"), { ssr: false });
 
 const tabTitle = ["Subject", "Question", "Schedule"];
 
