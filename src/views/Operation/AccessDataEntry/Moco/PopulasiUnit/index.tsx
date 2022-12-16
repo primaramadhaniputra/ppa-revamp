@@ -5,12 +5,15 @@ import React, { useState } from "react";
 const Daily = dynamic(() => import("./Daily"), {
 	ssr: false,
 });
+const Current = dynamic(() => import("./Current"), {
+	ssr: false,
+});
 
 const renderContet = (type: string) => {
 	if (type === "Daily") {
 		return <Daily />;
 	} else {
-		return "";
+		return <Current />;
 	}
 };
 

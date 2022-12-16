@@ -38,7 +38,7 @@ const UltimateInput = ({
 	const [isShowDate, setIsShowDate] = useState(false);
 
 	return (
-		<Wrapper style={{ minWidth: "220px" }}>
+		<Wrapper style={{ minWidth: "200px" }}>
 			{title && (
 				<Grid container style={{ flex: 1, maxWidth: maxLableWidth || "250px" }}>
 					<Label>{title}</Label>
@@ -67,6 +67,7 @@ const UltimateInput = ({
 							{ id: "2", value: "testing", label: "Testing" },
 						]}
 						multiple={multiple && multiple}
+						placeholder=" "
 					/>
 					<SelectIconContainer>
 						<IcCaretDown width={18} color="rgba(0,0,0,.3)" />

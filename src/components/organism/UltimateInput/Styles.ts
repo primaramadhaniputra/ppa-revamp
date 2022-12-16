@@ -3,25 +3,27 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 	display: flex;
-	align-items: center;
-	gap: 15px;
+	/* align-items: center; */
+	gap: 5px;
+	flex-direction: column;
 `;
 
 export const Label = styled.label`
 	font-family: ${fontFamilies.poppins};
 	font-size: 14px;
-	font-weight: bold;
+	font-weight: 500;
 `;
 
 export const Input = styled.input`
 	width: 100%;
 	font-family: ${fontFamilies.poppins};
 	font-size: 14px;
-	padding: 5px;
+	padding: 5px 10px;
 	outline: none;
-	border: none;
-	background-color: transparent;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	/* border: 0; */
+	/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); */
 `;
 
 export const SelectWrapper = styled(Grid)`
@@ -31,9 +33,10 @@ export const SelectWrapper = styled(Grid)`
 	}
 	& > div > div:first-child {
 		background-color: transparent !important;
-		border: none !important;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
-		border-radius: 0 !important;
+		border: 0 !important;
+		border: 1px solid rgba(0, 0, 0, 0.15) !important;
+		/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important; */
+		border-radius: 2px !important;
 		padding: 0 !important;
 	}
 	& input {
@@ -51,8 +54,8 @@ export const StyledSelect = styled(Select)``;
 export const SelectIconContainer = styled.div`
 	width: max-content;
 	position: absolute;
-	bottom: -5px;
-	right: -5px;
+	bottom: -1px;
+	right: -1px;
 	transform: rotate(-45deg);
 `;
 
