@@ -21,7 +21,7 @@ export const Input = styled.input`
 	padding: 5px 10px;
 	outline: none;
 	border-radius: 2px;
-	border: 1px solid rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(0, 0, 0, 0.15);
 	/* border: 0; */
 	/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); */
 `;
@@ -34,7 +34,7 @@ export const SelectWrapper = styled(Grid)`
 	& > div > div:first-child {
 		background-color: transparent !important;
 		border: 0 !important;
-		border: 1px solid rgba(0, 0, 0, 0.3) !important;
+		border: 1px solid rgba(0, 0, 0, 0.15) !important;
 		/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important; */
 		border-radius: 2px !important;
 		padding: 0 !important;
