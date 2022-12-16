@@ -20,6 +20,7 @@ import { IcEdit } from "atoms/Icon";
 import TopFilter from "src/components/organism/TopFilter";
 import UltimateInput from "src/components/organism/UltimateInput";
 import StyledButton from "atoms/StyledButton";
+import UpdateHm from "./UpdateHm";
 
 interface IProps {
 	[x: string]: any;
@@ -49,12 +50,20 @@ export default function HmRevision() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
+
+	const [isShowUpdateHm, setIsShowUpdateHm] = React.useState(false);
+	const [formPositionUpdateHm, setformPositionUpdateHm] = React.useState(0);
 
 	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
+	};
+	const handleShowUpdateHm = (target: { pageY: number; clientY: number }) => {
+		setIsShowUpdateHm(true);
+		setformPositionUpdateHm(target.pageY - target.clientY);
 	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -66,7 +75,7 @@ export default function HmRevision() {
 						width={18}
 						color={colors.blue}
 						style={{ cursor: "pointer" }}
-						onClick={handleShowDetail}
+						onClick={handleShowUpdateHm}
 					/>
 				) : (
 					<TextTable>{info.getValue()}</TextTable>
@@ -109,6 +118,11 @@ export default function HmRevision() {
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
+			/>
+			<UpdateHm
+				isShowDetail={isShowUpdateHm}
+				setIsShowDetail={setIsShowUpdateHm}
+				formPosition={formPositionUpdateHm}
 			/>
 			<WrapperTitle style={{ marginTop: "20px" }}>
 				<TitleText>HM Revision</TitleText>
