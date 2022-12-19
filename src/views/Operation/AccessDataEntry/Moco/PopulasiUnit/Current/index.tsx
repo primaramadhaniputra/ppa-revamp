@@ -17,6 +17,8 @@ import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing } from "utils/styles";
 import DataDetail from "./DataDetail";
 import AchData from "./AchData";
+import { IcCloseCircleFilled, IcEdit } from "atoms/Icon";
+import Deactivate from "./Deactivate";
 
 interface IProps {
 	[x: string]: any;
@@ -47,8 +49,16 @@ export default function Current() {
 	const [isShowUnit, setIsShowUnit] = React.useState(false);
 	const [formUnitPosition, setformUnitPosition] = React.useState(0);
 
+	const [isShowDeactivate, setIsShowDeactivate] = React.useState(false);
+	const [formDeactivatePosition, setformDeactivatePosition] = React.useState(0);
+
 	const [isShowAch, setIsShowAch] = React.useState(false);
 	const [achPosition, setAchPosition] = React.useState(0);
+
+	const handleShowDeactivate = (target: { pageY: number; clientY: number }) => {
+		setIsShowDeactivate(true);
+		setformDeactivatePosition(target.pageY - target.clientY);
+	};
 
 	const handleShowAch = (target: { pageY: number; clientY: number }) => {
 		setIsShowAch(true);
@@ -64,7 +74,19 @@ export default function Current() {
 		return {
 			accessorKey: item,
 			cell: (info) => {
-				return <TextTable>{info.getValue()}</TextTable>;
+				return info.column.id === "Action" ? (
+					<Grid container justifyContent="center" gap={5}>
+						<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+						<IcCloseCircleFilled
+							width={16}
+							color={colors.danger}
+							cursor="pointer"
+							onClick={handleShowDeactivate}
+						/>
+					</Grid>
+				) : (
+					<TextTable>{info.getValue()}</TextTable>
+				);
 			},
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
@@ -103,6 +125,11 @@ export default function Current() {
 				isShowUnit={isShowUnit}
 				setIsShowUnit={setIsShowUnit}
 				formUnitPosition={formUnitPosition}
+			/>
+			<Deactivate
+				isShowDeactivate={isShowDeactivate}
+				setIsShowDeactivate={setIsShowDeactivate}
+				formDeactivatePosition={formDeactivatePosition}
 			/>
 			<AchData isShowAch={isShowAch} setIsShowAch={setIsShowAch} achPosition={achPosition} />
 			<WrapperTitle style={{ marginTop: "20px" }}>

@@ -106,6 +106,7 @@ export const colors = {
 	orangeGrey: "#FFECDE",
 	blueSea: "#E8F0FE",
 	green: "#25B78A", //use
+	danger: "#F2274C", // use
 };
 
 /**
