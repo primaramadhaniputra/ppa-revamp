@@ -10,53 +10,47 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, WrapperTable } from "../../../styles";
+import { ThItemContainer } from "../../../../styles";
+import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
+import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { IcEdit } from "atoms/Icon";
 import { colors } from "utils/styles";
-import FlyingForm from "./FlyingForm";
 
 interface IProps {
+	isShowDetail: boolean;
+	setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
+	formPosition: number;
+}
+interface IColumns {
 	[x: string]: any;
 }
 
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["NRP"]: "",
-		["Nama"]: "",
-		["Perusahaan"]: "",
-		["Departemen"]: "",
-		["Jabatan"]: "",
-		["Posisi"]: "",
-		["Blok"]: "",
-		["Room Type"]: "",
-		["Bed"]: "",
-		["Tgl.Huni"]: "",
-		["Action"]: "",
+		["Building"]: "-",
+		["Type"]: "-",
+		["Room"]: "-",
+		["Capacity"]: "-",
+		["Guest"]: "-",
+		["Available"]: "-",
+		["Action"]: "-",
 	};
 });
 
-export default function Guest() {
+export default function DataKamarTersedia({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
+	const [rowSelection, setRowSelection] = React.useState({});
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const [isShowDetail, setIsShowDetail] = React.useState(false);
-	const [formPosition, setformPosition] = React.useState(0);
 
-	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
-		setIsShowDetail(true);
-		setformPosition(target.pageY - target.clientY);
-	};
-
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
+	const columns: ColumnDef<IColumns>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
 			cell: (info) =>
 				info.column.id === "Action" ? (
-					<IcEdit width={14} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+					<IcEdit width={16} color={colors.blue} cursor="pointer" />
 				) : (
 					info.getValue()
 				),
@@ -93,22 +87,27 @@ export default function Guest() {
 
 	return (
 		<>
-			<FlyingForm
+			<LayoutOverlayData
 				isShowDetail={isShowDetail}
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
-			/>
-			<WrapperTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
-			</WrapperTable>
+				title="Data Kamar Tersedia"
+			>
+				<Grid style={{ padding: "0 10px" }}>
+					<TableFilterSearch
+						table={table}
+						handleChangeTotalShowData={handleChangeTotalShowData}
+						globalFilter={globalFilter}
+						setGlobalFilter={setGlobalFilter}
+						withButton={false}
+						buttonTitle="EXPORT"
+					/>
+					<TableComponent2
+						table={table}
+						styles={{ backgroundColor: "white", borderRadius: "5px" }}
+					/>
+				</Grid>
+			</LayoutOverlayData>
 		</>
 	);
 }
