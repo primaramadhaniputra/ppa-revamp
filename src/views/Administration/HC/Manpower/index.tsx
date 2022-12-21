@@ -6,6 +6,9 @@ import { Wrapper, WrapperTitle, TitleText } from "views/Administration/styles";
 const Assessment = dynamic(() => import("./Assessment"), {
 	ssr: false,
 });
+const HistoryGradeAndPost = dynamic(() => import("./HistoryGradeAndPost"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"PERSONEL",
@@ -14,8 +17,13 @@ const tabTitle = [
 	"ASSESSMENT",
 	"EMPLOYEE NON-ACTIVE",
 	"HISTORY GRADE AND POST",
-	"RESET DEVICE",
 ];
+
+const renderContent = (type: string) => {
+	if (type === "HISTORY GRADE AND POST") {
+		return <HistoryGradeAndPost />;
+	}
+};
 
 export default function Manpower() {
 	const [activeTab, setActiveTab] = useState(0);
@@ -30,6 +38,7 @@ export default function Manpower() {
 					<TitleText>{tabTitle[activeTab]}</TitleText>
 				</WrapperTitle>
 			)}
+			{renderContent(tabTitle[activeTab])}
 		</Wrapper>
 	);
 }
