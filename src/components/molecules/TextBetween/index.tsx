@@ -21,12 +21,21 @@ const TextBetween = ({ dummyData, maxLabelWidth }: IProps) => {
 							<RightText
 								style={{
 									color: item.title === "Leaving Note" ? colors.blue : "black",
-									maxWidth: maxLabelWidth,
+									minWidth: maxLabelWidth,
 								}}
 							>
-								{item.title} :
+								{item.title}
 							</RightText>
 						</Grid>
+						<RightText
+							style={{
+								minWidth: "5px",
+								// textDecoration: 'none',
+								fontStyle: "inherit",
+							}}
+						>
+							:
+						</RightText>
 						<Grid>
 							<LeftText>{item.desc}</LeftText>
 						</Grid>

@@ -16,7 +16,7 @@ export const RightText = styled(Text).attrs({
 })`
 	font-size: clamp(0.6rem, 2.5vw, 0.9rem);
 	min-width: 120px;
-	font-weight: ${fontWeights.regular};
+	font-weight: ${fontWeights.semi};
 	font-style: italic;
 	text-decoration: underline;
 `;
