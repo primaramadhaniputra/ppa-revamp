@@ -8,6 +8,7 @@ const tabTitle = ["WAITING TO CONFIRM", "LEAVING REPORT", "SALDO CUTI", "MONITOR
 const WaitingToConfirm = dynamic(() => import("./WaitingToConfirm"), { ssr: false });
 const LeavingReport = dynamic(() => import("./LeavingReport"), { ssr: false });
 const SaldoCuti = dynamic(() => import("./SaldoCuti"), { ssr: false });
+const Monitoring = dynamic(() => import("./Monitoring"), { ssr: false });
 
 const renderContent = (type: string) => {
 	if (type === "WAITING TO CONFIRM") {
@@ -16,6 +17,8 @@ const renderContent = (type: string) => {
 		return <LeavingReport />;
 	} else if (type === "SALDO CUTI") {
 		return <SaldoCuti />;
+	} else if (type === "MONITORING") {
+		return <Monitoring />;
 	}
 };
 
