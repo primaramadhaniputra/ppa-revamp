@@ -13,6 +13,9 @@ import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, WrapperTable } from "../../../../styles";
+import { IcEye } from "atoms/Icon";
+import { colors } from "utils/styles";
+import FlyingForm from "./FlyingForm";
 
 interface IProps {
 	[x: string]: any;
@@ -21,14 +24,15 @@ interface IProps {
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
-		["Nrp"]: "",
+		["No"]: "",
+		["NRP"]: "",
 		["Nama"]: "",
 		["Dept"]: "",
 		["Posisi"]: "",
-		["Perusahaan"]: "",
-		["Saldo Cuti Tahun ini"]: "",
-		["Saldo Cuti Tahun lalu"]: "",
-		["Saldo Cuti Besar"]: "",
+		["Keluar"]: "",
+		["Keterangan"]: "",
+		["Status"]: "",
+		["Action"]: "",
 	};
 });
 
@@ -37,11 +41,23 @@ export default function KaryawanNonAktif() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
 			accessorKey: item,
-			cell: (info) => info.getValue(),
+			cell: (info) =>
+				info.column.id === "Action" ? (
+					<IcEye width={14} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+				) : (
+					info.getValue()
+				),
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
 					<Grid>
@@ -74,16 +90,24 @@ export default function KaryawanNonAktif() {
 	};
 
 	return (
-		<WrapperTable style={{ marginTop: "20px" }}>
-			<TableFilterSearch
-				table={table}
-				handleChangeTotalShowData={handleChangeTotalShowData}
-				globalFilter={globalFilter}
-				setGlobalFilter={setGlobalFilter}
-				withButton={false}
-				buttonTitle="EXPORT"
+		<>
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
 			/>
-			<TableComponent2 table={table} />
-		</WrapperTable>
+
+			<WrapperTable style={{ marginTop: "20px" }}>
+				<TableFilterSearch
+					table={table}
+					handleChangeTotalShowData={handleChangeTotalShowData}
+					globalFilter={globalFilter}
+					setGlobalFilter={setGlobalFilter}
+					withButton={true}
+					buttonTitle="EXPORT"
+				/>
+				<TableComponent2 table={table} />
+			</WrapperTable>
+		</>
 	);
 }

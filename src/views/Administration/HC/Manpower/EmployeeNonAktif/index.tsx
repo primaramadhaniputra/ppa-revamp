@@ -27,7 +27,7 @@ const renderContent = (type: string) => {
 };
 
 const EmployeeNonAktif = () => {
-	const [activeSelect, setActiveSelect] = useState("Karyawan Aktif");
+	const [activeSelect, setActiveSelect] = useState("Non Aktif(PHK)");
 
 	const handleSelect = (e: ISelectItem | ISelectItem[] | null) => {
 		setActiveSelect(e?.values);
