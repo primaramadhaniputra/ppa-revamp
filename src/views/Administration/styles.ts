@@ -26,6 +26,8 @@ export const TitleText = styled(Text).attrs({
 `;
 
 export const WrapperTable = styled(Grid)`
+	/* width: 100%; */
+	overflow: hidden;
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;
