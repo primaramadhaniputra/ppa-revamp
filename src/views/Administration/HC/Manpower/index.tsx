@@ -12,6 +12,9 @@ const HistoryGradeAndPost = dynamic(() => import("./HistoryGradeAndPost"), {
 const Personel = dynamic(() => import("./Personel"), {
 	ssr: false,
 });
+const EmployeeNonAktif = dynamic(() => import("./EmployeeNonAktif"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"PERSONEL",
@@ -26,6 +29,8 @@ const renderContent = (type: string) => {
 		return <HistoryGradeAndPost />;
 	} else if (type === "PERSONEL") {
 		return <Personel />;
+	} else if (type === "EMPLOYEE NON-ACTIVE") {
+		return <EmployeeNonAktif />;
 	}
 };
 
@@ -35,7 +40,7 @@ export default function Manpower() {
 	return (
 		<Wrapper>
 			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			{activeTab === 3 ? (
+			{activeTab === 2 ? (
 				<Assessment />
 			) : (
 				<WrapperTitle>
