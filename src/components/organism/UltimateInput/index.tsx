@@ -1,4 +1,4 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, Toggler } from "@hudoro/neron";
 import { IcCaretDown } from "atoms/Icon";
 import React, { useState } from "react";
 import { Calendar } from "react-date-range";
@@ -22,6 +22,8 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	title?: string;
 	isDate?: boolean;
 	maxLableWidth?: string;
+	isSwitch?: boolean;
+	wrapperStyle?: React.CSSProperties;
 }
 
 const UltimateInput = ({
@@ -32,13 +34,15 @@ const UltimateInput = ({
 	isDate,
 	title,
 	maxLableWidth,
+	isSwitch,
+	wrapperStyle,
 	...rest
 }: IProps) => {
 	const [date, setDate] = useState(new Date());
 	const [isShowDate, setIsShowDate] = useState(false);
 
 	return (
-		<Wrapper style={{ minWidth: "200px" }}>
+		<Wrapper style={{ minWidth: "200px", ...wrapperStyle }}>
 			{title && (
 				<Grid container style={{ flex: 1, maxWidth: maxLableWidth || "250px" }}>
 					<Label>{title}</Label>
@@ -57,6 +61,11 @@ const UltimateInput = ({
 			{isInput && (
 				<Grid>
 					<Input {...rest} />
+				</Grid>
+			)}
+			{isSwitch && (
+				<Grid>
+					<Toggler />
 				</Grid>
 			)}
 			{isInputSelect && (

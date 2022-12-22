@@ -17,6 +17,7 @@ import IcShortAscending from "./IcShortAscending";
 import IcShortDescending from "./IcShortDescending";
 import IcCloseCircleFilled from "./IcCloseCircleFilled";
 import IcLoading from "./IcLoading";
+import IcBarChart from "./IcBarChart";
 
 export {
 	IcClose,
@@ -38,4 +39,5 @@ export {
 	IcShortDescending,
 	IcCloseCircleFilled,
 	IcLoading,
+	IcBarChart,
 };

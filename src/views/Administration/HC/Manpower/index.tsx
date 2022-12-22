@@ -9,10 +9,12 @@ const Assessment = dynamic(() => import("./Assessment"), {
 const HistoryGradeAndPost = dynamic(() => import("./HistoryGradeAndPost"), {
 	ssr: false,
 });
+const Personel = dynamic(() => import("./Personel"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"PERSONEL",
-	"PERSONEL V.2",
 	"AGREEMENT",
 	"ASSESSMENT",
 	"EMPLOYEE NON-ACTIVE",
@@ -22,6 +24,8 @@ const tabTitle = [
 const renderContent = (type: string) => {
 	if (type === "HISTORY GRADE AND POST") {
 		return <HistoryGradeAndPost />;
+	} else if (type === "PERSONEL") {
+		return <Personel />;
 	}
 };
 
