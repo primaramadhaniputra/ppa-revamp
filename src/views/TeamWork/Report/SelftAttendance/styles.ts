@@ -28,6 +28,9 @@ export const StatusText = styled(Text).attrs({
 	font-family: ${fontFamilies.poppins};
 	font-size: ${fontSizing.sm.fontSize};
 	font-weight: ${fontWeights.bold};
+	@media (max-width: 768px) {
+		min-width: 70px;
+	}
 `;
 
 export const BoxContainer = styled(Grid).attrs({
@@ -45,10 +48,6 @@ export const Box = styled.div`
 	min-width: 80px;
 	height: 17px;
 	flex: 1;
-	order: 1;
-	${mediaQueries.md} {
-		order: 0;
-	}
 `;
 
 export const TableTitle = styled(Text).attrs({

@@ -97,16 +97,16 @@ export default function SelfAttendance() {
 				<TableComponent2 table={table} noPagination={true} />
 				<WrapperStatus>
 					<BoxContainer>
-						<Box style={{ backgroundColor: "#EFE44C" }}></Box>
 						<StatusText>On Going</StatusText>
+						<Box style={{ backgroundColor: "#EFE44C" }}></Box>
 					</BoxContainer>
 					<BoxContainer>
-						<Box style={{ backgroundColor: "#25B78A" }}></Box>
 						<StatusText>Ok</StatusText>
+						<Box style={{ backgroundColor: "#25B78A" }}></Box>
 					</BoxContainer>
 					<BoxContainer>
-						<Box style={{ backgroundColor: "#FF0008" }}></Box>
 						<StatusText>Rejected</StatusText>
+						<Box style={{ backgroundColor: "#FF0008" }}></Box>
 					</BoxContainer>
 				</WrapperStatus>
 			</LayoutTable>
