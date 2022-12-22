@@ -28,7 +28,6 @@ export const TABLE = styled.table`
 	text-align: center;
 	border-collapse: collapse;
 	font-size: ${fontSizing.md.fontSize};
-
 	& tbody tr {
 		&:hover {
 			background-color: rgba(0, 0, 0, 0.1) !important;
@@ -53,8 +52,10 @@ export const TABLE = styled.table`
 		border-left: 0;
 	}
 	& tr th {
-		min-width: 140px;
+		min-width: 150px;
 		padding: 5px 10px;
+		font-weight: 500 !important;
+		text-transform: lowercase;
 	}
 
 	& tbody {
@@ -74,9 +75,6 @@ export const TABLE = styled.table`
 		text-align: center;
 		border-left: 1px solid rgba(0, 0, 0, 0.1);
 		border-top: 1px solid rgba(0, 0, 0, 0.1);
-		/* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
-		/* background-color: #035aa6; */
-		/* color: white; */
 		&.hidden {
 			display: none;
 		}
