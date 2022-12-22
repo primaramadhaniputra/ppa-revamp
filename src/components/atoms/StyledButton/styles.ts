@@ -10,7 +10,6 @@ export const StyledButton = styled.button`
 	/* padding: 10px 0; */
 	padding: 5px 10px;
 	font-family: ${fontFamilies.poppins};
-	font-style: normal;
 	font-weight: ${fontWeights.regular};
 	font-size: ${fontSizing.xs.fontSize};
 	text-align: center;
