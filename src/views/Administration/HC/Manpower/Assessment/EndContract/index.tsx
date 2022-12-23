@@ -1,13 +1,13 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { useViewport } from "utils/hooks";
+import { useWindowDimensions } from "utils/functions";
 import ListEndContractTable from "./ListEndContractTable";
 import MonitoringStatusTable from "./MonitoringStatusTable";
 import SummaryTable from "./SummaryTable";
 
 const EndContract = () => {
-	const { width } = useViewport();
-	console.log("width", width);
+	const { width } = useWindowDimensions();
+
 	return (
 		<Grid>
 			<Grid

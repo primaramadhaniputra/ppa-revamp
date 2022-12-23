@@ -15,6 +15,9 @@ const Personel = dynamic(() => import("./Personel"), {
 const EmployeeNonAktif = dynamic(() => import("./EmployeeNonAktif"), {
 	ssr: false,
 });
+const Agreement = dynamic(() => import("./Agreement"), {
+	ssr: false,
+});
 
 const tabTitle = [
 	"PERSONEL",
@@ -31,6 +34,8 @@ const renderContent = (type: string) => {
 		return <Personel />;
 	} else if (type === "EMPLOYEE NON-ACTIVE") {
 		return <EmployeeNonAktif />;
+	} else if (type === "AGREEMENT") {
+		return <Agreement />;
 	}
 };
 
