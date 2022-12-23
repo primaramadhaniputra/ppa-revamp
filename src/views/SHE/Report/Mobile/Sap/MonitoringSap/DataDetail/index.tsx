@@ -1,9 +1,10 @@
 import { Card, Grid } from "@hudoro/neron";
+import TextBetween from "molecules/TextBetween";
 import Image from "next/image";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import { colors } from "utils/styles";
-import { Description, Title } from "./styles";
+import { Title } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -71,24 +72,21 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 				title="KT09/SHE/2209/PTTA/01928"
 			>
 				<Grid container flexDirection="column" gap={10} style={{ padding: "0 10px 20px" }}>
-					{dataDummy.map((item, index) => (
-						<Grid container alignItems="center" key={index} gap={10}>
-							<Grid style={{ flex: 1 }}>
-								<Title>{item.title}</Title>
-							</Grid>
-							<Grid style={{ flex: 2 }}>
-								<Description>: {item.desc}</Description>
-							</Grid>
-						</Grid>
-					))}
+					<TextBetween dummyData={dataDummy} />
 				</Grid>
-				<Grid container gap={20}>
+				<Grid container gap={50} justifyContent="center" style={{ marginTop: "20px" }}>
 					{dataDummyTemuan.map((data, index) => (
-						<Card key={index} style={{ flex: "1", boxShadow: "0 1px 3px rgba(0,0,0,.25)" }}>
+						<Card key={index} style={{ flex: "1", maxWidth: "350px" }}>
 							<Title style={{ marginBottom: "10px", color: colors.orange, minWidth: "250px" }}>
 								{data.title}
 							</Title>
-							<Image src={data.imageUrl} width={200} height={200} layout="responsive" />
+							<Image
+								src={data.imageUrl}
+								width={200}
+								height={200}
+								layout="responsive"
+								style={{ borderRadius: "5px" }}
+							/>
 						</Card>
 					))}
 				</Grid>
