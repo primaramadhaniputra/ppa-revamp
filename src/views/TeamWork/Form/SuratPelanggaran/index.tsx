@@ -13,7 +13,7 @@ import IcPrinter from "atoms/Icon/IcPrinter";
 import ShowDetail from "./ShowDetail";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer, WrapperTitle } from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import { IcEye } from "atoms/Icon";
@@ -138,9 +138,7 @@ export default function SuratPelanggaran() {
 				setIsShowDetail={setIsShowForm}
 				formPosition={formPelanggaranPosition}
 			/>
-			<WrapperTitle style={{ marginBottom: "20px ", padding: 0 }}>
-				<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			</WrapperTitle>
+			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
 			<LayoutTable>
 				<Grid
 					container

@@ -1,10 +1,10 @@
 import { Card, Grid } from "@hudoro/neron";
 import { StyledInput } from "atoms/LabeledInput/styles";
 import StyledButton from "atoms/StyledButton";
+import TitleText from "atoms/TitleText";
 import React from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import { fontWeights } from "utils/styles";
-import { TitleText, WrapperTable } from "../styles";
 
 export default function SetWakeUpCall() {
 	return (
@@ -12,7 +12,7 @@ export default function SetWakeUpCall() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>Set Wake Up Call</TitleText>
 			</LayoutTable>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			<LayoutTable style={{ marginTop: "20px" }}>
 				<TitleText style={{ fontSize: "15px", textAlign: "center", fontWeight: fontWeights.semi }}>
 					LIST PILIHAN PASSWORD WAKE UP CALL
 				</TitleText>
@@ -24,7 +24,7 @@ export default function SetWakeUpCall() {
 						<StyledButton style={{ backgroundColor: "#aaa" }}>Reset</StyledButton>
 					</Grid>
 				</Card>
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }

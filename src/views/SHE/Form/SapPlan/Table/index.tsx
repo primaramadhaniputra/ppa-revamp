@@ -16,9 +16,10 @@ import { Grid } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, WrapperTable } from "../../styles";
+import { ThItemContainer } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { colors } from "utils/styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -124,7 +125,7 @@ export default function Table() {
 					<RevisiDropdown placeholder="Ranking" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>
+			<LayoutTable>
 				<SecondFilter
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -132,7 +133,7 @@ export default function Table() {
 					setGlobalFilter={setGlobalFilter}
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
+			</LayoutTable>
 		</Wrapper>
 	);
 }

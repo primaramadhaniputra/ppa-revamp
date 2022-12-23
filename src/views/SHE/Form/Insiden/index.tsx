@@ -1,8 +1,8 @@
 import { Grid } from "@hudoro/neron";
+import TitleText from "atoms/TitleText";
 import React from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import { fontWeights } from "utils/styles";
-import { TitleText } from "../styles";
 import BottomTable from "./BottomTable";
 import TopTable from "./TopTable";
 

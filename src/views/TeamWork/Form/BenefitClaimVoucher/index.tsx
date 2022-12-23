@@ -12,13 +12,14 @@ import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { FileContainer, THContainer } from "../styles";
+import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
 import ShowDetail from "./ShowDetail";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import { Grid } from "@hudoro/neron";
+import ButtonFile from "atoms/ButtonFile";
 
 interface Person {
 	[x: string]: any;
@@ -120,10 +121,7 @@ export default function BenefitClaimVoucher() {
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<Grid container alignItems="center" justifyContent="space-between">
 					<TitleText>Benefit Claim Voucher(BCV)</TitleText>
-					<FileContainer onClick={handleShowDetail}>
-						<label>+</label>
-						<label>Add Claim</label>
-					</FileContainer>
+					<ButtonFile title={"Add Claim"} onClick={handleShowDetail as any} />
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
