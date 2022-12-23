@@ -42,14 +42,10 @@ export const Container = styled(Grid).attrs({
 `;
 
 export const ContainerChildren = styled(Grid).attrs({})`
-	/* overflow-x: scroll; */
+	overflow-x: scroll;
 	::-webkit-scrollbar {
 		height: 5px;
 		width: 3px;
-	}
-
-	::-webkit-scrollbar-track {
-		background: #f1f1f1;
 	}
 
 	::-webkit-scrollbar-thumb {
