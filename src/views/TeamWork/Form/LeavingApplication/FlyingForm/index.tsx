@@ -18,7 +18,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 			isShowDetail={isShowDetail}
 			setIsShowDetail={setIsShowDetail}
 			formPosition={formPosition}
-			title="Upload DAR"
+			title="Leave Application"
 			button={true}
 		>
 			<InputContainer>

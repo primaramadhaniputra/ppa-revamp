@@ -1,8 +1,9 @@
-import { Text } from "@hudoro/neron";
+import InputGroup from "molecules/InputGroup";
 import React from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import UltimateInput from "src/components/organism/UltimateInput";
-import { Answer, AnswerWrapper, InputContainer } from "./styles";
+import { colors } from "utils/styles";
+import { AnswerWrapper, InputContainer } from "./styles";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -21,34 +22,17 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 		>
 			<InputContainer>
 				<UltimateInput isInput={true} title="Subject Name" maxLableWidth="120px" />
-				<UltimateInput isInput={true} title="Question No.1" maxLableWidth="120px" />
+				<UltimateInput isTextArea={true} title="Question No.1" maxLableWidth="120px" />
 				<AnswerWrapper>
-					<Answer>
-						<Text variant="p">A</Text>
-						<Text variant="p">siuuuuuuuuuuuuuuuuuu</Text>
-					</Answer>
-					<Answer>
-						<Text variant="p">B</Text>
-						<Text variant="p">siiiuuuuuuuuuuuuuuuuu</Text>
-					</Answer>
+					<InputGroup labelTitle="A" />
+					<InputGroup labelTitle="B" />
 				</AnswerWrapper>
 				<AnswerWrapper>
-					<Answer>
-						<Text variant="p">C</Text>
-						<Text variant="p">suuwiiiiiiiiiiii</Text>
-					</Answer>
-					<Answer>
-						<Text variant="p">D</Text>
-						<Text variant="p">suwwwiiiiiiiiiiiii</Text>
-					</Answer>
+					<InputGroup labelTitle="C" />
+					<InputGroup labelTitle="D" />
 				</AnswerWrapper>
 				<AnswerWrapper>
-					<Answer>
-						<Text variant="p" style={{ color: "green" }}>
-							Answer
-						</Text>
-						<Text variant="p">suwwwiiiiiiiiiiiii</Text>
-					</Answer>
+					<InputGroup labelTitle="Answer" style={{ color: colors.green }} />
 				</AnswerWrapper>
 			</InputContainer>
 		</LayoutOverlayData>

@@ -37,7 +37,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 							<UltimateInput isInputSelect={true} title={"Job"} maxLableWidth="60px" />
 						</Grid>
 						<Grid container>
-							<UltimateInput isInput={true} />
+							<UltimateInput isInput={true} title={"-"} />
 						</Grid>
 					</Grid>
 					<Grid>

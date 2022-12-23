@@ -23,7 +23,7 @@ export default function ShowFormPelanggaran({
 			title="Form Surat Pelanggaran Karyawan"
 			button={true}
 		>
-			<Grid container flexDirection="column" gap={40}>
+			<Grid container flexDirection="column" gap={20}>
 				<UltimateInput isInput={true} title="Nama" maxLableWidth="80px" />
 				<Grid container alignItems="center" gap={50}>
 					<Grid>

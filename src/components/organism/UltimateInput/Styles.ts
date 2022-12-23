@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 	display: flex;
-	/* align-items: center; */
 	gap: 5px;
 	flex-direction: column;
 `;
@@ -22,8 +21,18 @@ export const Input = styled.input`
 	outline: none;
 	border-radius: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.15);
-	/* border: 0; */
-	/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); */
+`;
+
+export const Textarea = styled.textarea`
+	width: 100%;
+	font-family: ${fontFamilies.poppins};
+	font-size: 14px;
+	padding: 5px 10px;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	height: 100px;
+	resize: none;
 `;
 
 export const SelectWrapper = styled(Grid)`
@@ -35,7 +44,6 @@ export const SelectWrapper = styled(Grid)`
 		background-color: transparent !important;
 		border: 0 !important;
 		border: 1px solid rgba(0, 0, 0, 0.15) !important;
-		/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important; */
 		border-radius: 5px !important;
 		padding: 0 !important;
 	}

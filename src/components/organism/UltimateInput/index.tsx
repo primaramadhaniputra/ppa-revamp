@@ -9,6 +9,7 @@ import {
 	SelectIconContainer,
 	SelectWrapper,
 	StyledSelect,
+	Textarea,
 	Wrapper,
 } from "./Styles";
 import "react-date-range/dist/styles.css"; // main style file
@@ -24,6 +25,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	maxLableWidth?: string;
 	isSwitch?: boolean;
 	wrapperStyle?: React.CSSProperties;
+	isTextArea?: boolean;
 }
 
 const UltimateInput = ({
@@ -36,6 +38,7 @@ const UltimateInput = ({
 	maxLableWidth,
 	isSwitch,
 	wrapperStyle,
+	isTextArea,
 	...rest
 }: IProps) => {
 	const [date, setDate] = useState(new Date());
@@ -61,6 +64,11 @@ const UltimateInput = ({
 			{isInput && (
 				<Grid>
 					<Input {...rest} />
+				</Grid>
+			)}
+			{isTextArea && (
+				<Grid>
+					<Textarea />
 				</Grid>
 			)}
 			{isSwitch && (

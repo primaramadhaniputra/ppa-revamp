@@ -66,7 +66,7 @@ export default function Question() {
 										cursor="pointer"
 										color="white"
 										strokeWidth={1.5}
-										onClick={(target) => handleShowDetail(target)}
+										onClick={handleShowDetail}
 									/>
 								</IconContainer>
 								<IconContainer title="delete">

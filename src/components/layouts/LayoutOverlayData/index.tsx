@@ -68,12 +68,16 @@ const LayoutOverlayData = ({
 				)}
 				<ContainerChildren style={{ padding: "10px", paddingBottom: "20px" }}>
 					{children}
-					{button && (
-						<Grid container justifyContent="flex-end" style={{ margin: "30px 0 10px" }}>
-							<StyledButton style={{ maxWidth: "100px" }}>Save</StyledButton>
-						</Grid>
-					)}
 				</ContainerChildren>
+				{button && (
+					<Grid
+						container
+						justifyContent="flex-end"
+						style={{ margin: "10px 20px 20px auto", width: "100%" }}
+					>
+						<StyledButton style={{ maxWidth: "100px" }}>Save</StyledButton>
+					</Grid>
+				)}
 			</Container>
 		</Wrapper>
 	);

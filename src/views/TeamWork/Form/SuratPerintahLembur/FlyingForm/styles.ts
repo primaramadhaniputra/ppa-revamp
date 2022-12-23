@@ -4,7 +4,7 @@ import { mediaQueries } from "utils/styles";
 export const InputContainer = styled.form`
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 20px;
 	${mediaQueries.md} {
 		padding: 10px;
 	}

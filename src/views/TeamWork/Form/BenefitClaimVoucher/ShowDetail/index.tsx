@@ -18,7 +18,7 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			formPosition={formPosition}
 			title="Claim Application"
 		>
-			<Grid container flexDirection="column" gap={30} style={{ marginBottom: "50px" }}>
+			<Grid container flexDirection="column" gap={20} style={{ marginBottom: "50px" }}>
 				<Grid container justifyContent="space-between" gap={50}>
 					<Grid>
 						<UltimateInput isInputSelect={true} title="NRP" maxLableWidth="70px" />
