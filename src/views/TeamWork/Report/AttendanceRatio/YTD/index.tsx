@@ -108,7 +108,7 @@ export default function YTD() {
 				</Text>
 				<DateText />
 			</Grid>
-			<TableComponent2 table={table} noPagination={true} withFooter={true} />
+			<TableComponent2 table={table} noPagination={true} />
 		</>
 	);
 }
