@@ -14,7 +14,7 @@ import { TitleText } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer } from "views/SHE/Report/styles";
-import { Grid, Icon, Text } from "@hudoro/neron";
+import { Grid, Icon } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { colors } from "utils/styles";
 import DataDetail from "./DataDetail";
@@ -59,18 +59,13 @@ export default function MonitoringSap() {
 			accessorKey: item,
 			cell: (info) => {
 				return info.column.id === "ACTION" ? (
-					<Grid
-						container
-						alignItems="center"
-						justifyContent="center"
-						gap={7}
-						style={{ backgroundColor: colors.blue, padding: "5px 0", cursor: "pointer" }}
-						onClick={handleShowDetail}
-					>
-						<Icon iconName="IcSearch" color="white" />
-						<Text variant="mute" style={{ color: "rgba(255,255,255,.7)" }}>
-							Detail
-						</Text>
+					<Grid container justifyContent="center">
+						<Icon
+							iconName="IcSearch"
+							color={colors.blue}
+							onClick={handleShowDetail}
+							style={{ cursor: "pointer" }}
+						/>
 					</Grid>
 				) : (
 					info.getValue()
