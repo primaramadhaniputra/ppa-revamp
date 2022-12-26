@@ -12,7 +12,6 @@ import {
 } from "@tanstack/react-table";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
@@ -21,6 +20,7 @@ import dynamic from "next/dynamic";
 import DateText from "atoms/DateText";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -70,10 +70,10 @@ export default function AttendanceRatio() {
 			cell: (info) => info.getValue(),
 			header: (data) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<span>{item}</span>
 						{data.column.id !== "Act" && <CompleteArrow />}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};
