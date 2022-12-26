@@ -11,13 +11,13 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
-import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import ShowDetail from "./ShowDetail";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -74,7 +74,7 @@ export default function Detail() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index} style={{ width: "100%", justifyContent: "space-around" }}>
+					<THContainer key={index}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (
@@ -83,7 +83,7 @@ export default function Detail() {
 								<CompleteArrow />
 							</>
 						)}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};
@@ -117,7 +117,7 @@ export default function Detail() {
 				formPosition={formPosition}
 			/>
 			<TopFilter />
-			<WrapperTable style={{ marginTop: "20px" }}>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -127,7 +127,7 @@ export default function Detail() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }

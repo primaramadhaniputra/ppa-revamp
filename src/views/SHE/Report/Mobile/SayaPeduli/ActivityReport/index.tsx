@@ -13,7 +13,6 @@ import TopFilter from "src/components/organism/TopFilter";
 import { TitleText } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import StyledButton from "atoms/StyledButton";
@@ -22,6 +21,7 @@ import DataDetail from "./DataDetail";
 import { IcEye } from "atoms/Icon";
 import DataDetailTable from "./DataDetailTable";
 import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -73,10 +73,10 @@ export default function ActivityReport() {
 				);
 			},
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

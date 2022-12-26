@@ -12,8 +12,8 @@ import {
 import { fontWeights } from "utils/styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { fontFamilies } from "@hudoro/neron";
-import { WrapperTable } from "../../styles";
-import { ThItemContainer } from "views/SHE/Report/styles";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface Person {
 	[x: string]: any;
@@ -43,16 +43,15 @@ export const defaultDataTable = arr.map(() => {
 export default function Insiden() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
-	// const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
 		return {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>{item}</span>
-				</ThItemContainer>
+				</THContainer>
 			),
 			footer: (data) => {
 				return (
@@ -86,9 +85,9 @@ export default function Insiden() {
 		getSortedRowModel: getSortedRowModel(),
 	});
 	return (
-		<WrapperTable>
+		<LayoutTable>
 			<TableHeader>Insiden</TableHeader>
 			<TableComponent2 table={table} noPagination={true} withFooter={true} />
-		</WrapperTable>
+		</LayoutTable>
 	);
 }

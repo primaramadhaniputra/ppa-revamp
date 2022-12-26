@@ -11,9 +11,9 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../../../../styles";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	isShowDetail: boolean;
@@ -43,12 +43,12 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
+				<THContainer key={index} style={{ minWidth: "100px" }}>
 					<Grid>
 						<span>{item}</span>
 					</Grid>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

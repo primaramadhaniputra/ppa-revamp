@@ -12,11 +12,11 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import { WrapperTable } from "../../../styles";
 import { PointContainer, PointDesc, PointValue } from "./styles";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -48,10 +48,10 @@ export default function TimeSheet() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

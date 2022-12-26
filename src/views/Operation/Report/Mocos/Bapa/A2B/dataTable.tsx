@@ -1,7 +1,4 @@
-// import { Grid } from "@hudoro/neron";
 import { ColumnDef } from "@tanstack/react-table";
-// import CompleteArrow from "atoms/CompleteArrow";
-// import { ThItemContainer } from "../../ObProduction/Dayli/styles";
 import { TextTable } from "./styles";
 
 interface IProps {

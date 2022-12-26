@@ -11,13 +11,13 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import TabV4 from "molecules/TabV4";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 const tabText = ["Operator", "Pengawas"];
 
@@ -51,10 +51,10 @@ export default function Achievement() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});
@@ -88,7 +88,7 @@ export default function Achievement() {
 						<RevisiDropdown placeholder="Operator" />
 					</Grid>
 				</TopFilter>
-				<WrapperTable>
+				<LayoutTable>
 					<TableFilterSearch
 						table={table}
 						handleChangeTotalShowData={handleChangeTotalShowData}
@@ -98,7 +98,7 @@ export default function Achievement() {
 						buttonTitle="EXPORT"
 					/>
 					<TableComponent2 table={table} />
-				</WrapperTable>
+				</LayoutTable>
 			</TableWrapper>
 		</Wrapper>
 	);

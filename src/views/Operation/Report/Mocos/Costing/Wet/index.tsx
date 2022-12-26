@@ -12,8 +12,6 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-// import CompleteArrow from "atoms/CompleteArrow";
-// ThItemContainer,
 import { TitleText, WrapperTitle, Wrapper } from "../../../styles";
 import { TextTable } from "./styles";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
@@ -37,26 +35,10 @@ export const defaultDataTable = [
 ];
 
 export default function Wet() {
-	// const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [activeShiftDropDown, setActiveShiftDropDown] = React.useState([]);
-
-	// const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-	// 	return {
-	// 		accessorKey: item,
-	// 		cell: (info) => <TextTable>{info.getValue()}</TextTable>,
-	// 		header: () => (
-	// 			<ThItemContainer key={index} style={{ minWidth: "100px" }}>
-	// 				<Grid>
-	// 					<span>{item}</span>
-	// 				</Grid>
-	// 				<CompleteArrow />
-	// 			</ThItemContainer>
-	// 		),
-	// 	};
-	// });
 
 	const columns: ColumnDef<IProps>[] = [
 		{

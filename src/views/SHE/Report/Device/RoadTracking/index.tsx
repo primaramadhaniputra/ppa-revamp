@@ -4,8 +4,8 @@ import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import React, { ChangeEvent, useState } from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TopFilter from "src/components/organism/TopFilter";
-import { TitleText } from "../styles";
 import dynamic from "next/dynamic";
+import TitleText from "atoms/TitleText";
 
 const MapWithNoSSR = dynamic(() => import("./map"), {
 	ssr: false,

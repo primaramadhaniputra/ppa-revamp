@@ -12,7 +12,8 @@ import {
 import { Line } from "react-chartjs-2";
 import DateText from "atoms/DateText";
 import TopFilter from "src/components/organism/TopFilter";
-import { TitleText, WrapperTable, WrapperTitle } from "../../../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -64,14 +65,16 @@ export const data = {
 export default function RoadGrade() {
 	return (
 		<>
-			<WrapperTitle>
+			<LayoutTable
+				style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
+			>
 				<TitleText>Road Grade HD785</TitleText>
 				<DateText />
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter />
-			<WrapperTable>
+			<LayoutTable>
 				<Line options={options} data={data} />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }

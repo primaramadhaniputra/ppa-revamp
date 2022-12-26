@@ -10,12 +10,12 @@ import {
 } from "@tanstack/react-table";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import { THContainer } from "atoms/THContainer";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import React from "react";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import TopFilter from "src/components/organism/TopFilter";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import { WrapperTable } from "../../../styles";
 import { TableWrapper } from "../styles";
 
@@ -58,10 +58,10 @@ export default function Detail() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

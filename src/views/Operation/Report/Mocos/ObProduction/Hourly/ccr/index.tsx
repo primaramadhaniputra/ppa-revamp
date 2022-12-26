@@ -2,7 +2,6 @@ import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
 import { colors, fontWeights } from "utils/styles";
 import { ShowChartWrapper, ThItemContainer, Wrapper } from "./styles";
-// ArrowDown, ArrowUp,
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -13,7 +12,6 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-// import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
 import { exportFile } from "utils/functions";

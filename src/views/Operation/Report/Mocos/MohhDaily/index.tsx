@@ -12,7 +12,6 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-// import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../styles";
 
 interface IProps {
@@ -50,7 +49,6 @@ export default function MohhDaily() {
 					<Grid>
 						<span>{item}</span>
 					</Grid>
-					{/* <CompleteArrow /> */}
 				</ThItemContainer>
 			),
 		};
