@@ -15,6 +15,7 @@ import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { THContainer } from "atoms/THContainer";
+import FlyingForm from "./FlyingForm";
 
 interface IProps {
 	[x: string]: any;
@@ -37,6 +38,13 @@ export default function BottomTable() {
 	const [rowSelection, setRowSelection] = React.useState({});
 	const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isShowDetail, setIsShowDetail] = React.useState(false);
+	const [formPosition, setformPosition] = React.useState(0);
+
+	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
+		setIsShowDetail(true);
+		setformPosition(target.pageY - target.clientY);
+	};
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
 		return {
@@ -78,18 +86,22 @@ export default function BottomTable() {
 
 	return (
 		<>
-			<Grid style={{ maxWidth: "80px" }}>
+			<FlyingForm
+				isShowDetail={isShowDetail}
+				setIsShowDetail={setIsShowDetail}
+				formPosition={formPosition}
+			/>
+			<Grid style={{ maxWidth: "max-content" }}>
 				<StyledButton
 					style={{
 						backgroundColor: colors.primary,
-						color: colors.white,
-						padding: "0 5px",
-						fontWeight: fontWeights.bold,
-						borderRadius: "15px",
-						fontSize: fontSizing.md.fontSize,
+						padding: "5px",
+						fontWeight: fontWeights.semi,
+						fontSize: fontSizing.sm.fontSize,
 					}}
+					onClick={handleShowDetail}
 				>
-					+ Data
+					📦 Data
 				</StyledButton>
 			</Grid>
 			<TableFilterSearch
