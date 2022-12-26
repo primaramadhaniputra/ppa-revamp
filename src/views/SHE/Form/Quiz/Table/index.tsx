@@ -17,7 +17,7 @@ import StyledButton from "atoms/StyledButton";
 import { colors } from "utils/styles";
 import RevisiInputYoutube from "atoms/RevisiInputYoutube";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../styles";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -62,7 +62,7 @@ export default function Table() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (
@@ -71,7 +71,7 @@ export default function Table() {
 								<CompleteArrow />
 							</>
 						)}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};
