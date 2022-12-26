@@ -12,7 +12,7 @@ import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "../styles";
+import { THContainer } from "atoms/THContainer";
 import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
 import ShowDetail from "./ShowDetail";

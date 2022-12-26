@@ -2,8 +2,13 @@ import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 import { fontSizing } from "utils/styles";
 
-export const SelectContainer = styled.div`
+const SelectContainer = styled.div`
+	margin: 25px 0;
 	position: relative;
+	& * {
+		font-family: ${fontFamilies.poppins};
+		font-size: 12px;
+	}
 	& label {
 		margin-bottom: 5px;
 		display: block;
@@ -12,8 +17,4 @@ export const SelectContainer = styled.div`
 	}
 `;
 
-export const ThItemContainer = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 10px;
-`;
+export default SelectContainer;

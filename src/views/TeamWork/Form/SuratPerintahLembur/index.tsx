@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "../styles";
+import { THContainer } from "atoms/THContainer";
 import CompleteArrow from "atoms/CompleteArrow";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";

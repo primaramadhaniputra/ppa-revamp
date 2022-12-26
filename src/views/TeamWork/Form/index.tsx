@@ -4,7 +4,7 @@ import TabV1 from "molecules/TabV1";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import { SelectContainer } from "./styles";
+import SelectContainer from "atoms/SelectContainer";
 
 const UploadSpl = dynamic(() => import("./UploadSpl"), { ssr: false });
 const UploadRoster = dynamic(() => import("./UploadRoster"), { ssr: false });
