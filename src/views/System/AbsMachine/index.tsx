@@ -8,11 +8,11 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface Person {
 	[x: string]: any;
@@ -39,10 +39,10 @@ export default function AbsMachine() {
 			cell: (info) => info.getValue(),
 			header: () => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<span>{item}</span>
 						<CompleteArrow />
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 			footer: (props) => props.column.id,
@@ -69,7 +69,7 @@ export default function AbsMachine() {
 		table.setPageSize(e.target.value);
 	};
 	return (
-		<Container>
+		<LayoutTable>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}
@@ -79,6 +79,6 @@ export default function AbsMachine() {
 				buttonTitle="EXPORT"
 			/>
 			<TableComponent2 table={table} />
-		</Container>
+		</LayoutTable>
 	);
 }

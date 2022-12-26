@@ -3,7 +3,7 @@ import StyledButton from "atoms/StyledButton";
 import ShowDataTable from "molecules/ShowDataTable";
 import React from "react";
 import { colors } from "utils/styles";
-import { SearchInput, SearchWrapper } from "views/System/VHMSDownload/Filter/styles";
+
 import { ButtonContainer } from "../styles";
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from "./styles";
 
@@ -49,16 +49,14 @@ export default function SecondFilter({
 		}, [value]);
 
 		return (
-			<SearchWrapper style={{ width: "100%" }}>
+			<>
 				<Grid style={{ flex: 1 }}>
 					<Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
 						Search
 					</Text>
 				</Grid>
-				<SearchInput>
-					<StyledInput {...props} value={value} onChange={(e) => setValue(e.target.value)} />
-				</SearchInput>
-			</SearchWrapper>
+				<StyledInput {...props} value={value} onChange={(e) => setValue(e.target.value)} />
+			</>
 		);
 	}
 

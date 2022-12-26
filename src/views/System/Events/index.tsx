@@ -8,10 +8,10 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer } from "../styles";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface Person {
 	[x: string]: any;
@@ -40,9 +40,9 @@ export default function Events() {
 			cell: (info) => info.getValue(),
 			header: () => {
 				return (
-					<ThItemContainer>
+					<THContainer>
 						<span key={index}>{item}</span>
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 			footer: (props) => props.column.id,
@@ -71,7 +71,7 @@ export default function Events() {
 	};
 
 	return (
-		<Container>
+		<LayoutTable>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}
@@ -81,6 +81,6 @@ export default function Events() {
 				buttonTitle="EXPORT"
 			/>
 			<TableComponent2 table={table} />
-		</Container>
+		</LayoutTable>
 	);
 }

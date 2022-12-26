@@ -1,6 +1,5 @@
 import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import React from "react";
-import { SearchInput, SearchWrapper } from "views/System/VHMSDownload/Filter/styles";
 import { TableTitle } from "../styles";
 import { ButtonWrapper, ContainerPeriode, Wrapper, StyledInput } from "./styles";
 
@@ -41,27 +40,22 @@ export default function SecondFilter({ globalFilter, setGlobalFilter }: IProps) 
 		}, [value]);
 
 		return (
-			<SearchWrapper style={{ width: "100%" }}>
+			<>
 				<Grid style={{ flex: 1 }}>
 					<Text variant="p" style={{ fontFamily: fontFamilies.poppins }}>
 						Search
 					</Text>
 				</Grid>
-				<SearchInput>
+				<>
 					<StyledInput {...props} value={value} onChange={(e) => setValue(e.target.value)} />
-				</SearchInput>
-			</SearchWrapper>
+				</>
+			</>
 		);
 	}
 
 	return (
 		<Wrapper>
 			<ContainerPeriode>
-				{/* <ShowDataTable value={{
-               id: 0,
-               values: `${table.getState().pagination.pageSize}`,
-               label: `${table.getState().pagination.pageSize}`,
-            }} handleChange={handleChangeTotalShowData} /> */}
 				<TableTitle variant="h4">Data list subject quiz</TableTitle>
 			</ContainerPeriode>
 			<ButtonWrapper>

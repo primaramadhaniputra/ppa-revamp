@@ -9,7 +9,7 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
-import { Container, IconContainer, Wrapper } from "./styles";
+import { IconContainer, Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import {
 	DisableUserdWebAdmin,
@@ -24,8 +24,9 @@ import { useRouter } from "next/router";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 interface Person {
 	[x: string]: any;
 }
@@ -165,10 +166,10 @@ export default function AccessControl() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<span>{item}</span>
 						{data.column.id !== "Action" && <CompleteArrow />}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 			footer: (props) => props.column.id,
@@ -211,7 +212,7 @@ export default function AccessControl() {
 				dataUser={dataUser}
 				formPosition={formPosition}
 			/>
-			<Container style={{ position: "relative" }}>
+			<LayoutTable style={{ position: "relative" }}>
 				{isLoading && <Loading />}
 				<TableFilterSearch
 					table={table}
@@ -222,7 +223,7 @@ export default function AccessControl() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</Container>
+			</LayoutTable>
 		</>
 	);
 }
