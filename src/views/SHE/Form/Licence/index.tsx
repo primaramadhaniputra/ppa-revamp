@@ -1,6 +1,6 @@
+import TitleText from "atoms/TitleText";
 import React from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
-import { TitleText } from "../styles";
 import BottomTable from "./BottomTable";
 import TopTable from "./TopTable";
 

@@ -9,9 +9,9 @@ export const Wrapper = styled(Card)`
 	background-color: white;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 	padding: 10px;
-	${mediaQueries.sm} {
+	/* ${mediaQueries.sm} {
 		padding: 0;
-	}
+	} */
 	${mediaQueries.md} {
 		padding: 15px;
 	}

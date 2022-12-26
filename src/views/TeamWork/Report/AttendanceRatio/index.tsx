@@ -12,7 +12,7 @@ import {
 } from "@tanstack/react-table";
 import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer, Wrapper } from "../styles";
+import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
@@ -129,7 +129,7 @@ export default function AttendanceRatio() {
 	};
 
 	return (
-		<Wrapper>
+		<>
 			<TabV2 tabsData={tabTitle} activeTab={activeTabs} setActiveTab={setActiveTabs} />
 			<LayoutTable style={{ marginTop: "10px" }}>
 				<TitleText>Attendance Ratio</TitleText>
@@ -143,6 +143,6 @@ export default function AttendanceRatio() {
 				</Grid>
 			</TopFilter>
 			<LayoutTable>{renderTab()}</LayoutTable>
-		</Wrapper>
+		</>
 	);
 }

@@ -57,7 +57,7 @@ export default function Database() {
 						style={{ cursor: "pointer" }}
 						onClick={handleKillProccess}
 					>
-						<Icon iconName="IcClose" size={12} />
+						<Icon iconName="IcTrash" size={16} color="red" />
 					</Grid>
 				) : (
 					info.getValue()
