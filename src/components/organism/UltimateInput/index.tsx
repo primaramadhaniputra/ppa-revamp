@@ -1,14 +1,15 @@
-import { Grid, Toggler } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import { IcCaretDown } from "atoms/Icon";
 import React, { useState } from "react";
 import { Calendar } from "react-date-range";
+import StyledSelect from "molecules/StyledSelect";
 import {
 	DateContainer,
 	Input,
 	Label,
 	SelectIconContainer,
 	SelectWrapper,
-	StyledSelect,
+	StyledSelect as Select,
 	Textarea,
 	Wrapper,
 } from "./Styles";
@@ -73,12 +74,13 @@ const UltimateInput = ({
 			)}
 			{isSwitch && (
 				<Grid>
-					<Toggler />
+					{/* <Toggler /> */}
+					<StyledSelect />
 				</Grid>
 			)}
 			{isInputSelect && (
 				<SelectWrapper>
-					<StyledSelect
+					<Select
 						items={[
 							{ id: "1", value: "testing", label: "Testing" },
 							{ id: "2", value: "testing", label: "Testing" },
