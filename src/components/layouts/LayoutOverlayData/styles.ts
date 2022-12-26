@@ -1,6 +1,6 @@
 import { fontFamilies, Grid } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing } from "utils/styles";
+import { breakpoints, colors, fontSizing } from "utils/styles";
 
 export const Wrapper = styled.div`
 	background-color: rgba(0, 0, 0, 0.7);
@@ -43,6 +43,10 @@ export const Container = styled(Grid).attrs({
 
 export const ContainerChildren = styled(Grid).attrs({})`
 	overflow-x: scroll;
+	padding: 10px 80px 20px;
+	@media (max-width: ${breakpoints.md}) {
+		padding: 10px 20px 20px;
+	}
 	::-webkit-scrollbar {
 		height: 5px;
 		width: 3px;
@@ -66,4 +70,8 @@ export const ContainerTitle = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	z-index: 999;
 `;
