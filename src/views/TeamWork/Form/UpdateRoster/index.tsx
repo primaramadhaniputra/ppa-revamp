@@ -13,7 +13,7 @@ import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "../styles";
+import { THContainer } from "atoms/THContainer";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
@@ -51,7 +51,7 @@ export default function UpdateRoster() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
 		return {
 			accessorKey: item,
 			cell: (info) => {
@@ -70,7 +70,7 @@ export default function UpdateRoster() {
 			},
 			header: (info) => {
 				return (
-					<THContainer key={index}>
+					<THContainer>
 						<Grid>
 							<span>{item}</span>
 						</Grid>

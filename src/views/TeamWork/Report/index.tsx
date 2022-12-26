@@ -4,7 +4,8 @@ import TabV1 from "molecules/TabV1";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import { ArrowDown, SelectContainer } from "./styles";
+import { ArrowDown } from "./styles";
+import SelectContainer from "atoms/SelectContainer";
 
 const TurnOver = dynamic(() => import("./TurnOver"), { ssr: false });
 const AttendanceDetail = dynamic(() => import("./AttendanceDetail"), { ssr: false });

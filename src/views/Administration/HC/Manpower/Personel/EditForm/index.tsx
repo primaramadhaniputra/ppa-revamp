@@ -78,7 +78,7 @@ export default function EditForm({ isShowEdit, setIsShowEdit, formEditPosition }
 				<Grid style={{ maxWidth: "250px", margin: "auto" }}>
 					<Select items={items} defaultValue={items[0]} onChange={handleChangeActiveTab} />
 				</Grid>
-				<form style={{ marginTop: "50px" }}>{renderContent(activeTab)}</form>
+				<form style={{ marginTop: "30px" }}>{renderContent(activeTab)}</form>
 			</LayoutOverlayData>
 		</>
 	);

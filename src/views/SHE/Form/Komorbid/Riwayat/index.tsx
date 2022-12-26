@@ -11,11 +11,11 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -65,10 +65,10 @@ export default function Riwayat() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index} style={{ minWidth: "120px" }}>
+				<THContainer key={index} style={{ minWidth: "120px" }}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

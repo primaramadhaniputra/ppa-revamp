@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-export const ThItemContainer = styled.div`
+export const THContainer = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	width: 100%;
-	box-sizing: border-box;
-	padding: 10px 4px;
+	padding: 10px 5px;
 	justify-content: center;
 `;

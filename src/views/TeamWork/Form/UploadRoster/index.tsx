@@ -10,13 +10,13 @@ import {
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import { Grid } from "@hudoro/neron";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
 import FlyingForm from "./FlyingForm";
+import { THContainer } from "atoms/THContainer";
 
 interface Person {
 	[x: string]: any;
@@ -46,13 +46,13 @@ export default function UploadRoster() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
+	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
 		return {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: (info) => {
 				return (
-					<THContainer key={index}>
+					<THContainer>
 						<span>{item}</span>
 						{info.header.id !== "remark" && <CompleteArrow />}
 					</THContainer>

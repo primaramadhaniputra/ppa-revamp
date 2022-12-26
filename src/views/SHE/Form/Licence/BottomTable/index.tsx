@@ -14,7 +14,7 @@ import { Grid } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../styles";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -47,10 +47,10 @@ export default function BottomTable() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index} style={{ gap: "10px" }}>
+					<THContainer key={index} style={{ gap: "10px" }}>
 						<span>{item}</span>
 						<CompleteArrow />
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};

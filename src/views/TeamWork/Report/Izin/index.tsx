@@ -13,13 +13,13 @@ import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -73,10 +73,10 @@ export default function Izin() {
 					info.getValue()
 				),
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

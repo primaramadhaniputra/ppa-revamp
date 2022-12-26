@@ -10,8 +10,8 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { WrapperTable } from "../../styles";
-import { ThItemContainer } from "views/SHE/Report/styles";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface Person {
 	[x: string]: any;
@@ -48,9 +48,9 @@ export default function Performance() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>{item}</span>
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});
@@ -72,9 +72,9 @@ export default function Performance() {
 		getSortedRowModel: getSortedRowModel(),
 	});
 	return (
-		<WrapperTable>
+		<LayoutTable>
 			<TableHeader style={{ backgroundColor: "#FFDE9C" }}>Performance</TableHeader>
 			<TableComponent2 table={table} noPagination={true} />
-		</WrapperTable>
+		</LayoutTable>
 	);
 }

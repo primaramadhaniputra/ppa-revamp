@@ -9,10 +9,10 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { WrapperTable } from "../../styles";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import CardImage from "./CardImage";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -34,7 +34,6 @@ export const defaultDataTable = arr.map(() => {
 export default function Monitoring() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
 	const [rowSelection, setRowSelection] = React.useState({});
-	// const [globalFilter, setGlobalFilter] = React.useState("");
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 
 	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
@@ -43,7 +42,7 @@ export default function Monitoring() {
 			cell: (info) => info.getValue(),
 			header: (data) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (
@@ -52,7 +51,7 @@ export default function Monitoring() {
 								<CompleteArrow />
 							</>
 						)}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};
@@ -75,9 +74,9 @@ export default function Monitoring() {
 	});
 
 	return (
-		<WrapperTable style={{ marginTop: "20px" }}>
+		<LayoutTable>
 			<CardImage />
 			<TableComponent2 table={table} />
-		</WrapperTable>
+		</LayoutTable>
 	);
 }

@@ -1,10 +1,10 @@
 import { ISelectItem, Select } from "@hudoro/neron";
+import SelectContainer from "atoms/SelectContainer";
 import TitlePage from "atoms/TitlePage";
 import TabV1 from "molecules/TabV1";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
-import { SelectContainer } from "./styles";
 
 const Insiden = dynamic(() => import("./Insiden"), { ssr: false });
 const Komorbid = dynamic(() => import("./Komorbid"), { ssr: false });

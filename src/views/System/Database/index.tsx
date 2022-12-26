@@ -8,13 +8,13 @@ import {
 	SortingState,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { Wrapper } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { Grid, Icon } from "@hudoro/neron";
 import { notify } from "utils/functions";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface Person {
 	[x: string]: any;
@@ -65,10 +65,10 @@ export default function Database() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<span>{item}</span>
 						{data.column.id !== "Action" && <CompleteArrow />}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 			footer: (props) => props.column.id,
@@ -96,7 +96,7 @@ export default function Database() {
 	};
 
 	return (
-		<Wrapper>
+		<LayoutTable>
 			<TableFilterSearch
 				table={table}
 				handleChangeTotalShowData={handleChangeTotalShowData}
@@ -106,6 +106,6 @@ export default function Database() {
 				buttonTitle="EXPORT"
 			/>
 			<TableComponent2 table={table} />
-		</Wrapper>
+		</LayoutTable>
 	);
 }

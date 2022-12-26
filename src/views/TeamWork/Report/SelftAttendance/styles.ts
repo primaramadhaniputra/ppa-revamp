@@ -2,16 +2,6 @@ import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import styled from "styled-components";
 import { fontSizing, fontWeights, mediaQueries } from "utils/styles";
 
-export const SelectContainer = styled.div`
-	position: relative;
-	& label {
-		margin-bottom: 5px;
-		display: block;
-		font-family: ${fontFamilies.poppins};
-		font-size: ${fontSizing.sm.fontSize};
-	}
-`;
-
 export const WrapperStatus = styled(Grid).attrs({
 	container: true,
 })`

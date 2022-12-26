@@ -12,7 +12,6 @@ import {
 import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
@@ -20,6 +19,7 @@ import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -76,10 +76,10 @@ export default function SuratPelanggaran() {
 			accessorKey: item,
 			cell: (info) => renderText(info),
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

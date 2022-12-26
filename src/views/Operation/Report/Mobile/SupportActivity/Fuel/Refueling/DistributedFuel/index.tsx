@@ -10,9 +10,9 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import { TitleText, WrapperTable, WrapperTitle } from "../../../../styles";
 import { TableWrapper } from "../../styles";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -36,10 +36,10 @@ export default function DistributedFuel() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

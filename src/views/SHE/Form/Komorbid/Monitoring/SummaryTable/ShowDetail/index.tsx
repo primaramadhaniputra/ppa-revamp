@@ -11,9 +11,9 @@ import {
 
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer } from "../../../Riwayat/styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
+import { THContainer } from "atoms/THContainer";
 
 interface ITable {
 	[x: string]: any;
@@ -54,10 +54,10 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index} style={{ gap: "10px" }}>
+					<THContainer key={index} style={{ gap: "10px" }}>
 						<span>{item}</span>
 						<CompleteArrow />
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};

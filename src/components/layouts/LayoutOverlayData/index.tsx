@@ -66,9 +66,7 @@ const LayoutOverlayData = ({
 						/>
 					</ContainerTitle>
 				)}
-				<ContainerChildren style={{ padding: "10px", paddingBottom: "20px" }}>
-					{children}
-				</ContainerChildren>
+				<ContainerChildren>{children}</ContainerChildren>
 				{button && (
 					<Grid
 						container

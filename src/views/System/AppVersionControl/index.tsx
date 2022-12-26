@@ -10,10 +10,10 @@ import {
 } from "@tanstack/react-table";
 import { colors, fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
-import { Container } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer } from "../styles";
 import DataDetail from "./DataDetail";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface Person {
 	[x: string]: any;
@@ -46,9 +46,9 @@ export default function AppVersionControl() {
 			accessorKey: "Dept",
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>Dept</span>
-				</ThItemContainer>
+				</THContainer>
 			),
 		},
 		{
@@ -105,7 +105,7 @@ export default function AppVersionControl() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<Container>
+			<LayoutTable>
 				<Text
 					variant="h4"
 					style={{
@@ -118,7 +118,7 @@ export default function AppVersionControl() {
 					Mobile App Version Control MHU
 				</Text>
 				<TableComponent2 table={table} noPagination={true} withFooter={false} />
-			</Container>
+			</LayoutTable>
 		</>
 	);
 }

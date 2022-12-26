@@ -1,6 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { ThItemContainer } from "./styles";
+import { THContainer } from "atoms/THContainer";
 import {
 	ColumnDef,
 	getCoreRowModel,
@@ -63,9 +63,9 @@ export default function LeavingApplication() {
 			accessorKey: "id",
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>ID</span>
-				</ThItemContainer>
+				</THContainer>
 			),
 		},
 		{
@@ -76,17 +76,17 @@ export default function LeavingApplication() {
 					id: "lapangan",
 					cell: (info) => info.getValue(),
 					header: () => (
-						<ThItemContainer>
+						<THContainer>
 							<span>Lapangan</span>
-						</ThItemContainer>
+						</THContainer>
 					),
 				},
 				{
 					accessorKey: "tahunan",
 					header: () => (
-						<ThItemContainer>
+						<THContainer>
 							<span>Tahunan</span>
-						</ThItemContainer>
+						</THContainer>
 					),
 				},
 			],
@@ -97,17 +97,17 @@ export default function LeavingApplication() {
 				{
 					accessorKey: "leave",
 					header: () => (
-						<ThItemContainer>
+						<THContainer>
 							<span>Leave</span>
-						</ThItemContainer>
+						</THContainer>
 					),
 				},
 				{
 					accessorKey: "back",
 					header: () => (
-						<ThItemContainer>
+						<THContainer>
 							<span>Back</span>
-						</ThItemContainer>
+						</THContainer>
 					),
 				},
 			],
@@ -115,9 +115,9 @@ export default function LeavingApplication() {
 		{
 			accessorKey: "status",
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>Status</span>
-				</ThItemContainer>
+				</THContainer>
 			),
 		},
 		{
@@ -133,9 +133,9 @@ export default function LeavingApplication() {
 				</Grid>
 			),
 			header: () => (
-				<ThItemContainer>
+				<THContainer>
 					<span>Action</span>
-				</ThItemContainer>
+				</THContainer>
 			),
 		},
 	];

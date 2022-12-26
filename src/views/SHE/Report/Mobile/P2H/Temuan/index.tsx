@@ -11,14 +11,14 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
-import { WrapperTable } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import ShowDetail from "./ShowDetail";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -72,7 +72,7 @@ export default function Temuan() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (
@@ -81,7 +81,7 @@ export default function Temuan() {
 								<CompleteArrow />
 							</>
 						)}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};
@@ -119,7 +119,7 @@ export default function Temuan() {
 					<RevisiDropdown placeholder="Operator" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable style={{ marginTop: "20px" }}>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -129,7 +129,7 @@ export default function Temuan() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }

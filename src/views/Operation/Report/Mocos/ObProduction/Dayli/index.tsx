@@ -13,7 +13,6 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import TopFilter from "./TopFilter";
-// import SecondFilter from "./SecondFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 
 interface IProps {

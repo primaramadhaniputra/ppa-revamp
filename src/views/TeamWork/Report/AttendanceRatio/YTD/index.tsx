@@ -13,8 +13,8 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../styles";
 import DateText from "atoms/DateText";
+import { THContainer } from "atoms/THContainer";
 
 interface Person {
 	[x: string]: any;
@@ -60,12 +60,12 @@ export default function YTD() {
 				);
 			},
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<Grid>
 						<span>{item}</span>
 					</Grid>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 			footer: (info) => {
 				return (

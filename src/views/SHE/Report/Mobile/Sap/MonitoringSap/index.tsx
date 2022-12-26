@@ -13,12 +13,12 @@ import TopFilter from "src/components/organism/TopFilter";
 import { TitleText } from "../../styles";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "views/SHE/Report/styles";
 import { Grid, Icon } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { colors } from "utils/styles";
 import DataDetail from "./DataDetail";
 import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -72,10 +72,10 @@ export default function MonitoringSap() {
 				);
 			},
 			header: () => (
-				<ThItemContainer key={index}>
+				<THContainer key={index}>
 					<span>{item}</span>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});

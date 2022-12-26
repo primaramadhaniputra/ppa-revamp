@@ -7,11 +7,11 @@ import {
 	useReactTable,
 	getSortedRowModel,
 } from "@tanstack/react-table";
-import { ThItemContainer } from "../styles";
 import TableComponent2 from "src/components/organism/TableComp2";
 import { HoverP } from "./styles";
 import ShowDetail from "./ShowDetail";
 import { colors } from "utils/styles";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -54,9 +54,9 @@ export default function TopTable() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<span>{item}</span>
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};

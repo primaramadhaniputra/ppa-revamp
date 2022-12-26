@@ -10,11 +10,12 @@ import {
 } from "@tanstack/react-table";
 import { fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
-import { Container, StyledText } from "./styles";
+import { StyledText } from "./styles";
 import TableComponent2 from "src/components/organism/TableComp2";
-import { ThItemContainer } from "../styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import DataDetail from "./DataDetail";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface Person {
 	[x: string]: any;
@@ -54,10 +55,10 @@ export default function Survey() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer>
+					<THContainer>
 						<span key={index}>{item}</span>
 						<CompleteArrow />
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 			footer: (props) => props.column.id,
@@ -88,7 +89,7 @@ export default function Survey() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<Container>
+			<LayoutTable>
 				<Text
 					variant="h4"
 					style={{
@@ -101,7 +102,7 @@ export default function Survey() {
 					Survey ESG achievment MHU
 				</Text>
 				<TableComponent2 table={table} noPagination={true} />
-			</Container>
+			</LayoutTable>
 		</>
 	);
 }

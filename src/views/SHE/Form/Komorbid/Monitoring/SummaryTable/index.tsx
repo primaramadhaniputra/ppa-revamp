@@ -10,8 +10,8 @@ import {
 } from "@tanstack/react-table";
 import { P } from "./styles";
 import ShowDetail from "./ShowDetail";
-import { ThItemContainer } from "views/SHE/Form/styles";
 import { colors } from "utils/styles";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -53,9 +53,9 @@ export default function SummaryTable() {
 			},
 			header: () => {
 				return (
-					<ThItemContainer key={index}>
+					<THContainer key={index}>
 						<span>{item}</span>
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};

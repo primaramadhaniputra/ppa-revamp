@@ -12,7 +12,6 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
-// import CompleteArrow from "atoms/CompleteArrow";
 import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 
@@ -57,10 +56,7 @@ export default function Detail() {
 			cell: (info) => info.getValue(),
 			header: () => (
 				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
-					<Grid>
-						<span>{item}</span>
-					</Grid>
-					{/* <CompleteArrow /> */}
+					<span>{item}</span>
 				</ThItemContainer>
 			),
 		};

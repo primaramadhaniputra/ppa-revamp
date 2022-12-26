@@ -16,10 +16,10 @@ import { Grid } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
+import { THContainer } from "atoms/THContainer";
 
 interface IProps {
 	[x: string]: any;
@@ -78,7 +78,7 @@ export default function Table() {
 			},
 			header: (data) => {
 				return (
-					<ThItemContainer key={index} style={{ width: "100%", justifyContent: "space-around" }}>
+					<THContainer key={index} style={{ width: "100%", justifyContent: "space-around" }}>
 						{data.header.id === "Detail" ? (
 							<span>{item}</span>
 						) : (
@@ -87,7 +87,7 @@ export default function Table() {
 								<CompleteArrow />
 							</>
 						)}
-					</ThItemContainer>
+					</THContainer>
 				);
 			},
 		};
