@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors, fontSizing } from "utils/styles";
 
 export const Wrapper = styled.div`
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.7);
 	padding: 10px;
 	position: absolute;
 	left: 0;
@@ -25,10 +25,10 @@ export const Container = styled(Grid).attrs({
 	overflow-x: scroll;
 	max-height: calc(100vh - 70px);
 	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-	border-radius: 3px;
+	border-radius: 5px;
 	::-webkit-scrollbar {
 		height: 5px;
-		width: 3px;
+		width: 0px;
 	}
 
 	::-webkit-scrollbar-track {
