@@ -1,8 +1,7 @@
 import React from "react";
 import { Container } from "./styles";
 import { Grid, Text } from "@hudoro/neron";
-import DoughnutChart from "./DoughnutChart";
-import LineChart from "./LineChart";
+import { DoughnutChart, LineChart } from "molecules/Charts";
 
 const Chart = () => {
 	return (
