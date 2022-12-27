@@ -10,9 +10,9 @@ import {
 	getSortedRowModel,
 } from "@tanstack/react-table";
 import CompleteArrow from "atoms/CompleteArrow";
-import { TitleText, WrapperTable, WrapperTitle } from "../../../../styles";
-import { TableWrapper } from "../../styles";
 import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -59,13 +59,13 @@ export default function DistributedFuel() {
 		getSortedRowModel: getSortedRowModel(),
 	});
 	return (
-		<TableWrapper>
-			<WrapperTitle>
+		<>
+			<LayoutTable>
 				<TitleText>Distributed Fuel</TitleText>
-			</WrapperTitle>
-			<WrapperTable>
+			</LayoutTable>
+			<LayoutTable style={{ marginTop: "0" }}>
 				<TableComponent2 table={table} noPagination={true} />
-			</WrapperTable>
-		</TableWrapper>
+			</LayoutTable>
+		</>
 	);
 }

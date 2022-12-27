@@ -12,11 +12,10 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { WrapperTable } from "../../../styles";
-import { TableWrapper } from "../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { Grid } from "@hudoro/neron";
 import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -77,13 +76,13 @@ export default function Flowmeter() {
 	};
 
 	return (
-		<TableWrapper>
+		<>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="FT" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -93,7 +92,7 @@ export default function Flowmeter() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
-		</TableWrapper>
+			</LayoutTable>
+		</>
 	);
 }

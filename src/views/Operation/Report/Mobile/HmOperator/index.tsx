@@ -12,9 +12,11 @@ import {
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, TitleText, Wrapper, WrapperTitle } from "../../styles";
 import TopFilter from "src/components/organism/TopFilter";
 import RevisiDropdown from "atoms/RevisiDropdown";
+import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -48,12 +50,12 @@ export default function HmOperator() {
 			accessorKey: item,
 			cell: (info) => info.getValue(),
 			header: () => (
-				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
+				<THContainer key={index} style={{ minWidth: "100px" }}>
 					<Grid>
 						<span>{item}</span>
 					</Grid>
 					<CompleteArrow />
-				</ThItemContainer>
+				</THContainer>
 			),
 		};
 	});
@@ -80,15 +82,15 @@ export default function HmOperator() {
 
 	return (
 		<>
-			<WrapperTitle>
+			<LayoutTable>
 				<TitleText>REPORT HM OPERATOR</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Loader" />
 				</Grid>
 			</TopFilter>
-			<Wrapper>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -98,7 +100,7 @@ export default function HmOperator() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</Wrapper>
+			</LayoutTable>
 		</>
 	);
 }

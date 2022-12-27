@@ -1,7 +1,8 @@
+import TitleText from "atoms/TitleText";
 import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
-import { TitleText, WrapperTitle } from "../styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 const TimeSheet = dynamic(() => import("./TimeSheet"), { ssr: false });
 const P2H = dynamic(() => import("./P2H"), { ssr: false });
@@ -22,9 +23,9 @@ export default function AchOperator() {
 	return (
 		<>
 			<TabV3 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			<WrapperTitle>
+			<LayoutTable>
 				<TitleText>{tabTitle[activeTab]}</TitleText>
-			</WrapperTitle>
+			</LayoutTable>
 			{renderContent(tabTitle[activeTab])}
 		</>
 	);
