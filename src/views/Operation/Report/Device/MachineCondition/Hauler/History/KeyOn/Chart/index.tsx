@@ -1,6 +1,6 @@
+import { LineChart } from "molecules/Charts";
 import React from "react";
 import { Container } from "./styles";
-import LineChart from "./LineChart";
 
 const Chart = () => {
 	return (
