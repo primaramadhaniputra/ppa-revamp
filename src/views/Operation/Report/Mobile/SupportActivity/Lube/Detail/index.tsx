@@ -13,11 +13,10 @@ import RevisiDropdown from "atoms/RevisiDropdown";
 import { THContainer } from "atoms/THContainer";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import React from "react";
+import LayoutTable from "src/components/layouts/LayoutTable";
 import TableComponent2 from "src/components/organism/TableComp2";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import TopFilter from "src/components/organism/TopFilter";
-import { WrapperTable } from "../../../styles";
-import { TableWrapper } from "../styles";
 
 interface IProps {
 	[x: string]: any;
@@ -87,7 +86,7 @@ export default function Detail() {
 	};
 
 	return (
-		<TableWrapper>
+		<>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<StyledDropdownMenu
@@ -101,7 +100,7 @@ export default function Detail() {
 					<RevisiDropdown placeholder="Material" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -111,7 +110,7 @@ export default function Detail() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
-		</TableWrapper>
+			</LayoutTable>
+		</>
 	);
 }

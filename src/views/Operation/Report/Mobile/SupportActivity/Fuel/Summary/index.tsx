@@ -12,9 +12,8 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { WrapperTable } from "../../../styles";
-import { TableWrapper } from "../styles";
 import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -72,9 +71,9 @@ export default function Summary() {
 	};
 
 	return (
-		<TableWrapper>
+		<>
 			<TopFilter />
-			<WrapperTable>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -84,7 +83,7 @@ export default function Summary() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
-		</TableWrapper>
+			</LayoutTable>
+		</>
 	);
 }

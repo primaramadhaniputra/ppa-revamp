@@ -12,11 +12,11 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { TitleText, WrapperTable, WrapperTitle } from "../../../../styles";
-import { TableWrapper } from "../../styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { Grid } from "@hudoro/neron";
 import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import TitleText from "atoms/TitleText";
 
 interface IProps {
 	[x: string]: any;
@@ -76,16 +76,16 @@ export default function RefuellingTransaction() {
 	};
 
 	return (
-		<TableWrapper>
+		<>
 			<TopFilter>
 				<Grid style={{ minWidth: "200px" }}>
 					<RevisiDropdown placeholder="Shift" />
 				</Grid>
 			</TopFilter>
-			<WrapperTitle>
+			<LayoutTable style={{ marginTop: "0" }}>
 				<TitleText>Refueling Transaction</TitleText>
-			</WrapperTitle>
-			<WrapperTable>
+			</LayoutTable>
+			<LayoutTable style={{ marginTop: "0" }}>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -95,7 +95,7 @@ export default function RefuellingTransaction() {
 					buttonTitle="EXPORT"
 				/>
 				<TableComponent2 table={table} />
-			</WrapperTable>
-		</TableWrapper>
+			</LayoutTable>
+		</>
 	);
 }

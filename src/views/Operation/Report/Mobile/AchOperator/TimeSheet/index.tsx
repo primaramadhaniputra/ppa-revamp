@@ -12,11 +12,11 @@ import {
 import TopFilter from "src/components/organism/TopFilter";
 import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
-import { WrapperTable } from "../../../styles";
 import { PointContainer, PointDesc, PointValue } from "./styles";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { THContainer } from "atoms/THContainer";
+import LayoutTable from "src/components/layouts/LayoutTable";
 
 interface IProps {
 	[x: string]: any;
@@ -83,7 +83,7 @@ export default function TimeSheet() {
 					<RevisiDropdown placeholder="Shift" />
 				</Grid>
 			</TopFilter>
-			<WrapperTable>
+			<LayoutTable>
 				<TableFilterSearch
 					table={table}
 					handleChangeTotalShowData={handleChangeTotalShowData}
@@ -111,7 +111,7 @@ export default function TimeSheet() {
 					</PointContainer>
 				</Grid>
 				<TableComponent2 table={table} />
-			</WrapperTable>
+			</LayoutTable>
 		</>
 	);
 }
