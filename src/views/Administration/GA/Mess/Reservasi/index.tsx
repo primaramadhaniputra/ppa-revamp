@@ -62,7 +62,7 @@ export default function Reservasi() {
 						style={{ color: colors.primary, cursor: "pointer" }}
 						onClick={info.column.id === "Guest" ? handleShowDetailByTable : handleShowRoomAvailble}
 					>
-						{info.getValue()}
+						{`${info.getValue()}`}
 					</span>
 				) : (
 					info.getValue()
