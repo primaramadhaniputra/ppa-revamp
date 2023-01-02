@@ -12,7 +12,7 @@
 	},
 	"dependencies": {
 		"@hudoro/neron": "^0.1.18",
-		"@tanstack/match-sorter-utils": "^8.1.1",
+		"@tanstack/match-sorter-utils": "8.1.1",
 		"@tanstack/react-table": "8.1.1",
 		"@types/body-scroll-lock": "^3.1.0",
 		"@types/file-saver": "^2.0.5",

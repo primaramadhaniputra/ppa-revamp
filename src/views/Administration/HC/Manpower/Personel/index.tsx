@@ -19,6 +19,7 @@ import FlyingForm from "./FlyingForm";
 import StyledButton from "atoms/StyledButton";
 import AddEmployee from "./AddEmployee";
 import EditForm from "./EditForm";
+import IncomingEmployee from "./IncomingEmployee";
 
 interface IProps {
 	[x: string]: any;
@@ -50,12 +51,20 @@ export default function Personel() {
 	const [isShowEdit, setIsShowEdit] = React.useState(false);
 	const [formEditPosition, setformEditPosition] = React.useState(0);
 
+	const [isShowIncomingEmployee, setIsShowIncomingEmployee] = React.useState(false);
+	const [formIncomingEmployeePosition, setformIncomingEmployeePosition] = React.useState(0);
+
 	const [isShowAddEmployee, setIsShowAddEmployee] = React.useState(false);
 	const [formAddEmployeePosition, setFormAddEmployeePosition] = React.useState(0);
 
 	const handleShowDetail = (target: { pageY: number; clientY: number }) => {
 		setIsShowDetail(true);
 		setformPosition(target.pageY - target.clientY);
+	};
+
+	const handleShowIncomingEmployee = (target: { pageY: number; clientY: number }) => {
+		setIsShowIncomingEmployee(true);
+		setformIncomingEmployeePosition(target.pageY - target.clientY);
 	};
 
 	const handleShowEdit = (target: { pageY: number; clientY: number }) => {
@@ -115,6 +124,11 @@ export default function Personel() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
+			<IncomingEmployee
+				isShowDetail={isShowIncomingEmployee}
+				setIsShowDetail={setIsShowIncomingEmployee}
+				formPosition={formIncomingEmployeePosition}
+			/>
 			<AddEmployee
 				isShowAddEmployee={isShowAddEmployee}
 				setIsShowAddEmployee={setIsShowAddEmployee}
@@ -133,25 +147,31 @@ export default function Personel() {
 					borderBottom: "2px solid rgba(0,0,0,.25)",
 				}}
 			>
-				<StyledButton
-					style={{
-						maxWidth: "max-content",
-					}}
-					onClick={handleShowAddEmployee}
-				>
-					ADD EMPLOYEE
-				</StyledButton>
-				<StyledButton
-					style={{
-						maxWidth: "max-content",
-						display: "flex",
-						alignItems: "center",
-						gap: 5,
-					}}
-					onClick={handleShowDetail}
-				>
-					<IcBarChart width={20} /> <span>Ach.Data 99.8 %</span>
-				</StyledButton>
+				<Grid container gap={10}>
+					<Grid style={{ minWidth: "150px" }}>
+						<StyledButton onClick={handleShowAddEmployee}>ADD EMPLOYEE</StyledButton>
+					</Grid>
+					<Grid style={{ minWidth: "200px" }}>
+						<StyledButton
+							onClick={handleShowIncomingEmployee}
+							style={{ backgroundColor: "#D81B60" }}
+						>
+							Incoming Employee (1)
+						</StyledButton>
+					</Grid>
+				</Grid>
+				<Grid container>
+					<StyledButton
+						style={{
+							display: "flex",
+							alignItems: "center",
+							gap: 5,
+						}}
+						onClick={handleShowDetail}
+					>
+						<IcBarChart width={20} /> <span>Ach.Data 99.8 %</span>
+					</StyledButton>
+				</Grid>
 			</WrapperTitle>
 			<WrapperTable>
 				<TableFilterSearch
