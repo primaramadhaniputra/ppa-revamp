@@ -19,12 +19,8 @@ export default function TableComp({ table }: IProps) {
 								<th key={header.id} colSpan={header.colSpan}>
 									{header.isPlaceholder ? null : (
 										<>
-											<Grid
-												container
-												alignItems="center"
-												justifyContent="center"
-												gap={5}
-												style={{ cursor: "pointer" }}
+											<div
+												style={{ cursor: "pointer", display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
 												{...{
 													className: header.column.getCanSort() ? "cursor-pointer select-none" : "",
 													onClick: header.column.getToggleSortingHandler(),
@@ -35,7 +31,7 @@ export default function TableComp({ table }: IProps) {
 													asc: <IcBarsArrowDown width={24} />,
 													desc: <IcBarsArrowUp width={24} />,
 												}[header.column.getIsSorted() as string] ?? <IcCursorArrow width={24} />}
-											</Grid>
+											</div>
 											{header.column.getCanFilter() ? (
 												<div>
 													<Filter column={header.column} table={table} />

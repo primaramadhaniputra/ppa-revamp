@@ -5,6 +5,7 @@ import { colors, fontSizing, mediaQueries } from "utils/styles";
 export const Wrapper = styled.div`
 	margin-top: 30px;
 	flex: 1;
+	overflow: hidden;
 	${mediaQueries.md} {
 		background-color: white;
 		padding: 15px;

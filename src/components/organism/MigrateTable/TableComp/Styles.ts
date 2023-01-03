@@ -24,7 +24,7 @@ export const Table = styled.table`
 		border-right: 1px solid rgba(0, 0, 0, 0.25);
 		padding: 10px;
 		font-weight: ${fontWeights.medium};
-		min-width: 150px;
+		min-width: min-content;
 	}
 	& th:last-child {
 		border-right: 0;
