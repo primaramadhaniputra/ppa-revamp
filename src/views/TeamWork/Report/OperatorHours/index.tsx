@@ -1,26 +1,19 @@
 import { Grid } from "@hudoro/neron";
-import React from "react";
+import React, { useMemo } from "react";
 import { StyledSpan } from "./styles";
 import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
+	createColumnHelper,
 } from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import CompleteArrow from "atoms/CompleteArrow";
 import DataDetail from "./DataDetail";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
-import { THContainer } from "atoms/THContainer";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
+
+const columnHelper = createColumnHelper<Person>()
 
 export const defaultDataTable = new Array(10).fill(0).map(() => {
 	return {
@@ -41,10 +34,7 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 });
 
 export default function OperatorHours() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -53,48 +43,23 @@ export default function OperatorHours() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
-		return {
-			accessorKey: item,
-			cell: (info) => {
-				return item === "Indisipliner" ? (
-					<Grid container justifyContent="center">
-						<StyledSpan onClick={handleShowDetail} style={{ cursor: "pointer" }}>
-							1
-						</StyledSpan>
-					</Grid>
-				) : (
-					info.getValue()
-				);
-			},
-			header: () => (
-				<THContainer>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
+	const columns = objTitle.map((item) => columnHelper.accessor(item, {
+		header: () => item,
+		cell: (info) => {
+			return item === "Indisipliner" ? (
+				<Grid container justifyContent="center">
+					<StyledSpan onClick={handleShowDetail} style={{ cursor: "pointer" }}>
+						1
+					</StyledSpan>
+				</Grid>
+			) : (
+				info.renderValue()
+			);
 		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+		footer: info => info.column.id,
+	})
+	)
 
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
 	return (
 		<>
 			<DataDetail
@@ -106,15 +71,7 @@ export default function OperatorHours() {
 				<TitleText>Operator Hours</TitleText>
 			</LayoutTable>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

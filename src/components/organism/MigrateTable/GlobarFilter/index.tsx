@@ -1,6 +1,8 @@
 import { Grid } from "@hudoro/neron";
 import { Table } from "@tanstack/react-table";
+import StyledButton from "atoms/StyledButton";
 import React from "react";
+import { colors } from "utils/styles";
 import { ContainerGlobalSearch, ContainerShow } from "./styles";
 
 interface IProps {
@@ -23,13 +25,18 @@ export default function GlobaFilter({ globalFilter, setGlobalFilter, table }: IP
 				/>
 			</ContainerShow>
 			<ContainerGlobalSearch>
-				<label>Search</label>
-				<DebouncedInput
-					value={globalFilter ?? ""}
-					onChange={(value) => setGlobalFilter(String(value))}
-					className="p-2 font-lg shadow border border-block"
-					placeholder="Search all columns..."
-				/>
+				<Grid container style={{ minWidth: '150px' }}>
+					<StyledButton style={{ background: colors.primary }}>Export</StyledButton>
+				</Grid>
+				<Grid container alignItems="center">
+					<label>Search</label>
+					<DebouncedInput
+						value={globalFilter ?? ""}
+						onChange={(value) => setGlobalFilter(String(value))}
+						className="p-2 font-lg shadow border border-block"
+						placeholder="Search all columns..."
+					/>
+				</Grid>
 			</ContainerGlobalSearch>
 		</Grid>
 	);

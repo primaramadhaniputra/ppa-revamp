@@ -1,25 +1,16 @@
 import { Grid, Lozenge } from "@hudoro/neron";
-import React from "react";
+import React, { useMemo } from "react";
 import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
+	createColumnHelper,
 } from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
-import { THContainer } from "atoms/THContainer";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface IProps {
 	[x: string]: any;
@@ -39,11 +30,10 @@ export const defaultDataTable = arr.map((_, index) => {
 	};
 });
 
+const columnHelper = createColumnHelper<IProps>()
+
 export default function SuratPelanggaran() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -60,49 +50,24 @@ export default function SuratPelanggaran() {
 						width={20}
 						style={{ cursor: "pointer" }}
 						onClick={handleShowDetail}
-						color={colors.blue}
+						color={colors.primary}
 					/>
 				</Grid>
 			);
 		} else if (type.column.id === "Status") {
-			return <Lozenge label={type.getValue()} variant="primary-strong" />;
+			return <Lozenge label={type.renderValue()} variant="black-strong" />;
 		} else {
-			return type.getValue();
+			return type.renderValue();
 		}
 	};
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item) => {
-		return {
-			accessorKey: item,
-			cell: (info) => renderText(info),
-			header: () => (
-				<THContainer>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
 
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+	const columns = objTitle.map((item) => columnHelper.accessor(item, {
+		header: () => item,
+		cell: (info) => renderText(info),
+		footer: info => info.column.id,
+	})
+	)
 
 	return (
 		<>
@@ -122,16 +87,9 @@ export default function SuratPelanggaran() {
 					<RevisiDropdown placeholder="Loader" />
 				</Grid>
 			</TopFilter>
+
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);
