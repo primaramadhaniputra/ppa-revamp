@@ -14,7 +14,7 @@ export const Table = styled.table`
 		font-size: 12px;
 		border: 1px solid rgba(0, 0, 0, 0.25);
 		border-radius: 3px;
-		margin-top: 5px;
+		margin-top: 10px;
 		padding: 1px 10px;
 		outline: none;
 	}
@@ -32,7 +32,7 @@ export const Table = styled.table`
 
 	& tbody tr td {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-		padding: 15px 5px;
+		padding: 20px 5px;
 		font-size: 13px;
 		border-top: 1px solid rgba(0, 0, 0, 0.25);
 		border-right: 1px solid rgba(0, 0, 0, 0.25);
