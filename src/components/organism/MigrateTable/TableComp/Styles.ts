@@ -40,9 +40,10 @@ export const Table = styled.table`
 	& tbody tr td {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 		padding: 20px 5px;
-		font-size: 13px;
+		font-size: 14px;
 		border-top: 1px solid rgba(0, 0, 0, 0.25);
 		border-right: 1px solid rgba(0, 0, 0, 0.25);
+		font-weight: ${fontWeights.semi};
 	}
 
 	& tbody tr td:last-child {
@@ -51,6 +52,5 @@ export const Table = styled.table`
 
 	& tbody tr:nth-child(odd) {
 		background-color: ${colors.blueSea};
-		color: white;
 	}
 `;
