@@ -1,58 +1,45 @@
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import { IcImage } from "atoms/Icon";
 import FormImage from "./FormImage";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "atoms/THContainer";
-import CompleteArrow from "atoms/CompleteArrow";
 import { colors } from "utils/styles";
 import ShowDetail from "./ShowDetail";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import { Grid } from "@hudoro/neron";
 import ButtonFile from "atoms/ButtonFile";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
-
-export const defaultDataTable = [
-	{
+export const defaultDataTable = new Array(10).fill(0).map(() => {
+	return {
 		["Perusahaan"]: "-",
 		["Approver"]: "-",
-		["Status item"]: `-`,
-		["Tgl.Claim"]: "-",
-		["Tgl.Kwitansi"]: "-",
-		["No.Claim"]: "-",
-		["No.Item"]: "-",
+		["Status item"]: "-",
+		["Tgl Claim"]: "-",
+		["Tgl Kwitansi"]: "-",
+		["No Claim"]: "-",
+		["No Item"]: "-",
 		["Employee"]: "-",
 		["Jabatan"]: "-",
 		["Dept"]: "-",
 		["Nama Pasien"]: "-",
 		["Kode hub"]: "-",
 		["Kode Klaim"]: "-",
-		["Jumlah(RP.)"]: "-",
+		["Jumlah(RP)"]: "-",
 		["File"]: "-",
 		["Vendor"]: "-",
 		["Modified Date"]: "-",
 		["Transferred Date"]: "-",
-	},
-];
+	};
+});
+
+const columnHelper = createColumnHelper<Person>();
 
 export default function BenefitClaimVoucher() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isImage, setIsImage] = React.useState(false);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
@@ -66,9 +53,9 @@ export default function BenefitClaimVoucher() {
 		setIsImage(!isImage);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
-		return {
-			accessorKey: item,
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) => {
 				return item === "File" ? (
 					<IcImage
@@ -78,37 +65,12 @@ export default function BenefitClaimVoucher() {
 						color={colors.blue}
 					/>
 				) : (
-					info.getValue()
+					info.renderValue()
 				);
 			},
-			header: () => (
-				<THContainer>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -125,15 +87,7 @@ export default function BenefitClaimVoucher() {
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

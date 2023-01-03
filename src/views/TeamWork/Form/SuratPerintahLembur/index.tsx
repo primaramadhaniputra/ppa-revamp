@@ -1,28 +1,17 @@
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "atoms/THContainer";
-import CompleteArrow from "atoms/CompleteArrow";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import { Grid } from "@hudoro/neron";
 import ButtonFile from "atoms/ButtonFile";
 import FlyingForm from "./FlyingForm";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(1).fill(0).map(() => {
+export const defaultDataTable = new Array(10).fill(0).map(() => {
 	return {
 		["Date"]: "-",
 		["NRP"]: "-",
@@ -36,11 +25,10 @@ export const defaultDataTable = new Array(1).fill(0).map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function SuratPerintahLembur() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -49,38 +37,13 @@ export default function SuratPerintahLembur() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
-		return {
-			accessorKey: item,
-			cell: (info) => info.getValue(),
-			header: () => (
-				<THContainer>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -101,15 +64,7 @@ export default function SuratPerintahLembur() {
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);
