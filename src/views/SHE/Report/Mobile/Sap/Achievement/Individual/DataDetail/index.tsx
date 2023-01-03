@@ -1,23 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
+	createColumnHelper,
 } from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
 import { Description, Title } from "./styles";
 import { Grid } from "@hudoro/neron";
+import { Person } from "utils/interfaces";
+import MigrateTable from "src/components/organism/MigrateTable";
 
-interface IProps {
-	[x: string]: any;
-}
-
-const arr = new Array(1).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["BULAN"]: "-",
@@ -41,35 +32,17 @@ interface IProps {
 	setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
 	formPosition: number;
 }
+const columnHelper = createColumnHelper<Person>()
 
 export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item) => {
-		return {
-			accessorKey: item,
-			cell: (info) => info.getValue(),
-			header: () => <span>{item}</span>,
-		};
-	});
-
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns: columns as any,
-		state: {
-			sorting,
-			rowSelection,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+	const columns = objTitle.map((item) => columnHelper.accessor(item, {
+		header: () => item,
+		cell: info => info.renderValue(),
+		footer: info => info.column.id,
+	})
+	)
 
 	return (
 		<>
@@ -80,7 +53,7 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 				title="Detail Achievement SAP"
 				width={1500}
 			>
-				<TableComponent2 table={table} noPagination={true} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 				<Grid style={{ marginTop: "20px" }} container flexDirection="column" gap={5}>
 					<Title>Note :</Title>
 					<Description>

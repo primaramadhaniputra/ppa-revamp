@@ -12,19 +12,26 @@ export const Table = styled.table`
 	}
 	& input {
 		font-size: 12px;
-		border: 1px solid rgba(0, 0, 0, 0.25);
+		border: 1px solid rgba(255, 255, 255, 1);
 		border-radius: 3px;
 		margin-top: 10px;
 		padding: 1px 10px;
 		outline: none;
+		background-color: transparent;
+		color: white;
+		&::placeholder {
+			color: white;
+		}
 	}
 	& th {
-		border-top: 1px solid rgba(0, 0, 0, 0.25);
-		border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-		border-right: 1px solid rgba(0, 0, 0, 0.25);
+		border-top: 1px solid rgba(255, 255, 255, 0.25);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+		border-right: 1px solid rgba(255, 255, 255, 0.25);
 		padding: 10px;
 		font-weight: ${fontWeights.medium};
 		min-width: min-content;
+		background-color: ${colors.blue};
+		color: white;
 	}
 	& th:last-child {
 		border-right: 0;
@@ -43,7 +50,7 @@ export const Table = styled.table`
 	}
 
 	& tbody tr:nth-child(odd) {
-		background-color: ${colors.blue};
+		background-color: ${colors.blueSea};
 		color: white;
 	}
 `;
