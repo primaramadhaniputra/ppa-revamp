@@ -1,17 +1,10 @@
-import React from "react";
-import TableComponent2 from "src/components/organism/TableComp2";
+import React, { useMemo } from "react";
 import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	getSortedRowModel,
+	createColumnHelper,
 } from "@tanstack/react-table";
 import { P } from "./styles";
 import ShowDetail from "./ShowDetail";
-import { colors } from "utils/styles";
-import { THContainer } from "atoms/THContainer";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface IProps {
 	[x: string]: any;
@@ -29,8 +22,10 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<IProps>()
+
 export default function SummaryTable() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -39,37 +34,20 @@ export default function SummaryTable() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
-			cell: (info) => {
-				return info.column.id === "DEPARTEMENT" ? (
-					<span style={{ padding: "5px" }}>{info.getValue()}</span>
-				) : (
-					<P style={{ padding: "5px" }} onClick={handleShowDetail}>
-						{info.getValue()}
-					</P>
-				);
-			},
-			header: () => {
-				return (
-					<THContainer key={index}>
-						<span>{item}</span>
-					</THContainer>
-				);
-			},
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
+	const columns = objTitle.map((item) => columnHelper.accessor(item, {
+		header: () => item,
+		cell: (info) => {
+			return info.column.id === "DEPARTEMENT" ? (
+				<span style={{ padding: "5px" }}>{`${info.getValue()}`}</span>
+			) : (
+				<P style={{ padding: "5px" }} onClick={handleShowDetail}>
+					{`${info.getValue()}`}
+				</P>
+			);
+		},
+		footer: info => info.column.id,
+	})
+	)
 	return (
 		<>
 			<ShowDetail
@@ -77,11 +55,7 @@ export default function SummaryTable() {
 				setIsShowDetail={setIsShowDetail}
 				formPosition={formPosition}
 			/>
-			<TableComponent2
-				table={table}
-				noPagination={true}
-				tableTheadStyles={{ backgroundColor: colors.primary, color: "white" }}
-			/>
+			<MigrateTable data={defaultDataTable} columns={columns} />
 		</>
 	);
 }
