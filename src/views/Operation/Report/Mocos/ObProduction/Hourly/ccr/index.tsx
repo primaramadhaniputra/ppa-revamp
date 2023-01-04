@@ -1,4 +1,4 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import React, { useMemo } from "react";
 import { colors, fontWeights } from "utils/styles";
 import { ShowChartWrapper, Wrapper } from "./styles";

@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import UserCard from "molecules/UserCard";
 import { Person } from "utils/interfaces";
@@ -25,16 +23,17 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
 	);
 
 	return (
@@ -48,7 +47,7 @@ export default function FlyingForm({ isShowDetail, setIsShowDetail, formPosition
 				<Grid container justifyContent="center">
 					<UserCard />
 				</Grid>
-				<Grid style={{ marginTop: '20px' }} >
+				<Grid style={{ marginTop: "20px" }}>
 					<MigrateTable data={defaultDataTable} columns={columns} />
 				</Grid>
 			</LayoutOverlayData>

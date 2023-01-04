@@ -11,6 +11,33 @@ interface IProps {
 	table: Table<any>;
 }
 
+function DebouncedInput({
+	value: initialValue,
+	onChange,
+	debounce = 500,
+	...props
+}: {
+	value: string | number;
+	onChange: (value: string | number) => void;
+	debounce?: number;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">) {
+	const [value, setValue] = React.useState(initialValue);
+
+	React.useEffect(() => {
+		setValue(initialValue);
+	}, [initialValue]);
+
+	React.useEffect(() => {
+		const timeout = setTimeout(() => {
+			onChange(value);
+		}, debounce);
+
+		return () => clearTimeout(timeout);
+	}, [value]);
+
+	return <input {...props} value={value} onChange={(e) => setValue(e.target.value)} />;
+}
+
 export default function GlobaFilter({ globalFilter, setGlobalFilter, table }: IProps) {
 	return (
 		<Grid container alignItems="center" justifyContent="space-between" gap={10}>
@@ -40,31 +67,4 @@ export default function GlobaFilter({ globalFilter, setGlobalFilter, table }: IP
 			</ContainerGlobalSearch>
 		</Grid>
 	);
-}
-
-function DebouncedInput({
-	value: initialValue,
-	onChange,
-	debounce = 500,
-	...props
-}: {
-	value: string | number;
-	onChange: (value: string | number) => void;
-	debounce?: number;
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange">) {
-	const [value, setValue] = React.useState(initialValue);
-
-	React.useEffect(() => {
-		setValue(initialValue);
-	}, [initialValue]);
-
-	React.useEffect(() => {
-		const timeout = setTimeout(() => {
-			onChange(value);
-		}, debounce);
-
-		return () => clearTimeout(timeout);
-	}, [value]);
-
-	return <input {...props} value={value} onChange={(e) => setValue(e.target.value)} />;
 }

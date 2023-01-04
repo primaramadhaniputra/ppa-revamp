@@ -75,15 +75,12 @@ export default function MigrateTable({ data, columns }: any) {
 
 	return (
 		<>
-			{/* global filter adalah filter bagian atas yaitu search globalnya */}
 			<GlobaFilter globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} table={table} />
 
-			{/* ini adalah tablenya */}
 			<TableContainer>
 				<TableComp table={table} />
 			</TableContainer>
 
-			{/* ini adalah bottom navigationnya */}
 			<BottomPagination
 				dataPerPage={table.getRowModel().rows.length}
 				totalData={table.getPreFilteredRowModel().rows.length}

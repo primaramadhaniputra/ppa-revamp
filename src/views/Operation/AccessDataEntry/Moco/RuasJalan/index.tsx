@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { TitleText, WrapperTitle } from "../../styles";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing, fontWeights } from "utils/styles";
@@ -22,7 +20,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function RuasJalan() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -34,18 +32,19 @@ export default function RuasJalan() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "Action" ? (
-				<IcEdit color={colors.blue} width={14} cursor="pointer" onClick={handleShowDetail} />
-			) : (
-				info.getValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "Action" ? (
+					<IcEdit color={colors.blue} width={14} cursor="pointer" onClick={handleShowDetail} />
+				) : (
+					info.getValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

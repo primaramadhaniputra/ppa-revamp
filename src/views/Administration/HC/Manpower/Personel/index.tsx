@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { WrapperTitle } from "../../../styles";
 import { IcBarChart, IcEdit } from "atoms/Icon";
 import { colors } from "utils/styles";
@@ -29,7 +27,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Personel() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -66,17 +64,18 @@ export default function Personel() {
 		setFormAddEmployeePosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) =>
-			info.column.id === "Action" ? (
-				<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowEdit} />
-			) : (
-				info.getValue()
-			),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) =>
+				info.column.id === "Action" ? (
+					<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowEdit} />
+				) : (
+					info.getValue()
+				),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

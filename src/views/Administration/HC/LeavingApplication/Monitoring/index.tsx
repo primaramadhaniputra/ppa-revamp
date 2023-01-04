@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { TitleText, WrapperTitle } from "../../../styles";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
@@ -24,7 +22,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Monitoring() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -37,17 +35,18 @@ export default function Monitoring() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) =>
-			info.column.id === "Action" ? (
-				<IcEye width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
-			) : (
-				info.getValue()
-			),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) =>
+				info.column.id === "Action" ? (
+					<IcEye width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+				) : (
+					info.getValue()
+				),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

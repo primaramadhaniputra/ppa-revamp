@@ -1,7 +1,5 @@
 import React from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { TitleText, WrapperTitle } from "../../../styles";
 import { Person } from "utils/interfaces";
 import LayoutTable from "src/components/layouts/LayoutTable";
@@ -24,7 +22,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Minnings() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
@@ -38,11 +36,12 @@ export default function Minnings() {
 		return +a - +b;
 	});
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
 	);
 
 	return (

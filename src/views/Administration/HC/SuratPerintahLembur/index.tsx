@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { TitleText, WrapperTitle } from "../../styles";
 import TopFilter from "src/components/organism/TopFilter";
 import UltimateInput from "src/components/organism/UltimateInput";
@@ -31,7 +29,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function SuratPerintahLembur() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -43,17 +41,18 @@ export default function SuratPerintahLembur() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) =>
-			info.column.id === "Action" ? (
-				<IcEdit width={14} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
-			) : (
-				info.getValue()
-			),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) =>
+				info.column.id === "Action" ? (
+					<IcEdit width={14} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+				) : (
+					info.getValue()
+				),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

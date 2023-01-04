@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
 import { IcEdit, IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
@@ -26,7 +24,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function In() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -45,20 +43,21 @@ export default function In() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) =>
-			info.column.id === "Action" ? (
-				<Grid container alignItems="center" justifyContent="center" gap={3}>
-					<IcEye width={16} color={colors.blue} cursor="pointer" onClick={handleShowFormIn} />
-					<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
-				</Grid>
-			) : (
-				info.getValue()
-			),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) =>
+				info.column.id === "Action" ? (
+					<Grid container alignItems="center" justifyContent="center" gap={3}>
+						<IcEye width={16} color={colors.blue} cursor="pointer" onClick={handleShowFormIn} />
+						<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+					</Grid>
+				) : (
+					info.getValue()
+				),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

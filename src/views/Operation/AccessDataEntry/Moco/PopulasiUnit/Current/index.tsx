@@ -1,9 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	SortingState,
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { TitleText, WrapperTitle } from "../../../styles";
 import StyledButton from "atoms/StyledButton";
 import { colors, fontSizing } from "utils/styles";
@@ -31,7 +28,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Current() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -60,26 +57,27 @@ export default function Current() {
 		setformUnitPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "Action" ? (
-				<Grid container justifyContent="center" gap={5}>
-					<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
-					<IcCloseCircleFilled
-						width={16}
-						color={colors.danger}
-						cursor="pointer"
-						onClick={handleShowDeactivate}
-					/>
-				</Grid>
-			) : (
-				info.getValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "Action" ? (
+					<Grid container justifyContent="center" gap={5}>
+						<IcEdit width={16} color={colors.blue} cursor="pointer" onClick={handleShowDetail} />
+						<IcCloseCircleFilled
+							width={16}
+							color={colors.danger}
+							cursor="pointer"
+							onClick={handleShowDeactivate}
+						/>
+					</Grid>
+				) : (
+					info.getValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

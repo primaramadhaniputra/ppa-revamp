@@ -1,29 +1,12 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-	createColumnHelper,
-} from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import CompleteArrow from "atoms/CompleteArrow";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
 import RevisiDropdown from "atoms/RevisiDropdown";
-import { THContainer } from "atoms/THContainer";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import { Person } from "utils/interfaces";
 import MigrateTable from "src/components/organism/MigrateTable";
-
-interface IProps {
-	[x: string]: any;
-}
 
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {

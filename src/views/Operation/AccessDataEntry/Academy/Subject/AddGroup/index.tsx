@@ -1,7 +1,5 @@
 import { Grid } from "@hudoro/neron";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
 import React, { useMemo } from "react";
@@ -23,16 +21,17 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function AddGroup({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
 	);
 
 	return (

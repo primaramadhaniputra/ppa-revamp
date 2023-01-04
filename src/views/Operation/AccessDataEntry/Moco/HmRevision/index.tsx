@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { TitleText, WrapperTitle } from "../../styles";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 import DataDetail from "./DataDetail";
@@ -34,7 +32,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function HmRevision() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -54,23 +52,24 @@ export default function HmRevision() {
 		setformPositionUpdateHm(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "Action" ? (
-				<IcEdit
-					width={18}
-					color={colors.blue}
-					style={{ cursor: "pointer" }}
-					onClick={handleShowUpdateHm}
-				/>
-			) : (
-				info.renderValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "Action" ? (
+					<IcEdit
+						width={18}
+						color={colors.blue}
+						style={{ cursor: "pointer" }}
+						onClick={handleShowUpdateHm}
+					/>
+				) : (
+					info.renderValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

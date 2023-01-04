@@ -1,9 +1,9 @@
-import { Grid } from "@hudoro/neron";
 import { flexRender, Table } from "@tanstack/react-table";
 import { IcBarsArrowDown, IcBarsArrowUp, IcCursorArrow } from "atoms/Icon";
 import React from "react";
 import Filter from "../Filter";
 import { Table as T } from "./Styles";
+
 interface IProps {
 	table: Table<any>;
 }

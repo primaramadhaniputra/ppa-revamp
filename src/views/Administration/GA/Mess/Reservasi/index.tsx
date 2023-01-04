@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { colors } from "utils/styles";
 import DataPenghuniMess from "./DataPenghuniMess";
 import DataKamarTersedia from "./DataKamarTersedia";
@@ -20,7 +18,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Reservasi() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -40,22 +38,23 @@ export default function Reservasi() {
 		setformRoomAvailablePosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) =>
-			info.column.id === "Guest" || info.column.id === "Available Bed" ? (
-				<span
-					style={{ color: colors.primary, cursor: "pointer" }}
-					onClick={info.column.id === "Guest" ? handleShowDetailByTable : handleShowRoomAvailble}
-				>
-					{`${info.getValue()}`}
-				</span>
-			) : (
-				info.getValue()
-			),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) =>
+				info.column.id === "Guest" || info.column.id === "Available Bed" ? (
+					<span
+						style={{ color: colors.primary, cursor: "pointer" }}
+						onClick={info.column.id === "Guest" ? handleShowDetailByTable : handleShowRoomAvailble}
+					>
+						{`${info.getValue()}`}
+					</span>
+				) : (
+					info.getValue()
+				),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

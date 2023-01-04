@@ -1,13 +1,10 @@
 import { Text } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { WrapperTable } from "../../../../../styles";
 import FlyingForm from "./FlyingForm";
 import { Person } from "utils/interfaces";
 import MigrateTable from "src/components/organism/MigrateTable";
-
 
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
@@ -21,7 +18,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function MonitoringStatusTable() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -34,16 +31,17 @@ export default function MonitoringStatusTable() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => (
-			<Text variant="p" style={{ cursor: "pointer" }} onClick={handleShowDetail}>
-				{info.getValue()}
-			</Text>
-		),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => (
+				<Text variant="p" style={{ cursor: "pointer" }} onClick={handleShowDetail}>
+					{info.getValue()}
+				</Text>
+			),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -58,7 +56,6 @@ export default function MonitoringStatusTable() {
 				</Text>
 				<MigrateTable data={defaultDataTable} columns={columns} />
 			</WrapperTable>
-
 		</>
 	);
 }

@@ -1,7 +1,5 @@
 import React from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Person } from "utils/interfaces";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import MigrateTable from "src/components/organism/MigrateTable";
@@ -19,8 +17,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
-
+const columnHelper = createColumnHelper<Person>();
 
 export default function Report() {
 	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
@@ -34,11 +31,12 @@ export default function Report() {
 		return +a - +b;
 	});
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
 	);
 
 	return (
