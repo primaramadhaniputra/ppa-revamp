@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
 import { StyledText } from "./styles";
@@ -22,7 +20,7 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Survey() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -34,18 +32,19 @@ export default function Survey() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "MP" ? (
-				<StyledText onClick={handleShowDetail}>{info.renderValue()}</StyledText>
-			) : (
-				info.getValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "MP" ? (
+					<StyledText onClick={handleShowDetail}>{info.renderValue()}</StyledText>
+				) : (
+					info.getValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

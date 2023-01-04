@@ -1,9 +1,7 @@
 import React, { useMemo } from "react";
 import { Wrapper } from "./styles";
 import TopFilter from "src/components/organism/TopFilter";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
@@ -34,7 +32,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 export default function Table() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -46,28 +44,29 @@ export default function Table() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return (
-				<>
-					{info.column.id === "Detail" ? (
-						<Grid
-							container
-							justifyContent="center"
-							onClick={(target) => handleShowDetail(target)}
-						>
-							<IcEdit width={18} cursor="pointer" color={colors.primary} />
-						</Grid>
-					) : (
-						info.getValue()
-					)}
-				</>
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return (
+					<>
+						{info.column.id === "Detail" ? (
+							<Grid
+								container
+								justifyContent="center"
+								onClick={(target) => handleShowDetail(target)}
+							>
+								<IcEdit width={18} cursor="pointer" color={colors.primary} />
+							</Grid>
+						) : (
+							info.getValue()
+						)}
+					</>
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<Wrapper>

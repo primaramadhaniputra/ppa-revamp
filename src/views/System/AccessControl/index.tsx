@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
 import { IconContainer, Wrapper } from "./styles";
 import {
@@ -34,7 +32,7 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function AccessControl() {
 	const [DataTable, setDataTable] = React.useState(defaultDataTable);
@@ -117,47 +115,47 @@ export default function AccessControl() {
 		getAllUsers();
 	}, []);
 
-
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "Action" ? (
-				<Wrapper>
-					<IconContainer title="Edit">
-						<IcEdit
-							width={20}
-							cursor="pointer"
-							color="white"
-							strokeWidth={1.5}
-							onClick={(target) => handleEdit(target, info)}
-						/>
-					</IconContainer>
-					<IconContainer title="Reset Password">
-						<IcRefresh
-							width={20}
-							cursor="pointer"
-							color="white"
-							strokeWidth={1.5}
-							onClick={() => handleResetPassword(info)}
-						/>
-					</IconContainer>
-					<IconContainer title="Disable">
-						<IcBan
-							width={20}
-							cursor="pointer"
-							color="white"
-							strokeWidth={2}
-							onClick={() => disableUser(info)}
-						/>
-					</IconContainer>
-				</Wrapper>
-			) : (
-				info.getValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "Action" ? (
+					<Wrapper>
+						<IconContainer title="Edit">
+							<IcEdit
+								width={20}
+								cursor="pointer"
+								color="white"
+								strokeWidth={1.5}
+								onClick={(target) => handleEdit(target, info)}
+							/>
+						</IconContainer>
+						<IconContainer title="Reset Password">
+							<IcRefresh
+								width={20}
+								cursor="pointer"
+								color="white"
+								strokeWidth={1.5}
+								onClick={() => handleResetPassword(info)}
+							/>
+						</IconContainer>
+						<IconContainer title="Disable">
+							<IcBan
+								width={20}
+								cursor="pointer"
+								color="white"
+								strokeWidth={2}
+								onClick={() => disableUser(info)}
+							/>
+						</IconContainer>
+					</Wrapper>
+				) : (
+					info.getValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	const closeEdit = () => {
 		setIsEdit(false);

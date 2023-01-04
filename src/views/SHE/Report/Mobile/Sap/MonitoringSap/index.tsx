@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
 import { TitleText } from "../../styles";
 import { Grid, Icon } from "@hudoro/neron";
@@ -29,8 +27,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
-
+const columnHelper = createColumnHelper<Person>();
 
 export default function MonitoringSap() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -42,25 +39,26 @@ export default function MonitoringSap() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "ACTION" ? (
-				<Grid container justifyContent="center">
-					<Icon
-						iconName="IcSearch"
-						color={colors.primary}
-						onClick={handleShowDetail}
-						style={{ cursor: "pointer" }}
-					/>
-				</Grid>
-			) : (
-				info.getValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "ACTION" ? (
+					<Grid container justifyContent="center">
+						<Icon
+							iconName="IcSearch"
+							color={colors.primary}
+							onClick={handleShowDetail}
+							style={{ cursor: "pointer" }}
+						/>
+					</Grid>
+				) : (
+					info.getValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

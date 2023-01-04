@@ -1,8 +1,6 @@
 import React from "react";
 import DoughnutChart from "atoms/DoughnutChart";
-import {
-	ColumnDef,
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
 import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
 import CompleteArrow from "atoms/CompleteArrow";
 import { THContainer } from "atoms/THContainer";
@@ -26,7 +24,6 @@ export const defaultDataTable = arr.map((_, index) => {
 		["Machine History"]: "2022-17-08 02:12:12",
 	};
 });
-
 
 export default function VHMSDownload() {
 	const columns: ColumnDef<Person>[] = [

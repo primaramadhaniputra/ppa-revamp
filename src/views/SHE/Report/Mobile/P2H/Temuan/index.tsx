@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import TopFilter from "src/components/organism/TopFilter";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import { IcEye } from "atoms/Icon";
@@ -27,7 +25,7 @@ export const defaultDataTable = arr.map((_, index) => {
 	};
 });
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 export default function Temuan() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -39,29 +37,30 @@ export default function Temuan() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return (
-				<>
-					{info.column.id === "Detail" ? (
-						<Grid container justifyContent="center">
-							<IcEye
-								width={18}
-								color={colors.primary}
-								style={{ cursor: "pointer" }}
-								onClick={handleShowDetail}
-							/>
-						</Grid>
-					) : (
-						info.renderValue()
-					)}
-				</>
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return (
+					<>
+						{info.column.id === "Detail" ? (
+							<Grid container justifyContent="center">
+								<IcEye
+									width={18}
+									color={colors.primary}
+									style={{ cursor: "pointer" }}
+									onClick={handleShowDetail}
+								/>
+							</Grid>
+						) : (
+							info.renderValue()
+						)}
+					</>
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

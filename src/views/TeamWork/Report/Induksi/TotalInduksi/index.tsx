@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import { Container, TextInfo, Wrapper } from "./styles";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Grid, Icon, Text } from "@hudoro/neron";
 import { fontSizing, fontWeights } from "utils/styles";
 import ShowDetail from "./ShowDetail";
@@ -25,7 +23,7 @@ export const defaultDataTable = arr.map((_, index) => {
 	};
 });
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 export default function TotalInduksi() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -37,22 +35,23 @@ export default function TotalInduksi() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) =>
-			info.column.id === "Detail" ? (
-				<Icon
-					iconName="IcSearch"
-					color="white"
-					onClick={handleShowDetail}
-					style={{ cursor: "pointer", margin: 'auto' }}
-				/>
-			) : (
-				info.renderValue()
-			),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) =>
+				info.column.id === "Detail" ? (
+					<Icon
+						iconName="IcSearch"
+						color="white"
+						onClick={handleShowDetail}
+						style={{ cursor: "pointer", margin: "auto" }}
+					/>
+				) : (
+					info.renderValue()
+				),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -62,7 +61,7 @@ export default function TotalInduksi() {
 				formPosition={formPosition}
 			/>
 			<Wrapper>
-				<Container style={{ marginBottom: '20px' }}>
+				<Container style={{ marginBottom: "20px" }}>
 					<Grid container gap={10} alignItems="center">
 						<Image
 							width={35}

@@ -1,5 +1,4 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { TextTable } from "./styles";
 
 interface IProps {
 	[x: string]: any;
@@ -8,7 +7,7 @@ interface IProps {
 export const dataTable: ColumnDef<IProps>[] = [
 	{
 		accessorKey: "Model",
-		cell: (info) => <TextTable>{info.getValue()}</TextTable>,
+		cell: (info) => info.getValue(),
 		footer: (props) => props.column.id,
 		header: () => "Model",
 	},

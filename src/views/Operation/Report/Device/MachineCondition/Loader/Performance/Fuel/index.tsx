@@ -1,8 +1,6 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
 import { TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import Chart from "./Chart";
@@ -32,7 +30,7 @@ const items = [
 	},
 ];
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Fuel() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -45,20 +43,21 @@ export default function Fuel() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "CN" ? (
-				<span style={{ color: "blue", cursor: "pointer" }} onClick={handleShowDetail}>
-					{info.renderValue()}
-				</span>
-			) : (
-				info.renderValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "CN" ? (
+					<span style={{ color: "blue", cursor: "pointer" }} onClick={handleShowDetail}>
+						{info.renderValue()}
+					</span>
+				) : (
+					info.renderValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	const handleShowChart = (value: ISelectItem | ISelectItem[] | null) => {
 		if (value?.values === "Table") {

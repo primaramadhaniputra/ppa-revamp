@@ -22,7 +22,7 @@ export default function Induksi() {
 				<JadwalInduksi />
 				<TotalInduksi />
 			</InduksiContainer>
-			<InduksiContainer >
+			<InduksiContainer>
 				<TidakInduksi />
 				<TidakSesuaiJadwal />
 			</InduksiContainer>

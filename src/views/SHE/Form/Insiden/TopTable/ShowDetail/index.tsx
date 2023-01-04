@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
 import MigrateTable from "src/components/organism/MigrateTable";
 
@@ -30,17 +28,18 @@ interface IProps {
 	formPosition: number;
 }
 
-const columnHelper = createColumnHelper<ITable>()
+const columnHelper = createColumnHelper<ITable>();
 
 export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<LayoutOverlayData

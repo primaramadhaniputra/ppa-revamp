@@ -20,7 +20,13 @@ export default function TableComp({ table }: IProps) {
 									{header.isPlaceholder ? null : (
 										<>
 											<div
-												style={{ cursor: "pointer", display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
+												style={{
+													cursor: "pointer",
+													display: "flex",
+													alignItems: "center",
+													justifyContent: "center",
+													gap: "5px",
+												}}
 												{...{
 													className: header.column.getCanSort() ? "cursor-pointer select-none" : "",
 													onClick: header.column.getToggleSortingHandler(),

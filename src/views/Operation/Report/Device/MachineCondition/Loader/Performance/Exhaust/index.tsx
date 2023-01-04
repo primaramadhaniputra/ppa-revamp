@@ -1,8 +1,6 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
 import { TitleText, Wrapper, WrapperTitle } from "../../../../styles";
 import Chart from "./Chart";
@@ -41,7 +39,7 @@ const items = [
 	},
 ];
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Exhaust() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -72,14 +70,15 @@ export default function Exhaust() {
 		}
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return renderTdText(info.column.id, info);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return renderTdText(info.column.id, info);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	const handleShowChart = (value: ISelectItem | ISelectItem[] | null) => {
 		if (value?.values === "Table") {

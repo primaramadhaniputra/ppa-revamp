@@ -1,8 +1,6 @@
 import React from "react";
 import { Box, BoxContainer, StatusText, WrapperStatus } from "./styles";
-import {
-	ColumnDef
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
 import DateText from "atoms/DateText";
 import TitleText from "atoms/TitleText";
 import LayoutTable from "src/components/layouts/LayoutTable";
@@ -23,7 +21,6 @@ export const defaultDataTable = arr.map(() => {
 		["Job"]: "-",
 	};
 });
-
 
 export default function SelfAttendance() {
 	const columns: ColumnDef<Person>[] = [

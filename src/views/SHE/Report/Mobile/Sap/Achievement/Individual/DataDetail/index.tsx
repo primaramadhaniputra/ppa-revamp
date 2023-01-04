@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import LayoutOverlayData from "src/components/layouts/LayoutOverlayData";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Description, Title } from "./styles";
 import { Grid } from "@hudoro/neron";
 import { Person } from "utils/interfaces";
@@ -32,17 +30,18 @@ interface IProps {
 	setIsShowDetail: React.Dispatch<React.SetStateAction<boolean>>;
 	formPosition: number;
 }
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

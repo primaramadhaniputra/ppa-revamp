@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { P } from "./styles";
 import ShowDetail from "./ShowDetail";
 import MigrateTable from "src/components/organism/MigrateTable";
@@ -22,7 +20,7 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 export default function SummaryTable() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -34,20 +32,21 @@ export default function SummaryTable() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "DEPARTEMENT" ? (
-				<span style={{ padding: "5px" }}>{`${info.getValue()}`}</span>
-			) : (
-				<P style={{ padding: "5px" }} onClick={handleShowDetail}>
-					{`${info.getValue()}`}
-				</P>
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "DEPARTEMENT" ? (
+					<span style={{ padding: "5px" }}>{`${info.getValue()}`}</span>
+				) : (
+					<P style={{ padding: "5px" }} onClick={handleShowDetail}>
+						{`${info.getValue()}`}
+					</P>
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 	return (
 		<>
 			<ShowDetail

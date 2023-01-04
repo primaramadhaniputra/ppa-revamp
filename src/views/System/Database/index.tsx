@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Grid, Icon } from "@hudoro/neron";
 import { notify } from "utils/functions";
 import LayoutTable from "src/components/layouts/LayoutTable";
@@ -25,7 +23,7 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 export default function Database() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
@@ -36,25 +34,26 @@ export default function Database() {
 		}
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return info.column.id === "Action" ? (
-				<Grid
-					container
-					justifyContent="center"
-					style={{ cursor: "pointer" }}
-					onClick={handleKillProccess}
-				>
-					<Icon iconName="IcTrash" size={16} color="red" />
-				</Grid>
-			) : (
-				info.getValue()
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return info.column.id === "Action" ? (
+					<Grid
+						container
+						justifyContent="center"
+						style={{ cursor: "pointer" }}
+						onClick={handleKillProccess}
+					>
+						<Icon iconName="IcTrash" size={16} color="red" />
+					</Grid>
+				) : (
+					info.getValue()
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<LayoutTable>

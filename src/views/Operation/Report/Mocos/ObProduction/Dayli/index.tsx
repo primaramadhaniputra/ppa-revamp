@@ -1,25 +1,12 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
-import React from "react";
+import { Grid, Text } from "@hudoro/neron";
+import React, { useMemo } from "react";
 import { fontWeights } from "utils/styles";
-import { SingleStatus, StatusContainer, ThItemContainer, Wrapper } from "./styles";
-// ArrowDown, ArrowUp,
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import TopFilter from "./TopFilter";
-import TableComponent2 from "src/components/organism/TableComp2";
+import { SingleStatus, StatusContainer, Wrapper } from "./styles";
+import { createColumnHelper } from "@tanstack/react-table";
+import { Person } from "utils/interfaces";
+import MigrateTable from "src/components/organism/MigrateTable";
 
-interface IProps {
-	[x: string]: any;
-}
-
-const arr = new Array(1).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["LOADER"]: "",
@@ -37,68 +24,18 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function Dayli() {
-	const [dataTable, setDataTable] = React.useState(defaultDataTable);
-	const objTitle = Object.keys(dataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [
-		globalFilter,
-		// setGlobalFilter
-	] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
-			cell: (info) => {
-				return info.getValue();
-			},
-			header: () => (
-				<ThItemContainer key={index}>
-					<span>{item}</span>
-				</ThItemContainer>
-			),
-			footer: (info) => {
-				const headerId = info.header.id !== "LOADER" ? info.header.id : "";
-				const data = info.table.options.data
-					.map((e) => e[headerId])
-					.filter((e) => e !== null)
-					.filter((e) => e !== undefined);
-				const totalData =
-					data.length > 0 ? data.reduce((total, num) => parseInt(total) + parseInt(num)) : 0;
-				return (
-					<span
-						style={{
-							fontWeight: fontWeights.bold,
-							fontFamily: fontFamilies.poppins,
-						}}
-					>
-						{info.header.id === "LOADER" ? "TOTAL" : `${totalData}`}
-					</span>
-				);
-			},
-		};
-	});
-	const table = useReactTable({
-		data: dataTable,
-		columns: columns as any,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	// const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-	//   table.setPageSize(e.target.value);
-	// };
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<Wrapper>
@@ -113,7 +50,6 @@ export default function Dayli() {
 					Operation / Report
 				</Text>
 			</Grid>
-			<TopFilter setDataTable={setDataTable} />
 			<StatusContainer style={{ margin: "30px  0 40px 0" }}>
 				<SingleStatus>
 					<Text variant="h4">PLAN</Text>
@@ -132,7 +68,7 @@ export default function Dayli() {
 					<Text variant="p">Infinity %</Text>
 				</SingleStatus>
 			</StatusContainer>
-			<TableComponent2 table={table} noPagination={true} withFooter={true} />
+			<MigrateTable data={defaultDataTable} columns={columns} />
 		</Wrapper>
 	);
 }

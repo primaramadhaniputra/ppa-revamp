@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import { ButtonContainer, TableTitle, WrapperInput } from "./styles";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import StyledButton from "atoms/StyledButton";
@@ -29,29 +27,30 @@ export const defaultDataTable = arr.map((_, index) => {
 	};
 });
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 export default function Table() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return (
-				<>
-					{info.column.id === "Detail" ? (
-						<Grid container justifyContent="center">
-							<IcEdit width={18} cursor="pointer" strokeWidth={2} color={colors.primary} />
-						</Grid>
-					) : (
-						info.renderValue()
-					)}
-				</>
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return (
+					<>
+						{info.column.id === "Detail" ? (
+							<Grid container justifyContent="center">
+								<IcEdit width={18} cursor="pointer" strokeWidth={2} color={colors.primary} />
+							</Grid>
+						) : (
+							info.renderValue()
+						)}
+					</>
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

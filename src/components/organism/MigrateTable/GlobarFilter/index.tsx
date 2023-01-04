@@ -25,7 +25,7 @@ export default function GlobaFilter({ globalFilter, setGlobalFilter, table }: IP
 				/>
 			</ContainerShow>
 			<ContainerGlobalSearch>
-				<Grid container style={{ minWidth: '150px' }}>
+				<Grid container style={{ minWidth: "150px" }}>
 					<StyledButton style={{ background: colors.primary }}>Export</StyledButton>
 				</Grid>
 				<Grid container alignItems="center" gap={5}>

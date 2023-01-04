@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import TopFilter from "src/components/organism/TopFilter";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import { Grid } from "@hudoro/neron";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
@@ -14,7 +12,7 @@ interface IProps {
 	[x: string]: any;
 }
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
@@ -41,29 +39,30 @@ export default function Detail() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: (info) => {
-			return (
-				<>
-					{info.column.id === "Detail" ? (
-						<Grid container justifyContent="center">
-							<IcEye
-								width={18}
-								style={{ cursor: "pointer" }}
-								color={colors.primary}
-								onClick={handleShowDetail}
-							/>
-						</Grid>
-					) : (
-						info.getValue()
-					)}
-				</>
-			);
-		},
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => {
+				return (
+					<>
+						{info.column.id === "Detail" ? (
+							<Grid container justifyContent="center">
+								<IcEye
+									width={18}
+									style={{ cursor: "pointer" }}
+									color={colors.primary}
+									onClick={handleShowDetail}
+								/>
+							</Grid>
+						) : (
+							info.getValue()
+						)}
+					</>
+				);
+			},
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>

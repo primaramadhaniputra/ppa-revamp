@@ -1,7 +1,5 @@
 import React from "react";
-import {
-	ColumnDef
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
 import { colors, fontWeights } from "utils/styles";
 import { fontFamilies, Text } from "@hudoro/neron";
 import DataDetail from "./DataDetail";

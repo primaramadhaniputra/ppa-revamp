@@ -1,9 +1,7 @@
 import { Grid, Text } from "@hudoro/neron";
 import React, { useMemo } from "react";
 import { fontWeights } from "utils/styles";
-import {
-	createColumnHelper,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 import TabV2 from "molecules/TabV2";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
@@ -48,18 +46,19 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 	};
 });
 
-const columnHelper = createColumnHelper<IProps>()
+const columnHelper = createColumnHelper<IProps>();
 
 export default function AttendanceRatio() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [activeTabs, setActiveTabs] = React.useState(0);
 
-	const columns = objTitle.map((item) => columnHelper.accessor(item, {
-		header: () => item,
-		cell: info => info.renderValue(),
-		footer: info => info.column.id,
-	})
-	)
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	const renderTab = () => {
 		if (activeTabs === 0) {
