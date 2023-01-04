@@ -1,22 +1,10 @@
-import { Grid, Text } from "@hudoro/neron";
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
-import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, WrapperTable } from "../../../../../styles";
+import { Text } from "@hudoro/neron";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
+import { WrapperTable } from "../../../../../styles";
 import FlyingForm from "./FlyingForm";
-
-interface IProps {
-	[x: string]: any;
-}
+import { Person } from "utils/interfaces";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
@@ -30,10 +18,10 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function MonitoringStatusTable() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
@@ -43,39 +31,17 @@ export default function MonitoringStatusTable() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) => (
 				<Text variant="p" style={{ cursor: "pointer" }} onClick={handleShowDetail}>
 					{info.getValue()}
 				</Text>
 			),
-			header: () => (
-				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
-					<Grid>
-						<span>{item}</span>
-					</Grid>
-					<CompleteArrow />
-				</ThItemContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -88,7 +54,7 @@ export default function MonitoringStatusTable() {
 				<Text variant="h4" style={{ marginBottom: "20px" }}>
 					Monitoring Status
 				</Text>
-				<TableComponent2 table={table} noPagination />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</WrapperTable>
 		</>
 	);

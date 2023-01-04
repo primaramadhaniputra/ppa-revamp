@@ -1,25 +1,16 @@
 import React from "react";
 import DoughnutChart from "atoms/DoughnutChart";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
 import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import CompleteArrow from "atoms/CompleteArrow";
 import { THContainer } from "atoms/THContainer";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
 	return {
 		Model: "HD787",
@@ -35,9 +26,6 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function VHMSDownload() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const columns: ColumnDef<Person>[] = [
 		{
 			accessorKey: "Model",
@@ -117,7 +105,6 @@ export default function VHMSDownload() {
 					),
 					footer: (props) => props.column.id,
 					cell: (info) => <span>{info.getValue()}</span>,
-					enableColumnFilter: false,
 				},
 				{
 					accessorKey: "Fault Record",
@@ -129,7 +116,6 @@ export default function VHMSDownload() {
 					),
 					footer: (props) => props.column.id,
 					cell: (info) => <span>{info.getValue()}</span>,
-					enableColumnFilter: false,
 				},
 				{
 					accessorKey: "Machine History",
@@ -145,40 +131,10 @@ export default function VHMSDownload() {
 		},
 	];
 
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-		sortDescFirst: true,
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
-
 	return (
 		<Wrapper>
 			<TableWrapper>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</TableWrapper>
 			<DoughnutWrapper>
 				<DoughnutChart />

@@ -27,8 +27,7 @@ export const DateText = styled(Text).attrs({
 `;
 
 export const InduksiContainer = styled.div`
-	row-gap: 20px;
-	column-gap: 70px;
+	gap: 20px;
 	flex-direction: column;
 	display: flex;
 	${mediaQueries["2xl"]} {

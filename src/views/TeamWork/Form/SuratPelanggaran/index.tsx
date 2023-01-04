@@ -1,20 +1,8 @@
 import { Grid } from "@hudoro/neron";
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import IcPrinter from "atoms/Icon/IcPrinter";
 import ShowDetail from "./ShowDetail";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "atoms/THContainer";
-import CompleteArrow from "atoms/CompleteArrow";
 import TabV2 from "molecules/TabV2";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
@@ -22,6 +10,7 @@ import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
 import ShowFormPelanggaran from "./ShowFormPelanggaran";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
@@ -47,11 +36,10 @@ const tabTitle = [
 	"Sanksi Peringatan Terakhir",
 ];
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function SuratPelanggaran() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [activeTab, setActiveTab] = React.useState(0);
 
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
@@ -70,61 +58,32 @@ export default function SuratPelanggaran() {
 		setformPelanggaranPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
-		<div>
-			<button onClick={() => window.print()}>PRINT</button>
-			<p>Click above button opens print preview with these words on page</p>
-		</div>;
-		return {
-			accessorKey: item,
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) => {
 				return item === "Action" ? (
 					<Grid container justifyContent="center" gap={10}>
 						<IcPrinter
 							width={20}
-							color={colors.blue}
+							color={colors.primary}
 							style={{ cursor: "pointer" }}
 							onClick={() => window.print()}
 						/>
 						<IcEye
 							width={20}
-							color={colors.blue}
+							color={colors.primary}
 							style={{ cursor: "pointer" }}
 							onClick={handleShowDetail}
 						/>
 					</Grid>
 				) : (
-					info.getValue()
+					info.renderValue()
 				);
 			},
-			header: () => (
-				<THContainer>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -151,15 +110,7 @@ export default function SuratPelanggaran() {
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

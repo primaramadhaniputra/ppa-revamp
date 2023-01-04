@@ -2,7 +2,7 @@ import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 
-const tabs = ["Hourly", "Daily", "Daily V.2", "Excavator Set", "Distance Dev"];
+const tabs = ["Hourly", "Daily", "Excavator Set", "Distance Dev"];
 
 const Hourly = dynamic(() => import("./Hourly"), { ssr: false });
 const ExcavatorSet = dynamic(() => import("./ExcavatorSet"), { ssr: false });
@@ -14,9 +14,9 @@ const renderContent = (activeTab: number) => {
 		return <Hourly />;
 	} else if (activeTab === 1) {
 		return <Dayli />;
-	} else if (activeTab === 4) {
-		return <DistanceDev />;
 	} else if (activeTab === 3) {
+		return <DistanceDev />;
+	} else if (activeTab === 2) {
 		return <ExcavatorSet />;
 	}
 };

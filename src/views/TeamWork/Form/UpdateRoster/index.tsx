@@ -1,31 +1,21 @@
 import { Grid } from "@hudoro/neron";
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import { IcEdit } from "atoms/Icon";
 import FlyingForm from "./FlyingForm";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { THContainer } from "atoms/THContainer";
-import CompleteArrow from "atoms/CompleteArrow";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import TopFilter from "src/components/organism/TopFilter";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
-export const defaultDataTable = [
-	{
+
+export const defaultDataTable = new Array(10).fill(0).map(() => {
+	return {
 		NRP: "HD787",
 		Name: "Hd123",
 		Date: `33`,
@@ -35,14 +25,13 @@ export const defaultDataTable = [
 		Job: "2022-17-08 02:12:12",
 		Pos: "2022-17-08 02:12:12",
 		Act: "2022-17-08 02:12:12",
-	},
-];
+	};
+});
+
+const columnHelper = createColumnHelper<Person>();
 
 export default function UpdateRoster() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -51,55 +40,26 @@ export default function UpdateRoster() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item) => {
-		return {
-			accessorKey: item,
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) => {
 				return info.column.id === "Act" ? (
 					<Grid>
 						<IcEdit
 							width={20}
-							style={{ cursor: "pointer" }}
+							style={{ cursor: "pointer", color: colors.primary }}
 							onClick={handleShowDetail}
 							color={colors.blue}
 						/>
 					</Grid>
 				) : (
-					info.getValue()
+					info.renderValue()
 				);
 			},
-			header: (info) => {
-				return (
-					<THContainer>
-						<Grid>
-							<span>{item}</span>
-						</Grid>
-						{info.header.id !== "Act" && <CompleteArrow />}
-					</THContainer>
-				);
-			},
-		};
-	});
-
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -117,15 +77,7 @@ export default function UpdateRoster() {
 				</Grid>
 			</TopFilter>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

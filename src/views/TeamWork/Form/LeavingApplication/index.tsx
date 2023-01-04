@@ -1,30 +1,20 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { THContainer } from "atoms/THContainer";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table";
 import ShowDetail from "./ShowDetail";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
 import ButtonFile from "atoms/ButtonFile";
 import FlyingForm from "./FlyingForm";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
 	return {
 		id: "HD787",
@@ -38,9 +28,6 @@ export const defaultDataTable = arr.map((_, index) => {
 });
 
 export default function LeavingApplication() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -62,11 +49,7 @@ export default function LeavingApplication() {
 		{
 			accessorKey: "id",
 			cell: (info) => info.getValue(),
-			header: () => (
-				<THContainer>
-					<span>ID</span>
-				</THContainer>
-			),
+			header: () => <span>ID</span>,
 		},
 		{
 			header: "Cuti",
@@ -75,19 +58,11 @@ export default function LeavingApplication() {
 					accessorFn: (row) => row.lapangan,
 					id: "lapangan",
 					cell: (info) => info.getValue(),
-					header: () => (
-						<THContainer>
-							<span>Lapangan</span>
-						</THContainer>
-					),
+					header: () => <span>Lapangan</span>,
 				},
 				{
 					accessorKey: "tahunan",
-					header: () => (
-						<THContainer>
-							<span>Tahunan</span>
-						</THContainer>
-					),
+					header: () => <span>Tahunan</span>,
 				},
 			],
 		},
@@ -96,29 +71,17 @@ export default function LeavingApplication() {
 			columns: [
 				{
 					accessorKey: "leave",
-					header: () => (
-						<THContainer>
-							<span>Leave</span>
-						</THContainer>
-					),
+					header: () => <span>Leave</span>,
 				},
 				{
 					accessorKey: "back",
-					header: () => (
-						<THContainer>
-							<span>Back</span>
-						</THContainer>
-					),
+					header: () => <span>Back</span>,
 				},
 			],
 		},
 		{
 			accessorKey: "status",
-			header: () => (
-				<THContainer>
-					<span>Status</span>
-				</THContainer>
-			),
+			header: () => <span>Status</span>,
 		},
 		{
 			accessorKey: "action",
@@ -129,37 +92,12 @@ export default function LeavingApplication() {
 					style={{ cursor: "pointer" }}
 					onClick={handleShowDetail}
 				>
-					<IcEye width={18} color={colors.blue} />
+					<IcEye width={18} color={colors.primary} />
 				</Grid>
 			),
-			header: () => (
-				<THContainer>
-					<span>Action</span>
-				</THContainer>
-			),
+			header: () => <span>Action</span>,
 		},
 	];
-
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
 
 	return (
 		<>
@@ -185,15 +123,7 @@ export default function LeavingApplication() {
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={false}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

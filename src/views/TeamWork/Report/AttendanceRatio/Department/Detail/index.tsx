@@ -1,18 +1,9 @@
-import { fontFamilies, Grid } from "@hudoro/neron";
-import React from "react";
-import TableComponent2 from "src/components/organism/TableComp2";
+import React, { useMemo } from "react";
 import { fontWeights } from "utils/styles";
-import { ArrowDown, ArrowUp, ThItemContainer, Wrapper } from "./styles";
 
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	// SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
@@ -43,12 +34,14 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function Detail() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
+
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) => {
 				const id = info.column.id;
 				return (
@@ -64,49 +57,12 @@ export default function Detail() {
 					</span>
 				);
 			},
-			header: () => {
-				return (
-					<ThItemContainer key={index}>
-						<Grid>
-							<span>{item}</span>
-						</Grid>
-						<Grid container flexDirection="column">
-							<ArrowUp></ArrowUp>
-							<ArrowDown></ArrowDown>
-						</Grid>
-					</ThItemContainer>
-				);
-			},
-			footer: (info) => {
-				return (
-					<span
-						style={{
-							fontWeight: fontWeights.bold,
-							fontFamily: fontFamilies.poppins,
-						}}
-					>
-						{info.column.id === "Dept" ? "Total" : "123"}
-					</span>
-				);
-			},
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			rowSelection,
-		},
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+			footer: (info) => info.column.id,
+		}),
+	);
 	return (
-		<Wrapper>
-			<TableComponent2 table={table} noPagination={true} withFooter={true} />
-		</Wrapper>
+		<LayoutTable>
+			<MigrateTable data={defaultDataTable} columns={columns} />
+		</LayoutTable>
 	);
 }

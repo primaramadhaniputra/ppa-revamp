@@ -1,28 +1,17 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
-import React from "react";
+import { Grid, Text } from "@hudoro/neron";
+import React, { useMemo } from "react";
 import { colors, fontWeights } from "utils/styles";
-import { ShowChartWrapper, ThItemContainer, Wrapper } from "./styles";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import { ShowChartWrapper, Wrapper } from "./styles";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-import TableComponent2 from "src/components/organism/TableComp2";
 import StyledButton from "atoms/StyledButton";
 import { exportFile } from "utils/functions";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import DataDetail from "./DataDetail";
+import MigrateTable from "src/components/organism/MigrateTable";
+import { Person } from "utils/interfaces";
 
-interface IProps {
-	[x: string]: any;
-}
-
-const arr = new Array(1).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		LOADER: "-",
@@ -42,15 +31,10 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function CCR() {
-	const [dataTable] = React.useState(defaultDataTable);
-	const objTitle = Object.keys(dataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [
-		globalFilter,
-		// setGlobalFilter
-	] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -59,58 +43,13 @@ export default function CCR() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
-			cell: (info) => {
-				return info.getValue();
-			},
-			header: () => (
-				<ThItemContainer key={index}>
-					<span>{item}</span>
-				</ThItemContainer>
-			),
-			footer: (info) => {
-				const headerId = info.header.id !== "LOADER" ? info.header.id : "";
-				const data = info.table.options.data
-					.map((e) => e[headerId])
-					.filter((e) => e !== null)
-					.filter((e) => e !== undefined);
-				const totalData =
-					data.length > 0 ? data.reduce((total, num) => parseInt(total) + parseInt(num)) : 0;
-				return (
-					<span
-						style={{
-							fontWeight: fontWeights.bold,
-							fontFamily: fontFamilies.poppins,
-						}}
-					>
-						{info.header.id === "LOADER" ? "TOTAL" : `${totalData}`}
-					</span>
-				);
-			},
-		};
-	});
-	const table = useReactTable({
-		data: dataTable,
-		columns: columns as any,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	// const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-	//   table.setPageSize(e.target.value);
-	// };
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 	return (
 		<>
 			<DataDetail
@@ -145,7 +84,7 @@ export default function CCR() {
 						</StyledButton>
 					</Grid>
 				</ShowChartWrapper>
-				<TableComponent2 table={table} noPagination={true} withFooter={true} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</Wrapper>
 		</>
 	);

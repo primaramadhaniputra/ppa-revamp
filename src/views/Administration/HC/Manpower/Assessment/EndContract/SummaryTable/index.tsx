@@ -1,21 +1,9 @@
-import { Grid, Text } from "@hudoro/neron";
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
-import CompleteArrow from "atoms/CompleteArrow";
-import { ThItemContainer, WrapperTable } from "../../../../../styles";
-
-interface IProps {
-	[x: string]: any;
-}
+import { Text } from "@hudoro/neron";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
+import { Person } from "utils/interfaces";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 const arr = new Array(1).fill(0);
 export const defaultDataTable = arr.map(() => {
@@ -28,49 +16,25 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-export default function SummaryTable() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+const columnHelper = createColumnHelper<Person>();
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
-			cell: (info) => info.getValue(),
-			header: () => (
-				<ThItemContainer key={index} style={{ minWidth: "100px" }}>
-					<Grid>
-						<span>{item}</span>
-					</Grid>
-					<CompleteArrow />
-				</ThItemContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+export default function SummaryTable() {
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
+
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
-		<>
-			<WrapperTable>
-				<Text variant="h4" style={{ marginBottom: "20px" }}>
-					Summary
-				</Text>
-				<TableComponent2 table={table} noPagination />
-			</WrapperTable>
-		</>
+		<LayoutTable style={{ marginTop: 0 }}>
+			<Text variant="h4" style={{ marginBottom: "20px" }}>
+				Summary
+			</Text>
+			<MigrateTable data={defaultDataTable} columns={columns} />
+		</LayoutTable>
 	);
 }

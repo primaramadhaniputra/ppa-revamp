@@ -1,16 +1,7 @@
-import React, { useEffect, useState } from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import React, { useEffect, useMemo, useState } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import { IcBan, IcEdit, IcRefresh } from "atoms/Icon";
 import { IconContainer, Wrapper } from "./styles";
-import TableComponent2 from "src/components/organism/TableComp2";
 import {
 	DisableUserdWebAdmin,
 	getListUsersWebAdmin,
@@ -21,37 +12,35 @@ import { ISingleUser, IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { Html } from "next/document";
-import CompleteArrow from "atoms/CompleteArrow";
-import { THContainer } from "atoms/THContainer";
 import LayoutTable from "src/components/layouts/LayoutTable";
+import MigrateTable from "src/components/organism/MigrateTable";
+
 interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = [
-	{
+export const defaultDataTable = new Array(10).fill(0).map(() => {
+	return {
 		NRP: "",
 		Name: "",
 		Dept: "",
 		Position: "",
 		Level: "",
 		Action: "",
-	},
-];
+	};
+});
+
+const columnHelper = createColumnHelper<Person>();
 
 export default function AccessControl() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [DataTable, setDataTable] = React.useState(defaultDataTable);
 	const [isLoading, setIsLoading] = React.useState(true);
 	const [isEdit, setIsEdit] = React.useState(false);
 	const [dataUser, setDataUser] = React.useState<ISingleUser>();
 	const router = useRouter();
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [formPosition, setformPosition] = useState(0);
 
 	const handleEdit = async (target: any, e: { row: any }) => {
@@ -126,9 +115,9 @@ export default function AccessControl() {
 		getAllUsers();
 	}, []);
 
-	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) => {
 				return info.column.id === "Action" ? (
 					<Wrapper>
@@ -164,38 +153,9 @@ export default function AccessControl() {
 					info.getValue()
 				);
 			},
-			header: (data) => {
-				return (
-					<THContainer key={index}>
-						<span>{item}</span>
-						{data.column.id !== "Action" && <CompleteArrow />}
-					</THContainer>
-				);
-			},
-			footer: (props) => props.column.id,
-		};
-	});
-
-	const table = useReactTable({
-		data: DataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	const closeEdit = () => {
 		setIsEdit(false);
@@ -214,15 +174,7 @@ export default function AccessControl() {
 			/>
 			<LayoutTable style={{ position: "relative" }}>
 				{isLoading && <Loading />}
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={DataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

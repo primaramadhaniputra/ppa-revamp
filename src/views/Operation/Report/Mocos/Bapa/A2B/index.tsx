@@ -1,20 +1,11 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import {
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-import TableComponent2 from "src/components/organism/TableComp2";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import { TitleText, Wrapper, WrapperTitle } from "../../../styles";
+import { TitleText, WrapperTitle } from "../../../styles";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
 import { dataTable } from "./dataTable";
-import { colors } from "utils/styles";
+import LayoutTable from "src/components/layouts/LayoutTable";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
@@ -45,31 +36,7 @@ export const defaultDataTable = arr.map(() => {
 });
 
 export default function Material() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [activeShiftDropDown, setActiveShiftDropDown] = React.useState([]);
-
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns: dataTable,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
 
 	return (
 		<>
@@ -94,22 +61,9 @@ export default function Material() {
 					/>
 				</Grid>
 			</TopFilter>
-			<Wrapper>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2
-					table={table}
-					tableTdStyles={{ padding: 0 }}
-					tableTheadStyles={{ backgroundColor: colors.primary }}
-					tableThStyles={{ color: "white" }}
-				/>
-			</Wrapper>
+			<LayoutTable>
+				<MigrateTable data={defaultDataTable} columns={dataTable} />
+			</LayoutTable>
 		</>
 	);
 }

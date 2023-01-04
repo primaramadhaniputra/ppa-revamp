@@ -1,20 +1,9 @@
-import { fontFamilies, Grid, Text } from "@hudoro/neron";
-import React from "react";
-import TableComponent2 from "src/components/organism/TableComp2";
+import { Grid, Text } from "@hudoro/neron";
+import React, { useMemo } from "react";
 import { fontWeights } from "utils/styles";
-
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	// SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import CompleteArrow from "atoms/CompleteArrow";
+import { createColumnHelper } from "@tanstack/react-table";
 import DateText from "atoms/DateText";
-import { THContainer } from "atoms/THContainer";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
@@ -39,61 +28,19 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
+const columnHelper = createColumnHelper<Person>();
+
 export default function YTD() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const columns: ColumnDef<Person>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
-			cell: (info) => {
-				return (
-					<span
-						style={{
-							fontWeight:
-								info.column.id === "Bulan" || info.column.id === "ATR MTD"
-									? fontWeights.bold
-									: fontWeights.regular,
-						}}
-					>
-						{info.getValue()}
-					</span>
-				);
-			},
-			header: () => (
-				<THContainer key={index}>
-					<Grid>
-						<span>{item}</span>
-					</Grid>
-					<CompleteArrow />
-				</THContainer>
-			),
-			footer: (info) => {
-				return (
-					<span
-						style={{
-							fontWeight: fontWeights.bold,
-							fontFamily: fontFamilies.poppins,
-						}}
-					>
-						{info.column.id === "Bulan" ? "Total" : "123"}
-					</span>
-				);
-			},
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			rowSelection,
-		},
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
+
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
+
 	return (
 		<>
 			<Grid
@@ -108,7 +55,7 @@ export default function YTD() {
 				</Text>
 				<DateText />
 			</Grid>
-			<TableComponent2 table={table} noPagination={true} />
+			<MigrateTable data={defaultDataTable} columns={columns} />
 		</>
 	);
 }

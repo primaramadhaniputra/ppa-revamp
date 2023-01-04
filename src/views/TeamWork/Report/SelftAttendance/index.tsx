@@ -1,25 +1,17 @@
 import React from "react";
-import { Box, BoxContainer, StatusText, TableTitle, WrapperStatus } from "./styles";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import TableComponent2 from "src/components/organism/TableComp2";
+import { Box, BoxContainer, StatusText, WrapperStatus } from "./styles";
+import { ColumnDef } from "@tanstack/react-table";
 import DateText from "atoms/DateText";
 import TitleText from "atoms/TitleText";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import { Grid } from "@hudoro/neron";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(1).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["Date"]: "-",
@@ -31,18 +23,15 @@ export const defaultDataTable = arr.map(() => {
 });
 
 export default function SelfAttendance() {
-	const [rowSelection, setRowSelection] = React.useState({});
-	// const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const columns: ColumnDef<Person>[] = [
 		{
 			accessorKey: "Date",
-			cell: (info) => info.getValue(),
+			cell: (info) => info.renderValue(),
 			header: () => <span>Date</span>,
 		},
 		{
 			accessorKey: "#",
-			cell: (info) => info.getValue(),
+			cell: (info) => info.renderValue(),
 			header: () => <span></span>,
 		},
 		{
@@ -51,39 +40,23 @@ export default function SelfAttendance() {
 			columns: [
 				{
 					accessorKey: "in",
-					cell: (info) => info.getValue(),
+					cell: (info) => info.renderValue(),
 					header: () => <span>In</span>,
 				},
 				{
 					accessorKey: "Out",
-					cell: (info) => info.getValue(),
+					cell: (info) => info.renderValue(),
 					header: () => <span>Out</span>,
 				},
 			],
 		},
 		{
 			accessorKey: "Job",
-			cell: (info) => info.getValue(),
+			cell: (info) => info.renderValue(),
 			header: () => <span>Job</span>,
 		},
 	];
 
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			// globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
 	return (
 		<>
 			<LayoutTable style={{ marginTop: "10px" }}>
@@ -93,8 +66,7 @@ export default function SelfAttendance() {
 				</Grid>
 			</LayoutTable>
 			<LayoutTable>
-				<TableTitle variant="h4">Self Attendance</TableTitle>
-				<TableComponent2 table={table} noPagination={true} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 				<WrapperStatus>
 					<BoxContainer>
 						<StatusText>On Going</StatusText>
