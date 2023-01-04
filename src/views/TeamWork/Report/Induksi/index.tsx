@@ -22,7 +22,7 @@ export default function Induksi() {
 				<JadwalInduksi />
 				<TotalInduksi />
 			</InduksiContainer>
-			<InduksiContainer style={{ marginTop: "30px" }}>
+			<InduksiContainer>
 				<TidakInduksi />
 				<TidakSesuaiJadwal />
 			</InduksiContainer>

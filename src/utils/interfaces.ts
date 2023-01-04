@@ -134,3 +134,7 @@ export interface IDate {
 	endDate: Date;
 	key: string;
 }
+
+export interface Person {
+	[x: string]: any;
+}

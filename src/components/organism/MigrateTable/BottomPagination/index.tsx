@@ -1,5 +1,7 @@
-import { Grid, Pagination, Text } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import React from "react";
+import Pagination from "src/components/organism/Pagination";
+import { StyledText } from "./styles";
 
 interface IProps {
 	dataPerPage: number;
@@ -10,7 +12,7 @@ interface IProps {
 	previousButtonEvent: () => void;
 }
 
-export default function PaginationComp({
+export default function BottomPagination({
 	dataPerPage,
 	totalData,
 	currentPage,
@@ -23,12 +25,12 @@ export default function PaginationComp({
 			container
 			alignItems="center"
 			justifyContent="space-between"
-			style={{ marginTop: "20px", marginLeft: "20px" }}
+			style={{ marginTop: "20px" }}
 			gap={20}
 		>
-			<Text variant="p">
+			<StyledText>
 				Showing {dataPerPage} of {totalData} Total Rows Selected
-			</Text>
+			</StyledText>
 			<Pagination
 				numberOfPages={totalPage}
 				currentPage={currentPage}

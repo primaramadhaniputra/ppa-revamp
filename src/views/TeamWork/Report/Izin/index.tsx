@@ -1,31 +1,20 @@
 import { Grid } from "@hudoro/neron";
-import React from "react";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import TopFilter from "src/components/organism/TopFilter";
-import TableComponent2 from "src/components/organism/TableComp2";
 import ShowDetail from "./ShowDetail";
-import TableFilterSearch from "src/components/organism/TableFilterSearch";
-import CompleteArrow from "atoms/CompleteArrow";
 import { IcEye } from "atoms/Icon";
 import { colors } from "utils/styles";
 import RevisiDropdown from "atoms/RevisiDropdown";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
-import { THContainer } from "atoms/THContainer";
+import MigrateTable from "src/components/organism/MigrateTable";
 
 interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(3).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
 	return {
 		NRP: "HD787",
@@ -43,11 +32,10 @@ export const defaultDataTable = arr.map((_, index) => {
 	};
 });
 
+const columnHelper = createColumnHelper<IProps>();
+
 export default function Izin() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [globalFilter, setGlobalFilter] = React.useState("");
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
 	const [isShowDetail, setIsShowDetail] = React.useState(false);
 	const [formPosition, setformPosition] = React.useState(0);
 
@@ -56,9 +44,9 @@ export default function Izin() {
 		setformPosition(target.pageY - target.clientY);
 	};
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
 			cell: (info) =>
 				info.column.id === "Detail" ? (
 					<Grid container justifyContent="center" style={{ padding: "3px 0", borderRadius: 3 }}>
@@ -66,40 +54,15 @@ export default function Izin() {
 							style={{ cursor: "pointer" }}
 							width={20}
 							onClick={handleShowDetail}
-							color={colors.blue}
+							color={colors.primary}
 						/>
 					</Grid>
 				) : (
-					info.getValue()
+					info.renderValue()
 				),
-			header: () => (
-				<THContainer key={index}>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-			globalFilter,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
-
-	const handleChangeTotalShowData = (e: { target: { value: number } }) => {
-		table.setPageSize(e.target.value);
-	};
+			footer: (info) => info.column.id,
+		}),
+	);
 
 	return (
 		<>
@@ -117,15 +80,7 @@ export default function Izin() {
 				</Grid>
 			</TopFilter>
 			<LayoutTable>
-				<TableFilterSearch
-					table={table}
-					handleChangeTotalShowData={handleChangeTotalShowData}
-					globalFilter={globalFilter}
-					setGlobalFilter={setGlobalFilter}
-					withButton={true}
-					buttonTitle="EXPORT"
-				/>
-				<TableComponent2 table={table} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

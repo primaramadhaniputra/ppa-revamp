@@ -6,7 +6,7 @@ const Hm = dynamic(() => import("./Hm"), { ssr: false });
 const Material = dynamic(() => import("./Material"), { ssr: false });
 const Operator = dynamic(() => import("./Operator"), { ssr: false });
 
-const tabs = ["By HM", "By Material", "By Operator", "By Operator(Beta)"];
+const tabs = ["By HM", "By Material", "By Operator"];
 
 const renderContent = (type: string) => {
 	if (type === "By HM") {
@@ -14,8 +14,6 @@ const renderContent = (type: string) => {
 	} else if (type === "By Material") {
 		return <Material />;
 	} else if (type === "By Operator") {
-		return <Operator />;
-	} else if (type === "By Operator(Beta)") {
 		return <Operator />;
 	}
 };

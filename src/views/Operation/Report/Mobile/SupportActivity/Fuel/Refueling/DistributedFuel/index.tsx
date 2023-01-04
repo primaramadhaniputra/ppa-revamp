@@ -1,24 +1,11 @@
-import React from "react";
-import TableComponent2 from "src/components/organism/TableComp2";
-import {
-	ColumnDef,
-	getCoreRowModel,
-	getFilteredRowModel,
-	getPaginationRowModel,
-	useReactTable,
-	SortingState,
-	getSortedRowModel,
-} from "@tanstack/react-table";
-import CompleteArrow from "atoms/CompleteArrow";
-import { THContainer } from "atoms/THContainer";
+import React, { useMemo } from "react";
+import { createColumnHelper } from "@tanstack/react-table";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TitleText from "atoms/TitleText";
+import { Person } from "utils/interfaces";
+import MigrateTable from "src/components/organism/MigrateTable";
 
-interface IProps {
-	[x: string]: any;
-}
-
-const arr = new Array(1).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["FT"]: "-",
@@ -26,45 +13,26 @@ export const defaultDataTable = arr.map(() => {
 	};
 });
 
-export default function DistributedFuel() {
-	const objTitle = Object.keys(defaultDataTable.map((item) => item)[0]);
-	const [rowSelection, setRowSelection] = React.useState({});
-	const [sorting, setSorting] = React.useState<SortingState>([]);
+const columnHelper = createColumnHelper<Person>();
 
-	const columns: ColumnDef<IProps>[] = objTitle.map((item, index) => {
-		return {
-			accessorKey: item,
-			cell: (info) => info.getValue(),
-			header: () => (
-				<THContainer key={index}>
-					<span>{item}</span>
-					<CompleteArrow />
-				</THContainer>
-			),
-		};
-	});
-	const table = useReactTable({
-		data: defaultDataTable,
-		columns,
-		state: {
-			sorting,
-			rowSelection,
-		},
-		onSortingChange: setSorting,
-		onRowSelectionChange: setRowSelection,
-		getCoreRowModel: getCoreRowModel(),
-		getFilteredRowModel: getFilteredRowModel(),
-		getPaginationRowModel: getPaginationRowModel(),
-		debugTable: true,
-		getSortedRowModel: getSortedRowModel(),
-	});
+export default function DistributedFuel() {
+	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
+
+	const columns = objTitle.map((item) =>
+		columnHelper.accessor(item, {
+			header: () => item,
+			cell: (info) => info.renderValue(),
+			footer: (info) => info.column.id,
+		}),
+	);
+
 	return (
 		<>
 			<LayoutTable>
 				<TitleText>Distributed Fuel</TitleText>
 			</LayoutTable>
 			<LayoutTable style={{ marginTop: "0" }}>
-				<TableComponent2 table={table} noPagination={true} />
+				<MigrateTable data={defaultDataTable} columns={columns} />
 			</LayoutTable>
 		</>
 	);

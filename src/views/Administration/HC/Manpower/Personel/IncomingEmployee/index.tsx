@@ -37,7 +37,7 @@ const dataSelect = [
 ];
 
 export default function IncomingEmployee({ isShowDetail, setIsShowDetail, formPosition }: IProps) {
-	const [activetable, setActivetable] = useState("new hire");
+	const [activetable, setActivetable] = useState("newhire");
 
 	const handleSetActiveTable = (e: ISelectItem | ISelectItem[] | null) => {
 		setActivetable(e?.values);
