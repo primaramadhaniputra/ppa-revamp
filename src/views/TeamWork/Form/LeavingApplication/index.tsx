@@ -92,7 +92,7 @@ export default function LeavingApplication() {
 					style={{ cursor: "pointer" }}
 					onClick={handleShowDetail}
 				>
-					<IcEye width={18} color={colors.primary} />
+					<IcEye width={18} color={colors.blue} />
 				</Grid>
 			),
 			header: () => <span>Action</span>,

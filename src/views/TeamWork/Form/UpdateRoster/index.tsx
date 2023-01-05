@@ -48,7 +48,7 @@ export default function UpdateRoster() {
 					<Grid>
 						<IcEdit
 							width={20}
-							style={{ cursor: "pointer", color: colors.primary }}
+							style={{ cursor: "pointer", color: colors.blue }}
 							onClick={handleShowDetail}
 							color={colors.blue}
 						/>

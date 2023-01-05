@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors, fontSizing, fontWeights } from "utils/styles";
 
 export const StyledButton = styled.button`
-	background: ${colors.primary} !important;
+	background: ${colors.primary};
 	border-radius: 3px;
 	width: 100%;
 	border: none;

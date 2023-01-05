@@ -66,13 +66,13 @@ export default function SuratPelanggaran() {
 					<Grid container justifyContent="center" gap={10}>
 						<IcPrinter
 							width={20}
-							color={colors.primary}
+							color={colors.blue}
 							style={{ cursor: "pointer" }}
 							onClick={() => window.print()}
 						/>
 						<IcEye
 							width={20}
-							color={colors.primary}
+							color={colors.blue}
 							style={{ cursor: "pointer" }}
 							onClick={handleShowDetail}
 						/>

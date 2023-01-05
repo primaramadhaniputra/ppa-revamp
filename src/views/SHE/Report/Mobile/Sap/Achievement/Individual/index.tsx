@@ -49,7 +49,7 @@ export default function Individual() {
 							variant="h4"
 							onClick={handleShowDetail}
 							style={{
-								color: colors.primary,
+								color: colors.blue,
 								cursor: "pointer",
 								fontWeight: fontWeights.extraBold,
 							}}

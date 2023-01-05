@@ -54,7 +54,7 @@ export default function Izin() {
 							style={{ cursor: "pointer" }}
 							width={20}
 							onClick={handleShowDetail}
-							color={colors.primary}
+							color={colors.blue}
 						/>
 					</Grid>
 				) : (

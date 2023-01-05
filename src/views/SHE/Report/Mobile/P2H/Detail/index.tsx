@@ -50,7 +50,7 @@ export default function Detail() {
 								<IcEye
 									width={18}
 									style={{ cursor: "pointer" }}
-									color={colors.primary}
+									color={colors.blue}
 									onClick={handleShowDetail}
 								/>
 							</Grid>

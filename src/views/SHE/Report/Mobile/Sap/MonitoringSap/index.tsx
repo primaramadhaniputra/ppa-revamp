@@ -47,7 +47,7 @@ export default function MonitoringSap() {
 					<Grid container justifyContent="center">
 						<Icon
 							iconName="IcSearch"
-							color={colors.primary}
+							color={colors.blue}
 							onClick={handleShowDetail}
 							style={{ cursor: "pointer" }}
 						/>
