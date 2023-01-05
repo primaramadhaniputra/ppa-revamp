@@ -44,7 +44,7 @@ export default function EmployeeMutation() {
 							width={18}
 							style={{ cursor: "pointer" }}
 							onClick={(target) => handleShowDetail(target)}
-							color={colors.primary}
+							color={colors.blue}
 						/>
 					</Grid>
 				) : (

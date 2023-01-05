@@ -39,9 +39,7 @@ export default function Table() {
 				return (
 					<>
 						{info.column.id === "Detail" ? (
-							<Grid container justifyContent="center">
-								<IcEdit width={18} cursor="pointer" strokeWidth={2} color={colors.primary} />
-							</Grid>
+							<IcEdit width={18} cursor="pointer" strokeWidth={2} color={colors.blue} />
 						) : (
 							info.renderValue()
 						)}

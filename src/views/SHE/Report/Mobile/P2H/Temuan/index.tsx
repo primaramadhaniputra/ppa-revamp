@@ -47,7 +47,7 @@ export default function Temuan() {
 							<Grid container justifyContent="center">
 								<IcEye
 									width={18}
-									color={colors.primary}
+									color={colors.blue}
 									style={{ cursor: "pointer" }}
 									onClick={handleShowDetail}
 								/>

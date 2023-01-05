@@ -56,7 +56,7 @@ export default function Table() {
 								justifyContent="center"
 								onClick={(target) => handleShowDetail(target)}
 							>
-								<IcEdit width={18} cursor="pointer" color={colors.primary} />
+								<IcEdit width={18} cursor="pointer" color={colors.blue} />
 							</Grid>
 						) : (
 							info.getValue()

@@ -52,12 +52,7 @@ export default function ActivityReport() {
 			header: () => item,
 			cell: (info) => {
 				return info.column.id === "Action" ? (
-					<IcEye
-						width={24}
-						color={colors.primary}
-						cursor="pointer"
-						onClick={handleShowDetailTable}
-					/>
+					<IcEye width={24} color={colors.blue} cursor="pointer" onClick={handleShowDetailTable} />
 				) : (
 					info.getValue()
 				);

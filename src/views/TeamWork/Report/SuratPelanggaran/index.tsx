@@ -14,7 +14,7 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map((_, index) => {
 	return {
 		["Waktu Kejadian"]: "2022-10-12||10.30",
@@ -48,7 +48,7 @@ export default function SuratPelanggaran() {
 						width={20}
 						style={{ cursor: "pointer" }}
 						onClick={handleShowDetail}
-						color={colors.primary}
+						color={colors.blue}
 					/>
 				</Grid>
 			);

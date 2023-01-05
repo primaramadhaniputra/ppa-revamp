@@ -2,8 +2,6 @@ import React from "react";
 import DoughnutChart from "atoms/DoughnutChart";
 import { ColumnDef } from "@tanstack/react-table";
 import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
-import CompleteArrow from "atoms/CompleteArrow";
-import { THContainer } from "atoms/THContainer";
 import MigrateTable from "src/components/organism/MigrateTable";
 
 interface Person {
@@ -30,55 +28,30 @@ export default function VHMSDownload() {
 		{
 			accessorKey: "Model",
 			cell: (info) => info.getValue(),
-			header: () => (
-				<THContainer>
-					<span>Model</span>
-					<CompleteArrow />
-				</THContainer>
-			),
+			header: () => <span>Model</span>,
 			footer: (props) => props.column.id,
 		},
 		{
 			accessorFn: (row) => row.CN,
 			id: "CN",
 			cell: (info) => info.getValue(),
-			header: () => (
-				<THContainer>
-					<span>CN</span>
-					<CompleteArrow />
-				</THContainer>
-			),
+			header: () => <span>CN</span>,
 			footer: (props) => props.column.id,
 		},
 		{
 			accessorKey: "SN",
-			header: () => (
-				<THContainer>
-					<span>SN</span>
-					<CompleteArrow />
-				</THContainer>
-			),
+			header: () => <span>SN</span>,
 			footer: (props) => props.column.id,
 		},
 
 		{
 			accessorKey: "Last Download",
-			header: () => (
-				<THContainer>
-					<span>Last Download</span>
-					<CompleteArrow />
-				</THContainer>
-			),
+			header: () => <span>Last Download</span>,
 			footer: (props) => props.column.id,
 		},
 		{
 			accessorKey: "Last Operation",
-			header: () => (
-				<THContainer>
-					<span>Last Operation</span>
-					<CompleteArrow />
-				</THContainer>
-			),
+			header: () => <span>Last Operation</span>,
 			footer: (props) => props.column.id,
 		},
 		{
@@ -87,44 +60,24 @@ export default function VHMSDownload() {
 			columns: [
 				{
 					accessorKey: "Pldcycn Record",
-					header: () => (
-						<THContainer>
-							<span>Pldcycn Record</span>
-							<CompleteArrow />
-						</THContainer>
-					),
+					header: () => <span>Pldcycn Record</span>,
 					footer: (props) => props.column.id,
 				},
 				{
 					accessorKey: "Trend Record",
-					header: () => (
-						<THContainer>
-							<span>Trend Record</span>
-							<CompleteArrow />
-						</THContainer>
-					),
+					header: () => <span>Trend Record</span>,
 					footer: (props) => props.column.id,
 					cell: (info) => <span>{info.getValue()}</span>,
 				},
 				{
 					accessorKey: "Fault Record",
-					header: () => (
-						<THContainer>
-							<span>Fault Record</span>
-							<CompleteArrow />
-						</THContainer>
-					),
+					header: () => <span>Fault Record</span>,
 					footer: (props) => props.column.id,
 					cell: (info) => <span>{info.getValue()}</span>,
 				},
 				{
 					accessorKey: "Machine History",
-					header: () => (
-						<THContainer>
-							<span>Machine History</span>
-							<CompleteArrow />
-						</THContainer>
-					),
+					header: () => <span>Machine History</span>,
 					footer: (props) => props.column.id,
 				},
 			],
