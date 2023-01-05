@@ -3,7 +3,13 @@ import { Table } from "@tanstack/react-table";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
 import { colors } from "utils/styles";
-import { ContainerGlobalSearch, ContainerShow } from "./styles";
+import {
+	ContainerButton,
+	ContainerGlobalSearch,
+	ContainerInput,
+	ContainerShow,
+	Wrapper,
+} from "./styles";
 
 interface IProps {
 	globalFilter: string;
@@ -40,31 +46,35 @@ function DebouncedInput({
 
 export default function GlobaFilter({ globalFilter, setGlobalFilter, table }: IProps) {
 	return (
-		<Grid container alignItems="center" justifyContent="space-between" gap={10}>
+		<Wrapper>
 			<ContainerShow gap={10}>
 				<label>Show</label>
-				<input
-					type={"number"}
-					min={1}
-					onChange={(e) => {
-						table.setPageSize(Number(e.target.value));
-					}}
-				/>
-			</ContainerShow>
-			<ContainerGlobalSearch>
-				<Grid container style={{ minWidth: "150px" }}>
-					<StyledButton style={{ background: colors.primary }}>Export</StyledButton>
-				</Grid>
-				<Grid container alignItems="center" gap={5}>
-					<label>Search :</label>
-					<DebouncedInput
-						value={globalFilter ?? ""}
-						onChange={(value) => setGlobalFilter(String(value))}
-						className="p-2 font-lg shadow border border-block"
-						placeholder="Search all columns..."
+				<Grid>
+					<input
+						type={"number"}
+						min={1}
+						onChange={(e) => {
+							table.setPageSize(Number(e.target.value));
+						}}
 					/>
 				</Grid>
+			</ContainerShow>
+			<ContainerGlobalSearch>
+				<ContainerButton>
+					<StyledButton style={{ background: colors.primary }}>Export</StyledButton>
+				</ContainerButton>
+				<ContainerInput>
+					<label>Search :</label>
+					<Grid>
+						<DebouncedInput
+							value={globalFilter ?? ""}
+							onChange={(value) => setGlobalFilter(String(value))}
+							className="p-2 font-lg shadow border border-block"
+							placeholder="Search all columns..."
+						/>
+					</Grid>
+				</ContainerInput>
 			</ContainerGlobalSearch>
-		</Grid>
+		</Wrapper>
 	);
 }
