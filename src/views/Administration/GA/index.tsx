@@ -5,12 +5,12 @@ import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { SelectContainer } from "./styles";
+import FlightTicketView from "./FlightTicket";
+import STView from "./ST";
+import MessView from "./Mess";
 
-const FlightTicketView = dynamic(() => import("./FlightTicket"), { ssr: false });
 const TravelView = dynamic(() => import("./Travel"), { ssr: false });
-const STView = dynamic(() => import("./ST"), { ssr: false });
 const PackMealsView = dynamic(() => import("./PackMeals"), { ssr: false });
-const MessView = dynamic(() => import("./Mess"), { ssr: false });
 
 const selectItems = [
 	{ id: 1, values: "FLIGHT TICKET", label: "FLIGHT TICKET" },

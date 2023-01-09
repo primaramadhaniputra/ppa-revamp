@@ -1,13 +1,11 @@
 import { Grid } from "@hudoro/neron";
 import TabV4 from "molecules/TabV4";
-import dynamic from "next/dynamic";
 import React, { useState } from "react";
+import Fault from "./Fault";
+import History from "./History";
+import Performance from "./Performance";
 
 const tabs = ["Performance", "Fault", "History"];
-
-const Performance = dynamic(() => import("./Performance"), { ssr: false });
-const History = dynamic(() => import("./History"), { ssr: false });
-const Fault = dynamic(() => import("./Fault"), { ssr: false });
 
 const renderContent = (type: number) => {
 	if (type === 0) {

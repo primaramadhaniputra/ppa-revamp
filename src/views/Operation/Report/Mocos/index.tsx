@@ -1,14 +1,14 @@
 import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
+import ObProduction from "./ObProduction";
+import CoalProduction from "./CoalProduction";
+import OreProduction from "./OreProduction";
+import Costing from "./Costing";
+import Productivity from "./Productivity";
+import Bapa from "./Bapa";
+import Unit from "./Unit";
 
-const Unit = dynamic(() => import("./Unit"), { ssr: false });
-const Productivity = dynamic(() => import("./Productivity"), { ssr: false });
-const OreProduction = dynamic(() => import("./OreProduction"), { ssr: false });
-const ObProduction = dynamic(() => import("./ObProduction"), { ssr: false });
-const Costing = dynamic(() => import("./Costing"), { ssr: false });
-const CoalProduction = dynamic(() => import("./CoalProduction"), { ssr: false });
-const Bapa = dynamic(() => import("./Bapa"), { ssr: false });
 const Hpr = dynamic(() => import("./Hpr"), { ssr: false });
 const MohhDaily = dynamic(() => import("./MohhDaily"), { ssr: false });
 

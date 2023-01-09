@@ -1,16 +1,10 @@
 import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
+import PopulasiUnit from "./PopulasiUnit";
+import HPR from "./HPR";
+import Upload from "./Upload";
 
-const HPR = dynamic(() => import("./HPR"), {
-	ssr: false,
-});
-const PopulasiUnit = dynamic(() => import("./PopulasiUnit"), {
-	ssr: false,
-});
-const Upload = dynamic(() => import("./Upload"), {
-	ssr: false,
-});
 const HmBreakdownRevision = dynamic(() => import("./HmBreakdownRevision"), {
 	ssr: false,
 });

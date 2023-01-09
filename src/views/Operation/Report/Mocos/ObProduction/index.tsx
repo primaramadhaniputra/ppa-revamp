@@ -1,10 +1,10 @@
 import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
+import Hourly from "./Hourly";
 
 const tabs = ["Hourly", "Daily", "Excavator Set", "Distance Dev"];
 
-const Hourly = dynamic(() => import("./Hourly"), { ssr: false });
 const ExcavatorSet = dynamic(() => import("./ExcavatorSet"), { ssr: false });
 const DistanceDev = dynamic(() => import("./DistanceDev"), { ssr: false });
 const Dayli = dynamic(() => import("./Dayli"), { ssr: false });

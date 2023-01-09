@@ -4,11 +4,12 @@ import TabV1 from "molecules/TabV1";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
+import Academy from "./Academy";
 import { ArrowDown, SelectContainer } from "./styles";
+import Moco from "./Moco";
+import BaseControl from "./BaseControl";
+import GreaseOilCoolan from "./GreaseOilCoolan";
 
-const Moco = dynamic(() => import("./Moco"), { ssr: false });
-const BaseControl = dynamic(() => import("./BaseControl"), { ssr: false });
-const Academy = dynamic(() => import("./Academy"), { ssr: false });
 const RefuelingAccess = dynamic(() => import("./RefuelingAccess"), { ssr: false });
 const CheckerAccess = dynamic(() => import("./CheckerAccess"), { ssr: false });
 const PushCheckedOut = dynamic(() => import("./PushCheckedOut"), { ssr: false });
@@ -17,7 +18,6 @@ const RefuelVersion = dynamic(() => import("./RefuelVersion"), { ssr: false });
 const FuelRate = dynamic(() => import("./FuelRate"), { ssr: false });
 const FuelStation = dynamic(() => import("./FuelStation"), { ssr: false });
 const OperasionalPlan = dynamic(() => import("./OperasionalPlan"), { ssr: false });
-const GreaseOilCoolan = dynamic(() => import("./GreaseOilCoolan"), { ssr: false });
 
 const tabsData = [
 	"Academy",

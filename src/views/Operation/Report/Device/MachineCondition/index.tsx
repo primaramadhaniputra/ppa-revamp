@@ -1,9 +1,7 @@
 import TabV3 from "molecules/TabV3";
-import dynamic from "next/dynamic";
 import React, { useState } from "react";
-
-const Loader = dynamic(() => import("./Loader"), { ssr: false });
-const Hauler = dynamic(() => import("./Hauler"), { ssr: false });
+import Hauler from "./Hauler";
+import Loader from "./Loader";
 
 const tabs = ["Loader", "Hauler"];
 

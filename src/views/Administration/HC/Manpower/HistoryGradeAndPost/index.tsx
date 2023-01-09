@@ -7,7 +7,7 @@ import { Person } from "utils/interfaces";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import MigrateTable from "src/components/organism/MigrateTable";
 
-const arr = new Array(1).fill(0);
+const arr = new Array(10).fill(0);
 export const defaultDataTable = arr.map(() => {
 	return {
 		["NRP"]: "",
