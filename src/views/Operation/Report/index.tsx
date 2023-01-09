@@ -4,12 +4,12 @@ import TabV1 from "molecules/TabV1";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
+import BaseControl from "./BaseControl";
+import Device from "./Device";
+import Mobile from "./Mobile";
+import Mocos from "./Mocos";
 import { ArrowDown, SelectContainer } from "./styles";
 
-const BaseControl = dynamic(() => import("./BaseControl"), { ssr: false });
-const Device = dynamic(() => import("./Device"), { ssr: false });
-const Mobile = dynamic(() => import("./Mobile"), { ssr: false });
-const Mocos = dynamic(() => import("./Mocos"), { ssr: false });
 const CostParameter = dynamic(() => import("./CostParameter"), { ssr: false });
 
 const tabsData = ["Device", "Mobile", "Moco", "Base Control", "Cost Parameter"];

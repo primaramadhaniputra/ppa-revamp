@@ -2,17 +2,13 @@ import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper, WrapperTitle, TitleText } from "views/Administration/styles";
+import Assessment from "./Assessment";
+import EmployeeNonAktif from "./EmployeeNonAktif";
 
-const Assessment = dynamic(() => import("./Assessment"), {
-	ssr: false,
-});
 const HistoryGradeAndPost = dynamic(() => import("./HistoryGradeAndPost"), {
 	ssr: false,
 });
 const Personel = dynamic(() => import("./Personel"), {
-	ssr: false,
-});
-const EmployeeNonAktif = dynamic(() => import("./EmployeeNonAktif"), {
 	ssr: false,
 });
 const Agreement = dynamic(() => import("./Agreement"), {

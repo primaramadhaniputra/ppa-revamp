@@ -2,12 +2,12 @@ import TabV2 from "molecules/TabV2";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Wrapper } from "views/Administration/styles";
+import SaldoCuti from "./SaldoCuti";
 
 const tabTitle = ["WAITING TO CONFIRM", "LEAVING REPORT", "SALDO CUTI", "MONITORING"];
 
 const WaitingToConfirm = dynamic(() => import("./WaitingToConfirm"), { ssr: false });
 const LeavingReport = dynamic(() => import("./LeavingReport"), { ssr: false });
-const SaldoCuti = dynamic(() => import("./SaldoCuti"), { ssr: false });
 const Monitoring = dynamic(() => import("./Monitoring"), { ssr: false });
 
 const renderContent = (type: string) => {

@@ -5,10 +5,10 @@ import TabV1 from "molecules/TabV1";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { useWindowSize } from "utils/functions";
+import Device from "./Device";
+import Mobile from "./Mobile";
 
-const Device = dynamic(() => import("./Device"), { ssr: false });
 const SafetyPerformance = dynamic(() => import("./SafetyPerformance"), { ssr: false });
-const Mobile = dynamic(() => import("./Mobile"), { ssr: false });
 
 const selectItems = [
 	{ id: 1, values: "Safety Performance", label: "Safety Performance" },
