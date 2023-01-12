@@ -1,8 +1,6 @@
 import { Grid, Icon, Text } from "@hudoro/neron";
 import React, { useMemo } from "react";
 import { createColumnHelper } from "@tanstack/react-table";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import { Wrapper } from "./styles";
 import { Person } from "utils/interfaces";
 import MigrateTable from "src/components/organism/MigrateTable";
@@ -38,10 +36,6 @@ export default function DataDetail({ isShowDetail, setIsShowDetail, formPosition
 	const handleCloseShowDetail = () => {
 		setIsShowDetail(false);
 	};
-
-	isShowDetail
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
 
 	return (
 		<>

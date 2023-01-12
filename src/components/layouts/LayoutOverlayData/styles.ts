@@ -5,7 +5,7 @@ import { breakpoints, colors, fontSizing } from "utils/styles";
 export const Wrapper = styled.div`
 	background-color: rgba(0, 0, 0, 0.7);
 	padding: 10px;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 	bottom: 0;
