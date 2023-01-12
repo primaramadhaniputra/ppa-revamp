@@ -14,8 +14,6 @@ import {
 	Wrapper,
 } from "../styles";
 import { Chart, ChartWrapper } from "./styles";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 
 interface IProps {
 	sites: allSites[];
@@ -36,9 +34,6 @@ export default function Sites({ sites }: IProps) {
 		setformPosition(0);
 	};
 
-	isShowChart
-		? disableBodyScroll(Html as unknown as HTMLElement | Element)
-		: enableBodyScroll(Html as unknown as HTMLElement | Element);
 	return (
 		<>
 			<ChartWrapper

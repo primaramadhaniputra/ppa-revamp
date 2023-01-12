@@ -12,8 +12,6 @@ import { ISingleUser, IUserList } from "utils/interfaces";
 import Loading from "atoms/Loading";
 import FlyingForm from "./FlyingForm";
 import { useRouter } from "next/router";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import MigrateTable from "src/components/organism/MigrateTable";
 
@@ -161,8 +159,6 @@ export default function AccessControl() {
 		setIsEdit(false);
 		setformPosition(0);
 	};
-
-	isEdit ? disableBodyScroll(Html as any) : enableBodyScroll(Html as any);
 
 	return (
 		<>

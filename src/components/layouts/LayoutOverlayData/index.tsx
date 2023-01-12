@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { Html } from "next/document";
+import React from "react";
 import Image from "next/image";
 import { Grid } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
@@ -19,7 +17,6 @@ interface IProps {
 const LayoutOverlayData = ({
 	isShowDetail,
 	setIsShowDetail,
-	formPosition,
 	children,
 	title,
 	width,
@@ -32,18 +29,11 @@ const LayoutOverlayData = ({
 		}
 	};
 
-	useEffect(() => {
-		if (isShowDetail) {
-			return disableBodyScroll(Html as unknown as HTMLElement | Element);
-		}
-		return enableBodyScroll(Html as unknown as HTMLElement | Element);
-	}, [isShowDetail]);
 	return (
 		<Wrapper
 			style={{
 				zIndex: isShowDetail ? 999 : -999,
 				opacity: isShowDetail ? 1 : 0,
-				top: `${formPosition}px`,
 			}}
 			onClick={handleCloseShowDetail as any}
 			className="wrapper"
