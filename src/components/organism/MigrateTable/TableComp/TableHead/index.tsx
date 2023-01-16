@@ -24,7 +24,7 @@ const TableHeade = ({ table }: IProps) => {
 												onClick: header.column.getToggleSortingHandler(),
 											}}
 										>
-											{flexRender(header.column.columnDef.header, header.getContext())}
+											<span>{flexRender(header.column.columnDef.header, header.getContext())}</span>
 											{{
 												asc: <IcBarsArrowDown width={24} />,
 												desc: <IcBarsArrowUp width={24} />,
