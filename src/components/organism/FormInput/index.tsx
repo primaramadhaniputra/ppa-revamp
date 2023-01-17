@@ -1,4 +1,4 @@
-import { Grid, Radio, Text } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import { IcLoading } from "atoms/Icon";
 import LabeledInput from "atoms/LabeledInput";
 import StyledButton from "atoms/StyledButton";
@@ -15,7 +15,7 @@ interface IProps {
 }
 
 export default function FormInput({ color }: IProps) {
-	const [checkedRadio, setCheckedRadio] = useState(false);
+	// const [checkedRadio, setCheckedRadio] = useState(false);
 	const [isLogin, setIsLogin] = useState(false);
 
 	const router = useRouter();
@@ -42,9 +42,9 @@ export default function FormInput({ color }: IProps) {
 			setIsLogin(false);
 		}
 	};
-	const handleRadio = () => {
-		setCheckedRadio(!checkedRadio);
-	};
+	// const handleRadio = () => {
+	// 	setCheckedRadio(!checkedRadio);
+	// };
 
 	const handleForgotPassword = () => {
 		router.push("/forgot-password");
@@ -62,13 +62,13 @@ export default function FormInput({ color }: IProps) {
 						name="password"
 						type="password"
 					/>
-					<RadioWrapper container alignItems="center" justifyContent="space-between">
-						<Radio
+					<RadioWrapper container alignItems="center" justifyContent="flex-end">
+						{/* <Radio
 							label="Remember me"
 							onClick={handleRadio}
 							onChange={handleRadio}
 							checked={checkedRadio}
-						/>
+						/> */}
 						<Text
 							variant="p"
 							style={{ fontSize: fontSizing.xs.fontSize, cursor: "pointer" }}
