@@ -103,14 +103,22 @@ const Navbar2 = () => {
 							onClick={() => (width > 1024 ? {} : handleShowSubMenu(index))}
 						>
 							<Grid container gap={3} alignItems="center" style={{ cursor: "pointer" }}>
-								<Styledtext>{item.title}</Styledtext>
-								<Icon
-									iconName={activeSubmenu === index ? "IcArrowUp" : "IcArrowDown"}
-									color="white"
-								/>
+								{item.subMenu ? (
+									<Styledtext>{item.title}</Styledtext>
+								) : (
+									<Link href={`/dashboard/${item.title.toLowerCase()}`} passHref>
+										<Styledtext>{item.title}</Styledtext>
+									</Link>
+								)}
+								{item.subMenu && (
+									<Icon
+										iconName={activeSubmenu === index ? "IcArrowUp" : "IcArrowDown"}
+										color="white"
+									/>
+								)}
 							</Grid>
 							<ContainerSubmenu activeSubMenu={activeSubmenu === index && true}>
-								{item.subMenu.map((data) => (
+								{item.subMenu?.map((data) => (
 									<Link href={`/dashboard/${data.subMenuLink}`} passHref>
 										<StyledTextSubmenu style={{ fontSize: "12px", cursor: "pointer" }}>
 											{data.subMenuTitle}
