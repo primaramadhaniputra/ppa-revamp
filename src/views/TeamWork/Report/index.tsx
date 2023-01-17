@@ -40,7 +40,11 @@ const tabsData = [
 	"Turn Over",
 ];
 
-const renderContent = (type: string) => {
+interface IProps {
+	type: string;
+}
+
+const RenderContent = ({ type }: IProps) => {
 	if (type === "Attendance Ratio") {
 		return <AttendanceRatio />;
 	} else if (type === "Attendance Detail") {
@@ -57,7 +61,7 @@ const renderContent = (type: string) => {
 		return <TurnOver />;
 	} else if (type === "Self Attendance") {
 		return <SelfAttendance />;
-	} else if (type === "Ranking Operator") {
+	} else {
 		return <RankingOperator />;
 	}
 };
@@ -91,7 +95,7 @@ export default function Form() {
 					<ArrowDown></ArrowDown>
 				</SelectContainer>
 			)}
-			{renderContent(selectedItem)}
+			<RenderContent type={selectedItem} />
 		</>
 	);
 }

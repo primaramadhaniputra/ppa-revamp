@@ -46,7 +46,7 @@ const tabsData = [
 	"Employee Mutation",
 ];
 
-const renderContent = (type: string) => {
+const RenderContent = ({ type }: any) => {
 	if (type === "Upload Roster") {
 		return <UploadRoster />;
 	} else if (type === "Update Roster") {
@@ -67,7 +67,7 @@ const renderContent = (type: string) => {
 		return <EmployeeMutation />;
 	} else if (type === "Upload SPL") {
 		return <UploadSpl />;
-	} else if (type === "Upload DAR") {
+	} else {
 		return <UploadDar />;
 	}
 };
@@ -95,7 +95,7 @@ export default function Form() {
 					/>
 				</SelectContainer>
 			)}
-			{renderContent(selectedItem)}
+			<RenderContent type={selectedItem} />
 		</>
 	);
 }
