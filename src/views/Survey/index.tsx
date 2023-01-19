@@ -1,6 +1,7 @@
 import TitlePage from "atoms/TitlePage";
 import React from "react";
-import { CardTitle, Container, StyledCard } from "./styles";
+import { CardSite } from "./CardSite";
+import PointDescription from "./PointDescription";
 
 const Survey = () => {
 	return (
@@ -8,11 +9,8 @@ const Survey = () => {
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
 				Survey Kepuasan Pelanggan
 			</TitlePage>
-			<Container>
-				<StyledCard>
-					<CardTitle>Site BIB</CardTitle>
-				</StyledCard>
-			</Container>
+			<CardSite />
+			<PointDescription />
 		</>
 	);
 };
