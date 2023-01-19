@@ -44,7 +44,9 @@ export const CardSite = () => {
 							</Grid>
 						</Grid>
 					</Grid>
-					<TextDesc>Good</TextDesc>
+					<TextDesc>
+
+					</TextDesc>
 				</StyledCard>
 			))}
 		</CardSiteContainer>

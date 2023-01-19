@@ -49,4 +49,12 @@ export const TextDesc = styled.p`
 	height: max-content;
 	padding: 5px 12px;
 	font-weight: 600;
+	&::after {
+		display: block;
+		content: "";
+		width: 10px;
+		height: 10px;
+		background-color: #0062a3;
+		border-radius: 50%;
+	}
 `;
