@@ -23,6 +23,8 @@ import IcBarsArrowDown from "./IcBarsArrowDown";
 import IcBarsArrowUp from "./IcBarsArrowUp";
 import IcAlertCircle from "./IcAlertCircle";
 import IcSum from "./IcSum";
+import IcAverage from "./IcAverage";
+import IcScore from "./IcScore";
 
 export {
 	IcClose,
@@ -50,4 +52,6 @@ export {
 	IcBarsArrowUp,
 	IcAlertCircle,
 	IcSum,
+	IcAverage,
+	IcScore,
 };

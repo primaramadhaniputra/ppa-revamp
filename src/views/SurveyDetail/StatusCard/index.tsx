@@ -1,15 +1,17 @@
 import { Grid } from "@hudoro/neron";
-import { IcSum } from "atoms/Icon";
+import { IcAverage, IcScore, IcSum } from "atoms/Icon";
 import React from "react";
-import { Container, StatusText, StyledCard, ValueText } from "./styles";
+import { Container, IconContainer, StatusText, StyledCard, ValueText } from "./styles";
 
 const StatusCard = () => {
 	return (
 		<Container>
 			<StyledCard>
 				<Grid container gap={24} alignItems="center">
-					<IcSum width={62} />
-					<Grid container flexDirection="column" alignItems="center" gap={10}>
+					<IconContainer>
+						<IcSum width={32} color="#2F88FF" />
+					</IconContainer>
+					<Grid container flexDirection="column" gap={10}>
 						<StatusText>Total</StatusText>
 						<ValueText>17</ValueText>
 					</Grid>
@@ -17,19 +19,23 @@ const StatusCard = () => {
 			</StyledCard>
 			<StyledCard>
 				<Grid container gap={24} alignItems="center">
-					<IcSum width={62} />
-					<Grid container flexDirection="column" alignItems="center" gap={10}>
-						<StatusText>Total</StatusText>
+					<IconContainer>
+						<IcAverage width={32} color="#2F88FF" />
+					</IconContainer>
+					<Grid container flexDirection="column" gap={10}>
+						<StatusText>Rata-Rata</StatusText>
 						<ValueText>17</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>
 			<StyledCard>
 				<Grid container gap={24} alignItems="center">
-					<IcSum width={62} />
-					<Grid container flexDirection="column" alignItems="center" gap={10}>
-						<StatusText>Total</StatusText>
-						<ValueText>17</ValueText>
+					<IconContainer>
+						<IcScore width={32} color="#2F88FF" />
+					</IconContainer>
+					<Grid container flexDirection="column" gap={10}>
+						<StatusText>Score</StatusText>
+						<ValueText>Good</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>

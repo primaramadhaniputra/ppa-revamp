@@ -15,6 +15,13 @@ export const StyledCard = styled(Card)`
 	border-radius: 0;
 	flex: 1;
 	min-width: 250px;
+	padding: 17.5px 14px;
+`;
+
+export const IconContainer = styled.div`
+	background: #d5e9eb;
+	border-radius: 8px;
+	padding: 15px;
 `;
 
 export const StatusText = styled.p`

@@ -1,5 +1,6 @@
 import TitlePage from "atoms/TitlePage";
 import React from "react";
+import CardDetail from "./CardDetail";
 import StatusCard from "./StatusCard";
 
 interface IProps {
@@ -13,6 +14,7 @@ const SurveyDetail = ({ slug }: IProps) => {
 				Laporan Survey / {slug}
 			</TitlePage>
 			<StatusCard />
+			<CardDetail />
 		</>
 	);
 };
