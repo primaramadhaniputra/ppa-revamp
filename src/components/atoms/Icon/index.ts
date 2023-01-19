@@ -21,6 +21,10 @@ import IcBarChart from "./IcBarChart";
 import IcCursorArrow from "./IcCursorArrow";
 import IcBarsArrowDown from "./IcBarsArrowDown";
 import IcBarsArrowUp from "./IcBarsArrowUp";
+import IcAlertCircle from "./IcAlertCircle";
+import IcSum from "./IcSum";
+import IcAverage from "./IcAverage";
+import IcScore from "./IcScore";
 
 export {
 	IcClose,
@@ -46,4 +50,8 @@ export {
 	IcCursorArrow,
 	IcBarsArrowDown,
 	IcBarsArrowUp,
+	IcAlertCircle,
+	IcSum,
+	IcAverage,
+	IcScore,
 };

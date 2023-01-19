@@ -105,6 +105,15 @@ export const Link = [
 			},
 		],
 	},
+	{
+		title: "Survey",
+		// subMenu: [
+		// 	{
+		// 		subMenuTitle: "Report",
+		// 		subMenuLink: "production/report",
+		// 	},
+		// ],
+	},
 ];
 
 export const footer = [

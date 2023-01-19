@@ -101,7 +101,7 @@ export const SingleLink = styled(Grid).attrs({
 		border-bottom: none;
 		padding-bottom: 0;
 		position: relative;
-		padding: 15px 5px;
+		padding: 15px 2px;
 		transition: 0.3s;
 		&:hover {
 			background-color: rgba(0, 0, 0, 0.3);
