@@ -30,23 +30,21 @@ export const CardSite = () => {
 						container
 						flexDirection="column"
 						justifyContent="space-between"
-						style={{ flex: 1, marginLeft: "24px" }}
+						style={{ marginLeft: "24px" }}
 					>
 						<CardTitle>{item}</CardTitle>
-						<Grid container alignItems="flex-end" gap={24}>
+						<Grid container alignItems="flex-end" justifyContent="space-between" gap={24}>
 							<Grid>
 								<SubTitle>Total</SubTitle>
 								<CardTitle>154</CardTitle>
 							</Grid>
-							<Grid>
+							<Grid container flexDirection="column">
 								<SubTitle>Rata Rata</SubTitle>
 								<CardTitle>7.7</CardTitle>
 							</Grid>
 						</Grid>
 					</Grid>
-					<TextDesc>
-
-					</TextDesc>
+					<TextDesc style={{ margin: "0 0 0 auto" }} />
 				</StyledCard>
 			))}
 		</CardSiteContainer>
