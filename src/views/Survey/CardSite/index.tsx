@@ -12,7 +12,7 @@ import {
 
 const DummyData = ["SITE BIB", "SITE SKS", "SITE MLP", "SITE BA"];
 
-export const CardSite = () => {
+const CardSite = () => {
 	return (
 		<CardSiteContainer>
 			{DummyData.map((item, index) => (
@@ -50,3 +50,5 @@ export const CardSite = () => {
 		</CardSiteContainer>
 	);
 };
+
+export default React.memo(CardSite);

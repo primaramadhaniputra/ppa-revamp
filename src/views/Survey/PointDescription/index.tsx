@@ -16,4 +16,4 @@ const PointDescription = () => {
 	);
 };
 
-export default PointDescription;
+export default React.memo(PointDescription);
