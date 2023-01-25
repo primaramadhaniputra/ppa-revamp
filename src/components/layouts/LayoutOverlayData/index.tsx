@@ -22,11 +22,8 @@ const LayoutOverlayData = ({
 	width,
 	button,
 }: IProps) => {
-	const handleCloseShowDetail = (e: { target: { classList: string } }) => {
-		const WrapperClass = [...e.target.classList];
-		if (WrapperClass.includes("wrapper")) {
-			setIsShowDetail(false);
-		}
+	const handleCloseShowDetail = () => {
+		setIsShowDetail(false);
 	};
 
 	return (
@@ -34,15 +31,17 @@ const LayoutOverlayData = ({
 			style={{
 				zIndex: isShowDetail ? 999 : -999,
 				opacity: isShowDetail ? 1 : 0,
+				transitionDelay: isShowDetail ? "0s" : ".3s",
 			}}
-			onClick={handleCloseShowDetail as any}
+			onClick={handleCloseShowDetail}
 			className="wrapper"
 		>
 			<Container
 				style={{
-					transform: isShowDetail ? "translateY(30px)" : "translateY(0)",
+					transform: isShowDetail ? "translateY(40px)" : "translateY(-120%)",
 					maxWidth: `${width}px`,
 				}}
+				onClick={(e) => e.stopPropagation}
 			>
 				{title && (
 					<ContainerTitle>

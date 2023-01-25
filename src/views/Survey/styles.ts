@@ -15,7 +15,6 @@ export const StyledCard = styled(Card)`
 	border-radius: 10px;
 	display: flex;
 	flex: 1;
-	/* max-width: 374px; */
 	padding: 14px;
 `;
 
