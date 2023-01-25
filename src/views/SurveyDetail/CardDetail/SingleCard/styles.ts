@@ -19,18 +19,27 @@ export const CardTitle = styled.p`
 	font-size: 24px;
 	line-height: 36px;
 	color: #000000;
+	@media (max-width: 500px) {
+		font-size: 20px;
+	}
 `;
 
 export const DescriptionText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-size: 18px;
 	line-height: 27px;
+	@media (max-width: 500px) {
+		font-size: 14px;
+	}
 `;
 export const PoinText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-size: 18px;
 	line-height: 27px;
 	font-weight: 600;
+	@media (max-width: 500px) {
+		font-size: 14px;
+	}
 `;
 
 export const Progress = styled.progress<IProps>`
@@ -38,6 +47,9 @@ export const Progress = styled.progress<IProps>`
 	width: 100%;
 	height: 27px;
 	margin-top: 16px;
+	@media (max-width: 500px) {
+		height: 15px;
+	}
 	/* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
 	&::-webkit-progress-bar {
 		background: #f1f1fa;
