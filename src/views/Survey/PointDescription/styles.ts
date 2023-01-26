@@ -18,6 +18,9 @@ export const CardTitle = styled.p`
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 36px;
+	@media (max-width: 500px) {
+		font-size: 18px;
+	}
 `;
 
 export const Container = styled.div`
@@ -40,5 +43,8 @@ export const PointContainer = styled.div<IProps>`
 		width: 18px;
 		height: 18px;
 		background: ${(props) => props.pointColor};
+	}
+	@media (max-width: 500px) {
+		font-size: 12px;
 	}
 `;

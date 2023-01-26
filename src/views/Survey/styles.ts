@@ -16,6 +16,7 @@ export const StyledCard = styled(Card)`
 	display: flex;
 	flex: 1;
 	padding: 14px;
+	cursor: pointer;
 `;
 
 export const LogoContainer = styled.div`
@@ -30,6 +31,9 @@ export const CardTitle = styled.p`
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 36px;
+	@media (max-width: 500px) {
+		font-size: 18px;
+	}
 `;
 
 export const SubTitle = styled.p`
@@ -38,6 +42,9 @@ export const SubTitle = styled.p`
 	font-size: 14px;
 	line-height: 21px;
 	color: #29cc6a;
+	@media (max-width: 500px) {
+		font-size: 12px;
+	}
 `;
 
 export const TextDesc = styled.p`
