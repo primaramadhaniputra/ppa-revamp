@@ -138,3 +138,17 @@ export interface IDate {
 export interface Person {
 	[x: string]: any;
 }
+
+export interface ISurveyPeriode {
+	id: string;
+	title: string;
+	season: string;
+}
+
+export interface ISurveyReportCriteria {
+	average: number;
+	id: string;
+	image: string;
+	name: string;
+	total: number;
+}

@@ -2,6 +2,7 @@ import { Grid } from "@hudoro/neron";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { ISurveyReportCriteria } from "utils/interfaces";
 import {
 	CardSiteContainer,
 	CardTitle,
@@ -11,45 +12,46 @@ import {
 	TextDesc,
 } from "../styles";
 
-const DummyData = ["SITE BIB", "SITE SKS", "SITE MLP", "SITE BA"];
+interface IProps {
+	reportCriteria: ISurveyReportCriteria[];
+}
 
-const CardSite = () => {
+const CardSite = ({ reportCriteria }: IProps) => {
 	return (
 		<CardSiteContainer>
-			{DummyData.map((item, index) => (
-				<Link href="survey/1" passHref>
-					<StyledCard key={index}>
-						<LogoContainer>
-							<Image
-								alt="Site Logo"
-								src={"/logo/production2.png"}
-								width={40}
-								height={40}
-								quality={100}
-							/>
-						</LogoContainer>
-						<Grid
-							container
-							flexDirection="column"
-							justifyContent="space-between"
-							style={{ marginLeft: "24px" }}
-						>
-							<CardTitle>{item}</CardTitle>
-							<Grid container alignItems="flex-end" justifyContent="space-between" gap={24}>
-								<Grid>
-									<SubTitle>Total</SubTitle>
-									<CardTitle>154</CardTitle>
+			{reportCriteria.length > 0
+				? reportCriteria.map((item, index) => (
+						<Link href={`survey/${item.id}`}>
+							<StyledCard key={index}>
+								<LogoContainer>
+									<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
+								</LogoContainer>
+								<Grid
+									container
+									flexDirection="column"
+									justifyContent="space-between"
+									style={{ marginLeft: "24px" }}
+									gap={10}
+								>
+									<Grid>
+										<CardTitle>{item.name}</CardTitle>
+									</Grid>
+									<Grid container alignItems="flex-end" gap={40}>
+										<Grid container flexDirection="column">
+											<SubTitle>Total</SubTitle>
+											<CardTitle>{item.total}</CardTitle>
+										</Grid>
+										<Grid container flexDirection="column">
+											<SubTitle>Rata Rata</SubTitle>
+											<CardTitle>{item.average.toFixed(2)}</CardTitle>
+										</Grid>
+									</Grid>
 								</Grid>
-								<Grid container flexDirection="column">
-									<SubTitle>Rata Rata</SubTitle>
-									<CardTitle>7.7</CardTitle>
-								</Grid>
-							</Grid>
-						</Grid>
-						<TextDesc style={{ margin: "0 0 0 auto" }} />
-					</StyledCard>
-				</Link>
-			))}
+								<TextDesc style={{ margin: "0 0 0 10px" }} />
+							</StyledCard>
+						</Link>
+				  ))
+				: null}
 		</CardSiteContainer>
 	);
 };

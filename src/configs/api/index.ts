@@ -31,6 +31,9 @@ const API = {
 
 	// PRODUCTION
 	getAllSiteProduction: apiRequest.get(apiEndpoints.production, true),
+
+	// SURVEY
+	getCriteria: apiRequest.get(apiEndpoints.survey),
 };
 
 export default API;

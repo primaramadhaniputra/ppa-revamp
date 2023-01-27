@@ -1,16 +1,16 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import StyledButton from "atoms/StyledButton";
 import React from "react";
-import UltimateInput from "src/components/organism/UltimateInput";
 import FileSaver from "file-saver";
 import XLSX from "sheetjs-style";
+import { StyledLabel } from "atoms/LabeledInput/styles";
 
 interface IProps {
-	setYears: React.Dispatch<React.SetStateAction<number>>;
-	setSemester: React.Dispatch<React.SetStateAction<number>>;
+	periode: ISelectItem[];
+	setPeriodeId: React.Dispatch<any>;
 }
 
-const FilterPeriod = ({ setYears, setSemester }: IProps) => {
+const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
 	const exportToExcel = () => {
 		const fileName = "Excel Export";
 		const excelData = [
@@ -32,29 +32,19 @@ const FilterPeriod = ({ setYears, setSemester }: IProps) => {
 		FileSaver.saveAs(data, fileName + fileExtension);
 	};
 
+	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
+		setPeriodeId(e?.values);
+	};
+
 	return (
-		<Grid container gap={20} justifyContent="space-between">
+		<Grid container gap={20} justifyContent="flex-end">
 			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
-				<UltimateInput
-					isInput={true}
-					type="number"
-					min={2020}
-					max={2030}
-					defaultValue={2020}
-					title="Tahun"
-					onChange={(e) => setYears(parseInt(e.target.value))}
-				/>
-				<UltimateInput
-					isInput={true}
-					type="number"
-					min={1}
-					max={10}
-					defaultValue={1}
-					title="Semester"
-					onChange={(e) => setSemester(parseInt(e.target.value))}
-				/>
+				<Grid container gap={5} flexDirection="column">
+					<StyledLabel>Periode</StyledLabel>
+					<Select items={periode} onChange={handleChangePeriode} defaultValue={periode[0]} />
+				</Grid>
 			</Grid>
-			<Grid container alignItems="flex-end" style={{ minWidth: "140px" }}>
+			<Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
 				<StyledButton onClick={exportToExcel}>Export</StyledButton>
 			</Grid>
 		</Grid>

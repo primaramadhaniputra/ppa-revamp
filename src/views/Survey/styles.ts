@@ -24,6 +24,9 @@ export const LogoContainer = styled.div`
 	border-radius: 10px;
 	padding: 36px 24px;
 	width: max-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const CardTitle = styled.p`
