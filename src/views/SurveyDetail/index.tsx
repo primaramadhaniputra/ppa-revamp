@@ -1,20 +1,21 @@
 import TitlePage from "atoms/TitlePage";
 import React from "react";
+import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 import CardDetail from "./CardDetail";
 import StatusCard from "./StatusCard";
 
 interface IProps {
-	slug: string;
+	dataReport: ISurveyReportCriteriaDetail[];
 }
 
-const SurveyDetail = ({ slug }: IProps) => {
+const SurveyDetail = ({ dataReport }: IProps) => {
 	return (
 		<>
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
-				Laporan Survey / {slug}
+				Detail Laporan Survey
 			</TitlePage>
 			<StatusCard />
-			<CardDetail />
+			<CardDetail dataReport={dataReport} />
 		</>
 	);
 };

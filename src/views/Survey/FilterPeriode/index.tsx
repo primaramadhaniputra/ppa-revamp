@@ -1,62 +1,56 @@
-import { Grid } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
+import { Grid, ISelectItem, Select } from "@hudoro/neron";
+// import StyledButton from "atoms/StyledButton";
 import React from "react";
-import UltimateInput from "src/components/organism/UltimateInput";
-import FileSaver from "file-saver";
-import XLSX from "sheetjs-style";
+// import FileSaver from "file-saver";
+// import XLSX from "sheetjs-style";
+import { StyledLabel } from "atoms/LabeledInput/styles";
+import { ISurveyReportCriteria } from "utils/interfaces";
 
 interface IProps {
-	setYears: React.Dispatch<React.SetStateAction<number>>;
-	setSemester: React.Dispatch<React.SetStateAction<number>>;
+	periode: ISelectItem[];
+	setPeriodeId: React.Dispatch<any>;
+	periodeId: string;
+	reportCriteria: ISurveyReportCriteria[];
 }
 
-const FilterPeriod = ({ setYears, setSemester }: IProps) => {
-	const exportToExcel = () => {
-		const fileName = "Excel Export";
-		const excelData = [
-			{
-				firstName: "dani",
-				lastName: "ganteng",
-				desc: "dani ganteng banget",
-			},
-		];
+const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
+	// const exportToExcel = async () => {
+	// 	const fileName = "banana Export";
 
-		const fileType =
-			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
-		const fileExtension = ".xlsx";
+	// 	const excelData = [
+	// 		{
+	// 			firstName: "dani",
+	// 			lastName: "ganteng",
+	// 			desc: "dani ganteng banget",
+	// 		},
+	// 	];
 
-		const ws = XLSX.utils.json_to_sheet(excelData);
-		const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-		const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-		const data = new Blob([excelBuffer], { type: fileType });
-		FileSaver.saveAs(data, fileName + fileExtension);
+	// 	const fileType =
+	// 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+	// 	const fileExtension = ".xlsx";
+
+	// 	const ws = XLSX.utils.json_to_sheet(excelData);
+	// 	const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
+	// 	const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+	// 	const data = new Blob([excelBuffer], { type: fileType });
+	// 	FileSaver.saveAs(data, fileName + fileExtension);
+	// };
+
+	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
+		setPeriodeId(e?.values);
 	};
 
 	return (
-		<Grid container gap={20} justifyContent="space-between">
+		<Grid container gap={20} justifyContent="flex-end">
 			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
-				<UltimateInput
-					isInput={true}
-					type="number"
-					min={2020}
-					max={2030}
-					defaultValue={2020}
-					title="Tahun"
-					onChange={(e) => setYears(parseInt(e.target.value))}
-				/>
-				<UltimateInput
-					isInput={true}
-					type="number"
-					min={1}
-					max={10}
-					defaultValue={1}
-					title="Semester"
-					onChange={(e) => setSemester(parseInt(e.target.value))}
-				/>
+				<Grid container gap={5} flexDirection="column">
+					<StyledLabel>Periode</StyledLabel>
+					<Select items={periode} onChange={handleChangePeriode} defaultValue={periode[0]} />
+				</Grid>
 			</Grid>
-			<Grid container alignItems="flex-end" style={{ minWidth: "140px" }}>
+			{/* <Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
 				<StyledButton onClick={exportToExcel}>Export</StyledButton>
-			</Grid>
+			</Grid> */}
 		</Grid>
 	);
 };

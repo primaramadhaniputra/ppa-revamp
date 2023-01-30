@@ -8,6 +8,7 @@ const apiEndpoints = {
 	webAdmin: `${appActiveConfig.baseurl}/admin/settings/web-admin`,
 	moco: `${appActiveConfig.baseurl}/admin/settings/reports/productions/daily`,
 	production: `${appActiveConfig.baseurl}/admin/settings/reports/productions/site`,
+	survey: `${appActiveConfig.surveyurl}/reports/criteria/periodes`,
 };
 
 export { apiEndpoints };

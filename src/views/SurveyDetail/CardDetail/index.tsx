@@ -1,27 +1,30 @@
 import React from "react";
-import DoughnutChart from "./DoughnutChart";
-import { CardTitle, StyledCard, Wrapper } from "./styles";
+import { ISurveyReportCriteriaDetail } from "utils/interfaces";
+import SingleCard from "./SingleCard";
+import Masonry from "react-masonry-css";
 
-const CardDetail = () => {
+interface Iprops {
+	dataReport: ISurveyReportCriteriaDetail[];
+}
+
+const breakpointColumnsObj = {
+	default: 4,
+	1200: 3,
+	800: 2,
+	500: 1,
+};
+
+const CardDetail = ({ dataReport }: Iprops) => {
 	return (
-		<Wrapper>
-			<StyledCard>
-				<CardTitle>SHE</CardTitle>
-				<DoughnutChart />
-			</StyledCard>
-			<StyledCard>
-				<CardTitle>ENGINEERING & PRODUCTION</CardTitle>
-				<DoughnutChart />
-			</StyledCard>
-			<StyledCard>
-				<CardTitle>HRGA & ADMIN</CardTitle>
-				<DoughnutChart />
-			</StyledCard>
-			<StyledCard>
-				<CardTitle>LAIN LAIN</CardTitle>
-				<DoughnutChart />
-			</StyledCard>
-		</Wrapper>
+		<Masonry
+			breakpointCols={breakpointColumnsObj}
+			className="my-masonry-grid"
+			columnClassName="my-masonry-grid_column"
+		>
+			{dataReport.map((item, index) => (
+				<SingleCard key={index} data={item} />
+			))}
+		</Masonry>
 	);
 };
 

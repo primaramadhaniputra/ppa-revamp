@@ -1,6 +1,10 @@
 import { Card, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
+interface Iprops {
+	colorType?: string;
+}
+
 export const CardSiteContainer = styled.div`
 	margin-top: 33px;
 	display: grid;
@@ -16,6 +20,7 @@ export const StyledCard = styled(Card)`
 	display: flex;
 	flex: 1;
 	padding: 14px;
+	cursor: pointer;
 `;
 
 export const LogoContainer = styled.div`
@@ -23,6 +28,9 @@ export const LogoContainer = styled.div`
 	border-radius: 10px;
 	padding: 36px 24px;
 	width: max-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const CardTitle = styled.p`
@@ -30,6 +38,9 @@ export const CardTitle = styled.p`
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 36px;
+	@media (max-width: 500px) {
+		font-size: 18px;
+	}
 `;
 
 export const SubTitle = styled.p`
@@ -38,9 +49,12 @@ export const SubTitle = styled.p`
 	font-size: 14px;
 	line-height: 21px;
 	color: #29cc6a;
+	@media (max-width: 500px) {
+		font-size: 12px;
+	}
 `;
 
-export const TextDesc = styled.p`
+export const TextDesc = styled.p<Iprops>`
 	font-family: ${fontFamilies.poppins};
 	font-size: 12px;
 	background: #b8e0ff;
@@ -48,12 +62,13 @@ export const TextDesc = styled.p`
 	height: max-content;
 	padding: 5px 12px;
 	font-weight: 600;
+	margin: 0 0 0 10px;
 	&::after {
 		display: block;
 		content: "";
 		width: 10px;
 		height: 10px;
-		background-color: #0062a3;
+		background-color: ${(props) => props.colorType};
 		border-radius: 50%;
 	}
 `;

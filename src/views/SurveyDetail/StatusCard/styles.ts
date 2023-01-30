@@ -29,10 +29,16 @@ export const StatusText = styled.p`
 	font-weight: 500;
 	font-size: 18px;
 	color: #29cc6a;
+	@media (max-width: 500px) {
+		font-size: 14px;
+	}
 `;
 export const ValueText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
 	font-size: 28px;
 	color: #000000;
+	@media (max-width: 500px) {
+		font-size: 22px;
+	}
 `;
