@@ -1,9 +1,29 @@
 import { Grid } from "@hudoro/neron";
 import { IcAverage, IcScore, IcSum } from "atoms/Icon";
+import Cookies from "js-cookie";
 import React from "react";
 import { Container, IconContainer, StatusText, StyledCard, ValueText } from "./styles";
 
+const renderTextAverage = (evaluationNumber: number) => {
+	if (evaluationNumber < 3) {
+		return "Under Performance (Kurang Sekali)";
+	} else if (evaluationNumber < 5) {
+		return "Need Improvement (Kurang)";
+	} else if (evaluationNumber < 7) {
+		return "Enough (Cukup)";
+	} else if (evaluationNumber < 9) {
+		return "Good (Bagus)";
+	} else {
+		return "Excellent (Bagus Sekali)";
+	}
+};
+
 const StatusCard = () => {
+	const total = Cookies.get("total");
+	const average = Cookies.get("average");
+
+	const parseAverage = average ? parseInt(average) : 0;
+
 	return (
 		<Container>
 			<StyledCard>
@@ -13,7 +33,7 @@ const StatusCard = () => {
 					</IconContainer>
 					<Grid container flexDirection="column" gap={10}>
 						<StatusText>Total</StatusText>
-						<ValueText>17</ValueText>
+						<ValueText>{parseInt(total as string) || 0}</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>
@@ -24,7 +44,7 @@ const StatusCard = () => {
 					</IconContainer>
 					<Grid container flexDirection="column" gap={10}>
 						<StatusText>Rata-Rata</StatusText>
-						<ValueText>17</ValueText>
+						<ValueText>{parseInt(average as string).toFixed(2) || 0}</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>
@@ -35,7 +55,7 @@ const StatusCard = () => {
 					</IconContainer>
 					<Grid container flexDirection="column" gap={10}>
 						<StatusText>Score</StatusText>
-						<ValueText>Good</ValueText>
+						<ValueText>{renderTextAverage(parseAverage)}</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>

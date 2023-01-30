@@ -11,7 +11,6 @@ export default function SurveyPage() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [periode, setPeriode] = useState();
 
-	console.log("rerenderere");
 	const getData = async () => {
 		try {
 			setIsLoading(true);
@@ -35,5 +34,6 @@ export default function SurveyPage() {
 	if (isLoading || !periode) {
 		return <Loading />;
 	}
+
 	return <SurveyView periode={periode!} />;
 }

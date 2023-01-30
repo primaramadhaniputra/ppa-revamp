@@ -152,3 +152,13 @@ export interface ISurveyReportCriteria {
 	name: string;
 	total: number;
 }
+
+export interface ISurveyReportCriteriaDetail {
+	id: string;
+	name: string;
+	questions: {
+		id: string;
+		name: string;
+		average: number;
+	}[];
+}

@@ -1,36 +1,40 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
+// import StyledButton from "atoms/StyledButton";
 import React from "react";
-import FileSaver from "file-saver";
-import XLSX from "sheetjs-style";
+// import FileSaver from "file-saver";
+// import XLSX from "sheetjs-style";
 import { StyledLabel } from "atoms/LabeledInput/styles";
+import { ISurveyReportCriteria } from "utils/interfaces";
 
 interface IProps {
 	periode: ISelectItem[];
 	setPeriodeId: React.Dispatch<any>;
+	periodeId: string;
+	reportCriteria: ISurveyReportCriteria[];
 }
 
 const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
-	const exportToExcel = () => {
-		const fileName = "Excel Export";
-		const excelData = [
-			{
-				firstName: "dani",
-				lastName: "ganteng",
-				desc: "dani ganteng banget",
-			},
-		];
+	// const exportToExcel = async () => {
+	// 	const fileName = "banana Export";
 
-		const fileType =
-			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
-		const fileExtension = ".xlsx";
+	// 	const excelData = [
+	// 		{
+	// 			firstName: "dani",
+	// 			lastName: "ganteng",
+	// 			desc: "dani ganteng banget",
+	// 		},
+	// 	];
 
-		const ws = XLSX.utils.json_to_sheet(excelData);
-		const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-		const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-		const data = new Blob([excelBuffer], { type: fileType });
-		FileSaver.saveAs(data, fileName + fileExtension);
-	};
+	// 	const fileType =
+	// 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+	// 	const fileExtension = ".xlsx";
+
+	// 	const ws = XLSX.utils.json_to_sheet(excelData);
+	// 	const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
+	// 	const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+	// 	const data = new Blob([excelBuffer], { type: fileType });
+	// 	FileSaver.saveAs(data, fileName + fileExtension);
+	// };
 
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
@@ -44,9 +48,9 @@ const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
 					<Select items={periode} onChange={handleChangePeriode} defaultValue={periode[0]} />
 				</Grid>
 			</Grid>
-			<Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
+			{/* <Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
 				<StyledButton onClick={exportToExcel}>Export</StyledButton>
-			</Grid>
+			</Grid> */}
 		</Grid>
 	);
 };

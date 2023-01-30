@@ -35,8 +35,13 @@ const Survey = ({ periode }: IProps) => {
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
 				Survey Kepuasan Pelanggan
 			</TitlePage>
-			<FilterPeriod periode={periode} setPeriodeId={setPeriodeId} />
-			<CardSite reportCriteria={reportCriteria} />
+			<FilterPeriod
+				periode={periode}
+				setPeriodeId={setPeriodeId}
+				periodeId={periodeId}
+				reportCriteria={reportCriteria}
+			/>
+			<CardSite reportCriteria={reportCriteria} periodeId={periodeId} />
 			<PointDescription />
 		</>
 	);

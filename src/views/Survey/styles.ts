@@ -1,6 +1,10 @@
 import { Card, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
+interface Iprops {
+	colorType?: string;
+}
+
 export const CardSiteContainer = styled.div`
 	margin-top: 33px;
 	display: grid;
@@ -50,7 +54,7 @@ export const SubTitle = styled.p`
 	}
 `;
 
-export const TextDesc = styled.p`
+export const TextDesc = styled.p<Iprops>`
 	font-family: ${fontFamilies.poppins};
 	font-size: 12px;
 	background: #b8e0ff;
@@ -58,12 +62,13 @@ export const TextDesc = styled.p`
 	height: max-content;
 	padding: 5px 12px;
 	font-weight: 600;
+	margin: 0 0 0 10px;
 	&::after {
 		display: block;
 		content: "";
 		width: 10px;
 		height: 10px;
-		background-color: #0062a3;
+		background-color: ${(props) => props.colorType};
 		border-radius: 50%;
 	}
 `;
