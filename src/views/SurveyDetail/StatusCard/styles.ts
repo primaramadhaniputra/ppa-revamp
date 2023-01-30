@@ -27,7 +27,7 @@ export const IconContainer = styled.div`
 export const StatusText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
-	font-size: 18px;
+	font-size: 16px;
 	color: #29cc6a;
 	@media (max-width: 500px) {
 		font-size: 14px;
@@ -36,9 +36,9 @@ export const StatusText = styled.p`
 export const ValueText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
-	font-size: 28px;
+	font-size: 24px;
 	color: #000000;
 	@media (max-width: 500px) {
-		font-size: 22px;
+		font-size: 20px;
 	}
 `;

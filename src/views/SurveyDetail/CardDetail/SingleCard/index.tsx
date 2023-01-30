@@ -42,7 +42,7 @@ const SingleCard = ({ data }: IProps) => {
 			<Grid container flexDirection="column" style={{ marginTop: "32px" }} gap={24}>
 				{data.questions.map((item, key) => (
 					<Grid key={key}>
-						<Grid container gap={10} justifyContent="space-between">
+						<Grid container gap={20} justifyContent="space-between" alignItems="center">
 							<Grid>
 								<DescriptionText>{item.name}</DescriptionText>
 							</Grid>
@@ -53,9 +53,7 @@ const SingleCard = ({ data }: IProps) => {
 							max="10"
 							progressColor={renderColor(item.average)}
 							title={renderTextAverage(item.average)}
-						>
-							70 %
-						</Progress>
+						/>
 					</Grid>
 				))}
 			</Grid>
