@@ -1,36 +1,41 @@
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import Loading from "atoms/Loading";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { getDetailCriteriaReport } from "services/survey";
+import { notify } from "utils/functions";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 
 const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), { ssr: false });
 
-interface IProps {
-	dataReport: ISurveyReportCriteriaDetail[];
-}
+export default function SurveyDetailPage() {
+	const [isLoading, setIsLoading] = useState(false);
+	const [reportDetail, setReportDetail] = useState<ISurveyReportCriteriaDetail[]>([]);
 
-export default function SurveyDetailPage({ dataReport }: IProps) {
-	return <SurveyDetailView dataReport={dataReport} />;
-}
+	const router = useRouter();
+	const joinParams = (router.query.slug as string[])?.join("/");
 
-export const getServerSideProps: GetServerSideProps = async (
-	context: GetServerSidePropsContext,
-) => {
-	const { slug } = context.query;
-	const joinParams = (slug as string[])?.join("/");
-	try {
-		const response = await getDetailCriteriaReport({
-			path: `${joinParams}`,
-		});
+	const getData = async () => {
+		try {
+			setIsLoading(true);
+			const response = await getDetailCriteriaReport({
+				path: `${joinParams}`,
+			});
+			console.log("response", response);
+			setReportDetail(response.data.data);
+		} catch (error: any) {
+			notify(error.message, "error");
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
-		return {
-			props: {
-				dataReport: response.data.data,
-			},
-		};
-	} catch (error: any) {
-		return {
-			notFound: true,
-		};
+	useEffect(() => {
+		getData();
+	}, []);
+
+	if (isLoading) {
+		return <Loading />;
 	}
-};
+	return <SurveyDetailView dataReport={reportDetail!} />;
+}

@@ -38,6 +38,8 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const handleRedirect = (companyId: string, total: number, average: number) => {
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average.toString());
+		Cookies.set("periodeId", periodeId);
+		Cookies.set("companyId", companyId);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
 
