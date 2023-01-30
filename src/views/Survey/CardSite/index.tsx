@@ -54,13 +54,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 							<LogoContainer>
 								<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
 							</LogoContainer>
-							<Grid
-								container
-								flexDirection="column"
-								justifyContent="space-between"
-								style={{ marginLeft: "24px" }}
-								gap={10}
-							>
+							<Grid container flexDirection="column" style={{ marginLeft: "24px" }} gap={10}>
 								<Grid>
 									<CardTitle>{item.name}</CardTitle>
 								</Grid>
