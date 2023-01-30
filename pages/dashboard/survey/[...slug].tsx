@@ -9,7 +9,7 @@ import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), { ssr: false });
 
 export default function SurveyDetailPage() {
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const [reportDetail, setReportDetail] = useState<ISurveyReportCriteriaDetail[]>([]);
 
 	const router = useRouter();
@@ -21,7 +21,6 @@ export default function SurveyDetailPage() {
 			const response = await getDetailCriteriaReport({
 				path: `${joinParams}`,
 			});
-			console.log("response", response);
 			setReportDetail(response.data.data);
 		} catch (error: any) {
 			notify(error.message, "error");
@@ -32,7 +31,7 @@ export default function SurveyDetailPage() {
 
 	useEffect(() => {
 		getData();
-	}, []);
+	}, [router]);
 
 	if (isLoading) {
 		return <Loading />;
