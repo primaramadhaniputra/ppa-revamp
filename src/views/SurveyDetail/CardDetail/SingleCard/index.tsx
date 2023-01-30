@@ -21,6 +21,20 @@ const renderColor = (evaluationNumber: number) => {
 	}
 };
 
+const renderTextAverage = (evaluationNumber: number) => {
+	if (evaluationNumber < 3) {
+		return "Under Performance (Kurang Sekali)";
+	} else if (evaluationNumber < 5) {
+		return "Need Improvement (Kurang)";
+	} else if (evaluationNumber < 7) {
+		return "Enough (Cukup)";
+	} else if (evaluationNumber < 9) {
+		return "Good (Bagus)";
+	} else {
+		return "Excellent (Bagus Sekali)";
+	}
+};
+
 const SingleCard = ({ data }: IProps) => {
 	return (
 		<StyledCard>
@@ -38,6 +52,7 @@ const SingleCard = ({ data }: IProps) => {
 							value={item.average.toFixed(1)}
 							max="10"
 							progressColor={renderColor(item.average)}
+							title={renderTextAverage(item.average)}
 						>
 							70 %
 						</Progress>
