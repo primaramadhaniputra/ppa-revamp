@@ -11,6 +11,13 @@ export const CardSiteContainer = styled.div`
 	column-gap: 59px;
 	grid-template-columns: repeat(auto-fit, minMax(300px, 1fr));
 	row-gap: 30px;
+	@media (max-width: 500px) {
+		overflow-x: scroll;
+		::-webkit-scrollbar {
+			width: 0; /* Remove scrollbar space */
+			background: transparent; /* Optional: just make scrollbar invisible */
+		}
+	}
 `;
 
 export const StyledCard = styled(Card)`
@@ -31,6 +38,7 @@ export const LogoContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: max-content;
 `;
 
 export const CardTitle = styled.p`
