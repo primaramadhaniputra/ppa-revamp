@@ -8,9 +8,9 @@ interface Iprops {
 }
 
 const breakpointColumnsObj = {
-	default: 4,
-	1200: 3,
-	800: 2,
+	default: 2,
+	1200: 2,
+	800: 1,
 	500: 1,
 };
 
