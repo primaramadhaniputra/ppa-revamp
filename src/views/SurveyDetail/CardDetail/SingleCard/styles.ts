@@ -16,17 +16,17 @@ export const StyledCard = styled(Card)`
 export const CardTitle = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 21px;
 	line-height: 36px;
 	color: #000000;
 	@media (max-width: 500px) {
-		font-size: 20px;
+		font-size: 18px;
 	}
 `;
 
 export const DescriptionText = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 27px;
 	@media (max-width: 500px) {
 		font-size: 14px;
@@ -34,7 +34,7 @@ export const DescriptionText = styled.p`
 `;
 export const PoinText = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 27px;
 	font-weight: 600;
 	@media (max-width: 500px) {
@@ -45,19 +45,19 @@ export const PoinText = styled.p`
 export const Progress = styled.progress<IProps>`
 	border-radius: 8px;
 	width: 100%;
-	height: 27px;
+	height: 20px;
 	margin-top: 16px;
 	@media (max-width: 500px) {
 		height: 15px;
 	}
-	/* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
 	&::-webkit-progress-bar {
 		background: #f1f1fa;
-		border-radius: 8px;
+		border-radius: 6px;
+		/* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
 	}
 	&::-webkit-progress-value {
 		background: ${(props) => props.progressColor};
-		border-radius: 8px;
+		border-radius: 6px;
 	}
 	&::-moz-progress-bar {
 		/* style rules */

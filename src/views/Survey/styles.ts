@@ -44,10 +44,10 @@ export const LogoContainer = styled.div`
 export const CardTitle = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 18px;
 	line-height: 36px;
 	@media (max-width: 500px) {
-		font-size: 18px;
+		font-size: 16px;
 	}
 `;
 
