@@ -118,8 +118,8 @@ const Navbar2 = () => {
 								)}
 							</Grid>
 							<ContainerSubmenu activeSubMenu={activeSubmenu === index && true}>
-								{item.subMenu?.map((data) => (
-									<Link href={`/dashboard/${data.subMenuLink}`} passHref>
+								{item.subMenu?.map((data, idx) => (
+									<Link href={`/dashboard/${data.subMenuLink}`} passHref key={idx}>
 										<StyledTextSubmenu style={{ fontSize: "12px", cursor: "pointer" }}>
 											{data.subMenuTitle}
 										</StyledTextSubmenu>
