@@ -1,7 +1,7 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
-import { CardTitle, DescriptionText, StyledCard, PoinText, Progress } from "./styles";
+import { CardTitle, DescriptionText, StyledCard, PoinText, Progress, LegendText } from "./styles";
 
 interface IProps {
 	data: ISurveyReportCriteriaDetail;
@@ -48,12 +48,15 @@ const SingleCard = ({ data }: IProps) => {
 							</Grid>
 							<PoinText>({item.average.toFixed(2)})</PoinText>
 						</Grid>
-						<Progress
-							value={item.average.toFixed(2)}
-							max="10"
-							progressColor={renderColor(item.average)}
-							title={renderTextAverage(item.average)}
-						/>
+						<Grid container flexDirection="column" gap={4}>
+							<Progress
+								value={item.average.toFixed(2)}
+								max="10"
+								progressColor={renderColor(item.average)}
+								title={renderTextAverage(item.average)}
+							/>
+							<LegendText>Ket : {renderTextAverage(item.average)}</LegendText>
+						</Grid>
 					</Grid>
 				))}
 			</Grid>
