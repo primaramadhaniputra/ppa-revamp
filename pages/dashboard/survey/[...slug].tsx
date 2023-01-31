@@ -30,11 +30,14 @@ export default function SurveyDetailPage() {
 	};
 
 	useEffect(() => {
-		getData();
-	}, [router]);
+		if (joinParams) {
+			getData();
+		}
+	}, [router.query.slug]);
 
 	if (isLoading) {
 		return <Loading />;
 	}
+
 	return <SurveyDetailView dataReport={reportDetail!} />;
 }

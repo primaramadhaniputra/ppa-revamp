@@ -151,6 +151,7 @@ export interface ISurveyReportCriteria {
 	image: string;
 	name: string;
 	total: number;
+	assessmentCriteria: { total: number; average: number };
 }
 
 export interface ISurveyReportCriteriaDetail {
