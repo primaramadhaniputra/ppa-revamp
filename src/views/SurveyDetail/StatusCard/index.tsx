@@ -33,7 +33,7 @@ const StatusCard = () => {
 					</IconContainer>
 					<Grid container flexDirection="column" gap={10}>
 						<StatusText>Total</StatusText>
-						<ValueText>{parseInt(total as string) || 0}</ValueText>
+						<ValueText>{total || 0}</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>
