@@ -151,7 +151,20 @@ export interface ISurveyReportCriteria {
 	image: string;
 	name: string;
 	total: number;
-	assessmentCriteria: { total: number; average: number };
+	assessmentCriteria: {
+		score: string;
+		total: number;
+		average: number;
+		sections: {
+			id: string;
+			name: string;
+			questions: {
+				id: number;
+				uuid: string;
+				average: number;
+			}[];
+		}[];
+	};
 }
 
 export interface ISurveyReportCriteriaDetail {
