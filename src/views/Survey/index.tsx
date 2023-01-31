@@ -20,6 +20,7 @@ const Survey = ({ periode }: IProps) => {
 			const response = await getReportCriteriaByCriteriaId({
 				path: `${periodeId}`,
 			});
+			console.log(response.data.data);
 			setReportCriteria(response.data.data.reports);
 		} catch (error) {
 			console.log("error", error);
