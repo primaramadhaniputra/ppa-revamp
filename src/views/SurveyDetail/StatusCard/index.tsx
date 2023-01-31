@@ -22,7 +22,7 @@ const StatusCard = () => {
 	const total = Cookies.get("total");
 	const average = Cookies.get("average");
 
-	const parseAverage = average ? parseInt(average) : 0;
+	const parseAverage = average ? Number(average) : 0;
 
 	return (
 		<Container>
@@ -44,7 +44,7 @@ const StatusCard = () => {
 					</IconContainer>
 					<Grid container flexDirection="column" gap={10}>
 						<StatusText>Rata-Rata</StatusText>
-						<ValueText>{parseInt(average as string).toFixed(2) || 0}</ValueText>
+						<ValueText>{average || 0}</ValueText>
 					</Grid>
 				</Grid>
 			</StyledCard>
