@@ -5,6 +5,8 @@ import React from "react";
 // import XLSX from "sheetjs-style";
 import { StyledLabel } from "atoms/LabeledInput/styles";
 import { ISurveyReportCriteria } from "utils/interfaces";
+// import { DownloadTableExcel } from "react-export-table-to-excel";
+// import TableExcel from "./TableExcel";
 
 interface IProps {
 	periode: ISelectItem[];
@@ -14,27 +16,7 @@ interface IProps {
 }
 
 const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
-	// const exportToExcel = async () => {
-	// 	const fileName = "banana Export";
-
-	// 	const excelData = [
-	// 		{
-	// 			firstName: "dani",
-	// 			lastName: "ganteng",
-	// 			desc: "dani ganteng banget",
-	// 		},
-	// 	];
-
-	// 	const fileType =
-	// 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
-	// 	const fileExtension = ".xlsx";
-
-	// 	const ws = XLSX.utils.json_to_sheet(excelData);
-	// 	const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-	// 	const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
-	// 	const data = new Blob([excelBuffer], { type: fileType });
-	// 	FileSaver.saveAs(data, fileName + fileExtension);
-	// };
+	// const tableRef = useRef(null);
 
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
@@ -42,6 +24,7 @@ const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
 
 	return (
 		<Grid container gap={20} justifyContent="flex-end">
+			{/* <TableExcel tableRef={tableRef} /> */}
 			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
 				<Grid container gap={5} flexDirection="column">
 					<StyledLabel>Periode</StyledLabel>
@@ -49,7 +32,13 @@ const FilterPeriod = ({ periode, setPeriodeId }: IProps) => {
 				</Grid>
 			</Grid>
 			{/* <Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
-				<StyledButton onClick={exportToExcel}>Export</StyledButton>
+				<DownloadTableExcel
+					filename="users table"
+					sheet="users"
+					currentTableRef={tableRef.current}
+				>
+					<StyledButton >download excel</StyledButton>
+				</DownloadTableExcel>
 			</Grid> */}
 		</Grid>
 	);

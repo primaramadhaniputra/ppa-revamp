@@ -38,8 +38,6 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const handleRedirect = (companyId: string, total: number, average: number) => {
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average.toString());
-		Cookies.set("periodeId", periodeId);
-		Cookies.set("companyId", companyId);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
 
@@ -49,7 +47,13 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 				? reportCriteria.map((item, index) => (
 						<StyledCard
 							key={index}
-							onClick={() => handleRedirect(item.id, item.total, item.average)}
+							onClick={() =>
+								handleRedirect(
+									item.id,
+									item.assessmentCriteria.total,
+									item.assessmentCriteria.average,
+								)
+							}
 						>
 							<LogoContainer>
 								<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
@@ -61,11 +65,11 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 								<Grid container alignItems="flex-end" gap={40}>
 									<Grid container flexDirection="column">
 										<SubTitle>Total</SubTitle>
-										<CardTitle>{item.total}</CardTitle>
+										<CardTitle>{item.assessmentCriteria.total}</CardTitle>
 									</Grid>
 									<Grid container flexDirection="column">
 										<SubTitle>Rata Rata</SubTitle>
-										<CardTitle>{item.average.toFixed(2)}</CardTitle>
+										<CardTitle>{item.assessmentCriteria.average.toFixed(2)}</CardTitle>
 									</Grid>
 								</Grid>
 							</Grid>

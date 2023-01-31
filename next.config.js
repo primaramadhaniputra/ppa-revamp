@@ -10,7 +10,12 @@ module.exports = {
 		styledComponents: true,
 	},
 	images: {
-		domains: ["https://apirevamp.transformore.net", "ppa-mhu.net", "www.google.com"],
+		domains: [
+			"https://apirevamp.transformore.net",
+			"ppa-mhu.net",
+			"www.google.com",
+			"mhucoal.co.id",
+		],
 	},
 };
 // module.exports = nextConfig;

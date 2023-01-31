@@ -15,41 +15,29 @@ export const StyledCard = styled(Card)`
 
 export const CardTitle = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-weight: 500;
-	font-size: 21px;
+	font-weight: 700;
+	font-size: 16px;
 	line-height: 36px;
 	color: #000000;
-	@media (max-width: 500px) {
-		font-size: 18px;
-	}
 `;
 
 export const DescriptionText = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 27px;
-	@media (max-width: 500px) {
-		font-size: 14px;
-	}
 `;
 export const PoinText = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 27px;
 	font-weight: 600;
-	@media (max-width: 500px) {
-		font-size: 14px;
-	}
 `;
 
 export const Progress = styled.progress<IProps>`
 	border-radius: 8px;
 	width: 100%;
-	height: 20px;
+	height: 16px;
 	margin-top: 16px;
-	@media (max-width: 500px) {
-		height: 15px;
-	}
 	&::-webkit-progress-bar {
 		background: #f1f1fa;
 		border-radius: 6px;
