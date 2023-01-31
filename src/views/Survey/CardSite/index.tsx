@@ -32,6 +32,20 @@ const renderColor = (evaluationNumber: number) => {
 	}
 };
 
+const renderTextAverage = (evaluationNumber: number) => {
+	if (evaluationNumber < 3) {
+		return "Under Performance (Kurang Sekali)";
+	} else if (evaluationNumber < 5) {
+		return "Need Improvement (Kurang)";
+	} else if (evaluationNumber < 7) {
+		return "Enough (Cukup)";
+	} else if (evaluationNumber < 9) {
+		return "Good (Bagus)";
+	} else {
+		return "Excellent (Bagus Sekali)";
+	}
+};
+
 const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const router = useRouter();
 
@@ -73,7 +87,10 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 									</Grid>
 								</Grid>
 							</Grid>
-							<TextDesc colorType={renderColor(item.average)} />
+							<TextDesc
+								colorType={renderColor(item.assessmentCriteria.average)}
+								title={renderTextAverage(item.assessmentCriteria.average)}
+							/>
 						</StyledCard>
 				  ))
 				: null}
