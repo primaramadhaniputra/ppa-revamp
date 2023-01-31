@@ -46,10 +46,10 @@ const SingleCard = ({ data }: IProps) => {
 							<Grid>
 								<DescriptionText>{item.name}</DescriptionText>
 							</Grid>
-							<PoinText>({item.average.toFixed(1)})</PoinText>
+							<PoinText>({item.average.toFixed(2)})</PoinText>
 						</Grid>
 						<Progress
-							value={item.average.toFixed(1)}
+							value={item.average.toFixed(2)}
 							max="10"
 							progressColor={renderColor(item.average)}
 							title={renderTextAverage(item.average)}
