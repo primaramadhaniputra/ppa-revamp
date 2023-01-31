@@ -51,3 +51,11 @@ export const Progress = styled.progress<IProps>`
 		/* style rules */
 	}
 `;
+
+export const LegendText = styled.p`
+	font-family: ${fontFamilies.poppins};
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 21px;
+	color: rgba(37, 40, 43, 0.5);
+`;
