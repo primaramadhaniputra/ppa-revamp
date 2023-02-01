@@ -54,7 +54,11 @@ const SingleCard = ({ data }: IProps) => {
 			<Grid container alignItems="center" gap={10} justifyContent="space-between">
 				<CardTitle>{data.name}</CardTitle>
 				<Grid container style={{ cursor: "pointer" }} onClick={() => setIsSort(!isSort)}>
-					{isSort ? <IcBarsArrowDown strokeWidth={1.9} width={24} /> : <IcBarsArrowUp strokeWidth={1.9} width={24} />}
+					{isSort ? (
+						<IcBarsArrowDown strokeWidth={1.9} width={24} />
+					) : (
+						<IcBarsArrowUp strokeWidth={1.9} width={24} />
+					)}
 				</Grid>
 			</Grid>
 			<Grid container flexDirection="column" style={{ marginTop: "32px" }} gap={24}>
