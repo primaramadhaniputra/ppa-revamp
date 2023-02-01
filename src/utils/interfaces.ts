@@ -155,6 +155,7 @@ export interface ISurveyReportCriteria {
 		score: string;
 		total: number;
 		average: number;
+		statusUser: string;
 		sections: {
 			id: string;
 			name: string;

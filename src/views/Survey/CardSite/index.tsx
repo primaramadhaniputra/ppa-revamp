@@ -49,7 +49,7 @@ const renderTextAverage = (evaluationNumber: number) => {
 const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const router = useRouter();
 
-	const handleRedirect = (companyId: string, total: number, average: number) => {
+	const handleRedirect = (companyId: string, total: string, average: number) => {
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average.toString());
 		return router.push(`survey/${periodeId}/${companyId}`);
@@ -64,7 +64,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 							onClick={() =>
 								handleRedirect(
 									item.id,
-									item.assessmentCriteria.total,
+									item.assessmentCriteria.statusUser,
 									item.assessmentCriteria.average,
 								)
 							}
@@ -76,10 +76,10 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 								<Grid>
 									<CardTitle>{item.name}</CardTitle>
 								</Grid>
-								<Grid container alignItems="flex-end" gap={40}>
+								<Grid container alignItems="flex-end" gap={28}>
 									<Grid container flexDirection="column">
 										<SubTitle>Total</SubTitle>
-										<CardTitle>{item.assessmentCriteria.total}</CardTitle>
+										<CardTitle>{item.assessmentCriteria.statusUser}</CardTitle>
 									</Grid>
 									<Grid container flexDirection="column">
 										<SubTitle>Rata Rata</SubTitle>
