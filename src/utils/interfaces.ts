@@ -166,6 +166,12 @@ export interface ISurveyReportCriteria {
 			}[];
 		}[];
 	};
+	criticismAndSuggestions: {
+		email: string;
+		fullName: string;
+		id: string;
+		value: string;
+	}[];
 }
 
 export interface ISurveyQuestions {
