@@ -167,12 +167,14 @@ export interface ISurveyReportCriteria {
 	};
 }
 
+export interface ISurveyQuestions {
+	id: string;
+	name: string;
+	average: number;
+}
+
 export interface ISurveyReportCriteriaDetail {
 	id: string;
 	name: string;
-	questions: {
-		id: string;
-		name: string;
-		average: number;
-	}[];
+	questions: ISurveyQuestions[];
 }
