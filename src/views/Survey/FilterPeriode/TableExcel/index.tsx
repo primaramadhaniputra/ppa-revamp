@@ -73,35 +73,51 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 					})}
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style={{ border: "1px solid black" }}>
 				{reportCriteria.map((item, index) => {
 					return (
 						<tr key={index}>
 							<td>{++index}</td>
 							<td>{item.name}</td>
 							{item.assessmentCriteria.sections.map((data) => {
-								return data.questions.map((quest, idx) => <td key={idx}>{quest.average}</td>);
+								return data.questions.map((quest, idx) => (
+									<td key={idx}>{quest.average.toFixed(2)}</td>
+								));
 							})}
-							<td>{item.assessmentCriteria.total}</td>
-							<td>{item.assessmentCriteria.average}</td>
+							<td>{item.assessmentCriteria.total.toFixed(2)}</td>
+							<td>{item.assessmentCriteria.average.toFixed(2)}</td>
 							<td>{item.assessmentCriteria.score}</td>
 						</tr>
 					);
 				})}
 			</tbody>
-			{/* <tfoot>
-        <tr >
-          <td colSpan={2} style={{ border: "1px solid black" }}>
-            Sum
-          </td>
-          <td style={{ border: "1px solid black" }}>$180</td>
-          <td style={{ border: "1px solid black" }}>$180</td>
-          <td style={{ border: "1px solid black" }}>$180</td>
-          <td style={{ border: "1px solid black" }}>$180</td>
-          <td style={{ border: "1px solid black" }}>$180</td>
-          <td style={{ border: "1px solid black" }}>$180</td>
-        </tr>
-      </tfoot> */}
+			<tfoot>
+				<tr>
+					<th colSpan={3} style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }}>
+						Kritik dan saran
+					</th>
+				</tr>
+				{reportCriteria.map((item) => {
+					return (
+						<>
+							<th
+								rowSpan={item.criticismAndSuggestions.length + 1}
+								style={{ border: "1px solid black", backgroundColor: "#305496", color: "white" }}
+							>
+								{item.name}
+							</th>
+							{item.criticismAndSuggestions.map((data) => (
+								<tr>
+									<td style={{ border: "1px solid black", verticalAlign: "middle" }}>
+										{data.fullName}
+									</td>
+									<td style={{ border: "1px solid black" }}>{data.value}</td>
+								</tr>
+							))}
+						</>
+					);
+				})}
+			</tfoot>
 		</table>
 	);
 };
