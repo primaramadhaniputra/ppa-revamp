@@ -6,11 +6,12 @@ interface IProps {
 }
 
 export const StyledCard = styled(Card)`
-	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+	box-shadow: none;
 	border-radius: 15px;
 	padding: 18px;
 	flex: 1;
 	min-width: 250px;
+	border: 1px solid black;
 `;
 
 export const CardTitle = styled.p`

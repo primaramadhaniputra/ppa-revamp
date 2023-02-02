@@ -25,6 +25,7 @@ import IcAlertCircle from "./IcAlertCircle";
 import IcSum from "./IcSum";
 import IcAverage from "./IcAverage";
 import IcScore from "./IcScore";
+import IcFilterList from "./IcFilterList";
 
 export {
 	IcClose,
@@ -54,4 +55,5 @@ export {
 	IcSum,
 	IcAverage,
 	IcScore,
+	IcFilterList,
 };
