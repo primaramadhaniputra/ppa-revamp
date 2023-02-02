@@ -81,11 +81,11 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 							<td>{item.name}</td>
 							{item.assessmentCriteria.sections.map((data) => {
 								return data.questions.map((quest, idx) => (
-									<td key={idx}>{quest.average.toFixed(2)}</td>
+									<td key={idx}>{quest.average.toFixed(2).toString().split(".").join(",")}</td>
 								));
 							})}
-							<td>{item.assessmentCriteria.total.toFixed(2)}</td>
-							<td>{item.assessmentCriteria.average.toFixed(2)}</td>
+							<td>{item.assessmentCriteria.total.toFixed(2).toString().split(".").join(",")}</td>
+							<td>{item.assessmentCriteria.average.toFixed(2).toString().split(".").join(",")}</td>
 							<td>{item.assessmentCriteria.score}</td>
 						</tr>
 					);
