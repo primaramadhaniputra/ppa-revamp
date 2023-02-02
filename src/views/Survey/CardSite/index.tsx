@@ -49,9 +49,10 @@ const renderTextAverage = (evaluationNumber: number) => {
 const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const router = useRouter();
 
-	const handleRedirect = (companyId: string, total: string, average: number) => {
+	const handleRedirect = (companyId: string, total: string, average: number, siteName: string) => {
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average.toString());
+		Cookies.set("site", siteName);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
 
@@ -66,6 +67,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 									item.id,
 									item.assessmentCriteria.statusUser,
 									item.assessmentCriteria.average,
+									item.name,
 								)
 							}
 						>

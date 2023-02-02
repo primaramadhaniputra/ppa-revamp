@@ -1,34 +1,17 @@
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import { useSetSystemType } from "recoil/SystemType/atom";
 
 const SystemView = dynamic(() => import("views/System"), { ssr: false });
 
-interface IProps {
-	type: string;
-}
-
-export default function SystemPage({ type }: IProps) {
+export default function SystemPage() {
 	const setSystemType = useSetSystemType();
+	const router = useRouter();
 	setSystemType("vhms_download");
-	return <SystemView pageTitle={type} type={type} />;
+	return (
+		<SystemView
+			pageTitle={(router.query.name as string) || ""}
+			type={(router.query.name as string) || ""}
+		/>
+	);
 }
-
-export const getServerSideProps: GetServerSideProps = async (
-	context: GetServerSidePropsContext,
-) => {
-	try {
-		const type = context.query.name;
-		return {
-			props: {
-				type,
-			},
-		};
-	} catch (error: any) {
-		return {
-			props: {
-				pokemons: [],
-			},
-		};
-	}
-};

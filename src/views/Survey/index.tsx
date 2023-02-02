@@ -1,5 +1,6 @@
 import { ISelectItem } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { getReportCriteriaByCriteriaId } from "services/survey";
 import { ISurveyReportCriteria } from "utils/interfaces";
@@ -29,6 +30,12 @@ const Survey = ({ periode }: IProps) => {
 	useEffect(() => {
 		handleGetReportCriteria();
 	}, [periodeId]);
+
+	useEffect(() => {
+		if (periode.length) {
+			Cookies.set("periode", periode[0].label);
+		}
+	}, []);
 
 	return (
 		<>
