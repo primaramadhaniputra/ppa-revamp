@@ -6,6 +6,7 @@ import { ISurveyReportCriteria } from "utils/interfaces";
 import { DownloadTableExcel } from "react-export-table-to-excel";
 import TableExcel from "./TableExcel";
 import { SelectContainer } from "./styles";
+import Cookies from "js-cookie";
 
 interface IProps {
 	periode: ISelectItem[];
@@ -18,6 +19,8 @@ const FilterPeriod = ({ periode, setPeriodeId, reportCriteria }: IProps) => {
 	const tableRef = useRef(null);
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
+		const dataPeriode = periode.find((item) => item.values === e?.values);
+		Cookies.set("periode", dataPeriode?.label!);
 	};
 
 	return (
