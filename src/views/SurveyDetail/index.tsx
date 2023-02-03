@@ -2,16 +2,17 @@ import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import Cookies from "js-cookie";
 import React from "react";
-import { ISurveyReportCriteriaDetail } from "utils/interfaces";
+import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/interfaces";
 import CardDetail from "./CardDetail";
 import StatusCard from "./StatusCard";
 import { PeriodeText } from "./styles";
 
 interface IProps {
 	dataReport: ISurveyReportCriteriaDetail[];
+	criticism: ISurveyReportCriticism[];
 }
 
-const SurveyDetail = ({ dataReport }: IProps) => {
+const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 	const site = Cookies.get("site");
 	const periode = Cookies.get("periode");
 	return (
@@ -26,7 +27,7 @@ const SurveyDetail = ({ dataReport }: IProps) => {
 				</PeriodeText>
 			</Grid>
 			<StatusCard />
-			<CardDetail dataReport={dataReport} />
+			<CardDetail dataReport={dataReport} criticism={criticism} />
 		</>
 	);
 };

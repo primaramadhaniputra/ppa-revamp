@@ -185,3 +185,9 @@ export interface ISurveyReportCriteriaDetail {
 	name: string;
 	questions: ISurveyQuestions[];
 }
+export interface ISurveyReportCriticism {
+	email: string;
+	fullName: string;
+	id: string;
+	value: string;
+}
