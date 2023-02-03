@@ -14,6 +14,9 @@ export const Container = styled(Grid).attrs({
 		margin: 14px 0 24px;
 		border: 1px solid #8b8a8a;
 	}
+	&:last-child::after {
+		display: none;
+	}
 `;
 
 export const HeaderText = styled(Text).attrs({
