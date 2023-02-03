@@ -2,8 +2,16 @@ import React, { useMemo, useState } from "react";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
-import { FilterContainer, FilterIcon, FilterText, Wrapper } from "./styles";
+import {
+	FilterContainer,
+	FilterIcon,
+	FilterText,
+	PopupNotifications,
+	TabsText,
+	Wrapper,
+} from "./styles";
 import { IcFilterList } from "atoms/Icon";
+import { Grid } from "@hudoro/neron";
 
 interface Iprops {
 	dataReport: ISurveyReportCriteriaDetail[];
@@ -18,28 +26,60 @@ const breakpointColumnsObj = {
 
 const CardDetail = ({ dataReport }: Iprops) => {
 	const [isSort, setIsSort] = useState(false);
+	const [tabContent, setTabContent] = useState("Performance");
 
 	const newData = useMemo(() => {
-		return dataReport.map(item => {
+		return dataReport.map((item) => {
 			if (isSort) {
 				return {
-					...item, questions: item.questions.sort((a, b) => a.average - b.average)
-				}
+					...item,
+					questions: item.questions.sort((a, b) => a.average - b.average),
+				};
 			} else {
 				return {
-					...item, questions: item.questions.sort((a, b) => b.average - a.average)
-				}
+					...item,
+					questions: item.questions.sort((a, b) => b.average - a.average),
+				};
 			}
-		})
-	}, [isSort])
+		});
+	}, [isSort]);
+
+	const handleChangeActiveContent = (type: string) => {
+		setTabContent(type);
+	};
+
 	return (
 		<Wrapper>
-			<FilterContainer onClick={() => setIsSort(!isSort)}>
-				<FilterIcon isRotateIcon={isSort}>
-					<IcFilterList width={24} />
-				</FilterIcon>
-				<FilterText>Filter</FilterText>
-			</FilterContainer>
+			<Grid container alignItems="center" gap={24} justifyContent="space-between">
+				<Grid container>
+					<Grid container>
+						<TabsText
+							isActiveContent={tabContent === "Performance"}
+							onClick={() => handleChangeActiveContent("Performance")}
+						>
+							Performance
+						</TabsText>
+					</Grid>
+					<Grid container style={{ position: "relative" }}>
+						<TabsText
+							isActiveContent={tabContent === "Kritik & Saran"}
+							onClick={() => handleChangeActiveContent("Kritik & Saran")}
+						>
+							Kritik & Saran
+						</TabsText>
+						<PopupNotifications>1</PopupNotifications>
+					</Grid>
+				</Grid>
+				<Grid container gap={24} alignItems="center" justifyContent="flex-end">
+					<FilterText style={{ fontWeight: "400" }}>Urutan Item</FilterText>
+					<FilterContainer onClick={() => setIsSort(!isSort)}>
+						<FilterIcon isRotateIcon={isSort}>
+							<IcFilterList width={24} />
+						</FilterIcon>
+						<FilterText>{isSort ? "Terendah" : "Tertinggi"}</FilterText>
+					</FilterContainer>
+				</Grid>
+			</Grid>
 			<Masonry
 				breakpointCols={breakpointColumnsObj}
 				className="my-masonry-grid"
