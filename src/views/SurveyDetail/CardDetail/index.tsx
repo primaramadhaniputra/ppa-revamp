@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
+import { FilterContainer, FilterIcon, FilterText, Wrapper } from "./styles";
+import { IcFilterList } from "atoms/Icon";
 
 interface Iprops {
 	dataReport: ISurveyReportCriteriaDetail[];
@@ -15,16 +17,39 @@ const breakpointColumnsObj = {
 };
 
 const CardDetail = ({ dataReport }: Iprops) => {
+	const [isSort, setIsSort] = useState(false);
+
+	const newData = useMemo(() => {
+		return dataReport.map(item => {
+			if (isSort) {
+				return {
+					...item, questions: item.questions.sort((a, b) => a.average - b.average)
+				}
+			} else {
+				return {
+					...item, questions: item.questions.sort((a, b) => b.average - a.average)
+				}
+			}
+		})
+	}, [isSort])
 	return (
-		<Masonry
-			breakpointCols={breakpointColumnsObj}
-			className="my-masonry-grid"
-			columnClassName="my-masonry-grid_column"
-		>
-			{dataReport.map((item, index) => (
-				<SingleCard key={index} data={item} />
-			))}
-		</Masonry>
+		<Wrapper>
+			<FilterContainer onClick={() => setIsSort(!isSort)}>
+				<FilterIcon isRotateIcon={isSort}>
+					<IcFilterList width={24} />
+				</FilterIcon>
+				<FilterText>Filter</FilterText>
+			</FilterContainer>
+			<Masonry
+				breakpointCols={breakpointColumnsObj}
+				className="my-masonry-grid"
+				columnClassName="my-masonry-grid_column"
+			>
+				{newData.map((item, index) => (
+					<SingleCard key={index} data={item} />
+				))}
+			</Masonry>
+		</Wrapper>
 	);
 };
 
