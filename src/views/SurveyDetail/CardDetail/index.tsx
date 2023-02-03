@@ -24,6 +24,8 @@ const breakpointColumnsObj = {
 	500: 1,
 };
 
+const tabsText = ['Performance', 'Kritik & Saran']
+
 const CardDetail = ({ dataReport }: Iprops) => {
 	const [isSort, setIsSort] = useState(false);
 	const [tabContent, setTabContent] = useState("Performance");
@@ -52,23 +54,16 @@ const CardDetail = ({ dataReport }: Iprops) => {
 		<Wrapper>
 			<Grid container alignItems="center" gap={24} justifyContent="space-between">
 				<Grid container>
-					<Grid container>
-						<TabsText
-							isActiveContent={tabContent === "Performance"}
-							onClick={() => handleChangeActiveContent("Performance")}
-						>
-							Performance
-						</TabsText>
-					</Grid>
-					<Grid container style={{ position: "relative" }}>
-						<TabsText
-							isActiveContent={tabContent === "Kritik & Saran"}
-							onClick={() => handleChangeActiveContent("Kritik & Saran")}
-						>
-							Kritik & Saran
-						</TabsText>
-						<PopupNotifications>1</PopupNotifications>
-					</Grid>
+					{tabsText.map((item, index) =>
+						<Grid container key={index} style={{ position: "relative" }}>
+							<TabsText
+								isActiveContent={tabContent === item}
+								onClick={() => handleChangeActiveContent(item)}
+							>
+								{item}
+							</TabsText>
+							{index === 1 && <PopupNotifications>1</PopupNotifications>}
+						</Grid>)}
 				</Grid>
 				<Grid container gap={24} alignItems="center" justifyContent="flex-end">
 					<FilterText style={{ fontWeight: "400" }}>Urutan Item</FilterText>
