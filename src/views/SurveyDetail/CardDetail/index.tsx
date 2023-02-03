@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
@@ -17,9 +17,24 @@ const breakpointColumnsObj = {
 };
 
 const CardDetail = ({ dataReport }: Iprops) => {
+	const [isSort, setIsSort] = useState(true);
+
+	const newData = useMemo(() => {
+		return dataReport.map(item => {
+			if (isSort) {
+				return {
+					...item, questions: item.questions.sort((a, b) => a.average - b.average)
+				}
+			} else {
+				return {
+					...item, questions: item.questions.sort((a, b) => b.average - a.average)
+				}
+			}
+		})
+	}, [isSort])
 	return (
 		<Wrapper>
-			<FilterContainer>
+			<FilterContainer onClick={() => setIsSort(!isSort)}>
 				<IcFilterList width={24} />
 				<FilterText>Filter</FilterText>
 			</FilterContainer>
@@ -28,7 +43,7 @@ const CardDetail = ({ dataReport }: Iprops) => {
 				className="my-masonry-grid"
 				columnClassName="my-masonry-grid_column"
 			>
-				{dataReport.map((item, index) => (
+				{newData.map((item, index) => (
 					<SingleCard key={index} data={item} />
 				))}
 			</Masonry>

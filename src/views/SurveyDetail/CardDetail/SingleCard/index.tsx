@@ -1,6 +1,5 @@
 import { Grid } from "@hudoro/neron";
-import { IcBarsArrowDown, IcBarsArrowUp } from "atoms/Icon";
-import React, { useMemo, useState } from "react";
+import React from "react";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 import { CardTitle, DescriptionText, StyledCard, PoinText, Progress, LegendText } from "./styles";
 
@@ -37,32 +36,14 @@ const renderTextAverage = (evaluationNumber: number) => {
 };
 
 const SingleCard = ({ data }: IProps) => {
-	const [isSort, setIsSort] = useState(true);
-
-	let Questions = data.questions || [];
-
-	useMemo(() => {
-		if (isSort) {
-			return (Questions = Questions.sort((a, b) => a.average - b.average));
-		} else {
-			return (Questions = Questions.sort((a, b) => b.average - a.average));
-		}
-	}, [isSort]);
 
 	return (
 		<StyledCard>
 			<Grid container alignItems="center" gap={10} justifyContent="space-between">
 				<CardTitle>{data.name}</CardTitle>
-				<Grid container style={{ cursor: "pointer" }} onClick={() => setIsSort(!isSort)}>
-					{isSort ? (
-						<IcBarsArrowDown strokeWidth={1.9} width={24} />
-					) : (
-						<IcBarsArrowUp strokeWidth={1.9} width={24} />
-					)}
-				</Grid>
 			</Grid>
 			<Grid container flexDirection="column" style={{ marginTop: "32px" }} gap={24}>
-				{Questions.map((item, key) => (
+				{data.questions.map((item, key) => (
 					<Grid key={key}>
 						<Grid container gap={20} justifyContent="space-between" alignItems="center">
 							<Grid>

@@ -18,7 +18,7 @@ const SurveyDetail = ({ dataReport }: IProps) => {
 		<>
 			<Grid container gap={10} alignItems="center" justifyContent="space-between">
 				<TitlePage type="h3" styles={{ fontSize: "22px" }}>
-					Detail Laporan Survey / {site}
+					Detail Laporan Survey / <span style={{ fontSize: "16px", color: 'rgba(170, 180, 198, 1)' }}>{site}</span>
 				</TitlePage>
 				<PeriodeText>
 					Periode : <span style={{ fontWeight: "500" }}>{periode}</span>
