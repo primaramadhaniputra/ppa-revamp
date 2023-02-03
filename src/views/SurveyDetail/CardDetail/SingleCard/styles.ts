@@ -11,7 +11,8 @@ export const StyledCard = styled(Card)`
 	flex: 1;
 	min-width: 250px;
 	background-color: white;
-	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+	box-shadow: none;
+	border: 1px solid black;
 `;
 
 export const CardTitle = styled.p`

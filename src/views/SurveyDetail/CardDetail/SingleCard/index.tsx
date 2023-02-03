@@ -36,7 +36,6 @@ const renderTextAverage = (evaluationNumber: number) => {
 };
 
 const SingleCard = ({ data }: IProps) => {
-
 	return (
 		<StyledCard>
 			<Grid container alignItems="center" gap={10} justifyContent="space-between">

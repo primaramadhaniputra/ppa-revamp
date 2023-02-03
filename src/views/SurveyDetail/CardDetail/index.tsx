@@ -1,12 +1,22 @@
 import React, { useMemo, useState } from "react";
-import { ISurveyReportCriteriaDetail } from "utils/interfaces";
+import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/interfaces";
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
-import { FilterContainer, FilterIcon, FilterText, Wrapper } from "./styles";
+import {
+	FilterContainer,
+	FilterIcon,
+	FilterText,
+	PopupNotifications,
+	TabsText,
+	Wrapper,
+} from "./styles";
 import { IcFilterList } from "atoms/Icon";
+import { Grid } from "@hudoro/neron";
+import Criticism from "./Criticism";
 
 interface Iprops {
 	dataReport: ISurveyReportCriteriaDetail[];
+	criticism: ISurveyReportCriticism[];
 }
 
 const breakpointColumnsObj = {
@@ -16,39 +26,77 @@ const breakpointColumnsObj = {
 	500: 1,
 };
 
-const CardDetail = ({ dataReport }: Iprops) => {
+const tabsText = ["Performance", "Kritik & Saran"];
+
+const CardDetail = ({ dataReport, criticism }: Iprops) => {
 	const [isSort, setIsSort] = useState(false);
+	const [tabContent, setTabContent] = useState("Performance");
 
 	const newData = useMemo(() => {
-		return dataReport.map(item => {
+		return dataReport.map((item) => {
 			if (isSort) {
 				return {
-					...item, questions: item.questions.sort((a, b) => a.average - b.average)
-				}
+					...item,
+					questions: item.questions.sort((a, b) => a.average - b.average),
+				};
 			} else {
 				return {
-					...item, questions: item.questions.sort((a, b) => b.average - a.average)
-				}
+					...item,
+					questions: item.questions.sort((a, b) => b.average - a.average),
+				};
 			}
-		})
-	}, [isSort])
+		});
+	}, [isSort]);
+
+	const handleChangeActiveContent = (type: string) => {
+		setTabContent(type);
+	};
+
 	return (
 		<Wrapper>
-			<FilterContainer onClick={() => setIsSort(!isSort)}>
-				<FilterIcon isRotateIcon={isSort}>
-					<IcFilterList width={24} />
-				</FilterIcon>
-				<FilterText>Filter</FilterText>
-			</FilterContainer>
-			<Masonry
-				breakpointCols={breakpointColumnsObj}
-				className="my-masonry-grid"
-				columnClassName="my-masonry-grid_column"
-			>
-				{newData.map((item, index) => (
-					<SingleCard key={index} data={item} />
-				))}
-			</Masonry>
+			<Grid container alignItems="center" gap={24} justifyContent="space-between">
+				<Grid container>
+					{tabsText.map((item, index) => (
+						<Grid container key={index} style={{ position: "relative" }}>
+							<TabsText
+								isActiveContent={tabContent === item}
+								onClick={() => handleChangeActiveContent(item)}
+							>
+								{item}
+							</TabsText>
+							{index === 1 && <PopupNotifications>{criticism.length}</PopupNotifications>}
+						</Grid>
+					))}
+				</Grid>
+				{tabContent !== tabsText[1] && (
+					<Grid container gap={24} alignItems="center" justifyContent="flex-end">
+						<FilterText style={{ fontWeight: "400" }}>Urutan Item</FilterText>
+						<FilterContainer onClick={() => setIsSort(!isSort)}>
+							<FilterIcon isRotateIcon={isSort}>
+								<IcFilterList width={24} />
+							</FilterIcon>
+							<FilterText>{isSort ? "Terendah" : "Tertinggi"}</FilterText>
+						</FilterContainer>
+					</Grid>
+				)}
+			</Grid>
+			{tabContent === tabsText[0] ? (
+				<Masonry
+					breakpointCols={breakpointColumnsObj}
+					className="my-masonry-grid"
+					columnClassName="my-masonry-grid_column"
+				>
+					{newData.map((item, index) => (
+						<SingleCard key={index} data={item} />
+					))}
+				</Masonry>
+			) : (
+				<Grid style={{ marginTop: "24px" }}>
+					{criticism.map((item, key) => (
+						<Criticism key={key} data={item} />
+					))}
+				</Grid>
+			)}
 		</Wrapper>
 	);
 };
