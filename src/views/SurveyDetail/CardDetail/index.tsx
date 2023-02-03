@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { ISurveyReportCriteriaDetail } from "utils/interfaces";
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
-import { FilterContainer, FilterText, Wrapper } from "./styles";
+import { FilterContainer, FilterIcon, FilterText, Wrapper } from "./styles";
 import { IcFilterList } from "atoms/Icon";
 
 interface Iprops {
@@ -17,7 +17,7 @@ const breakpointColumnsObj = {
 };
 
 const CardDetail = ({ dataReport }: Iprops) => {
-	const [isSort, setIsSort] = useState(true);
+	const [isSort, setIsSort] = useState(false);
 
 	const newData = useMemo(() => {
 		return dataReport.map(item => {
@@ -35,7 +35,9 @@ const CardDetail = ({ dataReport }: Iprops) => {
 	return (
 		<Wrapper>
 			<FilterContainer onClick={() => setIsSort(!isSort)}>
-				<IcFilterList width={24} />
+				<FilterIcon isRotateIcon={isSort}>
+					<IcFilterList width={24} />
+				</FilterIcon>
 				<FilterText>Filter</FilterText>
 			</FilterContainer>
 			<Masonry
