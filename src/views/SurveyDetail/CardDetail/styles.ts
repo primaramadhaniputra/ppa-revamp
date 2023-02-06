@@ -96,7 +96,6 @@ export const Container = styled(Grid).attrs({
 	@media (min-width: 400px) {
 		flex-direction: row;
 		margin: 0;
-		width: 100%;
 	}
 	@media (max-width: 400px) {
 		width: 100%;
