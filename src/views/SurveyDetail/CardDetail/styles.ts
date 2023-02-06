@@ -1,4 +1,4 @@
-import { fontFamilies, Text } from "@hudoro/neron";
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import styled from "styled-components";
 
 interface IProps {
@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
 	margin-top: 26px;
 	background-color: white;
 	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+	overflow-x: scroll;
+	::-webkit-scrollbar {
+		height: 0;
+	}
 `;
 
 export const FilterContainer = styled.div`
@@ -61,6 +65,10 @@ export const TabsText = styled(Text).attrs({
 		left: 0;
 		border: 1px solid #001a72;
 	}
+	@media (max-width: 400px) {
+		width: 100%;
+		text-align: center;
+	}
 `;
 
 export const PopupNotifications = styled.p`
@@ -75,4 +83,21 @@ export const PopupNotifications = styled.p`
 	line-height: 120%;
 	display: flex;
 	align-items: center;
+	@media (max-width: 400px) {
+		top: 5px;
+	}
+`;
+
+export const Container = styled(Grid).attrs({
+	container: true,
+})`
+	flex-direction: column;
+	margin: auto;
+	@media (min-width: 400px) {
+		flex-direction: row;
+		margin: 0;
+	}
+	@media (max-width: 400px) {
+		width: 100%;
+	}
 `;

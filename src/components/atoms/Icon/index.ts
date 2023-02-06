@@ -26,6 +26,7 @@ import IcSum from "./IcSum";
 import IcAverage from "./IcAverage";
 import IcScore from "./IcScore";
 import IcFilterList from "./IcFilterList";
+import IcEllipse from "./IcEllipse";
 
 export {
 	IcClose,
@@ -56,4 +57,5 @@ export {
 	IcAverage,
 	IcScore,
 	IcFilterList,
+	IcEllipse,
 };

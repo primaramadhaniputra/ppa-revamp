@@ -3,6 +3,7 @@ import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/inter
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
 import {
+	Container,
 	FilterContainer,
 	FilterIcon,
 	FilterText,
@@ -55,7 +56,7 @@ const CardDetail = ({ dataReport, criticism }: Iprops) => {
 	return (
 		<Wrapper>
 			<Grid container alignItems="center" gap={24} justifyContent="space-between">
-				<Grid container>
+				<Container>
 					{tabsText.map((item, index) => (
 						<Grid container key={index} style={{ position: "relative" }}>
 							<TabsText
@@ -67,7 +68,7 @@ const CardDetail = ({ dataReport, criticism }: Iprops) => {
 							{index === 1 && <PopupNotifications>{criticism.length}</PopupNotifications>}
 						</Grid>
 					))}
-				</Grid>
+				</Container>
 				{tabContent !== tabsText[1] && (
 					<Grid container gap={24} alignItems="center" justifyContent="flex-end">
 						<FilterText style={{ fontWeight: "400" }}>Urutan Item</FilterText>
