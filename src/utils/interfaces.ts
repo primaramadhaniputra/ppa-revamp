@@ -190,4 +190,5 @@ export interface ISurveyReportCriticism {
 	fullName: string;
 	id: string;
 	value: string;
+	position: string;
 }
