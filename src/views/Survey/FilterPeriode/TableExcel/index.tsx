@@ -32,7 +32,7 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 	}, [newArray]);
 
 	return (
-		<Table ref={tableRef} >
+		<Table ref={tableRef} hidden>
 			<thead>
 				<tr>
 					<th rowSpan={2}>
