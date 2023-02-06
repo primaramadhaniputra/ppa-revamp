@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { ISurveyReportCriteria } from "utils/interfaces";
+import { Table } from "./styles";
 
 interface IProps {
 	tableRef: React.MutableRefObject<null>;
@@ -31,28 +32,25 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 	}, [newArray]);
 
 	return (
-		<table ref={tableRef} hidden>
+		<Table ref={tableRef} >
 			<thead>
 				<tr>
-					<th style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }} rowSpan={2}>
+					<th rowSpan={2}>
 						No
 					</th>
-					<th style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }} rowSpan={2}>
+					<th rowSpan={2}>
 						Identitas Pelanggan
 					</th>
-					<th
-						style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }}
-						colSpan={newArray.length}
-					>
+					<th colSpan={newArray.length}>
 						Kriteria Penilaian
 					</th>
-					<th style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }} rowSpan={2}>
+					<th rowSpan={2}>
 						Jumlah
 					</th>
-					<th style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }} rowSpan={2}>
+					<th rowSpan={2}>
 						Rata rata
 					</th>
-					<th style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }} rowSpan={2}>
+					<th rowSpan={2}>
 						Score
 					</th>
 				</tr>
@@ -118,7 +116,7 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 					);
 				})}
 			</tfoot>
-		</table>
+		</Table>
 	);
 };
 
