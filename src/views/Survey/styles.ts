@@ -25,9 +25,10 @@ export const StyledCard = styled(Card)`
 	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	display: flex;
-	flex: 1;
-	padding: 14px;
+	padding: 8px 14px;
 	cursor: pointer;
+	flex-direction: column;
+	gap: 10px;
 `;
 
 export const LogoContainer = styled.div`
@@ -70,7 +71,8 @@ export const TextDesc = styled.p<Iprops>`
 	height: max-content;
 	padding: 5px 12px;
 	font-weight: 600;
-	margin: 0 0 0 10px;
+	width: max-content;
+	margin-left: auto;
 	&::after {
 		display: block;
 		content: "";
