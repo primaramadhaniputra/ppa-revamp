@@ -35,24 +35,12 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 		<Table ref={tableRef} hidden>
 			<thead>
 				<tr>
-					<th rowSpan={2}>
-						No
-					</th>
-					<th rowSpan={2}>
-						Identitas Pelanggan
-					</th>
-					<th colSpan={newArray.length}>
-						Kriteria Penilaian
-					</th>
-					<th rowSpan={2}>
-						Jumlah
-					</th>
-					<th rowSpan={2}>
-						Rata rata
-					</th>
-					<th rowSpan={2}>
-						Score
-					</th>
+					<th rowSpan={2}>No</th>
+					<th rowSpan={2}>Identitas Pelanggan</th>
+					<th colSpan={newArray.length}>Kriteria Penilaian</th>
+					<th rowSpan={2}>Jumlah</th>
+					<th rowSpan={2}>Rata rata</th>
+					<th rowSpan={2}>Score</th>
 				</tr>
 				<tr>
 					{reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {

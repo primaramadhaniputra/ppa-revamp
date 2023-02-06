@@ -71,28 +71,30 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 								)
 							}
 						>
-							<LogoContainer>
-								<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
-							</LogoContainer>
-							<Grid container flexDirection="column" style={{ marginLeft: "24px" }} gap={10}>
-								<Grid>
-									<CardTitle>{item.name}</CardTitle>
-								</Grid>
-								<Grid container alignItems="flex-end" gap={28}>
-									<Grid container flexDirection="column">
-										<SubTitle>Total</SubTitle>
-										<CardTitle>{item.assessmentCriteria.statusUser}</CardTitle>
-									</Grid>
-									<Grid container flexDirection="column">
-										<SubTitle>Rata Rata</SubTitle>
-										<CardTitle>{item.assessmentCriteria.average.toFixed(2)}</CardTitle>
-									</Grid>
-								</Grid>
-							</Grid>
 							<TextDesc
 								colorType={renderColor(item.assessmentCriteria.average)}
 								title={renderTextAverage(item.assessmentCriteria.average)}
 							/>
+							<Grid container flexDirection="row" gap={24}>
+								<LogoContainer>
+									<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
+								</LogoContainer>
+								<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
+									<Grid>
+										<CardTitle>{item.name}</CardTitle>
+									</Grid>
+									<Grid container alignItems="flex-end" gap={28}>
+										<Grid container flexDirection="column">
+											<SubTitle>Total</SubTitle>
+											<CardTitle>{item.assessmentCriteria.statusUser}</CardTitle>
+										</Grid>
+										<Grid container flexDirection="column">
+											<SubTitle>Rata Rata</SubTitle>
+											<CardTitle>{item.assessmentCriteria.average.toFixed(2)}</CardTitle>
+										</Grid>
+									</Grid>
+								</Grid>
+							</Grid>
 						</StyledCard>
 				  ))
 				: null}
