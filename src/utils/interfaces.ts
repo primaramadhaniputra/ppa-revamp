@@ -191,4 +191,5 @@ export interface ISurveyReportCriticism {
 	id: string;
 	value: string;
 	position: string;
+	createdAt: number;
 }

@@ -1,7 +1,7 @@
 import { Card, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
 	margin-top: 32px;
 	display: flex;
 	column-gap: 85px;
@@ -37,8 +37,14 @@ export const ValueText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
 	font-size: 24px;
-	color: #000000;
 	@media (max-width: 500px) {
 		font-size: 20px;
 	}
+`;
+
+export const Container = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	align-items: center;
 `;

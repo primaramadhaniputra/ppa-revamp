@@ -1,5 +1,6 @@
 import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import styled from "styled-components";
+import { mediaQueries } from "utils/styles";
 
 export const Container = styled(Grid).attrs({
 	container: true,
@@ -23,9 +24,12 @@ export const HeaderText = styled(Text).attrs({
 	variant: "h4",
 })`
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 24px;
 	color: #000000;
+	${mediaQueries.md} {
+		font-size: 16px;
+	}
 `;
 
 export const ValueText = styled(Text).attrs({
@@ -34,6 +38,20 @@ export const ValueText = styled(Text).attrs({
 	font-family: ${fontFamilies.poppins};
 	font-style: normal;
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 21px;
+	${mediaQueries.md} {
+		font-size: 14px;
+	}
+`;
+
+export const DateText = styled.p`
+	font-family: ${fontFamilies.poppins};
+	font-size: 13px;
+	line-height: 21px;
+	color: #8b8a8a;
+	width: max-content;
+	${mediaQueries.md} {
+		font-size: 14px;
+	}
 `;
