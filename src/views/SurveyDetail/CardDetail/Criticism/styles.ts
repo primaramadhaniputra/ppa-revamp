@@ -44,3 +44,14 @@ export const ValueText = styled(Text).attrs({
 		font-size: 14px;
 	}
 `;
+
+export const DateText = styled.p`
+	font-family: ${fontFamilies.poppins};
+	font-size: 13px;
+	line-height: 21px;
+	color: #8b8a8a;
+	width: max-content;
+	${mediaQueries.md} {
+		font-size: 14px;
+	}
+`;
