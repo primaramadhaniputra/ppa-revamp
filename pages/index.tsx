@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { currentLoginPages } from "services/pages";
 import { notify } from "utils/functions";
 
-const LoginView = dynamic(() => import("views/Login"), { ssr: false });
+const LoginView = dynamic(() => import("views/Login"), { ssr: false, loading: () => <Loading /> });
 
 export default function LoginPage() {
 	const [id, setId] = useState();

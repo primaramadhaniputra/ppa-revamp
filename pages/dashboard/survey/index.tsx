@@ -6,7 +6,10 @@ import { getSurveyCriteria } from "services/survey";
 import { notify } from "utils/functions";
 import { ISurveyPeriode } from "utils/interfaces";
 
-const SurveyView = dynamic(() => import("views/Survey"), { ssr: false });
+const SurveyView = dynamic(() => import("views/Survey"), {
+	ssr: false,
+	loading: () => <Loading />,
+});
 
 export default function SurveyPage() {
 	const [isLoading, setIsLoading] = useState(false);

@@ -8,7 +8,7 @@ export const Container = styled.div`
 	left: 0;
 	bottom: 0;
 	top: 0;
-	background-color: ${colors.blueSky};
+	background-color: ${colors.darkGrey};
 	opacity: 0.2;
 	& > div {
 		position: relative;

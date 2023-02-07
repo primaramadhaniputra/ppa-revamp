@@ -7,7 +7,10 @@ import { getCriticismReport, getDetailCriteriaReport } from "services/survey";
 import { notify } from "utils/functions";
 import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/interfaces";
 
-const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), { ssr: false });
+const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), {
+	ssr: false,
+	loading: () => <Loading />,
+});
 
 export default function SurveyDetailPage() {
 	const [isLoading, setIsLoading] = useState(true);
