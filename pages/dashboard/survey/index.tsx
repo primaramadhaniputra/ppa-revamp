@@ -1,15 +1,19 @@
 import Loading from "atoms/Loading";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { useSurveyPeriodeState } from "recoil/surveyPeriode/atom";
 import { getSurveyCriteria } from "services/survey";
 import { notify } from "utils/functions";
 import { ISurveyPeriode } from "utils/interfaces";
 
-const SurveyView = dynamic(() => import("views/Survey"), { ssr: false });
+const SurveyView = dynamic(() => import("views/Survey"), {
+	ssr: false,
+	loading: () => <Loading />,
+});
 
 export default function SurveyPage() {
 	const [isLoading, setIsLoading] = useState(false);
-	const [periode, setPeriode] = useState();
+	const [periode, setPeriode] = useSurveyPeriodeState();
 
 	const getData = async () => {
 		try {
@@ -35,5 +39,5 @@ export default function SurveyPage() {
 		return <Loading />;
 	}
 
-	return <SurveyView periode={periode!} />;
+	return <SurveyView />;
 }

@@ -41,7 +41,7 @@ const LayoutOverlayData = ({
 					transform: isShowDetail ? "translateY(40px)" : "translateY(-120%)",
 					maxWidth: `${width}px`,
 				}}
-				onClick={(e) => e.stopPropagation}
+				onClick={(e) => e.stopPropagation()}
 			>
 				{title && (
 					<ContainerTitle>

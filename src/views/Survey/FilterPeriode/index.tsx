@@ -7,16 +7,19 @@ import { DownloadTableExcel } from "react-export-table-to-excel";
 import TableExcel from "./TableExcel";
 import { SelectContainer } from "./styles";
 import Cookies from "js-cookie";
+import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 
 interface IProps {
-	periode: ISelectItem[];
 	setPeriodeId: React.Dispatch<any>;
 	periodeId: string;
 	reportCriteria: ISurveyReportCriteria[];
 }
 
-const FilterPeriod = ({ periode, setPeriodeId, reportCriteria }: IProps) => {
+const FilterPeriod = ({ setPeriodeId, reportCriteria }: IProps) => {
 	const tableRef = useRef(null);
+
+	const periode = useSurveyPeriodeValue();
+
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
 		const dataPeriode = periode.find((item) => item.values === e?.values);

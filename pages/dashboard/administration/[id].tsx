@@ -1,7 +1,11 @@
+import Loading from "atoms/Loading";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import dynamic from "next/dynamic";
 
-const ADMView = dynamic(() => import("views/Administration"), { ssr: false });
+const ADMView = dynamic(() => import("views/Administration"), {
+	ssr: false,
+	loading: () => <Loading />,
+});
 
 interface IProps {
 	id: string;
