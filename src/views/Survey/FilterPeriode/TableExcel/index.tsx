@@ -83,24 +83,26 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 						Kritik dan saran
 					</th>
 				</tr>
-				{reportCriteria.map((item) => {
+				{reportCriteria.map((item, idx) => {
 					return (
-						<>
-							<th
-								rowSpan={item.criticismAndSuggestions.length + 1}
-								style={{ border: "1px solid black", backgroundColor: "#305496", color: "white" }}
-							>
-								{item.name}
-							</th>
-							{item.criticismAndSuggestions.map((data) => (
-								<tr>
+						<React.Fragment key={idx}>
+							<tr>
+								<th
+									rowSpan={item.criticismAndSuggestions.length + 1}
+									style={{ border: "1px solid black", backgroundColor: "#305496", color: "white" }}
+								>
+									{item.name}
+								</th>
+							</tr>
+							{item.criticismAndSuggestions.map((data, idx) => (
+								<tr key={idx}>
 									<td style={{ border: "1px solid black", verticalAlign: "middle" }}>
 										{data.fullName}
 									</td>
 									<td style={{ border: "1px solid black" }}>{data.value}</td>
 								</tr>
 							))}
-						</>
+						</React.Fragment>
 					);
 				})}
 			</tfoot>
