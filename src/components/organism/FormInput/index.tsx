@@ -54,13 +54,15 @@ export default function FormInput({ color }: IProps) {
 		<form style={{ width: "100%" }} onSubmit={handleSubmit}>
 			<Grid container flexDirection="column" gap={50}>
 				<Grid container flexDirection="column" gap={20}>
-					<LabeledInput color={color} name="nrp" title="NRP" />
+					<LabeledInput color={color} name="nrp" title="NRP" required type="number" />
 					<LabeledInput
 						icon={true}
 						color={color}
 						title="Password"
 						name="password"
 						type="password"
+						required
+						minLength={5}
 					/>
 					<RadioWrapper container alignItems="center" justifyContent="flex-end">
 						{/* <Radio
