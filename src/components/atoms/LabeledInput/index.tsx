@@ -1,8 +1,8 @@
 import { Grid, Icon } from "@hudoro/neron";
-import React, { useState } from "react";
+import React, { InputHTMLAttributes, useState } from "react";
 import { IconContainer, StyledInput, StyledLabel } from "./styles";
 
-interface IProps {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 	title: string;
 	placeholder?: string;
 	name: string;
