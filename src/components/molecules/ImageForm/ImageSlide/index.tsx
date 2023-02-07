@@ -21,7 +21,7 @@ export default function SlideImage({ image, index }: IProps) {
 
 				return (
 					<SliderImage url={urlImage} className={position} key={imageIndex}>
-						<Image src={urlImage} layout="fill" quality={100} />
+						<Image src={urlImage} layout="fill" quality={100} alt="Slider image" />
 					</SliderImage>
 				);
 			})}
