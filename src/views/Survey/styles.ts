@@ -25,10 +25,11 @@ export const StyledCard = styled(Card)`
 	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	display: flex;
-	padding: 8px 14px;
+	padding: 20px 14px 8px;
 	cursor: pointer;
 	flex-direction: column;
 	gap: 10px;
+	position: relative;
 `;
 
 export const LogoContainer = styled.div`
@@ -67,12 +68,15 @@ export const TextDesc = styled.p<Iprops>`
 	font-family: ${fontFamilies.poppins};
 	font-size: 12px;
 	background: #b8e0ff;
-	border-radius: 35px;
+	border-radius: 0 10px 0 3px;
 	height: max-content;
-	padding: 5px 12px;
+	padding: 6px 12px;
 	font-weight: 600;
 	width: max-content;
 	margin-left: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
 	&::after {
 		display: block;
 		content: "";
