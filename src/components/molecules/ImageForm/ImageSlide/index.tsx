@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { SliderImage } from "./styles";
 
@@ -18,7 +19,11 @@ export default function SlideImage({ image, index }: IProps) {
 					position = "lastSlide";
 				}
 
-				return <SliderImage url={urlImage} className={position} key={imageIndex}></SliderImage>;
+				return (
+					<SliderImage url={urlImage} className={position} key={imageIndex}>
+						<Image src={urlImage} layout="fill" quality={100} />
+					</SliderImage>
+				);
 			})}
 		</>
 	);
