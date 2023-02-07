@@ -5,9 +5,9 @@ interface ILoginImageSlider {
 }
 
 export const SliderImage = styled.div<ILoginImageSlider>`
-	background-image: ${(props) => `url(${props.url})`};
+	/* background-image: ${(props) => `url(${props.url})`};
 	background-size: cover;
-	background-position: center;
+	background-position: center; */
 	position: absolute;
 	top: 0;
 	right: 0;
