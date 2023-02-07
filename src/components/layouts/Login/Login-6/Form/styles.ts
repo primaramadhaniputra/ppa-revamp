@@ -100,6 +100,9 @@ export const TextWrapper = styled.div`
 export const Text1 = styled(Text)`
 	font-family: ${fontFamilies.openSans};
 	font-weight: ${fontWeights.extraBold};
+	text-decoration: underline;
+	line-height: 63px;
+	text-shadow: 0 1.3px 3px rgba(255, 255, 255, 0.25);
 	${mediaQueries.lg} {
 		font-size: 40px;
 	}
