@@ -7,16 +7,16 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		ID: "HD787",
 		Event: "Hd123",
 		Repeat: `33`,
 		Interval: "2022-17-08",
 		Time: "2022-17-08",
 		["Last Executed"]: "2022-17-08",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

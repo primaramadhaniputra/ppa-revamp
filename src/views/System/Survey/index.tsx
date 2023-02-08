@@ -11,14 +11,14 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
-		["Dept"]: "COE",
-		["MP"]: "123",
-		["SUDAH MENGISI"]: "0",
-		["ACHIEVEMENT"]: "1",
-	};
-});
+export const defaultDataTable = [
+	{
+		["Dept"]: "-",
+		["MP"]: "-",
+		["SUDAH MENGISI"]: "-",
+		["ACHIEVEMENT"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

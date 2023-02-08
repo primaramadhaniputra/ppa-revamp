@@ -9,19 +9,19 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
-		ID: "HD787",
-		User: "Hd123",
-		Host: `33}`,
-		DB: "2022-17-08",
-		Command: "2022-17-08",
-		Time: "2022-17-08 02:12:12",
-		State: "2022-17-08 02:12:12",
-		Info: "2022-17-08 02:12:12",
+export const defaultDataTable = [
+	{
+		ID: "-",
+		User: "-",
+		Host: `-`,
+		DB: "-",
+		Command: "-",
+		Time: "- ",
+		State: "- ",
+		Info: "- ",
 		Action: "",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 
