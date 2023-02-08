@@ -13,16 +13,16 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(1).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		Date: "-",
 		Filename: "-",
 		MP: "-",
 		Day: "-",
 		Status: "-",
 		Remark: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

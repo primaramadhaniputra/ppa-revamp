@@ -16,8 +16,8 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["No"]: "-",
 		["Date"]: "-",
 		["NRP"]: `-`,
@@ -26,8 +26,8 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 		["Jenis"]: "-",
 		["Tempat"]: "-",
 		["Action"]: "-",
-	};
-});
+	},
+];
 
 const tabTitle = [
 	"Sanksi Teguran",

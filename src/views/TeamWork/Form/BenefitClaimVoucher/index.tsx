@@ -13,8 +13,8 @@ import MigrateTable from "src/components/organism/MigrateTable";
 interface Person {
 	[x: string]: any;
 }
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Perusahaan"]: "-",
 		["Approver"]: "-",
 		["Status item"]: "-",
@@ -33,8 +33,8 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 		["Vendor"]: "-",
 		["Modified Date"]: "-",
 		["Transferred Date"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

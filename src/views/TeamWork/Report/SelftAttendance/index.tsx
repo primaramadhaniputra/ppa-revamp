@@ -11,16 +11,15 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Date"]: "-",
 		["#"]: "-",
 		["in"]: "-",
 		["Out"]: "-",
 		["Job"]: "-",
-	};
-});
+	},
+];
 
 export default function SelfAttendance() {
 	const columns: ColumnDef<Person>[] = [

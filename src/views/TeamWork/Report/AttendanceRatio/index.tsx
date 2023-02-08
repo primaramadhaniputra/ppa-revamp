@@ -20,8 +20,8 @@ const Department = dynamic(() => import("./Department"), { ssr: false });
 
 const tabTitle = ["Individual", "Department", "Manpower", "YTD"];
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Nrp"]: "-",
 		["Name"]: "-",
 		["Dept"]: "-",
@@ -43,8 +43,8 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 		["H"]: "-",
 		["NR"]: "-",
 		["ATR"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

@@ -12,15 +12,15 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(1).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["NRP"]: "-",
 		["Name"]: "-",
 		["Jabatan"]: `-`,
 		["Posisi"]: "-",
 		["Action"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

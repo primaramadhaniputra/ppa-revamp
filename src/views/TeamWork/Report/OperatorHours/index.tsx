@@ -13,8 +13,8 @@ interface Person {
 
 const columnHelper = createColumnHelper<Person>();
 
-export const defaultDataTable = new Array(1).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["NRP"]: "-",
 		["Name"]: "-",
 		["Date"]: `-`,
@@ -28,8 +28,8 @@ export const defaultDataTable = new Array(1).fill(0).map(() => {
 		["ACC"]: "-",
 		["Versaliti Readines"]: "-",
 		["Remark"]: "-",
-	};
-});
+	},
+];
 
 export default function OperatorHours() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);

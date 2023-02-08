@@ -14,9 +14,8 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(1).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		id: "-",
 		lapangan: "-",
 		tahunan: `-`,
@@ -24,8 +23,8 @@ export const defaultDataTable = arr.map(() => {
 		back: "-",
 		status: "-",
 		action: "",
-	};
-});
+	},
+];
 
 export default function LeavingApplication() {
 	const [isShowDetail, setIsShowDetail] = React.useState(false);

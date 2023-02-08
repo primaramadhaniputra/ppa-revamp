@@ -11,8 +11,8 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Date"]: "-",
 		["NRP"]: "-",
 		["Name"]: `-`,
@@ -22,8 +22,8 @@ export const defaultDataTable = new Array(10).fill(0).map(() => {
 		["Start"]: "-",
 		["Finish"]: "-",
 		["Tugas"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 
