@@ -8,9 +8,8 @@ interface IProps {
 
 const columnHelper = createColumnHelper<IProps>();
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Action"]: "",
 		["Tanggal"]: "27-09-2022 || 11:22:52",
 		["Nomor"]: "KT08/SHE/2209/KMBD/00182",
@@ -34,8 +33,8 @@ export const defaultDataTable = arr.map(() => {
 		["Skor Kondisi Immunosuppresive"]: "0",
 		["Penyakit Saluran Respirasi"]: "Tidak Ada",
 		["Skor Penyakit Saluran Respirasi"]: "Tidak Ada",
-	};
-});
+	},
+];
 
 export default function DataTable() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);

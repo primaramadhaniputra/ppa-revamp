@@ -10,16 +10,15 @@ interface IProps {
 	formPosition: number;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Tanggal"]: "-",
 		["NRP"]: "-",
 		["Nama"]: "-",
 		["Dept"]: "-",
 		["Jabatan"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

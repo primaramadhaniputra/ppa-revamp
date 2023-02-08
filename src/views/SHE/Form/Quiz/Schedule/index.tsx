@@ -10,19 +10,18 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		["No"]: "HD787",
-		["Subject Group"]: `33${index}`,
-		["Name Quiz"]: `33${index}`,
-		["Total"]: "123",
-		["Duration"]: "123",
-		["Valid Date"]: "123",
-		["Token"]: "123",
+export const defaultDataTable = [
+	{
+		["No"]: "-",
+		["Subject Group"]: `-`,
+		["Name Quiz"]: `-`,
+		["Total"]: "-",
+		["Duration"]: "-",
+		["Valid Date"]: "-",
+		["Token"]: "-",
 		["Action"]: "",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

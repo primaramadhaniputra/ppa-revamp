@@ -14,19 +14,18 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		NRP: "HD787",
-		Name: "Hd123",
-		Perusahaan: `33${index}`,
-		Dept: "2022-17-08",
-		Posisi: "2022-17-08",
-		Checkin: "2022-17-08 02:12:12",
-		P2H: "2022-17-08 02:12:12",
-		Achievement: "2022-17-08 02:12:12",
-	};
-});
+export const defaultDataTable = [
+	{
+		NRP: "-",
+		Name: "-",
+		Perusahaan: `-`,
+		Dept: "-",
+		Posisi: "-",
+		Checkin: "-",
+		P2H: "-",
+		Achievement: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

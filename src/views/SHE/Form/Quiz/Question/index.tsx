@@ -10,16 +10,15 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		ID: "HD787",
-		Question: "Hd123",
-		["Subject Group"]: `33${index}`,
-		["Modified Date"]: `33${index}`,
-		["Action"]: "123",
-	};
-});
+export const defaultDataTable = [
+	{
+		ID: "-",
+		Question: "-",
+		["Subject Group"]: `-`,
+		["Modified Date"]: `-`,
+		["Action"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

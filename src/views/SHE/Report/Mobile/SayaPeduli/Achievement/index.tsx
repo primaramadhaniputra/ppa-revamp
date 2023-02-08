@@ -8,9 +8,8 @@ import TitleText from "atoms/TitleText";
 import { Person } from "utils/interfaces";
 import MigrateTable from "src/components/organism/MigrateTable";
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Nrp"]: "-",
 		["Nama"]: "-",
 		["Dept"]: "-",
@@ -19,8 +18,8 @@ export const defaultDataTable = arr.map(() => {
 		["Hari"]: "-",
 		["Saya Peduli"]: "-",
 		["Ach"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

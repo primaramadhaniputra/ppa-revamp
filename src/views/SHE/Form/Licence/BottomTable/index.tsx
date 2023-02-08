@@ -6,18 +6,17 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		["TGL INPUT"]: "31-08-2022",
-		["NRP"]: "0123955",
-		["GOL DARAH"]: "O",
-		["NAMA"]: "MISTIADI",
-		["DEPT"]: "HCG",
-		["POSISI"]: "DRIVER LV",
-		["PERUSAHAAN"]: "SPA",
-	};
-});
+export const defaultDataTable = [
+	{
+		["TGL INPUT"]: "-",
+		["NRP"]: "-",
+		["GOL DARAH"]: "-",
+		["NAMA"]: "-",
+		["DEPT"]: "-",
+		["POSISI"]: "-",
+		["PERUSAHAAN"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

@@ -8,17 +8,16 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		["DEPARTEMENT"]: "ENG",
-		["TOTAL"]: "56",
-		["RESIKO RENDAH"]: "54",
-		["RESIKO SEDANG"]: "2",
-		["RESIKO TINGGI"]: "0",
-		["UNFIT"]: "0",
-	};
-});
+export const defaultDataTable = [
+	{
+		["DEPARTEMENT"]: "-",
+		["TOTAL"]: "-",
+		["RESIKO RENDAH"]: "-",
+		["RESIKO SEDANG"]: "-",
+		["RESIKO TINGGI"]: "-",
+		["UNFIT"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

@@ -10,9 +10,8 @@ import LayoutTable from "src/components/layouts/LayoutTable";
 import { Person } from "utils/interfaces";
 import MigrateTable from "src/components/organism/MigrateTable";
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["NO"]: "-",
 		["TGL PELAPORAN"]: "-",
 		["PELAPOR"]: "-",
@@ -24,8 +23,8 @@ export const defaultDataTable = arr.map(() => {
 		["PIC EMP"]: "-",
 		["STATUS PELAPORAN"]: "-",
 		["ACTION"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

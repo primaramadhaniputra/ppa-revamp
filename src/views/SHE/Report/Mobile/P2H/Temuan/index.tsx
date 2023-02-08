@@ -13,17 +13,16 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		Tanggal: "HD787",
-		CN: "Hd123",
-		["Hazard Code"]: `33${index}`,
-		Item: "2022-17-08",
-		Remark: "2022-17-08",
+export const defaultDataTable = [
+	{
+		Tanggal: "-",
+		CN: "-",
+		["Hazard Code"]: `-`,
+		Item: "-",
+		Remark: "-",
 		Detail: "",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

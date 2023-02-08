@@ -14,20 +14,19 @@ interface IProps {
 
 const columnHelper = createColumnHelper<IProps>();
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		NRP: "HD787",
-		Name: "Hd123",
-		["Dept"]: `33${index}`,
-		["Kode Unit"]: `33${index}`,
-		Shift: "2022-17-08",
-		Date: "123",
-		Status: "123",
-		["Atasan Status"]: "123",
-		["Detail"]: "123",
-	};
-});
+export const defaultDataTable = [
+	{
+		NRP: "-",
+		Name: "-",
+		["Dept"]: `-`,
+		["Kode Unit"]: `-`,
+		Shift: "-",
+		Date: "-",
+		Status: "-",
+		["Atasan Status"]: "--",
+		["Detail"]: "-",
+	},
+];
 
 export default function Detail() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);
