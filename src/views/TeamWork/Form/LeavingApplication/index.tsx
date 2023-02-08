@@ -14,15 +14,15 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+const arr = new Array(1).fill(0);
+export const defaultDataTable = arr.map(() => {
 	return {
-		id: "HD787",
-		lapangan: "Hd123",
-		tahunan: `33${index}`,
-		leave: "2022-17-08",
-		back: "2022-17-08",
-		status: "2022-17-08 02:12:12",
+		id: "-",
+		lapangan: "-",
+		tahunan: `-`,
+		leave: "-",
+		back: "-",
+		status: "-",
 		action: "",
 	};
 });

@@ -11,15 +11,15 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+const arr = new Array(1).fill(0);
+export const defaultDataTable = arr.map(() => {
 	return {
-		NRP: "HD787",
-		Nama: "Hd123",
-		Posisi: `33${index}`,
-		Dept: "2022-17-08",
-		["Tanggal Detail"]: "2022-17-08",
-		["Detail"]: "2022-17-08",
+		NRP: "-",
+		Nama: "-",
+		Posisi: `-`,
+		Dept: "-",
+		["Tanggal Detail"]: "-",
+		["Detail"]: "-",
 	};
 });
 

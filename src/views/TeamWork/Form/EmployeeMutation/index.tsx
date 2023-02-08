@@ -12,13 +12,13 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
+export const defaultDataTable = new Array(1).fill(0).map(() => {
 	return {
-		["NRP"]: "HD787",
-		["Name"]: "Hd123",
-		["Jabatan"]: `331`,
-		["Posisi"]: "2022-17-08",
-		["Action"]: "2022-17-08",
+		["NRP"]: "-",
+		["Name"]: "-",
+		["Jabatan"]: `-`,
+		["Posisi"]: "-",
+		["Action"]: "-",
 	};
 });
 

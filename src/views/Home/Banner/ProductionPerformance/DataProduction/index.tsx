@@ -11,30 +11,30 @@ const tabsObText = ["JS", "TC"];
 
 export const ProductionPerfromanceData = [
 	{
-		title: " Cost @ 1 Km",
+		title: " Cost @ - Km",
 		plan: ["MTD", "**"],
 		act: ["YTD", "**"],
 		icon: "ach_cost.png",
-		ach: "Ach.10%",
+		ach: "Ach.-%",
 	},
 	{
 		title: " Coal ",
-		plan: ["Plan", "2.203.117 ton"],
-		act: ["Act", "2.314.285 ton"],
+		plan: ["Plan", "- ton"],
+		act: ["Act", "- ton"],
 		icon: "ach_coal_production.png",
-		ach: "Ach.103%",
+		ach: "Ach.-%",
 	},
 	{
 		title: "OB",
-		plan: ["Plan", "2.203.117 ton"],
-		act: ["Act", "2.314.285 ton"],
+		plan: ["Plan", "- ton"],
+		act: ["Act", "- ton"],
 		icon: "ach_ob_production.png",
-		ach: "Ach.103%",
+		ach: "Ach.-%",
 	},
 	{
 		title: "MP PRDTY",
-		plan: ["Plan", "2.203.117 ton"],
-		act: ["Act", "2.314.285 ton"],
+		plan: ["Plan", "- ton"],
+		act: ["Act", "- ton"],
 		icon: "mp_productivity.png",
 	},
 ];

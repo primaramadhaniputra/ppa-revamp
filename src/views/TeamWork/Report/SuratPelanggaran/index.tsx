@@ -14,17 +14,17 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
+const arr = new Array(1).fill(0);
+export const defaultDataTable = arr.map((_) => {
 	return {
-		["Waktu Kejadian"]: "2022-10-12||10.30",
-		["NRP"]: "Hd123",
-		["Nama"]: `33${index}`,
-		["Posisi"]: "Sayap kanan",
-		["Sanksi"]: "ee gak tau",
-		["Jenis"]: "2022-17-08 02:12:12",
-		["Status"]: "AKTIF",
-		["Detail"]: "2022-17-08 02:12:12",
+		["Waktu Kejadian"]: "-",
+		["NRP"]: "-",
+		["Nama"]: `-`,
+		["Posisi"]: "-",
+		["Sanksi"]: "-",
+		["Jenis"]: "-",
+		["Status"]: "-",
+		["Detail"]: "-",
 	};
 });
 

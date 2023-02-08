@@ -34,22 +34,22 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 					<tr>
 						<td style={{ padding: "5px 5px", width: "14%" }}>NRP</td>
 						<td style={{ padding: "5px 5px", width: "1%" }}>:</td>
-						<td style={{ padding: "5px 5px", width: "35%" }}>19020537</td>
+						<td style={{ padding: "5px 5px", width: "35%" }}>-</td>
 					</tr>
 					<tr>
 						<td style={{ padding: "5px 5px" }}>Nama</td>
 						<td style={{ padding: "5px 5px" }}>:</td>
-						<td style={{ padding: "5px 5px" }}>MONA RICHA OCTABERY</td>
+						<td style={{ padding: "5px 5px" }}>-</td>
 					</tr>
 					<tr>
 						<td style={{ padding: "5px 5px" }}>Jabatan</td>
 						<td style={{ padding: "5px 5px" }}>:</td>
-						<td style={{ padding: "5px 5px" }}>ACT. GROUP LEADER MOCO</td>
+						<td style={{ padding: "5px 5px" }}>-</td>
 					</tr>
 					<tr>
 						<td style={{ padding: "5px 5px" }}>Departemen</td>
 						<td style={{ padding: "5px 5px" }}>:</td>
-						<td style={{ padding: "5px 5px" }}>ENG</td>
+						<td style={{ padding: "5px 5px" }}>-</td>
 					</tr>
 				</tbody>
 			</Table>
@@ -58,10 +58,7 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 				<Table width="100%" style={{ fontSize: "10pt" }}>
 					<tbody>
 						<tr>
-							<td style={{ padding: "5px 5px", width: "14%" }}>
-								Meminta ijin karena nyeri demam haid, hanya ijin tanggal 31 saja. Pengajuan 2 hari
-								karena tidak bisa kirim data jika hanya 1 hari
-							</td>
+							<td style={{ padding: "5px 5px", width: "14%" }}>-</td>
 						</tr>
 					</tbody>
 				</Table>
@@ -73,27 +70,27 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 						<tr>
 							<td style={{ padding: "5px 5px", width: "30%" }}>Jenis Izin</td>
 							<td style={{ padding: "5px 5px", width: "1%" }}>:</td>
-							<td style={{ padding: "5px 5px", width: "35%" }}>Istirahat Haid</td>
+							<td style={{ padding: "5px 5px", width: "35%" }}>-</td>
 						</tr>
 						<tr>
 							<td style={{ padding: "5px 5px", width: "30%" }}>Jumlah Hari Izin</td>
 							<td style={{ padding: "5px 5px", width: "1%" }}>:</td>
-							<td style={{ padding: "5px 5px", width: "35%" }}>1 Hari</td>
+							<td style={{ padding: "5px 5px", width: "35%" }}>-</td>
 						</tr>
 						<tr>
 							<td style={{ padding: "5px 5px", width: "30%" }}>Berangkat dari Job Site</td>
 							<td style={{ padding: "5px 5px", width: "1%" }}>:</td>
-							<td style={{ padding: "5px 5px", width: "35%" }}>2022-10-31</td>
+							<td style={{ padding: "5px 5px", width: "35%" }}>-</td>
 						</tr>
 						<tr>
 							<td style={{ padding: "5px 5px", width: "30%" }}>Kembali ke Job Site</td>
 							<td style={{ padding: "5px 5px", width: "1%" }}>:</td>
-							<td style={{ padding: "5px 5px", width: "35%" }}>2022-11-01</td>
+							<td style={{ padding: "5px 5px", width: "35%" }}>-</td>
 						</tr>
 						<tr>
 							<td style={{ padding: "5px 5px", width: "30%" }}>Status</td>
 							<td style={{ padding: "5px 5px", width: "1%" }}>:</td>
-							<td style={{ padding: "5px 5px", width: "35%" }}>Waiting</td>
+							<td style={{ padding: "5px 5px", width: "35%" }}>-</td>
 						</tr>
 						<tr>
 							<td style={{ padding: "5px 5px", width: "30%" }}>Approval</td>
