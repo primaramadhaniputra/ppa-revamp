@@ -7,27 +7,26 @@ import RevisiDropdown from "atoms/RevisiDropdown";
 import { Person } from "utils/interfaces";
 import MigrateTable from "src/components/organism/MigrateTable";
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		["CN"]: "H57033",
-		["Cycle"]: "45",
-		["Pld(ton)"]: "90,6",
-		["EST(min)"]: "1,3",
-		["ES(km/h)"]: "22",
-		["LS(km/h)"]: "17",
-		["Speed(km/h)"]: "19,5",
-		["EDT(min)"]: "9,1",
-		["LDT(min)"]: "11,5",
-		["LST(min)"]: "11,5",
-		["LT(min)"]: "11,5",
-		["CT(min)"]: "11,5",
-		["LDD(km)"]: "11,5",
-		["Prod(BCM)"]: "11,5",
-		["Prdty(BCM/h)"]: "11,5",
-		["TF"]: "11,5",
-	};
-});
+export const defaultDataTable = [
+	{
+		["CN"]: "-",
+		["Cycle"]: "-",
+		["Pld(ton)"]: "-",
+		["EST(min)"]: "-",
+		["ES(km/h)"]: "-",
+		["LS(km/h)"]: "-",
+		["Speed(km/h)"]: "-",
+		["EDT(min)"]: "-",
+		["LDT(min)"]: "-",
+		["LST(min)"]: "-",
+		["LT(min)"]: "-",
+		["CT(min)"]: "-",
+		["LDD(km)"]: "-",
+		["Prod(BCM)"]: "-",
+		["Prdty(BCM/h)"]: "-",
+		["TF"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

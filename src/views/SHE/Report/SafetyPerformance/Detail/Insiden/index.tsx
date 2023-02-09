@@ -8,9 +8,8 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Description"]: "-",
 		["Sebelumnya"]: "-",
 		["JAN"]: "0",
@@ -26,8 +25,8 @@ export const defaultDataTable = arr.map(() => {
 		["NOV"]: "0",
 		["DES"]: "0",
 		["YTD"]: "0",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

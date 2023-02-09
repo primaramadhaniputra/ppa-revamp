@@ -16,18 +16,18 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
-		["No"]: "HD787",
-		["Date"]: "Hd123",
-		["NRP"]: `331`,
-		["Name"]: "2022-17-08",
-		["Posisi"]: "2022-17-08",
-		["Jenis"]: "2022-17-08 02:12:12",
-		["Tempat"]: "2022-17-08 02:12:12",
-		["Action"]: "2022-17-08 02:12:12",
-	};
-});
+export const defaultDataTable = [
+	{
+		["No"]: "-",
+		["Date"]: "-",
+		["NRP"]: `-`,
+		["Name"]: "-",
+		["Posisi"]: "-",
+		["Jenis"]: "-",
+		["Tempat"]: "-",
+		["Action"]: "-",
+	},
+];
 
 const tabTitle = [
 	"Sanksi Teguran",

@@ -11,16 +11,15 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		Dept: "HD787",
-		MP: "Hd123",
-		["New Version"]: `33${index}`,
-		["Old Version"]: `33${index}`,
-		Updated: "2022-17-08",
-	};
-});
+export const defaultDataTable = [
+	{
+		Dept: "-",
+		MP: "-",
+		["New Version"]: `-`,
+		["Old Version"]: `-`,
+		Updated: "-",
+	},
+];
 
 export default function AppVersionControl() {
 	const [isShowDetail, setIsShowDetail] = React.useState(false);

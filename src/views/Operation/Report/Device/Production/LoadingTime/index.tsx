@@ -21,7 +21,7 @@ export default function LoadingTime() {
 		setToDate(e);
 	};
 
-	const getData = async () => {
+	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
 			const data = await getOperationReport({
@@ -32,7 +32,8 @@ export default function LoadingTime() {
 				headers: {
 					Tenant: "MHU",
 				},
-				path: "/loading-time",
+				path: "loading-time",
+				...(signal && { signal }),
 			});
 			setDataChart(data.data.data);
 			setIsLoading(false);
@@ -44,7 +45,9 @@ export default function LoadingTime() {
 	};
 
 	useEffect(() => {
-		getData();
+		const abortController = new AbortController();
+		getData(abortController.signal);
+		return () => abortController.abort();
 	}, []);
 
 	return (

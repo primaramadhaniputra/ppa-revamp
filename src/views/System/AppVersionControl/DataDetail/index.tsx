@@ -12,16 +12,15 @@ interface IColumns {
 	[x: string]: any;
 }
 
-const arr = new Array(1).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["NRP"]: "-",
 		["Nama"]: "-",
 		["Company"]: "-",
 		["Position"]: "-",
 		["App Version"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IColumns>();
 

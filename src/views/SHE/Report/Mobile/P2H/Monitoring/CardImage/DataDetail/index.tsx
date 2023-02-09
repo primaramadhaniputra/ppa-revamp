@@ -12,13 +12,12 @@ interface IColumns {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Unit"]: "-",
 		["Operator"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IColumns>();
 

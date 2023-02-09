@@ -20,34 +20,31 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			<Grid container gap={20} flexDirection="column" style={{ padding: "10px" }}>
 				<DataContainer>
 					<StyledP>NRP / Nama </StyledP>
-					<P>: AGUS EKA PRASETYA</P>
+					<P>: </P>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Perusahaan </StyledP>
-					<P>: AMM</P>
+					<P>: </P>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Dept / Posisi </StyledP>
-					<P>: FLO / FUELMAN</P>
+					<P>: </P>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Sanksi Pelanggaran </StyledP>
-					<P>: Teguran</P>
+					<P>: </P>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Jenis Pelanggaran </StyledP>
-					<P>: Hasil Kerja</P>
+					<P>: </P>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Lokasi Kejadian </StyledP>
-					<P>: Fuel Sentuk</P>
+					<P>: </P>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Uraian </StyledP>
-					<P>
-						: Keliru hasil pengisian di input pada FT lain (Pengisian menggunakan FT52609 di input
-						di FT52610)
-					</P>
+					<P>:</P>
 				</DataContainer>
 				<StyledP style={{ textDecoration: "underline" }}>Mine license penalty </StyledP>
 				<DataContainer>

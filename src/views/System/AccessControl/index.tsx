@@ -19,16 +19,16 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		NRP: "",
 		Name: "",
 		Dept: "",
 		Position: "",
 		Level: "",
 		Action: "",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

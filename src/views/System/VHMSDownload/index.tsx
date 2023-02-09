@@ -8,20 +8,19 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		Model: "HD787",
-		CN: "Hd123",
-		SN: `33${index}`,
-		["Last Download"]: "2022-17-08",
-		["Last Operation"]: "2022-17-08",
-		["Pldcycn Record"]: "2022-17-08 02:12:12",
-		["Trend Record"]: "2022-17-08 02:12:12",
-		["Fault Record"]: "2022-17-08 02:12:12",
-		["Machine History"]: "2022-17-08 02:12:12",
-	};
-});
+export const defaultDataTable = [
+	{
+		Model: "-",
+		CN: "-",
+		SN: `-`,
+		["Last Download"]: "-",
+		["Last Operation"]: "-",
+		["Pldcycn Record"]: "- ",
+		["Trend Record"]: "- ",
+		["Fault Record"]: "- ",
+		["Machine History"]: "- ",
+	},
+];
 
 export default function VHMSDownload() {
 	const columns: ColumnDef<Person>[] = [

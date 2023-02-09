@@ -13,23 +13,23 @@ interface Person {
 
 const columnHelper = createColumnHelper<Person>();
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
-		["NRP"]: "HD787",
-		["Name"]: "Hd123",
-		["Date"]: `331`,
-		["Posisi"]: "2022-17-08",
-		["Grade"]: "2022-17-08",
-		["Join Date"]: "2022-17-08 02:12:12",
-		["Masa Kerja"]: "2022-17-08 02:12:12",
-		["ATR YTD"]: "2022-17-08 02:12:12",
-		["Indisipliner"]: "2022-17-08 02:12:12",
-		["ATD"]: "2022-17-08 02:12:12",
-		["ACC"]: "2022-17-08 02:12:12",
-		["Versaliti Readines"]: "2022-17-08 02:12:12",
-		["Remark"]: "2022-17-08 02:12:12",
-	};
-});
+export const defaultDataTable = [
+	{
+		["NRP"]: "-",
+		["Name"]: "-",
+		["Date"]: `-`,
+		["Posisi"]: "-",
+		["Grade"]: "-",
+		["Join Date"]: "-",
+		["Masa Kerja"]: "-",
+		["ATR YTD"]: "-",
+		["Indisipliner"]: "-",
+		["ATD"]: "-",
+		["ACC"]: "-",
+		["Versaliti Readines"]: "-",
+		["Remark"]: "-",
+	},
+];
 
 export default function OperatorHours() {
 	const objTitle = useMemo(() => Object.keys(defaultDataTable.map((item: any) => item)[0]), []);

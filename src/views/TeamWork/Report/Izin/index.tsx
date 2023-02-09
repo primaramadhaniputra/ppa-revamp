@@ -14,23 +14,22 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		NRP: "HD787",
-		Nama: "Hd123",
-		Posisi: `33${index}`,
-		Status: "2022-17-08",
-		Out: "2022-17-08",
-		Dept: "2022-17-08 02:12:12",
-		["Jenis Izin"]: "2022-17-08 02:12:12",
-		Berangkat: "2022-17-08 02:12:12",
-		Kembali: "2022-17-08 02:12:12",
-		["Total Izin"]: "2022-17-08 02:12:12",
-		Approval: "2022-17-08 02:12:12",
+export const defaultDataTable = [
+	{
+		NRP: "-",
+		Nama: "-",
+		Posisi: `-`,
+		Status: "-",
+		Out: "-",
+		Dept: "-",
+		["Jenis Izin"]: "-",
+		Berangkat: "-",
+		Kembali: "-",
+		["Total Izin"]: "-",
+		Approval: "-",
 		Detail: "",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

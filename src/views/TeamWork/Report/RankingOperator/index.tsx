@@ -11,38 +11,37 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		["NRP"]: "120029",
-		["Nama"]: "M.Syarif",
-		["Perusahaan"]: "AMM",
-		["Dept"]: "PRO",
-		["Posisi"]: "OPERATOR PC2000",
-		["Hiring Date"]: "2017-02-20	",
-		["Masa Kerja(Bulan)"]: "67",
-		["Model"]: "PC1250-8R",
+export const defaultDataTable = [
+	{
+		["NRP"]: "-",
+		["Nama"]: "-",
+		["Perusahaan"]: "-",
+		["Dept"]: "-",
+		["Posisi"]: "-",
+		["Hiring Date"]: "-	",
+		["Masa Kerja(Bulan)"]: "-",
+		["Model"]: "-",
 		["Loader"]: "-",
-		["Material"]: "OB",
-		["Produktivitas"]: "0.00",
-		["ATR"]: "100",
-		["SP"]: "0",
-		["P2H"]: "100",
-		["Time Sheet"]: "50",
-		["Poin Prod"]: "50",
-		["Poin ATR"]: "50",
-		["Poin SP"]: "50",
-		["Poin P2H"]: "50",
-		["Poin Time Sheet"]: "50",
-		["Total"]: "50",
-		["Syarat Masa Kerja"]: "1",
-		["Syarat Produktivitas"]: "1",
-		["Syarat SP"]: "1",
-		["Syarat ATR"]: "1",
-		["Pra Syarat"]: "3",
-		["Kategori"]: "BP",
-	};
-});
+		["Material"]: "-",
+		["Produktivitas"]: "-",
+		["ATR"]: "-",
+		["SP"]: "-",
+		["P2H"]: "-",
+		["Time Sheet"]: "-",
+		["Poin Prod"]: "-",
+		["Poin ATR"]: "-",
+		["Poin SP"]: "-",
+		["Poin P2H"]: "-",
+		["Poin Time Sheet"]: "-",
+		["Total"]: "-",
+		["Syarat Masa Kerja"]: "-",
+		["Syarat Produktivitas"]: "-",
+		["Syarat SP"]: "-",
+		["Syarat ATR"]: "-",
+		["Pra Syarat"]: "-",
+		["Kategori"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

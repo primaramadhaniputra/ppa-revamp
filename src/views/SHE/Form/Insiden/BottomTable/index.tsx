@@ -10,17 +10,16 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["TGL Kejadian"]: "-",
 		["Korban"]: "-",
 		["Kategori"]: "-",
 		["Kerugian"]: "-",
 		["Deskripsi"]: "-",
 		["File"]: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

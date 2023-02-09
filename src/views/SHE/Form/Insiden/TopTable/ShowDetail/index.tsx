@@ -7,9 +7,8 @@ interface ITable {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["ROL"]: "ROL",
 		["DEPT"]: "ENG",
 		["PERUSAHAAN"]: "AMM",
@@ -19,8 +18,8 @@ export const defaultDataTable = arr.map(() => {
 		["EXP SIMPER"]: "-2 HARI",
 		["EXP PERMIT"]: "-120 HARI",
 		["EXP MCU"]: "-120 HARI",
-	};
-});
+	},
+];
 
 interface IProps {
 	isShowDetail: boolean;

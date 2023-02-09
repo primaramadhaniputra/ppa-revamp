@@ -7,20 +7,19 @@ interface ITable {
 	[x: string]: any;
 }
 
-const arr = new Array(100).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		["ROL"]: "ROL",
-		["DEPT"]: "ENG",
-		["PERUSAHAAN"]: "AMM",
-		["MASA SIMPER"]: "30-09-2022",
-		["MASA MINEPERMIT"]: "30-09-2023",
-		["MASA MCU"]: "20-03-2023",
-		["EXP SIMPER"]: "-2 HARI",
-		["EXP PERMIT"]: "-120 HARI",
-		["EXP MCU"]: "-120 HARI",
-	};
-});
+export const defaultDataTable = [
+	{
+		["ROL"]: "-",
+		["DEPT"]: "-",
+		["PERUSAHAAN"]: "-",
+		["MASA SIMPER"]: "-",
+		["MASA MINEPERMIT"]: "-",
+		["MASA MCU"]: "-",
+		["EXP SIMPER"]: "--",
+		["EXP PERMIT"]: "--",
+		["EXP MCU"]: "-",
+	},
+];
 
 interface IProps {
 	isShowDetail: boolean;

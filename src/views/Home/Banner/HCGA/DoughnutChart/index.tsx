@@ -74,7 +74,7 @@ export default function DoughnutChart() {
 				Total Manpower
 			</Text>
 			<DonatContainer>
-				<Doughnut data={data} options={options as any} plugins={[ChartDataLabels]} />
+				<Doughnut data={data} options={options as any} plugins={[ChartDataLabels as any]} />
 			</DonatContainer>
 		</Wrapper>
 	);

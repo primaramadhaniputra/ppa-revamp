@@ -9,24 +9,23 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		Bulan: "Januari 2021",
-		D: `12`,
-		N: `12`,
-		IO: "12",
-		C: "12",
-		O: "12",
-		T: "12",
-		P: "12",
-		S: "12",
-		I: "12",
-		A: "12",
-		K: "12",
-		["ATR MTD"]: "100%",
-	};
-});
+export const defaultDataTable = [
+	{
+		Bulan: "-",
+		D: `-`,
+		N: `-`,
+		IO: "-",
+		C: "-",
+		O: "-",
+		T: "-",
+		P: "-",
+		S: "-",
+		I: "-",
+		A: "-",
+		K: "-",
+		["-"]: "100%",
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

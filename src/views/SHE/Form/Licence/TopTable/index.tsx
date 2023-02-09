@@ -8,18 +8,17 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(5).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
-		["DEPARTEMENT"]: "ENG",
-		["MP"]: "68",
-		["AKTIF SIMPER < 30 HARI"]: "1",
-		["SIMPER EXPIRED"]: "0",
-		["AKTIF PERMIT < 30 HARI"]: "10",
-		["AKTIF MCU < 30"]: "10",
-		["EXPIRED MCU"]: "4",
-	};
-});
+export const defaultDataTable = [
+	{
+		["DEPARTEMENT"]: "-",
+		["MP"]: "-",
+		["AKTIF SIMPER < 30 HARI"]: "-",
+		["SIMPER EXPIRED"]: "-",
+		["AKTIF PERMIT < 30 HARI"]: "-",
+		["AKTIF MCU < 30"]: "-",
+		["EXPIRED MCU"]: "-",
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

@@ -21,7 +21,7 @@ export default function EmptyStop() {
 		setToDate(e);
 	};
 
-	const getData = async () => {
+	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
 			const data = await getOperationReport({
@@ -32,7 +32,8 @@ export default function EmptyStop() {
 				headers: {
 					Tenant: "MHU",
 				},
-				path: "/empty-stop",
+				path: "empty-stop",
+				...(signal && { signal }),
 			});
 			setDataChart(data.data.data);
 			setIsLoading(false);
@@ -44,7 +45,9 @@ export default function EmptyStop() {
 	};
 
 	useEffect(() => {
-		getData();
+		const abortController = new AbortController();
+		getData(abortController.signal);
+		return () => abortController.abort();
 	}, []);
 
 	return (

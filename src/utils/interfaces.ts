@@ -14,6 +14,7 @@ export interface IPayload {
 	headers?: AxiosRequestHeaders;
 	body?: any;
 	context?: any;
+	signal?: any;
 }
 export interface ILoginData {
 	nrp: string | FormDataEntryValue | null;

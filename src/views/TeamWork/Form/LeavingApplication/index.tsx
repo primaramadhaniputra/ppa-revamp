@@ -14,18 +14,17 @@ interface Person {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map((_, index) => {
-	return {
-		id: "HD787",
-		lapangan: "Hd123",
-		tahunan: `33${index}`,
-		leave: "2022-17-08",
-		back: "2022-17-08",
-		status: "2022-17-08 02:12:12",
+export const defaultDataTable = [
+	{
+		id: "-",
+		lapangan: "-",
+		tahunan: `-`,
+		leave: "-",
+		back: "-",
+		status: "-",
 		action: "",
-	};
-});
+	},
+];
 
 export default function LeavingApplication() {
 	const [isShowDetail, setIsShowDetail] = React.useState(false);

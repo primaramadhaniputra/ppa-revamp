@@ -14,9 +14,8 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		["Periode"]: "HD787",
 		["NRP"]: "Hd123",
 		["Name"]: `Dani Ganteng `,
@@ -29,8 +28,8 @@ export const defaultDataTable = arr.map(() => {
 		["PKR"]: "1",
 		["WUC"]: "1",
 		["Detail"]: "1",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 

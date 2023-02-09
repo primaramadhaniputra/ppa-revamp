@@ -14,19 +14,19 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
-		NRP: "HD787",
-		Name: "Hd123",
-		Date: `33`,
-		Code: "2022-17-08",
-		In: "2022-17-08",
-		Out: "2022-17-08 02:12:12",
-		Job: "2022-17-08 02:12:12",
-		Pos: "2022-17-08 02:12:12",
-		Act: "2022-17-08 02:12:12",
-	};
-});
+export const defaultDataTable = [
+	{
+		NRP: "-",
+		Name: "-",
+		Date: `-`,
+		Code: "-",
+		In: "-",
+		Out: "-",
+		Job: "-",
+		Pos: "-",
+		Act: "",
+	},
+];
 
 const columnHelper = createColumnHelper<Person>();
 

@@ -10,17 +10,17 @@ interface Person {
 	[x: string]: any;
 }
 
-export const defaultDataTable = new Array(10).fill(0).map(() => {
-	return {
-		Tanggal: "HD787",
-		NRP: "Hd123",
-		Nama: `33`,
-		Posisi: "2022-17-08",
-		Status: "2022-17-08",
-		Time: "2022-17-08 02:12:12",
-		Mac: "2022-17-08 02:12:12",
-	};
-});
+export const defaultDataTable = [
+	{
+		Tanggal: "-",
+		NRP: "-",
+		Nama: `-`,
+		Posisi: "-",
+		Status: "-",
+		Time: "- ",
+		Mac: "- ",
+	},
+];
 
 const data = ["a", "b", "c"];
 

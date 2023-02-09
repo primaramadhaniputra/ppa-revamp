@@ -20,41 +20,41 @@ export default function ShowDetail({ isShowDetail, setIsShowDetail, formPosition
 			<Grid flexDirection="column" container gap={20} style={{ padding: "20px 10px" }}>
 				<DataContainer>
 					<StyledP>Name :</StyledP>
-					<p>AGUS EKA PRASETYA</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Position :</StyledP>
-					<p>GROUP LEADER SYSTEM DEVELOPER</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Date :</StyledP>
-					<p>2020-12-16 to 2020-12-30</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>POH :</StyledP>
-					<p>2020-12-16 to 2020-12-30</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Hiring Date :</StyledP>
-					<p>2020-12-16 to 2020-12-30</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Status :</StyledP>
-					<p>2020-12-16 to 2020-12-30</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Leave :</StyledP>
-					<p>2020-12-16 to 2020-12-30</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer>
 					<StyledP>Address :</StyledP>
-					<p>DUSUN MANTING RT. 018 RW. 003 KEL. TAWANGSARI KEC. PUJON KAB. MALANG JAWA TIMUR</p>
+					<p>-</p>
 				</DataContainer>
 				<DataContainer style={{ flexDirection: "column" }}>
 					<StyledP>Approval History :</StyledP>
 					<p style={{ paddingLeft: "20px" }}>
 						{" "}
-						[SH] Approved by DWI HENDRA IRAWAN with no message on 2020-12-13 17:40:19
+						{/* [SH] Approved by DWI HENDRA IRAWAN with no message on 2020-12-13 17:40:19 */}-
 					</p>
 				</DataContainer>
 				<DataContainer style={{ flexDirection: "column", width: "100%" }}>

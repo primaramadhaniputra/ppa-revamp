@@ -11,9 +11,8 @@ interface IProps {
 	[x: string]: any;
 }
 
-const arr = new Array(10).fill(0);
-export const defaultDataTable = arr.map(() => {
-	return {
+export const defaultDataTable = [
+	{
 		NRP: "-",
 		Nama: "-",
 		Tanggal: `-`,
@@ -25,8 +24,8 @@ export const defaultDataTable = arr.map(() => {
 		Code: "-",
 		Device: "-",
 		Owner: "-",
-	};
-});
+	},
+];
 
 const columnHelper = createColumnHelper<IProps>();
 
