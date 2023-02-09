@@ -19,8 +19,7 @@ export default function Payload() {
 	const handleToDate = (e: Date) => {
 		setToDate(e);
 	};
-
-	const getData = async () => {
+	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
 			const data = await getOperationReport({
@@ -31,7 +30,8 @@ export default function Payload() {
 				headers: {
 					Tenant: "MHU",
 				},
-				path: "/payloads",
+				path: "payloads",
+				...(signal && { signal }),
 			});
 			setDataChart(data.data.data);
 			setIsLoading(false);
@@ -43,7 +43,9 @@ export default function Payload() {
 	};
 
 	useEffect(() => {
-		getData();
+		const abortController = new AbortController();
+		getData(abortController.signal);
+		return () => abortController.abort();
 	}, []);
 
 	return (

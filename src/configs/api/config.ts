@@ -103,6 +103,7 @@ class ApiRequest {
 			method,
 			headers: payload?.headers ? { ...baseHeaders, ...payload.headers } : baseHeaders,
 			data: payload?.body ? payload.body : {},
+			signal: payload?.signal,
 		};
 
 		try {
