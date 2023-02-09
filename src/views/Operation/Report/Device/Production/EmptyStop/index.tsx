@@ -40,7 +40,7 @@ export default function EmptyStop() {
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
 			setIsLoading(false);
-			return notify(error.message, "error");
+			return signal.aborted == false && notify(error.message, "error");
 		}
 	};
 
