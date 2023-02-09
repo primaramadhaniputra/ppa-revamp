@@ -33,7 +33,7 @@ export default function TopFilter({
 						borderRadius: "3px",
 						minWidth: "150px",
 					}}
-					onClick={getData}
+					onClick={() => getData()}
 				>
 					SHOW
 				</StyledButton>

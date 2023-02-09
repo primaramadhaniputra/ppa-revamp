@@ -19,6 +19,7 @@ export default function Payload() {
 	const handleToDate = (e: Date) => {
 		setToDate(e);
 	};
+
 	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
