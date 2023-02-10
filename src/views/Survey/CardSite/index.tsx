@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { ISurveyReportCriteria } from "utils/interfaces";
+import Tilt from "react-parallax-tilt";
 import {
 	CardSiteContainer,
 	CardTitle,
@@ -60,6 +61,11 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 		<CardSiteContainer>
 			{reportCriteria.length > 0
 				? reportCriteria.map((item, index) => (
+					<Tilt
+						perspective={500}
+						style={{ flex: 1, display: 'flex', transformStyle: "preserve-3d" }}
+						glareEnable={true} glareMaxOpacity={0.8} glareColor="#333" glarePosition="bottom" glareBorderRadius="10px"
+					>
 						<StyledCard
 							key={index}
 							onClick={() =>
@@ -75,12 +81,12 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 								colorType={renderColor(item.assessmentCriteria.average)}
 								title={renderTextAverage(item.assessmentCriteria.average)}
 							/>
-							<Grid container flexDirection="row" gap={24}>
+							<Grid container flexDirection="row" gap={24} style={{ transformStyle: 'preserve-3d' }}>
 								<LogoContainer>
 									<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
 								</LogoContainer>
-								<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
-									<Grid>
+								<Grid container flexDirection="column" gap={10} style={{ flex: 1, transformStyle: "preserve-3d" }}>
+									<Grid style={{ transformStyle: 'preserve-3d' }}>
 										<CardTitle>{item.name}</CardTitle>
 									</Grid>
 									<Grid container alignItems="flex-end" gap={28}>
@@ -96,9 +102,10 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 								</Grid>
 							</Grid>
 						</StyledCard>
-				  ))
+					</Tilt>
+				))
 				: null}
-		</CardSiteContainer>
+		</CardSiteContainer >
 	);
 };
 
