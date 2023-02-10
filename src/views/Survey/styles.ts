@@ -30,6 +30,8 @@ export const StyledCard = styled(Card)`
 	flex-direction: column;
 	gap: 10px;
 	position: relative;
+	width: 100%;
+	transform-style: preserve-3d;
 `;
 
 export const LogoContainer = styled.div`
@@ -47,7 +49,8 @@ export const CardTitle = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
 	font-size: 18px;
-	line-height: 36px;
+	line-height: 30px;
+	transform: translateZ(30px);
 	@media (max-width: 500px) {
 		font-size: 16px;
 	}

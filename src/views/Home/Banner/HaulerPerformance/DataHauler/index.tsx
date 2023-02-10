@@ -5,6 +5,7 @@ import LabelValue from "src/components/organism/LabelValue";
 import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import Image from "next/image";
+import Tilt from "react-parallax-tilt";
 
 export const HaulerPerformanceData = [
 	{
@@ -50,32 +51,42 @@ const DataHauler = () => {
 		<ItemContainer>
 			{HaulerPerformanceData.map((data, index) => {
 				return (
-					<Item key={index}>
-						<Grid container flexDirection="column" gap={20}>
-							<Grid container justifyContent="space-between" alignItems="center">
-								<TitlePage
-									styles={{
-										color: colors.orange,
-										fontSize: fontSizing.sm.fontSize,
-									}}
-									type="h4"
-								>
-									{data.title}
-								</TitlePage>
-								<Image
-									src={`/icons/${data.icon}`}
-									width={index === 1 ? 32 : 25}
-									height={index === 1 ? 19 : 25}
-									alt="ProductionPerfromance icon"
-									quality={100}
-								/>
+					<Tilt
+						perspective={200}
+						style={{ flex: 1 }}
+						glareEnable={true}
+						glareMaxOpacity={0.8}
+						glareColor="#aaa"
+						glarePosition="bottom"
+						glareBorderRadius="0px"
+					>
+						<Item key={index}>
+							<Grid container flexDirection="column" gap={20}>
+								<Grid container justifyContent="space-between" alignItems="center">
+									<TitlePage
+										styles={{
+											color: colors.orange,
+											fontSize: fontSizing.sm.fontSize,
+										}}
+										type="h4"
+									>
+										{data.title}
+									</TitlePage>
+									<Image
+										src={`/icons/${data.icon}`}
+										width={index === 1 ? 32 : 25}
+										height={index === 1 ? 19 : 25}
+										alt="ProductionPerfromance icon"
+										quality={100}
+									/>
+								</Grid>
+								<Grid container flexDirection="column" gap={15}>
+									<LabelValue data={data.plan} />
+									<LabelValue data={data.act} />
+								</Grid>
 							</Grid>
-							<Grid container flexDirection="column" gap={15}>
-								<LabelValue data={data.plan} />
-								<LabelValue data={data.act} />
-							</Grid>
-						</Grid>
-					</Item>
+						</Item>
+					</Tilt>
 				);
 			})}
 		</ItemContainer>

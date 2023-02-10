@@ -6,6 +6,7 @@ import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import { AchContainer, AchLabel, TabsAch, TabsAchContainer, TitleContainer } from "../styles";
 import Image from "next/image";
+import Tilt from "react-parallax-tilt";
 
 const tabsObText = ["JS", "TC"];
 
@@ -50,55 +51,65 @@ const DataProduction = () => {
 		<ItemContainer>
 			{ProductionPerfromanceData.map((data, index) => {
 				return (
-					<Item key={index}>
-						<Grid container flexDirection="column" gap={20}>
-							<Grid container justifyContent="space-between" alignItems="center">
-								<TitleContainer>
-									<TitlePage
-										styles={{
-											color: colors.orange,
-											fontSize: fontSizing.sm.fontSize,
-										}}
-										type="h4"
-									>
-										{data.title}
-									</TitlePage>
-									{data.title === "OB" && (
-										<TabsAchContainer>
-											{tabsObText.map((item, number) => {
-												return (
-													<TabsAch
-														key={number}
-														style={{
-															backgroundColor: activeTabOb === number ? colors.orange : "inherit",
-															color: activeTabOb === number ? "white" : "",
-														}}
-														onClick={() => handleActiveOb(number)}
-													>
-														{item}
-													</TabsAch>
-												);
-											})}
-										</TabsAchContainer>
-									)}
-								</TitleContainer>
-								<AchContainer>
-									{data.ach && <AchLabel>{data.ach}</AchLabel>}
-									<Image
-										src={`/icons/${data.icon}`}
-										width={25}
-										height={25}
-										alt="ProductionPerfromance icon"
-										quality={100}
-									/>
-								</AchContainer>
+					<Tilt
+						perspective={500}
+						style={{ flex: 1 }}
+						glareEnable={true}
+						glareMaxOpacity={0.8}
+						glareColor="#aaa"
+						glarePosition="bottom"
+						glareBorderRadius="0px"
+					>
+						<Item key={index}>
+							<Grid container flexDirection="column" gap={20}>
+								<Grid container justifyContent="space-between" alignItems="center">
+									<TitleContainer>
+										<TitlePage
+											styles={{
+												color: colors.orange,
+												fontSize: fontSizing.sm.fontSize,
+											}}
+											type="h4"
+										>
+											{data.title}
+										</TitlePage>
+										{data.title === "OB" && (
+											<TabsAchContainer>
+												{tabsObText.map((item, number) => {
+													return (
+														<TabsAch
+															key={number}
+															style={{
+																backgroundColor: activeTabOb === number ? colors.orange : "inherit",
+																color: activeTabOb === number ? "white" : "",
+															}}
+															onClick={() => handleActiveOb(number)}
+														>
+															{item}
+														</TabsAch>
+													);
+												})}
+											</TabsAchContainer>
+										)}
+									</TitleContainer>
+									<AchContainer>
+										{data.ach && <AchLabel>{data.ach}</AchLabel>}
+										<Image
+											src={`/icons/${data.icon}`}
+											width={25}
+											height={25}
+											alt="ProductionPerfromance icon"
+											quality={100}
+										/>
+									</AchContainer>
+								</Grid>
+								<Grid container flexDirection="column" gap={15}>
+									<LabelValue data={data.plan} />
+									<LabelValue data={data.act} />
+								</Grid>
 							</Grid>
-							<Grid container flexDirection="column" gap={15}>
-								<LabelValue data={data.plan} />
-								<LabelValue data={data.act} />
-							</Grid>
-						</Grid>
-					</Item>
+						</Item>
+					</Tilt>
 				);
 			})}
 		</ItemContainer>
