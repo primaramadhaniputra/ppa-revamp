@@ -40,12 +40,12 @@ const DataPlant = () => {
 			{PlanPerfromanceData.map((data, index) => {
 				return (
 					<Tilt
-						perspective={200}
+						perspective={700}
 						style={{ flex: 1 }}
 						glareEnable={true}
 						glareMaxOpacity={0.8}
 						glareColor="#aaa"
-						glarePosition="bottom"
+						glarePosition="all"
 						glareBorderRadius="0px"
 					>
 						<Item key={index}>
