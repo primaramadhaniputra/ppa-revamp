@@ -1,11 +1,15 @@
 import { GlobalStyle } from "atoms/GlobalStyles";
 import type { AppProps } from "next/app";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { ToastContainer } from "react-toastify";
 import { RecoilRoot } from "recoil";
-import Layout from "src/components/layouts/Dashboard/layout";
 import "../styles/globals.css";
 import "../styles/react-toastify.css";
+
+const Layout = dynamic(() => import("src/components/layouts/Dashboard/layout"), {
+	ssr: false,
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const router = useRouter();
