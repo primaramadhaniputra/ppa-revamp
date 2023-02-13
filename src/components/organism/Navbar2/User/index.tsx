@@ -1,5 +1,7 @@
 import { Avatar, Icon, Text } from "@hudoro/neron";
+import Cookies from "js-cookie";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { getProfile } from "services/users";
 import { notify, useWindowSize } from "utils/functions";
@@ -9,6 +11,7 @@ const User = () => {
 	const { width } = useWindowSize();
 	const [userDropdown, setuserDropdown] = useState(false);
 	const [userName, setUserName] = useState("Dani");
+	const router = useRouter();
 
 	useEffect(() => {
 		getProfile({
@@ -17,6 +20,11 @@ const User = () => {
 			.then((res) => setUserName(res.data.data.fullName.slice(0, 6)))
 			.catch((err) => notify(err.message, "error"));
 	}, []);
+
+	const handleLogout = () => {
+		Cookies.remove("token");
+		return router.reload();
+	};
 
 	return (
 		<ContainerUser
@@ -36,9 +44,7 @@ const User = () => {
 					<Link href="/dashboard/pengaturan" passHref>
 						<UserOverlayText>Pengaturan</UserOverlayText>
 					</Link>
-					<Link href="/" passHref>
-						<UserOverlayText>Logout</UserOverlayText>
-					</Link>
+					<UserOverlayText onClick={handleLogout}>Logout</UserOverlayText>
 				</UserOverFlay>
 			)}
 		</ContainerUser>
