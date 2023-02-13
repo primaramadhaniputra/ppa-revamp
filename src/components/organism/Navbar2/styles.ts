@@ -3,31 +3,18 @@ import styled from "styled-components";
 import { colors, fontWeights, mediaQueries } from "utils/styles";
 
 interface IProps {
-	// showMenu?: boolean;
 	activeSubMenu?: boolean;
 }
 
-// const renderAreas = (showMenu: boolean | undefined) => {
-// 	if (!showMenu) {
-// 		return `"logo logo  users"
-// 	"links links links"`;
-// 	}
-// 	return `"logo logo  users"`;
-// };
-/* grid-template-areas: ${(props) => renderAreas(props.showMenu)}; */
-
 export const Wrapper = styled.div<IProps>`
 	background-color: ${colors.primary};
-	/* margin-top: 80px; */
 	color: white;
 	padding: 8.5px 25px;
 	font-family: ${fontFamilies.poppins};
 	display: grid;
-	gap: 14px;
 	grid-template-columns: 1fr 50px;
 	${mediaQueries.lg} {
-		grid-template-columns: 50px 5fr 1fr;
-		/* grid-template-areas: "logo links links links users"; */
+		grid-template-columns: 50px 1fr 110px;
 		padding: 0 50px;
 	}
 	${mediaQueries.xl} {
@@ -40,13 +27,10 @@ export const ContainerLogo = styled.div`
 	align-items: center;
 	flex: 1;
 	justify-content: space-between;
-	/* grid-area: logo; */
 `;
 export const ContainerUser = styled.div`
 	display: flex;
 	align-items: center;
-	/* grid-area: users; */
-	max-width: 100px;
 	gap: 5px;
 	position: relative;
 	cursor: pointer;
@@ -58,7 +42,6 @@ export const ContainerUser = styled.div`
 export const ContainerLinks = styled.div`
 	margin-top: 10px;
 	width: 100%;
-	/* grid-area: links; */
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
@@ -66,7 +49,7 @@ export const ContainerLinks = styled.div`
 	${mediaQueries.lg} {
 		flex-direction: row;
 		margin-top: 0;
-		gap: 20px;
+		gap: 25px;
 		grid-column: span 1;
 	}
 `;
