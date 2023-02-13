@@ -68,17 +68,21 @@ export const options = {
 		zoom: {
 			zoom: {
 				wheel: {
-					enabled: true,
+					enabled: false,
 				},
 				pinch: {
 					enabled: true,
 				},
 				mode: "xy",
+				drag: {
+					enabled: true,
+					backgroundColor: colors.blueGrey,
+				},
 			},
-			pan: {
-				enabled: true,
-				mode: "xy",
-			},
+			// pan: {
+			// 	enabled: true,
+			// 	mode: "xy",
+			// },
 		},
 		legend: {
 			display: false,
