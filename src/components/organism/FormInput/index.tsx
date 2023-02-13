@@ -27,13 +27,16 @@ export default function FormInput({ color }: IProps) {
 			const nrp = formData.get("nrp");
 			const password = formData.get("password");
 			const response = await login({
+				headers: {
+					project_key: "2e7b6395fa5f3861588f3608161b7442",
+				},
 				body: {
 					nrp,
 					password,
+					site: "MHU",
 				},
-				path: "/login",
 			});
-			Cookies.set("token", response.data.data.accessToken);
+			Cookies.set("token", response.data.data.token.access);
 			router.push("/dashboard");
 			return notify("selamat kamu berhasil login", "success");
 		} catch (error: any) {

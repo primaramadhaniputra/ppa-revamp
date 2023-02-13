@@ -9,6 +9,9 @@ const apiEndpoints = {
 	moco: `${appActiveConfig.baseurl}/admin/settings/reports/productions/daily`,
 	production: `${appActiveConfig.baseurl}/admin/settings/reports/productions/site`,
 	survey: `${appActiveConfig.surveyurl}/reports/criteria/periodes`,
+
+	// sso
+	sso: `${appActiveConfig.ssourl}/auth/login`,
 };
 
 export { apiEndpoints };

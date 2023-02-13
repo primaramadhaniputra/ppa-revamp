@@ -15,6 +15,7 @@ module.exports = {
 			"ppa-mhu.net",
 			"www.google.com",
 			"mhucoal.co.id",
+			"storage.ppa-ho.net",
 		],
 	},
 };

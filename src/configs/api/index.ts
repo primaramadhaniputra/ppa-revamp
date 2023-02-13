@@ -5,7 +5,7 @@ const API = {
 	getPokemons: apiRequest.get(apiEndpoints.pokemon),
 
 	// USERS
-	login: apiRequest.post(apiEndpoints.users),
+	login: apiRequest.post(apiEndpoints.sso),
 	getProfile: apiRequest.get(apiEndpoints.users, true),
 	updateProfile: apiRequest.patch(apiEndpoints.users, true),
 	changePassword: apiRequest.patch(apiEndpoints.users, true),
