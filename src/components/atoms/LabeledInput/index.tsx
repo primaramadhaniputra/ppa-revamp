@@ -25,10 +25,12 @@ export default function LabeledInput({
 	icon,
 	...rest
 }: IProps) {
-	const [isShowPassword, setIsShowPassword] = useState(false);
+	const [isShowPassword, setIsShowPassword] = useState(true);
+
 	const handleShowPassword = () => {
 		setIsShowPassword(!isShowPassword);
 	};
+
 	return (
 		<Grid container flexDirection="column" gap={7} style={{ position: "relative", ...style }}>
 			{title && <StyledLabel style={{ color, ...styleLabel }}>{title}</StyledLabel>}
