@@ -27,6 +27,8 @@ import IcAverage from "./IcAverage";
 import IcScore from "./IcScore";
 import IcFilterList from "./IcFilterList";
 import IcEllipse from "./IcEllipse";
+import IcChat from "./IcChat";
+import IcScrollCheck from "./IcScrollCheck";
 
 export {
 	IcClose,
@@ -58,4 +60,6 @@ export {
 	IcScore,
 	IcFilterList,
 	IcEllipse,
+	IcChat,
+	IcScrollCheck,
 };

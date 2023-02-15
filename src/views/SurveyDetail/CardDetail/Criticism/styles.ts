@@ -20,17 +20,17 @@ export const Container = styled(Grid).attrs({
 	}
 `;
 
-export const HeaderText = styled(Text).attrs({
-	variant: "h4",
-})`
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 24px;
-	color: #000000;
-	${mediaQueries.md} {
-		font-size: 16px;
-	}
-`;
+// export const HeaderText = styled(Text).attrs({
+// 	variant: "h4",
+// })`
+// 	font-weight: 500;
+// 	font-size: 14px;
+// 	line-height: 24px;
+// 	color: #000000;
+// 	${mediaQueries.md} {
+// 		font-size: 16px;
+// 	}
+// `;
 
 export const ValueText = styled(Text).attrs({
 	variant: "p",
