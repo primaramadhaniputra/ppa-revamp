@@ -30,3 +30,32 @@ export const UserJob = styled(Text).attrs({
 	line-height: 20px;
 	color: rgba(37, 40, 43, 0.6);
 `;
+
+export const PaginationContainer = styled.div`
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	& ul {
+		display: flex;
+		gap: 5px;
+		font-family: ${fontFamilies.poppins};
+		font-weight: 800;
+		font-size: 14px;
+	}
+	& ul li {
+		list-style: none;
+		display: flex;
+		color: #185bc3;
+		border-radius: 4px;
+		border: 1px solid #185bc3;
+	}
+	& ul li.active_pagination {
+		background-color: #185bc3;
+		color: white;
+	}
+	& ul li a {
+		list-style: none;
+		padding: 5px 10px;
+		cursor: pointer;
+	}
+`;
