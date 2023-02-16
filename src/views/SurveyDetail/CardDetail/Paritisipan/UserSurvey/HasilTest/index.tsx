@@ -1,6 +1,7 @@
 import { Grid, Icon } from "@hudoro/neron";
 import { IcScrollCheck } from "atoms/Icon";
 import React, { useRef, useState } from "react";
+import { IUserDetailPartisipanQuestions } from "utils/interfaces";
 import {
 	Container,
 	Content,
@@ -13,9 +14,11 @@ import {
 	Title,
 } from "./styles";
 
-const ar = new Array(3).fill(0);
+interface IProps {
+	detailPartisipan: IUserDetailPartisipanQuestions[];
+}
 
-const HasilTest = () => {
+const HasilTest = ({ detailPartisipan }: IProps) => {
 	const [activeQuestionTab, setActiveQuestionTab] = useState(-1);
 	const [activeQuestionTabHeight, setActiveQuestionTabHeight] = useState(41);
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -38,33 +41,35 @@ const HasilTest = () => {
 			<Grid>
 				<Title>Hasil Test</Title>
 				<Content>
-					{ar.map((_, index) => (
-						<QuestionContainer
-							key={index}
-							activeQuestionTab={activeQuestionTab === index}
-							style={{ height: activeQuestionTab === index ? activeQuestionTabHeight : "41px" }}
-						>
-							<Grid container alignItems="center" justifyContent="space-between">
-								<QuestionType>SHE</QuestionType>
-								<Icon
-									iconName={activeQuestionTab === index ? "IcArrowUp" : "IcArrowDown"}
-									size={16}
-									style={{ cursor: "pointer" }}
-									onClick={() => handleChangeActiveTab(index)}
-								/>
-							</Grid>
-							<SingleQuestionsContainer ref={containerRef}>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-							</SingleQuestionsContainer>
-						</QuestionContainer>
-					))}
+					{detailPartisipan.map((item, index) => {
+						return (
+							item.name !== "KRITIK & SARAN" && (
+								<QuestionContainer
+									key={index}
+									activeQuestionTab={activeQuestionTab === index}
+									style={{ height: activeQuestionTab === index ? activeQuestionTabHeight : "41px" }}
+								>
+									<Grid container alignItems="center" justifyContent="space-between">
+										<QuestionType>{item.name}</QuestionType>
+										<Icon
+											iconName={activeQuestionTab === index ? "IcArrowUp" : "IcArrowDown"}
+											size={16}
+											style={{ cursor: "pointer" }}
+											onClick={() => handleChangeActiveTab(index)}
+										/>
+									</Grid>
+									<SingleQuestionsContainer ref={containerRef}>
+										{item.questions.map((data) => (
+											<SingleQuestions key={data.id}>
+												<StyledText>{data.name}</StyledText>
+												<StyledText>{data.answer.value}</StyledText>
+											</SingleQuestions>
+										))}
+									</SingleQuestionsContainer>
+								</QuestionContainer>
+							)
+						);
+					})}
 				</Content>
 			</Grid>
 		</Container>

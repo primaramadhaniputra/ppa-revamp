@@ -1,13 +1,20 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
+import { IUserDetailPartisipanQuestions } from "utils/interfaces";
 import HasilTest from "./HasilTest";
 import KritikSaran from "./KritikSaran";
 
-const UserSurvey = () => {
+interface IProps {
+	detailPartisipan: IUserDetailPartisipanQuestions[];
+}
+
+const UserSurvey = ({ detailPartisipan }: IProps) => {
+	const kritikSaran = detailPartisipan.find((item) => item.name === "KRITIK & SARAN");
+
 	return (
 		<Grid>
-			<KritikSaran />
-			<HasilTest />
+			<KritikSaran kritikSaran={kritikSaran} />
+			<HasilTest detailPartisipan={detailPartisipan} />
 		</Grid>
 	);
 };

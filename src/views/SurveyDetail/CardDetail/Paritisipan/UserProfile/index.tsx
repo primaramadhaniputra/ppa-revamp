@@ -1,40 +1,49 @@
 import { Avatar, Grid } from "@hudoro/neron";
+import Cookies from "js-cookie";
 import React, { useState } from "react";
-import { Container, PaginationContainer, UserJob, UserName, Wrapper } from "./styles";
-import ReactPaginate from "react-paginate";
+import { useParticipantsValue } from "recoil/participants/atom";
+import { Container, UserJob, UserName, Wrapper } from "./styles";
+// import ReactPaginate from "react-paginate";
 
-const arr = new Array(3).fill(0);
+interface IProps {
+	setIdDetailParticsipan: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
 
-const UserProfile = () => {
-	const [idActiveCard, setIdActiveCard] = useState(-1);
+const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
+	const [idActiveCard, setIdActiveCard] = useState("");
+	const partisipans = useParticipantsValue();
 
-	const handlePageClick = (event: any) => {
-		console.log("event", event.selected);
-	};
+	// const handlePageClick = (event: any) => {
+	// 	console.log("event", event.selected);
+	// };
 
-	const handleActiveCard = (id: number) => {
+	const handleActiveCard = (id: string, fullName: string, companyName: string) => {
+		Cookies.set("fullName", fullName);
+		Cookies.set("companyName", companyName);
 		if (idActiveCard === id) {
-			return setIdActiveCard(-1);
+			setIdDetailParticsipan(undefined);
+			return setIdActiveCard("");
 		}
+		setIdDetailParticsipan(id);
 		return setIdActiveCard(id);
 	};
 
 	return (
 		<Wrapper>
-			{arr.map((_, index) => (
+			{partisipans.map((item, index) => (
 				<Container
 					key={index}
-					isActiveCard={idActiveCard === index}
-					onClick={() => handleActiveCard(index)}
+					isActiveCard={idActiveCard === item.id}
+					onClick={() => handleActiveCard(item.id, item.fullName, item.companyName)}
 				>
-					<Avatar size="l" alt="userProfile" src="/logo/ppa.jpg" />
+					<Avatar size="l" alt="userProfile" src={item.logoUrl} />
 					<Grid>
-						<UserName>Nom Nom</UserName>
-						<UserJob>PT Makmur Lestari Primata</UserJob>
+						<UserName>{item.fullName}</UserName>
+						<UserJob>{item.companyName}</UserJob>
 					</Grid>
 				</Container>
 			))}
-			<PaginationContainer>
+			{/* <PaginationContainer>
 				<ReactPaginate
 					activeClassName="active_pagination"
 					// initialPage={1}
@@ -46,7 +55,7 @@ const UserProfile = () => {
 					previousLabel="< "
 					// renderOnZeroPageCount={null}
 				/>
-			</PaginationContainer>
+			</PaginationContainer> */}
 		</Wrapper>
 	);
 };
