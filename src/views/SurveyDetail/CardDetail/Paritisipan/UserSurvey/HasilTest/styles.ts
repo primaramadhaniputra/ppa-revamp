@@ -43,7 +43,7 @@ export const Content = styled.article`
 `;
 
 export const QuestionContainer = styled.div<IProps>`
-	padding-bottom: 16px;
+	/* padding-bottom: 16px; */
 	border-bottom: ${(props) => (props.activeQuestionTab ? "none" : "1px solid black")};
 	max-height: 300px;
 	transition: 0.3s;
@@ -66,7 +66,7 @@ export const StyledText = styled(Text).attrs({
 
 export const SingleQuestionsContainer = styled.div`
 	padding-left: 31px;
-	max-height: 300px;
+	max-height: 190px;
 	overflow-y: scroll;
 	margin-top: 16px;
 	display: flex;
