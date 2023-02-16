@@ -24,6 +24,7 @@ const HasilTest = ({ detailPartisipan }: IProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	const handleChangeActiveTab = (idx: number) => {
+		setActiveQuestionTabHeight(41);
 		const height = containerRef.current?.getBoundingClientRect().height || 0;
 		if (activeQuestionTab === idx) {
 			setActiveQuestionTab(-1);
