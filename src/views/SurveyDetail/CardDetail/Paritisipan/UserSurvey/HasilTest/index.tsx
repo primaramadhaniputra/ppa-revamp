@@ -62,46 +62,6 @@ const HasilTest = () => {
 									<StyledText>Safety</StyledText>
 									<StyledText>2</StyledText>
 								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
-								<SingleQuestions>
-									<StyledText>Safety</StyledText>
-									<StyledText>2</StyledText>
-								</SingleQuestions>
 							</SingleQuestionsContainer>
 						</QuestionContainer>
 					))}

@@ -71,7 +71,7 @@ export const SingleQuestionsContainer = styled.div`
 	margin-top: 16px;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 20px;
 
 	/* Hide scrollbar for Chrome, Safari and Opera */
 	&::-webkit-scrollbar {
