@@ -186,6 +186,7 @@ export interface ISurveyReportCriteriaDetail {
 	name: string;
 	questions: ISurveyQuestions[];
 }
+
 export interface ISurveyReportCriticism {
 	email: string;
 	fullName: string;
@@ -193,4 +194,24 @@ export interface ISurveyReportCriticism {
 	value: string;
 	position: string;
 	createdAt: number;
+}
+
+export interface IUserPartisipanProfile {
+	id: string;
+	fullName: string;
+	companyName: string;
+	logoUrl: string;
+}
+
+export interface IUserDetailPartisipanQuestions {
+	id: string;
+	name: string;
+	questions: {
+		id: string;
+		name: string;
+		type: string;
+		answer: {
+			value: number;
+		};
+	}[];
 }

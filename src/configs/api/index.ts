@@ -34,6 +34,7 @@ const API = {
 
 	// SURVEY
 	getCriteria: apiRequest.get(apiEndpoints.survey),
+	getPartisipan: apiRequest.get(apiEndpoints.survey),
 };
 
 export default API;

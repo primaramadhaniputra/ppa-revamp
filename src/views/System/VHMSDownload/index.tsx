@@ -1,5 +1,5 @@
 import React from "react";
-import DoughnutChart from "atoms/DoughnutChart";
+import DoughnutChart from "./DoughnutChart";
 import { ColumnDef } from "@tanstack/react-table";
 import { DoughnutWrapper, TableWrapper, Wrapper } from "./styles";
 import MigrateTable from "src/components/organism/MigrateTable";

@@ -1,19 +1,19 @@
 import React, { useMemo, useState } from "react";
 import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/interfaces";
+import dynamic from "next/dynamic";
 import SingleCard from "./SingleCard";
 import Masonry from "react-masonry-css";
-import {
-	Container,
-	FilterContainer,
-	FilterIcon,
-	FilterText,
-	PopupNotifications,
-	TabsText,
-	Wrapper,
-} from "./styles";
-import { IcFilterList } from "atoms/Icon";
+import { Wrapper } from "./styles";
 import { Grid } from "@hudoro/neron";
-import Criticism from "./Criticism";
+import Tabs from "./Tabs";
+import FilterAscDesc from "./FIlter";
+
+const DynamicCriticism = dynamic(() => import("./Criticism"), {
+	ssr: false,
+});
+const DynamicPartisipan = dynamic(() => import("./Paritisipan"), {
+	ssr: false,
+});
 
 interface Iprops {
 	dataReport: ISurveyReportCriteriaDetail[];
@@ -27,7 +27,7 @@ const breakpointColumnsObj = {
 	500: 1,
 };
 
-const tabsText = ["Performance", "Kritik & Saran"];
+const tabsText = ["Performance", "Kritik & Saran", "Partisipan"];
 
 const CardDetail = ({ dataReport, criticism }: Iprops) => {
 	const [isSort, setIsSort] = useState(false);
@@ -49,39 +49,9 @@ const CardDetail = ({ dataReport, criticism }: Iprops) => {
 		});
 	}, [isSort]);
 
-	const handleChangeActiveContent = (type: string) => {
-		setTabContent(type);
-	};
-
-	return (
-		<Wrapper>
-			<Grid container alignItems="center" gap={24} justifyContent="space-between">
-				<Container>
-					{tabsText.map((item, index) => (
-						<Grid container key={index} style={{ position: "relative" }}>
-							<TabsText
-								isActiveContent={tabContent === item}
-								onClick={() => handleChangeActiveContent(item)}
-							>
-								{item}
-							</TabsText>
-							{index === 1 && <PopupNotifications>{criticism.length}</PopupNotifications>}
-						</Grid>
-					))}
-				</Container>
-				{tabContent !== tabsText[1] && (
-					<Grid container gap={24} alignItems="center" justifyContent="flex-end">
-						<FilterText style={{ fontWeight: "400" }}>Urutan Item</FilterText>
-						<FilterContainer onClick={() => setIsSort(!isSort)}>
-							<FilterIcon isRotateIcon={isSort}>
-								<IcFilterList width={24} />
-							</FilterIcon>
-							<FilterText>{isSort ? "Terendah" : "Tertinggi"}</FilterText>
-						</FilterContainer>
-					</Grid>
-				)}
-			</Grid>
-			{tabContent === tabsText[0] ? (
+	const renderContent = (tabContent: string) => {
+		if (tabContent == "Performance") {
+			return (
 				<Masonry
 					breakpointCols={breakpointColumnsObj}
 					className="my-masonry-grid"
@@ -91,13 +61,31 @@ const CardDetail = ({ dataReport, criticism }: Iprops) => {
 						<SingleCard key={index} data={item} />
 					))}
 				</Masonry>
-			) : (
+			);
+		} else if (tabContent == "Kritik & Saran") {
+			return (
 				<Grid style={{ marginTop: "24px" }}>
 					{criticism.map((item, key) => (
-						<Criticism key={key} data={item} />
+						<DynamicCriticism key={key} data={item} />
 					))}
 				</Grid>
-			)}
+			);
+		} else {
+			return <DynamicPartisipan />;
+		}
+	};
+
+	return (
+		<Wrapper>
+			<Grid container alignItems="center" gap={24} justifyContent="space-between">
+				<Tabs
+					tabContent={tabContent}
+					setTabContent={setTabContent}
+					notifications={criticism.length}
+				/>
+				{tabContent === tabsText[0] && <FilterAscDesc isSort={isSort} setIsSort={setIsSort} />}
+			</Grid>
+			{renderContent(tabContent)}
 		</Wrapper>
 	);
 };

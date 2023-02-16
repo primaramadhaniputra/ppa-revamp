@@ -15,6 +15,7 @@ interface IProps {
 const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 	const site = Cookies.get("site");
 	const periode = Cookies.get("periode");
+
 	return (
 		<>
 			<Grid container gap={10} alignItems="center" justifyContent="space-between">
