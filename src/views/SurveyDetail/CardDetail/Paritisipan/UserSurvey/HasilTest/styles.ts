@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { Text } from "@hudoro/neron";
 import styled from "styled-components";
 
 interface IProps {
@@ -86,11 +86,11 @@ export const SingleQuestionsContainer = styled.div`
 	}
 `;
 
-export const SingleQuestions = styled(Grid).attrs({
-	container: true,
-	alignItems: "center",
-	justifyContent: "space-between",
-})`
+export const SingleQuestions = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 0 8px 8px;
 	border-bottom: 1px solid #cdcdcd;
+	gap: 15px;
 `;
