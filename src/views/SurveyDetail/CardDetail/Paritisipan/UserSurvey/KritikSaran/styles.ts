@@ -32,6 +32,10 @@ export const Title = styled(Text).attrs({
 
 export const Content = styled.article`
 	margin-top: 34px;
+	grid-column-start: 2;
+	@media (max-width: 600px) {
+		grid-column: 1 / span 2;
+	}
 `;
 
 export const ContentValue = styled(Text).attrs({

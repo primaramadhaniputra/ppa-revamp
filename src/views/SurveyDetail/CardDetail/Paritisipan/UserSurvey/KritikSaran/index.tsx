@@ -1,4 +1,3 @@
-import { Grid } from "@hudoro/neron";
 import { IcChat } from "atoms/Icon";
 import Cookies from "js-cookie";
 import UserNameWithPosition from "molecules/UserNameWithPosition";
@@ -18,13 +17,11 @@ const KritikSaran = ({ kritikSaran }: IProps) => {
 			<IconContainer>
 				<IcChat width={24} />
 			</IconContainer>
-			<Grid>
-				<Title>Kritik & saran</Title>
-				<Content>
-					<UserNameWithPosition name={fullName || ""} position={companyName || ""} />
-					<ContentValue>{kritikSaran?.questions[0].answer.value}</ContentValue>
-				</Content>
-			</Grid>
+			<Title>Kritik & saran</Title>
+			<Content>
+				<UserNameWithPosition name={fullName || ""} position={companyName || ""} />
+				<ContentValue>{kritikSaran?.questions[0].answer.value}</ContentValue>
+			</Content>
 		</Container>
 	);
 };
