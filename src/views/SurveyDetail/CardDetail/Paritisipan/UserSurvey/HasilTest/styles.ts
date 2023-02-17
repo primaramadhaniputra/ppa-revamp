@@ -40,6 +40,10 @@ export const Content = styled.article`
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+	grid-column-start: 2;
+	@media (max-width: 600px) {
+		grid-column: 1 / span 2;
+	}
 `;
 
 export const QuestionContainer = styled.div<IProps>`

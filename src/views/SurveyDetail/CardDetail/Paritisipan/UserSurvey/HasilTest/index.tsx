@@ -39,40 +39,38 @@ const HasilTest = ({ detailPartisipan }: IProps) => {
 			<IconContainer>
 				<IcScrollCheck width={24} />
 			</IconContainer>
-			<Grid>
-				<Title>Hasil Test</Title>
-				<Content>
-					{detailPartisipan.map((item, index) => {
-						return (
-							item.name !== "KRITIK & SARAN" && (
-								<QuestionContainer
-									key={index}
-									activeQuestionTab={activeQuestionTab === index}
-									style={{ height: activeQuestionTab === index ? activeQuestionTabHeight : "41px" }}
-								>
-									<Grid container alignItems="center" justifyContent="space-between">
-										<QuestionType>{item.name}</QuestionType>
-										<Icon
-											iconName={activeQuestionTab === index ? "IcArrowUp" : "IcArrowDown"}
-											size={16}
-											style={{ cursor: "pointer" }}
-											onClick={() => handleChangeActiveTab(index)}
-										/>
-									</Grid>
-									<SingleQuestionsContainer ref={containerRef}>
-										{item.questions.map((data) => (
-											<SingleQuestions key={data.id}>
-												<StyledText>{data.name}</StyledText>
-												<StyledText>{data.answer.value}</StyledText>
-											</SingleQuestions>
-										))}
-									</SingleQuestionsContainer>
-								</QuestionContainer>
-							)
-						);
-					})}
-				</Content>
-			</Grid>
+			<Title>Hasil Test</Title>
+			<Content>
+				{detailPartisipan.map((item, index) => {
+					return (
+						item.name !== "KRITIK & SARAN" && (
+							<QuestionContainer
+								key={index}
+								activeQuestionTab={activeQuestionTab === index}
+								style={{ height: activeQuestionTab === index ? activeQuestionTabHeight : "41px" }}
+							>
+								<Grid container alignItems="center" justifyContent="space-between">
+									<QuestionType>{item.name}</QuestionType>
+									<Icon
+										iconName={activeQuestionTab === index ? "IcArrowUp" : "IcArrowDown"}
+										size={16}
+										style={{ cursor: "pointer" }}
+										onClick={() => handleChangeActiveTab(index)}
+									/>
+								</Grid>
+								<SingleQuestionsContainer ref={containerRef}>
+									{item.questions.map((data) => (
+										<SingleQuestions key={data.id}>
+											<StyledText>{data.name}</StyledText>
+											<StyledText>{data.answer.value}</StyledText>
+										</SingleQuestions>
+									))}
+								</SingleQuestionsContainer>
+							</QuestionContainer>
+						)
+					);
+				})}
+			</Content>
 		</Container>
 	);
 };
