@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Icon } from "@hudoro/neron";
 import { IcScrollCheck } from "atoms/Icon";
 import React, { useRef, useState } from "react";
 import { IUserDetailPartisipanQuestions } from "utils/interfaces";
@@ -7,6 +7,7 @@ import {
 	Content,
 	IconContainer,
 	QuestionContainer,
+	QuestionTitle,
 	QuestionType,
 	SingleQuestions,
 	SingleQuestionsContainer,
@@ -49,7 +50,7 @@ const HasilTest = ({ detailPartisipan }: IProps) => {
 								activeQuestionTab={activeQuestionTab === index}
 								style={{ height: activeQuestionTab === index ? activeQuestionTabHeight : "41px" }}
 							>
-								<Grid container alignItems="center" justifyContent="space-between">
+								<QuestionTitle>
 									<QuestionType>{item.name}</QuestionType>
 									<Icon
 										iconName={activeQuestionTab === index ? "IcArrowUp" : "IcArrowDown"}
@@ -57,7 +58,7 @@ const HasilTest = ({ detailPartisipan }: IProps) => {
 										style={{ cursor: "pointer" }}
 										onClick={() => handleChangeActiveTab(index)}
 									/>
-								</Grid>
+								</QuestionTitle>
 								<SingleQuestionsContainer ref={containerRef}>
 									{item.questions.map((data) => (
 										<SingleQuestions key={data.id}>

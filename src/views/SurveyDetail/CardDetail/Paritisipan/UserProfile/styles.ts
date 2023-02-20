@@ -39,8 +39,11 @@ export const UserName = styled(Text).attrs({
 	variant: "h4",
 })`
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 20px;
+	${mediaQueries.md} {
+		font-size: 16px;
+	}
 `;
 export const UserJob = styled(Text).attrs({
 	variant: "p",
@@ -48,9 +51,12 @@ export const UserJob = styled(Text).attrs({
 	font-family: ${fontFamilies.poppins};
 	font-style: normal;
 	font-weight: 500;
-	font-size: 13px;
+	font-size: 12px;
 	line-height: 20px;
 	color: rgba(37, 40, 43, 0.6);
+	${mediaQueries.md} {
+		font-size: 13px;
+	}
 `;
 
 export const PaginationContainer = styled.div`
