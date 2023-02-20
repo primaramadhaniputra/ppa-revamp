@@ -52,11 +52,10 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 
 	const handleRedirect = (companyId: string, total: string, average: number, siteName: string) => {
 		Cookies.set("total", total.toString());
-		Cookies.set("average", average.toString());
+		Cookies.set("average", average?.toString());
 		Cookies.set("site", siteName);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
-
 	return (
 		<CardSiteContainer>
 			{reportCriteria.length > 0
@@ -110,7 +109,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 											</Grid>
 											<Grid container flexDirection="column">
 												<SubTitle>Rata Rata</SubTitle>
-												<CardTitle>{item.assessmentCriteria.average.toFixed(2)}</CardTitle>
+												<CardTitle>{item.assessmentCriteria.average?.toFixed(2)}</CardTitle>
 											</Grid>
 										</Grid>
 									</Grid>

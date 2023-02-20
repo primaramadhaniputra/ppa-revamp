@@ -70,8 +70,8 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 									<td key={idx}>{quest.average.toFixed(2).toString().split(".").join(",")}</td>
 								));
 							})}
-							<td>{item.assessmentCriteria.total.toFixed(2).toString().split(".").join(",")}</td>
-							<td>{item.assessmentCriteria.average.toFixed(2).toString().split(".").join(",")}</td>
+							<td>{item.assessmentCriteria.total?.toFixed(2).toString().split(".").join(",")}</td>
+							<td>{item.assessmentCriteria.average?.toFixed(2).toString().split(".").join(",")}</td>
 							<td>{item.assessmentCriteria.score}</td>
 						</tr>
 					);
