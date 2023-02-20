@@ -36,13 +36,13 @@ export const PointContainer = styled.div<IProps>`
 	align-items: center;
 	font-family: ${fontFamilies.poppins};
 	font-size: 14px;
-	line-height: 21px;
 	&::before {
 		display: inline-block;
 		content: "";
-		width: 18px;
-		height: 18px;
+		width: 16px;
+		height: 16px;
 		background: ${(props) => props.pointColor};
+		border-radius: 50%;
 	}
 	@media (max-width: 500px) {
 		font-size: 12px;
