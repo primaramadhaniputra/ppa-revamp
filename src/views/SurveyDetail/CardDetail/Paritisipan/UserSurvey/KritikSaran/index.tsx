@@ -1,3 +1,4 @@
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import { IcChat } from "atoms/Icon";
 import Cookies from "js-cookie";
 import UserNameWithPosition from "molecules/UserNameWithPosition";
@@ -19,7 +20,13 @@ const KritikSaran = ({ kritikSaran }: IProps) => {
 			</IconContainer>
 			<Title>Kritik & saran</Title>
 			<Content>
-				<UserNameWithPosition name={fullName || ""} position={companyName || ""} />
+				<Grid container alignItems="center" gap={20} justifyContent="space-between">
+					<UserNameWithPosition name={fullName || ""} position={companyName || ""} />
+					<Text variant="mute" style={{ fontFamily: fontFamilies.poppins }}>
+						10 january 2021
+					</Text>
+				</Grid>
+
 				<ContentValue>{kritikSaran?.questions[0].answer.value}</ContentValue>
 			</Content>
 		</Container>
