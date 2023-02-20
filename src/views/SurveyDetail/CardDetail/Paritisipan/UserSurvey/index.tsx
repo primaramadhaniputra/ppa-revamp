@@ -10,7 +10,6 @@ interface IProps {
 
 const UserSurvey = ({ detailPartisipan }: IProps) => {
 	const kritikSaran = detailPartisipan.find((item) => item.name === "KRITIK & SARAN");
-
 	return (
 		<Grid>
 			<KritikSaran kritikSaran={kritikSaran} />

@@ -23,10 +23,9 @@ const KritikSaran = ({ kritikSaran }: IProps) => {
 				<Grid container alignItems="center" gap={20} justifyContent="space-between">
 					<UserNameWithPosition name={fullName || ""} position={companyName || ""} />
 					<Text variant="mute" style={{ fontFamily: fontFamilies.poppins }}>
-						10 january 2021
+						{kritikSaran?.questions[0].createdAt}
 					</Text>
 				</Grid>
-
 				<ContentValue>{kritikSaran?.questions[0].answer.value}</ContentValue>
 			</Content>
 		</Container>
