@@ -1,5 +1,6 @@
 import { Text } from "@hudoro/neron";
 import styled from "styled-components";
+import { mediaQueries } from "utils/styles";
 
 interface IProps {
 	activeQuestionTab?: boolean;
@@ -29,10 +30,13 @@ export const Title = styled(Text).attrs({
 	variant: "h4",
 })`
 	font-weight: 500;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 30px;
 	color: #000000;
 	margin-top: 3px;
+	${mediaQueries.md} {
+		font-size: 20px;
+	}
 `;
 
 export const Content = styled.article`
@@ -43,6 +47,7 @@ export const Content = styled.article`
 	grid-column-start: 2;
 	@media (max-width: 600px) {
 		grid-column: 1 / span 2;
+		margin-top: 14px;
 	}
 `;
 
@@ -54,18 +59,31 @@ export const QuestionContainer = styled.div<IProps>`
 	overflow: hidden;
 `;
 
+export const QuestionTitle = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	justify-content: space-between;
+`;
+
 export const QuestionType = styled(Text).attrs({ variant: "h4" })`
 	font-weight: 500;
-	font-size: 16px;
+	font-size: 12px;
 	line-height: 24px;
+	${mediaQueries.md} {
+		font-size: 16px;
+	}
 `;
 
 export const StyledText = styled(Text).attrs({
 	variant: "h4",
 })`
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 500;
 	line-height: 21px;
+	${mediaQueries.md} {
+		font-size: 14px;
+	}
 `;
 
 export const SingleQuestionsContainer = styled.div`
