@@ -18,7 +18,6 @@ const Survey = () => {
 			getReportCriteriaByCriteriaId({
 				path: `${periodeId}`,
 			}),
-		[],
 		periodeId,
 		true,
 	);

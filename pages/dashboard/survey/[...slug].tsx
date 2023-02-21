@@ -36,7 +36,6 @@ export default function SurveyDetailPage() {
 					},
 				}),
 			]),
-		[],
 		[router.query.slug],
 		true,
 	);

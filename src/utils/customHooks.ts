@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { IPayload, IPromiseResult } from "./interfaces";
+import { IPromiseResult } from "./interfaces";
 
 export function useWindowSize() {
 	const [windowSize, setWindowSize] = useState({
@@ -21,8 +21,9 @@ export function useWindowSize() {
 }
 
 export const useAsync = (
-	asyncFuntion: (payload: IPayload) => Promise<IPromiseResult | IPromiseResult[]>,
-	args = [],
+	asyncFuntion: () => Promise<IPromiseResult | IPromiseResult[]>,
+	// payload: IPayload
+	// args = [],
 	deps: any[] = [],
 	immediate = true,
 ) => {
@@ -35,7 +36,8 @@ export const useAsync = (
 		setLoading(true);
 		setResponse(null);
 		setError(null);
-		return asyncFuntion([...args] as IPayload)
+		// [...args] as IPayload
+		return asyncFuntion()
 			.then((response) => {
 				const data = response;
 				setResponse(data);
@@ -46,7 +48,8 @@ export const useAsync = (
 			.finally(() => {
 				setLoading(false);
 			});
-	}, [asyncFuntion, args]);
+	}, [asyncFuntion]);
+	// , args
 	useEffect(() => {
 		if (immediate) {
 			execute();

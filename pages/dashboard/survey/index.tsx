@@ -13,7 +13,7 @@ const SurveyView = dynamic(() => import("views/Survey"), {
 export default function SurveyPage() {
 	const setPeriodes = useSetSurveyPeriode();
 
-	const { loading, response } = useAsync(() => getSurveyCriteria({}), [], [], true);
+	const { loading, response } = useAsync(() => getSurveyCriteria({}), [], true);
 
 	const newPeriodes = (response as IPromiseResult)?.data.data.map((item: ISurveyPeriode) => {
 		return { id: item.id, label: item.season, values: item.id };
