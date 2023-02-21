@@ -13,6 +13,7 @@ import {
 	SubTitle,
 	TextDesc,
 } from "../styles";
+import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 
 interface IProps {
 	reportCriteria: ISurveyReportCriteria[];
@@ -49,11 +50,13 @@ const renderTextAverage = (evaluationNumber: number) => {
 
 const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const router = useRouter();
+	const periode = useSurveyPeriodeValue();
 
 	const handleRedirect = (companyId: string, total: string, average: number, siteName: string) => {
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average?.toString());
 		Cookies.set("site", siteName);
+		Cookies.set("periode", periode[0].label);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
 	return (
@@ -68,9 +71,9 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 							glareColor="#666"
 							glarePosition="all"
 							glareBorderRadius="10px"
+							key={index}
 						>
 							<StyledCard
-								key={index}
 								onClick={() =>
 									handleRedirect(
 										item.id,
