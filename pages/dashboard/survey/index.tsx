@@ -1,10 +1,9 @@
 import Loading from "atoms/Loading";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import { useSurveyPeriodeState } from "recoil/surveyPeriode/atom";
+import { useSetSurveyPeriode } from "recoil/surveyPeriode/atom";
 import { getSurveyCriteria } from "services/survey";
-import { notify } from "utils/functions";
-import { ISurveyPeriode } from "utils/interfaces";
+import { useAsync } from "utils/customHooks";
+import { IPromiseResult, ISurveyPeriode } from "utils/interfaces";
 
 const SurveyView = dynamic(() => import("views/Survey"), {
 	ssr: false,
@@ -12,32 +11,18 @@ const SurveyView = dynamic(() => import("views/Survey"), {
 });
 
 export default function SurveyPage() {
-	const [isLoading, setIsLoading] = useState(false);
-	const [periode, setPeriode] = useSurveyPeriodeState();
+	const setPeriodes = useSetSurveyPeriode();
 
-	const getData = async () => {
-		try {
-			setIsLoading(true);
-			const response = await getSurveyCriteria({});
+	const { loading, response } = useAsync(() => getSurveyCriteria({}), [], [], true);
 
-			setPeriode(
-				response.data.data.map((item: ISurveyPeriode) => {
-					return { id: item.id, label: item.season, values: item.id };
-				}),
-			);
-		} catch (error: any) {
-			notify(error.message, "error");
-		} finally {
-			setIsLoading(false);
-		}
-	};
-	useEffect(() => {
-		getData();
-	}, []);
+	const newPeriodes = (response as IPromiseResult)?.data.data.map((item: ISurveyPeriode) => {
+		return { id: item.id, label: item.season, values: item.id };
+	});
 
-	if (isLoading || !periode) {
+	if (loading || !response || !newPeriodes) {
 		return <Loading />;
 	}
+	setPeriodes(newPeriodes);
 
 	return <SurveyView />;
 }

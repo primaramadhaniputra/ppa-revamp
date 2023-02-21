@@ -2,11 +2,10 @@ import Loading from "atoms/Loading";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { useSetParticipants } from "recoil/participants/atom";
 import { getCriticismReport, getDetailCriteriaReport, getPartisipan } from "services/survey";
-import { notify } from "utils/functions";
-import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/interfaces";
+import { useAsync } from "utils/customHooks";
+import { IPromiseResult } from "utils/interfaces";
 
 const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), {
 	ssr: false,
@@ -14,20 +13,15 @@ const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), {
 });
 
 export default function SurveyDetailPage() {
-	const [isLoading, setIsLoading] = useState(true);
-	const [reportDetail, setReportDetail] = useState<ISurveyReportCriteriaDetail[]>([]);
-	const [criticism, setCriticism] = useState<ISurveyReportCriticism[]>([]);
-
 	// const [meta, setMeta] = useState<IMeta>()
 	const setPartisipan = useSetParticipants();
 
 	const router = useRouter();
 	const joinParams = (router.query.slug as string[])?.join("/");
 
-	const getData = async () => {
-		try {
-			setIsLoading(true);
-			const response = await axios.all([
+	const { loading, response } = useAsync(
+		() =>
+			axios.all([
 				getDetailCriteriaReport({
 					path: `${joinParams}`,
 				}),
@@ -41,27 +35,20 @@ export default function SurveyDetailPage() {
 						perPage: 99,
 					},
 				}),
-			]);
-			setReportDetail(response[0].data.data);
-			setCriticism(response[1].data.data);
-			// setMeta(response[2].data.meta)
-			setPartisipan(response[2].data.data);
-		} catch (error: any) {
-			notify(error.message, "error");
-		} finally {
-			setIsLoading(false);
-		}
-	};
+			]),
+		[],
+		[router.query.slug],
+		true,
+	);
 
-	useEffect(() => {
-		if (joinParams) {
-			getData();
-		}
-	}, [router.query.slug]);
-
-	if (isLoading) {
+	if (loading || !response) {
 		return <Loading />;
 	}
-
-	return <SurveyDetailView dataReport={reportDetail!} criticism={criticism} />;
+	setPartisipan((response as IPromiseResult[])[2].data.data);
+	return (
+		<SurveyDetailView
+			dataReport={(response as IPromiseResult[])[0].data.data}
+			criticism={(response as IPromiseResult[])[1].data.data}
+		/>
+	);
 }
