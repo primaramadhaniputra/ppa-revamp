@@ -109,7 +109,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 											</Grid>
 											<Grid container flexDirection="column">
 												<SubTitle>Rata Rata</SubTitle>
-												<CardTitle>{item.assessmentCriteria.average?.toFixed(2)}</CardTitle>
+												<CardTitle>{item.assessmentCriteria.average?.toFixed(2) ?? 0}</CardTitle>
 											</Grid>
 										</Grid>
 									</Grid>
