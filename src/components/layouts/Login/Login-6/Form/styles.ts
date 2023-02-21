@@ -7,7 +7,7 @@ export const Wrapper = styled(Grid)`
 	background-color: white;
 	min-height: 600px;
 	${mediaQueries.lg} {
-		background-image: url(/images/mobilProyek.jpg);
+		/* background-image: url(/images/mobilProyek.jpg); */
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -87,13 +87,14 @@ export const FooterContainer = styled.div`
 export const TextWrapper = styled.div`
 	display: none;
 	${mediaQueries.lg} {
-		display: block;
 		width: 100%;
 		color: white;
 		z-index: 99;
 		display: flex;
 		justify-content: center;
-		align-items: center;
+		flex-direction: column;
+		width: max-content;
+		margin: auto;
 	}
 `;
 

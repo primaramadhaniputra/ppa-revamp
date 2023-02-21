@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "src/components/organism/Footer";
 import FormInput from "src/components/organism/FormInput";
 import WelcomeTextComponent from "src/components/organism/WelcomeText";
+import { useProgressiveImage } from "utils/customHooks";
 import { colors } from "utils/styles";
 import {
 	FooterContainer,
@@ -15,8 +16,10 @@ import {
 } from "./styles";
 
 export default function Form() {
+	const loaded = useProgressiveImage("/images/mobilProyek.jpg");
+
 	return (
-		<Wrapper>
+		<Wrapper style={{ backgroundImage: `url(${loaded || ""})` }}>
 			<Wrapper2>
 				<FormWrapper>
 					<Image src="/logo/logo2.png" width={354} height={34} alt="ppa-logo" />
@@ -28,10 +31,8 @@ export default function Form() {
 				</FooterContainer>
 			</Wrapper2>
 			<TextWrapper>
-				<div>
-					<Text1 variant="h1"> SAFE & STRONG</Text1>
-					<Text2 variant="h4">OPERATIONAL PERFORMANCE</Text2>
-				</div>
+				<Text1 variant="h1"> SAFE & STRONG</Text1>
+				<Text2 variant="h4">OPERATIONAL PERFORMANCE</Text2>
 			</TextWrapper>
 		</Wrapper>
 	);
