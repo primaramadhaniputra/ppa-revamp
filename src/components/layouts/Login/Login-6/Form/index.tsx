@@ -28,10 +28,8 @@ export default function Form() {
 				</FooterContainer>
 			</Wrapper2>
 			<TextWrapper>
-				<div>
-					<Text1 variant="h1"> SAFE & STRONG</Text1>
-					<Text2 variant="h4">OPERATIONAL PERFORMANCE</Text2>
-				</div>
+				<Text1 variant="h1"> SAFE & STRONG</Text1>
+				<Text2 variant="h4">OPERATIONAL PERFORMANCE</Text2>
 			</TextWrapper>
 		</Wrapper>
 	);
