@@ -32,7 +32,7 @@ export default function Form() {
 			</Wrapper2>
 			<TextWrapper>
 				<Text1 variant="h1"> SAFE & STRONG</Text1>
-				<Text2 variant="h4">OPERATIONAL PERFORMANCE</Text2>
+				<Text2 variant="p">OPERATIONAL PERFORMANCE</Text2>
 			</TextWrapper>
 		</Wrapper>
 	);

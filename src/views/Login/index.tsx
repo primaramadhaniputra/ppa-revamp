@@ -1,5 +1,5 @@
-import React from "react";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 const Login6 = dynamic(() => import("src/components/layouts/Login/Login-6"), { ssr: false });
 const Login51 = dynamic(() => import("src/components/layouts/Login/LOGIN4/Login-5.1"), {
@@ -49,5 +49,12 @@ const RenderLayout = ({ id }: IProps) => {
 };
 
 export default function Home({ id }: IProps) {
-	return <RenderLayout id={id} />;
+	return (
+		<>
+			<Head>
+				<title>PPA REVAMP</title>
+			</Head>
+			<RenderLayout id={id} />
+		</>
+	);
 }
