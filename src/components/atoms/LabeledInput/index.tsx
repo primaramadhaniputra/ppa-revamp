@@ -33,12 +33,17 @@ export default function LabeledInput({
 
 	return (
 		<Grid container flexDirection="column" gap={7} style={{ position: "relative", ...style }}>
-			{title && <StyledLabel style={{ color, ...styleLabel }}>{title}</StyledLabel>}
+			{title && (
+				<StyledLabel htmlFor={title} style={{ color, ...styleLabel }}>
+					{title}
+				</StyledLabel>
+			)}
 			<StyledInput
 				autoComplete="off"
 				{...rest}
 				style={{ flex: "1" }}
 				type={isShowPassword && icon ? "password" : "text"}
+				id={title}
 			/>
 			{icon && (
 				<IconContainer>
