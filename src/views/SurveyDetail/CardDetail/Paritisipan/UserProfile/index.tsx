@@ -1,9 +1,13 @@
 import { Avatar, Grid } from "@hudoro/neron";
 import Cookies from "js-cookie";
 import React, { useState } from "react";
-import { useParticipantsValue } from "recoil/participants/atom";
-import { Container, UserJob, UserName, Wrapper } from "./styles";
-// import ReactPaginate from "react-paginate";
+import { useParticipantsState } from "recoil/participants/atom";
+import { Container, PaginationContainer, UserJob, UserName, Wrapper } from "./styles";
+import ReactPaginate from "react-paginate";
+import { useMetaState } from "recoil/meta/atom";
+import { notify } from "utils/functions";
+import { getPartisipan } from "services/survey";
+import { useRouter } from "next/router";
 
 interface IProps {
 	setIdDetailParticsipan: React.Dispatch<React.SetStateAction<string | undefined>>;
@@ -11,11 +15,32 @@ interface IProps {
 
 const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
 	const [idActiveCard, setIdActiveCard] = useState("");
-	const partisipans = useParticipantsValue();
+	const [partisipans, setPartisipans] = useParticipantsState();
+	const [meta, setMeta] = useMetaState();
+	const router = useRouter();
+	const joinParams = (router.query.slug as string[])?.join("/");
 
-	// const handlePageClick = (event: any) => {
-	// 	console.log("event", event.selected);
-	// };
+	const handleGetParticipans = async (curretPage: number) => {
+		try {
+			const response = await getPartisipan({
+				path: `participates/${joinParams}`,
+				params: {
+					page: curretPage + 1,
+					perPage: 3,
+				},
+			});
+			setMeta(response.data.meta);
+			setPartisipans(response.data.data);
+		} catch (error: any) {
+			return notify(error.message, "error");
+		}
+	};
+
+	const handlePageClick = (event: any) => {
+		setIdDetailParticsipan(undefined);
+		setIdActiveCard("");
+		return handleGetParticipans(event.selected);
+	};
 
 	const handleActiveCard = (id: string, fullName: string, companyName: string) => {
 		Cookies.set("fullName", fullName);
@@ -29,34 +54,35 @@ const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
 	};
 
 	return (
-		<Wrapper>
-			{partisipans.map((item, index) => (
-				<Container
-					key={index}
-					isActiveCard={idActiveCard === item.id}
-					onClick={() => handleActiveCard(item.id, item.fullName, item.companyName)}
-				>
-					<Avatar size="l" alt="userProfile" src={item.logoUrl} />
-					<Grid>
-						<UserName>{item.fullName}</UserName>
-						<UserJob>{item.companyName}</UserJob>
-					</Grid>
-				</Container>
-			))}
-			{/* <PaginationContainer>
+		<Grid>
+			<Wrapper>
+				{partisipans.map((item, index) => (
+					<Container
+						key={index}
+						isActiveCard={idActiveCard === item.id}
+						onClick={() => handleActiveCard(item.id, item.fullName, item.companyName)}
+					>
+						<Avatar size="l" alt="userProfile" src={item.logoUrl} />
+						<Grid>
+							<UserName>{item.fullName}</UserName>
+							<UserJob>{item.companyName}</UserJob>
+						</Grid>
+					</Container>
+				))}
+			</Wrapper>
+			<PaginationContainer>
 				<ReactPaginate
 					activeClassName="active_pagination"
-					// initialPage={1}
 					breakLabel="..."
 					nextLabel=" >"
 					onPageChange={handlePageClick}
 					pageRangeDisplayed={2}
-					pageCount={8}
+					pageCount={meta.totalPage}
 					previousLabel="< "
-					// renderOnZeroPageCount={null}
+				// renderOnZeroPageCount={null}
 				/>
-			</PaginationContainer> */}
-		</Wrapper>
+			</PaginationContainer>
+		</Grid>
 	);
 };
 

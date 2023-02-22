@@ -2,6 +2,7 @@ import Loading from "atoms/Loading";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { useSetMeta } from "recoil/meta/atom";
 import { useSetParticipants } from "recoil/participants/atom";
 import { getCriticismReport, getDetailCriteriaReport, getPartisipan } from "services/survey";
 import { useAsync } from "utils/customHooks";
@@ -15,7 +16,7 @@ const SurveyDetailView = dynamic(() => import("views/SurveyDetail"), {
 export default function SurveyDetailPage() {
 	// const [meta, setMeta] = useState<IMeta>()
 	const setPartisipan = useSetParticipants();
-
+	const setMeta = useSetMeta();
 	const router = useRouter();
 	const joinParams = (router.query.slug as string[])?.join("/");
 
@@ -32,7 +33,7 @@ export default function SurveyDetailPage() {
 					path: `participates/${joinParams}`,
 					params: {
 						page: 1,
-						perPage: 99,
+						perPage: 3,
 					},
 				}),
 			]),
@@ -43,6 +44,7 @@ export default function SurveyDetailPage() {
 	if (loading || !response) {
 		return <Loading />;
 	}
+	setMeta((response as IPromiseResult[])[2].data.meta);
 	setPartisipan((response as IPromiseResult[])[2].data.data);
 	return (
 		<SurveyDetailView
