@@ -25,7 +25,9 @@ const Tabs = ({ tabContent, setTabContent, notifications }: IProps) => {
 					>
 						{item}
 					</TabsText>
-					{index === 1 && <PopupNotifications>{notifications}</PopupNotifications>}
+					{index === 1 && notifications > 0 && (
+						<PopupNotifications>{notifications}</PopupNotifications>
+					)}
 				</Grid>
 			))}
 		</Container>

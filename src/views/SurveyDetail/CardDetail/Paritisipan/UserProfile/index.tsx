@@ -79,7 +79,7 @@ const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
 					pageRangeDisplayed={2}
 					pageCount={meta.totalPage}
 					previousLabel="< "
-				// renderOnZeroPageCount={null}
+					// renderOnZeroPageCount={null}
 				/>
 			</PaginationContainer>
 		</Grid>

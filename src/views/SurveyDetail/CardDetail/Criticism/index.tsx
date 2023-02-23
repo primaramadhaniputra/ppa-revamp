@@ -1,6 +1,5 @@
 import { Grid } from "@hudoro/neron";
 import UserNameWithPosition from "molecules/UserNameWithPosition";
-import React from "react";
 import { timeConverter } from "utils/functions";
 import { ISurveyReportCriticism } from "utils/interfaces";
 import { Container, DateText, ValueText } from "./styles";
