@@ -22,6 +22,7 @@ export interface ILoginData {
 }
 
 export interface IMeta {
+	currentPage?: number;
 	total: number;
 	totalPage: number;
 	page: number;
