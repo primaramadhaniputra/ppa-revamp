@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 	gap: 15px;
 	align-items: center;
 	font-family: ${fontFamilies.poppins};
-	margin: 30px 0;
+	margin: 10px 0;
 	padding: 0 10px;
 	width: 100%;
 	position: relative;

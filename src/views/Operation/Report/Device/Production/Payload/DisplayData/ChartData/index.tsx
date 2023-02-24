@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -13,12 +12,14 @@ import { Bar } from "react-chartjs-2";
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface IProps {
+	heigth: string;
 	data: any;
 }
 
-export default function ChartData({ data }: IProps) {
+export default function ChartData({ data, heigth }: IProps) {
 	const options = {
 		responsive: true,
+		// maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				position: "top" as const,
@@ -91,8 +92,8 @@ export default function ChartData({ data }: IProps) {
 	};
 
 	return (
-		<div style={{ maxWidth: "1400px", width: "100%" }}>
-			<Bar options={options} data={datas as any} />
-		</div>
+		// <div style={{ width: '400px', height: '300px' }}>
+		<Bar options={options} data={datas as any} height={heigth} />
+		// </div>
 	);
 }

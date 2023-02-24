@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
@@ -6,12 +6,20 @@ import TopFilter from "../TopFilter";
 import { getOperationReport, getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { Wrapper } from "../../styles";
+import { DataWrapper } from "./styles";
+
+const arr = new Array(4).fill("");
 
 export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
+	const [activeChart, setActiveChart] = useState(0);
+
+	const handleActiveChart = (idx: number) => {
+		return setActiveChart(idx);
+	};
 
 	const handleFromDate = (e: Date) => {
 		setFromDate(e);
@@ -73,9 +81,28 @@ export default function Payload() {
 					getData={getData}
 				/>
 			</FilterLayouts>
-			<Wrapper>
-				<DisplayData data={dataChart} isLoading={isLoading} />
-			</Wrapper>
+			<DataWrapper>
+				{arr.map((_, idx) => (
+					<Wrapper
+						key={idx}
+						style={{
+							gridColumnStart: activeChart === idx ? "span 3" : "initial",
+							cursor: "pointer",
+							transition: ".3s",
+							gridRow: activeChart === idx ? "1" : "inherit",
+							minHeight: "100px",
+						}}
+						onClick={() => handleActiveChart(idx)}
+					>
+						<DisplayData
+							data={dataChart}
+							isLoading={isLoading}
+							heigth={activeChart === idx ? "75px !important" : "150px !important"}
+						/>
+						{idx}
+					</Wrapper>
+				))}
+			</DataWrapper>
 		</>
 	);
 }
