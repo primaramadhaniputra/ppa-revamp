@@ -14,6 +14,7 @@ const API = {
 
 	// OPERATION REPORT
 	getOperationReport: apiRequest.get(apiEndpoints.operationReport),
+	getOperationReport19: apiRequest.get(apiEndpoints.operationReport19),
 
 	// PAGES
 	listPages: apiRequest.get(apiEndpoints.pages, true),

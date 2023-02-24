@@ -3,7 +3,7 @@ import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "../TopFilter";
-import { getOperationReport } from "services/operationReport";
+import { getOperationReport, getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { Wrapper } from "../../styles";
 
@@ -34,6 +34,19 @@ export default function Payload() {
 				path: "payloads",
 				...(signal && { signal }),
 			});
+			const data19 = await getOperationReport19({
+				params: {
+					startedDate: convert(fromDate),
+					endedDate: convert(toDate),
+				},
+				headers: {
+					Tenant: "MHU",
+				},
+				path: "vhms/payloads",
+				...(signal && { signal }),
+			});
+			console.log("data19", data19.data.data);
+			console.log("data1", data.data.data);
 			setDataChart(data.data.data);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
