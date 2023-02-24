@@ -231,4 +231,5 @@ export interface IProductionSites {
 		hauling: IHauling;
 		pit: IHauling;
 	};
+	logo: string;
 }
