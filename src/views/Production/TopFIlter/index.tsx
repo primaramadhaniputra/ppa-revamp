@@ -22,10 +22,9 @@ export default function TopFilter({
 	setDate,
 	handleChangeActiveType,
 }: IProps) {
-
 	const handleChangePeriode = (name: string) => {
-		setActiveTabs(name)
-		if (name === 'MTD') {
+		setActiveTabs(name);
+		if (name === "MTD") {
 			const date = new Date();
 			const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
 			setDate([
@@ -35,7 +34,7 @@ export default function TopFilter({
 					key: "selection",
 				},
 			]);
-		} else if (name === 'YTD') {
+		} else if (name === "YTD") {
 			const date = new Date();
 			date.setMonth(0);
 			const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -57,7 +56,7 @@ export default function TopFilter({
 				},
 			]);
 		}
-	}
+	};
 
 	return (
 		<WrapperDate>

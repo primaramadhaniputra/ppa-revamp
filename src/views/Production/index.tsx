@@ -4,15 +4,14 @@ import TitlePage from "atoms/TitlePage";
 import { useEffect, useState } from "react";
 import { getAllSiteProduction } from "services/production";
 import { convert, notify } from "utils/functions";
-import { allSites, ITotalAllSites } from "utils/interfaces";
+import { IProductionSites } from "utils/interfaces";
 import Product from "./Product";
 import TopFilter from "./TopFIlter";
 
 export default function Production() {
-	const [activeTabs, setActiveTabs] = useState<string>('');
+	const [activeTabs, setActiveTabs] = useState<string>("");
 	const [activeType, seActivetType] = useState(false);
-	const [sites, setSites] = useState<allSites[]>();
-	const [totalDataSites, setTotalDataSites] = useState<ITotalAllSites>();
+	const [sites, setSites] = useState<IProductionSites[]>();
 	const [isLoading, setIsLoading] = useState(true);
 
 	const [date, setDate] = useState([
@@ -32,11 +31,10 @@ export default function Production() {
 				params: {
 					start: startTime,
 					end: endTime,
-					type: activeType ? "tc" : "js",
+					type: activeType ? "TC" : "JS",
 				},
 			});
-			setSites(data.data.data.resource);
-			setTotalDataSites(data.data.data.total);
+			setSites(data.data as any);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
@@ -70,7 +68,7 @@ export default function Production() {
 					<Loading />
 				</Grid>
 			) : (
-				<Product sites={sites as allSites[]} totalDataSites={totalDataSites as ITotalAllSites} />
+				<Product sites={sites as IProductionSites[]} />
 			)}
 		</>
 	);
