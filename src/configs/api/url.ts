@@ -7,7 +7,8 @@ const apiEndpoints = {
 	pages: `${appActiveConfig.baseurl}/admin`,
 	webAdmin: `${appActiveConfig.baseurl}/admin/settings/web-admin`,
 	moco: `${appActiveConfig.baseurl}/admin/settings/reports/productions/daily`,
-	production: `${appActiveConfig.baseurl}/admin/settings/reports/productions/site`,
+	production: `${appActiveConfig.ppaurl11}/production/mainProduction`,
+	// production: `${appActiveConfig.baseurl}/admin/settings/reports/productions/site`,
 	survey: `${appActiveConfig.surveyurl}/reports/criteria/periodes`,
 
 	// sso

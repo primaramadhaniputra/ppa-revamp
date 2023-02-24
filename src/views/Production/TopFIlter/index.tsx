@@ -8,8 +8,8 @@ import { TabsContainer, TabsText, WrapperDate } from "../styles";
 const tabs = ["MTD", "YTD", "WTD"];
 
 interface IProps {
-	activeTabs: number | undefined;
-	setActiveTabs: React.Dispatch<React.SetStateAction<number | undefined>>;
+	activeTabs: string;
+	setActiveTabs: React.Dispatch<React.SetStateAction<string>>;
 	date: IDate[];
 	setDate: React.Dispatch<React.SetStateAction<IDate[]>>;
 	handleChangeActiveType: () => void;
@@ -22,6 +22,42 @@ export default function TopFilter({
 	setDate,
 	handleChangeActiveType,
 }: IProps) {
+	const handleChangePeriode = (name: string) => {
+		setActiveTabs(name);
+		if (name === "MTD") {
+			const date = new Date();
+			const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+			setDate([
+				{
+					startDate: firstDay,
+					endDate: new Date(),
+					key: "selection",
+				},
+			]);
+		} else if (name === "YTD") {
+			const date = new Date();
+			date.setMonth(0);
+			const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+			setDate([
+				{
+					startDate: firstDay,
+					endDate: new Date(),
+					key: "selection",
+				},
+			]);
+		} else {
+			const date = new Date();
+			date.setDate(date.getDate() - 7);
+			setDate([
+				{
+					startDate: date,
+					endDate: new Date(),
+					key: "selection",
+				},
+			]);
+		}
+	};
+
 	return (
 		<WrapperDate>
 			<Grid container gap={5} alignItems="center" style={{ height: "44px", justifyContent: "end" }}>
@@ -38,9 +74,9 @@ export default function TopFilter({
 					<TabsText
 						key={index}
 						style={{
-							backgroundColor: activeTabs === index ? colors.primary : "#A8A9AA",
+							backgroundColor: activeTabs === item ? colors.primary : "#A8A9AA",
 						}}
-						onClick={() => setActiveTabs(index)}
+						onClick={() => handleChangePeriode(item)}
 					>
 						{item}
 					</TabsText>

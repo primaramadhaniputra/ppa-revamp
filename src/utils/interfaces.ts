@@ -217,3 +217,18 @@ export interface IUserDetailPartisipanQuestions {
 		};
 	}[];
 }
+
+export interface IHauling {
+	actual: number;
+	material: string;
+	plan: number;
+	satuan: string;
+}
+
+export interface IProductionSites {
+	site: string;
+	data: {
+		hauling: IHauling;
+		pit: IHauling;
+	};
+}

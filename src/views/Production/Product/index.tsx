@@ -1,17 +1,15 @@
-import React from "react";
-import { allSites, ITotalAllSites } from "utils/interfaces";
+import { IProductionSites } from "utils/interfaces";
 import Sites from "./Sites";
 import TotalSites from "./TotalSites";
 
 interface IProps {
-	sites: allSites[];
-	totalDataSites: ITotalAllSites;
+	sites: IProductionSites[];
 }
 
-export default function Product({ sites, totalDataSites }: IProps) {
+export default function Product({ sites }: IProps) {
 	return (
 		<>
-			<TotalSites totalDataSites={totalDataSites} />
+			<TotalSites sites={sites} />
 			<Sites sites={sites} />
 		</>
 	);

@@ -7,6 +7,7 @@ const appEnvironment = {
 		ppaurl: `${process.env.NEXT_PUBLIC_ROOT_API_URL_PPA}/v1`,
 		surveyurl: `${process.env.NEXT_PUBLIC_ROOT_API_URL_SURVEY}/v1`,
 		ssourl: `${process.env.NEXT_PUBLIC_ROOT_SSO_URL}`,
+		ppaurl11: `${process.env.NEXT_PUBLIC_ROOT_API_URL_PPA_11}`,
 	},
 };
 
