@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
 export const WrapperTotalText = styled.div`
 	display: flex;
-	gap: 20px;
+	gap: 5px;
 	background-color: ${colors.orange};
 	color: #333;
 	padding: 10px 10px;
@@ -27,4 +27,5 @@ export const TotalText = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-size: ${fontSizing.sm.fontSize};
 	font-weight: ${fontWeights.semi};
+	/* color: #eee; */
 `;

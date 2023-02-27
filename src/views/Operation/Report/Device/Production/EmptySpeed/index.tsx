@@ -8,7 +8,7 @@ import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
 // import { data } from "molecules/Charts/DoughnutChart";
 
-export default function LoadingTime() {
+export default function EmptySpeed() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [toDate, setToDate] = useState(new Date());
@@ -34,7 +34,7 @@ export default function LoadingTime() {
 					startedDate: convert(fromDate),
 					endedDate: convert(toDate),
 				},
-				path: "vhms/loading-time",
+				path: "vhms/empty-speed",
 				...(signal && { signal }),
 			});
 			setDataChart(data19.data.data);

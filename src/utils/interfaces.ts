@@ -46,7 +46,7 @@ export interface IUserData {
 	site: string;
 }
 
-export interface IOperationReportPayloadData {
+export interface IOperationReprotData {
 	total: number;
 	average: string;
 	range: {
@@ -57,6 +57,11 @@ export interface IOperationReportPayloadData {
 		target: number;
 		data: [];
 	};
+}
+
+export interface IOperationReportPayloadData {
+	site: string;
+	data: IOperationReprotData;
 }
 
 export interface IDropdownData {

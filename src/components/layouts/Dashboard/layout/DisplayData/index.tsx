@@ -25,12 +25,12 @@ export default function DisplayData({ data, isLoading, typeDisplayData }: IProps
 
 	const renderDisplayData = (type: string) => {
 		if (type === "Range Data") {
-			return <TableData data={data?.range.data} />;
+			return <TableData data={data?.data.range.data} />;
 		}
 		if (type === "Trend") {
-			return <Trend datas={data?.trend} />;
+			return <Trend datas={data?.data.trend} />;
 		}
-		return <ChartData data={data?.range.data || [{}]} />;
+		return <ChartData data={data?.data.range.data || [{}]} />;
 	};
 
 	return (
@@ -52,8 +52,8 @@ export default function DisplayData({ data, isLoading, typeDisplayData }: IProps
 					/>
 				</Grid>
 				<WrapperTotalText>
-					<TotalText>∑ {data?.total} </TotalText>
-					<TotalText>Avg {data?.average} </TotalText>
+					<TotalText>∑ {data?.data.total} </TotalText>
+					<TotalText>Avg {data?.data.average} </TotalText>
 				</WrapperTotalText>
 			</Grid>
 			{renderDisplayData(activeDisplayData)}

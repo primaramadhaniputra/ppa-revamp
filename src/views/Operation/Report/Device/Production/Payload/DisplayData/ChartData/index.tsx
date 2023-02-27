@@ -6,10 +6,22 @@ import {
 	Title,
 	Tooltip,
 	Legend,
+	PointElement,
+	LineElement,
 } from "chart.js";
+
 import { Bar } from "react-chartjs-2";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	BarElement,
+	Title,
+	Tooltip,
+	Legend,
+	PointElement,
+	LineElement,
+);
 
 interface IProps {
 	heigth: string;
@@ -19,7 +31,6 @@ interface IProps {
 export default function ChartData({ data, heigth }: IProps) {
 	const options = {
 		responsive: true,
-		// maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				position: "top" as const,
@@ -90,10 +101,5 @@ export default function ChartData({ data, heigth }: IProps) {
 			},
 		],
 	};
-
-	return (
-		// <div style={{ width: '400px', height: '300px' }}>
-		<Bar options={options} data={datas as any} height={heigth} />
-		// </div>
-	);
+	return <Bar options={options} data={datas as any} height={`${heigth}!important`} />;
 }
