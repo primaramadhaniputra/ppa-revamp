@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "../TopFilter";
-import { getOperationReport } from "services/operationReport";
+import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
-import { Wrapper } from "../../styles";
+import { DataWrapper, Wrapper } from "./styles";
+// import { data } from "molecules/Charts/DoughnutChart";
 
 export default function Payload() {
-	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
+	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
+	const [activeChart, setActiveChart] = useState(0);
+
+	const handleActiveChart = (idx: number) => {
+		return setActiveChart(idx);
+	};
 
 	const handleFromDate = (e: Date) => {
 		setFromDate(e);
@@ -23,18 +29,18 @@ export default function Payload() {
 	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
-			const data = await getOperationReport({
+			const data19 = await getOperationReport19({
 				params: {
-					startedAt: convert(fromDate),
-					endedAt: convert(toDate),
+					startedDate: convert(fromDate),
+					endedDate: convert(toDate),
 				},
-				headers: {
-					Tenant: "MHU",
-				},
-				path: "payloads",
+				// headers: {
+				// 	Tenant: "MHU",
+				// },
+				path: "vhms/payloads",
 				...(signal && { signal }),
 			});
-			setDataChart(data.data.data);
+			setDataChart(data19.data.data);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
@@ -43,11 +49,11 @@ export default function Payload() {
 		}
 	};
 
-	useEffect(() => {
-		const abortController = new AbortController();
-		getData(abortController.signal);
-		return () => abortController.abort();
-	}, []);
+	// useEffect(() => {
+	// 	const abortController = new AbortController();
+	// 	getData(abortController.signal);
+	// 	return () => abortController.abort();
+	// }, []);
 
 	return (
 		<>
@@ -60,9 +66,18 @@ export default function Payload() {
 					getData={getData}
 				/>
 			</FilterLayouts>
-			<Wrapper>
-				<DisplayData data={dataChart} isLoading={isLoading} />
-			</Wrapper>
+			<DataWrapper style={{ transition: ".3s" }}>
+				{dataChart?.map((item, idx) => (
+					<Wrapper
+						key={idx}
+						isActive={activeChart === idx}
+						onClick={() => handleActiveChart(idx)}
+						style={{ transition: ".3s" }}
+					>
+						<DisplayData data={item} isLoading={isLoading} isActive={activeChart === idx} />
+					</Wrapper>
+				))}
+			</DataWrapper>
 		</>
 	);
 }

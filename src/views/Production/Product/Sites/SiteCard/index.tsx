@@ -1,5 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import Image from "next/image";
+import { useWindowSize } from "utils/customHooks";
 import { numberWithCommas } from "utils/functions";
 import { IProductionSites } from "utils/interfaces";
 import { fontWeights } from "utils/styles";
@@ -16,6 +17,8 @@ const getPercentage = (x: number, y: number) => {
 };
 
 export default function CardSite({ item, showChart }: IProps) {
+	const { width } = useWindowSize();
+
 	return (
 		<SingleProduct onClick={showChart}>
 			<HeaderContainer>
@@ -56,14 +59,14 @@ export default function CardSite({ item, showChart }: IProps) {
 					</Grid>
 				</Grid>
 				<Grid container alignItems="center" flexDirection="column" style={{ flex: 1 }}>
-					{/* <Image
-											loader={() => src}
-											src={src}
-											height={width > 350 ? 37 : 20}
-											width={width > 350 ? 37 : 20}
-											alt="product logo"
-											quality={100}
-										/> */}
+					<Image
+						loader={() => item.logo}
+						src={item.logo}
+						height={width > 350 ? 37 : 20}
+						width={width > 350 ? 37 : 20}
+						alt="product logo"
+						quality={100}
+					/>
 					<Grid container style={{ flex: 1 }} justifyContent="center" alignItems="center">
 						<ProductText>{item.site}</ProductText>
 					</Grid>

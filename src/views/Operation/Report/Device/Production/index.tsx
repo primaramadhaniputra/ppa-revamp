@@ -1,6 +1,6 @@
 import TabV3 from "molecules/TabV3";
 import dynamic from "next/dynamic";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const tabs = [
 	"Payload",
@@ -17,6 +17,7 @@ const DynamicPayloadView = dynamic(() => import("./Payload"), { ssr: false });
 const DynamicEmptyStopView = dynamic(() => import("./EmptyStop"), { ssr: false });
 const DynamicLoadingTimeView = dynamic(() => import("./LoadingTime"), { ssr: false });
 const DynamicSpeedView = dynamic(() => import("./Speed"), { ssr: false });
+const DynamicEmptySpeedView = dynamic(() => import("./EmptySpeed"), { ssr: false });
 const DynamicLoadedSpeedView = dynamic(() => import("./LoadedSpeed"), { ssr: false });
 const All = dynamic(() => import("./All"), { ssr: false });
 const AllByLoader = dynamic(() => import("./AllByLoader"), { ssr: false });
@@ -33,7 +34,7 @@ const renderContent = (type: number) => {
 	} else if (type === 4) {
 		return <DynamicLoadedSpeedView />;
 	} else if (type === 5) {
-		return <DynamicEmptyStopView />;
+		return <DynamicEmptySpeedView />;
 	} else if (type === 6) {
 		return <All />;
 	} else if (type === 7) {

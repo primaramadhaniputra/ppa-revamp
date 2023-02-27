@@ -8,3 +8,10 @@ export const getOperationReport = (payload: IPayload): Promise<IPromiseResult> =
 			.catch((err: any) => reject(new Error(err.message)));
 	});
 };
+export const getOperationReport19 = (payload: IPayload): Promise<IPromiseResult> => {
+	return new Promise<IPromiseResult>((resolve, reject) => {
+		API.getOperationReport19(payload)
+			.then((res: IResponse) => resolve({ data: res, success: true }))
+			.catch((err: any) => reject(new Error(err.message)));
+	});
+};

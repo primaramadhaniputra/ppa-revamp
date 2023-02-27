@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { getOperationReport } from "services/operationReport";
-import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
 import TopFilter from "../TopFilter";
-import { Wrapper } from "../../styles";
+import { getOperationReport19 } from "services/operationReport";
+import FilterLayouts from "src/components/layouts/FilterLayouts";
+import { DataWrapper, Wrapper } from "./styles";
+// import { data } from "molecules/Charts/DoughnutChart";
 
 export default function EmptyStop() {
-	const [dataChart, setDataChart] = useState<IOperationReportPayloadData>();
+	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
-
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
+	// const [activeChart, setActiveChart] = useState(0);
+
+	// const handleActiveChart = (idx: number) => {
+	// 	return setActiveChart(idx);
+	// };
 
 	const handleFromDate = (e: Date) => {
 		setFromDate(e);
@@ -24,18 +29,18 @@ export default function EmptyStop() {
 	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
-			const data = await getOperationReport({
+			const data19 = await getOperationReport19({
 				params: {
-					startedAt: convert(fromDate),
-					endedAt: convert(toDate),
+					startedDate: convert(fromDate),
+					endedDate: convert(toDate),
 				},
-				headers: {
-					Tenant: "MHU",
-				},
-				path: "empty-stop",
+				// headers: {
+				// 	Tenant: "MHU",
+				// },
+				path: "vhms/empty-stop",
 				...(signal && { signal }),
 			});
-			setDataChart(data.data.data);
+			setDataChart(data19.data.data);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
@@ -44,11 +49,11 @@ export default function EmptyStop() {
 		}
 	};
 
-	useEffect(() => {
-		const abortController = new AbortController();
-		getData(abortController.signal);
-		return () => abortController.abort();
-	}, []);
+	// useEffect(() => {
+	// 	const abortController = new AbortController();
+	// 	getData(abortController.signal);
+	// 	return () => abortController.abort();
+	// }, []);
 
 	return (
 		<>
@@ -61,9 +66,17 @@ export default function EmptyStop() {
 					getData={getData}
 				/>
 			</FilterLayouts>
-			<Wrapper>
-				<DisplayData data={dataChart} isLoading={isLoading} />
-			</Wrapper>
+			<DataWrapper>
+				{dataChart?.map((item, idx) => (
+					<Wrapper key={idx} isActive={0 === idx}>
+						<DisplayData
+							data={item}
+							isLoading={isLoading}
+							heigth={0 === idx ? "75px " : "150px "}
+						/>
+					</Wrapper>
+				))}
+			</DataWrapper>
 		</>
 	);
 }
