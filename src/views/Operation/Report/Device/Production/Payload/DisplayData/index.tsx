@@ -18,7 +18,6 @@ const ChartData = dynamic(() => import("./ChartData"), {
 interface IProps {
 	data: IOperationReportPayloadData;
 	isLoading: boolean;
-	heigth: string;
 }
 
 // const typeDisplayData = [
@@ -40,7 +39,7 @@ interface IProps {
 // 	},
 // ];
 
-export default function DisplayData({ data, isLoading, heigth }: IProps) {
+export default function DisplayData({ data, isLoading }: IProps) {
 	// const [activeDisplayData, setActiveDisplayData] = useState(typeDisplayData[0].values);
 	// const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
 	// 	return setActiveDisplayData(e?.values);
@@ -74,7 +73,7 @@ export default function DisplayData({ data, isLoading, heigth }: IProps) {
 						<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
 					</WrapperTotalText>
 				</Grid>
-				<ChartData data={data?.data?.range?.data || [{}]} heigth={heigth} />
+				<ChartData data={data?.data?.range?.data || [{}]} />
 			</Wrapper>
 			{/* <Grid style={{ maxWidth: "140px", margin: "0 auto 10px" }}>
 				<Select

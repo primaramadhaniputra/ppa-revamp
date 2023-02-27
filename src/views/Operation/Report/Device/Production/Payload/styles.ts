@@ -14,6 +14,7 @@ export const Wrapper = styled(Card)<IProps>`
 	border-radius: 3px;
 	background-color: transparent;
 	grid-column-start: initial;
+	grid-row: ${(props) => (props.isActive ? "1" : "initial")};
 	${mediaQueries.lg} {
 		grid-column-start: ${(props) => (props.isActive ? "span 3" : "initial")};
 		background-color: white;
