@@ -74,7 +74,7 @@ export default function Payload() {
 						onClick={() => handleActiveChart(idx)}
 						style={{ transition: ".3s" }}
 					>
-						<DisplayData data={item} isLoading={isLoading} />
+						<DisplayData data={item} isLoading={isLoading} isActive={activeChart === idx} />
 					</Wrapper>
 				))}
 			</DataWrapper>

@@ -29,6 +29,7 @@ import IcFilterList from "./IcFilterList";
 import IcEllipse from "./IcEllipse";
 import IcChat from "./IcChat";
 import IcScrollCheck from "./IcScrollCheck";
+import IcCurvedArrow from "./IcCurvedArrow";
 
 export {
 	IcClose,
@@ -62,4 +63,5 @@ export {
 	IcEllipse,
 	IcChat,
 	IcScrollCheck,
+	IcCurvedArrow,
 };

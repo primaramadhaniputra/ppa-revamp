@@ -5,6 +5,7 @@ import { IOperationReportPayloadData } from "utils/interfaces";
 import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 
 import dynamic from "next/dynamic";
+import { IcCurvedArrow } from "atoms/Icon";
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
 });
@@ -18,6 +19,7 @@ const ChartData = dynamic(() => import("./ChartData"), {
 interface IProps {
 	data: IOperationReportPayloadData;
 	isLoading: boolean;
+	isActive: boolean;
 }
 
 // const typeDisplayData = [
@@ -39,7 +41,7 @@ interface IProps {
 // 	},
 // ];
 
-export default function DisplayData({ data, isLoading }: IProps) {
+export default function DisplayData({ data, isLoading, isActive }: IProps) {
 	// const [activeDisplayData, setActiveDisplayData] = useState(typeDisplayData[0].values);
 	// const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
 	// 	return setActiveDisplayData(e?.values);
@@ -68,10 +70,14 @@ export default function DisplayData({ data, isLoading }: IProps) {
 					style={{ width: "100%" }}
 				>
 					<Text variant="h4">{data.site}</Text>
-					<WrapperTotalText>
-						<TotalText title="Total">∑ {data?.data?.total} </TotalText>|
-						<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
-					</WrapperTotalText>
+					{isActive ? (
+						<WrapperTotalText>
+							<TotalText title="Total">∑ {data?.data?.total} </TotalText>|
+							<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
+						</WrapperTotalText>
+					) : (
+						<IcCurvedArrow width={40} />
+					)}
 				</Grid>
 				<ChartData data={data?.data?.range?.data || [{}]} />
 			</Wrapper>
