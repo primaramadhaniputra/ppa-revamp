@@ -9,10 +9,20 @@ import {
 	Tooltip,
 	Legend,
 } from "chart.js";
+import annotationPlugin from "chartjs-plugin-annotation";
 import { Line } from "react-chartjs-2";
 import { ChartWrapper } from "./styles";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+	annotationPlugin,
+);
 
 export const options = {
 	responsive: true,
@@ -24,8 +34,25 @@ export const options = {
 			},
 		},
 		title: {
-			display: true,
+			display: false,
 			text: "Data chart",
+		},
+		annotation: {
+			annotations: {
+				box1: {
+					type: "line",
+					borderColor: "#4571C2",
+					borderWidth: 2,
+					label: {
+						enabled: false,
+						content: "Target 100",
+						position: "end",
+						backgroundColor: "#4571C2",
+					},
+					scaleID: "y",
+					value: 300,
+				},
+			},
 		},
 	},
 };
@@ -50,24 +77,13 @@ export const data = {
 			pointRadius: 0,
 			pointHoverRadius: 0,
 		},
-		{
-			label: "Produksi",
-			data: [
-				200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
-				200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
-			],
-			borderColor: "#4571C2",
-			backgroundColor: "#4571C2",
-			pointRadius: 0,
-			pointHoverRadius: 0,
-		},
 	],
 };
 
 export default function ChartDetail() {
 	return (
 		<ChartWrapper>
-			<Line options={options} data={data} />
+			<Line options={options as any} data={data} />
 		</ChartWrapper>
 	);
 }
