@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export const Wrapper = styled(Card)<IProps>`
-	cursor: pointer;
+	/* cursor: pointer; */
 	margin-top: 20px;
 	padding: 0;
 	box-shadow: none;
