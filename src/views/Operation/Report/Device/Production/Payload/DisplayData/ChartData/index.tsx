@@ -31,7 +31,7 @@ interface IProps {
 export default function ChartData({ data }: IProps) {
 	const options = {
 		responsive: true,
-		maintainAspectRatio: true,
+		maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				position: "top" as const,
@@ -103,9 +103,5 @@ export default function ChartData({ data }: IProps) {
 		],
 	};
 
-	return (
-		<div style={{ width: "100%" }}>
-			<Bar options={options} data={datas as any} height={300} style={{ maxHeight: 300 }} />
-		</div>
-	);
+	return <Bar options={options} data={datas as any} height={300} style={{ maxHeight: 300 }} />;
 }

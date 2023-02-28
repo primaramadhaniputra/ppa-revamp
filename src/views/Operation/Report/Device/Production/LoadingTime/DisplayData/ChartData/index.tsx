@@ -24,14 +24,13 @@ ChartJS.register(
 );
 
 interface IProps {
-	heigth: string;
 	data: any;
 }
 
-export default function ChartData({ data, heigth }: IProps) {
-	console.log("data", data);
+export default function ChartData({ data }: IProps) {
 	const options = {
 		responsive: true,
+		maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				position: "top" as const,
@@ -59,5 +58,5 @@ export default function ChartData({ data, heigth }: IProps) {
 		],
 	};
 
-	return <Bar options={options} data={datas as any} height={`${heigth}!important`} />;
+	return <Bar options={options} data={datas as any} height={300} style={{ maxHeight: "300px" }} />;
 }
