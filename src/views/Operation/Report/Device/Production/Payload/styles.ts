@@ -16,11 +16,14 @@ export const Wrapper = styled(Card)<IProps>`
 	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	grid-row: ${(props) => (props.isActive ? "1" : "initial")};
+	background-color: white;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+	padding: 15px;
 	${mediaQueries.lg} {
+		grid-column-start: ${(props) => (props.isActive ? "span 2" : "initial")};
+	}
+	${mediaQueries.xl} {
 		grid-column-start: ${(props) => (props.isActive ? "span 3" : "initial")};
-		background-color: white;
-		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-		padding: 15px;
 	}
 `;
 
@@ -33,6 +36,9 @@ export const DataWrapper = styled.div`
 		padding: 0 !important;
 	}
 	${mediaQueries.lg} {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+	${mediaQueries.xl} {
+		grid-template-columns: 1fr 1fr 1f;
 	}
 `;
