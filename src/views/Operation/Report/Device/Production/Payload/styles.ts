@@ -39,6 +39,6 @@ export const DataWrapper = styled.div`
 		grid-template-columns: 1fr 1fr;
 	}
 	${mediaQueries.xl} {
-		grid-template-columns: 1fr 1fr 1f;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 `;
