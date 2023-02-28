@@ -13,11 +13,14 @@ export default function Payload() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
-	const [activeChart, setActiveChart] = useState(0);
+	const [
+		activeChart,
+		// setActiveChart
+	] = useState(0);
 
-	const handleActiveChart = (idx: number) => {
-		return setActiveChart(idx);
-	};
+	// const handleActiveChart = (idx: number) => {
+	// 	return setActiveChart(idx);
+	// };
 
 	const handleFromDate = (e: Date) => {
 		setFromDate(e);
@@ -66,13 +69,12 @@ export default function Payload() {
 					getData={getData}
 				/>
 			</FilterLayouts>
-			<DataWrapper style={{ transition: ".3s" }}>
+			<DataWrapper>
 				{dataChart?.map((item, idx) => (
 					<Wrapper
 						key={idx}
 						isActive={activeChart === idx}
-						onClick={() => handleActiveChart(idx)}
-						style={{ transition: ".3s" }}
+						// onClick={() => handleActiveChart(idx)}
 					>
 						<DisplayData data={item} isLoading={isLoading} isActive={activeChart === idx} />
 					</Wrapper>

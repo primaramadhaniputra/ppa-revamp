@@ -5,7 +5,7 @@ import { IOperationReportPayloadData } from "utils/interfaces";
 import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 
 import dynamic from "next/dynamic";
-import { IcCurvedArrow } from "atoms/Icon";
+// import { IcCurvedArrow } from "atoms/Icon";
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
 });
@@ -70,16 +70,16 @@ export default function DisplayData({ data, isLoading, isActive }: IProps) {
 					style={{ width: "100%" }}
 				>
 					<Text variant="h4">{data.site}</Text>
-					{isActive ? (
-						<WrapperTotalText>
-							<TotalText title="Total">∑ {data?.data?.total} </TotalText>|
-							<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
-						</WrapperTotalText>
-					) : (
+					{/* {isActive ? ( */}
+					<WrapperTotalText>
+						<TotalText title="Total">∑ {data?.data?.total} </TotalText>|
+						<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
+					</WrapperTotalText>
+					{/* ) : (
 						<IcCurvedArrow width={40} />
-					)}
+					)} */}
 				</Grid>
-				<ChartData data={data?.data?.range?.data || [{}]} />
+				<ChartData data={data?.data?.range?.data || [{}]} isActive={isActive} />
 			</Wrapper>
 			{/* <Grid style={{ maxWidth: "140px", margin: "0 auto 10px" }}>
 				<Select
