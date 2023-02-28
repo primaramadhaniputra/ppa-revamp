@@ -9,28 +9,32 @@ interface IProps {
 export const Wrapper = styled(Card)<IProps>`
 	cursor: pointer;
 	margin-top: 20px;
-	padding: 0;
-	box-shadow: none;
 	border-radius: 3px;
-	background-color: transparent;
 	grid-column-start: initial;
+	grid-row: ${(props) => (props.isActive ? "1" : "initial")};
+	background-color: white;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+	padding: 15px;
 	${mediaQueries.lg} {
+		grid-column-start: ${(props) => (props.isActive ? "span 2" : "initial")};
+	}
+	${mediaQueries.xl} {
 		grid-column-start: ${(props) => (props.isActive ? "span 3" : "initial")};
-		background-color: white;
-		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-		padding: 15px;
 	}
 `;
 
 export const DataWrapper = styled.div`
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: minMax(200px, 1fr);
 	gap: 20px;
 	& > div {
 		margin: 0;
 		padding: 0 !important;
 	}
 	${mediaQueries.lg} {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: repeat(2, minMax(200px, 1fr));
+	}
+	${mediaQueries.xl} {
+		grid-template-columns: repeat(3, minMax(200px, 1fr));
 	}
 `;

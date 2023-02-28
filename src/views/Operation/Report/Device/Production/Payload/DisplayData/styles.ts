@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 	padding: 0 10px;
 	width: 100%;
 	position: relative;
+	cursor: pointer;
 `;
 
 export const WrapperTotalText = styled.div`
