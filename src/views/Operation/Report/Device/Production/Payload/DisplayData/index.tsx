@@ -5,6 +5,7 @@ import { IOperationReportPayloadData } from "utils/interfaces";
 import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 
 import dynamic from "next/dynamic";
+import { numberWithCommas } from "utils/functions";
 // import { IcCurvedArrow } from "atoms/Icon";
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
@@ -72,7 +73,7 @@ export default function DisplayData({ data, isLoading, isActive }: IProps) {
 					<Text variant="h4">{data.site}</Text>
 					{/* {isActive ? ( */}
 					<WrapperTotalText>
-						<TotalText title="Total">∑ {data?.data?.total} </TotalText>|
+						<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
 						<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
 					</WrapperTotalText>
 					{/* ) : (
