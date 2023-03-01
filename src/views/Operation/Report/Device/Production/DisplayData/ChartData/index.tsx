@@ -30,7 +30,6 @@ interface IProps {
 export default function ChartData({ data }: IProps) {
 	const options = {
 		responsive: true,
-		maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				position: "top" as const,
@@ -54,6 +53,7 @@ export default function ChartData({ data }: IProps) {
 				data: data.map((item: { chartValue: number }) => item.chartValue),
 				borderColor: "white",
 				borderWidth: 2,
+				borderRadius: 15,
 			},
 		],
 	};

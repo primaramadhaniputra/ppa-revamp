@@ -99,6 +99,7 @@ export default function ChartData({ data }: IProps) {
 				data: data.map((item: { actual: number }) => item.actual),
 				borderColor: "white",
 				borderWidth: 2,
+				borderRadius: 15,
 			},
 		],
 	};
