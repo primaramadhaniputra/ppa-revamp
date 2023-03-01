@@ -1,32 +1,32 @@
-import { Grid, Icon } from "@hudoro/neron";
+// import { Grid, Icon } from "@hudoro/neron";
 import { useState } from "react";
 import { IProductionSites } from "utils/interfaces";
-import ChartDetail from "views/Production/Product/Sites/ChartDetail";
+// import ChartDetail from "views/Production/Product/Sites/ChartDetail";
 import { ProductTitle, Wrapper } from "../styles";
 import CardSite from "./SiteCard";
-import { Chart, ChartWrapper } from "./styles";
+// import { Chart, ChartWrapper } from "./styles";
 
 interface IProps {
 	sites: IProductionSites[];
 }
 
 export default function Sites({ sites }: IProps) {
-	const [isShowChart, setisShowChart] = useState(false);
-	const [formPosition, setformPosition] = useState(0);
+	const [, setisShowChart] = useState(false);
+	const [, setformPosition] = useState(0);
 
 	const showChart = (e: { pageY: number; clientY: number }) => {
 		setformPosition(e.pageY - e.clientY);
 		setisShowChart(true);
 	};
 
-	const closeChart = () => {
-		setisShowChart(false);
-		setformPosition(0);
-	};
-	console.log("sites", sites);
+	// const closeChart = () => {
+	// 	setisShowChart(false);
+	// 	setformPosition(0);
+	// };
+
 	return (
 		<>
-			<ChartWrapper
+			{/* <ChartWrapper
 				style={{
 					top: `${formPosition}px`,
 					zIndex: isShowChart ? 99 : -10,
@@ -39,7 +39,7 @@ export default function Sites({ sites }: IProps) {
 					</Grid>
 					<ChartDetail />
 				</Chart>
-			</ChartWrapper>
+			</ChartWrapper> */}
 			<ProductTitle>Sites</ProductTitle>
 			<Wrapper>
 				{sites &&

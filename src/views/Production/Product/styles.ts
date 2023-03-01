@@ -26,7 +26,7 @@ export const SingleProduct = styled.div`
 	border-radius: 5px;
 	padding: 15px;
 	min-height: 134px;
-	cursor: pointer;
+	/* cursor: pointer; */
 `;
 
 export const ProductText = styled.p<IProps>`
