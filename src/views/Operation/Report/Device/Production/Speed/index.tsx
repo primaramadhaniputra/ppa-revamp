@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
-import DisplayData from "./DisplayData";
+import DisplayData from "../DisplayData";
 import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";

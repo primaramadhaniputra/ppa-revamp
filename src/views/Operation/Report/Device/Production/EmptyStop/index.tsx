@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
-import DisplayData from "./DisplayData";
 import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
 // import { data } from "molecules/Charts/DoughnutChart";
+import DisplayData from "../DisplayData";
 
 export default function EmptyStop() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
