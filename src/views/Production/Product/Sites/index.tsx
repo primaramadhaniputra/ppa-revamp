@@ -23,7 +23,7 @@ export default function Sites({ sites }: IProps) {
 		setisShowChart(false);
 		setformPosition(0);
 	};
-
+	console.log("sites", sites);
 	return (
 		<>
 			<ChartWrapper
