@@ -37,6 +37,7 @@ export const ProductText = styled.p<IProps>`
 	display: flex;
 	align-items: center;
 	font-weight: ${fontWeights.medium};
+	justify-content: space-between;
 	gap: 5px;
 	@media (min-width: 310px) {
 		font-size: 12px;
