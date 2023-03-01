@@ -13,7 +13,7 @@ interface IProps {
 
 const getPercentage = (x: number, y: number) => {
 	if ((x / y).toString() === "Infinity") return "100%";
-	if (x === 0 && y === 0) return "0%";
+	if (x === 0 && y === 0) return "0.00%";
 	return `${((x / y) * 100).toFixed(2)}%`;
 };
 
