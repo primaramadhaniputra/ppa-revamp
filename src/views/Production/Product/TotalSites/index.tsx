@@ -13,11 +13,10 @@ const iconUrl = ["CheckCircle.png", "coal.png", "coal.png"];
 const gridArea = ["ob", "coal", "ore"];
 
 const getPercentage = (x: number, y: number) => {
-	if (x === 0 && y === 0) return "0%";
 	const percent = ((x / y) * 100).toFixed(2);
 	return (
 		<Lozenge style={{ backgroundColor: Number(percent) < 100 ? "#EB3B3B" : "#47bf34" }}>
-			{percent}%
+			{percent !== "NaN" ? percent : `${(0).toFixed(2)}`}%
 		</Lozenge>
 	);
 };
