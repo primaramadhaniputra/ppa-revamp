@@ -6,7 +6,6 @@ import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 
 import dynamic from "next/dynamic";
 import { numberWithCommas } from "utils/functions";
-import { IcCurvedArrow } from "atoms/Icon";
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
 });
@@ -43,7 +42,7 @@ interface IProps {
 // 	},
 // ];
 
-export default function DisplayData({ data, isLoading, isActive }: IProps) {
+export default function DisplayData({ data, isLoading }: IProps) {
 	// const [activeDisplayData, setActiveDisplayData] = useState(typeDisplayData[0].values);
 	// const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
 	// 	return setActiveDisplayData(e?.values);
@@ -72,14 +71,10 @@ export default function DisplayData({ data, isLoading, isActive }: IProps) {
 					style={{ width: "100%" }}
 				>
 					<Text variant="h4">{data.site}</Text>
-					{isActive ? (
-						<WrapperTotalText>
-							<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
-							<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
-						</WrapperTotalText>
-					) : (
-						<IcCurvedArrow width={40} />
-					)}
+					<WrapperTotalText>
+						<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
+						<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
+					</WrapperTotalText>
 				</Grid>
 				<ChartData data={data?.data?.range?.data || [{}]} />
 			</Wrapper>
