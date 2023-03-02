@@ -16,6 +16,11 @@ export default function LoadedSpeed() {
 	const [activeChart, setActiveChart] = useState(0);
 
 	const handleActiveChart = (idx: number) => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth",
+		});
 		return setActiveChart(idx);
 	};
 
