@@ -6,10 +6,14 @@ import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
-import { typeDisplayData } from "utils/dummy";
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { typeDisplayData } from "utils/dummy";
 
-export default function EmptySpeed() {
+interface IProps {
+	vhmsType: string;
+}
+
+export default function VHMS({ vhmsType }: IProps) {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [toDate, setToDate] = useState(new Date());
@@ -46,7 +50,7 @@ export default function EmptySpeed() {
 					startedDate: convert(fromDate),
 					endedDate: convert(toDate),
 				},
-				path: "vhms/empty-speed",
+				path: `vhms/${vhmsType}`,
 				...(signal && { signal }),
 			});
 			setDataChart(data19.data.data);
