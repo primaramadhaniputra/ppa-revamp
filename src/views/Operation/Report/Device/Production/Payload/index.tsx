@@ -7,26 +7,7 @@ import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
-// import { data } from "molecules/Charts/DoughnutChart";
-
-const typeDisplayData = [
-	{
-		id: 1,
-		values: "Range Chart",
-		label: "Range Chart",
-	},
-	{
-		id: 0,
-		values: "Range Data",
-		label: "Range Data",
-	},
-
-	{
-		id: 2,
-		values: "Trend",
-		label: "Trend",
-	},
-];
+import { typeDisplayData } from "utils/dummy";
 
 export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();

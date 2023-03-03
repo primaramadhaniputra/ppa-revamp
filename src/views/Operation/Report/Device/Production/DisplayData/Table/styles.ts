@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 	overflow: scroll;
 	::-webkit-scrollbar {
 		height: 5px;
-		width: 3px;
+		width: 2px;
 	}
 
 	::-webkit-scrollbar-track {

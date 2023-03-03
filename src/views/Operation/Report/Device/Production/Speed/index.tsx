@@ -6,7 +6,8 @@ import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
-// import { data } from "molecules/Charts/DoughnutChart";
+import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { typeDisplayData } from "utils/dummy";
 
 export default function Speed() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
@@ -14,6 +15,12 @@ export default function Speed() {
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
 	const [activeChart, setActiveChart] = useState(0);
+
+	// for filter chart
+	const [activeDisplayData, setActiveDisplayData] = useState(typeDisplayData[0].values);
+	const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
+		return setActiveDisplayData(e?.values);
+	};
 
 	const handleActiveChart = (idx: number) => {
 		window.scrollTo({
@@ -51,12 +58,6 @@ export default function Speed() {
 		}
 	};
 
-	// useEffect(() => {
-	// 	const abortController = new AbortController();
-	// 	getData(abortController.signal);
-	// 	return () => abortController.abort();
-	// }, []);
-
 	return (
 		<>
 			<FilterLayouts>
@@ -68,10 +69,20 @@ export default function Speed() {
 					getData={getData}
 				/>
 			</FilterLayouts>
+			{dataChart && (
+				<Grid style={{ maxWidth: "180px", margin: "10px auto 10px" }}>
+					<Select
+						onChange={handleActiveDisplayData}
+						items={typeDisplayData}
+						defaultValue={typeDisplayData[0]}
+						placeholder="Choose.."
+					/>
+				</Grid>
+			)}
 			<DataWrapper>
 				{dataChart?.map((item, idx) => (
 					<Wrapper key={idx} isActive={activeChart === idx} onClick={() => handleActiveChart(idx)}>
-						<DisplayData data={item} isLoading={isLoading} isActive={activeChart === idx} />
+						<DisplayData data={item} isLoading={isLoading} type={activeDisplayData} />
 					</Wrapper>
 				))}
 			</DataWrapper>
