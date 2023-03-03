@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -28,8 +27,8 @@ interface IProps {
 		| {
 				target: number;
 				data: {
+					[x: string]: any;
 					date: string;
-					payload: number;
 				}[];
 		  }
 		| undefined;
@@ -41,6 +40,7 @@ export default function Trend({ datas }: IProps) {
 		plugins: {
 			legend: {
 				position: "top" as const,
+				display: false,
 			},
 			title: {
 				display: true,
@@ -49,8 +49,12 @@ export default function Trend({ datas }: IProps) {
 	};
 
 	const labels = datas?.data?.map((item) => item.date);
-	const dataTrend = datas?.data.map((item) => item.payload);
+	const dataTrend = datas?.data.map((item) => {
+		const dataName = Object.keys(item)[1];
+		return item[dataName];
+	});
 	dataTrend?.push(datas?.target as number);
+
 	const data = {
 		labels,
 		datasets: [
@@ -63,5 +67,5 @@ export default function Trend({ datas }: IProps) {
 			},
 		],
 	};
-	return <Line options={options} data={data} />;
+	return <Line options={options} data={data} height={300} style={{ maxHeight: 300 }} />;
 }

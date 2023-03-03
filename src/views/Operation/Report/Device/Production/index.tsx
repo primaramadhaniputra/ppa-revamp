@@ -14,11 +14,7 @@ const tabs = [
 ];
 
 const DynamicPayloadView = dynamic(() => import("./Payload"), { ssr: false });
-const DynamicEmptyStopView = dynamic(() => import("./EmptyStop"), { ssr: false });
-const DynamicLoadingTimeView = dynamic(() => import("./LoadingTime"), { ssr: false });
-const DynamicSpeedView = dynamic(() => import("./Speed"), { ssr: false });
-const DynamicEmptySpeedView = dynamic(() => import("./EmptySpeed"), { ssr: false });
-const DynamicLoadedSpeedView = dynamic(() => import("./LoadedSpeed"), { ssr: false });
+const DynamicVHMSView = dynamic(() => import("./VHMS"), { ssr: false });
 const All = dynamic(() => import("./All"), { ssr: false });
 const AllByLoader = dynamic(() => import("./AllByLoader"), { ssr: false });
 
@@ -26,15 +22,15 @@ const renderContent = (type: number) => {
 	if (type === 0) {
 		return <DynamicPayloadView />;
 	} else if (type === 1) {
-		return <DynamicEmptyStopView />;
+		return <DynamicVHMSView vhmsType="empty-stop" />;
 	} else if (type === 2) {
-		return <DynamicLoadingTimeView />;
+		return <DynamicVHMSView vhmsType="loading-time" />;
 	} else if (type === 3) {
-		return <DynamicSpeedView />;
+		return <DynamicVHMSView vhmsType="speed" />;
 	} else if (type === 4) {
-		return <DynamicLoadedSpeedView />;
+		return <DynamicVHMSView vhmsType="loaded-speed" />;
 	} else if (type === 5) {
-		return <DynamicEmptySpeedView />;
+		return <DynamicVHMSView vhmsType="empty-speed" />;
 	} else if (type === 6) {
 		return <All />;
 	} else if (type === 7) {

@@ -188,3 +188,22 @@ export const dataText = [
 	{ date: "b", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
 	{ date: "u", fileName: "a", mp: "n", day: "a", status: "n", remark: "a" },
 ];
+
+export const typeDisplayData = [
+	{
+		id: 1,
+		values: "Range Chart",
+		label: "Range Chart",
+	},
+	{
+		id: 0,
+		values: "Range Data",
+		label: "Range Data",
+	},
+
+	{
+		id: 2,
+		values: "Trend",
+		label: "Trend",
+	},
+];

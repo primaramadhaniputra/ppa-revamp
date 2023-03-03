@@ -25,7 +25,6 @@ ChartJS.register(
 
 interface IProps {
 	data: any;
-	isActive: boolean;
 }
 
 export default function ChartData({ data }: IProps) {

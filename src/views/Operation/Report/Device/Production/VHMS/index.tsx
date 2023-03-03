@@ -6,14 +6,25 @@ import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
-// import { data } from "molecules/Charts/DoughnutChart";
+import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { typeDisplayData } from "utils/dummy";
 
-export default function EmptySpeed() {
+interface IProps {
+	vhmsType: string;
+}
+
+export default function VHMS({ vhmsType }: IProps) {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
 	const [activeChart, setActiveChart] = useState(0);
+
+	// for filter chart
+	const [activeDisplayData, setActiveDisplayData] = useState(typeDisplayData[0].values);
+	const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
+		return setActiveDisplayData(e?.values);
+	};
 
 	const handleActiveChart = (idx: number) => {
 		window.scrollTo({
@@ -39,7 +50,7 @@ export default function EmptySpeed() {
 					startedDate: convert(fromDate),
 					endedDate: convert(toDate),
 				},
-				path: "vhms/empty-speed",
+				path: `vhms/${vhmsType}`,
 				...(signal && { signal }),
 			});
 			setDataChart(data19.data.data);
@@ -50,12 +61,6 @@ export default function EmptySpeed() {
 			return signal.aborted == false && notify(error.message, "error");
 		}
 	};
-
-	// useEffect(() => {
-	// 	const abortController = new AbortController();
-	// 	getData(abortController.signal);
-	// 	return () => abortController.abort();
-	// }, []);
 
 	return (
 		<>
@@ -68,10 +73,20 @@ export default function EmptySpeed() {
 					getData={getData}
 				/>
 			</FilterLayouts>
+			{dataChart && (
+				<Grid style={{ maxWidth: "180px", margin: "10px auto 10px" }}>
+					<Select
+						onChange={handleActiveDisplayData}
+						items={typeDisplayData}
+						defaultValue={typeDisplayData[0]}
+						placeholder="Choose.."
+					/>
+				</Grid>
+			)}
 			<DataWrapper>
 				{dataChart?.map((item, idx) => (
 					<Wrapper key={idx} isActive={activeChart === idx} onClick={() => handleActiveChart(idx)}>
-						<DisplayData data={item} isLoading={isLoading} isActive={activeChart === idx} />
+						<DisplayData data={item} isLoading={isLoading} type={activeDisplayData} />
 					</Wrapper>
 				))}
 			</DataWrapper>
