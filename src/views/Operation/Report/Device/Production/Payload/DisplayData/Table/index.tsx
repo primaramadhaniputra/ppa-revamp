@@ -1,15 +1,21 @@
-import React from "react";
+import { Text } from "@hudoro/neron";
 import { THead, Table, TH, TBody, TD, Wrapper } from "./styles";
 
 interface IProps {
-	data:
-		| {
-				[x: string]: string | number;
-		  }[]
-		| undefined;
+	data: {
+		[x: string]: string | number;
+	}[];
 }
 
 export default function TableData({ data }: IProps) {
+	if (data.length < 1) {
+		return (
+			<Text variant="mute" style={{ display: "flex", height: "100%", alignItems: "center" }}>
+				Data Is Currently Empty
+			</Text>
+		);
+	}
+
 	const dataHead =
 		data &&
 		Object.keys(data[0]).filter(
