@@ -193,12 +193,12 @@ export const typeDisplayData = [
 	{
 		id: 1,
 		values: "Range Chart",
-		label: "Range Chart",
+		label: "Chart",
 	},
 	{
 		id: 0,
 		values: "Range Data",
-		label: "Range Data",
+		label: "Detail",
 	},
 
 	{

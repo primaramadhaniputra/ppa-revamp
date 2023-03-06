@@ -22,6 +22,7 @@ export default function RevisiDate({ dateState, setDateState, placeholder }: IPr
 
 	const handleSelectDate = (e: Date) => {
 		setDateState(e);
+		setDate(!isDate);
 	};
 
 	return (

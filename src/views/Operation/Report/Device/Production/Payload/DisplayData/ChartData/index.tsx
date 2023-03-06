@@ -9,6 +9,7 @@ import {
 	PointElement,
 	LineElement,
 } from "chart.js";
+import React from "react";
 
 import { Bar } from "react-chartjs-2";
 
@@ -27,7 +28,7 @@ interface IProps {
 	data: any;
 }
 
-export default function ChartData({ data }: IProps) {
+function ChartData({ data }: IProps) {
 	const options = {
 		responsive: true,
 		maintainAspectRatio: false,
@@ -105,3 +106,5 @@ export default function ChartData({ data }: IProps) {
 
 	return <Bar options={options} data={datas as any} height={300} style={{ maxHeight: 300 }} />;
 }
+
+export default React.memo(ChartData);
