@@ -32,7 +32,7 @@ export default function ChartData({ data }: IProps) {
 		responsive: true,
 		plugins: {
 			legend: {
-				position: "top" as const,
+				display: false,
 				labels: {
 					boxWidth: 15,
 				},

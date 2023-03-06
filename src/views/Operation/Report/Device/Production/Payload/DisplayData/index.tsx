@@ -5,6 +5,7 @@ import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 
 import { numberWithCommas } from "utils/functions";
 import dynamic from "next/dynamic";
+import React from "react";
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
 });
@@ -21,7 +22,7 @@ interface IProps {
 	type: string;
 }
 
-export default function DisplayData({ data, isLoading, type }: IProps) {
+function DisplayData({ data, isLoading, type }: IProps) {
 	const renderDisplayData = () => {
 		if (type === "Range Data") {
 			return <TableData data={data?.data?.range.data} />;
@@ -54,3 +55,5 @@ export default function DisplayData({ data, isLoading, type }: IProps) {
 		</>
 	);
 }
+
+export default React.memo(DisplayData);

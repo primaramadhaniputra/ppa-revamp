@@ -18,6 +18,7 @@ const FilterLayouts = ({ children }: IProps) => {
 			setHeight(containerHeight + 10);
 		}
 	};
+
 	return (
 		<Wrapper>
 			<WrapperIcon>
@@ -29,8 +30,13 @@ const FilterLayouts = ({ children }: IProps) => {
 					onClick={handleFilterHeight}
 				/>
 			</WrapperIcon>
-			<WrapperChildren style={{ height: `${height}px`, overflow: height ? "inherit" : "hidden" }}>
-				<Container ref={containerRef}>{children}</Container>
+			<WrapperChildren
+				style={{
+					height: height ? `${height + 20}px` : `0px`,
+					overflow: height ? "inherit" : "hidden",
+				}}
+			>
+				<Container ref={containerRef}>{height ? children : null}</Container>
 			</WrapperChildren>
 		</Wrapper>
 	);
