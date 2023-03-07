@@ -19,7 +19,12 @@ export default function TableData({ data }: IProps) {
 	const dataHead =
 		data &&
 		Object.keys(data[0]).filter(
-			(item) => item !== "label" && item !== "value" && item !== "chartValue",
+			(item) =>
+				item !== "label" &&
+				item !== "value" &&
+				item !== "chartValue" &&
+				item !== "ppa" &&
+				item !== "komatsu",
 		);
 
 	return (
