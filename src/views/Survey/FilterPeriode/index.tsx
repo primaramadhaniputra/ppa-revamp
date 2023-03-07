@@ -3,11 +3,11 @@ import StyledButton from "atoms/StyledButton";
 import React, { useRef } from "react";
 import { StyledLabel } from "atoms/LabeledInput/styles";
 import { ISurveyReportCriteria } from "utils/interfaces";
-import { DownloadTableExcel } from "react-export-table-to-excel";
 import TableExcel from "./TableExcel";
 import { SelectContainer } from "./styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
+import { useDownloadExcel } from "react-export-table-to-excel";
 
 interface IProps {
 	setPeriodeId: React.Dispatch<any>;
@@ -17,6 +17,12 @@ interface IProps {
 
 const FilterPeriod = ({ setPeriodeId, reportCriteria }: IProps) => {
 	const tableRef = useRef(null);
+
+	const { onDownload } = useDownloadExcel({
+		currentTableRef: tableRef.current,
+		filename: "Users table",
+		sheet: "Users",
+	});
 
 	const periode = useSurveyPeriodeValue();
 
@@ -36,9 +42,7 @@ const FilterPeriod = ({ setPeriodeId, reportCriteria }: IProps) => {
 				</SelectContainer>
 			</Grid>
 			<Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
-				<DownloadTableExcel filename="users table" sheet="users" currentTableRef={tableRef.current}>
-					<StyledButton>download excel</StyledButton>
-				</DownloadTableExcel>
+				<StyledButton onClick={onDownload}>download excel</StyledButton>
 			</Grid>
 		</Grid>
 	);
