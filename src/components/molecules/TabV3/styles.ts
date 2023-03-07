@@ -4,6 +4,7 @@ import { colors, fontWeights, mediaQueries } from "utils/styles";
 
 interface IProps {
 	activeTab?: boolean;
+	activeColor?: string;
 }
 
 export const TabContainer = styled(Grid).attrs({
@@ -21,8 +22,9 @@ export const TabText = styled.p<IProps>`
 	font-size: 12px;
 	cursor: pointer;
 	color: #bcbdbf;
-	border-bottom: ${(props) => (props.activeTab ? `2px solid ${colors.orange}` : `2px solid white`)};
-	color: ${(props) => (props.activeTab ? "black" : "#bcbdbf")};
+	border-bottom: ${(props) =>
+		props.activeTab ? `2px solid ${props.activeColor || colors.orange}` : `2px solid white`};
+	color: ${(props) => (props.activeTab ? `${props.activeColor || "black"}` : "#bcbdbf")};
 	font-weight: ${(props) => (props.activeTab ? fontWeights.bold : fontWeights.regular)};
 	padding: 7px 0;
 	${mediaQueries.md} {

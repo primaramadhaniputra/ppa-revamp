@@ -6,8 +6,10 @@ import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
-import { Grid, ISelectItem, Select } from "@hudoro/neron";
-import { typeDisplayData } from "utils/dummy";
+import { Grid } from "@hudoro/neron";
+import TabV3 from "molecules/TabV3";
+
+const tabs = ["Statistik", "Detail", "Trend"];
 
 export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
@@ -15,11 +17,9 @@ export default function Payload() {
 	const [toDate, setToDate] = useState(new Date());
 	const [fromDate, setFromDate] = useState(new Date());
 	const [activeChart, setActiveChart] = useState(0);
-	// for display data chart / bar / trend
-	const [activeDisplayData, setActiveDisplayData] = useState(typeDisplayData[0].values);
-	const handleActiveDisplayData = (e: ISelectItem | ISelectItem[] | null) => {
-		return setActiveDisplayData(e?.values);
-	};
+
+	// use state for active tabs
+	const [activeTab, setActiveTab] = useState(0);
 
 	const handleActiveChart = (idx: number) => {
 		window.scrollTo({
@@ -69,19 +69,20 @@ export default function Payload() {
 				/>
 			</FilterLayouts>
 			{dataChart && (
-				<Grid style={{ maxWidth: "180px", margin: "10px auto 10px" }}>
-					<Select
-						onChange={handleActiveDisplayData}
-						items={typeDisplayData}
-						defaultValue={typeDisplayData[0]}
-						placeholder="Choose.."
+				<Grid style={{ margin: "10px auto 10px" }}>
+					<TabV3
+						tabsData={tabs}
+						activeTab={activeTab}
+						setActiveTab={setActiveTab}
+						containerStyles={{ border: "none" }}
+						activeColor="#001a72"
 					/>
 				</Grid>
 			)}
 			<DataWrapper>
 				{dataChart?.map((item, idx) => (
 					<Wrapper key={idx} isActive={activeChart === idx} onClick={() => handleActiveChart(idx)}>
-						<DisplayData data={item} isLoading={isLoading} type={activeDisplayData} />
+						<DisplayData data={item} isLoading={isLoading} type={activeTab} />
 					</Wrapper>
 				))}
 			</DataWrapper>

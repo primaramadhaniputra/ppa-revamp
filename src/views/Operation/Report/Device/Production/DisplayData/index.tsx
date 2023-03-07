@@ -19,15 +19,15 @@ const TableData = dynamic(() => import("./Table"), {
 interface IProps {
 	data: IOperationReportPayloadData;
 	isLoading: boolean;
-	type: string;
+	type: number;
 }
 
 export default function DisplayData({ data, isLoading, type }: IProps) {
 	const renderDisplayData = () => {
-		if (type === "Range Data") {
+		if (type === 1) {
 			return <TableData data={data?.data?.range.data} />;
 		}
-		if (type === "Trend") {
+		if (type === 2) {
 			return <Trend datas={data?.data?.trend} />;
 		}
 		return <ChartData data={data?.data?.range?.data || [{}]} />;
