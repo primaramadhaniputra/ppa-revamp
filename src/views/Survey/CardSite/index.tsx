@@ -52,10 +52,17 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 	const router = useRouter();
 	const periode = useSurveyPeriodeValue();
 
-	const handleRedirect = (companyId: string, total: string, average: number, siteName: string) => {
+	const handleRedirect = (
+		companyId: string,
+		total: string,
+		average: number,
+		siteName: string,
+		parentCompany: string,
+	) => {
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average?.toString());
 		Cookies.set("site", siteName);
+		Cookies.set("parentCompany", parentCompany);
 		Cookies.set("periode", periode[0].label);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
@@ -81,6 +88,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 										item.assessmentCriteria.statusUser,
 										item.assessmentCriteria.average,
 										item.name,
+										item.parentCompany,
 									)
 								}
 							>
