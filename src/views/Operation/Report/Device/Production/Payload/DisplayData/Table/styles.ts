@@ -26,6 +26,8 @@ export const Table = styled.table`
 export const THead = styled.thead`
 	background-color: #17bdff;
 	color: white;
+	position: sticky;
+	top: 0;
 `;
 
 export const TBody = styled.tbody`
