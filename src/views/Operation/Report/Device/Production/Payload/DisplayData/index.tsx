@@ -45,10 +45,12 @@ function DisplayData({ data, isLoading, type }: IProps) {
 					style={{ width: "100%" }}
 				>
 					<Text variant="h4">{data.site}</Text>
-					<WrapperTotalText>
-						<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
-						<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
-					</WrapperTotalText>
+					{type === 0 && (
+						<WrapperTotalText>
+							<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
+							<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
+						</WrapperTotalText>
+					)}
 				</Grid>
 				{renderDisplayData()}
 			</Wrapper>
