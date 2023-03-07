@@ -1,4 +1,4 @@
-import { Grid } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import Cookies from "js-cookie";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -59,6 +59,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 		Cookies.set("periode", periode[0].label);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
+
 	return (
 		<CardSiteContainer>
 			{reportCriteria.length > 0
@@ -104,6 +105,11 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 									>
 										<Grid style={{ transformStyle: "preserve-3d" }}>
 											<CardTitle>{item.name}</CardTitle>
+										</Grid>
+										<Grid>
+											<Text variant="mute" style={{ fontSize: "14px" }}>
+												{item.parentCompany}
+											</Text>
 										</Grid>
 										<Grid container alignItems="flex-end" gap={28}>
 											<Grid container flexDirection="column">
