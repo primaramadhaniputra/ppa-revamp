@@ -7,16 +7,7 @@ export const Wrapper = styled.div`
 	overflow: scroll;
 	::-webkit-scrollbar {
 		height: 5px;
-		width: 2px;
-	}
-
-	::-webkit-scrollbar-track {
-		border-radius: 10px;
-	}
-
-	::-webkit-scrollbar-thumb {
-		background: ${colors.primary};
-		border-radius: 10px;
+		width: 0;
 	}
 `;
 
@@ -24,18 +15,16 @@ export const Table = styled.table`
 	width: 100%;
 	background-color: #ffffff;
 	border-collapse: separate;
-	border-width: 0px;
 	border-color: #ffcc00;
 	border-style: solid;
 	color: #3d0000;
-	/* max-width: 1400px; */
 	tr:nth-child(even) {
 		background: ${colors.blueSky};
 	}
 `;
 
 export const THead = styled.thead`
-	background-color: ${colors.primary};
+	background-color: #17bdff;
 	color: white;
 `;
 
