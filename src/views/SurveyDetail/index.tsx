@@ -15,13 +15,16 @@ interface IProps {
 const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 	const site = Cookies.get("site");
 	const periode = Cookies.get("periode");
+	const parentCompany = Cookies.get("parentCompany");
 
 	return (
 		<>
 			<Grid container gap={10} alignItems="center" justifyContent="space-between">
 				<TitlePage type="h3" styles={{ fontSize: "22px" }}>
 					Detail Laporan Survey /{" "}
-					<span style={{ fontSize: "16px", color: "rgba(170, 180, 198, 1)" }}>{site}</span>
+					<span style={{ fontSize: "16px", color: "rgba(170, 180, 198, 1)" }}>
+						{site} ({parentCompany})
+					</span>
 				</TitlePage>
 				<PeriodeText>
 					Periode : <span style={{ fontWeight: "500" }}>{periode}</span>
