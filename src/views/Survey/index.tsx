@@ -1,6 +1,6 @@
 import Loading from "atoms/Loading";
 import TitlePage from "atoms/TitlePage";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import { getReportCriteriaByCriteriaId } from "services/survey";
 import { useAsync } from "utils/customHooks";
