@@ -1,7 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import Cookies from "js-cookie";
-import React from "react";
 import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/interfaces";
 import CardDetail from "./CardDetail";
 import StatusCard from "./StatusCard";
