@@ -158,6 +158,7 @@ export interface ISurveyReportCriteria {
 	image: string;
 	name: string;
 	total: number;
+	parentCompany: string;
 	assessmentCriteria: {
 		score: string;
 		total: number;

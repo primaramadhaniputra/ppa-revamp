@@ -1,6 +1,6 @@
 import Loading from "atoms/Loading";
 import TitlePage from "atoms/TitlePage";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import { getReportCriteriaByCriteriaId } from "services/survey";
 import { useAsync } from "utils/customHooks";
@@ -25,21 +25,14 @@ const Survey = () => {
 	if (loading || !response) {
 		return <Loading />;
 	}
-
+	const dataReport = (response as IPromiseResult).data.data.reports;
 	return (
 		<>
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
 				Survey Kepuasan Pelanggan
 			</TitlePage>
-			<FilterPeriod
-				setPeriodeId={setPeriodeId}
-				periodeId={periodeId}
-				reportCriteria={(response as IPromiseResult)?.data.data.reports}
-			/>
-			<CardSite
-				reportCriteria={(response as IPromiseResult)?.data.data.reports}
-				periodeId={periodeId}
-			/>
+			<FilterPeriod setPeriodeId={setPeriodeId} periodeId={periodeId} reportCriteria={dataReport} />
+			<CardSite reportCriteria={dataReport} periodeId={periodeId} />
 			<PointDescription />
 		</>
 	);
