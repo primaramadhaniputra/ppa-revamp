@@ -90,24 +90,26 @@ export default function VHMS({ vhmsType }: IProps) {
 					getData={getData}
 				/>
 			</FilterLayouts> */}
-			<Grid style={{ maxWidth: "350px", margin: "10px 0 0 auto" }}>
-				<FilteredDateWithCustomDay
-					dateState={dateState as any}
-					setDateState={handleDateState}
-					placeholder="Choose Date"
-				/>
-			</Grid>
-			{dataChart && (
-				<Grid style={{ margin: "10px auto 10px" }}>
-					<TabV3
-						tabsData={tabs}
-						activeTab={activeTab}
-						setActiveTab={setActiveTab}
-						containerStyles={{ border: "none" }}
-						activeColor="#001a72"
+			<Grid container justifyContent="space-between" gap={30} style={{ margin: "10px 0" }}>
+				{dataChart && (
+					<div>
+						<TabV3
+							tabsData={tabs}
+							activeTab={activeTab}
+							setActiveTab={setActiveTab}
+							containerStyles={{ border: "none" }}
+							activeColor="#001a72"
+						/>
+					</div>
+				)}
+				<Grid style={{ maxWidth: "350px", margin: "10px 0 0 auto" }}>
+					<FilteredDateWithCustomDay
+						dateState={dateState as any}
+						setDateState={handleDateState}
+						placeholder="Choose Date"
 					/>
 				</Grid>
-			)}
+			</Grid>
 			<DataWrapper>
 				{dataChart?.map((item, idx) => (
 					<Wrapper key={idx} isActive={activeChart === idx} onClick={() => handleActiveChart(idx)}>
