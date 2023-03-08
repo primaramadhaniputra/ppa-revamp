@@ -9,14 +9,14 @@ const tabs = [
 	"Speed",
 	"Loaded Speed",
 	"Empty Speed",
-	"All",
-	"All By Loader",
+	// "All",
+	// "All By Loader",
 ];
 
 const DynamicPayloadView = dynamic(() => import("./Payload"), { ssr: false });
 const DynamicVHMSView = dynamic(() => import("./VHMS"), { ssr: false });
-const All = dynamic(() => import("./All"), { ssr: false });
-const AllByLoader = dynamic(() => import("./AllByLoader"), { ssr: false });
+// const All = dynamic(() => import("./All"), { ssr: false });
+// const AllByLoader = dynamic(() => import("./AllByLoader"), { ssr: false });
 
 const renderContent = (type: number) => {
 	if (type === 0) {
@@ -31,11 +31,12 @@ const renderContent = (type: number) => {
 		return <DynamicVHMSView vhmsType="loaded-speed" />;
 	} else if (type === 5) {
 		return <DynamicVHMSView vhmsType="empty-speed" />;
-	} else if (type === 6) {
-		return <All />;
-	} else if (type === 7) {
-		return <AllByLoader />;
 	}
+	// else if (type === 6) {
+	// 	return <All />;
+	// } else if (type === 7) {
+	// 	return <AllByLoader />;
+	// }
 };
 
 export default function Production() {
