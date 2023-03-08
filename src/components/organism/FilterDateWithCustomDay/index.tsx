@@ -1,9 +1,10 @@
 import { IcCalendarShape } from "atoms/Icon";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import { addDays } from "date-fns";
 import { convert } from "utils/functions";
 import { Grid } from "@hudoro/neron";
+import { useOutsideClick } from "utils/customHooks";
 import { defaultStaticRanges } from "./definedLabel";
 import { Container, DateContainer, DateIconContainer, StyledInput } from "./styles";
 import "react-date-range/dist/styles.css"; // main style file
@@ -19,15 +20,24 @@ interface IProps {
 	placeholder: string;
 }
 
-export default function FilteredDate2({ dateState, setDateState, placeholder }: IProps) {
+export default function FilteredDateWithCustomDay({
+	dateState,
+	setDateState,
+	placeholder,
+}: IProps) {
 	const [isDate, setDate] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+
+	useOutsideClick(ref, () => {
+		setDate(false);
+	});
 
 	const handleDateInput = () => {
 		setDate(!isDate);
 	};
 
 	return (
-		<DateContainer style={{ flex: 1 }}>
+		<DateContainer style={{ flex: 1 }} ref={ref}>
 			<Grid container>
 				<Grid>
 					<StyledInput

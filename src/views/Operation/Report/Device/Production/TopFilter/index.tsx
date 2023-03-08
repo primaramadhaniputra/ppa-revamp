@@ -1,6 +1,5 @@
 import StyledButton from "atoms/StyledButton";
 import RevisiDate from "molecules/RevisiDate";
-import React from "react";
 import { colors, fontWeights } from "utils/styles";
 import { ButtonWrapper, Wrapper } from "./styles";
 

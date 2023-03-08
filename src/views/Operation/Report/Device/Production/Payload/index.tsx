@@ -2,22 +2,17 @@ import { useEffect, useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "./DisplayData";
-// import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
-// import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
 import { Grid } from "@hudoro/neron";
 import TabV3 from "molecules/TabV3";
-import FilteredDate2 from "molecules/FilteredDate2";
-// import { Range } from "react-date-range";
+import FilteredDateWithCustomDay from "src/components/organism/FilterDateWithCustomDay";
 
 const tabs = ["Statistik", "Detail", "Trend"];
 
 export default function Payload() {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
-	// const [toDate, setToDate] = useState(new Date());
-	// const [fromDate, setFromDate] = useState(new Date());
 	const [activeChart, setActiveChart] = useState(0);
 
 	// date
@@ -44,14 +39,6 @@ export default function Payload() {
 		});
 		return setActiveChart(idx);
 	};
-
-	// const handleFromDate = (e: Date) => {
-	// 	setFromDate(e);
-	// };
-	// const handleToDate = (e: Date) => {
-	// 	setToDate(e);
-	// };
-
 	const getData = async (signal?: any) => {
 		try {
 			setIsLoading(true);
@@ -79,23 +66,14 @@ export default function Payload() {
 	return (
 		<>
 			<Grid style={{ maxWidth: "350px", margin: "10px 0 0 auto" }}>
-				<FilteredDate2
+				<FilteredDateWithCustomDay
 					dateState={dateState as any}
 					setDateState={handleDateState}
 					placeholder="Choose Date"
 				/>
 			</Grid>
-			{/* <FilterLayouts>
-				<TopFilter
-					toDate={toDate}
-					fromDate={fromDate}
-					handleFromDate={handleFromDate}
-					handleToDate={handleToDate}
-					getData={getData}
-				/>
-			</FilterLayouts> */}
 			{dataChart && (
-				<Grid style={{ margin: "10px auto 10px" }}>
+				<Grid style={{ margin: "0 auto 10px" }}>
 					<TabV3
 						tabsData={tabs}
 						activeTab={activeTab}
