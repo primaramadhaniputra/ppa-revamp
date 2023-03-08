@@ -48,7 +48,7 @@ function DisplayData({ data, isLoading, type }: IProps) {
 					<Text variant="h4" style={{ fontWeight: fontWeights.semi }}>
 						Site {data.site}
 					</Text>
-					{type === 0 && (
+					{(type === 0 || type === 2) && (
 						<WrapperTotalText>
 							<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
 							<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
