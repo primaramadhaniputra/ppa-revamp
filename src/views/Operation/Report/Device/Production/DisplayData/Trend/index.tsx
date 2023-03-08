@@ -71,6 +71,8 @@ export default function Trend({ datas }: IProps) {
 					gradient.addColorStop(1, "rgba(40, 95, 231, 0)");
 					return gradient;
 				},
+				pointBorderWidth: 2,
+				borderWidth: 1.5,
 			},
 		],
 	};

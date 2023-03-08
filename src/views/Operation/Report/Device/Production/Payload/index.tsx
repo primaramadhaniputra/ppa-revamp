@@ -77,7 +77,7 @@ export default function Payload() {
 						/>
 					</div>
 				)}
-				<Grid style={{ maxWidth: "350px", margin: "10px 0 0 auto" }}>
+				<Grid style={{ maxWidth: "230px", margin: "10px 0 0 auto" }}>
 					<FilteredDateWithCustomDay
 						dateState={dateState as any}
 						setDateState={handleDateState}
