@@ -1,20 +1,20 @@
 import {
-	startOfMonth,
-	endOfMonth,
-	startOfWeek,
-	endOfWeek,
 	isSameDay,
 	startOfYear,
 	endOfYear,
 	addYears,
+	addDays,
+	startOfDay,
+	addWeeks,
+	endOfDay,
 } from "date-fns";
 
 const defineds = {
-	startOfWeek: startOfWeek(new Date()),
-	endOfWeek: endOfWeek(new Date()),
-	startOfMonth: startOfMonth(new Date()),
-	endOfMonth: endOfMonth(new Date()),
-	startOfYears: startOfYear(addYears(new Date(), 0)),
+	startOfWeek: startOfDay(addWeeks(new Date(), -1)),
+	endOfWeek: endOfDay(addWeeks(new Date(), 0)),
+	startOfMonth: startOfDay(addDays(new Date(), -30)),
+	endOfMonth: endOfDay(addDays(new Date(), 0)),
+	startOfYears: startOfYear(addYears(new Date(), -1)),
 	endOfYears: endOfYear(addYears(new Date(), 0)),
 };
 

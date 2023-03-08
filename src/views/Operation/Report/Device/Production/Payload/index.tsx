@@ -39,7 +39,8 @@ export default function Payload() {
 		});
 		return setActiveChart(idx);
 	};
-	const getData = async (signal?: any) => {
+	// signal?: any
+	const getData = async () => {
 		try {
 			setIsLoading(true);
 			const data19 = await getOperationReport19({
@@ -48,14 +49,14 @@ export default function Payload() {
 					endedDate: convert(dateState[0].endDate as Date),
 				},
 				path: "vhms/payloads",
-				...(signal && { signal }),
+				// ...(signal && { signal }),
 			});
 			setDataChart(data19.data.data);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
 			setIsLoading(false);
-			return signal.aborted == false && notify(error.message, "error");
+			// return signal.aborted == false && notify(error.message, "error");
 		}
 	};
 

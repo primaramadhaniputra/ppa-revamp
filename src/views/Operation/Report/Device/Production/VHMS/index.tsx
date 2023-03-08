@@ -54,8 +54,8 @@ export default function VHMS({ vhmsType }: IProps) {
 	// const handleToDate = (e: Date) => {
 	// 	setToDate(e);
 	// };
-
-	const getData = async (signal?: any) => {
+	// signal?: any
+	const getData = async () => {
 		try {
 			setIsLoading(true);
 			const data19 = await getOperationReport19({
@@ -64,14 +64,14 @@ export default function VHMS({ vhmsType }: IProps) {
 					endedDate: convert(dateState[0].endDate as Date),
 				},
 				path: `vhms/${vhmsType}`,
-				...(signal && { signal }),
+				// ...(signal && { signal }),
 			});
 			setDataChart(data19.data.data);
 			setIsLoading(false);
 			return notify("Berhasil mendapatkan data", "success");
 		} catch (error: any) {
 			setIsLoading(false);
-			return signal.aborted == false && notify(error.message, "error");
+			// return signal.aborted == false && notify(error.message, "error");
 		}
 	};
 
