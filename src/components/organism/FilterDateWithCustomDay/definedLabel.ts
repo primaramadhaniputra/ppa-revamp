@@ -1,21 +1,12 @@
-import {
-	isSameDay,
-	startOfYear,
-	endOfYear,
-	addYears,
-	addDays,
-	startOfDay,
-	addWeeks,
-	endOfDay,
-} from "date-fns";
+import { isSameDay, addDays, startOfDay, addWeeks, endOfDay } from "date-fns";
 
 const defineds = {
 	startOfWeek: startOfDay(addWeeks(new Date(), -1)),
 	endOfWeek: endOfDay(addWeeks(new Date(), 0)),
 	startOfMonth: startOfDay(addDays(new Date(), -30)),
 	endOfMonth: endOfDay(addDays(new Date(), 0)),
-	startOfYears: startOfYear(addYears(new Date(), -1)),
-	endOfYears: endOfYear(addYears(new Date(), 0)),
+	startOfYears: startOfDay(addDays(new Date(), -365)),
+	endOfYears: endOfDay(addDays(new Date(), 0)),
 };
 
 const staticRangeHandler = {
