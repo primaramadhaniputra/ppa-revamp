@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -9,6 +8,7 @@ import {
 	Tooltip,
 	Filler,
 	Legend,
+	ScriptableContext,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -60,7 +60,13 @@ export default function Trend({ datas }: IProps) {
 				label: "Payload",
 				data: dataTrend,
 				borderColor: "rgb(53, 162, 235)",
-				backgroundColor: "rgba(53, 162, 235, 0.5)",
+				backgroundColor: (context: ScriptableContext<"line">) => {
+					const ctx = context.chart.ctx;
+					const gradient = ctx.createLinearGradient(0, 0, 0, 280);
+					gradient.addColorStop(0, "rgba(137, 168, 245, 0.3)");
+					gradient.addColorStop(1, "rgba(40, 95, 231, 0)");
+					return gradient;
+				},
 			},
 		],
 	};
