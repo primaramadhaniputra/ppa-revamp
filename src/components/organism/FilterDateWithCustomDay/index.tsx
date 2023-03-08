@@ -67,6 +67,7 @@ export default function FilteredDateWithCustomDay({
 						showDateDisplay={false}
 						staticRanges={defaultStaticRanges}
 						inputRanges={[]}
+						className="dateRange"
 					/>
 				</Container>
 			)}
