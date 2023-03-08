@@ -30,6 +30,7 @@ import IcEllipse from "./IcEllipse";
 import IcChat from "./IcChat";
 import IcScrollCheck from "./IcScrollCheck";
 import IcCurvedArrow from "./IcCurvedArrow";
+import IcCalendarShape from "./IcCalendarShape";
 
 export {
 	IcClose,
@@ -64,4 +65,5 @@ export {
 	IcChat,
 	IcScrollCheck,
 	IcCurvedArrow,
+	IcCalendarShape,
 };

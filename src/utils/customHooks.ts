@@ -1,5 +1,23 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from "react";
 import { IPromiseResult } from "./interfaces";
+
+export const useOutsideClick = (
+	ref: MutableRefObject<undefined | null | HTMLDivElement>,
+	callback: () => void,
+) => {
+	const handleClick = (e: any) => {
+		if (ref.current && !ref.current.contains(e.target)) {
+			callback();
+		}
+	};
+	useEffect(() => {
+		document.addEventListener("click", handleClick);
+
+		return () => {
+			document.removeEventListener("click", handleClick);
+		};
+	});
+};
 
 export function useWindowSize() {
 	const [windowSize, setWindowSize] = useState({

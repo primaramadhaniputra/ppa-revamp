@@ -1,9 +1,8 @@
 import StyledButton from "atoms/StyledButton";
-import FilteredDate2 from "molecules/FilteredDate2";
 import React, { useState } from "react";
-import { Range } from "react-date-range";
 import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { colors, fontWeights } from "utils/styles";
+import FilteredDateWithCustomDay from "../FilterDateWithCustomDay";
 import { ButtonWrapper, Wrapper } from "./styles";
 
 interface IProps {
@@ -12,7 +11,7 @@ interface IProps {
 }
 
 export default function TopFilter({ children, noDate }: IProps) {
-	const [dateState, setDateState] = useState<Range[]>([
+	const [dateState, setDateState] = useState<any[]>([
 		{
 			startDate: new Date(),
 			endDate: new Date(),
@@ -20,7 +19,7 @@ export default function TopFilter({ children, noDate }: IProps) {
 		},
 	]);
 
-	const handleDateState = (e: Range[]) => {
+	const handleDateState = (e: any[]) => {
 		setDateState(e);
 	};
 
@@ -28,7 +27,7 @@ export default function TopFilter({ children, noDate }: IProps) {
 		<FilterLayouts>
 			<Wrapper>
 				{!noDate && (
-					<FilteredDate2
+					<FilteredDateWithCustomDay
 						dateState={dateState as any}
 						setDateState={handleDateState}
 						placeholder="Choose Date"
