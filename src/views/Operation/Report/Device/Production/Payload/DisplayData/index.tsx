@@ -6,6 +6,7 @@ import { TotalText, Wrapper, WrapperTotalText } from "./styles";
 import { numberWithCommas } from "utils/functions";
 import dynamic from "next/dynamic";
 import React from "react";
+import { fontWeights } from "utils/styles";
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
 });
@@ -44,7 +45,9 @@ function DisplayData({ data, isLoading, type }: IProps) {
 					gap={20}
 					style={{ width: "100%" }}
 				>
-					<Text variant="h4">{data.site}</Text>
+					<Text variant="h4" style={{ fontWeight: fontWeights.semi }}>
+						Site {data.site}
+					</Text>
 					{type === 0 && (
 						<WrapperTotalText>
 							<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
