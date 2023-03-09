@@ -25,26 +25,45 @@ ChartJS.register(
 
 interface IProps {
 	data: any;
+	isActive: boolean;
 }
 
-export default function ChartData({ data }: IProps) {
+export default function ChartData({ data, isActive }: IProps) {
+	console.log("data", data);
 	const options = {
 		responsive: true,
 		plugins: {
 			legend: {
-				display: false,
+				display: isActive ? true : false,
 				labels: {
-					boxWidth: 15,
+					boxWidth: 25,
+					boxHeight: 25,
+					usePointStyle: true,
+					pointStyle: "rectRounded",
 				},
 			},
 			title: {
 				display: true,
 			},
 		},
+		scales: {
+			x: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
+			},
+			y: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
+			},
+		},
 	};
 
 	const datas = {
-		labels: data.map((item: { label: string }) => item.label),
+		labels: data.map((item: { value: string }) => item.value),
 		datasets: [
 			{
 				type: "bar" as const,

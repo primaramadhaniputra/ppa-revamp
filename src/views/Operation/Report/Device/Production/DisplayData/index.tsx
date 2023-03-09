@@ -21,17 +21,18 @@ interface IProps {
 	data: IOperationReportPayloadData;
 	isLoading: boolean;
 	type: number;
+	isActive: boolean;
 }
 
-export default function DisplayData({ data, isLoading, type }: IProps) {
+export default function DisplayData({ data, isLoading, type, isActive }: IProps) {
 	const renderDisplayData = () => {
 		if (type === 1) {
 			return <TableData data={data?.data?.range.data} />;
 		}
 		if (type === 2) {
-			return <Trend datas={data?.data?.trend} />;
+			return <Trend datas={data?.data?.trend} isActive={isActive} />;
 		}
-		return <ChartData data={data?.data?.range?.data || [{}]} />;
+		return <ChartData data={data?.data?.range?.data || [{}]} isActive={isActive} />;
 	};
 
 	return (
@@ -48,13 +49,15 @@ export default function DisplayData({ data, isLoading, type }: IProps) {
 					<Text variant="h4" style={{ fontWeight: fontWeights.semi }}>
 						Site {data.site}
 					</Text>
-					{(type === 0 || type === 2) && (
-						<WrapperTotalText>
-							<TotalText title="Total">∑ {numberWithCommas(data?.data?.total)} </TotalText>|
-							<TotalText title="Rata-rata">Avg {data?.data?.average} </TotalText>
-						</WrapperTotalText>
-					)}
 				</Grid>
+				{(type === 0 || type === 2) && (
+					<WrapperTotalText>
+						<TotalText title="Rata-rata" style={{ fontSize: "24px", lineHeight: "36px" }}>
+							Average {data?.data?.average}%
+						</TotalText>
+						<TotalText title="Total">Total {numberWithCommas(data?.data?.total)} </TotalText>
+					</WrapperTotalText>
+				)}
 				{renderDisplayData()}
 			</Wrapper>
 		</>
