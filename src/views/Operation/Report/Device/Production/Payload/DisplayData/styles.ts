@@ -1,6 +1,6 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { colors, fontSizing, fontWeights } from "utils/styles";
+import { fontSizing, fontWeights } from "utils/styles";
 
 export const Wrapper = styled.div`
 	display: flex;
@@ -18,16 +18,16 @@ export const Wrapper = styled.div`
 
 export const WrapperTotalText = styled.div`
 	display: flex;
+	flex-direction: column;
+	width: 100%;
 	gap: 5px;
-	background-color: ${colors.orange};
-	color: #333;
-	padding: 10px 10px;
-	border-radius: 5px;
 `;
 
 export const TotalText = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-size: ${fontSizing.sm.fontSize};
-	font-weight: ${fontWeights.semi};
-	/* color: #eee; */
+	/* font-size: ${fontSizing.sm.fontSize}; */
+	font-weight: ${fontWeights.medium};
+	font-size: 18px;
+	line-height: 27px;
+	color: #2a2a2d;
 `;
