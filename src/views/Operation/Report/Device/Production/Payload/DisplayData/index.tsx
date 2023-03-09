@@ -21,15 +21,16 @@ interface IProps {
 	data: IOperationReportPayloadData;
 	isLoading: boolean;
 	type: number;
+	isActive: boolean;
 }
 
-function DisplayData({ data, isLoading, type }: IProps) {
+function DisplayData({ data, isLoading, type, isActive }: IProps) {
 	const renderDisplayData = () => {
 		if (type === 1) {
 			return <TableData data={data?.data?.range.data} />;
 		}
 		if (type === 2) {
-			return <Trend datas={data?.data?.trend} />;
+			return <Trend datas={data?.data?.trend} isActive={isActive} />;
 		}
 		return <ChartData data={data?.data?.range?.data || [{}]} />;
 	};

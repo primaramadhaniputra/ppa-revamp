@@ -24,6 +24,7 @@ ChartJS.register(
 );
 
 interface IProps {
+	isActive: boolean;
 	datas:
 		| {
 				target: number;
@@ -35,18 +36,31 @@ interface IProps {
 		| undefined;
 }
 
-export default function Trend({ datas }: IProps) {
+export default function Trend({ datas, isActive }: IProps) {
 	const options = {
 		responsive: true,
 		plugins: {
 			legend: {
 				position: "top" as const,
-				display: false,
 			},
 			title: {
 				display: true,
 			},
 		},
+		...(!isActive && {
+			scales: {
+				x: {
+					grid: {
+						display: false,
+					},
+				},
+				y: {
+					grid: {
+						display: false,
+					},
+				},
+			},
+		}),
 	};
 
 	const labels = datas?.data?.map((item) => item.date);
@@ -57,7 +71,7 @@ export default function Trend({ datas }: IProps) {
 		datasets: [
 			{
 				fill: true,
-				label: "Payload",
+				label: "Pencapaian",
 				data: dataTrend,
 				borderColor: "rgb(53, 162, 235)",
 				backgroundColor: (context: ScriptableContext<"line">) => {
@@ -72,5 +86,5 @@ export default function Trend({ datas }: IProps) {
 			},
 		],
 	};
-	return <Line options={options} data={data} height={300} style={{ maxHeight: 300 }} />;
+	return <Line options={options as any} data={data} height={300} style={{ maxHeight: 300 }} />;
 }

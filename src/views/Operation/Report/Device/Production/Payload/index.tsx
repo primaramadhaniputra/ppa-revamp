@@ -89,7 +89,12 @@ export default function Payload() {
 			<DataWrapper>
 				{dataChart?.map((item, idx) => (
 					<Wrapper key={idx} isActive={activeChart === idx} onClick={() => handleActiveChart(idx)}>
-						<DisplayData data={item} isLoading={isLoading} type={activeTab} />
+						<DisplayData
+							data={item}
+							isLoading={isLoading}
+							type={activeTab}
+							isActive={activeChart === idx}
+						/>
 					</Wrapper>
 				))}
 			</DataWrapper>
