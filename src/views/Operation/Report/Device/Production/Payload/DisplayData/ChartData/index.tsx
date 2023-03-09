@@ -36,6 +36,7 @@ function ChartData({ data, isActive }: IProps) {
 		plugins: {
 			legend: {
 				position: "top" as const,
+				display: isActive ? true : false,
 				labels: {
 					boxWidth: 15,
 				},
