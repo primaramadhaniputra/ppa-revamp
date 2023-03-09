@@ -26,14 +26,14 @@ ChartJS.register(
 interface IProps {
 	isActive: boolean;
 	datas:
-		| {
-				target: number;
-				data: {
-					[x: string]: any;
-					date: string;
-				}[];
-		  }
-		| undefined;
+	| {
+		target: number;
+		data: {
+			[x: string]: any;
+			date: string;
+		}[];
+	}
+	| undefined;
 }
 
 export default function Trend({ datas, isActive }: IProps) {
@@ -82,7 +82,7 @@ export default function Trend({ datas, isActive }: IProps) {
 		datasets: [
 			{
 				fill: true,
-				label: "Payload",
+				label: "Actual",
 				data: dataTrend,
 				borderColor: "rgb(53, 162, 235)",
 				backgroundColor: (context: ScriptableContext<"line">) => {

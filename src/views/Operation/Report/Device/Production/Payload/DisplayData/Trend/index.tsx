@@ -26,14 +26,14 @@ ChartJS.register(
 interface IProps {
 	isActive: boolean;
 	datas:
-		| {
-				target: number;
-				data: {
-					date: string;
-					payload: number;
-				}[];
-		  }
-		| undefined;
+	| {
+		target: number;
+		data: {
+			date: string;
+			payload: number;
+		}[];
+	}
+	| undefined;
 }
 
 export default function Trend({ datas, isActive }: IProps) {
@@ -78,7 +78,7 @@ export default function Trend({ datas, isActive }: IProps) {
 		datasets: [
 			{
 				fill: true,
-				label: "Pencapaian",
+				label: "Actual",
 				data: dataTrend,
 				borderColor: "rgb(53, 162, 235)",
 				backgroundColor: (context: ScriptableContext<"line">) => {
