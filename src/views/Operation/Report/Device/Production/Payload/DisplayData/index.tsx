@@ -52,7 +52,7 @@ function DisplayData({ data, isLoading, type, isActive }: IProps) {
 			{(type === 0 || type === 2) && (
 				<WrapperTotalText>
 					<TotalText title="Rata-rata" style={{ fontSize: "24px", lineHeight: "36px" }}>
-						Average {data?.data?.average}{" "}
+						Average {data?.data?.average}%
 					</TotalText>
 					<TotalText title="Total">Total {numberWithCommas(data?.data?.total)} </TotalText>
 				</WrapperTotalText>
