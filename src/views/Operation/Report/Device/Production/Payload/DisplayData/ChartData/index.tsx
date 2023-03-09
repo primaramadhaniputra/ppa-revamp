@@ -26,9 +26,10 @@ ChartJS.register(
 
 interface IProps {
 	data: any;
+	isActive: boolean;
 }
 
-function ChartData({ data }: IProps) {
+function ChartData({ data, isActive }: IProps) {
 	const options = {
 		responsive: true,
 		maintainAspectRatio: false,
@@ -41,6 +42,20 @@ function ChartData({ data }: IProps) {
 			},
 			title: {
 				display: true,
+			},
+		},
+		scales: {
+			x: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
+			},
+			y: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
 			},
 		},
 	};

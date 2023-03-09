@@ -47,20 +47,20 @@ export default function Trend({ datas, isActive }: IProps) {
 				display: true,
 			},
 		},
-		...(!isActive && {
-			scales: {
-				x: {
-					grid: {
-						display: false,
-					},
-				},
-				y: {
-					grid: {
-						display: false,
-					},
+		scales: {
+			x: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
 				},
 			},
-		}),
+			y: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
+			},
+		},
 	};
 
 	const labels = datas?.data?.map((item) => item.date);
