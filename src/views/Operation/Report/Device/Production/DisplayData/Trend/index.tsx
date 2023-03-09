@@ -24,6 +24,7 @@ ChartJS.register(
 );
 
 interface IProps {
+	isActive: boolean;
 	datas:
 		| {
 				target: number;
@@ -35,16 +36,36 @@ interface IProps {
 		| undefined;
 }
 
-export default function Trend({ datas }: IProps) {
+export default function Trend({ datas, isActive }: IProps) {
 	const options = {
 		responsive: true,
 		plugins: {
 			legend: {
 				position: "top" as const,
-				display: false,
+				display: isActive ? true : false,
+				labels: {
+					boxWidth: 25,
+					boxHeight: 25,
+					usePointStyle: true,
+					pointStyle: "rectRounded",
+				},
 			},
 			title: {
 				display: true,
+			},
+		},
+		scales: {
+			x: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
+			},
+			y: {
+				grid: {
+					borderDash: [8, 4],
+					display: isActive ? true : false,
+				},
 			},
 		},
 	};
