@@ -43,6 +43,12 @@ export default function Trend({ datas, isActive }: IProps) {
 			legend: {
 				position: "top" as const,
 				display: isActive ? true : false,
+				labels: {
+					boxWidth: 25,
+					boxHeight: 25,
+					usePointStyle: true,
+					pointStyle: "rectRounded",
+				},
 			},
 			title: {
 				display: true,
