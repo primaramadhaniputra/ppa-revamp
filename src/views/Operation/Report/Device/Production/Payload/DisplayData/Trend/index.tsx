@@ -42,6 +42,7 @@ export default function Trend({ datas, isActive }: IProps) {
 		plugins: {
 			legend: {
 				position: "top" as const,
+				display: isActive ? true : false,
 			},
 			title: {
 				display: true,
