@@ -59,12 +59,12 @@ function DisplayData({ data, isLoading, type, isActive }: IProps) {
 						>
 							<span>Average</span> {""}
 							{isActive && <br />}
-							{data?.data?.average}%
+							<span className="data">{data?.data?.average}%</span>
 						</TotalText>
 						<TotalText title="Total" isActiveChart={isActive}>
 							<span>Total</span>
 							{isActive && <br />} {""}
-							{numberWithCommas(data?.data?.total)}{" "}
+							<span className="data">{numberWithCommas(data?.data?.total)}</span>
 						</TotalText>
 					</WrapperTotalText>
 				)}
