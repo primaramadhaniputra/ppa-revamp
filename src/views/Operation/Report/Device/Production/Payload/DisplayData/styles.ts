@@ -36,15 +36,16 @@ export const WrapperTotalText = styled.div<IProps>`
 	border-left: ${(props) => (props.isActiveChart ? "2px solid #969696" : "0")};
 	padding-left: ${(props) => (props.isActiveChart ? "14px" : "0")};
 	justify-content: center;
+	font-weight: ${(props) => (props.isActiveChart ? fontWeights.semi : fontWeights.medium)};
 	& span {
 		font-size: ${(props) => (props.isActiveChart ? "32px" : "18px")};
 		color: ${(props) => (props.isActiveChart ? "#969696" : "black")};
+		font-weight: ${fontWeights.regular};
 	}
 `;
 
 export const TotalText = styled.p`
 	font-family: ${fontFamilies.poppins};
-	font-weight: ${fontWeights.medium};
 	font-size: 18px;
 	line-height: 27px;
 	color: #2a2a2d;
