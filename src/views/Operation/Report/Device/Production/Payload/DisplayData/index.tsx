@@ -1,7 +1,7 @@
 import { Grid, Text } from "@hudoro/neron";
 import Loading from "atoms/Loading";
 import { IOperationReportPayloadData } from "utils/interfaces";
-import { TotalText, Wrapper, WrapperTotalText } from "./styles";
+import { ActiveWrapperTotal, ChartContainer, TotalText, Wrapper, WrapperTotalText } from "./styles";
 
 import { numberWithCommas } from "utils/functions";
 import dynamic from "next/dynamic";
@@ -49,15 +49,27 @@ function DisplayData({ data, isLoading, type, isActive }: IProps) {
 					Site {data.site}
 				</Text>
 			</Grid>
-			{(type === 0 || type === 2) && (
-				<WrapperTotalText>
-					<TotalText title="Rata-rata" style={{ fontSize: "24px", lineHeight: "36px" }}>
-						Average {data?.data?.average}%
-					</TotalText>
-					<TotalText title="Total">Total {numberWithCommas(data?.data?.total)} </TotalText>
-				</WrapperTotalText>
-			)}
-			{renderDisplayData()}
+			<ActiveWrapperTotal isActiveChart={isActive}>
+				{(type === 0 || type === 2) && (
+					<WrapperTotalText isActiveChart={isActive}>
+						<TotalText
+							title="Rata-rata"
+							style={{ fontSize: "24px", lineHeight: "36px" }}
+							isActiveChart={isActive}
+						>
+							<span>Average</span> {""}
+							{isActive && <br />}
+							{data?.data?.average}%
+						</TotalText>
+						<TotalText title="Total" isActiveChart={isActive}>
+							<span>Total</span>
+							{isActive && <br />} {""}
+							{numberWithCommas(data?.data?.total)}{" "}
+						</TotalText>
+					</WrapperTotalText>
+				)}
+				<ChartContainer>{renderDisplayData()}</ChartContainer>
+			</ActiveWrapperTotal>
 		</Wrapper>
 	);
 }

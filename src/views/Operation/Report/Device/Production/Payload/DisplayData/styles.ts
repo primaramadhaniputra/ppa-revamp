@@ -1,6 +1,10 @@
 import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
-import { fontSizing, fontWeights } from "utils/styles";
+import { fontWeights, mediaQueries } from "utils/styles";
+
+interface IProps {
+	isActiveChart?: boolean;
+}
 
 export const Wrapper = styled.div`
 	display: flex;
@@ -16,18 +20,44 @@ export const Wrapper = styled.div`
 	height: 100%;
 `;
 
-export const WrapperTotalText = styled.div`
+export const ActiveWrapperTotal = styled.div<IProps>`
+	width: 100%;
+	gap: 20px;
+	${mediaQueries.md} {
+		display: ${(props) => (props.isActiveChart ? "flex" : "initial")};
+	}
+`;
+
+export const WrapperTotalText = styled.div<IProps>`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	gap: 5px;
+	width: max-content;
+	order: 2;
+	justify-content: center;
+	${mediaQueries.md} {
+		border-left: ${(props) => (props.isActiveChart ? "2px solid #969696" : "0")};
+		padding-left: ${(props) => (props.isActiveChart ? "14px" : "0")};
+		gap: ${(props) => (props.isActiveChart ? "50px" : "5px")};
+	}
 `;
 
-export const TotalText = styled.p`
+export const TotalText = styled.p<IProps>`
 	font-family: ${fontFamilies.poppins};
-	/* font-size: ${fontSizing.sm.fontSize}; */
-	font-weight: ${fontWeights.medium};
 	font-size: 18px;
 	line-height: 27px;
 	color: #2a2a2d;
+	font-weight: ${(props) => (props.isActiveChart ? fontWeights.semi : fontWeights.medium)};
+	& span {
+		font-size: ${(props) => (props.isActiveChart ? "32px" : "18px")};
+		color: ${(props) => (props.isActiveChart ? "#969696" : "black")};
+		font-weight: ${(props) => (props.isActiveChart ? fontWeights.semi : fontWeights.medium)};
+	}
+`;
+
+export const ChartContainer = styled.div`
+	display: grid;
+	flex: 1;
+	grid-template-columns: minmax(250px, 1fr);
 `;
