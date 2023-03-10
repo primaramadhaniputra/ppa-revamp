@@ -52,12 +52,16 @@ function DisplayData({ data, isLoading, type, isActive }: IProps) {
 			<ActiveWrapperTotal isActiveChart={isActive}>
 				{(type === 0 || type === 2) && (
 					<WrapperTotalText isActiveChart={isActive}>
-						<TotalText title="Rata-rata" style={{ fontSize: "24px", lineHeight: "36px" }}>
+						<TotalText
+							title="Rata-rata"
+							style={{ fontSize: "24px", lineHeight: "36px" }}
+							isActiveChart={isActive}
+						>
 							<span>Average</span> {""}
 							{isActive && <br />}
 							{data?.data?.average}%
 						</TotalText>
-						<TotalText title="Total">
+						<TotalText title="Total" isActiveChart={isActive}>
 							<span>Total</span>
 							{isActive && <br />} {""}
 							{numberWithCommas(data?.data?.total)}{" "}
