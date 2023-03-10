@@ -33,7 +33,7 @@ export const WrapperTotalText = styled.div<IProps>`
 	flex-direction: column;
 	width: 100%;
 	gap: 5px;
-	width: max-content;
+	max-width: 300px;
 	order: 2;
 	justify-content: center;
 	${mediaQueries.md} {

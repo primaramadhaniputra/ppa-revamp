@@ -33,8 +33,8 @@ export const WrapperTotalText = styled.div<IProps>`
 	flex-direction: column;
 	width: 100%;
 	gap: 5px;
-	width: max-content;
 	order: 2;
+	max-width: 300px;
 	justify-content: center;
 	${mediaQueries.md} {
 		border-left: ${(props) => (props.isActiveChart ? "2px solid #969696" : "0")};
