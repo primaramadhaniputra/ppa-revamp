@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { convert, notify } from "utils/functions";
 import { IOperationReportPayloadData } from "utils/interfaces";
 import DisplayData from "../DisplayData";
-// import TopFilter from "../TopFilter";
 import { getOperationReport19 } from "services/operationReport";
-// import FilterLayouts from "src/components/layouts/FilterLayouts";
 import { DataWrapper, Wrapper } from "./styles";
 import { Grid } from "@hudoro/neron";
 import TabV3 from "molecules/TabV3";
@@ -19,14 +17,12 @@ const tabs = ["Statistik", "Detail", "Trend"];
 export default function VHMS({ vhmsType }: IProps) {
 	const [dataChart, setDataChart] = useState<IOperationReportPayloadData[]>();
 	const [isLoading, setIsLoading] = useState(true);
-	// const [toDate, setToDate] = useState(new Date());
-	// const [fromDate, setFromDate] = useState(new Date());
 	const [activeChart, setActiveChart] = useState(0);
 
 	// use state for active tabs
 	const [activeTab, setActiveTab] = useState(0);
 
-	const date = new Date()
+	const date = new Date();
 
 	// date
 	const [dateState, setDateState] = useState<any[]>([
@@ -50,13 +46,6 @@ export default function VHMS({ vhmsType }: IProps) {
 		setDateState(e);
 	};
 
-	// const handleFromDate = (e: Date) => {
-	// 	setFromDate(e);
-	// };
-	// const handleToDate = (e: Date) => {
-	// 	setToDate(e);
-	// };
-	// signal?: any
 	const getData = async () => {
 		try {
 			setIsLoading(true);
@@ -79,19 +68,10 @@ export default function VHMS({ vhmsType }: IProps) {
 
 	useEffect(() => {
 		getData();
-	}, [dateState[0].endDate]);
+	}, [dateState[0].endDate, vhmsType]);
 
 	return (
 		<>
-			{/* <FilterLayouts>
-				<TopFilter
-					toDate={toDate}
-					fromDate={fromDate}
-					handleFromDate={handleFromDate}
-					handleToDate={handleToDate}
-					getData={getData}
-				/>
-			</FilterLayouts> */}
 			<Grid container justifyContent="space-between" gap={30} style={{ margin: "10px 0" }}>
 				{dataChart && (
 					<div>
@@ -120,6 +100,7 @@ export default function VHMS({ vhmsType }: IProps) {
 							isLoading={isLoading}
 							type={activeTab}
 							isActive={activeChart === idx}
+							vhmsType={vhmsType}
 						/>
 					</Wrapper>
 				))}

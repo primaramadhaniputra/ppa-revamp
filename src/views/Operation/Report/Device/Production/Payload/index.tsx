@@ -15,7 +15,7 @@ export default function Payload() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [activeChart, setActiveChart] = useState(0);
 
-	const date = new Date()
+	const date = new Date();
 
 	// date
 	const [dateState, setDateState] = useState<any[]>([
@@ -25,8 +25,8 @@ export default function Payload() {
 			key: "selection",
 		},
 	]);
-	console.log('new date set date', new Date().setDate(-2))
-	console.log('new date set date', new Date(date.setDate(date.getDate() - 2)))
+	console.log("new date set date", new Date().setDate(-2));
+	console.log("new date set date", new Date(date.setDate(date.getDate() - 2)));
 	const handleDateState = (e: Range[]) => {
 		setDateState(e);
 	};
