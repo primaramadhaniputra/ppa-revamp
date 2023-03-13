@@ -26,14 +26,14 @@ ChartJS.register(
 interface IProps {
 	isActive: boolean;
 	datas:
-		| {
-				target: number;
-				data: {
-					date: string;
-					payload: number;
-				}[];
-		  }
-		| undefined;
+	| {
+		target: number;
+		data: {
+			date: string;
+			payload: number;
+		}[];
+	}
+	| undefined;
 }
 
 export default function Trend({ datas, isActive }: IProps) {
@@ -62,6 +62,7 @@ export default function Trend({ datas, isActive }: IProps) {
 				},
 			},
 			y: {
+				beginAtZero: true,
 				grid: {
 					borderDash: [8, 4],
 					display: isActive ? true : false,
