@@ -13,14 +13,15 @@ const tabs = [
 	// "All By Loader",
 ];
 
-const DynamicPayloadView = dynamic(() => import("./Payload"), { ssr: false });
+// const DynamicPayloadView = dynamic(() => import("./Payload"), { ssr: false });
 const DynamicVHMSView = dynamic(() => import("./VHMS"), { ssr: false });
 // const All = dynamic(() => import("./All"), { ssr: false });
 // const AllByLoader = dynamic(() => import("./AllByLoader"), { ssr: false });
 
 const renderContent = (type: number) => {
 	if (type === 0) {
-		return <DynamicPayloadView />;
+		return <DynamicVHMSView vhmsType="payloads" />;
+		// return <DynamicPayloadView />;
 	} else if (type === 1) {
 		return <DynamicVHMSView vhmsType="empty-stop" />;
 	} else if (type === 2) {

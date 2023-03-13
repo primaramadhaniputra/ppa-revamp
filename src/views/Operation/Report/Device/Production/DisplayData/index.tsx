@@ -6,6 +6,10 @@ import { ActiveWrapperTotal, ChartContainer, TotalText, Wrapper, WrapperTotalTex
 import dynamic from "next/dynamic";
 import { numberWithCommas } from "utils/functions";
 import { fontWeights } from "utils/styles";
+
+const ChartDataPayload = dynamic(() => import("../Payload/DisplayData/ChartData"), {
+	ssr: false,
+});
 const ChartData = dynamic(() => import("./ChartData"), {
 	ssr: false,
 });
@@ -22,9 +26,10 @@ interface IProps {
 	isLoading: boolean;
 	type: number;
 	isActive: boolean;
+	vhmsType: string;
 }
 
-export default function DisplayData({ data, isLoading, type, isActive }: IProps) {
+export default function DisplayData({ data, isLoading, type, isActive, vhmsType }: IProps) {
 	const renderDisplayData = () => {
 		if (type === 1) {
 			return <TableData data={data?.data?.range.data} />;
@@ -32,7 +37,11 @@ export default function DisplayData({ data, isLoading, type, isActive }: IProps)
 		if (type === 2) {
 			return <Trend datas={data?.data?.trend} isActive={isActive} />;
 		}
-		return <ChartData data={data?.data?.range?.data || [{}]} isActive={isActive} />;
+		return vhmsType === "payloads" ? (
+			<ChartDataPayload data={data?.data?.range?.data || [{}]} isActive={isActive} />
+		) : (
+			<ChartData data={data?.data?.range?.data || [{}]} isActive={isActive} />
+		);
 	};
 
 	return (
