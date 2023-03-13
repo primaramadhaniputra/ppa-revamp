@@ -26,10 +26,12 @@ export default function VHMS({ vhmsType }: IProps) {
 	// use state for active tabs
 	const [activeTab, setActiveTab] = useState(0);
 
+	const date = new Date()
+
 	// date
 	const [dateState, setDateState] = useState<any[]>([
 		{
-			startDate: new Date(),
+			startDate: new Date(date.setDate(date.getDate() - 2)),
 			endDate: new Date(),
 			key: "selection",
 		},
