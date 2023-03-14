@@ -28,7 +28,7 @@ export default function VHMS({ vhmsType }: IProps) {
 	const [dateState, setDateState] = useState<any[]>([
 		{
 			startDate: new Date(date.setDate(date.getDate() - 2)),
-			endDate: new Date(),
+			endDate: new Date(date.setDate(date.getDate() + 1)),
 			key: "selection",
 		},
 	]);
