@@ -98,12 +98,12 @@ export const Link = [
 	// },
 	{
 		title: "Production",
-		subMenu: [
-			{
-				subMenuTitle: "Report",
-				subMenuLink: "production/report",
-			},
-		],
+		// subMenu: [
+		// 	{
+		// 		subMenuTitle: "Report",
+		// 		subMenuLink: "production/report",
+		// 	},
+		// ],
 	},
 	{
 		title: "Survey",
