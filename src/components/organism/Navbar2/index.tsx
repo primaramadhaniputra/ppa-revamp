@@ -1,9 +1,8 @@
 import { Avatar, Icon } from "@hudoro/neron";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useWindowSize } from "utils/customHooks";
 import Links from "./Links";
-// import Link from 'next/link'
 import { ContainerLogo, Wrapper } from "./styles";
 import User from "./User";
 
