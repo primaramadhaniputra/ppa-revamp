@@ -1,6 +1,6 @@
 import { Grid, Icon } from "@hudoro/neron";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { Link as L } from "utils/dummy";
 import {
