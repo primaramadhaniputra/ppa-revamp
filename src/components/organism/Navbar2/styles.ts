@@ -49,7 +49,7 @@ export const ContainerLinks = styled.div`
 	${mediaQueries.lg} {
 		flex-direction: row;
 		margin-top: 0;
-		gap: 25px;
+		gap: 5px;
 		grid-column: span 1;
 	}
 `;

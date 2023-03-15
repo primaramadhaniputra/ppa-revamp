@@ -31,7 +31,12 @@ const Links = () => {
 					onMouseLeave={() => (width > 1024 ? handleShowSubMenu(-1) : {})}
 					onClick={() => (width > 1024 ? {} : handleShowSubMenu(index))}
 				>
-					<Grid container gap={3} alignItems="center" style={{ cursor: "pointer" }}>
+					<Grid
+						container
+						gap={3}
+						alignItems="center"
+						style={{ cursor: "pointer", padding: "0 10px" }}
+					>
 						{item.subMenu ? (
 							<Styledtext>{item.title}</Styledtext>
 						) : (
@@ -39,7 +44,7 @@ const Links = () => {
 								<Styledtext>{item.title}</Styledtext>
 							</Link>
 						)}
-						{item.subMenu && (
+						{item.subMenu && width < 1024 && (
 							<Icon
 								iconName={activeSubmenu === index ? "IcArrowUp" : "IcArrowDown"}
 								color="white"
