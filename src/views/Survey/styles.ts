@@ -25,7 +25,7 @@ export const StyledCard = styled(Card)`
 	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 	display: flex;
-	padding: 20px 14px 8px;
+	padding: 10px 14px 8px;
 	cursor: pointer;
 	flex-direction: column;
 	gap: 10px;

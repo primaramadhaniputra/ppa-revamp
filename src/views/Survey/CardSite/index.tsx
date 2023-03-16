@@ -1,4 +1,4 @@
-import { Grid, Text } from "@hudoro/neron";
+import { fontFamilies, Grid, Text } from "@hudoro/neron";
 import Cookies from "js-cookie";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -14,6 +14,7 @@ import {
 	TextDesc,
 } from "../styles";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
+import { fontWeights } from "utils/styles";
 
 interface IProps {
 	reportCriteria: ISurveyReportCriteria[];
@@ -92,6 +93,12 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 									)
 								}
 							>
+								<Text
+									variant="p"
+									style={{ fontFamily: fontFamilies.poppins, fontWeight: fontWeights.regular }}
+								>
+									Kontraktor : {item.parentCompany}
+								</Text>
 								<TextDesc
 									colorType={renderColor(item.assessmentCriteria.average)}
 									title={renderTextAverage(item.assessmentCriteria.average)}
@@ -114,11 +121,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 										<Grid style={{ transformStyle: "preserve-3d" }}>
 											<CardTitle>{item.name}</CardTitle>
 										</Grid>
-										<Grid>
-											<Text variant="mute" style={{ fontSize: "14px" }}>
-												{item.parentCompany}
-											</Text>
-										</Grid>
+
 										<Grid container alignItems="flex-end" gap={28}>
 											<Grid container flexDirection="column">
 												<SubTitle>Total</SubTitle>
