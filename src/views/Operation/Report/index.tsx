@@ -1,16 +1,16 @@
 import { ISelectItem, Select } from "@hudoro/neron";
 import TitlePage from "atoms/TitlePage";
 import TabV1 from "molecules/TabV1";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useWindowSize } from "utils/functions";
 // import BaseControl from "./BaseControl";
-// import Device from "./Device";
+import Device from "./Device";
 // import Mobile from "./Mobile";
 // import Mocos from "./Mocos";
 import { ArrowDown, SelectContainer } from "./styles";
 
-const Device = dynamic(() => import("./Device"), { ssr: false });
+// const Device = dynamic(() => import("./Device"), { ssr: false });
 // const CostParameter = dynamic(() => import("./CostParameter"), { ssr: false });
 // , "Mobile", "Moco", "Base Control", "Cost Parameter"
 const tabsData = ["Device"];
