@@ -1,10 +1,9 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
-import StyledButton from "atoms/StyledButton";
 import React, { useRef } from "react";
 import { StyledLabel } from "atoms/LabeledInput/styles";
 import { ISurveyReportCriteria } from "utils/interfaces";
 import TableExcel from "./TableExcel";
-import { SelectContainer } from "./styles";
+import { ButtonDowload, SelectContainer } from "./styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import { useDownloadExcel } from "react-export-table-to-excel";
@@ -42,7 +41,7 @@ const FilterPeriod = ({ setPeriodeId, reportCriteria }: IProps) => {
 				</SelectContainer>
 			</Grid>
 			<Grid container alignItems="flex-end" style={{ minWidth: "140px", marginBottom: "2px" }}>
-				<StyledButton onClick={onDownload}>download excel</StyledButton>
+				<ButtonDowload onClick={onDownload}>Download excel</ButtonDowload>
 			</Grid>
 		</Grid>
 	);
