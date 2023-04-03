@@ -12,9 +12,9 @@ interface IProps {
 }
 
 const getPercentage = (x: number, y: number) => {
-	if ((x / y).toString() === "Infinity") return "100%";
-	if (x === 0 && y === 0) return "0.00%";
-	return `${((x / y) * 100).toFixed(2)}%`;
+	if ((x / y).toString() === "Infinity") return 100;
+	if (x === 0 && y === 0) return 0.0;
+	return ((x / y) * 100).toFixed(2);
 };
 
 export default function CardSite({ item, showChart }: IProps) {
@@ -25,8 +25,16 @@ export default function CardSite({ item, showChart }: IProps) {
 				<Grid container flexDirection="column" gap={13} style={{ flex: 1.5 }}>
 					<ProductText variant="header" style={{ fontWeight: fontWeights.medium }}>
 						{item.data.pit.material}/{item.data.pit.satuan.toLowerCase()}
-						<SpanHeader style={{ backgroundColor: "#47BF34" }}>
-							{getPercentage(item.data.pit.actual, item.data.pit.plan)}
+						{/* #EB3B3B */}
+						<SpanHeader
+							style={{
+								backgroundColor:
+									(getPercentage(item.data.pit.actual, item.data.pit.plan) as number) >= 100
+										? "#47BF34"
+										: "#EB3B3B",
+							}}
+						>
+							{getPercentage(item.data.pit.actual, item.data.pit.plan)}%
 						</SpanHeader>
 					</ProductText>
 					<Grid container flexDirection="column" gap={10}>
@@ -74,8 +82,15 @@ export default function CardSite({ item, showChart }: IProps) {
 				<Grid container flexDirection="column" gap={13} style={{ flex: 1.5 }}>
 					<ProductText variant="header" style={{ fontWeight: fontWeights.medium }}>
 						{item.data.hauling.material}/{item.data.hauling.satuan.toLowerCase()}
-						<SpanHeader style={{ backgroundColor: "#EB3B3B" }}>
-							{getPercentage(item.data.hauling.actual, item.data.hauling.plan)}
+						<SpanHeader
+							style={{
+								backgroundColor:
+									(getPercentage(item.data.hauling.actual, item.data.hauling.plan) as number) >= 100
+										? "#47BF34"
+										: "#EB3B3B",
+							}}
+						>
+							{getPercentage(item.data.hauling.actual, item.data.hauling.plan)}%
 						</SpanHeader>
 					</ProductText>
 					<Grid container flexDirection="column" gap={10}>
