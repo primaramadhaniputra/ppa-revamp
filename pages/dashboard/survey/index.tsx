@@ -16,12 +16,14 @@ export default function SurveyPage() {
 	const { loading, response } = useAsync(() => getSurveyCriteria({}), [], true);
 
 	const newPeriodes = (response as IPromiseResult)?.data.data.map((item: ISurveyPeriode) => {
-		return { id: item.id, label: item.season, values: item.id };
+		console.log("items", item);
+		return { id: item.id, label: item.title ?? "", values: item.id };
 	});
 
 	if (loading || !response || !newPeriodes) {
 		return <Loading />;
 	}
+
 	setPeriodes(newPeriodes);
 
 	return <SurveyView />;

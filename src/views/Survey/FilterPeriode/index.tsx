@@ -1,28 +1,17 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
-import React, { useRef } from "react";
+import React from "react";
 import { StyledLabel } from "atoms/LabeledInput/styles";
-import { ISurveyReportCriteria } from "utils/interfaces";
-import TableExcel from "./TableExcel";
 import { ButtonDowload, SelectContainer } from "./styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
-import { useDownloadExcel } from "react-export-table-to-excel";
 
 interface IProps {
 	setPeriodeId: React.Dispatch<any>;
 	periodeId: string;
-	reportCriteria: ISurveyReportCriteria[];
+	onDownload: () => boolean;
 }
 
-const FilterPeriod = ({ setPeriodeId, reportCriteria }: IProps) => {
-	const tableRef = useRef(null);
-
-	const { onDownload } = useDownloadExcel({
-		currentTableRef: tableRef.current,
-		filename: "Users table",
-		sheet: "Users",
-	});
-
+const FilterPeriod = ({ setPeriodeId, onDownload }: IProps) => {
 	const periode = useSurveyPeriodeValue();
 
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
@@ -33,10 +22,9 @@ const FilterPeriod = ({ setPeriodeId, reportCriteria }: IProps) => {
 
 	return (
 		<Grid container gap={20} justifyContent="flex-end">
-			<TableExcel tableRef={tableRef} reportCriteria={reportCriteria} />
 			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
 				<SelectContainer>
-					<StyledLabel>Periode</StyledLabel>
+					<StyledLabel>Survey</StyledLabel>
 					<Select items={periode} onChange={handleChangePeriode} defaultValue={periode[0]} />
 				</SelectContainer>
 			</Grid>
