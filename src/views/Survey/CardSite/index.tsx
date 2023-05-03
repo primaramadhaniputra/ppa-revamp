@@ -64,7 +64,7 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 		Cookies.set("average", average?.toString());
 		Cookies.set("site", siteName);
 		Cookies.set("parentCompany", parentCompany);
-		Cookies.set("periode", periode[0].label);
+		Cookies.set("periode", periode[1].label);
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
 
