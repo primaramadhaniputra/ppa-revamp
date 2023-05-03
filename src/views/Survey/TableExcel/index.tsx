@@ -1,9 +1,11 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { ISurveyReportCriteria } from "utils/interfaces";
 import { Table } from "./styles";
+import { ButtonDowload } from "../FilterPeriode/styles";
+import { useDownloadExcel } from "react-export-table-to-excel";
+import { Grid } from "@hudoro/neron";
 
 interface IProps {
-	tableRef: React.MutableRefObject<null>;
 	reportCriteria: ISurveyReportCriteria[];
 }
 
@@ -19,7 +21,7 @@ const renderTextColor = (type: string) => {
 	}
 };
 
-const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
+const TableExcel = ({ reportCriteria }: IProps) => {
 	let newArray: number[] = [];
 
 	useMemo(() => {
@@ -31,82 +33,101 @@ const TableExcel = ({ tableRef, reportCriteria }: IProps) => {
 		});
 	}, [newArray]);
 
+	const tableRef = useRef(null);
+
+	const { onDownload } = useDownloadExcel({
+		currentTableRef: tableRef.current,
+		filename: "Users table",
+		sheet: "Users",
+	});
+
 	return (
-		<Table ref={tableRef} hidden>
-			<thead>
-				<tr>
-					<th rowSpan={2}>No</th>
-					<th rowSpan={2}>Identitas Pelanggan</th>
-					<th colSpan={newArray.length}>Kriteria Penilaian</th>
-					<th rowSpan={2}>Jumlah</th>
-					<th rowSpan={2}>Rata rata</th>
-					<th rowSpan={2}>Score</th>
-				</tr>
-				<tr>
-					{reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {
-						return item.questions.map((data, key) => (
-							<th
-								key={key}
-								style={{
-									border: "1px solid black",
-									backgroundColor: renderTextColor(item.name),
-									color: item.name === "HRGA & ADMIN" ? "black" : "white",
-								}}
-							>
-								{data.id}
-							</th>
-						));
-					})}
-				</tr>
-			</thead>
-			<tbody style={{ border: "1px solid black" }}>
-				{reportCriteria.map((item, index) => {
-					return (
-						<tr key={index}>
-							<td>{++index}</td>
-							<td>{item.name}</td>
-							{item.assessmentCriteria.sections.map((data) => {
-								return data.questions.map((quest, idx) => (
-									<td key={idx}>{quest.average.toFixed(2).toString().split(".").join(",")}</td>
-								));
-							})}
-							<td>{item.assessmentCriteria.total?.toFixed(2).toString().split(".").join(",")}</td>
-							<td>{item.assessmentCriteria.average?.toFixed(2).toString().split(".").join(",")}</td>
-							<td>{item.assessmentCriteria.score}</td>
-						</tr>
-					);
-				})}
-			</tbody>
-			<tfoot>
-				<tr>
-					<th colSpan={3} style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }}>
-						Kritik dan saran
-					</th>
-				</tr>
-				{reportCriteria.map((item, idx) => {
-					return (
-						<React.Fragment key={idx}>
-							<tr>
+		<>
+			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
+				<ButtonDowload onClick={onDownload}>Download excel</ButtonDowload>
+			</Grid>
+			<Table ref={tableRef} hidden>
+				<thead>
+					<tr>
+						<th rowSpan={2}>No</th>
+						<th rowSpan={2}>Identitas Pelanggan</th>
+						<th colSpan={newArray.length}>Kriteria Penilaian</th>
+						<th rowSpan={2}>Jumlah</th>
+						<th rowSpan={2}>Rata rata</th>
+						<th rowSpan={2}>Score</th>
+					</tr>
+					<tr>
+						{reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {
+							return item.questions.map((data, key) => (
 								<th
-									rowSpan={item.criticismAndSuggestions.length + 1}
-									style={{ border: "1px solid black", backgroundColor: "#305496", color: "white" }}
+									key={key}
+									style={{
+										border: "1px solid black",
+										backgroundColor: renderTextColor(item.name),
+										color: item.name === "HRGA & ADMIN" ? "black" : "white",
+									}}
 								>
-									{item.name}
+									{data.id}
 								</th>
+							));
+						})}
+					</tr>
+				</thead>
+				<tbody style={{ border: "1px solid black" }}>
+					{reportCriteria.map((item, index) => {
+						return (
+							<tr key={index}>
+								<td>{++index}</td>
+								<td>{item.name}</td>
+								{item.assessmentCriteria.sections.map((data) => {
+									return data.questions.map((quest, idx) => (
+										<td key={idx}>{quest.average.toFixed(2).toString().split(".").join(",")}</td>
+									));
+								})}
+								<td>{item.assessmentCriteria.total?.toFixed(2).toString().split(".").join(",")}</td>
+								<td>
+									{item.assessmentCriteria.average?.toFixed(2).toString().split(".").join(",")}
+								</td>
+								<td>{item.assessmentCriteria.score}</td>
 							</tr>
-							{item.criticismAndSuggestions.map((data, idx) => (
-								<tr key={idx}>
-									<td style={{ border: "1px solid black", verticalAlign: "middle" }}>
-										{data.fullName}
-									</td>
-									<td style={{ border: "1px solid black" }}>{data.value}</td>
+						);
+					})}
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colSpan={3} style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }}>
+							Kritik dan saran
+						</th>
+					</tr>
+					{reportCriteria.map((item, idx) => {
+						return (
+							<React.Fragment key={idx}>
+								<tr>
+									<th
+										rowSpan={item.criticismAndSuggestions.length + 1}
+										style={{
+											border: "1px solid black",
+											backgroundColor: "#305496",
+											color: "white",
+										}}
+									>
+										{item.name}
+									</th>
 								</tr>
-							))}
-						</React.Fragment>
-					);
-				})}
-			</tfoot>
-		</Table>
+								{item.criticismAndSuggestions.map((data, idx) => (
+									<tr key={idx}>
+										<td style={{ border: "1px solid black", verticalAlign: "middle" }}>
+											{data.fullName}
+										</td>
+										<td style={{ border: "1px solid black" }}>{data.value}</td>
+									</tr>
+								))}
+							</React.Fragment>
+						);
+					})}
+				</tfoot>
+			</Table>
+		</>
 	);
 };
 
