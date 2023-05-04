@@ -24,6 +24,7 @@ export const ButtonDowload = styled.button`
 	font-weight: ${fontWeights.medium};
 	font-size: ${fontSizing.xs.fontSize};
 	color: white;
+	min-width: 197px;
 	transition: 0.3s;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
