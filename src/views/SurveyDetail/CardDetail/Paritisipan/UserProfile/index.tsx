@@ -1,6 +1,6 @@
 import { Avatar, Grid } from "@hudoro/neron";
 import Cookies from "js-cookie";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParticipantsState } from "recoil/participants/atom";
 import { Container, PaginationContainer, UserJob, UserName, Wrapper } from "./styles";
 import ReactPaginate from "react-paginate";
@@ -39,6 +39,7 @@ const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
 	const handlePageClick = (event: any) => {
 		setIdDetailParticsipan(undefined);
 		setIdActiveCard("");
+		console.log("event", event.selected);
 		return handleGetParticipans(event.selected);
 	};
 
@@ -52,6 +53,10 @@ const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
 		setIdDetailParticsipan(id);
 		return setIdActiveCard(id);
 	};
+
+	useEffect(() => {
+		handleGetParticipans(0);
+	}, []);
 
 	return (
 		<Grid>
