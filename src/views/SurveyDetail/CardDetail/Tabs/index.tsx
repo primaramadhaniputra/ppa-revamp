@@ -1,6 +1,6 @@
 import { Grid } from "@hudoro/neron";
 import React from "react";
-import { Container, PopupNotifications, TabsText } from "../styles";
+import { Container, TabsText } from "../styles";
 
 const tabsText = ["Performance", "Kritik & Saran", "Partisipan"];
 
@@ -14,7 +14,7 @@ const Tabs = ({ tabContent, setTabContent, notifications }: IProps) => {
 	const handleChangeActiveContent = (type: string) => {
 		setTabContent(type);
 	};
-
+	console.log(notifications);
 	return (
 		<Container>
 			{tabsText.map((item, index) => (
@@ -25,9 +25,9 @@ const Tabs = ({ tabContent, setTabContent, notifications }: IProps) => {
 					>
 						{item}
 					</TabsText>
-					{index === 1 && notifications > 0 && (
+					{/* {index === 1 && notifications > 0 && (
 						<PopupNotifications>{notifications}</PopupNotifications>
-					)}
+					)} */}
 				</Grid>
 			))}
 		</Container>
