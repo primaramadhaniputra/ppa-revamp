@@ -29,7 +29,7 @@ const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 					</TitlePage>
 				</Grid>
 				<PeriodeText>
-					periode : <span style={{ fontWeight: "600" }}>{periode}</span>
+					Survey : <span style={{ fontWeight: "600" }}>{periode}</span>
 				</PeriodeText>
 			</Grid>
 			<StatusCard />
