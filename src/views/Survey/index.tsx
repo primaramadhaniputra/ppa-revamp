@@ -12,7 +12,7 @@ import TableExcel from "./TableExcel";
 
 const Survey = () => {
 	const periode = useSurveyPeriodeValue();
-	const [periodeId, setPeriodeId] = useState(periode[1].values);
+	const [periodeId, setPeriodeId] = useState(periode[0].values);
 	// for excel
 	const { loading, response } = useAsync(
 		() =>
@@ -22,7 +22,6 @@ const Survey = () => {
 		periodeId,
 		true,
 	);
-
 	const dataReport = (response as IPromiseResult)?.data.data.reports;
 	return (
 		<>

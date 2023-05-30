@@ -1,9 +1,9 @@
 import { Grid, ISelectItem, Select } from "@hudoro/neron";
 import React from "react";
 import { StyledLabel } from "atoms/LabeledInput/styles";
-import { SelectContainer } from "./styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
+import { SelectContainer } from "./styles";
 
 interface IProps {
 	setPeriodeId: React.Dispatch<any>;
@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const FilterPeriod = ({ setPeriodeId }: IProps) => {
-	const periode = useSurveyPeriodeValue().slice(1);
+	const periode = useSurveyPeriodeValue();
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
 		const dataPeriode = periode.find((item) => item.values === e?.values);
