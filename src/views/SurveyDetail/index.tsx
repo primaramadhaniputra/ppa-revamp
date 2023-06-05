@@ -33,7 +33,11 @@ const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 				</PeriodeText>
 			</Grid>
 			<StatusCard />
-			<CardDetail dataReport={dataReport} criticism={criticism} />
+			{periode === "Manajemen Risiko" ? (
+				<h1>manajemen risioo </h1>
+			) : (
+				<CardDetail dataReport={dataReport} criticism={criticism} />
+			)}
 		</>
 	);
 };

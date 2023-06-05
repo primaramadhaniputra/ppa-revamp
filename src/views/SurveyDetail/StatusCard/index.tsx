@@ -21,6 +21,7 @@ const renderTextAverage = (evaluationNumber: number) => {
 const StatusCard = () => {
 	const total = Cookies.get("total");
 	const average = Cookies.get("average");
+	const periode = Cookies.get("periode");
 
 	const parseAverage = average ? Number(average) : 0;
 
@@ -44,19 +45,35 @@ const StatusCard = () => {
 
 	return (
 		<Wrapper>
-			{dataStatus.map((item, index) => (
-				<StyledCard key={index}>
+			{periode === "Manajemen Risiko" ? (
+				<StyledCard>
 					<Container>
-						<IconContainer>{item.icon}</IconContainer>
+						<IconContainer>
+							<IcSum width={32} color="#2F88FF" />
+						</IconContainer>
 						<Grid container flexDirection="column" gap={10}>
-							<StatusText>{item.title}</StatusText>
-							<ValueText>
-								{item.title === "Score" ? renderTextAverage(item.value as number) : item.value}
-							</ValueText>
+							<StatusText>Total Paritcipants</StatusText>
+							<ValueText>1000</ValueText>
 						</Grid>
 					</Container>
 				</StyledCard>
-			))}
+			) : (
+				<>
+					{dataStatus.map((item, index) => (
+						<StyledCard key={index}>
+							<Container>
+								<IconContainer>{item.icon}</IconContainer>
+								<Grid container flexDirection="column" gap={10}>
+									<StatusText>{item.title}</StatusText>
+									<ValueText>
+										{item.title === "Score" ? renderTextAverage(item.value as number) : item.value}
+									</ValueText>
+								</Grid>
+							</Container>
+						</StyledCard>
+					))}
+				</>
+			)}
 		</Wrapper>
 	);
 };
