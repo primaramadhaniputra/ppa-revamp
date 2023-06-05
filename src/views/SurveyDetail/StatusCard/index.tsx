@@ -1,8 +1,16 @@
-import { Grid } from "@hudoro/neron";
-import { IcAverage, IcScore, IcSum } from "atoms/Icon";
+import { Grid, Text, fontFamilies } from "@hudoro/neron";
+import { IcAverage, IcFile, IcScore, IcSum } from "atoms/Icon";
 import Cookies from "js-cookie";
 import React from "react";
-import { Container, IconContainer, StatusText, StyledCard, ValueText, Wrapper } from "./styles";
+import {
+	ButtonExport,
+	Container,
+	IconContainer,
+	StatusText,
+	StyledCard,
+	ValueText,
+	Wrapper,
+} from "./styles";
 
 const renderTextAverage = (evaluationNumber: number) => {
 	if (evaluationNumber < 3) {
@@ -46,17 +54,26 @@ const StatusCard = () => {
 	return (
 		<Wrapper>
 			{periode === "Manajemen Risiko" ? (
-				<StyledCard>
-					<Container>
-						<IconContainer>
-							<IcSum width={32} color="#2F88FF" />
-						</IconContainer>
-						<Grid container flexDirection="column" gap={10}>
-							<StatusText>Total Paritcipants</StatusText>
-							<ValueText>1000</ValueText>
+				<Grid container gap={24} style={{ flex: 1 }}>
+					<IconContainer>
+						<IcSum width={32} color="#2F88FF" />
+					</IconContainer>
+					<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
+						<Text variant="h4" style={{ fontSize: "16px", lineHeight: "24px" }}>
+							850 / 1000 participants
+						</Text>
+						<Grid container gap={16}>
+							<progress value="3333" max="10000" style={{ width: "265px" }}></progress>
+							<span style={{ fontFamily: fontFamilies.poppins }}>35%</span>
 						</Grid>
-					</Container>
-				</StyledCard>
+					</Grid>
+					<Grid container alignItems="center">
+						<ButtonExport>
+							<IcFile width={20} color="transparent" />
+							<span>Export</span>
+						</ButtonExport>
+					</Grid>
+				</Grid>
 			) : (
 				<>
 					{dataStatus.map((item, index) => (

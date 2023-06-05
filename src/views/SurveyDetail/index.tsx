@@ -6,6 +6,7 @@ import { ISurveyReportCriteriaDetail, ISurveyReportCriticism } from "utils/inter
 import CardDetail from "./CardDetail";
 import StatusCard from "./StatusCard";
 import { PeriodeText } from "./styles";
+import TableManajemenRisiko from "./TableManajemenRisiko";
 
 interface IProps {
 	dataReport: ISurveyReportCriteriaDetail[];
@@ -34,7 +35,7 @@ const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 			</Grid>
 			<StatusCard />
 			{periode === "Manajemen Risiko" ? (
-				<h1>manajemen risioo </h1>
+				<TableManajemenRisiko />
 			) : (
 				<CardDetail dataReport={dataReport} criticism={criticism} />
 			)}
