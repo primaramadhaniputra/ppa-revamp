@@ -60,11 +60,12 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 		siteName: string,
 		parentCompany: string,
 	) => {
+		const companyLabel = periode.find((item) => item.id === periodeId)?.label;
 		Cookies.set("total", total.toString());
 		Cookies.set("average", average?.toString());
 		Cookies.set("site", siteName);
 		Cookies.set("parentCompany", parentCompany);
-		Cookies.set("periode", periode[1].label);
+		Cookies.set("periode", companyLabel || "");
 		return router.push(`survey/${periodeId}/${companyId}`);
 	};
 
