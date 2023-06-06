@@ -54,7 +54,7 @@ const StatusCard = () => {
 	return (
 		<Wrapper>
 			{periode === "Manajemen Risiko" ? (
-				<Grid container gap={24} style={{ flex: 1 }}>
+				<Grid container gap={24} style={{ flex: 1 }} alignItems="center">
 					<IconContainer>
 						<IcSum width={32} color="#2F88FF" />
 					</IconContainer>
@@ -63,8 +63,8 @@ const StatusCard = () => {
 							850 / 1000 participants
 						</Text>
 						<Grid container gap={16}>
-							<progress value="3333" max="10000" style={{ width: "265px" }}></progress>
-							<span style={{ fontFamily: fontFamilies.poppins }}>35%</span>
+							<progress value="75" max="100" style={{ width: "265px" }}></progress>
+							<span style={{ fontFamily: fontFamilies.poppins }}>75%</span>
 						</Grid>
 					</Grid>
 					<Grid container alignItems="center">
