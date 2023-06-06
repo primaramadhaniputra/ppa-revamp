@@ -119,7 +119,7 @@ const columns = [
 ];
 
 const TableManajemenRisiko = () => {
-	const [data, setData] = React.useState(() => [...defaultData]);
+	const [data] = React.useState(() => [...defaultData]);
 
 	const table = useReactTable({
 		data,

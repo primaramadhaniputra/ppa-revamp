@@ -11,6 +11,7 @@ import {
 	ValueText,
 	Wrapper,
 } from "./styles";
+import { ProgressBar } from "atoms/Progress/styles";
 
 const renderTextAverage = (evaluationNumber: number) => {
 	if (evaluationNumber < 3) {
@@ -63,7 +64,7 @@ const StatusCard = () => {
 							850 / 1000 participants
 						</Text>
 						<Grid container gap={16}>
-							<progress value="75" max="100" style={{ width: "265px" }}></progress>
+							<ProgressBar style={{ width: "265px" }} value={"75"} max={"100"} />
 							<span style={{ fontFamily: fontFamilies.poppins }}>75%</span>
 						</Grid>
 					</Grid>

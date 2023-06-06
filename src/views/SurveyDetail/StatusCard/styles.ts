@@ -60,5 +60,5 @@ background: #0099FF;
 border-radius: 8px;
 color:#CFFDE1;
 border:none;
-cursor:pointer
+cursor:pointer;
 `
