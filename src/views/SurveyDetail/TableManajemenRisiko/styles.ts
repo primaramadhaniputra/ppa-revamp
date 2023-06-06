@@ -36,8 +36,9 @@ font-family:${fontFamilies.poppins};
     border-right:1px solid #969696;
     padding:17px;
     text-align:center;
-    font-size:14px;
+    font-size:15px;
     font-weight:400;
+    font-family: 'Montserrat', sans-serif;
 }
 & tbody tr:nth-child(odd){
     background-color:#f6f5f5
