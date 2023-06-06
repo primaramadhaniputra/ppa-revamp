@@ -21,19 +21,19 @@ export const DataTable = styled.table`
 width:100%;
 font-family:${fontFamilies.poppins};
 & thead  {
-    border-bottom:1px solid #969696;
-    border-right:1px solid #969696;
+    border-bottom:2px solid #969696;
+    border-right:2px solid #969696;
    
 }
 & thead tr th {
-    border-right:1px solid #969696;
+    border-right:2px solid #969696;
     padding:17px;
 }   
 & thead tr:nth-child(2) th {
     /* border-top:2px solid #969696 */
 }   
 & tbody tr td{
-    border-right:1px solid #969696;
+    border-right:2px solid #969696;
     padding:17px;
     text-align:center;
     font-size:15px;
