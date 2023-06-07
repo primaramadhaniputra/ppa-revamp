@@ -33,7 +33,7 @@ const SurveyDetail = ({ dataReport, criticism }: IProps) => {
 					Survey : <span style={{ fontWeight: "600" }}>{periode}</span>
 				</PeriodeText>
 			</Grid>
-			<StatusCard />
+			{periode !== "Manajemen Risiko" && <StatusCard />}
 			{periode === "Manajemen Risiko" ? (
 				<TableManajemenRisiko />
 			) : (

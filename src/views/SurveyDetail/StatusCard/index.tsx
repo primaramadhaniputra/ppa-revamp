@@ -1,17 +1,8 @@
-import { Grid, Text, fontFamilies } from "@hudoro/neron";
-import { IcAverage, IcFile, IcScore, IcSum } from "atoms/Icon";
+import { Grid } from "@hudoro/neron";
+import { IcAverage, IcScore, IcSum } from "atoms/Icon";
 import Cookies from "js-cookie";
 import React from "react";
-import {
-	ButtonExport,
-	Container,
-	IconContainer,
-	StatusText,
-	StyledCard,
-	ValueText,
-	Wrapper,
-} from "./styles";
-import { ProgressBar } from "atoms/Progress/styles";
+import { Container, IconContainer, StatusText, StyledCard, ValueText, Wrapper } from "./styles";
 
 const renderTextAverage = (evaluationNumber: number) => {
 	if (evaluationNumber < 3) {
@@ -30,7 +21,6 @@ const renderTextAverage = (evaluationNumber: number) => {
 const StatusCard = () => {
 	const total = Cookies.get("total");
 	const average = Cookies.get("average");
-	const periode = Cookies.get("periode");
 
 	const parseAverage = average ? Number(average) : 0;
 
@@ -54,44 +44,19 @@ const StatusCard = () => {
 
 	return (
 		<Wrapper>
-			{periode === "Manajemen Risiko" ? (
-				<Grid container gap={24} style={{ flex: 1 }} alignItems="center">
-					<IconContainer>
-						<IcSum width={32} color="#2F88FF" />
-					</IconContainer>
-					<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
-						<Text variant="h4" style={{ fontSize: "15px", lineHeight: "24px" }}>
-							850 / 1000 participants
-						</Text>
-						<Grid container gap={16} alignItems="center">
-							<ProgressBar style={{ width: "265px" }} value={"75"} max={"100"} />
-							<span style={{ fontFamily: fontFamilies.poppins, fontSize: "14px" }}>75%</span>
+			{dataStatus.map((item, index) => (
+				<StyledCard key={index}>
+					<Container>
+						<IconContainer>{item.icon}</IconContainer>
+						<Grid container flexDirection="column" gap={10}>
+							<StatusText>{item.title}</StatusText>
+							<ValueText>
+								{item.title === "Score" ? renderTextAverage(item.value as number) : item.value}
+							</ValueText>
 						</Grid>
-					</Grid>
-					<Grid container alignItems="center">
-						<ButtonExport>
-							<IcFile width={20} color="transparent" />
-							<span>Export</span>
-						</ButtonExport>
-					</Grid>
-				</Grid>
-			) : (
-				<>
-					{dataStatus.map((item, index) => (
-						<StyledCard key={index}>
-							<Container>
-								<IconContainer>{item.icon}</IconContainer>
-								<Grid container flexDirection="column" gap={10}>
-									<StatusText>{item.title}</StatusText>
-									<ValueText>
-										{item.title === "Score" ? renderTextAverage(item.value as number) : item.value}
-									</ValueText>
-								</Grid>
-							</Container>
-						</StyledCard>
-					))}
-				</>
-			)}
+					</Container>
+				</StyledCard>
+			))}
 		</Wrapper>
 	);
 };
