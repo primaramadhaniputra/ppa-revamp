@@ -60,12 +60,12 @@ const StatusCard = () => {
 						<IcSum width={32} color="#2F88FF" />
 					</IconContainer>
 					<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
-						<Text variant="h4" style={{ fontSize: "16px", lineHeight: "24px" }}>
+						<Text variant="h4" style={{ fontSize: "15px", lineHeight: "24px" }}>
 							850 / 1000 participants
 						</Text>
-						<Grid container gap={16}>
+						<Grid container gap={16} alignItems="center">
 							<ProgressBar style={{ width: "265px" }} value={"75"} max={"100"} />
-							<span style={{ fontFamily: fontFamilies.poppins }}>75%</span>
+							<span style={{ fontFamily: fontFamilies.poppins, fontSize: "14px" }}>75%</span>
 						</Grid>
 					</Grid>
 					<Grid container alignItems="center">
