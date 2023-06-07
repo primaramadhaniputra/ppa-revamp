@@ -69,7 +69,7 @@ const TableManajemenRisiko = () => {
 					</Grid>
 				</DescriptionContainer>
 				<TableContainer>
-					<DataTable>
+					<DataTable ref={tableRef}>
 						<thead>
 							{table.getHeaderGroups().map((headerGroup) => (
 								<tr key={headerGroup.id}>
