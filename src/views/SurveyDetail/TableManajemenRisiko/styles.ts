@@ -23,7 +23,6 @@ width:100%;
 font-family:${fontFamilies.poppins};
 & thead  {
     border-bottom:2px solid #969696;
-    border-right:2px solid #969696;
    
 }
 & thead tr th {

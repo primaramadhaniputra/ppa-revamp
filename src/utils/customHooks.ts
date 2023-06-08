@@ -48,7 +48,7 @@ export const useAsync = (
 	const isFirstUpdate = useRef(true);
 	const [response, setResponse] = useState<IPromiseResult | IPromiseResult[] | null>(null);
 	const [error, setError] = useState(null);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	const execute = useCallback(() => {
 		setLoading(true);
