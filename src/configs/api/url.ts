@@ -11,6 +11,7 @@ const apiEndpoints = {
 	production: `${appActiveConfig.ppaurl11}/production/mainProduction`,
 	// production: `${appActiveConfig.baseurl}/admin/settings/reports/productions/site`,
 	survey: `${appActiveConfig.surveyurl}/reports/criteria/periodes`,
+	manajemenRisiko: `${appActiveConfig.surveyurl}`,
 
 	// sso
 	sso: `${appActiveConfig.ssourl}/auth/login`,

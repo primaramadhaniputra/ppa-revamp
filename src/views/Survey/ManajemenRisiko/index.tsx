@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DataTable, DescriptionContainer, TableContainer, Wrapper } from "./styles";
 import { IcEllipse, IcFile, IcSum } from "atoms/Icon";
 import { Grid, Text, fontFamilies } from "@hudoro/neron";
@@ -7,24 +7,28 @@ import { Person, Columns } from "./columns";
 import { ButtonExport, IconContainer } from "./styles";
 import { ProgressBar } from "atoms/Progress/styles";
 import { useDownloadExcel } from "react-export-table-to-excel";
+import { getReportManajemenRisiko } from "services/survey";
+import { IParticipant, IReportManajemenRisiko } from "utils/interfaces";
 
-const defaultData: Person[] = [
-	{
-		firstName: "tanner",
-		lastName: "linsley",
-		age: 24,
-		visits: 100,
-		status: "In Relationship",
-		progress: 50,
-	},
-];
+// const defaultData: Person[] = [
+// 	{
+// 		firstName: "tanner",
+// 		lastName: "linsley",
+// 		age: 24,
+// 		visits: 100,
+// 		status: "In Relationship",
+// 		progress: 50,
+// 	},
+// ];
 
 const ManajemenRisiko = () => {
-	const [data] = React.useState(() => [...defaultData]);
+	// const [data] = React.useState(() => [...defaultData]);
+	const [participant, setParticipant] = useState<IParticipant>();
+	const [report, setReport] = useState<IReportManajemenRisiko[]>([]);
 	const tableRef = useRef(null);
 
 	const table = useReactTable({
-		data,
+		data: report,
 		columns: Columns,
 		getCoreRowModel: getCoreRowModel(),
 	} as any);
@@ -35,6 +39,34 @@ const ManajemenRisiko = () => {
 		sheet: "Users",
 	});
 
+	const handleGetManajemenRisiko = async () => {
+		const response = await getReportManajemenRisiko({
+			path: "reports/risk-management",
+		});
+		const reports: IReportManajemenRisiko[] = response.data.data.reports;
+		setReport(response.data.data.reports);
+		setParticipant(response.data.data.participant);
+		const newReport = reports.map((item) => {
+			return {
+				questions: item.questions,
+			};
+		});
+		console.log("reporting ini guys ", newReport);
+		// const newDatas = Object.entries(reports).map(([key, value]) => {
+		// 	// console.log("values", value);
+		// 	return {
+		// 		typeMaterial: key,
+		// 		name: value.name,
+		// 	};
+		// });
+	};
+
+	useEffect(() => {
+		handleGetManajemenRisiko();
+	}, []);
+
+	// console.log("reportt", report);
+	// console.log("newDatas", newDatas);
 	return (
 		<>
 			<Grid container gap={24} style={{ flex: 1, marginTop: "30px" }} alignItems="center">
@@ -43,11 +75,13 @@ const ManajemenRisiko = () => {
 				</IconContainer>
 				<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
 					<Text variant="h4" style={{ fontSize: "15px", lineHeight: "24px" }}>
-						850 / 1000 participants
+						{participant?.hasAnwer} / {participant?.total} participants
 					</Text>
 					<Grid container gap={16} alignItems="center">
-						<ProgressBar style={{ width: "265px" }} value={"75"} max={"100"} />
-						<span style={{ fontFamily: fontFamilies.poppins, fontSize: "14px" }}>75%</span>
+						<ProgressBar style={{ width: "265px" }} value={participant?.percent} max={"100"} />
+						<span style={{ fontFamily: fontFamilies.poppins, fontSize: "14px" }}>
+							{participant?.percent}%
+						</span>
 					</Grid>
 				</Grid>
 				<Grid container alignItems="center">

@@ -239,3 +239,27 @@ export interface IProductionSites {
 	};
 	logo: string;
 }
+
+export interface IParticipant {
+	total: number;
+	percent: number;
+	hasAnwer: number
+}
+
+export interface IReport {
+	id: string;
+	name: string;
+	order: number
+}
+
+export interface IMultipleChoice extends IReport {
+	totalAnswer: number
+}
+
+export interface IQuestions extends IReport {
+	multiplechoice: IMultipleChoice[]
+}
+
+export interface IReportManajemenRisiko extends IReport {
+	questions: IQuestions[]
+}

@@ -35,6 +35,7 @@ const API = {
 
 	// SURVEY
 	getCriteria: apiRequest.get(apiEndpoints.survey),
+	getManajemenRisiko: apiRequest.get(apiEndpoints.manajemenRisiko),
 	getPartisipan: apiRequest.get(apiEndpoints.survey),
 };
 

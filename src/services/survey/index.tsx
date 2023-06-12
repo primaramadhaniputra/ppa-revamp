@@ -16,6 +16,13 @@ export const getReportCriteriaByCriteriaId = (payload: IPayload): Promise<IPromi
 			.catch((err: any) => reject(new Error(err.message)));
 	});
 };
+export const getReportManajemenRisiko = (payload: IPayload): Promise<IPromiseResult> => {
+	return new Promise<IPromiseResult>((resolve, reject) => {
+		API.getManajemenRisiko(payload)
+			.then((res: IResponse) => resolve({ data: res, success: true }))
+			.catch((err: any) => reject(new Error(err.message)));
+	});
+};
 
 export const getDetailCriteriaReport = (payload: IPayload): Promise<IPromiseResult> => {
 	return new Promise<IPromiseResult>((resolve, reject) => {
