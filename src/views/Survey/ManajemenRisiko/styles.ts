@@ -44,3 +44,23 @@ font-family:${fontFamilies.poppins};
     background-color:#f6f5f5
 }
 `
+
+export const IconContainer = styled.div`
+	background: #d5e9eb;
+	border-radius: 8px;
+	padding: 15px;
+`;
+
+export const ButtonExport = styled.button`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px 14px;
+gap: 4px;
+background: #0099FF;
+border-radius: 8px;
+color:#CFFDE1;
+border:none;
+cursor:pointer;
+`

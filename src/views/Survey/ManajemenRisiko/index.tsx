@@ -4,7 +4,7 @@ import { IcEllipse, IcFile, IcSum } from "atoms/Icon";
 import { Grid, Text, fontFamilies } from "@hudoro/neron";
 import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Person, Columns } from "./columns";
-import { ButtonExport, IconContainer } from "../StatusCard/styles";
+import { ButtonExport, IconContainer } from "./styles";
 import { ProgressBar } from "atoms/Progress/styles";
 import { useDownloadExcel } from "react-export-table-to-excel";
 
@@ -19,7 +19,7 @@ const defaultData: Person[] = [
 	},
 ];
 
-const TableManajemenRisiko = () => {
+const ManajemenRisiko = () => {
 	const [data] = React.useState(() => [...defaultData]);
 	const tableRef = useRef(null);
 
@@ -101,4 +101,4 @@ const TableManajemenRisiko = () => {
 	);
 };
 
-export default TableManajemenRisiko;
+export default ManajemenRisiko;

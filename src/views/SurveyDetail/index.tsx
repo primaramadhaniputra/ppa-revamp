@@ -5,7 +5,6 @@ import Link from "next/link";
 import CardDetail from "./CardDetail";
 import StatusCard from "./StatusCard";
 import { PeriodeText } from "./styles";
-import TableManajemenRisiko from "./TableManajemenRisiko";
 
 const SurveyDetail = () => {
 	const site = Cookies.get("site");
@@ -27,8 +26,8 @@ const SurveyDetail = () => {
 					Survey : <span style={{ fontWeight: "600" }}>{periode}</span>
 				</PeriodeText>
 			</Grid>
-			{periode !== "Manajemen Risiko" && <StatusCard />}
-			{periode === "Manajemen Risiko" ? <TableManajemenRisiko /> : <CardDetail />}
+			<StatusCard />
+			<CardDetail />
 		</>
 	);
 };

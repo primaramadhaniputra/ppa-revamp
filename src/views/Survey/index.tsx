@@ -3,10 +3,11 @@ import { useState } from "react";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import FilterPeriod from "./FilterPeriode";
 import KepuasanPelanggan from "./KepuasanPelanggan";
+import ManajemenRisiko from "./ManajemenRisiko";
 
 const renderContent = (periodeId: string, periodeName: string) => {
 	if (periodeName === "Manajemen Risiko") {
-		return <h1>hello world</h1>;
+		return <ManajemenRisiko />;
 	} else {
 		return <KepuasanPelanggan periodeId={periodeId} />;
 	}
