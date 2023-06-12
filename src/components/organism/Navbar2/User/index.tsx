@@ -10,7 +10,7 @@ import { ContainerUser, UserOverFlay, UserOverlayText } from "../styles";
 const User = () => {
 	const { width } = useWindowSize();
 	const [userDropdown, setuserDropdown] = useState(false);
-	const [userName, setUserName] = useState("Dani");
+	const [userName, setUserName] = useState("Admin");
 	const router = useRouter();
 
 	useEffect(() => {
