@@ -1,9 +1,10 @@
 import TitlePage from "atoms/TitlePage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import FilterPeriod from "./FilterPeriode";
 import KepuasanPelanggan from "./KepuasanPelanggan";
 import ManajemenRisiko from "./ManajemenRisiko";
+import Cookies from "js-cookie";
 
 const renderContent = (periodeId: string, periodeName: string) => {
 	if (periodeName === "Manajemen Risiko") {
@@ -15,8 +16,14 @@ const renderContent = (periodeId: string, periodeName: string) => {
 
 const Survey = () => {
 	const periode = useSurveyPeriodeValue();
-	const [periodeId, setPeriodeId] = useState();
+	const cookiePeriodeId = Cookies.get("periodeId");
+	const [periodeId, setPeriodeId] = useState<string>();
 	const periodeName = periode.find((item) => item.id === periodeId)?.label;
+	useEffect(() => {
+		if (cookiePeriodeId) {
+			setPeriodeId(cookiePeriodeId);
+		}
+	}, []);
 	return (
 		<>
 			<TitlePage type="h3" styles={{ fontSize: "22px" }}>

@@ -11,12 +11,15 @@ interface IProps {
 
 const FilterPeriod = ({ setPeriodeId }: IProps) => {
 	const periode = useSurveyPeriodeValue();
+	const periodeName = Cookies.get("periode");
+
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
 		const dataPeriode = periode.find((item) => item.values === e?.values);
 		Cookies.set("periode", dataPeriode?.label!);
+		Cookies.set("periodeId", dataPeriode!.id.toString());
 	};
-
+	console.log(periodeName);
 	return (
 		<Grid container gap={20} justifyContent="flex-end">
 			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
