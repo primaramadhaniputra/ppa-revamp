@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from "react";
 import { ISurveyReportCriteria } from "utils/interfaces";
 import { Table } from "./styles";
-import { ButtonDowload } from "../FilterPeriode/styles";
+import { ButtonDowload } from "../../FilterPeriode/styles";
 import { useDownloadExcel } from "react-export-table-to-excel";
 import { Grid } from "@hudoro/neron";
 

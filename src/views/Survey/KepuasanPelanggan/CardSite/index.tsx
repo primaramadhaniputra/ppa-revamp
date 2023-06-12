@@ -12,7 +12,7 @@ import {
 	StyledCard,
 	SubTitle,
 	TextDesc,
-} from "../styles";
+} from "../../styles";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import { fontWeights } from "utils/styles";
 

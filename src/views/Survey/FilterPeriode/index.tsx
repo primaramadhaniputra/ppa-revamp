@@ -7,7 +7,6 @@ import { SelectContainer } from "./styles";
 
 interface IProps {
 	setPeriodeId: React.Dispatch<any>;
-	periodeId: string;
 }
 
 const FilterPeriod = ({ setPeriodeId }: IProps) => {
@@ -23,7 +22,7 @@ const FilterPeriod = ({ setPeriodeId }: IProps) => {
 			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
 				<SelectContainer>
 					<StyledLabel>Survey</StyledLabel>
-					<Select items={periode} onChange={handleChangePeriode} defaultValue={periode[0]} />
+					<Select items={periode} onChange={handleChangePeriode} />
 				</SelectContainer>
 			</Grid>
 		</Grid>
