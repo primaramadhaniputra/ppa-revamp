@@ -33,25 +33,40 @@ const ManajemenRisiko = () => {
 		getCoreRowModel: getCoreRowModel(),
 	} as any);
 
-	const { onDownload } = useDownloadExcel({
-		currentTableRef: tableRef.current,
-		filename: "Users table",
-		sheet: "Users",
-	});
+	// const { onDownload } = useDownloadExcel({
+	// 	currentTableRef: tableRef.current,
+	// 	filename: "Users table",
+	// 	sheet: "Users",
+	// });
+
+	const handleDownloadExcel = async () => {
+		try {
+			const response = await getReportManajemenRisiko({
+				path: "reports/risk-management/excel",
+			});
+			// console.log("response", response.data.data);
+			// const url = window.URL.createObjectURL(new Blob([response.data.data]));
+			// const link = document.createElement("a");
+			// link.href = url;
+			// link.setAttribute("download", `report_manajemem_risiko.xls`);
+			// document.body.appendChild(link);
+			// link.click();
+		} catch (error) {}
+	};
 
 	const handleGetManajemenRisiko = async () => {
 		const response = await getReportManajemenRisiko({
 			path: "reports/risk-management",
 		});
-		const reports: IReportManajemenRisiko[] = response.data.data.reports;
+		// const reports: IReportManajemenRisiko[] = response.data.data.reports;
 		setReport(response.data.data.reports);
 		setParticipant(response.data.data.participant);
-		const newReport = reports.map((item) => {
-			return {
-				questions: item.questions,
-			};
-		});
-		console.log("reporting ini guys ", newReport);
+		// const newReport = reports.map((item) => {
+		// 	return {
+		// 		questions: item.questions,
+		// 	};
+		// });
+
 		// const newDatas = Object.entries(reports).map(([key, value]) => {
 		// 	// console.log("values", value);
 		// 	return {
@@ -85,7 +100,7 @@ const ManajemenRisiko = () => {
 					</Grid>
 				</Grid>
 				<Grid container alignItems="center">
-					<ButtonExport onClick={onDownload}>
+					<ButtonExport onClick={handleDownloadExcel}>
 						<IcFile width={20} color="transparent" />
 						<span>Export</span>
 					</ButtonExport>
