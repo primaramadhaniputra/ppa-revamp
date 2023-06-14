@@ -120,30 +120,3 @@ export const Columns = [
 		],
 	}),
 ];
-
-const data = [
-	{
-		nama: "testing",
-		nrp: "teting",
-		// question type 1
-		answerQeustion1Type1No1: "123",
-		answerQeustion1Type1No2: "123",
-		answerQeustion1Type1No3: "123",
-		answerQeustion1Type1No4: "123",
-		answerQeustion1Type1No5: "123",
-		answerQeustion1Type1No6: "123",
-		answerQeustion1Type1No7: "123",
-		// question 1 type 2
-		answerQeustion1Type2No1: "123",
-		// isian dan alasan
-		isianQuestion1: "testing",
-		alasanQuestion1: "testing",
-		// question 2 type 1
-		answerQeustion2Type1No1: "123",
-		// question 2 type 2
-		answerQeustion2Type2No1: "123",
-		// isian dan alasan
-		isianQuestion2: "testing",
-		alasanQuestion2: "testing",
-	},
-];
