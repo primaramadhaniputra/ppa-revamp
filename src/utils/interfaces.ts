@@ -243,23 +243,23 @@ export interface IProductionSites {
 export interface IParticipant {
 	total: number;
 	percent: number;
-	hasAnwer: number
+	hasAnwer: number;
 }
 
 export interface IReport {
 	id: string;
 	name: string;
-	order: number
+	order: number;
 }
 
 export interface IMultipleChoice extends IReport {
-	totalAnswer: number
+	totalAnswer: number;
 }
 
 export interface IQuestions extends IReport {
-	multipleChoices: IMultipleChoice[]
+	multipleChoices: IMultipleChoice[];
 }
 
 export interface IReportManajemenRisiko extends IReport {
-	questions: IQuestions[]
+	questions: IQuestions[];
 }

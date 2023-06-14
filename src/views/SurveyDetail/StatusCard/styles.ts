@@ -50,15 +50,15 @@ export const Container = styled.div`
 `;
 
 export const ButtonExport = styled.button`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px 14px;
-gap: 4px;
-background: #0099FF;
-border-radius: 8px;
-color:#CFFDE1;
-border:none;
-cursor:pointer;
-`
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 14px;
+	gap: 4px;
+	background: #0099ff;
+	border-radius: 8px;
+	color: #cffde1;
+	border: none;
+	cursor: pointer;
+`;

@@ -67,5 +67,5 @@ export {
 	IcScrollCheck,
 	IcCurvedArrow,
 	IcCalendarShape,
-	IcFile
+	IcFile,
 };
