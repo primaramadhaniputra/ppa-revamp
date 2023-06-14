@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { DataTable, TableContainer, Wrapper } from "./styles";
-import { IcFile, IcSum } from "atoms/Icon";
-import { Grid, Text, fontFamilies } from "@hudoro/neron";
 import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Person, Columns } from "./columns";
-import { ButtonExport, IconContainer } from "./styles";
-import { ProgressBar } from "atoms/Progress/styles";
-import { useDownloadExcel } from "react-export-table-to-excel";
 import { getReportManajemenRisiko } from "services/survey";
 import { IParticipant, IReportManajemenRisiko } from "utils/interfaces";
+import DonwloadTable from "./donwloadTable";
 
 const ManajemenRisiko = () => {
 	const [participant, setParticipant] = useState<IParticipant>();
@@ -20,12 +16,6 @@ const ManajemenRisiko = () => {
 		columns: Columns,
 		getCoreRowModel: getCoreRowModel(),
 	} as any);
-
-	const { onDownload } = useDownloadExcel({
-		currentTableRef: tableRef.current,
-		filename: "Users table",
-		sheet: "Users",
-	});
 
 	// const handleDownloadExcel = async () => {
 	// 	try {
@@ -212,28 +202,7 @@ const ManajemenRisiko = () => {
 
 	return (
 		<>
-			<Grid container gap={24} style={{ flex: 1, marginTop: "30px" }} alignItems="center">
-				<IconContainer>
-					<IcSum width={32} color="#2F88FF" />
-				</IconContainer>
-				<Grid container flexDirection="column" gap={10} style={{ flex: 1 }}>
-					<Text variant="h4" style={{ fontSize: "15px", lineHeight: "24px" }}>
-						{participant?.hasAnwer} / {participant?.total} participants
-					</Text>
-					<Grid container gap={16} alignItems="center">
-						<ProgressBar style={{ width: "265px" }} value={participant?.percent} max={"100"} />
-						<span style={{ fontFamily: fontFamilies.poppins, fontSize: "14px" }}>
-							{participant?.percent}%
-						</span>
-					</Grid>
-				</Grid>
-				<Grid container alignItems="center">
-					<ButtonExport onClick={onDownload}>
-						<IcFile width={20} color="transparent" />
-						<span>Export</span>
-					</ButtonExport>
-				</Grid>
-			</Grid>
+			<DonwloadTable participant={participant} />
 			<Wrapper>
 				{/* <DescriptionContainer>
 					<Grid container gap={24}>
