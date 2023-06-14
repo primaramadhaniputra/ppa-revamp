@@ -1,6 +1,5 @@
 import { Text } from "@hudoro/neron";
 import { createColumnHelper } from "@tanstack/react-table";
-import { IcEllipse } from "atoms/Icon";
 
 export type Person = {
 	// headerName: string;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { DataTable, DescriptionContainer, TableContainer, Wrapper } from "./styles";
-import { IcEllipse, IcFile, IcSum } from "atoms/Icon";
+import { DataTable, TableContainer, Wrapper } from "./styles";
+import { IcFile, IcSum } from "atoms/Icon";
 import { Grid, Text, fontFamilies } from "@hudoro/neron";
 import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Person, Columns } from "./columns";
