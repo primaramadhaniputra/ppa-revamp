@@ -257,7 +257,7 @@ export interface IMultipleChoice extends IReport {
 }
 
 export interface IQuestions extends IReport {
-	multiplechoice: IMultipleChoice[]
+	multipleChoices: IMultipleChoice[]
 }
 
 export interface IReportManajemenRisiko extends IReport {

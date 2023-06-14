@@ -2,7 +2,7 @@ import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-margin-top:70px;
+margin-top:40px;
 `
 export const DescriptionContainer = styled.article`
     display:flex;
