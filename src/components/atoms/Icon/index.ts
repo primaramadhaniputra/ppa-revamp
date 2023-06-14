@@ -31,7 +31,7 @@ import IcChat from "./IcChat";
 import IcScrollCheck from "./IcScrollCheck";
 import IcCurvedArrow from "./IcCurvedArrow";
 import IcCalendarShape from "./IcCalendarShape";
-import IcFile from "./IcFIle";
+import IcFile from "./IcFile";
 
 export {
 	IcClose,
