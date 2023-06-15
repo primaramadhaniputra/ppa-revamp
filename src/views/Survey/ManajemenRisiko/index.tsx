@@ -9,6 +9,7 @@ import DonwloadTable from "./donwloadTable";
 const ManajemenRisiko = () => {
 	const [participant, setParticipant] = useState<IParticipant>();
 	const [report, setReport] = useState<Person[]>([]);
+	const [dataExport, setDataExport] = useState([]);
 	const tableRef = useRef(null);
 
 	const table = useReactTable({
@@ -17,20 +18,14 @@ const ManajemenRisiko = () => {
 		getCoreRowModel: getCoreRowModel(),
 	} as any);
 
-	// const handleDownloadExcel = async () => {
-	// 	try {
-	// 		const response = await getReportManajemenRisiko({
-	// 			path: "reports/risk-management/excel",
-	// 		});
-	// 		console.log("response", response.data.data);
-	// 		// const url = window.URL.createObjectURL(new Blob([response.data.data]));
-	// 		// const link = document.createElement("a");
-	// 		// link.href = url;
-	// 		// link.setAttribute("download", `report_manajemem_risiko.xls`);
-	// 		// document.body.appendChild(link);
-	// 		// link.click();
-	// 	} catch (error) {}
-	// };
+	const handleDownloadExcel = async () => {
+		try {
+			const response = await getReportManajemenRisiko({
+				path: "reports/risk-management/excel",
+			});
+			setDataExport(response.data.data);
+		} catch (error) {}
+	};
 
 	const handleGetManajemenRisiko = async () => {
 		const response = await getReportManajemenRisiko({
@@ -197,12 +192,13 @@ const ManajemenRisiko = () => {
 	};
 
 	useEffect(() => {
+		handleDownloadExcel();
 		handleGetManajemenRisiko();
 	}, []);
 
 	return (
 		<>
-			<DonwloadTable participant={participant} />
+			<DonwloadTable participant={participant} data={dataExport as []} />
 			<Wrapper>
 				{/* <DescriptionContainer>
 					<Grid container gap={24}>

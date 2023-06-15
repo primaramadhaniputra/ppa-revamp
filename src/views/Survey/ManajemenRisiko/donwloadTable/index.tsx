@@ -5,18 +5,27 @@ import { IcFile, IcSum } from "atoms/Icon";
 import { ProgressBar } from "atoms/Progress/styles";
 import { IParticipant } from "utils/interfaces";
 import { useDownloadExcel } from "react-export-table-to-excel";
+import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { Columns } from "./columns";
 
 interface IProps {
 	participant: IParticipant | undefined;
+	data: [];
 }
 
-const DonwloadTable = ({ participant }: IProps) => {
+const DonwloadTable = ({ participant, data }: IProps) => {
 	const tableRef = useRef(null);
+
+	const table = useReactTable({
+		data,
+		columns: Columns,
+		getCoreRowModel: getCoreRowModel(),
+	} as any);
 
 	const { onDownload } = useDownloadExcel({
 		currentTableRef: tableRef.current,
-		filename: "Users table",
-		sheet: "Users",
+		filename: "manajemen risiko",
+		sheet: "manajemen risiko",
 	});
 	return (
 		<Grid container gap={24} style={{ flex: 1, marginTop: "30px" }} alignItems="center">
@@ -34,6 +43,30 @@ const DonwloadTable = ({ participant }: IProps) => {
 					</span>
 				</Grid>
 			</Grid>
+			<table hidden ref={tableRef}>
+				<thead>
+					{table.getHeaderGroups().map((headerGroup) => (
+						<tr key={headerGroup.id}>
+							{headerGroup.headers.map((header) => (
+								<th key={header.id} colSpan={header.colSpan}>
+									{header.isPlaceholder
+										? null
+										: flexRender(header.column.columnDef.header, header.getContext())}
+								</th>
+							))}
+						</tr>
+					))}
+				</thead>
+				<tbody>
+					{table.getRowModel().rows.map((row) => (
+						<tr key={row.id}>
+							{row.getVisibleCells().map((cell) => (
+								<td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
 			<Grid container alignItems="center">
 				<ButtonExport onClick={onDownload}>
 					<IcFile width={20} color="transparent" />
