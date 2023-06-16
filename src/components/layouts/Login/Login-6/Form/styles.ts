@@ -4,16 +4,14 @@ import { fontWeights, mediaQueries } from "utils/styles";
 
 export const Wrapper = styled(Grid)`
 	position: relative;
-	background-color: white;
 	min-height: 600px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height:100vh;
 	${mediaQueries.lg} {
-		/* background-image: url(/images/mobilProyek.jpg); */
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
 		height: 90%;
 		max-height: 1000px;
-
 		display: flex;
 		align-items: center;
 		padding-left: 50px;
