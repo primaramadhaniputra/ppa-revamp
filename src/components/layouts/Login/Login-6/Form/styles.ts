@@ -8,7 +8,7 @@ export const Wrapper = styled(Grid)`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height:100vh;
+	height: 100vh;
 	${mediaQueries.lg} {
 		height: 90%;
 		max-height: 1000px;
