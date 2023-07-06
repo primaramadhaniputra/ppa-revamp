@@ -1,9 +1,10 @@
 import React, { useMemo, useRef } from "react";
 import { ISurveyReportCriteria } from "utils/interfaces";
-import { Table } from "./styles";
-import { ButtonDowload } from "../../FilterPeriode/styles";
 import { useDownloadExcel } from "react-export-table-to-excel";
 import { Grid } from "@hudoro/neron";
+import { Table } from "./styles";
+import { ButtonDowload } from "../../FilterPeriode/styles";
+import { ButtonExport } from "views/Survey/ManajemenRisiko/styles";
 
 interface IProps {
 	reportCriteria: ISurveyReportCriteria[];
@@ -12,22 +13,23 @@ interface IProps {
 const renderTextColor = (type: string) => {
 	if (type === "SHEQ") {
 		return "#548235";
-	} else if (type === "ENGINEERING & PRODUCTION") {
-		return "#305496";
-	} else if (type === "HRGA & ADMIN") {
-		return "#FFFF00";
-	} else {
-		return "#F8CBAD";
 	}
+	if (type === "ENGINEERING & PRODUCTION") {
+		return "#305496";
+	}
+	if (type === "HRGA & ADMIN") {
+		return "#FFFF00";
+	}
+	return "#F8CBAD";
 };
 
 const TableExcel = ({ reportCriteria }: IProps) => {
-	let newArray: number[] = [];
+	const newArray: number[] = [];
 
 	useMemo(() => {
 		reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {
-			for (let key in item.questions) {
-				let obj = item.questions[key];
+			for (const key in item.questions) {
+				const obj = item.questions[key];
 				newArray.push(obj.id);
 			}
 		});
@@ -44,7 +46,7 @@ const TableExcel = ({ reportCriteria }: IProps) => {
 	return (
 		<>
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
-				<ButtonDowload onClick={onDownload}>Download excel</ButtonDowload>
+				<ButtonExport onClick={onDownload}>Download excel</ButtonExport>
 			</Grid>
 			<Table ref={tableRef} hidden>
 				<thead>

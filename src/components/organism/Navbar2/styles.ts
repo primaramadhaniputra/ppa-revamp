@@ -62,6 +62,7 @@ export const UserOverFlay = styled.div`
 	left: -50px;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
+	/* z-index:999; */
 	${mediaQueries.lg} {
 		left: 0;
 	}

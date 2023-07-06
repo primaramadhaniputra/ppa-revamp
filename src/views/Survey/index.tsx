@@ -1,17 +1,18 @@
 import TitlePage from "atoms/TitlePage";
 import { useEffect, useState } from "react";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
+import Cookies from "js-cookie";
+import { Grid } from "@hudoro/neron";
 import FilterPeriod from "./FilterPeriode";
 import KepuasanPelanggan from "./KepuasanPelanggan";
 import ManajemenRisiko from "./ManajemenRisiko";
-import Cookies from "js-cookie";
+// import { ButtonExport } from "./ManajemenRisiko/styles";
 
 const renderContent = (periodeId: string, periodeName: string) => {
 	if (periodeName === "Manajemen Risiko") {
 		return <ManajemenRisiko />;
-	} else {
-		return <KepuasanPelanggan periodeId={periodeId} />;
 	}
+	return <KepuasanPelanggan periodeId={periodeId} />;
 };
 
 const Survey = () => {
@@ -26,10 +27,21 @@ const Survey = () => {
 	}, []);
 	return (
 		<>
-			<TitlePage type="h3" styles={{ fontSize: "22px" }}>
-				Survey Kepuasan Pelanggan
-			</TitlePage>
-			<FilterPeriod setPeriodeId={setPeriodeId} />
+			<Grid
+				container
+				alignItems="center"
+				justifyContent="space-between"
+				gap={20}
+				style={{ marginBottom: "50px" }}
+			>
+				<TitlePage type="h3" styles={{ fontSize: "22px" }}>
+					Survey Kepuasan Pelanggan
+				</TitlePage>
+				<Grid container alignItems="center" gap={10}>
+					<FilterPeriod setPeriodeId={setPeriodeId} />
+					{/* <ButtonExport>Create Survey</ButtonExport> */}
+				</Grid>
+			</Grid>
 			{periodeId && renderContent(periodeId, periodeName as string)}
 		</>
 	);

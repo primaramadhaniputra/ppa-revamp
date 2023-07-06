@@ -11,8 +11,6 @@ export const SelectContainer = styled(Grid).attrs({
 		font-family: ${fontFamilies.poppins};
 		font-size: 12px;
 	}
-	& input {
-	}
 `;
 
 export const ButtonDowload = styled.button`

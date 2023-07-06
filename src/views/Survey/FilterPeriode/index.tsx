@@ -1,6 +1,6 @@
-import { Grid, ISelectItem, Select } from "@hudoro/neron";
+import { ISelectItem, Select } from "@hudoro/neron";
 import React from "react";
-import { StyledLabel } from "atoms/LabeledInput/styles";
+// import { StyledLabel } from "atoms/LabeledInput/styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import { SelectContainer } from "./styles";
@@ -21,14 +21,14 @@ const FilterPeriod = ({ setPeriodeId }: IProps) => {
 	};
 	console.log(periodeName);
 	return (
-		<Grid container gap={20} justifyContent="flex-end">
-			<Grid container gap={20} justifyContent="flex-end" style={{ marginTop: "30px" }}>
-				<SelectContainer>
-					<StyledLabel>Survey</StyledLabel>
-					<Select items={periode} onChange={handleChangePeriode} />
-				</SelectContainer>
-			</Grid>
-		</Grid>
+		// <Grid container gap={20} justifyContent="flex-end">
+		// 	<Grid container gap={20} justifyContent="flex-end">
+		<SelectContainer>
+			{/* <StyledLabel>Survey</StyledLabel> */}
+			<Select items={periode} onChange={handleChangePeriode} placeholder="Survey Type..." />
+		</SelectContainer>
+		// 	</Grid>
+		// </Grid>
 	);
 };
 
