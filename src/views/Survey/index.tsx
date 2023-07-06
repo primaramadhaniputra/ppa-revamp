@@ -6,7 +6,7 @@ import { Grid } from "@hudoro/neron";
 import FilterPeriod from "./FilterPeriode";
 import KepuasanPelanggan from "./KepuasanPelanggan";
 import ManajemenRisiko from "./ManajemenRisiko";
-// import { ButtonExport } from "./ManajemenRisiko/styles";
+import { ButtonExport } from "./ManajemenRisiko/styles";
 
 const renderContent = (periodeId: string, periodeName: string) => {
 	if (periodeName === "Manajemen Risiko") {
@@ -39,7 +39,7 @@ const Survey = () => {
 				</TitlePage>
 				<Grid container alignItems="center" gap={10}>
 					<FilterPeriod setPeriodeId={setPeriodeId} />
-					{/* <ButtonExport>Create Survey</ButtonExport> */}
+					<ButtonExport>Create Survey</ButtonExport>
 				</Grid>
 			</Grid>
 			{periodeId && renderContent(periodeId, periodeName as string)}

@@ -3,7 +3,7 @@ import { ISurveyReportCriteria } from "utils/interfaces";
 import { useDownloadExcel } from "react-export-table-to-excel";
 import { Grid } from "@hudoro/neron";
 import { Table } from "./styles";
-import { ButtonDowload } from "../../FilterPeriode/styles";
+// import { ButtonDowload } from "../../FilterPeriode/styles";
 import { ButtonExport } from "views/Survey/ManajemenRisiko/styles";
 
 interface IProps {
