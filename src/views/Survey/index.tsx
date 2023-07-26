@@ -7,6 +7,7 @@ import FilterPeriod from "./FilterPeriode";
 import KepuasanPelanggan from "./KepuasanPelanggan";
 import ManajemenRisiko from "./ManajemenRisiko";
 import { ButtonExport } from "./ManajemenRisiko/styles";
+import { useRouter } from "next/router";
 
 const renderContent = (periodeId: string, periodeName: string) => {
 	if (periodeName === "Manajemen Risiko") {
@@ -16,15 +17,22 @@ const renderContent = (periodeId: string, periodeName: string) => {
 };
 
 const Survey = () => {
+	const router = useRouter();
 	const periode = useSurveyPeriodeValue();
 	const cookiePeriodeId = Cookies.get("periodeId");
 	const [periodeId, setPeriodeId] = useState<string>();
 	const periodeName = periode.find((item) => item.id === periodeId)?.label;
+
+	const handleRedirectCreateSurvey = () => {
+		return router.push("survey/create");
+	};
+
 	useEffect(() => {
 		if (cookiePeriodeId) {
 			setPeriodeId(cookiePeriodeId);
 		}
 	}, []);
+
 	return (
 		<>
 			<Grid
@@ -39,7 +47,7 @@ const Survey = () => {
 				</TitlePage>
 				<Grid container alignItems="center" gap={10}>
 					<FilterPeriod setPeriodeId={setPeriodeId} />
-					<ButtonExport>Create Survey</ButtonExport>
+					<ButtonExport onClick={handleRedirectCreateSurvey}>Create Survey</ButtonExport>
 				</Grid>
 			</Grid>
 			{periodeId && renderContent(periodeId, periodeName as string)}
