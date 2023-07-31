@@ -2,11 +2,10 @@ import TitlePage from "atoms/TitlePage";
 import { useEffect, useState } from "react";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
 import Cookies from "js-cookie";
-import { Grid } from "@hudoro/neron";
+import { Button, Grid } from "@hudoro/neron";
 import FilterPeriod from "./FilterPeriode";
 import KepuasanPelanggan from "./KepuasanPelanggan";
 import ManajemenRisiko from "./ManajemenRisiko";
-import { ButtonExport } from "./ManajemenRisiko/styles";
 import { useRouter } from "next/router";
 
 const renderContent = (periodeId: string, periodeName: string) => {
@@ -24,7 +23,7 @@ const Survey = () => {
 	const periodeName = periode.find((item) => item.id === periodeId)?.label;
 
 	const handleRedirectCreateSurvey = () => {
-		return router.push("survey/create");
+		return router.push("survey/list");
 	};
 
 	useEffect(() => {
@@ -47,7 +46,7 @@ const Survey = () => {
 				</TitlePage>
 				<Grid container alignItems="center" gap={10}>
 					<FilterPeriod setPeriodeId={setPeriodeId} />
-					<ButtonExport onClick={handleRedirectCreateSurvey}>Create Survey</ButtonExport>
+					<Button style={{ borderBottom: '1px solid #5359ED', borderRadius: '0', padding: 0 }} variant="ghost" onClick={handleRedirectCreateSurvey}>Go To List Survey {'>'}</Button>
 				</Grid>
 			</Grid>
 			{periodeId && renderContent(periodeId, periodeName as string)}
