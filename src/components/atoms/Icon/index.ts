@@ -32,6 +32,8 @@ import IcScrollCheck from "./IcScrollCheck";
 import IcCurvedArrow from "./IcCurvedArrow";
 import IcCalendarShape from "./IcCalendarShape";
 import IcFile from "./IcFile";
+import IcPaper from "./IcPaper";
+import IcLink from "./IcLink";
 
 export {
 	IcClose,
@@ -68,4 +70,6 @@ export {
 	IcCurvedArrow,
 	IcCalendarShape,
 	IcFile,
+	IcPaper,
+	IcLink,
 };

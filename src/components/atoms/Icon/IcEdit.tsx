@@ -3,15 +3,10 @@ import { ISVGProps } from "utils/interfaces";
 
 export default function IcEdit({ ...rest }: ISVGProps) {
 	return (
-		<svg
-			{...rest}
-			viewBox="64 64 896 896"
-			focusable="false"
-			data-icon="edit"
-			fill="currentColor"
-			aria-hidden="true"
-		>
-			<path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path>
+		<svg xmlns="http://www.w3.org/2000/svg" {...rest} viewBox="0 0 18 18" fill="none">
+			<path d="M10.3352 16.5078H16.7122" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M13.0578 1.85877V1.85877C11.7138 0.850767 9.80779 1.12277 8.79979 2.46577C8.79979 2.46577 3.78679 9.14377 2.04779 11.4608C0.308791 13.7788 1.95379 16.6508 1.95379 16.6508C1.95379 16.6508 5.19779 17.3968 6.91179 15.1118C8.62679 12.8278 13.6638 6.11677 13.6638 6.11677C14.6718 4.77377 14.4008 2.86677 13.0578 1.85877Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M7.50415 4.21094L12.3682 7.86194" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
 		</svg>
 	);
 }
