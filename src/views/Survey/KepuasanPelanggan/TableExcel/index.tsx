@@ -24,7 +24,7 @@ interface IProps {
 // 	return "#F8CBAD";
 // };
 // reportCriteria
-const TableExcel = ({}: IProps) => {
+const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
@@ -61,7 +61,7 @@ const TableExcel = ({}: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) {}
+		} catch (error) { }
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
@@ -84,7 +84,7 @@ const TableExcel = ({}: IProps) => {
 		sheet: "Users",
 	});
 
-	console.log(criticismAndSuggestions);
+	console.log('allsite', allSite);
 
 	return (
 		<>
@@ -92,7 +92,7 @@ const TableExcel = ({}: IProps) => {
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
 			<Table hidden ref={tableRef}>
-				<thead>
+				{/* <thead>
 					<tr>
 						<th>ppa</th>
 						<th colSpan={10}>
@@ -126,7 +126,7 @@ const TableExcel = ({}: IProps) => {
 						<th style={{ background: "purple", color: "black" }}>10</th>
 						<th colSpan={10}>excellent (bagus sekali)</th>
 					</tr>
-				</thead>
+				</thead> */}
 				<thead>
 					<tr>
 						<th colSpan={2}>kriteria penilaian</th>
@@ -136,6 +136,27 @@ const TableExcel = ({}: IProps) => {
 						<td>rata rata</td>
 					</tr>
 				</thead>
+				{
+					allSite.map((item: any, index: any) => {
+						console.log('item', item.data)
+						return (
+							<tbody key={index}>
+								<tr >
+									<td style={{ verticalAlign: "middle" }} rowSpan={item.data.length + 1}>{item.sectionName}</td>
+								</tr>
+								{item.data.map((data: any) =>
+									<tr>
+										<td>{data.name}</td>
+										{data.companies.map((d: any) => <td>
+											{d.averageValue}
+										</td>)}
+									</tr>
+								)}
+							</tbody>
+						)
+					}
+					)
+				}
 				<tbody>
 					<>
 						{/* {allSite.map(item => {
@@ -143,7 +164,7 @@ const TableExcel = ({}: IProps) => {
 								<td >{item.sectionName}</td>
 							</tr>
 						})} */}
-						{allSite.map((item: any) =>
+						{/* {allSite.map((item: any) =>
 							item.data.map((datas: any) => (
 								<tr>
 									<td colSpan={2}>
@@ -155,7 +176,7 @@ const TableExcel = ({}: IProps) => {
 									))}
 								</tr>
 							)),
-						)}
+						)} */}
 						<tr>
 							<td>Kritik & saran </td>
 						</tr>
