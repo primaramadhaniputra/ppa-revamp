@@ -14,4 +14,4 @@ const ModalHooks = () => {
 	return { isOpenModal, handleCloseModal, handleOpenModal };
 };
 
-export default ModalHooks
+export default ModalHooks;

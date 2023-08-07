@@ -1,15 +1,11 @@
-import React from 'react'
+import React from "react";
 
 interface IProps {
-  Body?: React.ReactNode
+	Body?: React.ReactNode;
 }
 
 const PopOver = ({ Body }: IProps) => {
-  return (
-    <div>
-      {Body}
-    </div>
-  )
-}
+	return <div>{Body}</div>;
+};
 
-export default PopOver
+export default PopOver;

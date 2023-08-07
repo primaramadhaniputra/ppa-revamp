@@ -1,15 +1,13 @@
-import React from 'react'
-import { Container } from './styles'
+import React from "react";
+import { Container } from "./styles";
 
 interface IProps {
-  children?: React.ReactNode
-  style?: React.CSSProperties
+	children?: React.ReactNode;
+	style?: React.CSSProperties;
 }
 
 const Card = ({ children, ...rest }: IProps) => {
-  return (
-    <Container {...rest}>{children}</Container>
-  )
-}
+	return <Container {...rest}>{children}</Container>;
+};
 
-export default Card
+export default Card;
