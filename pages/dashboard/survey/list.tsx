@@ -33,7 +33,6 @@ export const PopOver = styled.div<IProps>`
 	transition: all 0.3s;
 `;
 
-
 const ListSurveyPage = () => {
 	const { isOpenModal, handleCloseModal, handleOpenModal } = ModalHooks();
 	const [isShowPopover, setisShowPopover] = useState(false);

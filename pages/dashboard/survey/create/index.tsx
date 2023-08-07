@@ -57,7 +57,6 @@ const StyledInput = styled.input`
 	outline: none;
 `;
 
-
 const Create = () => {
 	const [text, setText] = useState("");
 
