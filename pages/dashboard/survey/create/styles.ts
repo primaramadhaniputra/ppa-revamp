@@ -5,7 +5,8 @@ export const BreadCrumb = styled.div`
 	display: flex;
 	list-style: none;
 	padding: 0;
-	margin: 20px 0;
+	align-items: center;
+	gap: 3.5px;
 	font-family: ${() => fontFamilies.poppins};
 	& li {
 		margin-right: 10px;
@@ -32,6 +33,7 @@ export const BreadCrumb = styled.div`
 		text-decoration: none;
 		color: #007bff;
 		transition: color 0.2s;
+		font-size: 14px;
 	}
 
 	& li:last-child a {
@@ -44,4 +46,11 @@ export const BreadCrumb = styled.div`
 	& li:not(:last-child) {
 		margin-right: 20px;
 	}
+`;
+
+export const StyledInput = styled.input`
+	background-color: transparent;
+	border: none;
+	font-family: ${fontFamilies.poppins};
+	outline: none;
 `;

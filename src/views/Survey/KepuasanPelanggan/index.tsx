@@ -17,15 +17,13 @@ const KepuasanPelanggan = ({ periodeId }: IProps) => {
 				path: `${periodeId}`,
 			});
 			setDataReport(response.data.data.reports);
-			console.log("responseeee", response.data.data);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
 		handleGetReportCriteriaById();
-		console.log("oke");
 	}, [periodeId]);
-	console.log(periodeId);
+
 	return (
 		<>
 			<TableExcel reportCriteria={dataReport} />

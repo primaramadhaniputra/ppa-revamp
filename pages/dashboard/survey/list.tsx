@@ -32,7 +32,7 @@ const ListSurveyPage = () => {
     </Modal>
     <Grid container alignItems="center" justifyContent="space-between" gap={10}>
       <Text variant="h3">Survey kepuasan pelanggan</Text>
-      <Button variant="primary">+ Formulir Survey</Button>
+      <Button variant="primary" onClick={handleOpenModal}>+ Formulir Survey</Button>
     </Grid>
     <Grid style={{ marginTop: "42px" }}>
       <Card style={{ width: "90vw ", maxWidth: "350px", cursor: 'pointer' }} >

@@ -1,3 +1,4 @@
+import { appActiveConfig } from "..";
 import apiRequest from "./config";
 import { apiEndpoints } from "./url";
 
@@ -37,6 +38,8 @@ const API = {
 	getCriteria: apiRequest.get(apiEndpoints.survey),
 	getManajemenRisiko: apiRequest.get(apiEndpoints.manajemenRisiko),
 	getPartisipan: apiRequest.get(apiEndpoints.survey),
+	getAllsite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/all-sites/1`),
+	getSite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/sites`),
 };
 
 export default API;

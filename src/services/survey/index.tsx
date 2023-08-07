@@ -45,3 +45,18 @@ export const getPartisipan = (payload: IPayload): Promise<IPromiseResult> => {
 			.catch((err: any) => reject(new Error(err.message)));
 	});
 };
+
+export const getReportAllsite = (payload: IPayload): Promise<IPromiseResult> => {
+	return new Promise<IPromiseResult>((resolve, reject) => {
+		API.getAllsite(payload)
+			.then((res: IResponse) => resolve({ data: res, success: true }))
+			.catch((err: any) => reject(new Error(err.message)));
+	});
+};
+export const getReportSite = (payload: IPayload): Promise<IPromiseResult> => {
+	return new Promise<IPromiseResult>((resolve, reject) => {
+		API.getSite(payload)
+			.then((res: IResponse) => resolve({ data: res, success: true }))
+			.catch((err: any) => reject(new Error(err.message)));
+	});
+};

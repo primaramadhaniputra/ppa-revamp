@@ -39,7 +39,7 @@ const Survey = () => {
 				alignItems="center"
 				justifyContent="space-between"
 				gap={20}
-				style={{ marginBottom: "50px" }}
+				style={{ marginBottom: "30px" }}
 			>
 				<TitlePage type="h3" styles={{ fontSize: "22px" }}>
 					Survey Kepuasan Pelanggan
