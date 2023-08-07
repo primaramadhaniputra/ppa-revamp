@@ -46,7 +46,13 @@ const Survey = () => {
 				</TitlePage>
 				<Grid container alignItems="center" gap={10}>
 					<FilterPeriod setPeriodeId={setPeriodeId} />
-					<Button style={{ borderBottom: '1px solid #5359ED', borderRadius: '0', padding: 0 }} variant="ghost" onClick={handleRedirectCreateSurvey}>Go To List Survey {'>'}</Button>
+					<Button
+						style={{ borderBottom: "1px solid #5359ED", borderRadius: "0", padding: 0 }}
+						variant="ghost"
+						onClick={handleRedirectCreateSurvey}
+					>
+						Go To List Survey {">"}
+					</Button>
 				</Grid>
 			</Grid>
 			{periodeId && renderContent(periodeId, periodeName as string)}

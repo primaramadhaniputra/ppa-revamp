@@ -24,43 +24,44 @@ interface IProps {
 // 	return "#F8CBAD";
 // };
 // reportCriteria
-const TableExcel = ({ }: IProps) => {
+const TableExcel = ({}: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
-	const [allSite, setAllSite] = useState<any>([])
-	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([])
+	const [allSite, setAllSite] = useState<any>([]);
+	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
 
 	const handleGetReportAllSite = async () => {
 		try {
 			const response = await getReportAllsite({});
-			const assessmentCriteria = response.data.data.assessmentCriteria
-			const criticismAndSuggestions = response.data.data.criticismAndSuggestions
-			setCriticismAndSuggestions(criticismAndSuggestions)
+			const assessmentCriteria = response.data.data.assessmentCriteria;
+			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
+			setCriticismAndSuggestions(criticismAndSuggestions);
 			const uniqueChars = [...new Set(assessmentCriteria.map((item: any) => item.sectionName))];
-			const newData = uniqueChars.map(item => {
+			const newData = uniqueChars.map((item) => {
 				return {
 					sectionName: item,
-					data: assessmentCriteria.filter((datas: any) => datas.sectionName === item).map((item: any) => {
-						const sortingItem = item.companies.sort((a: any, b: any) => {
-							let fa = a.slug.toLowerCase(),
-								fb = b.slug.toLowerCase();
+					data: assessmentCriteria
+						.filter((datas: any) => datas.sectionName === item)
+						.map((item: any) => {
+							const sortingItem = item.companies.sort((a: any, b: any) => {
+								let fa = a.slug.toLowerCase(),
+									fb = b.slug.toLowerCase();
 
-							if (fa < fb) {
-								return -1;
-							}
-							if (fa > fb) {
-								return 1;
-							}
-							return 0;
-						})
+								if (fa < fb) {
+									return -1;
+								}
+								if (fa > fb) {
+									return 1;
+								}
+								return 0;
+							});
 
-						return { ...item, companies: sortingItem }
-					})
-				}
-			})
-			setAllSite(newData)
-
-		} catch (error) { }
+							return { ...item, companies: sortingItem };
+						}),
+				};
+			});
+			setAllSite(newData);
+		} catch (error) {}
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
@@ -83,7 +84,7 @@ const TableExcel = ({ }: IProps) => {
 		sheet: "Users",
 	});
 
-	console.log(criticismAndSuggestions)
+	console.log(criticismAndSuggestions);
 
 	return (
 		<>
@@ -93,64 +94,44 @@ const TableExcel = ({ }: IProps) => {
 			<Table hidden ref={tableRef}>
 				<thead>
 					<tr>
-						<th >
-							ppa
-						</th>
+						<th>ppa</th>
 						<th colSpan={10}>
-							FULL SERVICE MINING CONTRACTOR
-							PT. PUTRA PERKASA ABADI
-							OFFICE: GEDUNG OFFICE 8 LT. 8 , JL. SENOPATI RAYA NO.8 B RT.01, RW.02
-							SENAYAN  KEBAYORAN BARU - JAKARTA  TEL: 021-57903456 (7)   FAX: 021-57903458
+							FULL SERVICE MINING CONTRACTOR PT. PUTRA PERKASA ABADI OFFICE: GEDUNG OFFICE 8 LT. 8 ,
+							JL. SENOPATI RAYA NO.8 B RT.01, RW.02 SENAYAN KEBAYORAN BARU - JAKARTA TEL:
+							021-57903456 (7) FAX: 021-57903458
 						</th>
 					</tr>
 					<tr>
-						<th colSpan={11} style={{ background: 'black', color: "white" }}>
-							LAPORAN REKAPITULASI EVALUASI SURVEY KEPUASAN PELANGGAN TAHUN 2023 SEMESTER 1 PPA SITE BUKIT ASAM
+						<th colSpan={11} style={{ background: "black", color: "white" }}>
+							LAPORAN REKAPITULASI EVALUASI SURVEY KEPUASAN PELANGGAN TAHUN 2023 SEMESTER 1 PPA SITE
+							BUKIT ASAM
 						</th>
 					</tr>
 					<tr>
-						<th colSpan={11} >
-							Score :
-						</th>
+						<th colSpan={11}>Score :</th>
 					</tr>
 					<tr>
-						<th style={{ background: 'red', color: "black" }}>
-							1 sampai 5
-						</th>
-						<th colSpan={10}>
-							need improvement(kurang)
-						</th>
-					</tr>
-					<tr >
-						<th style={{ background: 'yellow', color: "black" }}>
-							6 sampai 7
-						</th>
-						<th colSpan={10}>
-							enough (Cukup)
-						</th>
+						<th style={{ background: "red", color: "black" }}>1 sampai 5</th>
+						<th colSpan={10}>need improvement(kurang)</th>
 					</tr>
 					<tr>
-						<th style={{ background: 'green', color: "black" }}>
-							8 sampai 9
-						</th>
-						<th colSpan={10}>
-							good (bagus)
-						</th>
+						<th style={{ background: "yellow", color: "black" }}>6 sampai 7</th>
+						<th colSpan={10}>enough (Cukup)</th>
 					</tr>
 					<tr>
-						<th style={{ background: 'purple', color: "black" }}>
-							10
-						</th>
-						<th colSpan={10}>
-							excellent (bagus sekali)
-						</th>
+						<th style={{ background: "green", color: "black" }}>8 sampai 9</th>
+						<th colSpan={10}>good (bagus)</th>
 					</tr>
-				</thead >
+					<tr>
+						<th style={{ background: "purple", color: "black" }}>10</th>
+						<th colSpan={10}>excellent (bagus sekali)</th>
+					</tr>
+				</thead>
 				<thead>
 					<tr>
 						<th colSpan={2}>kriteria penilaian</th>
 						{allSite[0]?.data[0].companies.map((item: any) => {
-							return <td>site {item.slug}</td>
+							return <td>site {item.slug}</td>;
 						})}
 						<td>rata rata</td>
 					</tr>
@@ -162,34 +143,34 @@ const TableExcel = ({ }: IProps) => {
 								<td >{item.sectionName}</td>
 							</tr>
 						})} */}
-						{
-							allSite.map((item: any) => item.data.map((datas: any) =>
+						{allSite.map((item: any) =>
+							item.data.map((datas: any) => (
 								<tr>
-									<td colSpan={2}>{datas.name}
+									<td colSpan={2}>
+										{datas.name}
 										<b>({datas.sectionName})</b>
 									</td>
-									{datas.companies.map((item: any) =>
-										<td>
-											{Number(item.averageValue).toFixed(2)}
-										</td>
-									)}
-								</tr>))
-						}
+									{datas.companies.map((item: any) => (
+										<td>{Number(item.averageValue).toFixed(2)}</td>
+									))}
+								</tr>
+							)),
+						)}
 						<tr>
 							<td>Kritik & saran </td>
 						</tr>
-						{
-							criticismAndSuggestions.map((item: any) => <tr>
+						{criticismAndSuggestions.map((item: any) => (
+							<tr>
 								<td style={{ verticalAlign: "middle" }}>{item.name}</td>
 								<td>
 									<ol>
-										{item.data.map((data: any) =>
+										{item.data.map((data: any) => (
 											<li>{data.value}</li>
-										)}
+										))}
 									</ol>
 								</td>
-							</tr>)
-						}
+							</tr>
+						))}
 						{/* <tr style={{ backgroundColor: 'red' }}>
 							<td rowSpan={4}>SHE</td>
 						</tr>
@@ -312,7 +293,7 @@ const TableExcel = ({ }: IProps) => {
 						);
 					})}
 				</tfoot> */}
-			</Table >
+			</Table>
 			{/* <Table ref={tableRef} hidden>
 				<thead>
 					<tr>
