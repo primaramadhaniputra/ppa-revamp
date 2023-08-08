@@ -80,7 +80,7 @@ const TableExcel = ({ }: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table ref={tableRef}>
+			<Table hidden ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
