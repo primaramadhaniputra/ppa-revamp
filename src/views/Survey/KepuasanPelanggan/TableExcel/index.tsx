@@ -91,8 +91,8 @@ const TableExcel = ({ }: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table hidden ref={tableRef}>
-				{/* <thead>
+			<Table ref={tableRef}>
+				<thead>
 					<tr>
 						<th>ppa</th>
 						<th colSpan={10}>
@@ -126,7 +126,7 @@ const TableExcel = ({ }: IProps) => {
 						<th style={{ background: "purple", color: "black" }}>10</th>
 						<th colSpan={10}>excellent (bagus sekali)</th>
 					</tr>
-				</thead> */}
+				</thead>
 				<thead>
 					<tr>
 						<th colSpan={2}>kriteria penilaian</th>
