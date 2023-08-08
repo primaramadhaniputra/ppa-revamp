@@ -84,14 +84,12 @@ const TableExcel = ({ }: IProps) => {
 		sheet: "Users",
 	});
 
-	console.log('allsite', allSite);
-
 	return (
 		<>
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table hidden ref={tableRef}>
+			<Table ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
@@ -138,20 +136,33 @@ const TableExcel = ({ }: IProps) => {
 				</thead>
 				{
 					allSite.map((item: any, index: any) => {
-						console.log('item', item.data)
 						return (
 							<tbody key={index}>
 								<tr >
 									<td style={{ verticalAlign: "middle" }} rowSpan={item.data.length + 1}>{item.sectionName}</td>
 								</tr>
-								{item.data.map((data: any) =>
-									<tr>
-										<td>{data.name}</td>
-										{data.companies.map((d: any) => <td>
-											{d.averageValue}
-										</td>)}
-									</tr>
+								{item.data.map((data: any) => {
+									// const total = data.companies.reduce((acc: any, curr: any) => {
+									// 	const currValue = Number(curr.averageValue) || 0
+									// 	const accValue = Number(acc.averageValue) || 0
+									// 	return currValue + accValue
+									// }, 0)
+									return (
+										<tr>
+											<td>{data.name}</td>
+											{data.companies.map((d: any) => <td>
+												{d.averageValue}
+											</td>)}
+											{/* <td colSpan={42} style={{ textAlign: 'right' }}>
+												{total}
+											</td> */}
+										</tr>
+									)
+								}
 								)}
+								<tr >
+									<td style={{ textAlign: 'center' }} colSpan={2}>{item.sectionName}</td>
+								</tr>
 							</tbody>
 						)
 					}
