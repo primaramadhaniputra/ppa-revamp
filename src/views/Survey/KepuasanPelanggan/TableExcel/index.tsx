@@ -67,15 +67,6 @@ const TableExcel = ({ }: IProps) => {
 		handleGetReportAllSite();
 	}, []);
 
-	// useMemo(() => {
-	// 	reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {
-	// 		for (const key in item.questions) {
-	// 			const obj = item.questions[key];
-	// 			newArray.push(obj.id);
-	// 		}
-	// 	});
-	// }, [newArray]);
-
 	const tableRef = useRef(null);
 
 	const { onDownload } = useDownloadExcel({
@@ -89,7 +80,7 @@ const TableExcel = ({ }: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table hidden ref={tableRef}>
+			<Table ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
@@ -136,6 +127,7 @@ const TableExcel = ({ }: IProps) => {
 				</thead>
 				{
 					allSite.map((item: any, index: any) => {
+						console.log('item', item.data)
 						return (
 							<tbody key={index}>
 								<tr >
@@ -179,244 +171,23 @@ const TableExcel = ({ }: IProps) => {
 					</tr>
 				</tbody>
 				<tbody>
-					<>
-						{/* {allSite.map(item => {
-							return <tr>
-								<td >{item.sectionName}</td>
-							</tr>
-						})} */}
-						{/* {allSite.map((item: any) =>
-							item.data.map((datas: any) => (
-								<tr>
-									<td colSpan={2}>
-										{datas.name}
-										<b>({datas.sectionName})</b>
-									</td>
-									{datas.companies.map((item: any) => (
-										<td>{Number(item.averageValue).toFixed(2)}</td>
+					<tr>
+						<td>Kritik & saran </td>
+					</tr>
+					{criticismAndSuggestions.map((item: any) => (
+						<tr>
+							<td style={{ verticalAlign: "middle" }}>{item.name}</td>
+							<td>
+								<ol>
+									{item.data.map((data: any) => (
+										<li>{data.value}</li>
 									))}
-								</tr>
-							)),
-						)} */}
-						<tr>
-							<td>Kritik & saran </td>
-						</tr>
-						{criticismAndSuggestions.map((item: any) => (
-							<tr>
-								<td style={{ verticalAlign: "middle" }}>{item.name}</td>
-								<td>
-									<ol>
-										{item.data.map((data: any) => (
-											<li>{data.value}</li>
-										))}
-									</ol>
-								</td>
-							</tr>
-						))}
-						{/* <tr style={{ backgroundColor: 'red' }}>
-							<td rowSpan={4}>SHE</td>
-						</tr>
-						<tr>
-							<td>AFR (Accident Frequency Rate)</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-						</tr>
-						<tr>
-							<td>AFR (Accident Frequency Rate)</td>
-						</tr>
-						<tr>
-							<td>AFR (Accident Frequency Rate)</td>
-						</tr> */}
-					</>
-					{/* <tr>
-						<td colSpan={100}>Standar skala index angka kepuasan pelanggan PT.PPA adalah 8 (DELAPAN).</td>
-					</tr> */}
-					{/* <tr>
-						<td colSpan={2}>Kriteria Penilaian</td>
-						{allSite[0]?.data[0].companies.map((item: any) => {
-							return <td >{item.slug}</td>
-						})}
-					</tr> */}
-					{/* {allSite.map((item: any) => {
-						return <tr >
-							<td style={{ verticalAlign: "middle" }} rowSpan={item.data.length + 1} >
-								{item.sectionName}
+								</ol>
 							</td>
-							{
-								item.data.map((item: any) => {
-									return <>
-										<tr>
-											<td >{item.name}</td>
-										</tr>
-									</>
-								})
-							}
 						</tr>
-					})} */}
+					))}
 				</tbody>
-				{/* <tr>
-						<th rowSpan={2}>No</th>
-						<th rowSpan={2}>Identitas Pelanggan</th>
-						<th colSpan={newArray.length}>Kriteria Penilaian</th>
-						<th rowSpan={2}>Jumlah</th>
-						<th rowSpan={2}>Rata rata</th>
-						<th rowSpan={2}>Score</th>
-					</tr>
-					<tr>
-						{reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {
-							return item.questions.map((data, key) => (
-								<th
-									key={key}
-									style={{
-										border: "1px solid black",
-										backgroundColor: renderTextColor(item.name),
-										color: item.name === "HRGA & ADMIN" ? "black" : "white",
-									}}
-								>
-									{data.id}
-								</th>
-							));
-						})}
-					</tr>
-				</thead>
-				<tbody style={{ border: "1px solid black" }}>
-					{reportCriteria.map((item, index) => {
-						return (
-							<tr key={index}>
-								<td>{++index}</td>
-								<td>{item.name}</td>
-								{item.assessmentCriteria.sections.map((data) => {
-									return data.questions.map((quest, idx) => (
-										<td key={idx}>{quest.average.toFixed(2).toString().split(".").join(",")}</td>
-									));
-								})}
-								<td>{item.assessmentCriteria.total?.toFixed(2).toString().split(".").join(",")}</td>
-								<td>
-									{item.assessmentCriteria.average?.toFixed(2).toString().split(".").join(",")}
-								</td>
-								<td>{item.assessmentCriteria.score}</td>
-							</tr>
-						);
-					})}
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colSpan={3} style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }}>
-							Kritik dan saran
-						</th>
-					</tr>
-					{reportCriteria.map((item, idx) => {
-						return (
-							<React.Fragment key={idx}>
-								<tr>
-									<th
-										rowSpan={item.criticismAndSuggestions.length + 1}
-										style={{
-											border: "1px solid black",
-											backgroundColor: "#305496",
-											color: "white",
-										}}
-									>
-										{item.name}
-									</th>
-								</tr>
-								{item.criticismAndSuggestions.map((data, idx) => (
-									<tr key={idx}>
-										<td style={{ border: "1px solid black", verticalAlign: "middle" }}>
-											{data.fullName}
-										</td>
-										<td style={{ border: "1px solid black" }}>{data.value}</td>
-									</tr>
-								))}
-							</React.Fragment>
-						);
-					})}
-				</tfoot> */}
 			</Table>
-			{/* <Table ref={tableRef} hidden>
-				<thead>
-					<tr>
-						<th rowSpan={2}>No</th>
-						<th rowSpan={2}>Identitas Pelanggan</th>
-						<th colSpan={newArray.length}>Kriteria Penilaian</th>
-						<th rowSpan={2}>Jumlah</th>
-						<th rowSpan={2}>Rata rata</th>
-						<th rowSpan={2}>Score</th>
-					</tr>
-					<tr>
-						{reportCriteria[0]?.assessmentCriteria?.sections.map((item) => {
-							return item.questions.map((data, key) => (
-								<th
-									key={key}
-									style={{
-										border: "1px solid black",
-										backgroundColor: renderTextColor(item.name),
-										color: item.name === "HRGA & ADMIN" ? "black" : "white",
-									}}
-								>
-									{data.id}
-								</th>
-							));
-						})}
-					</tr>
-				</thead>
-				<tbody style={{ border: "1px solid black" }}>
-					{reportCriteria.map((item, index) => {
-						return (
-							<tr key={index}>
-								<td>{++index}</td>
-								<td>{item.name}</td>
-								{item.assessmentCriteria.sections.map((data) => {
-									return data.questions.map((quest, idx) => (
-										<td key={idx}>{quest.average.toFixed(2).toString().split(".").join(",")}</td>
-									));
-								})}
-								<td>{item.assessmentCriteria.total?.toFixed(2).toString().split(".").join(",")}</td>
-								<td>
-									{item.assessmentCriteria.average?.toFixed(2).toString().split(".").join(",")}
-								</td>
-								<td>{item.assessmentCriteria.score}</td>
-							</tr>
-						);
-					})}
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colSpan={3} style={{ border: "1px solid black", backgroundColor: "#D9E1F2" }}>
-							Kritik dan saran
-						</th>
-					</tr>
-					{reportCriteria.map((item, idx) => {
-						return (
-							<React.Fragment key={idx}>
-								<tr>
-									<th
-										rowSpan={item.criticismAndSuggestions.length + 1}
-										style={{
-											border: "1px solid black",
-											backgroundColor: "#305496",
-											color: "white",
-										}}
-									>
-										{item.name}
-									</th>
-								</tr>
-								{item.criticismAndSuggestions.map((data, idx) => (
-									<tr key={idx}>
-										<td style={{ border: "1px solid black", verticalAlign: "middle" }}>
-											{data.fullName}
-										</td>
-										<td style={{ border: "1px solid black" }}>{data.value}</td>
-									</tr>
-								))}
-							</React.Fragment>
-						);
-					})}
-				</tfoot>
-			</Table> */}
 		</>
 	);
 };
