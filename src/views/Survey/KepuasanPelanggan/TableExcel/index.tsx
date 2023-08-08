@@ -169,6 +169,16 @@ const TableExcel = ({ }: IProps) => {
 					)
 				}
 				<tbody>
+					<tr>
+						<td colSpan={2} style={{ textAlign: "center" }}>RATA RATA PER SITE</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td colSpan={2} style={{ textAlign: "center" }}>SCORE</td>
+					</tr>
+				</tbody>
+				<tbody>
 					<>
 						{/* {allSite.map(item => {
 							return <tr>
