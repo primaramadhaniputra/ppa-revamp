@@ -20,7 +20,7 @@ const renderTextColor = (type: string) => {
 	return "#7030A0";
 };
 // reportCriteria
-const TableExcel = ({}: IProps) => {
+const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
@@ -61,7 +61,7 @@ const TableExcel = ({}: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
@@ -79,9 +79,9 @@ const TableExcel = ({}: IProps) => {
 	const rataRataRowSite = (data: any) => {
 		console.log("data", data);
 		for (let i = 0; i < data.length; i++) {
-			const value = data[i].companies.map((item: any, idx: any) => {
-				return data[i].companies[idx].averageValue;
-			});
+			// const value = data[i].companies.map((item: any, idx: any) => {
+			// 	return data[i].companies[idx].averageValue;
+			// });
 			// console.log('value', value.lengt)
 		}
 		return <td>hello</td>;
