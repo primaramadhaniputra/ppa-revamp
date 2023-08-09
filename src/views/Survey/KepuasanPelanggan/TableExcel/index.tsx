@@ -63,6 +63,7 @@ const TableExcel = ({ }: IProps) => {
 			setAllSite(newData);
 		} catch (error) { }
 	};
+
 	useEffect(() => {
 		handleGetReportAllSite();
 	}, []);
@@ -75,12 +76,23 @@ const TableExcel = ({ }: IProps) => {
 		sheet: "All Sites",
 	});
 
+	const rataRataRowSite = (data: any) => {
+		console.log('data', data)
+		for (let i = 0; i < data.length; i++) {
+			const value = data[i].companies.map((item: any, idx: any) => {
+				return data[i].companies[idx].averageValue
+			})
+			// console.log('value', value.lengt)
+		}
+		return <td>hello</td>
+	}
+
 	return (
 		<>
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table ref={tableRef}>
+			<Table hidden ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
@@ -127,7 +139,6 @@ const TableExcel = ({ }: IProps) => {
 				</thead>
 				{
 					allSite.map((item: any, index: any) => {
-
 						return (
 							<tbody key={index}>
 								<tr >
@@ -159,6 +170,7 @@ const TableExcel = ({ }: IProps) => {
 								)}
 								<tr >
 									<td style={{ textAlign: 'center' }} colSpan={2}>{item.sectionName}</td>
+									{rataRataRowSite(item.data)}
 								</tr>
 							</tbody>
 						)
