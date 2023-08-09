@@ -5,39 +5,38 @@ import { Grid } from "@hudoro/neron";
 import { Table } from "./styles";
 import Button from "atoms/Button";
 import { getReportAllsite } from "services/survey";
+import Cookies from "js-cookie";
 // import { ButtonDowload } from "../../FilterPeriode/styles";
 
 interface IProps {
 	reportCriteria: ISurveyReportCriteria[];
 }
 
-// const renderTextColor = (type: string) => {
-// 	if (type === "SHEQ") {
-// 		return "#548235";
-// 	}
-// 	if (type === "ENGINEERING & PRODUCTION") {
-// 		return "#305496";
-// 	}
-// 	if (type === "HRGA & ADMIN") {
-// 		return "#FFFF00";
-// 	}
-// 	return "#F8CBAD";
-// };
+const renderTextColor = (type: string) => {
+	const number = Number(type)
+	if (number < 6) return '#FF0000'
+	if (number < 8) return '#FFC001'
+	if (number < 10) return '#01B050'
+	return '#7030A0'
+};
 // reportCriteria
 const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
+	const periodeId = Cookies.get('periodeId')
 
 	const handleGetReportAllSite = async () => {
 		try {
-			const response = await getReportAllsite({});
+			const response = await getReportAllsite({
+				path: `/${periodeId}`
+			});
 			const assessmentCriteria = response.data.data.assessmentCriteria;
 			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
 			setCriticismAndSuggestions(criticismAndSuggestions);
 			const uniqueChars = [...new Set(assessmentCriteria.map((item: any) => item.sectionName))];
-			console.log('response', response.data.data)
+
 			const newData = uniqueChars.map((item) => {
 				return {
 					sectionName: item,
@@ -72,8 +71,8 @@ const TableExcel = ({ }: IProps) => {
 
 	const { onDownload } = useDownloadExcel({
 		currentTableRef: tableRef.current,
-		filename: "Users table",
-		sheet: "Users",
+		filename: "All site",
+		sheet: "All Sites",
 	});
 
 	return (
@@ -128,27 +127,32 @@ const TableExcel = ({ }: IProps) => {
 				</thead>
 				{
 					allSite.map((item: any, index: any) => {
-						console.log('item', item.data)
+
 						return (
 							<tbody key={index}>
 								<tr >
 									<td style={{ verticalAlign: "middle" }} rowSpan={item.data.length + 1}>{item.sectionName}</td>
 								</tr>
 								{item.data.map((data: any) => {
-									// const total = data.companies.reduce((acc: any, curr: any) => {
-									// 	const currValue = Number(curr.averageValue) || 0
-									// 	const accValue = Number(acc.averageValue) || 0
-									// 	return currValue + accValue
-									// }, 0)
+									const total = data.companies.reduce((acc: any, curr: any) => {
+										// acc += Number(curr.averageValue)
+										acc.total += Number(curr.averageValue)
+										return acc
+									}, { total: 0 })
 									return (
 										<tr>
 											<td>{data.name}</td>
-											{data.companies.map((d: any) => <td>
-												{d.averageValue}
-											</td>)}
-											{/* <td colSpan={42} style={{ textAlign: 'right' }}>
-												{total}
-											</td> */}
+											{data.companies.map((d: any) =>
+												<td style={{ backgroundColor: renderTextColor(d.averageValue), border: '1px solid black', color: 'white', textAlign: 'center' }}>
+													<b>
+														{Number(d.averageValue).toFixed(2)}
+													</b>
+												</td>)}
+											<td style={{ textAlign: 'center', background: renderTextColor((total.total / 11).toFixed(2)), border: '1px solid black', color: 'white', }}>
+												<b>
+													{(total.total / 11).toFixed(2)}
+												</b>
+											</td>
 										</tr>
 									)
 								}
