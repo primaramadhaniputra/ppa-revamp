@@ -37,6 +37,7 @@ const TableExcel = ({ }: IProps) => {
 			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
 			setCriticismAndSuggestions(criticismAndSuggestions);
 			const uniqueChars = [...new Set(assessmentCriteria.map((item: any) => item.sectionName))];
+			console.log('response', response.data.data)
 			const newData = uniqueChars.map((item) => {
 				return {
 					sectionName: item,

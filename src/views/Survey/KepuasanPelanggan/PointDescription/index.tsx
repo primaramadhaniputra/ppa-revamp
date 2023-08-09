@@ -6,11 +6,10 @@ const PointDescription = () => {
 		<StyledCard>
 			<CardTitle>Keterangan :</CardTitle>
 			<Container>
-				<PointContainer pointColor="#fc5555">Under Performance (Kurang Sekali)</PointContainer>
-				<PointContainer pointColor="#FFC806">Need Improvement (Kurang)</PointContainer>
-				<PointContainer pointColor="#47BF34">Enough (Cukup)</PointContainer>
-				<PointContainer pointColor="#0062A3">Good (Bagus)</PointContainer>
-				<PointContainer pointColor="#7B61FF">Excellent (Bagus Sekali)</PointContainer>
+				<PointContainer pointColor="#FF0000">Need improvement(kurang)</PointContainer>
+				<PointContainer pointColor="#FFFF04">Enough (Cukup)</PointContainer>
+				<PointContainer pointColor="#008001">Good (bagus)</PointContainer>
+				<PointContainer pointColor="#800080">Excellent (bagus sekali)</PointContainer>
 			</Container>
 		</StyledCard>
 	);
