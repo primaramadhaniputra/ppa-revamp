@@ -81,7 +81,7 @@ const TableExcel = ({ }: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table hidden ref={tableRef}>
+			<Table ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
@@ -179,11 +179,11 @@ const TableExcel = ({ }: IProps) => {
 						<tr>
 							<td style={{ verticalAlign: "middle" }}>{item.name}</td>
 							<td>
-								<ol>
-									{item.data.map((data: any) => (
-										<li>{data.value}</li>
-									))}
-								</ol>
+								{item.data.map((data: any) => {
+									return (
+										data.value
+									)
+								})}
 							</td>
 						</tr>
 					))}
