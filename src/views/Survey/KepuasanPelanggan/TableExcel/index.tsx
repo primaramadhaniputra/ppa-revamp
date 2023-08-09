@@ -13,24 +13,24 @@ interface IProps {
 }
 
 const renderTextColor = (type: string) => {
-	const number = Number(type)
-	if (number < 6) return '#FF0000'
-	if (number < 8) return '#FFC001'
-	if (number < 10) return '#01B050'
-	return '#7030A0'
+	const number = Number(type);
+	if (number < 6) return "#FF0000";
+	if (number < 8) return "#FFC001";
+	if (number < 10) return "#01B050";
+	return "#7030A0";
 };
 // reportCriteria
-const TableExcel = ({ }: IProps) => {
+const TableExcel = ({}: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
-	const periodeId = Cookies.get('periodeId')
+	const periodeId = Cookies.get("periodeId");
 
 	const handleGetReportAllSite = async () => {
 		try {
 			const response = await getReportAllsite({
-				path: `/${periodeId}`
+				path: `/${periodeId}`,
 			});
 			const assessmentCriteria = response.data.data.assessmentCriteria;
 			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
@@ -61,7 +61,7 @@ const TableExcel = ({ }: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -77,15 +77,15 @@ const TableExcel = ({ }: IProps) => {
 	});
 
 	const rataRataRowSite = (data: any) => {
-		console.log('data', data)
+		console.log("data", data);
 		for (let i = 0; i < data.length; i++) {
 			const value = data[i].companies.map((item: any, idx: any) => {
-				return data[i].companies[idx].averageValue
-			})
+				return data[i].companies[idx].averageValue;
+			});
 			// console.log('value', value.lengt)
 		}
-		return <td>hello</td>
-	}
+		return <td>hello</td>;
+	};
 
 	return (
 		<>
@@ -137,54 +137,72 @@ const TableExcel = ({ }: IProps) => {
 						<td>rata rata</td>
 					</tr>
 				</thead>
-				{
-					allSite.map((item: any, index: any) => {
-						return (
-							<tbody key={index}>
-								<tr >
-									<td style={{ verticalAlign: "middle" }} rowSpan={item.data.length + 1}>{item.sectionName}</td>
-								</tr>
-								{item.data.map((data: any) => {
-									const total = data.companies.reduce((acc: any, curr: any) => {
+				{allSite.map((item: any, index: any) => {
+					return (
+						<tbody key={index}>
+							<tr>
+								<td style={{ verticalAlign: "middle" }} rowSpan={item.data.length + 1}>
+									{item.sectionName}
+								</td>
+							</tr>
+							{item.data.map((data: any) => {
+								const total = data.companies.reduce(
+									(acc: any, curr: any) => {
 										// acc += Number(curr.averageValue)
-										acc.total += Number(curr.averageValue)
-										return acc
-									}, { total: 0 })
-									return (
-										<tr>
-											<td>{data.name}</td>
-											{data.companies.map((d: any) =>
-												<td style={{ backgroundColor: renderTextColor(d.averageValue), border: '1px solid black', color: 'white', textAlign: 'center' }}>
-													<b>
-														{Number(d.averageValue).toFixed(2)}
-													</b>
-												</td>)}
-											<td style={{ textAlign: 'center', background: renderTextColor((total.total / 11).toFixed(2)), border: '1px solid black', color: 'white', }}>
-												<b>
-													{(total.total / 11).toFixed(2)}
-												</b>
+										acc.total += Number(curr.averageValue);
+										return acc;
+									},
+									{ total: 0 },
+								);
+								return (
+									<tr>
+										<td>{data.name}</td>
+										{data.companies.map((d: any) => (
+											<td
+												style={{
+													backgroundColor: renderTextColor(d.averageValue),
+													border: "1px solid black",
+													color: "white",
+													textAlign: "center",
+												}}
+											>
+												<b>{Number(d.averageValue).toFixed(2)}</b>
 											</td>
-										</tr>
-									)
-								}
-								)}
-								<tr >
-									<td style={{ textAlign: 'center' }} colSpan={2}>{item.sectionName}</td>
-									{rataRataRowSite(item.data)}
-								</tr>
-							</tbody>
-						)
-					}
-					)
-				}
+										))}
+										<td
+											style={{
+												textAlign: "center",
+												background: renderTextColor((total.total / 11).toFixed(2)),
+												border: "1px solid black",
+												color: "white",
+											}}
+										>
+											<b>{(total.total / 11).toFixed(2)}</b>
+										</td>
+									</tr>
+								);
+							})}
+							<tr>
+								<td style={{ textAlign: "center" }} colSpan={2}>
+									{item.sectionName}
+								</td>
+								{rataRataRowSite(item.data)}
+							</tr>
+						</tbody>
+					);
+				})}
 				<tbody>
 					<tr>
-						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>RATA RATA PER SITE</td>
+						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
+							RATA RATA PER SITE
+						</td>
 					</tr>
 				</tbody>
 				<tbody>
 					<tr>
-						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>SCORE</td>
+						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
+							SCORE
+						</td>
 					</tr>
 				</tbody>
 				<tbody>
@@ -196,9 +214,7 @@ const TableExcel = ({ }: IProps) => {
 							<td style={{ verticalAlign: "middle" }}>{item.name}</td>
 							<td>
 								{item.data.map((data: any) => {
-									return (
-										data.value
-									)
+									return data.value;
 								})}
 							</td>
 						</tr>

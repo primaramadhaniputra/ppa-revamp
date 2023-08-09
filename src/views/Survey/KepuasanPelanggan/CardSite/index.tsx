@@ -71,71 +71,71 @@ const CardSite = ({ reportCriteria, periodeId }: IProps) => {
 		<CardSiteContainer>
 			{reportCriteria.length > 0
 				? reportCriteria.map((item, index) => (
-					<Tilt
-						perspective={500}
-						style={{ flex: 1, display: "flex", transformStyle: "preserve-3d" }}
-						glareEnable={true}
-						glareMaxOpacity={0.5}
-						glareColor="#666"
-						glarePosition="all"
-						glareBorderRadius="10px"
-						key={index}
-					>
-						<StyledCard
-							onClick={() =>
-								handleRedirect(
-									item.id,
-									item.assessmentCriteria.statusUser,
-									item.assessmentCriteria.average,
-									item.name,
-									item.parentCompany,
-								)
-							}
+						<Tilt
+							perspective={500}
+							style={{ flex: 1, display: "flex", transformStyle: "preserve-3d" }}
+							glareEnable={true}
+							glareMaxOpacity={0.5}
+							glareColor="#666"
+							glarePosition="all"
+							glareBorderRadius="10px"
+							key={index}
 						>
-							<Text
-								variant="p"
-								style={{ fontFamily: fontFamilies.poppins, fontWeight: fontWeights.regular }}
+							<StyledCard
+								onClick={() =>
+									handleRedirect(
+										item.id,
+										item.assessmentCriteria.statusUser,
+										item.assessmentCriteria.average,
+										item.name,
+										item.parentCompany,
+									)
+								}
 							>
-								Kontraktor : {item.parentCompany}
-							</Text>
-							<TextDesc
-								colorType={renderColor(item.assessmentCriteria.average)}
-								title={renderTextAverage(item.assessmentCriteria.average)}
-							/>
-							<Grid
-								container
-								flexDirection="row"
-								gap={24}
-								style={{ transformStyle: "preserve-3d" }}
-							>
-								<LogoContainer>
-									<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
-								</LogoContainer>
+								<Text
+									variant="p"
+									style={{ fontFamily: fontFamilies.poppins, fontWeight: fontWeights.regular }}
+								>
+									Kontraktor : {item.parentCompany}
+								</Text>
+								<TextDesc
+									colorType={renderColor(item.assessmentCriteria.average)}
+									title={renderTextAverage(item.assessmentCriteria.average)}
+								/>
 								<Grid
 									container
-									flexDirection="column"
-									gap={10}
-									style={{ flex: 1, transformStyle: "preserve-3d" }}
+									flexDirection="row"
+									gap={24}
+									style={{ transformStyle: "preserve-3d" }}
 								>
-									<Grid style={{ transformStyle: "preserve-3d" }}>
-										<CardTitle>{item.name}</CardTitle>
-									</Grid>
-
-									<Grid container alignItems="flex-end" gap={28}>
-										<Grid container flexDirection="column">
-											<SubTitle>Total</SubTitle>
-											<CardTitle>{item.assessmentCriteria.statusUser}</CardTitle>
+									<LogoContainer>
+										<Image alt="Site Logo" src={item.image} width={40} height={40} quality={100} />
+									</LogoContainer>
+									<Grid
+										container
+										flexDirection="column"
+										gap={10}
+										style={{ flex: 1, transformStyle: "preserve-3d" }}
+									>
+										<Grid style={{ transformStyle: "preserve-3d" }}>
+											<CardTitle>{item.name}</CardTitle>
 										</Grid>
-										<Grid container flexDirection="column">
-											<SubTitle>Rata Rata</SubTitle>
-											<CardTitle>{item.assessmentCriteria.average?.toFixed(2) ?? 0}</CardTitle>
+
+										<Grid container alignItems="flex-end" gap={28}>
+											<Grid container flexDirection="column">
+												<SubTitle>Total</SubTitle>
+												<CardTitle>{item.assessmentCriteria.statusUser}</CardTitle>
+											</Grid>
+											<Grid container flexDirection="column">
+												<SubTitle>Rata Rata</SubTitle>
+												<CardTitle>{item.assessmentCriteria.average?.toFixed(2) ?? 0}</CardTitle>
+											</Grid>
 										</Grid>
 									</Grid>
 								</Grid>
-							</Grid>
-						</StyledCard>
-					</Tilt>
-				))
+							</StyledCard>
+						</Tilt>
+				  ))
 				: null}
 		</CardSiteContainer>
 	);
