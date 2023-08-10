@@ -77,14 +77,66 @@ const TableExcel = ({ }: IProps) => {
 	});
 
 	const rataRataRowSite = (data: any) => {
-		console.log("data", data);
+		let rata = []
 		for (let i = 0; i < data.length; i++) {
-			// const value = data[i].companies.map((item: any, idx: any) => {
-			// 	return data[i].companies[idx].averageValue;
-			// });
-			// console.log('value', value.lengt)
+			const testing = data[i].companies.map((item: any) => {
+				return item.averageValue
+			})
+			rata.push({ ...testing })
 		}
-		return <td>hello</td>;
+		let nilai1 = 0
+		let nilai2 = 0
+		let nilai3 = 0
+		let nilai4 = 0
+		let nilai5 = 0
+		let nilai6 = 0
+		let nilai7 = 0
+		let nilai8 = 0
+		let nilai9 = 0
+		let nilai10 = 0
+		let nilai11 = 0
+		rata.map(item => {
+			for (const [key, value] of Object.entries(item)) {
+				if (Number(key) === 0) {
+					nilai1 += Number(value)
+				} else if (Number(key) === 1) {
+					nilai2 += Number(value)
+				} else if (Number(key) === 2) {
+					nilai3 += Number(value)
+				} else if (Number(key) === 3) {
+					nilai4 += Number(value)
+				} else if (Number(key) === 4) {
+					nilai5 += Number(value)
+				} else if (Number(key) === 5) {
+					nilai6 += Number(value)
+				} else if (Number(key) === 6) {
+					nilai7 += Number(value)
+				} else if (Number(key) === 7) {
+					nilai8 += Number(value)
+				} else if (Number(key) === 8) {
+					nilai9 += Number(value)
+				} else if (Number(key) === 9) {
+					nilai10 += Number(value)
+				} else if (Number(key) === 10) {
+					nilai11 += Number(value)
+				}
+			}
+		})
+		// console.log(`NIlai ke 1`, nilai1)
+		const newRata = [
+			(nilai1 / data.length).toFixed(2),
+			(nilai2 / data.length).toFixed(2),
+			(nilai3 / data.length).toFixed(2),
+			(nilai4 / data.length).toFixed(2),
+			(nilai5 / data.length).toFixed(2),
+			(nilai6 / data.length).toFixed(2),
+			(nilai7 / data.length).toFixed(2),
+			(nilai8 / data.length).toFixed(2),
+			(nilai9 / data.length).toFixed(2),
+			(nilai10 / data.length).toFixed(2),
+			(nilai11 / data.length).toFixed(2),
+		]
+		return newRata
 	};
 
 	return (
@@ -92,7 +144,7 @@ const TableExcel = ({ }: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table hidden ref={tableRef}>
+			<Table ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
@@ -186,7 +238,11 @@ const TableExcel = ({ }: IProps) => {
 								<td style={{ textAlign: "center" }} colSpan={2}>
 									{item.sectionName}
 								</td>
-								{rataRataRowSite(item.data)}
+								{rataRataRowSite(item.data).map(item => <td>
+									{item}
+								</td>)}
+								<td>
+								</td>
 							</tr>
 						</tbody>
 					);
