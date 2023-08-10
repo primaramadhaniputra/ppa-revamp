@@ -122,7 +122,7 @@ const TableExcel = ({ }: IProps) => {
 				}
 			}
 		})
-		// console.log(`NIlai ke 1`, nilai1)
+
 		const newRata = [
 			(nilai1 / data.length).toFixed(2),
 			(nilai2 / data.length).toFixed(2),
@@ -144,7 +144,7 @@ const TableExcel = ({ }: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table ref={tableRef}>
+			<Table hidden ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
