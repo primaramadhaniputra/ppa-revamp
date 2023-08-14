@@ -27,7 +27,8 @@ const SurveyDetail = () => {
 			const response = await getReportSite({
 				path: `/${slug}`,
 			});
-			console.log('respnose', response.data.data)
+			console.log('respnose', response.data.data.assessmentCriteria
+			)
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
 		} catch (error) { }
@@ -114,19 +115,20 @@ const SurveyDetail = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{assessmentCriteria.map((item: any) => {
+					{assessmentCriteria.map((item: any, idx) => {
 						const rata2 = item.users.reduce((acc: any, curr: any) => {
 							return (acc += Number(curr.averageValue));
 						}, 0);
 
 						return (
-							<tr>
+							<tr key={idx}>
 								<td style={{ verticalAlign: "middle" }} colSpan={2}>
 									{item.name}
 								</td>
-								{item.users.map((data: any) => {
+								{item.users.map((data: any, idx: number) => {
 									return (
 										<td
+											key={idx}
 											style={{
 												textAlign: "center",
 												color: "black",
@@ -171,8 +173,8 @@ const SurveyDetail = () => {
 							<b>Kritik & Saran</b>
 						</td>
 					</tr>
-					{criticismAndSuggestions.map((item: any) => (
-						<tr>
+					{criticismAndSuggestions.map((item: any, idx) => (
+						<tr key={idx}>
 							<td style={{ verticalAlign: "middle" }}>
 								{item.fullName} - {item.positionName}
 							</td>
