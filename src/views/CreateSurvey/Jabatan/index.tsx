@@ -1,4 +1,4 @@
-import { Button, Checkbox, Grid, Input, Text, fontFamilies } from '@hudoro/neron'
+import { Button, Checkbox, Grid, Input, Text } from '@hudoro/neron'
 import { IcFilter } from 'atoms/Icon'
 import Modal from 'molecules/Modal'
 import ModalHooks from 'molecules/Modal/ModalHooks'

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import IcBuilding from "atoms/Icon/IcBuilding";
-import { Button, Checkbox, Grid, Input, Text, Toggler, fontFamilies } from "@hudoro/neron";
-import { IcEdit, IcFilter } from "atoms/Icon";
+import { Grid, Text, Toggler } from "@hudoro/neron";
+import { IcEdit } from "atoms/Icon";
 import { BreadCrumb, StyledCard, StyledInput } from "./styles";
 import ReactSlider from "react-slider";
 import styles from './Create.module.css'
-import Modal from "molecules/Modal";
-import ModalHooks from "molecules/Modal/ModalHooks";
 import Jabatan from "./Jabatan";
 
 const CreateSurvey = () => {
