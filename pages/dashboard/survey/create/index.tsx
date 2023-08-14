@@ -8,10 +8,7 @@ const CreateSurveyView = dynamic(() => import("views/CreateSurvey"), {
 });
 
 const Create = () => {
-
-	return (
-		<CreateSurveyView />
-	);
+	return <CreateSurveyView />;
 };
 
 export default Create;

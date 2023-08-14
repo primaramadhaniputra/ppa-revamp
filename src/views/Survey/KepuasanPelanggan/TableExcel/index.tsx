@@ -20,7 +20,7 @@ const renderTextColor = (type: string) => {
 	return "#7030A0";
 };
 // reportCriteria
-const TableExcel = ({ }: IProps) => {
+const TableExcel = ({}: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
@@ -61,7 +61,7 @@ const TableExcel = ({ }: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -77,51 +77,51 @@ const TableExcel = ({ }: IProps) => {
 	});
 
 	const rataRataRowSite = (data: any) => {
-		let rata = []
+		let rata = [];
 		for (let i = 0; i < data.length; i++) {
 			const testing = data[i].companies.map((item: any) => {
-				return item.averageValue
-			})
-			rata.push({ ...testing })
+				return item.averageValue;
+			});
+			rata.push({ ...testing });
 		}
-		let nilai1 = 0
-		let nilai2 = 0
-		let nilai3 = 0
-		let nilai4 = 0
-		let nilai5 = 0
-		let nilai6 = 0
-		let nilai7 = 0
-		let nilai8 = 0
-		let nilai9 = 0
-		let nilai10 = 0
-		let nilai11 = 0
-		rata.map(item => {
+		let nilai1 = 0;
+		let nilai2 = 0;
+		let nilai3 = 0;
+		let nilai4 = 0;
+		let nilai5 = 0;
+		let nilai6 = 0;
+		let nilai7 = 0;
+		let nilai8 = 0;
+		let nilai9 = 0;
+		let nilai10 = 0;
+		let nilai11 = 0;
+		rata.map((item) => {
 			for (const [key, value] of Object.entries(item)) {
 				if (Number(key) === 0) {
-					nilai1 += Number(value)
+					nilai1 += Number(value);
 				} else if (Number(key) === 1) {
-					nilai2 += Number(value)
+					nilai2 += Number(value);
 				} else if (Number(key) === 2) {
-					nilai3 += Number(value)
+					nilai3 += Number(value);
 				} else if (Number(key) === 3) {
-					nilai4 += Number(value)
+					nilai4 += Number(value);
 				} else if (Number(key) === 4) {
-					nilai5 += Number(value)
+					nilai5 += Number(value);
 				} else if (Number(key) === 5) {
-					nilai6 += Number(value)
+					nilai6 += Number(value);
 				} else if (Number(key) === 6) {
-					nilai7 += Number(value)
+					nilai7 += Number(value);
 				} else if (Number(key) === 7) {
-					nilai8 += Number(value)
+					nilai8 += Number(value);
 				} else if (Number(key) === 8) {
-					nilai9 += Number(value)
+					nilai9 += Number(value);
 				} else if (Number(key) === 9) {
-					nilai10 += Number(value)
+					nilai10 += Number(value);
 				} else if (Number(key) === 10) {
-					nilai11 += Number(value)
+					nilai11 += Number(value);
 				}
 			}
-		})
+		});
 
 		const newRata = [
 			(nilai1 / data.length).toFixed(2),
@@ -135,8 +135,8 @@ const TableExcel = ({ }: IProps) => {
 			(nilai9 / data.length).toFixed(2),
 			(nilai10 / data.length).toFixed(2),
 			(nilai11 / data.length).toFixed(2),
-		]
-		return newRata
+		];
+		return newRata;
 	};
 
 	return (
@@ -238,11 +238,10 @@ const TableExcel = ({ }: IProps) => {
 								<td style={{ textAlign: "center" }} colSpan={2}>
 									{item.sectionName}
 								</td>
-								{rataRataRowSite(item.data).map(item => <td>
-									{item}
-								</td>)}
-								<td>
-								</td>
+								{rataRataRowSite(item.data).map((item) => (
+									<td>{item}</td>
+								))}
+								<td></td>
 							</tr>
 						</tbody>
 					);

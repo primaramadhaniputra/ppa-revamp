@@ -29,7 +29,7 @@ const SurveyDetail = () => {
 			});
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
-		} catch (error) { }
+		} catch (error) {}
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
@@ -42,11 +42,11 @@ const SurveyDetail = () => {
 	});
 
 	const renderColor = (value: number) => {
-		if (value < 6) return "#FF0000"
-		if (value < 8) return "#FFFF00"
-		if (value < 10) return "#008001"
-		return '#800080'
-	}
+		if (value < 6) return "#FF0000";
+		if (value < 8) return "#FFFF00";
+		if (value < 10) return "#008001";
+		return "#800080";
+	};
 
 	return (
 		<>
@@ -113,44 +113,52 @@ const SurveyDetail = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{
-						assessmentCriteria.map((item: any) => {
-							const rata2 = item.users.reduce((acc: any, curr: any) => {
-								return acc += Number(curr.averageValue)
-							}, 0)
-							console.log(rata2)
+					{assessmentCriteria.map((item: any) => {
+						const rata2 = item.users.reduce((acc: any, curr: any) => {
+							return (acc += Number(curr.averageValue));
+						}, 0);
+						console.log(rata2);
 
-							return (
-								<tr>
-									<td style={{ verticalAlign: "middle" }} colSpan={2}>{item.name}</td>
-									{item.users.map((data: any) => {
-										return (
-											<td style={{ textAlign: 'center', color: 'black', border: '2px solid black', backgroundColor: 'white' }}>
-												<b>({data.positionName})</b>
-												<br />
-												{data.name}
-												<br />
-												<span style={{ color: renderColor(Number(data.averageValue)) }}>
-													<b>
-														{data.averageValue}
-													</b>
-												</span>
-											</td>
-										)
-									})}
-									<td style={{ verticalAlign: "middle", textAlign: 'center', backgroundColor: renderColor(rata2 / item.users.length || 0), border: '2px solid black' }} >
-										<b>
-											Rata-rata
-										</b>
-										<br />
-										<b>
-											{(rata2 / item.users.length || 0).toFixed(2)}
-										</b>
-									</td>
-								</tr>
-							)
-						})
-					}
+						return (
+							<tr>
+								<td style={{ verticalAlign: "middle" }} colSpan={2}>
+									{item.name}
+								</td>
+								{item.users.map((data: any) => {
+									return (
+										<td
+											style={{
+												textAlign: "center",
+												color: "black",
+												border: "2px solid black",
+												backgroundColor: "white",
+											}}
+										>
+											<b>({data.positionName})</b>
+											<br />
+											{data.name}
+											<br />
+											<span style={{ color: renderColor(Number(data.averageValue)) }}>
+												<b>{data.averageValue}</b>
+											</span>
+										</td>
+									);
+								})}
+								<td
+									style={{
+										verticalAlign: "middle",
+										textAlign: "center",
+										backgroundColor: renderColor(rata2 / item.users.length || 0),
+										border: "2px solid black",
+									}}
+								>
+									<b>Rata-rata</b>
+									<br />
+									<b>{(rata2 / item.users.length || 0).toFixed(2)}</b>
+								</td>
+							</tr>
+						);
+					})}
 				</tbody>
 				{/* <thead>
 					<tr>
@@ -172,7 +180,7 @@ const SurveyDetail = () => {
 						</tr>
 					))}
 				</tbody>
-			</table >
+			</table>
 			<StatusCard />
 			<CardDetail />
 		</>
