@@ -7,6 +7,7 @@ export const SelectContainer = styled(Grid).attrs({
 	gap: 5,
 	flexDirection: "column",
 })`
+	min-width: 400px;
 	& * {
 		font-family: ${fontFamilies.poppins};
 		font-size: 12px;

@@ -11,7 +11,7 @@ interface IProps {
 
 const FilterPeriod = ({ setPeriodeId }: IProps) => {
 	const periode = useSurveyPeriodeValue();
-	const periodeName = Cookies.get("periode");
+	// const periodeName = Cookies.get("periode");
 
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
@@ -19,16 +19,11 @@ const FilterPeriod = ({ setPeriodeId }: IProps) => {
 		Cookies.set("periode", dataPeriode?.label!);
 		Cookies.set("periodeId", dataPeriode!.id.toString());
 	};
-	console.log(periodeName);
+
 	return (
-		// <Grid container gap={20} justifyContent="flex-end">
-		// 	<Grid container gap={20} justifyContent="flex-end">
 		<SelectContainer>
-			{/* <StyledLabel>Survey</StyledLabel> */}
 			<Select items={periode} onChange={handleChangePeriode} placeholder="Survey Type..." />
 		</SelectContainer>
-		// 	</Grid>
-		// </Grid>
 	);
 };
 
