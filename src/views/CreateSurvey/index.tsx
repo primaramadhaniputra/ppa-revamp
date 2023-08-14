@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import IcBuilding from "atoms/Icon/IcBuilding";
 import { Button, Grid, Text, Toggler } from "@hudoro/neron";
 import { IcEdit, IcFilter } from "atoms/Icon";
-import { BreadCrumb, StyledInput } from "./styles";
+import { BreadCrumb, StyledCard, StyledInput } from "./styles";
+import ReactSlider from "react-slider";
+import styles from './Create.module.css'
 
 const CreateSurvey = () => {
 	const [title, setTitle] = useState(" ");
 	const [deskripsi, setDeskripsi] = useState(" ");
+	const [currentValue, setCurrentValue] = useState(0);
+
 
 	return (
 		<div>
@@ -115,6 +119,71 @@ const CreateSurvey = () => {
 						</Grid>
 					</Button>
 				</Grid>
+				<StyledCard>
+					<Grid container alignItems="center" gap={5} style={{ width: "100%", padding: "0 16px" }}>
+						<StyledInput
+							autoFocus
+							onChange={(e) => setTitle(e.target.value)}
+							style={{
+								width: `${title.length}ch`,
+								minWidth: "185px",
+								maxWidth: "350px",
+								fontWeight: "bold",
+								color: 'black'
+							}}
+							placeholder="Berikan Pertanyaan Disini"
+						/>
+						<IcEdit width={16} color="#55b434" />
+					</Grid>
+					<Grid container alignItems="center" gap={5} style={{ width: "100%", padding: "0 16px" }}>
+						<StyledInput
+							autoFocus
+							onChange={(e) => setTitle(e.target.value)}
+							style={{
+								width: `${title.length}ch`,
+								minWidth: "290px",
+								maxWidth: "350px",
+								fontSize: '12px'
+							}}
+
+							placeholder="Tambahkan deskripsi pertanyaan mu (optional)"
+						/>
+						<IcEdit width={16} color="#55b434" />
+						<ReactSlider
+							className={styles.customSlider}
+							trackClassName={`${styles['customSlider-track']}`}
+							thumbClassName={styles['customSlider-thumb']}
+							markClassName={styles['customSlider-mark']}
+							marks
+							min={0}
+							max={10}
+							defaultValue={0}
+							value={currentValue}
+							onChange={(value) => setCurrentValue(value)}
+							renderMark={(props: any) => {
+								if (props.key < currentValue) {
+									// props.className = "customSlider-mark customSlider-mark-before";
+									props.className = `${styles['customSlider-mark']} ${styles['customSlider-mark-before']}`;
+								} else if (props.key === currentValue) {
+									// props.className = "customSlider-mark customSlider-mark-active";
+									props.className = `${styles['customSlider-mark']} ${styles['customSlider-mark-active']}`;
+								}
+								return <span {...props} />;
+							}}
+							renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+						/>
+						{/* <ReactSlider
+							className={styles['horizontal-slider']}
+							marks
+							markClassName={styles['example-mark']}
+							min={0}
+							max={9}
+							thumbClassName={styles['example-thumb']}
+							trackClassName={styles['example-track']}
+							
+						/> */}
+					</Grid>
+				</StyledCard>
 			</Grid>
 		</div>
 	);
