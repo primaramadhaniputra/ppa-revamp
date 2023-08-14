@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import IcBuilding from "atoms/Icon/IcBuilding";
-import { Button, Grid, Text, Toggler } from "@hudoro/neron";
+import { Button, Checkbox, Grid, Input, Text, Toggler, fontFamilies } from "@hudoro/neron";
 import { IcEdit, IcFilter } from "atoms/Icon";
 import { BreadCrumb, StyledCard, StyledInput } from "./styles";
 import ReactSlider from "react-slider";
 import styles from './Create.module.css'
+import Modal from "molecules/Modal";
+import ModalHooks from "molecules/Modal/ModalHooks";
+import Jabatan from "./Jabatan";
 
 const CreateSurvey = () => {
 	const [title, setTitle] = useState(" ");
 	const [deskripsi, setDeskripsi] = useState(" ");
 	const [currentValue, setCurrentValue] = useState(0);
 
-
 	return (
 		<div>
+
 			<BreadCrumb>
 				<li>
 					<a href="#">
@@ -111,14 +114,7 @@ const CreateSurvey = () => {
 						<IcEdit width={16} color="#55b434" />
 					</Grid>
 				</Grid>
-				<Grid>
-					<Button variant="primary" style={{ backgroundColor: '#141bbe', borderRadius: "6px" }}>
-						<Grid container alignItems="center" gap={4}>
-							<span>Jabatan</span>
-							<IcFilter width={14} />
-						</Grid>
-					</Button>
-				</Grid>
+				<Jabatan />
 				<StyledCard>
 					<Grid container alignItems="center" gap={5} style={{ width: "100%", padding: "0 16px" }}>
 						<StyledInput
@@ -151,7 +147,7 @@ const CreateSurvey = () => {
 						<IcEdit width={16} color="#55b434" />
 						<ReactSlider
 							className={styles.customSlider}
-							trackClassName={`${styles['customSlider-track']}`}
+							trackClassName={`${styles['customSlider-track']} ${styles['customSlider-track-0']}`}
 							thumbClassName={styles['customSlider-thumb']}
 							markClassName={styles['customSlider-mark']}
 							marks
@@ -172,16 +168,6 @@ const CreateSurvey = () => {
 							}}
 							renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
 						/>
-						{/* <ReactSlider
-							className={styles['horizontal-slider']}
-							marks
-							markClassName={styles['example-mark']}
-							min={0}
-							max={9}
-							thumbClassName={styles['example-thumb']}
-							trackClassName={styles['example-track']}
-							
-						/> */}
 					</Grid>
 				</StyledCard>
 			</Grid>
