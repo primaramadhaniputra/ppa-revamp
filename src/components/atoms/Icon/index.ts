@@ -34,6 +34,7 @@ import IcCalendarShape from "./IcCalendarShape";
 import IcFile from "./IcFile";
 import IcPaper from "./IcPaper";
 import IcLink from "./IcLink";
+import IcFilter from "./IcFilter";
 
 export {
 	IcClose,
@@ -72,4 +73,5 @@ export {
 	IcFile,
 	IcPaper,
 	IcLink,
+	IcFilter,
 };

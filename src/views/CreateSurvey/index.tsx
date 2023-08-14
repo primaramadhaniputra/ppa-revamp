@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IcBuilding from "atoms/Icon/IcBuilding";
-import { Grid, Text, Toggler } from "@hudoro/neron";
-import { IcEdit } from "atoms/Icon";
+import { Button, Grid, Text, Toggler } from "@hudoro/neron";
+import { IcEdit, IcFilter } from "atoms/Icon";
 import { BreadCrumb, StyledInput } from "./styles";
 
 const CreateSurvey = () => {
@@ -106,6 +106,14 @@ const CreateSurvey = () => {
 						/>
 						<IcEdit width={16} color="#55b434" />
 					</Grid>
+				</Grid>
+				<Grid>
+					<Button variant="primary" style={{ backgroundColor: '#141bbe', borderRadius: "6px" }}>
+						<Grid container alignItems="center" gap={4}>
+							<span>Jabatan</span>
+							<IcFilter width={14} />
+						</Grid>
+					</Button>
 				</Grid>
 			</Grid>
 		</div>
