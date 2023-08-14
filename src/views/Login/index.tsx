@@ -25,7 +25,6 @@ interface IProps {
 }
 
 const RenderLayout = ({ id }: IProps) => {
-	console.log("id", id);
 	if (id === 1) {
 		return <Login1 />;
 	} else if (id === 2) {

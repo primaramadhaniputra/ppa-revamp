@@ -27,9 +27,10 @@ const SurveyDetail = () => {
 			const response = await getReportSite({
 				path: `/${slug}`,
 			});
+			console.log('respnose', response.data.data)
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
-		} catch (error) {}
+		} catch (error) { }
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
@@ -117,7 +118,6 @@ const SurveyDetail = () => {
 						const rata2 = item.users.reduce((acc: any, curr: any) => {
 							return (acc += Number(curr.averageValue));
 						}, 0);
-						console.log(rata2);
 
 						return (
 							<tr>

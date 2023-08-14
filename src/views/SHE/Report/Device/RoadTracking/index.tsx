@@ -1,7 +1,7 @@
 import { Grid } from "@hudoro/neron";
 import InputTime from "atoms/InputTime";
 import StyledDropdownMenu from "molecules/StyledDropdownMenu";
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import LayoutTable from "src/components/layouts/LayoutTable";
 import TopFilter from "src/components/organism/TopFilter";
 import dynamic from "next/dynamic";
@@ -16,8 +16,7 @@ const data = ["ABC", "CBA"];
 export default function RoadTracking() {
 	const [activeDropdown, setActiveDropdown] = useState([]);
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		console.log("eeeeeeeeeeee", e.target.value);
+	const handleChange = () => {
 	};
 
 	return (

@@ -37,7 +37,6 @@ const UserProfile = ({ setIdDetailParticsipan }: IProps) => {
 
 	setMeta((response as IPromiseResult)?.data.meta);
 	setPartisipans((response as IPromiseResult)?.data.data);
-	console.log(response);
 
 	const handlePageClick = (event: any) => {
 		setIdDetailParticsipan(undefined);

@@ -10,8 +10,7 @@ const tabTitle = [
 	//  "Machine Condition"
 ];
 
-const renderContent = (activeTab: number) => {
-	console.log(activeTab);
+const renderContent = () => {
 	return <Production />;
 	// if (activeTab === 0) {
 	// 	return <Production />;
@@ -27,7 +26,7 @@ export default function Device() {
 	return (
 		<>
 			<TabV2 tabsData={tabTitle} activeTab={activeTab} setActiveTab={setActiveTab} />
-			{renderContent(activeTab)}
+			{renderContent()}
 		</>
 	);
 }
