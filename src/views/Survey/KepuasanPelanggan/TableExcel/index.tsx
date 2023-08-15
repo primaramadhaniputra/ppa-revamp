@@ -20,14 +20,14 @@ const renderTextColor = (type: string) => {
 	return "#7030A0";
 };
 // reportCriteria
-const TableExcel = ({ }: IProps) => {
+const TableExcel = ({}: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
 	const [rataRataPerSite, setRataRataPerSite] = useState<{
-		[x: string]: Array<number>
-	}>({})
+		[x: string]: Array<number>;
+	}>({});
 
 	const periodeId = Cookies.get("periodeId");
 
@@ -41,18 +41,20 @@ const TableExcel = ({ }: IProps) => {
 			setCriticismAndSuggestions(criticismAndSuggestions);
 			const uniqueChars = [...new Set(assessmentCriteria.map((item: any) => item.sectionName))];
 
-			// test calculate data 
+			// test calculate data
 			const data: {
-				[x: string]: Array<number>
-			} = {}
+				[x: string]: Array<number>;
+			} = {};
 			for (let i = 0; i < assessmentCriteria.length; i++) {
 				assessmentCriteria[i].companies.map((item: any) => {
-					const number = Number(item.averageValue)
-					return data[item.slug] ? data[item.slug].push(Number(number.toFixed(2))) : data[item.slug] = [Number(number.toFixed(2))]
-				})
+					const number = Number(item.averageValue);
+					return data[item.slug]
+						? data[item.slug].push(Number(number.toFixed(2)))
+						: (data[item.slug] = [Number(number.toFixed(2))]);
+				});
 			}
 
-			setRataRataPerSite(data)
+			setRataRataPerSite(data);
 
 			const newData = uniqueChars.map((item) => {
 				return {
@@ -78,7 +80,7 @@ const TableExcel = ({ }: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -156,7 +158,7 @@ const TableExcel = ({ }: IProps) => {
 		return newRata;
 	};
 
-	console.log('rata', rataRataPerSite)
+	console.log("rata", rataRataPerSite);
 
 	return (
 		<>
@@ -258,9 +260,7 @@ const TableExcel = ({ }: IProps) => {
 									{item.sectionName}
 								</td>
 								{rataRataRowSite(item.data).map((item) => {
-									return (
-										<td>{item}</td>
-									)
+									return <td>{item}</td>;
 								})}
 								<td></td>
 							</tr>
@@ -273,81 +273,81 @@ const TableExcel = ({ }: IProps) => {
 							RATA RATA PER SITE
 						</td>
 						<td>
-							{
-								(rataRataPerSite.abp?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.abp?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.abp?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.abp?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.adw?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.adw?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.adw?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.adw?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.ami?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.ami?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.ami?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.ami?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.ba?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.ba?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.ba?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.ba?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.bcp?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.bcp?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.bcp?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.bcp?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.bib?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.bib?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.bib?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.bib?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite['bib-rom']?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite['bib-rom']?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite["bib-rom"]?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite["bib-rom"]?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.mhu?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.mhu?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.mhu?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.mhu?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.mip?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.mip?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.mip?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.mip?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.mlp?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.mlp?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.mlp?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.mlp?.length
+							).toFixed(2)}
 						</td>
 						<td>
-							{
-								(rataRataPerSite.sks?.reduce((acc, curr) => {
-									return acc += curr
-								}, 0) / rataRataPerSite.sks?.length).toFixed(2)
-							}
+							{(
+								rataRataPerSite.sks?.reduce((acc, curr) => {
+									return (acc += curr);
+								}, 0) / rataRataPerSite.sks?.length
+							).toFixed(2)}
 						</td>
 					</tr>
 				</tbody>

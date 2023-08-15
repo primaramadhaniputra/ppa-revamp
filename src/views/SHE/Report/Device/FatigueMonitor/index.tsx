@@ -13,8 +13,7 @@ const data = ["ABC", "CBA"];
 export default function RoadTracking() {
 	const [activeDropdown, setActiveDropdown] = useState([]);
 
-	const handleChange = () => {
-	};
+	const handleChange = () => {};
 
 	return (
 		<>

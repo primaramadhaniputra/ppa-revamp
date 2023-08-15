@@ -13,8 +13,7 @@ const data = ["ABC", "CBA"];
 export default function DumpControl() {
 	const [activeDropdown, setActiveDropdown] = useState([]);
 
-	const handleChange = () => {
-	};
+	const handleChange = () => {};
 
 	return (
 		<>

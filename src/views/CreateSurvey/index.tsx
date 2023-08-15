@@ -4,7 +4,7 @@ import { Grid, Text, Toggler } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import { BreadCrumb, StyledCard, StyledInput } from "./styles";
 import ReactSlider from "react-slider";
-import styles from './Create.module.css'
+import styles from "./Create.module.css";
 import Jabatan from "./Jabatan";
 
 const CreateSurvey = () => {
@@ -14,7 +14,6 @@ const CreateSurvey = () => {
 
 	return (
 		<div>
-
 			<BreadCrumb>
 				<li>
 					<a href="#">
@@ -123,7 +122,7 @@ const CreateSurvey = () => {
 								minWidth: "185px",
 								maxWidth: "350px",
 								fontWeight: "bold",
-								color: 'black'
+								color: "black",
 							}}
 							placeholder="Berikan Pertanyaan Disini"
 						/>
@@ -137,17 +136,16 @@ const CreateSurvey = () => {
 								width: `${title.length}ch`,
 								minWidth: "290px",
 								maxWidth: "350px",
-								fontSize: '12px'
+								fontSize: "12px",
 							}}
-
 							placeholder="Tambahkan deskripsi pertanyaan mu (optional)"
 						/>
 						<IcEdit width={16} color="#55b434" />
 						<ReactSlider
 							className={styles.customSlider}
-							trackClassName={`${styles['customSlider-track']} ${styles['customSlider-track-0']}`}
-							thumbClassName={styles['customSlider-thumb']}
-							markClassName={styles['customSlider-mark']}
+							trackClassName={`${styles["customSlider-track"]} ${styles["customSlider-track-0"]}`}
+							thumbClassName={styles["customSlider-thumb"]}
+							markClassName={styles["customSlider-mark"]}
 							marks
 							min={0}
 							max={10}
@@ -157,10 +155,10 @@ const CreateSurvey = () => {
 							renderMark={(props: any) => {
 								if (props.key < currentValue) {
 									// props.className = "customSlider-mark customSlider-mark-before";
-									props.className = `${styles['customSlider-mark']} ${styles['customSlider-mark-before']}`;
+									props.className = `${styles["customSlider-mark"]} ${styles["customSlider-mark-before"]}`;
 								} else if (props.key === currentValue) {
 									// props.className = "customSlider-mark customSlider-mark-active";
-									props.className = `${styles['customSlider-mark']} ${styles['customSlider-mark-active']}`;
+									props.className = `${styles["customSlider-mark"]} ${styles["customSlider-mark-active"]}`;
 								}
 								return <span {...props} />;
 							}}

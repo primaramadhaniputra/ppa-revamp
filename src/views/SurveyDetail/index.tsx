@@ -27,11 +27,10 @@ const SurveyDetail = () => {
 			const response = await getReportSite({
 				path: `/${slug}`,
 			});
-			console.log('respnose', response.data.data.assessmentCriteria
-			)
+			console.log("respnose", response.data.data.assessmentCriteria);
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
-		} catch (error) { }
+		} catch (error) {}
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
