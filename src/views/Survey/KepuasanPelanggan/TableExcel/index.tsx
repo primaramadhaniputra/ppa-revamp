@@ -20,7 +20,7 @@ const renderTextColor = (type: string) => {
 	return "#7030A0";
 };
 // reportCriteria
-const TableExcel = ({}: IProps) => {
+const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [allSite, setAllSite] = useState<any>([]);
@@ -80,7 +80,7 @@ const TableExcel = ({}: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
@@ -165,7 +165,7 @@ const TableExcel = ({}: IProps) => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table ref={tableRef}>
+			<Table hidden ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
