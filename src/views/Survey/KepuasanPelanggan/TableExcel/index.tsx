@@ -12,6 +12,14 @@ interface IProps {
 	reportCriteria: ISurveyReportCriteria[];
 }
 
+const renderScore = (type: string) => {
+	const number = Number(type);
+	if (number < 6) return "Need Improvement (kurang)";
+	if (number < 8) return "Enough (Cukup)";
+	if (number < 10) return "Good (Bagus)";
+	return "Excellent (Bagus Sekali)";
+};
+
 const renderTextColor = (type: string) => {
 	const number = Number(type);
 	if (number < 6) return "#FF0000";
@@ -23,11 +31,9 @@ const renderTextColor = (type: string) => {
 const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
+	const [assessmentCriteria, setAssessmentCriteria] = useState([])
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
-	const [rataRataPerSite, setRataRataPerSite] = useState<{
-		[x: string]: Array<number>;
-	}>({});
 
 	const periodeId = Cookies.get("periodeId");
 
@@ -40,21 +46,7 @@ const TableExcel = ({ }: IProps) => {
 			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
 			setCriticismAndSuggestions(criticismAndSuggestions);
 			const uniqueChars = [...new Set(assessmentCriteria.map((item: any) => item.sectionName))];
-
-			// test calculate data
-			const data: {
-				[x: string]: Array<number>;
-			} = {};
-			for (let i = 0; i < assessmentCriteria.length; i++) {
-				assessmentCriteria[i].companies.map((item: any) => {
-					const number = Number(item.averageValue);
-					return data[item.slug]
-						? data[item.slug].push(Number(number.toFixed(2)))
-						: (data[item.slug] = [Number(number.toFixed(2))]);
-				});
-			}
-
-			setRataRataPerSite(data);
+			setAssessmentCriteria(assessmentCriteria)
 
 			const newData = uniqueChars.map((item) => {
 				return {
@@ -96,69 +88,18 @@ const TableExcel = ({ }: IProps) => {
 	});
 
 	const rataRataRowSite = (data: any) => {
-		let rata = [];
-		for (let i = 0; i < data.length; i++) {
-			const testing = data[i].companies.map((item: any) => {
-				return item.averageValue;
-			});
-			rata.push({ ...testing });
-		}
-		let nilai1 = 0;
-		let nilai2 = 0;
-		let nilai3 = 0;
-		let nilai4 = 0;
-		let nilai5 = 0;
-		let nilai6 = 0;
-		let nilai7 = 0;
-		let nilai8 = 0;
-		let nilai9 = 0;
-		let nilai10 = 0;
-		let nilai11 = 0;
-		rata.map((item) => {
-			for (const [key, value] of Object.entries(item)) {
-				if (Number(key) === 0) {
-					nilai1 += Number(value);
-				} else if (Number(key) === 1) {
-					nilai2 += Number(value);
-				} else if (Number(key) === 2) {
-					nilai3 += Number(value);
-				} else if (Number(key) === 3) {
-					nilai4 += Number(value);
-				} else if (Number(key) === 4) {
-					nilai5 += Number(value);
-				} else if (Number(key) === 5) {
-					nilai6 += Number(value);
-				} else if (Number(key) === 6) {
-					nilai7 += Number(value);
-				} else if (Number(key) === 7) {
-					nilai8 += Number(value);
-				} else if (Number(key) === 8) {
-					nilai9 += Number(value);
-				} else if (Number(key) === 9) {
-					nilai10 += Number(value);
-				} else if (Number(key) === 10) {
-					nilai11 += Number(value);
-				}
+		let elementRata: any = {}
+		for (const element of data) {
+			for (let i = 0; i < element.companies.length; i++) {
+				elementRata[i] = (elementRata[i] || 0) + Number(element.companies[i]?.averageValue)
 			}
-		});
-
-		const newRata = [
-			(nilai1 / data.length).toFixed(2),
-			(nilai2 / data.length).toFixed(2),
-			(nilai3 / data.length).toFixed(2),
-			(nilai4 / data.length).toFixed(2),
-			(nilai5 / data.length).toFixed(2),
-			(nilai6 / data.length).toFixed(2),
-			(nilai7 / data.length).toFixed(2),
-			(nilai8 / data.length).toFixed(2),
-			(nilai9 / data.length).toFixed(2),
-			(nilai10 / data.length).toFixed(2),
-			(nilai11 / data.length).toFixed(2),
-		];
-		return newRata;
+		}
+		const newElementRata = Object.keys(elementRata).map(index => {
+			return (elementRata[index] / data.length).toFixed(2)
+		})
+		return newElementRata
 	};
 
-	console.log("rata", rataRataPerSite);
 
 	return (
 		<>
@@ -272,83 +213,9 @@ const TableExcel = ({ }: IProps) => {
 						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
 							RATA RATA PER SITE
 						</td>
-						<td>
-							{(
-								rataRataPerSite.abp?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.abp?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.adw?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.adw?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.ami?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.ami?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.ba?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.ba?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.bcp?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.bcp?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.bib?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.bib?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite["bib-rom"]?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite["bib-rom"]?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.mhu?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.mhu?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.mip?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.mip?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.mlp?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.mlp?.length
-							).toFixed(2)}
-						</td>
-						<td>
-							{(
-								rataRataPerSite.sks?.reduce((acc, curr) => {
-									return (acc += curr);
-								}, 0) / rataRataPerSite.sks?.length
-							).toFixed(2)}
-						</td>
+						{rataRataRowSite(assessmentCriteria).map((item) => {
+							return <td>{item}</td>;
+						})}
 					</tr>
 				</tbody>
 				<tbody>
@@ -356,6 +223,9 @@ const TableExcel = ({ }: IProps) => {
 						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
 							SCORE
 						</td>
+						{rataRataRowSite(assessmentCriteria).map((item) => {
+							return <td>{renderScore(item)}</td>;
+						})}
 					</tr>
 				</tbody>
 				<tbody>
