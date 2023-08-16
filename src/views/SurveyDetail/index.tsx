@@ -30,7 +30,7 @@ const SurveyDetail = () => {
 
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
-		} catch (error) { }
+		} catch (error) {}
 	};
 	useEffect(() => {
 		handleGetReportAllSite();

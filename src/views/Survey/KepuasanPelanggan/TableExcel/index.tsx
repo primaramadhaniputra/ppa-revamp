@@ -28,10 +28,10 @@ const renderTextColor = (type: string) => {
 	return "#7030A0";
 };
 // reportCriteria
-const TableExcel = ({ }: IProps) => {
+const TableExcel = ({}: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
-	const [assessmentCriteria, setAssessmentCriteria] = useState([])
+	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
 
@@ -46,7 +46,7 @@ const TableExcel = ({ }: IProps) => {
 			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
 			setCriticismAndSuggestions(criticismAndSuggestions);
 			const uniqueChars = [...new Set(assessmentCriteria.map((item: any) => item.sectionName))];
-			setAssessmentCriteria(assessmentCriteria)
+			setAssessmentCriteria(assessmentCriteria);
 
 			const newData = uniqueChars.map((item) => {
 				return {
@@ -72,7 +72,7 @@ const TableExcel = ({ }: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -88,18 +88,17 @@ const TableExcel = ({ }: IProps) => {
 	});
 
 	const rataRataRowSite = (data: any) => {
-		let elementRata: any = {}
+		let elementRata: any = {};
 		for (const element of data) {
 			for (let i = 0; i < element.companies.length; i++) {
-				elementRata[i] = (elementRata[i] || 0) + Number(element.companies[i]?.averageValue)
+				elementRata[i] = (elementRata[i] || 0) + Number(element.companies[i]?.averageValue);
 			}
 		}
-		const newElementRata = Object.keys(elementRata).map(index => {
-			return (elementRata[index] / data.length).toFixed(2)
-		})
-		return newElementRata
+		const newElementRata = Object.keys(elementRata).map((index) => {
+			return (elementRata[index] / data.length).toFixed(2);
+		});
+		return newElementRata;
 	};
-
 
 	return (
 		<>
