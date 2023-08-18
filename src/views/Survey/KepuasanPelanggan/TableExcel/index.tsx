@@ -125,7 +125,7 @@ const TableExcel = ({ }: IProps) => {
 				</div>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table ref={tableRef}>
+			<Table hidden ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>

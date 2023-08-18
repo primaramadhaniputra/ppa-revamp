@@ -67,20 +67,19 @@ const SurveyDetail = () => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download Excel" onClick={onDownload} />
 			</Grid>
-			<table hidden ref={tableRef}>
+			<table ref={tableRef}>
 				<thead>
 					<tr>
-						<th>ppa</th>
-						<th colSpan={10}>
+						<th>{site}</th>
+						{/* <th colSpan={10}>
 							FULL SERVICE MINING CONTRACTOR PT. PUTRA PERKASA ABADI OFFICE: GEDUNG OFFICE 8 LT. 8 ,
 							JL. SENOPATI RAYA NO.8 B RT.01, RW.02 SENAYAN KEBAYORAN BARU - JAKARTA TEL:
 							021-57903456 (7) FAX: 021-57903458
-						</th>
+						</th> */}
 					</tr>
 					<tr>
 						<th colSpan={11} style={{ background: "black", color: "white" }}>
-							LAPORAN REKAPITULASI EVALUASI SURVEY KEPUASAN PELANGGAN TAHUN 2023 SEMESTER 1 PPA SITE
-							BUKIT ASAM
+							LAPORAN REKAPITULASI EVALUASI SURVEY KEPUASAN PELANGGAN {site}
 						</th>
 					</tr>
 					<tr>
