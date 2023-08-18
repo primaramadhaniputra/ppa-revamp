@@ -125,7 +125,7 @@ const TableExcel = ({ }: IProps) => {
 				</div>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
-			<Table hidden ref={tableRef}>
+			<Table ref={tableRef}>
 				<thead>
 					<tr>
 						<th>ppa</th>
@@ -137,8 +137,7 @@ const TableExcel = ({ }: IProps) => {
 					</tr>
 					<tr>
 						<th colSpan={11} style={{ background: "black", color: "white" }}>
-							LAPORAN REKAPITULASI EVALUASI SURVEY KEPUASAN PELANGGAN TAHUN 2023 SEMESTER 1 PPA SITE
-							BUKIT ASAM
+							LAPORAN REKAPITULASI EVALUASI SURVEY KEPUASAN PELANGGAN ALL SITE
 						</th>
 					</tr>
 					<tr>
