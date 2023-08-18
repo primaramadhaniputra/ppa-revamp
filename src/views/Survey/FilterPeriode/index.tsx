@@ -7,7 +7,7 @@ import { SelectContainer } from "./styles";
 
 interface IProps {
 	setPeriodeId: React.Dispatch<any>;
-	periodeId?: string
+	periodeId?: string;
 }
 
 const FilterPeriod = ({ periodeId, setPeriodeId }: IProps) => {
@@ -22,7 +22,12 @@ const FilterPeriod = ({ periodeId, setPeriodeId }: IProps) => {
 	};
 	return (
 		<SelectContainer>
-			<Select items={periode} defaultValue={periode.find(item => item.id === periodeId)} onChange={handleChangePeriode} placeholder="Survey Type..." />
+			<Select
+				items={periode}
+				defaultValue={periode.find((item) => item.id === periodeId)}
+				onChange={handleChangePeriode}
+				placeholder="Survey Type..."
+			/>
 		</SelectContainer>
 	);
 };

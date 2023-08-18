@@ -27,37 +27,38 @@ const renderTextColor = (type: string) => {
 	if (number < 10) return "#01B050";
 	return "#7030A0";
 };
-const parentCompany: ISelectItem[] = [{
-	id: '0',
-	label: 'All',
-	values: '0'
-},
-{
-	id: '1',
-	label: 'PPA',
-	values: '1'
-},
-{
-	id: "2",
-	label: 'AMM',
-	values: "2"
-}
-]
+const parentCompany: ISelectItem[] = [
+	{
+		id: "0",
+		label: "All",
+		values: "0",
+	},
+	{
+		id: "1",
+		label: "PPA",
+		values: "1",
+	},
+	{
+		id: "2",
+		label: "AMM",
+		values: "2",
+	},
+];
 // reportCriteria
-const TableExcel = ({ }: IProps) => {
+const TableExcel = ({}: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
-	const [parentCompanyId, setParentCompanyId] = useState('0')
+	const [parentCompanyId, setParentCompanyId] = useState("0");
 
 	const periodeId = Cookies.get("periodeId");
 
 	const handleGetReportAllSite = async () => {
 		try {
 			const response = await getReportAllsite({
-				path: `/${periodeId}?${parentCompanyId !== '0' && `parentCompanyId=${parentCompanyId}`}`,
+				path: `/${periodeId}?${parentCompanyId !== "0" && `parentCompanyId=${parentCompanyId}`}`,
 			});
 			const assessmentCriteria = response.data.data.assessmentCriteria;
 			const criticismAndSuggestions = response.data.data.criticismAndSuggestions;
@@ -89,7 +90,7 @@ const TableExcel = ({ }: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) { }
+		} catch (error) {}
 	};
 
 	useEffect(() => {
@@ -121,7 +122,11 @@ const TableExcel = ({ }: IProps) => {
 		<>
 			<Grid container justifyContent="flex-end" gap={10} style={{ marginTop: "20px" }}>
 				<div>
-					<Select onChange={e => setParentCompanyId(e?.values)} items={parentCompany} defaultValue={parentCompany[0]} />
+					<Select
+						onChange={(e) => setParentCompanyId(e?.values)}
+						items={parentCompany}
+						defaultValue={parentCompany[0]}
+					/>
 				</div>
 				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
