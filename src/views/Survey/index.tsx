@@ -45,7 +45,7 @@ const Survey = () => {
 					Survey Kepuasan Pelanggan
 				</TitlePage>
 				<Grid container alignItems="center" gap={10}>
-					<FilterPeriod setPeriodeId={setPeriodeId} />
+					<FilterPeriod periodeId={periodeId} setPeriodeId={setPeriodeId} />
 					<Grid>
 						<Button
 							style={{ borderBottom: "1px solid #5359ED", borderRadius: "0", padding: 0 }}

@@ -22,6 +22,7 @@ export default function SurveyPage() {
 	if (loading || !response || !newPeriodes) {
 		return <Loading />;
 	}
+
 	setPeriodes(newPeriodes);
 
 	return <SurveyView />;

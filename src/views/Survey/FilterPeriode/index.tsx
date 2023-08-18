@@ -7,9 +7,10 @@ import { SelectContainer } from "./styles";
 
 interface IProps {
 	setPeriodeId: React.Dispatch<any>;
+	periodeId?: string
 }
 
-const FilterPeriod = ({ setPeriodeId }: IProps) => {
+const FilterPeriod = ({ periodeId, setPeriodeId }: IProps) => {
 	const periode = useSurveyPeriodeValue();
 	// const periodeName = Cookies.get("periode");
 
@@ -19,10 +20,9 @@ const FilterPeriod = ({ setPeriodeId }: IProps) => {
 		Cookies.set("periode", dataPeriode?.label!);
 		Cookies.set("periodeId", dataPeriode!.id.toString());
 	};
-
 	return (
 		<SelectContainer>
-			<Select items={periode} onChange={handleChangePeriode} placeholder="Survey Type..." />
+			<Select items={periode} defaultValue={periode.find(item => item.id === periodeId)} onChange={handleChangePeriode} placeholder="Survey Type..." />
 		</SelectContainer>
 	);
 };

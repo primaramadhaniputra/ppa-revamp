@@ -40,6 +40,7 @@ const API = {
 	getPartisipan: apiRequest.get(apiEndpoints.survey),
 	getAllsite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/all-sites`),
 	getSite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/sites`),
+	getParentCompany: apiRequest.get(`${appActiveConfig.hsd}`),
 };
 
 export default API;

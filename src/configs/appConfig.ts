@@ -9,6 +9,7 @@ const appEnvironment = {
 		ssourl: `${process.env.NEXT_PUBLIC_ROOT_SSO_URL}`,
 		ppaurl11: `${process.env.NEXT_PUBLIC_ROOT_API_URL_PPA_11}`,
 		ppaurl19: `${process.env.NEXT_PUBLIC_ROOT_API_URL_PPA_19}/v1`,
+		hsd: `${process.env.NEXT_PUBLIC_ROOT_API_URL_SURVEY}/v1`,
 	},
 };
 
