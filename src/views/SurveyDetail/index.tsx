@@ -67,7 +67,7 @@ const SurveyDetail = () => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download Excel" onClick={onDownload} />
 			</Grid>
-			<table ref={tableRef}>
+			<table hidden ref={tableRef}>
 				<thead>
 					<tr>
 						<th>{site}</th>
