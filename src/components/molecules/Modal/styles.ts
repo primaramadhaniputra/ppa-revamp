@@ -1,3 +1,4 @@
+import { fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
 interface IPropsModal {
@@ -26,6 +27,7 @@ export const ModalContent = styled.div<IPropsModal>`
 	border-radius: 5px;
 	transform: ${(props) => (props.isOpen ? "translateY(0)" : "translateY(-30px)")};
 	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+	font-family: ${fontFamilies.openSans};
 `;
 
 export const ModalHeader = styled.div`

@@ -1,50 +1,48 @@
-import { Button, Checkbox, Grid, Input, Text } from "@hudoro/neron";
+import { Button, Grid } from "@hudoro/neron";
 import { IcFilter } from "atoms/Icon";
 import Modal from "molecules/Modal";
 import ModalHooks from "molecules/Modal/ModalHooks";
-import React from "react";
-import { JabatanContainer, PerusahaanContainer } from "./styles";
+import React, { useState } from "react";
+import JabatanHeader from "./JabatanHeader";
+import Perusahaan from "./Perusahaan";
+import FilterJabatan from "./FilterJabatan";
+
+const dataJabatan = [
+	{
+		label: 'satu',
+		id: 'satu'
+	},
+	{
+		label: 'dua',
+		id: 'dua'
+	},
+	{
+		label: 'tiga',
+		id: 'tiga'
+	},
+	{
+		label: 'empat',
+		id: 'empat'
+	},
+	{
+		label: 'lima',
+		id: 'lima'
+	}
+]
 
 const Jabatan = () => {
 	const { isOpenModal, handleCloseModal, handleOpenModal } = ModalHooks();
+
+	const [dataChecked, setDataChecked] = useState<{ label: string, id: string }[]>([])
+	const [isCheckAll, setIsCheckAll] = useState(false)
+
 	return (
 		<>
-			<Modal onClose={handleCloseModal} isShow={isOpenModal} title="Filter Jabatan">
+			<Modal onClose={handleCloseModal} isShow={isOpenModal} >
+				<JabatanHeader setDataChecked={setDataChecked} setIsCheckAll={setIsCheckAll} />
 				<Grid container flexDirection="row" style={{ width: "90vw", maxWidth: "600px" }}>
-					<PerusahaanContainer>
-						<Text variant="p">Perusahaan</Text>
-						<Text variant="p">PT. MHU</Text>
-						<Text variant="p">PT. MHU</Text>
-						<Text variant="p">PT. MHU</Text>
-						<Text variant="p">PT. MHU</Text>
-						<Text variant="p">PT. MHU</Text>
-					</PerusahaanContainer>
-					<JabatanContainer>
-						<Grid
-							style={{ borderBottom: "1px solid #ddd", padding: "10px 10px 8px 8px" }}
-							container
-							justifyContent="space-between"
-						>
-							<Text variant="p">Jabatan</Text>
-							<Checkbox checked />
-						</Grid>
-						<Grid
-							flexDirection="column"
-							gap={12}
-							container
-							style={{ padding: "10px 10px 8px 8px" }}
-						>
-							<Input
-								placeholder="Cari Jabatan Anda Disini"
-								iconLeft="IcSearch"
-								style={{ borderRadius: "4px" }}
-							/>
-							<Grid container justifyContent="space-between">
-								<Text variant="p">Nama Jabatan</Text>
-								<Checkbox checked />
-							</Grid>
-						</Grid>
-					</JabatanContainer>
+					<Perusahaan />
+					<FilterJabatan data={dataJabatan} dataChecked={dataChecked} setDataChecked={setDataChecked} isCheckAll={isCheckAll} setIsCheckAll={setIsCheckAll} />
 				</Grid>
 			</Modal>
 			<Grid>

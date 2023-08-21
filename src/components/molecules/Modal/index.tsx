@@ -1,6 +1,6 @@
 import React from "react";
-import { Text } from "@hudoro/neron";
-import { ModalContent, ModalHeader, ModalOverlay, ModalBody } from "./styles";
+// import { Text } from "@hudoro/neron";
+import { ModalContent, ModalOverlay, ModalBody } from "./styles";
 
 interface IProps {
 	title?: string;
@@ -9,13 +9,13 @@ interface IProps {
 	onClose?: () => void;
 }
 
-const Modal = ({ title, children, isShow, onClose }: IProps) => {
+const Modal = ({ children, isShow, onClose }: IProps) => {
 	return (
 		<ModalOverlay onClick={onClose} isOpen={isShow}>
 			<ModalContent isOpen={isShow} onClick={(e) => e.stopPropagation()}>
-				<ModalHeader>
+				{/* <ModalHeader>
 					<Text variant="h4">{title}</Text>
-				</ModalHeader>
+				</ModalHeader> */}
 				<ModalBody>{children}</ModalBody>
 			</ModalContent>
 		</ModalOverlay>
