@@ -45,7 +45,7 @@ const parentCompany: ISelectItem[] = [
 	},
 ];
 // reportCriteria
-const TableExcel = ({}: IProps) => {
+const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
@@ -90,7 +90,7 @@ const TableExcel = ({}: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {

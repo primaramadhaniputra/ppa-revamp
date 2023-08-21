@@ -39,7 +39,7 @@ const API = {
 	getManajemenRisiko: apiRequest.get(apiEndpoints.manajemenRisiko),
 	getPartisipan: apiRequest.get(apiEndpoints.survey),
 	getAllsite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/all-sites`),
-	getSite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/sites`),
+	getSite: apiRequest.get(`${appActiveConfig.hsd}/reports/sites`),
 	getParentCompany: apiRequest.get(`${appActiveConfig.hsd}`),
 };
 

@@ -11,6 +11,14 @@ import { useEffect, useRef, useState } from "react";
 import { getReportSite } from "services/survey";
 import { useDownloadExcel } from "react-export-table-to-excel";
 
+const renderScore = (type: string) => {
+	const number = Number(type);
+	if (number < 6) return "Need Improvement (kurang)";
+	if (number < 8) return "Enough (Cukup)";
+	if (number < 10) return "Good (Bagus)";
+	return "Excellent (Bagus Sekali)";
+};
+
 const SurveyDetail = () => {
 	const site = Cookies.get("site");
 	const periode = Cookies.get("periode");
@@ -20,6 +28,7 @@ const SurveyDetail = () => {
 
 	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
+	const [participants, setParticipants] = useState([])
 
 	const handleGetReportAllSite = async () => {
 		try {
@@ -28,9 +37,10 @@ const SurveyDetail = () => {
 				path: `/${slug}`,
 			});
 
+			setParticipants(response.data.data.participants)
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
-		} catch (error) {}
+		} catch (error) { }
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
@@ -47,6 +57,19 @@ const SurveyDetail = () => {
 		if (value < 8) return "#FFFF00";
 		if (value < 10) return "#008001";
 		return "#800080";
+	};
+
+	const rataRataRowSite = (data: any) => {
+		let elementRata: any = {};
+		for (const element of data) {
+			for (let i = 0; i < element.users.length; i++) {
+				elementRata[i] = (elementRata[i] || 0) + Number(element.users[i]?.averageValue);
+			}
+		}
+		const newElementRata = Object.keys(elementRata).map((index) => {
+			return (elementRata[index] / data.length).toFixed(2);
+		});
+		return newElementRata;
 	};
 
 	return (
@@ -105,11 +128,26 @@ const SurveyDetail = () => {
 				<thead>
 					<tr>
 						<th colSpan={2}>Standar skala index angka kepuasan pelanggan pt ppa adalah 8</th>
+						{
+							participants.map((item: any, indx) => {
+								return (
+									<th key={indx}>{item.positionName}</th>
+								)
+							})
+						}
 					</tr>
 				</thead>
 				<thead>
 					<tr>
 						<th colSpan={2}>Kriteria Penilaian</th>
+						{
+							participants.map((item: any, indx) => {
+								return (
+									<th key={indx}>{item.fullName}</th>
+								)
+							})
+						}
+						<th >rata rata</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -129,18 +167,14 @@ const SurveyDetail = () => {
 											key={idx}
 											style={{
 												textAlign: "center",
-												color: "black",
 												border: "2px solid black",
 												backgroundColor: "white",
+												verticalAlign: 'middle',
+												background: renderColor(Number(data.averageValue)),
+												fontWeight: 'bold'
 											}}
 										>
-											<b>({data.positionName})</b>
-											<br />
-											{data.name}
-											<br />
-											<span style={{ color: renderColor(Number(data.averageValue)) }}>
-												<b>{data.averageValue}</b>
-											</span>
+											{data.averageValue}
 										</td>
 									);
 								})}
@@ -150,21 +184,35 @@ const SurveyDetail = () => {
 										textAlign: "center",
 										backgroundColor: renderColor(rata2 / item.users.length || 0),
 										border: "2px solid black",
+										fontWeight: "bold"
 									}}
 								>
-									<b>Rata-rata</b>
-									<br />
 									<b>{(rata2 / item.users.length || 0).toFixed(2)}</b>
 								</td>
 							</tr>
 						);
 					})}
 				</tbody>
-				{/* <thead>
+				<tbody>
 					<tr>
-						<th colSpan={2}>Kriteria Penilaian</th>
+						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
+							RATA RATA PER SITE
+						</td>
+						{rataRataRowSite(assessmentCriteria).map((item) => {
+							return <td style={{ textAlign: 'center', background: renderColor(Number(item)), fontWeight: "bold" }}>{item}</td>;
+						})}
 					</tr>
-				</thead> */}
+				</tbody>
+				<tbody>
+					<tr>
+						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
+							SCORE
+						</td>
+						{rataRataRowSite(assessmentCriteria).map((item) => {
+							return <td style={{ textAlign: 'center' }}>{renderScore(item)}</td>;
+						})}
+					</tr>
+				</tbody>
 				<tbody>
 					<tr>
 						<td>
