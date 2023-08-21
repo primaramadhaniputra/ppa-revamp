@@ -58,8 +58,8 @@ const FilterJabatan = ({ data: dataJabatan, dataChecked, setDataChecked, isCheck
         container
         justifyContent="space-between"
       >
-        <Text variant="p">Jabatan</Text>
-        <Checkbox checked={isCheckAll} onChange={handleCheckAll} />
+        <label htmlFor='all' style={{ fontWeight: '500', fontSize: "14px" }}>Jabatan</label>
+        <Checkbox id='all' checked={isCheckAll} onChange={handleCheckAll} />
       </Grid>
       <Grid
         flexDirection="column"
