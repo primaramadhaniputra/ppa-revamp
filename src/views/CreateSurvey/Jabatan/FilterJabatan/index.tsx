@@ -1,4 +1,4 @@
-import { Checkbox, Grid, Input, Text } from '@hudoro/neron'
+import { Checkbox, Grid, Input } from '@hudoro/neron'
 import React, { useMemo, useState } from 'react'
 import { JabatanContainer } from './styles'
 
