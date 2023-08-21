@@ -77,8 +77,8 @@ const FilterJabatan = ({ data: dataJabatan, dataChecked, setDataChecked, isCheck
         {
           fitleredData.map((item, idx) => (
             <Grid key={idx} container justifyContent="space-between">
-              <Text variant="p">{item.label}</Text>
-              <Checkbox onChange={() => handleDataChecked(item.label, item.id)} checked={Boolean(dataChecked.find(data => data.id == item.id))} value={item.id} />
+              <label htmlFor={item.label} style={{ fontSize: "12px" }}>{item.label}</label>
+              <Checkbox id={item.label} onChange={() => handleDataChecked(item.label, item.id)} checked={Boolean(dataChecked.find(data => data.id == item.id))} value={item.id} />
             </Grid>
           ))
         }
