@@ -28,7 +28,7 @@ const SurveyDetail = () => {
 
 	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
-	const [participants, setParticipants] = useState([])
+	const [participants, setParticipants] = useState([]);
 
 	const handleGetReportAllSite = async () => {
 		try {
@@ -37,10 +37,10 @@ const SurveyDetail = () => {
 				path: `/${slug}`,
 			});
 
-			setParticipants(response.data.data.participants)
+			setParticipants(response.data.data.participants);
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(response.data.data.assessmentCriteria);
-		} catch (error) { }
+		} catch (error) {}
 	};
 	useEffect(() => {
 		handleGetReportAllSite();
@@ -128,26 +128,18 @@ const SurveyDetail = () => {
 				<thead>
 					<tr>
 						<th colSpan={2}>Standar skala index angka kepuasan pelanggan pt ppa adalah 8</th>
-						{
-							participants.map((item: any, indx) => {
-								return (
-									<th key={indx}>{item.positionName}</th>
-								)
-							})
-						}
+						{participants.map((item: any, indx) => {
+							return <th key={indx}>{item.positionName}</th>;
+						})}
 					</tr>
 				</thead>
 				<thead>
 					<tr>
 						<th colSpan={2}>Kriteria Penilaian</th>
-						{
-							participants.map((item: any, indx) => {
-								return (
-									<th key={indx}>{item.fullName}</th>
-								)
-							})
-						}
-						<th >rata rata</th>
+						{participants.map((item: any, indx) => {
+							return <th key={indx}>{item.fullName}</th>;
+						})}
+						<th>rata rata</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -169,9 +161,9 @@ const SurveyDetail = () => {
 												textAlign: "center",
 												border: "2px solid black",
 												backgroundColor: "white",
-												verticalAlign: 'middle',
+												verticalAlign: "middle",
 												background: renderColor(Number(data.averageValue)),
-												fontWeight: 'bold'
+												fontWeight: "bold",
 											}}
 										>
 											{data.averageValue}
@@ -184,7 +176,7 @@ const SurveyDetail = () => {
 										textAlign: "center",
 										backgroundColor: renderColor(rata2 / item.users.length || 0),
 										border: "2px solid black",
-										fontWeight: "bold"
+										fontWeight: "bold",
 									}}
 								>
 									<b>{(rata2 / item.users.length || 0).toFixed(2)}</b>
@@ -199,7 +191,17 @@ const SurveyDetail = () => {
 							RATA RATA PER SITE
 						</td>
 						{rataRataRowSite(assessmentCriteria).map((item) => {
-							return <td style={{ textAlign: 'center', background: renderColor(Number(item)), fontWeight: "bold" }}>{item}</td>;
+							return (
+								<td
+									style={{
+										textAlign: "center",
+										background: renderColor(Number(item)),
+										fontWeight: "bold",
+									}}
+								>
+									{item}
+								</td>
+							);
 						})}
 					</tr>
 				</tbody>
@@ -209,7 +211,7 @@ const SurveyDetail = () => {
 							SCORE
 						</td>
 						{rataRataRowSite(assessmentCriteria).map((item) => {
-							return <td style={{ textAlign: 'center' }}>{renderScore(item)}</td>;
+							return <td style={{ textAlign: "center" }}>{renderScore(item)}</td>;
 						})}
 					</tr>
 				</tbody>
