@@ -9,40 +9,46 @@ import FilterJabatan from "./FilterJabatan";
 
 const dataJabatan = [
 	{
-		label: 'satu',
-		id: 'satu'
+		label: "satu",
+		id: "satu",
 	},
 	{
-		label: 'dua',
-		id: 'dua'
+		label: "dua",
+		id: "dua",
 	},
 	{
-		label: 'tiga',
-		id: 'tiga'
+		label: "tiga",
+		id: "tiga",
 	},
 	{
-		label: 'empat',
-		id: 'empat'
+		label: "empat",
+		id: "empat",
 	},
 	{
-		label: 'lima',
-		id: 'lima'
-	}
-]
+		label: "lima",
+		id: "lima",
+	},
+];
 
 const Jabatan = () => {
 	const { isOpenModal, handleCloseModal, handleOpenModal } = ModalHooks();
 
-	const [dataChecked, setDataChecked] = useState<{ label: string, id: string }[]>([])
-	const [isCheckAll, setIsCheckAll] = useState(false)
+	const [dataChecked, setDataChecked] = useState<{ label: string; id: string }[]>([]);
+	const [isCheckAll, setIsCheckAll] = useState(false);
 
 	return (
 		<>
-			<Modal onClose={handleCloseModal} isShow={isOpenModal} >
+			<Modal onClose={handleCloseModal} isShow={isOpenModal}>
 				<JabatanHeader setDataChecked={setDataChecked} setIsCheckAll={setIsCheckAll} />
 				<Grid container flexDirection="row" style={{ width: "90vw", maxWidth: "600px" }}>
 					<Perusahaan />
-					<FilterJabatan data={dataJabatan} dataChecked={dataChecked} setDataChecked={setDataChecked} isCheckAll={isCheckAll} setIsCheckAll={setIsCheckAll} />
+					<FilterJabatan
+						data={dataJabatan}
+						dataChecked={dataChecked}
+						setDataChecked={setDataChecked}
+						isCheckAll={isCheckAll}
+						setIsCheckAll={setIsCheckAll}
+					/>
 				</Grid>
 			</Modal>
 			<Grid>
