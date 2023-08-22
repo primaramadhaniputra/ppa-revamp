@@ -35,6 +35,8 @@ import IcFile from "./IcFile";
 import IcPaper from "./IcPaper";
 import IcLink from "./IcLink";
 import IcFilter from "./IcFilter";
+import IcEqual from "./IcEqual";
+import IcPlus from "./IcPlus";
 
 export {
 	IcClose,
@@ -74,4 +76,6 @@ export {
 	IcPaper,
 	IcLink,
 	IcFilter,
+	IcEqual,
+	IcPlus,
 };
