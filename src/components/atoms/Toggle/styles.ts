@@ -11,6 +11,7 @@ export const Switch = styled.label`
 		width: 0;
 		height: 0;
 	}
+
 	& .slider {
 		position: absolute;
 		cursor: pointer;
@@ -21,7 +22,9 @@ export const Switch = styled.label`
 		background-color: #d9d9d9;
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
+		border-radius: 34px;
 	}
+
 	& .slider:before {
 		position: absolute;
 		content: "";
@@ -32,23 +35,16 @@ export const Switch = styled.label`
 		background-color: white;
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
+		border-radius: 50%;
 	}
 
 	& input:checked + .slider {
 		background-color: #141bbe;
 	}
-	& input:focus + .slider {
-		box-shadow: 0 0 1px #2196f3;
-	}
+
 	& input:checked + .slider:before {
 		-webkit-transform: translateX(17px);
 		-ms-transform: translateX(17px);
 		transform: translateX(17px);
-	}
-	& .slider.round {
-		border-radius: 34px;
-	}
-	& .slider.round:before {
-		border-radius: 50%;
 	}
 `;

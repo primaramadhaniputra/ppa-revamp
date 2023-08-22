@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Switch } from './styles'
 
-const Toggle = () => {
-  const [isChecked, setIsChecked] = useState(true)
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+
+}
+
+const Toggle = ({ ...rest }: IProps) => {
   return (
-    <Switch >
-      <input type="checkbox" checked={isChecked} id='chekcbox' />
-      <label className='slider round' htmlFor="checkbox" onClick={() => setIsChecked(!isChecked)}></label>
+    <Switch htmlFor={rest.id}>
+      <input type="checkbox" {...rest} />
+      <span className='slider round'  ></span>
     </Switch>
   )
 }

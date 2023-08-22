@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IcBuilding from "atoms/Icon/IcBuilding";
-import { Grid, Text, Toggler } from "@hudoro/neron";
+import { Grid, Text } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import { BreadCrumb, StyledInput } from "./styles";
 import SurveyBagian from "./SurveyBagian";
@@ -63,13 +63,13 @@ const CreateSurvey = () => {
 						<Text variant="p" style={{ width: "80px" }}>
 							Internal
 						</Text>
-						<Toggle />
+						<Toggle id="internal" />
 					</Grid>
 					<Grid container alignItems="center">
 						<Text variant="p" style={{ width: "80px" }}>
 							Eksternal
 						</Text>
-						<Toggle />
+						<Toggle id="eksternal" />
 					</Grid>
 				</Grid>
 				<SurveyBagian />
