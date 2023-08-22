@@ -82,13 +82,13 @@ const SurveyBagian = () => {
 				<IcEdit width={16} color="#55b434" />
 				<ReactSlider
 					className={styles.customSlider}
-					trackClassName={`${styles["customSlider-track"]} ${styles["customSlider-track-0"]}`}
+					trackClassName={`${styles["customSlider-track"]} ${styles['customSlider-track-0']}`}
 					thumbClassName={styles["customSlider-thumb"]}
 					markClassName={styles["customSlider-mark"]}
 					marks
 					min={0}
 					max={10}
-					defaultValue={0}
+					defaultValue={1}
 					value={currentValue}
 					onChange={(value) => setCurrentValue(value)}
 					renderMark={(props: any) => {
