@@ -27,3 +27,17 @@ export const StyledButtonElipse = styled(Button).attrs({
 	display: flex;
 	border: none;
 `;
+
+export const PopUpContainer = styled.div`
+	font-family: ${fontFamilies.poppins};
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: 6px;
+	border: 2px solid var(--greyscale-20, #cecfe7);
+	background: #fff;
+	padding: 12px 8px;
+	/* Card */
+	box-shadow: 0px 16px 40px 0px rgba(154, 170, 207, 0.2);
+	position: absolute;
+	white-space: nowrap;
+`;

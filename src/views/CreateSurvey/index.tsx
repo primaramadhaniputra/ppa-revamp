@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IcBuilding from "atoms/Icon/IcBuilding";
-import { Grid } from "@hudoro/neron";
+import { Button, Grid } from "@hudoro/neron";
 import { IcEdit } from "atoms/Icon";
 import { BreadCrumb, StyledInput, StyledText } from "./styles";
 import SurveyBagian from "./SurveyBagian";
@@ -81,7 +81,12 @@ const CreateSurvey = () => {
 						)
 					})}
 				</Grid>
-				<SurveyBagian />
+				<Grid container gap={18} flexDirection="column">
+					<Button variant="secondary">+</Button>
+					<Button variant="secondary">=</Button>
+					<SurveyBagian />
+				</Grid>
+
 			</Grid>
 		</div>
 	);
