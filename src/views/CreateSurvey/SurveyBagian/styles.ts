@@ -1,4 +1,4 @@
-import { Card, fontFamilies } from "@hudoro/neron";
+import { Button, Card, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
 export const StyledInput = styled.input`
@@ -18,4 +18,12 @@ export const StyledCard = styled(Card)`
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+`;
+
+export const StyledButtonElipse = styled(Button).attrs({
+	variant: "secondary",
+})`
+	padding: 0;
+	display: flex;
+	border: none;
 `;
