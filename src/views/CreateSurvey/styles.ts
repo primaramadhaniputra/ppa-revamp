@@ -1,4 +1,4 @@
-import { fontFamilies } from "@hudoro/neron";
+import { Text, fontFamilies } from "@hudoro/neron";
 import styled from "styled-components";
 
 export const BreadCrumb = styled.div`
@@ -55,4 +55,9 @@ export const StyledInput = styled.input`
 	&::placeholder {
 		color: black;
 	}
+`;
+
+export const StyledText = styled(Text)`
+	font-family: ${fontFamilies.poppins};
+	font-weight: 500;
 `;
