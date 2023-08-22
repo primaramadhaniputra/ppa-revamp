@@ -28,7 +28,10 @@ const JabatanHeader = ({ setDataChecked, setIsCheckAll }: IProps) => {
 				<Button onClick={handleReset} variant="ghost" style={{ color: "red" }}>
 					Reset
 				</Button>
-				<Button variant="primary" style={{ background: '#141bbd', borderRadius: '4px' }}> Simpan</Button>
+				<Button variant="primary" style={{ background: "#141bbd", borderRadius: "4px" }}>
+					{" "}
+					Simpan
+				</Button>
 			</Grid>
 		</Header>
 	);

@@ -1,17 +1,15 @@
-import React from 'react'
-import { Switch } from './styles'
+import React from "react";
+import { Switch } from "./styles";
 
-interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
-
-}
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const Toggle = ({ ...rest }: IProps) => {
-  return (
-    <Switch htmlFor={rest.id}>
-      <input type="checkbox" {...rest} />
-      <span className='slider round'  ></span>
-    </Switch>
-  )
-}
+	return (
+		<Switch htmlFor={rest.id}>
+			<input type="checkbox" {...rest} />
+			<span className="slider round"></span>
+		</Switch>
+	);
+};
 
-export default Toggle
+export default Toggle;

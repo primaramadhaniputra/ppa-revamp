@@ -6,7 +6,7 @@ import { BreadCrumb, StyledInput, StyledText } from "./styles";
 import SurveyBagian from "./SurveyBagian";
 import Toggle from "atoms/Toggle";
 
-const dataType = ['Internal', 'Eksternal']
+const dataType = ["Internal", "Eksternal"];
 
 const CreateSurvey = () => {
 	const [title, setTitle] = useState(" ");
@@ -64,21 +64,42 @@ const CreateSurvey = () => {
 					{dataType.map((item, idx) => {
 						return (
 							<Grid key={idx} container alignItems="center">
-								<Grid container gap={2} style={{ width: '90px' }}>
-									<StyledText variant="p" >
-										{item}
-									</StyledText>
+								<Grid container gap={2} style={{ width: "90px" }}>
+									<StyledText variant="p">{item}</StyledText>
 									<Grid container title={item}>
-										<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 14 14" fill="none">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M7.00004 0.833008C10.4054 0.833008 13.1667 3.59367 13.1667 6.99967C13.1667 10.405 10.4054 13.1663 7.00004 13.1663C3.59404 13.1663 0.833374 10.405 0.833374 6.99967C0.833374 3.59367 3.59404 0.833008 7.00004 0.833008Z" stroke="#008692" stroke-linecap="round" stroke-linejoin="round" />
-											<path d="M6.99679 4.46875V7.41475" stroke="#008692" stroke-linecap="round" stroke-linejoin="round" />
-											<path d="M6.99663 9.5306H7.00329" stroke="#008692" stroke-linecap="round" stroke-linejoin="round" />
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="10"
+											height="10"
+											viewBox="0 0 14 14"
+											fill="none"
+										>
+											<path
+												fill-rule="evenodd"
+												clip-rule="evenodd"
+												d="M7.00004 0.833008C10.4054 0.833008 13.1667 3.59367 13.1667 6.99967C13.1667 10.405 10.4054 13.1663 7.00004 13.1663C3.59404 13.1663 0.833374 10.405 0.833374 6.99967C0.833374 3.59367 3.59404 0.833008 7.00004 0.833008Z"
+												stroke="#008692"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+											<path
+												d="M6.99679 4.46875V7.41475"
+												stroke="#008692"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+											<path
+												d="M6.99663 9.5306H7.00329"
+												stroke="#008692"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
 										</svg>
 									</Grid>
 								</Grid>
 								<Toggle id={item} />
 							</Grid>
-						)
+						);
 					})}
 				</Grid>
 				<Grid container gap={18} flexDirection="column">
@@ -86,7 +107,6 @@ const CreateSurvey = () => {
 					<Button variant="secondary">=</Button>
 					<SurveyBagian />
 				</Grid>
-
 			</Grid>
 		</div>
 	);
