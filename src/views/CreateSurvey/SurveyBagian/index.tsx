@@ -5,6 +5,7 @@ import Jabatan from "../Jabatan";
 import ReactSlider from "react-slider";
 import { PopUpContainer, StyledButtonElipse, StyledCard, StyledInput } from "./styles";
 import styles from "./Create.module.css";
+import IcTrippleElipses from "atoms/Icon/IcTrippleElipses";
 
 const SurveyBagian = () => {
 	const [title, setTitle] = useState("");
@@ -17,11 +18,11 @@ const SurveyBagian = () => {
 			<Grid container flexDirection="column" gap={8}>
 				<Grid container gap={10} alignItems="center" justifyContent="space-between">
 					<Text variant="mute">Bagian 1 dari 1</Text>
-					<Grid container alignItems="center" gap={2}>
-						<Button style={{ borderRadius: "50%", padding: '2px 4px', borderWidth: '2px' }} variant="secondary">
+					<Grid container alignItems="center" gap={3}>
+						<Button style={{ borderRadius: "50%", padding: '1px 5px', borderWidth: '2px' }} variant="secondary">
 							<IcPlus width={10} />
 						</Button>
-						<Button style={{ borderRadius: "50%", padding: '2px 4px', borderWidth: '2px' }} variant="secondary">
+						<Button style={{ borderRadius: "50%", padding: '1px 5px', borderWidth: '2px' }} variant="secondary">
 							<IcEqual width={10} />
 						</Button>
 					</Grid>
@@ -130,63 +131,7 @@ const SurveyBagian = () => {
 						</div>
 						<div style={{ position: "relative" }}>
 							<StyledButtonElipse onClick={() => setShowPopup(!showPopup)}>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="20"
-									height="21"
-									viewBox="0 0 20 21"
-									fill="none"
-								>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M14.3342 1.25H5.66518C2.64418 1.25 0.750183 3.389 0.750183 6.416V14.584C0.750183 17.611 2.63418 19.75 5.66518 19.75H14.3332C17.3642 19.75 19.2502 17.611 19.2502 14.584V6.416C19.2502 3.389 17.3642 1.25 14.3342 1.25Z"
-										fill="white"
-										stroke="#141BBE"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M13.9394 10.5127H13.9484H13.9394Z"
-										fill="white"
-									/>
-									<path
-										d="M13.9394 10.5127H13.9484"
-										stroke="#141BBE"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M9.93038 10.5127H9.93938H9.93038Z"
-										fill="white"
-									/>
-									<path
-										d="M9.93038 10.5127H9.93938"
-										stroke="#141BBE"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M5.9214 10.5127H5.9304H5.9214Z"
-										fill="white"
-									/>
-									<path
-										d="M5.9214 10.5127H5.9304"
-										stroke="#141BBE"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-								</svg>
+								<IcTrippleElipses width={21} />
 							</StyledButtonElipse>
 							{showPopup && (
 								<PopUpContainer>
