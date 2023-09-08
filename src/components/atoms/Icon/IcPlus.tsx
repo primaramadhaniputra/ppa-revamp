@@ -7,9 +7,9 @@ export default function IcPlus({ ...rest }: ISVGProps) {
 			<path
 				d="M3.3335 9.99967H16.6668M10.0002 3.33301V16.6663"
 				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				stroke-Width="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
