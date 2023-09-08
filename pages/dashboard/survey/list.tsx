@@ -50,7 +50,7 @@ const ListSurveyPage = () => {
 					container
 					flexDirection="column"
 					gap={32}
-					style={{ width: "80vw", maxWidth: "450px", padding: '20px' }}
+					style={{ width: "80vw", maxWidth: "450px", padding: "20px" }}
 				>
 					<Input label="Nama Formulir *" style={{ borderRadius: "3px" }} />
 					<Button variant="primary" style={{ borderRadius: "5px" }}>

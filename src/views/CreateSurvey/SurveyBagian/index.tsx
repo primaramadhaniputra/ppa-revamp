@@ -19,10 +19,16 @@ const SurveyBagian = () => {
 				<Grid container gap={10} alignItems="center" justifyContent="space-between">
 					<Text variant="mute">Bagian 1 dari 1</Text>
 					<Grid container alignItems="center" gap={3}>
-						<Button style={{ borderRadius: "50%", padding: '1px 5px', borderWidth: '2px' }} variant="secondary">
+						<Button
+							style={{ borderRadius: "50%", padding: "1px 5px", borderWidth: "2px" }}
+							variant="secondary"
+						>
 							<IcPlus width={10} />
 						</Button>
-						<Button style={{ borderRadius: "50%", padding: '1px 5px', borderWidth: '2px' }} variant="secondary">
+						<Button
+							style={{ borderRadius: "50%", padding: "1px 5px", borderWidth: "2px" }}
+							variant="secondary"
+						>
 							<IcEqual width={10} />
 						</Button>
 					</Grid>
