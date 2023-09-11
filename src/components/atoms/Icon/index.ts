@@ -39,6 +39,7 @@ import IcEqual from "./IcEqual";
 import IcPlus from "./IcPlus";
 import IcScala from "./IcScala";
 import IcImpulse from "./IcImpulse";
+import IcInfo from "./IcInfo";
 
 export {
 	IcClose,
@@ -82,4 +83,5 @@ export {
 	IcPlus,
 	IcScala,
 	IcImpulse,
+	IcInfo,
 };

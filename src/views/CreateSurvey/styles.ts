@@ -61,3 +61,11 @@ export const StyledText = styled(Text)`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
 `;
+
+export const StyledTextArea = styled.textarea`
+	min-width: 115px;
+	max-width: 96%;
+	background: transparent;
+	border: none;
+	outline: none;
+`;

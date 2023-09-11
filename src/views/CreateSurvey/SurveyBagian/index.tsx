@@ -19,7 +19,7 @@ const SurveyBagian = () => {
 		<>
 			<Grid container flexDirection="column" gap={8}>
 				<Grid container gap={10} alignItems="center" justifyContent="space-between">
-					<Text variant="mute">Bagian 1 dari 1</Text>
+					<Text variant="mute">Bagian 1</Text>
 					<Grid container alignItems="center" gap={3}>
 						<Button
 							style={{ borderRadius: "50%", padding: "1px 5px", borderWidth: "2px" }}
