@@ -37,6 +37,8 @@ import IcLink from "./IcLink";
 import IcFilter from "./IcFilter";
 import IcEqual from "./IcEqual";
 import IcPlus from "./IcPlus";
+import IcScala from "./IcScala";
+import IcImpulse from "./IcImpulse";
 
 export {
 	IcClose,
@@ -78,4 +80,6 @@ export {
 	IcFilter,
 	IcEqual,
 	IcPlus,
+	IcScala,
+	IcImpulse,
 };
