@@ -1,14 +1,29 @@
 import { Button, Grid, Text } from "@hudoro/neron";
 import ModalHooks from "molecules/Modal/ModalHooks";
-import React from "react";
+import React, { useEffect } from "react";
 import ModalCreateSurvey from "./ModalCreateListSurvey";
 import ListSurvey from "./ListSurvey";
 import EmptyListSurveys from "./EmptyListSurveys";
+import { getListSurveys } from "services/listSurvey";
 
 const surveys = ['', '']
 
-const ListsSurvey = () => {
+const ListSurveys = () => {
   const { isOpenModal, handleCloseModal, handleOpenModal } = ModalHooks();
+
+  const handleGetListsSurvyes = async () => {
+    try {
+      const response = await getListSurveys({})
+      console.log('response', response)
+    } catch (error) {
+
+    }
+  }
+
+  useEffect(() => {
+    handleGetListsSurvyes()
+  }, [])
+
   return (
     <>
       <ModalCreateSurvey isOpenModal={isOpenModal} onClose={handleCloseModal} />
@@ -32,4 +47,4 @@ const ListsSurvey = () => {
   );
 };
 
-export default ListsSurvey;
+export default ListSurveys;

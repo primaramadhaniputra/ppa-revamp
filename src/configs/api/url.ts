@@ -15,6 +15,9 @@ const apiEndpoints = {
 
 	// sso
 	sso: `${appActiveConfig.ssourl}/auth/login`,
+
+	// list surveys
+	listSurveys: `https://survey.dev.hsd-api.com/v1/backlogs/surveys`,
 };
 
 export { apiEndpoints };

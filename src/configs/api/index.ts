@@ -41,6 +41,9 @@ const API = {
 	getAllsite: apiRequest.get(`${appActiveConfig.surveyurl}/reports/all-sites`),
 	getSite: apiRequest.get(`${appActiveConfig.hsd}/reports/sites`),
 	getParentCompany: apiRequest.get(`${appActiveConfig.hsd}`),
+
+	// LIST SURVYES
+	getListSurveys: apiRequest.get(apiEndpoints.listSurveys, true),
 };
 
 export default API;
