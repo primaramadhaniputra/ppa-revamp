@@ -7,8 +7,13 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { fontWeights } from 'utils/styles'
 import { PopOver } from './styles'
+import { IListsSurveys } from '..'
 
-const ListSurvey = () => {
+interface IProps {
+  surveyData: IListsSurveys
+}
+
+const ListSurvey = ({ surveyData }: IProps) => {
   const [isShowPopover, setisShowPopover] = useState(false);
 
   const router = useRouter();
@@ -20,10 +25,16 @@ const ListSurvey = () => {
   return (
     <Card onClick={handleRedirectCreateSurvey} style={{ width: "90vw ", maxWidth: "350px", cursor: "pointer" }}>
       <Grid container flexDirection="column" gap={16}>
-        <Grid container alignItems="center" justifyContent="space-between" gap={10}>
-          <Grid container alignItems="center" gap={5} style={{ flex: 1 }}>
-            <IcEllipse width={10} color="#54B435" />
-            <Text variant="h4">Survey PPA</Text>
+        <Grid container justifyContent="space-between" gap={10}>
+          <Grid flexDirection='row' container gap={7} style={{ flex: 1 }}>
+            <div>
+              <IcEllipse width={10} color="#54B435" />
+            </div>
+            <div style={{ flex: 1 }}>
+              <Text variant="h4">
+                {surveyData.title}
+              </Text>
+            </div>
           </Grid>
           <Grid
             style={{ flex: 0, position: "relative" }}

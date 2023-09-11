@@ -1,20 +1,31 @@
 import { Button, Grid, Text } from "@hudoro/neron";
 import ModalHooks from "molecules/Modal/ModalHooks";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ModalCreateSurvey from "./ModalCreateListSurvey";
 import ListSurvey from "./ListSurvey";
 import EmptyListSurveys from "./EmptyListSurveys";
 import { getListSurveys } from "services/listSurvey";
 
-const surveys = ['', '']
+export interface IListsSurveys {
+  createdAt: number
+  description: string
+  id: string
+  isActive: boolean
+  season: null | string | undefined
+  slug: string
+  title: string
+  updatedAt: string
+
+}
 
 const ListSurveys = () => {
   const { isOpenModal, handleCloseModal, handleOpenModal } = ModalHooks();
+  const [listDataSurvyes, setListDataSurvyes] = useState<IListsSurveys[]>([])
 
   const handleGetListsSurvyes = async () => {
     try {
       const response = await getListSurveys({})
-      console.log('response', response)
+      setListDataSurvyes(response.data.data)
     } catch (error) {
 
     }
@@ -38,9 +49,9 @@ const ListSurveys = () => {
         </Button>
       </Grid>
       <Grid container gap={15} style={{ marginTop: "42px" }}>
-        {!surveys.length ? <EmptyListSurveys handleOpenModal={handleOpenModal} />
+        {!listDataSurvyes.length ? <EmptyListSurveys handleOpenModal={handleOpenModal} />
           :
-          surveys.map((_, idx) => <ListSurvey key={idx} />)
+          listDataSurvyes.map((item, idx) => <ListSurvey surveyData={item} key={idx} />)
         }
       </Grid>
     </>
