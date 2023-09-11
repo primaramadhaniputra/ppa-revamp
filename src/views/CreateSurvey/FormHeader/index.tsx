@@ -1,6 +1,6 @@
 import { Grid } from '@hudoro/neron'
 import React, { useState } from 'react'
-import { StyledInput, StyledText, StyledTextArea } from '../styles'
+import { StyledInput, StyledText, StyledTextArea } from './styles'
 import { IcEdit, IcInfo } from 'atoms/Icon'
 import Toggle from 'atoms/Toggle'
 

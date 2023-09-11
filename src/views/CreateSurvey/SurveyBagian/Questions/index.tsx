@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PopUpContainer, StyledButtonElipse, StyledCard, StyledInput } from "../styles";
+import { PopUpContainer, StyledButtonElipse, StyledCard, StyledInput } from "./styles";
 import { Grid, Input } from "@hudoro/neron";
 import { IcEdit, IcImpulse, IcScala } from "atoms/Icon";
 import ReactSlider from "react-slider";
