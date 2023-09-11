@@ -12,12 +12,12 @@ const CreateSurvey = () => {
 	const [title, setTitle] = useState(" ");
 	const [deskripsi, setDeskripsi] = useState(" ");
 
-	const [totalQuestionSection, setTotalQuestionSection] = useState(1)
+	const [totalQuestionSection, setTotalQuestionSection] = useState(1);
 
 	const handleAddTotalSectionQuestion = () => {
-		console.log(totalQuestionSection)
-		setTotalQuestionSection(prev => prev + 1)
-	}
+		console.log(totalQuestionSection);
+		setTotalQuestionSection((prev) => prev + 1);
+	};
 
 	return (
 		<div>
@@ -111,15 +111,15 @@ const CreateSurvey = () => {
 				</Grid>
 				<Grid container gap={18} flexDirection="column">
 					<Button
-						style={{ borderWidth: "2px", borderColor: '#141bbe', color: '#141bbe' }}
+						style={{ borderWidth: "2px", borderColor: "#141bbe", color: "#141bbe" }}
 						variant="secondary"
 						onClick={handleAddTotalSectionQuestion}
 					>
 						Tambah Bagian
 					</Button>
-					{
-						new Array(totalQuestionSection).fill(0).map((_, idx) => <SurveyBagian key={idx} />)
-					}
+					{new Array(totalQuestionSection).fill(0).map((_, idx) => (
+						<SurveyBagian key={idx} />
+					))}
 					<Button variant="primary" style={{ backgroundColor: "#141bbe", borderRadius: "6px" }}>
 						Kirim
 					</Button>

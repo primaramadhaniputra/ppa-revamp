@@ -9,12 +9,11 @@ const SurveyBagian = () => {
 	const [title, setTitle] = useState("");
 	const [deskripsi, setDeskripsi] = useState("");
 
-	const [totalQuetion, setTotalQuetion] = useState(1)
-
+	const [totalQuetion, setTotalQuetion] = useState(1);
 
 	const handleAddTotalQuestion = () => {
-		setTotalQuetion(prev => prev + 1)
-	}
+		setTotalQuetion((prev) => prev + 1);
+	};
 
 	return (
 		<>
@@ -67,11 +66,9 @@ const SurveyBagian = () => {
 				</Grid>
 			</Grid>
 			<Jabatan />
-			{
-				new Array(totalQuetion).fill(0).map((_, idx) =>
-					<Questions key={idx} />
-				)
-			}
+			{new Array(totalQuetion).fill(0).map((_, idx) => (
+				<Questions key={idx} />
+			))}
 		</>
 	);
 };
