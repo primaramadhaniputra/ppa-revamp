@@ -18,8 +18,8 @@ const ListSurvey = () => {
   };
 
   return (
-    <Card style={{ width: "90vw ", maxWidth: "350px", cursor: "pointer" }}>
-      <Grid onClick={handleRedirectCreateSurvey} container flexDirection="column" gap={16}>
+    <Card onClick={handleRedirectCreateSurvey} style={{ width: "90vw ", maxWidth: "350px", cursor: "pointer" }}>
+      <Grid container flexDirection="column" gap={16}>
         <Grid container alignItems="center" justifyContent="space-between" gap={10}>
           <Grid container alignItems="center" gap={5} style={{ flex: 1 }}>
             <IcEllipse width={10} color="#54B435" />
@@ -29,6 +29,7 @@ const ListSurvey = () => {
             style={{ flex: 0, position: "relative" }}
             onMouseEnter={() => setisShowPopover(true)}
             onMouseLeave={() => setisShowPopover(false)}
+            onClick={(e) => e.stopPropagation()}
           >
             <IcMoreSquare width={19} color="#141BBE" cursor={"pointer"} />
             <PopOver isShowPopover={isShowPopover}>
