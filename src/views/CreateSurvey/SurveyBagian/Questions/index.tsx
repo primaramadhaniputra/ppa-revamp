@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { PopUpContainer, StyledButtonElipse, StyledCard, StyledInput } from '../styles';
-import { Button, Grid, Input } from '@hudoro/neron';
+import { Grid, Input } from '@hudoro/neron';
 import { IcEdit, IcImpulse, IcScala } from 'atoms/Icon';
 import ReactSlider from 'react-slider';
 import IcTrippleElipses from 'atoms/Icon/IcTrippleElipses';
@@ -30,7 +30,7 @@ const Questions = () => {
         />
         <IcEdit width={16} color="#55b434" />
       </Grid>
-      <Grid container alignItems="center" gap={32} style={{ width: "100%", padding: "0 16px" }}>
+      <Grid container alignItems="center" gap={22} style={{ width: "100%", padding: "0 16px" }}>
         <StyledInput
           autoFocus
           onChange={(e) => setTitle(e.target.value)}
@@ -79,7 +79,7 @@ const Questions = () => {
               }}
               renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
             /> : <Grid container>
-              <Input />
+              <Input style={{ borderRadius: '7px' }} />
             </Grid>}
           </div>
           <div style={{ position: "relative" }}>
@@ -92,15 +92,15 @@ const Questions = () => {
                   style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}
                   onClick={() => setQuestionType("skala")}
                 >
-                  <IcScala width={24} />
-                  <p>Skala</p>
+                  <IcScala width={24} color={questionType === 'skala' ? 'blue' : 'black'} />
+                  <p style={{ color: questionType === 'skala' ? 'blue' : 'black' }}>Skala</p>
                 </div>
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "6px", cursor: "pointer" }}
                   onClick={() => setQuestionType("jawaban singkat")}
                 >
-                  <IcImpulse width={24} />
-                  <p>Jawaban Singkat</p>
+                  <IcImpulse width={24} color={questionType === 'jawaban singkat' ? 'blue' : 'black'} />
+                  <p style={{ color: questionType === 'jawaban singkat' ? 'blue' : 'black' }}>Jawaban Singkat</p>
                 </div>
               </PopUpContainer>
             )}
