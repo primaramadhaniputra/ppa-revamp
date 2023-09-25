@@ -1,5 +1,5 @@
 import { ISelectItem, Select } from "@hudoro/neron";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import { StyledLabel } from "atoms/LabeledInput/styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
@@ -16,8 +16,6 @@ const FilterPeriod = ({ periodeId, setPeriodeId }: IProps) => {
 	const Router = useRouter()
 	const periodeName = Cookies.get("periode");
 
-	console.log(periodeId)
-
 	const handleChangePeriode = (e: ISelectItem | ISelectItem[] | null) => {
 		setPeriodeId(e?.values);
 		const dataPeriode = periode.find((item) => item.values === e?.values);
@@ -30,20 +28,20 @@ const FilterPeriod = ({ periodeId, setPeriodeId }: IProps) => {
 			undefined, { shallow: true }
 		)
 	};
-
+	console.log(periode)
 	useEffect(() => {
 		if (periodeName) {
-			console
 			const findPeriode = periode.find(item => item.label === periodeName)
 			handleChangePeriode(findPeriode as ISelectItem)
 		}
 	}, [])
 
+
 	return (
 		<SelectContainer>
 			<Select
 				items={periode}
-				defaultValue={periode.find((item) => item.id === periodeId)}
+				defaultValue={{ id: periodeId || '0', label: periodeName || '' } as ISelectItem}
 				onChange={handleChangePeriode}
 				placeholder="Survey Type..."
 			/>
