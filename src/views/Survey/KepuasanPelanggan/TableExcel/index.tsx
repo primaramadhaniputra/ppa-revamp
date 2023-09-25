@@ -53,8 +53,6 @@ const TableExcel = ({ }: IProps) => {
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
 	const [parentCompanyId, setParentCompanyId] = useState("0");
 
-	console.log(parentCompanyId)
-
 	const periodeId = Cookies.get("periodeId");
 
 	const handleGetReportAllSite = async () => {
