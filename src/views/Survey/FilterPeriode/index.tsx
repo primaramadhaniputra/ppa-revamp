@@ -1,5 +1,5 @@
 import { ISelectItem, Select } from "@hudoro/neron";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 // import { StyledLabel } from "atoms/LabeledInput/styles";
 import Cookies from "js-cookie";
 import { useSurveyPeriodeValue } from "recoil/surveyPeriode/atom";
