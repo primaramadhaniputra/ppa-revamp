@@ -7,25 +7,28 @@ interface IProps {
 
 export const StyledCard = styled(Card)`
 	margin-top: 33px;
-	padding: 18px;
+	padding: 30px 18px;
 	background: #ffffff;
 	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
 	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	gap: 24px;
 `;
 
 export const CardTitle = styled.p`
 	font-family: ${fontFamilies.poppins};
 	font-weight: 500;
 	font-size: 22px;
-	line-height: 36px;
+	/* line-height: 36px; */
 	@media (max-width: 500px) {
 		font-size: 18px;
 	}
 `;
 
 export const Container = styled.div`
-	margin-top: 18px;
-	padding: 3px 24px;
+	/* margin-top: 18px; */
+	/* padding: 3px 24px; */
 	display: flex;
 	gap: 24px;
 	flex-wrap: wrap;

@@ -27,8 +27,8 @@ const KepuasanPelanggan = ({ periodeId }: IProps) => {
 	return (
 		<>
 			<TableExcel reportCriteria={dataReport} />
-			<CardSite reportCriteria={dataReport} periodeId={periodeId} />
 			<PointDescription />
+			<CardSite reportCriteria={dataReport} periodeId={periodeId} />
 		</>
 	);
 };
