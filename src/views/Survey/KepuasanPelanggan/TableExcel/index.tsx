@@ -45,13 +45,15 @@ const parentCompany: ISelectItem[] = [
 	},
 ];
 // reportCriteria
-const TableExcel = ({}: IProps) => {
+const TableExcel = ({ }: IProps) => {
 	// const newArray: number[] = [];
 	// getReportAllsite
 	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
 	const [allSite, setAllSite] = useState<any>([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
 	const [parentCompanyId, setParentCompanyId] = useState("0");
+
+	console.log(parentCompanyId)
 
 	const periodeId = Cookies.get("periodeId");
 
@@ -90,7 +92,7 @@ const TableExcel = ({}: IProps) => {
 				};
 			});
 			setAllSite(newData);
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {
@@ -121,14 +123,14 @@ const TableExcel = ({}: IProps) => {
 	return (
 		<>
 			<Grid container justifyContent="flex-end" gap={10} style={{ marginTop: "20px" }}>
-				<div>
+				<Button title={`Download excel ( ${parentCompany[parseInt(parentCompanyId)].label} )`} onClick={onDownload} />
+				<div style={{ maxWidth: "80px" }}>
 					<Select
 						onChange={(e) => setParentCompanyId(e?.values)}
 						items={parentCompany}
 						defaultValue={parentCompany[0]}
 					/>
 				</div>
-				<Button title="Download excel" onClick={onDownload} />
 			</Grid>
 			<Table hidden ref={tableRef}>
 				<thead>
