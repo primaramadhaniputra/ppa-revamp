@@ -30,11 +30,7 @@ const page = () => {
 		<div className="h-screen bg-[url('./public/images/bg.jpeg')] bg-no-repeat	bg-cover bg-center sm:p-28 	box-border min-h-[900px] px-5 py-20">
 			<div className="h-full  box-border rounded-md bg-[url('./public/images/mobilProyek.jpg')] bg-no-repeat	bg-cover bg-center relative ">
 				<div className="absolute rounded-md bg-gray-950/30 top-0 right-0 bottom-0 left-0 flex justify-between items-center sm:px-10 gap-5 ">
-					<div className=" flex-1 justify-center hidden lg:block">
-						<p className="text-white text-[43px] text-center underline font-bold">SAFE & STRONG</p>
-						<p className="text-white text-base text-center">OPERATIONAL PERFORMANCE</p>
-					</div>
-					<div className="bg-white h-[115%] flex-1 rounded-md shadow-md flex justify-between flex-col">
+					<div className="bg-white h-[115%] flex-1 rounded-md shadow-md flex justify-between flex-col max-w-4xl mx-auto">
 						<form onSubmit={handleSubmit}>
 							<div className="m-auto mt-[10%] w-max">
 								<Image alt="logo" src={"/logo/logo2.png"} width={350} height={100} />
