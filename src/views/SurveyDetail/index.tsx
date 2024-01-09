@@ -60,7 +60,7 @@ const SurveyDetail = () => {
 	};
 
 	const rataRataRowSite = (data: any) => {
-		let elementRata: any = {};
+		const elementRata: any = {};
 		for (const element of data) {
 			for (let i = 0; i < element.users.length; i++) {
 				elementRata[i] = (elementRata[i] || 0) + Number(element.users[i]?.averageValue);

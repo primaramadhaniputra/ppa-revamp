@@ -2,7 +2,7 @@ import React from "react";
 import { FileContainer } from "./styles";
 
 interface IProps {
-	title: String;
+	title: string;
 	onClick?: () => any;
 }
 

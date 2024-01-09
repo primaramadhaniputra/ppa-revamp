@@ -73,7 +73,7 @@ const TableExcel = ({ }: IProps) => {
 						.filter((datas: any) => datas.sectionName === item)
 						.map((item: any) => {
 							const sortingItem = item.companies.sort((a: any, b: any) => {
-								let fa = a.slug.toLowerCase(),
+								const fa = a.slug.toLowerCase(),
 									fb = b.slug.toLowerCase();
 
 								if (fa < fb) {
@@ -106,7 +106,7 @@ const TableExcel = ({ }: IProps) => {
 	});
 
 	const rataRataRowSite = (data: any) => {
-		let elementRata: any = {};
+		const elementRata: any = {};
 		for (const element of data) {
 			for (let i = 0; i < element.companies.length; i++) {
 				elementRata[i] = (elementRata[i] || 0) + Number(element.companies[i]?.averageValue);

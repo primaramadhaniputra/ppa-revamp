@@ -80,10 +80,9 @@ const page = () => {
 									Forgot Password
 								</Link>
 								<button
-									className={`bg-${
-										isLogin ? "gray" : "blue"
-									}-500 text-white text-sm py-2 mt-2 rounded-md h-[48px]`}
-									type="submit"
+									className={`${
+										isLogin ? "bg-gray-500" : "bg-blue-500"
+									} text-white text-sm py-2 mt-2 rounded-md h-[48px]`}
 								>
 									{isLogin ? "Loading..." : "Login"}
 								</button>
