@@ -1,90 +1,70 @@
 "use client";
 
-import Cookies from "js-cookie";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
-import { login } from "services/users";
+import { forgotPassword } from "services/users";
 import { notify } from "utils/functions";
 
 const page = () => {
 	const [isLogin, setIsLogin] = useState(false);
 
-	const router = useRouter();
 	const handleSubmit = async (form: FormEvent<HTMLFormElement>) => {
-		console.log("banan");
 		try {
 			setIsLogin(true);
 			form.preventDefault();
 			const formData = new FormData(form.currentTarget);
-			const nrp = formData.get("nrp");
-			const password = formData.get("password");
-			const response = await login({
-				headers: {
-					project_key: "2e7b6395fa5f3861588f3608161b7442",
-				},
+			const email = formData.get("email");
+			await forgotPassword({
 				body: {
-					nrp,
-					password,
-					site: "MHU",
+					email,
 				},
+				path: "/forgot-password",
 			});
-			Cookies.set("token", response.data.data.token.access);
-			router.push("/dashboard");
-			return notify("selamat kamu berhasil login", "success");
+			return notify("Silahkan periksa email anda", "success");
 		} catch (error: any) {
 			return notify(error.message, "error");
-		} finally {
-			setIsLogin(false);
 		}
 	};
 	return (
 		<div className="h-screen bg-[url('./public/images/bg.jpeg')] bg-no-repeat	bg-cover bg-center sm:p-28 	box-border min-h-[900px] px-5 py-20">
 			<div className="h-full  box-border rounded-md bg-[url('./public/images/mobilProyek.jpg')] bg-no-repeat	bg-cover bg-center relative ">
 				<div className="absolute rounded-md bg-gray-950/30 top-0 right-0 bottom-0 left-0 flex justify-between items-center sm:px-10 gap-5 ">
+					<div className=" flex-1 justify-center hidden lg:block">
+						<p className="text-white text-[43px] text-center underline font-bold">SAFE & STRONG</p>
+						<p className="text-white text-base text-center">OPERATIONAL PERFORMANCE</p>
+					</div>
 					<div className="bg-white h-[115%] flex-1 rounded-md shadow-md flex justify-between flex-col">
 						<form onSubmit={handleSubmit}>
 							<div className="m-auto mt-[10%] w-max">
 								<Image alt="logo" src={"/logo/logo2.png"} width={350} height={100} />
 							</div>
 							<div>
-								<p className="text-2xl font-[600] text-center mt-10 text-blue-800">
-									Selamat Datang
-								</p>
+								<p className="text-2xl font-[600] text-center mt-10 text-blue-800">Lupa Password</p>
 								<p className="text-base font-[400] text-center mt-5 text-blue-900">
-									Silahkan login dengan akun anda
+									Silahkan Masukkan Email
 								</p>
 							</div>
 							<div className="px-10 mt-20 flex gap-5 flex-col">
 								<div className="flex flex-col gap-1">
 									<label htmlFor="nrp" className="text-base text-blue-900">
-										Nrp
-									</label>
-									<input className="border rounded-md h-[48px] px-3 text-blue-900" name="nrp" />
-								</div>
-								<div className="flex flex-col gap-1">
-									<label htmlFor="password" className="text-base text-blue-900">
-										Password
+										Email
 									</label>
 									<input
-										className="border rounded-md h-[48px] px-3 text-blue-900 "
-										name="password"
-										type="password"
+										className="border rounded-md h-[48px] px-3 text-blue-900"
+										name="email"
+										type="email"
 									/>
 								</div>
-								<Link
-									href={"/forgot-password"}
-									className="text-xs text-blue-700 underline text-end"
-								>
-									Forgot Password
+								<Link href={"/"} className="text-xs text-blue-700 underline text-end">
+									Login
 								</Link>
 								<button
 									className={`${
 										isLogin ? "bg-gray-500" : "bg-blue-500"
 									} text-white text-sm py-2 mt-2 rounded-md h-[48px]`}
 								>
-									{isLogin ? "Loading..." : "Login"}
+									{isLogin ? "Mengirim..." : "Kirim"}
 								</button>
 							</div>
 						</form>
@@ -99,10 +79,6 @@ const page = () => {
 								<p className="text-green-500">Perfection</p>
 							</div>
 						</div>
-					</div>
-					<div className=" flex-1 justify-center hidden lg:block">
-						<p className="text-white text-[43px] text-center underline font-bold">SAFE & STRONG</p>
-						<p className="text-white text-base text-center">OPERATIONAL PERFORMANCE</p>
 					</div>
 				</div>
 			</div>
