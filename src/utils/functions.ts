@@ -42,7 +42,7 @@ export const notify = (message: string, type?: NotificationType) => {
 };
 
 export function convert(str: string | number | Date | null) {
-	let date = new Date(str as string | number | Date),
+	const date = new Date(str as string | number | Date),
 		mnth = ("0" + (date.getMonth() + 1)).slice(-2),
 		day = ("0" + date.getDate()).slice(-2);
 	return [date.getFullYear(), mnth, day].join("-");
@@ -118,7 +118,7 @@ export function useWindowSize() {
 }
 
 export const exportFile = () => {
-	var blob = new Blob(["testing"], { type: "text/plain;charset=utf-8" });
+	const blob = new Blob(["testing"], { type: "text/plain;charset=utf-8" });
 	saveAs(blob, "testfile1.txt");
 };
 
