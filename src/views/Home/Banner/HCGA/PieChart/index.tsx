@@ -78,7 +78,7 @@ export default function PieChart() {
 				Total Manpower
 			</Text>
 			<DonatContainer>
-				<Pie data={data} options={options as any} plugins={[ChartDataLabels]} />
+				<Pie data={data} options={options as any} plugins={[ChartDataLabels as any]} />
 			</DonatContainer>
 		</Wrapper>
 	);

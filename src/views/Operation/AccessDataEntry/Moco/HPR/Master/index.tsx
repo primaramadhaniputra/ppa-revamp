@@ -10,7 +10,7 @@ const Master = () => {
 	const { width } = useViewport();
 
 	return (
-		<Grid container={width > 800} gap={20}>
+		<Grid container={Number(width) > 800} gap={20}>
 			<Area />
 			<Pit />
 			<Seam />

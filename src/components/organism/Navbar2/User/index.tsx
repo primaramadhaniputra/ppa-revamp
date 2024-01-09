@@ -23,7 +23,8 @@ const User = () => {
 
 	const handleLogout = () => {
 		Cookies.remove("token");
-		return router.reload();
+		router.replace("/");
+		// return router.reload();
 	};
 
 	return (
