@@ -12,13 +12,10 @@ export const Wrapper = styled.div<IProps>`
 	padding: 8.5px 25px;
 	font-family: ${fontFamilies.poppins};
 	display: grid;
-	grid-template-columns: 1fr 50px;
-	${mediaQueries.lg} {
+	grid-template-columns: 1fr 110px;
+	${mediaQueries.sm} {
 		grid-template-columns: 50px 1fr 110px;
 		padding: 0 50px;
-	}
-	${mediaQueries.xl} {
-		padding: 0 100px;
 	}
 `;
 
@@ -34,7 +31,7 @@ export const ContainerUser = styled.div`
 	gap: 5px;
 	position: relative;
 	cursor: pointer;
-	${mediaQueries.lg} {
+	${mediaQueries.sm} {
 		gap: 5px;
 		order: 3;
 	}
@@ -46,7 +43,7 @@ export const ContainerLinks = styled.div`
 	flex-direction: column;
 	gap: 30px;
 	grid-column: span 2;
-	${mediaQueries.lg} {
+	${mediaQueries.sm} {
 		flex-direction: row;
 		margin-top: 0;
 		gap: 5px;
@@ -63,7 +60,7 @@ export const UserOverFlay = styled.div`
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
 	/* z-index:999; */
-	${mediaQueries.lg} {
+	${mediaQueries.sm} {
 		left: 0;
 	}
 `;
@@ -84,7 +81,7 @@ export const SingleLink = styled(Grid).attrs({
 	border-bottom: 1px solid white;
 	flex-direction: column;
 	justify-content: center;
-	${mediaQueries.lg} {
+	${mediaQueries.sm} {
 		border-bottom: none;
 		padding-bottom: 0;
 		position: relative;
@@ -105,7 +102,7 @@ export const ContainerSubmenu = styled.div<IProps>`
 	flex-direction: column;
 	gap: 15px;
 	display: ${(props) => (props.activeSubMenu ? "inherit" : "none")};
-	${mediaQueries.lg} {
+	${mediaQueries.sm} {
 		background-color: ${colors.primary};
 		position: absolute;
 		top: ${(props) => (props.activeSubMenu ? "45px" : "70px")};
@@ -121,7 +118,7 @@ export const ContainerSubmenu = styled.div<IProps>`
 
 export const StyledTextSubmenu = styled.p`
 	font-size: 14px;
-	${mediaQueries.lg} {
+	${mediaQueries.sm} {
 		padding: 15px;
 		transition: 0.3s;
 		&:hover {

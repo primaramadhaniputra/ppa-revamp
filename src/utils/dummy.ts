@@ -1,30 +1,4 @@
 export const Link = [
-	// {
-	// 	title: "Team Work",
-	// 	subMenu: [
-	// 		{
-	// 			subMenuTitle: "FORM",
-	// 			subMenuLink: "teamwork/form",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "REPORT",
-	// 			subMenuLink: "teamwork/report",
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	title: "SHE",
-	// 	subMenu: [
-	// 		{
-	// 			subMenuTitle: "FORM",
-	// 			subMenuLink: "she/form",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "REPORT",
-	// 			subMenuLink: "she/report",
-	// 		},
-	// 	],
-	// },
 	{
 		title: "Operation",
 		subMenu: [
@@ -32,87 +6,13 @@ export const Link = [
 				subMenuTitle: "REPORT",
 				subMenuLink: "operation/report",
 			},
-			// {
-			// 	subMenuTitle: "ACCESS & DATA ENTRY",
-			// 	subMenuLink: "operation/access_data_entry",
-			// },
 		],
 	},
-	// {
-	// 	title: "Administration",
-	// 	subMenu: [
-	// 		{
-	// 			subMenuTitle: "HC",
-	// 			subMenuLink: "administration/hc",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "GA",
-	// 			subMenuLink: "administration/ga",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "LEGAL",
-	// 			subMenuLink: "administration/legal",
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	title: "System",
-	// 	subMenu: [
-	// 		{
-	// 			subMenuTitle: "VHMS DOWNLOAD",
-	// 			subMenuLink: "system/vhms_download",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "DATABASE",
-	// 			subMenuLink: "system/database",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "ACCESS CONTROL",
-	// 			subMenuLink: "system/access_control",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "SURVEY",
-	// 			subMenuLink: "system/survey",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "APP VERSION CONTROL",
-	// 			subMenuLink: "system/app_version_control",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "USER FEEDBACK",
-	// 			subMenuLink: "system/user_feedback",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "ABS MACHINE",
-	// 			subMenuLink: "system/abs_machine",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "EVENTS",
-	// 			subMenuLink: "system/events",
-	// 		},
-	// 		{
-	// 			subMenuTitle: "DEVICE MONITORING",
-	// 			subMenuLink: "system/device_monitoring",
-	// 		},
-	// 	],
-	// },
 	{
 		title: "Production",
-		// subMenu: [
-		// 	{
-		// 		subMenuTitle: "Report",
-		// 		subMenuLink: "production/report",
-		// 	},
-		// ],
 	},
 	{
 		title: "Survey",
-		// subMenu: [
-		// 	{
-		// 		subMenuTitle: "Report",
-		// 		subMenuLink: "production/report",
-		// 	},
-		// ],
 	},
 ];
 

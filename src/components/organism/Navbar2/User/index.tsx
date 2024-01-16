@@ -1,14 +1,13 @@
-import { Avatar, Icon, Text } from "@hudoro/neron";
+import { Avatar, Icon } from "@hudoro/neron";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { getProfile } from "services/users";
-import { notify, useWindowSize } from "utils/functions";
+import { notify } from "utils/functions";
 import { ContainerUser, UserOverFlay, UserOverlayText } from "../styles";
 
 const User = () => {
-	const { width } = useWindowSize();
 	const [userDropdown, setuserDropdown] = useState(false);
 	const [userName, setUserName] = useState("Admin");
 	const router = useRouter();
@@ -32,7 +31,7 @@ const User = () => {
 			onMouseEnter={() => setuserDropdown(true)}
 			onMouseLeave={() => setuserDropdown(false)}
 		>
-			{width > 1024 && <Text variant="p">{userName}</Text>}
+			<p className="font-montserrat text-xs">{userName}</p>
 			<Avatar
 				src="/icons/tukang.jpg"
 				size="m"

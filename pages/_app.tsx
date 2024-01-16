@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import { RecoilRoot } from "recoil";
 import "../styles/globals.css";
 import "../styles/react-toastify.css";
+import "../global.css";
 
 const Layout = dynamic(() => import("src/components/layouts/Dashboard/layout"), {
 	ssr: false,

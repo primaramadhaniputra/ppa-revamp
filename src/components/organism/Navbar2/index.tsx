@@ -1,19 +1,13 @@
-import { Avatar, Icon } from "@hudoro/neron";
+import { Avatar } from "@hudoro/neron";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { useWindowSize } from "utils/customHooks";
 import Links from "./Links";
 import { ContainerLogo, Wrapper } from "./styles";
 import User from "./User";
 
 const Navbar2 = () => {
-	const [isShowMenu, setisShowMenu] = useState(false);
 	const { width } = useWindowSize();
 	const router = useRouter();
-
-	const handleShowMenu = () => {
-		setisShowMenu(!isShowMenu);
-	};
 
 	const backToHome = () => {
 		router.push("/dashboard");
@@ -29,18 +23,9 @@ const Navbar2 = () => {
 					alt="ppa logo"
 					onClick={backToHome}
 				/>
-				{width < 1024 && (
-					<Icon
-						iconName="IcHamburger"
-						size={32}
-						color="white"
-						style={{ cursor: "pointer" }}
-						onClick={handleShowMenu}
-					/>
-				)}
 			</ContainerLogo>
 			<User />
-			{(width < 1024 && isShowMenu) || <Links />}
+			{width > 640 ? <Links /> : null}
 		</Wrapper>
 	);
 };
