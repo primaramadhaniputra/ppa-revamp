@@ -3,13 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useWindowSize } from "utils/functions";
 import { Link as L } from "utils/dummy";
-import {
-	ContainerLinks,
-	ContainerSubmenu,
-	SingleLink,
-	Styledtext,
-	StyledTextSubmenu,
-} from "../styles";
+import { ContainerLinks, ContainerSubmenu, SingleLink, StyledTextSubmenu } from "../styles";
 
 const Links = () => {
 	const { width } = useWindowSize();
@@ -38,17 +32,20 @@ const Links = () => {
 						style={{ cursor: "pointer", padding: "0 10px" }}
 					>
 						{item.subMenu ? (
-							<Styledtext>{item.title}</Styledtext>
+							<p className="font-montserrat text-sm">{item.title}</p>
 						) : (
 							<Link href={`/dashboard/${item.title.toLowerCase()}`} passHref>
-								<Styledtext>{item.title}</Styledtext>
+								<p className="font-montserrat text-sm">{item.title}</p>
 							</Link>
 						)}
 					</Grid>
 					<ContainerSubmenu activeSubMenu={activeSubmenu === index && true}>
 						{item.subMenu?.map((data, idx) => (
 							<Link href={`/dashboard/${data.subMenuLink}`} passHref key={idx}>
-								<StyledTextSubmenu style={{ fontSize: "12px", cursor: "pointer" }}>
+								<StyledTextSubmenu
+									className="font-montserrat"
+									style={{ fontSize: "12px", cursor: "pointer" }}
+								>
 									{data.subMenuTitle}
 								</StyledTextSubmenu>
 							</Link>

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Grid, Icon, Text } from "@hudoro/neron";
-import { colors, fontSizing, fontWeights } from "utils/styles";
+import { Grid, Icon } from "@hudoro/neron";
+import { colors } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
 import {
 	Chart as ChartJS,
@@ -119,17 +119,7 @@ export default function LineChart() {
 
 	return (
 		<Wrapper>
-			<Text
-				variant="h4"
-				style={{
-					color: colors.orange,
-					fontWeight: fontWeights.semi,
-					fontSize: fontSizing.sm.fontSize,
-					flex: 1,
-				}}
-			>
-				Trend ATR
-			</Text>
+			<p className="font-montserrat text-sm text-orange-400 font-medium mb-[30px]">Trend ATR</p>
 			<DonatContainer>
 				<Grid
 					container

@@ -9,7 +9,7 @@ interface IProps {
 	activeTab: number;
 }
 
-export default function ProductionPerformanceTabHeader({
+export default function aProductionPerformanceTabHeader({
 	title,
 	id,
 	setActiveTab,
@@ -26,6 +26,7 @@ export default function ProductionPerformanceTabHeader({
 				fontWeight: activeTab === id ? fontWeights.bold : fontWeights.regular,
 				color: activeTab === id ? "white" : colors.orange,
 			}}
+			className="font-montserrat"
 		>
 			{title}
 		</TabsText>

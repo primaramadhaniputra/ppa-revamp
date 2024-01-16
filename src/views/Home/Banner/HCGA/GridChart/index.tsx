@@ -1,6 +1,4 @@
 import React from "react";
-import { Text } from "@hudoro/neron";
-import { colors, fontSizing, fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
 import {
 	Chart as ChartJS,
@@ -85,17 +83,7 @@ export const options = {
 export default function GridChart() {
 	return (
 		<Wrapper>
-			<Text
-				variant="h4"
-				style={{
-					color: colors.orange,
-					fontWeight: fontWeights.semi,
-					fontSize: fontSizing.sm.fontSize,
-					flex: 1,
-				}}
-			>
-				Turn Over
-			</Text>
+			<p className="font-montserrat text-sm text-orange-400 font-medium mb-[30px]">Turn Over</p>
 			<DonatContainer>
 				<Bar options={options as any} data={data} />
 			</DonatContainer>

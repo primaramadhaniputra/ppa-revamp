@@ -1,8 +1,7 @@
 import { Grid } from "@hudoro/neron";
-import TitlePage from "atoms/TitlePage";
 import React, { useState } from "react";
 import LabelValue from "src/components/organism/LabelValue";
-import { colors, fontSizing } from "utils/styles";
+import { colors } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import { AchContainer, AchLabel, TabsAch, TabsAchContainer, TitleContainer } from "../styles";
 import Image from "next/image";
@@ -54,15 +53,9 @@ const DataProduction = () => {
 						<Grid container flexDirection="column" gap={20}>
 							<Grid container justifyContent="space-between" alignItems="center">
 								<TitleContainer>
-									<TitlePage
-										styles={{
-											color: colors.orange,
-											fontSize: fontSizing.sm.fontSize,
-										}}
-										type="h4"
-									>
+									<p className="font-montserrat text-sm text-orange-400 font-medium">
 										{data.title}
-									</TitlePage>
+									</p>
 									{data.title === "OB" && (
 										<TabsAchContainer>
 											{tabsObText.map((item, number) => {
