@@ -40,8 +40,8 @@ const page = () => {
 		}
 	};
 	return (
-		<div className="h-screen bg-[url('./public/images/bg.jpeg')] bg-no-repeat	bg-cover bg-center sm:p-28 	box-border min-h-[900px] px-5 py-20">
-			<div className="h-full  box-border rounded-md bg-[url('./public/images/mobilProyek.jpg')] bg-no-repeat	bg-cover bg-center relative ">
+		<div className="h-screen bg-[url('/images/bg.jpeg')] bg-no-repeat	bg-cover bg-center sm:p-28 	box-border min-h-[900px] px-5 py-20">
+			<div className="h-full  box-border rounded-md bg-[url('/images/mobilProyek.jpg')] bg-no-repeat	bg-cover bg-center relative ">
 				<div className="absolute rounded-md bg-gray-950/30 top-0 right-0 bottom-0 left-0 flex justify-between items-center sm:px-10 gap-5 ">
 					<div className="bg-white h-[115%] flex-1 rounded-md shadow-md flex justify-between flex-col">
 						<form onSubmit={handleSubmit}>
