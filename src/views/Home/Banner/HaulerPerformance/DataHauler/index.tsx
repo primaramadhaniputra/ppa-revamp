@@ -1,8 +1,6 @@
 import { Grid } from "@hudoro/neron";
-import TitlePage from "atoms/TitlePage";
 import React from "react";
 import LabelValue from "src/components/organism/LabelValue";
-import { colors, fontSizing } from "utils/styles";
 import { Item, ItemContainer } from "../../styles";
 import Image from "next/image";
 
@@ -53,15 +51,7 @@ const DataHauler = () => {
 					<Item key={index}>
 						<Grid container flexDirection="column" gap={20}>
 							<Grid container justifyContent="space-between" alignItems="center">
-								<TitlePage
-									styles={{
-										color: colors.orange,
-										fontSize: fontSizing.sm.fontSize,
-									}}
-									type="h4"
-								>
-									{data.title}
-								</TitlePage>
+								<p className="font-montserrat text-sm text-orange-400 font-medium">{data.title}</p>
 								<Image
 									src={`/icons/${data.icon}`}
 									width={index === 1 ? 32 : 25}

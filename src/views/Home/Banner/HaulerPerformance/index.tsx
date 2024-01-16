@@ -1,11 +1,10 @@
 import React from "react";
 import DataHauler from "./DataHauler";
-import TitleHauler from "./TitleHauler";
 
 export default function HaulerPerformance() {
 	return (
 		<>
-			<TitleHauler />
+			<p className="font-montserrat font-medium my-[30px]">Hauler Performance</p>
 			<DataHauler />
 		</>
 	);

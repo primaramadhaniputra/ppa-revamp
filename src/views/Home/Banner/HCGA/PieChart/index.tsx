@@ -1,6 +1,6 @@
 import React from "react";
-import { fontFamilies, Text } from "@hudoro/neron";
-import { colors, fontSizing, fontWeights } from "utils/styles";
+import { fontFamilies } from "@hudoro/neron";
+import { fontWeights } from "utils/styles";
 import { DonatContainer, Wrapper } from "./styles";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
@@ -66,17 +66,9 @@ const data = {
 export default function PieChart() {
 	return (
 		<Wrapper>
-			<Text
-				variant="h4"
-				style={{
-					color: colors.orange,
-					fontWeight: fontWeights.semi,
-					fontSize: fontSizing.sm.fontSize,
-					marginBottom: "30px",
-				}}
-			>
+			<p className="font-montserrat text-sm text-orange-400 font-medium mb-[30px]">
 				Total Manpower
-			</Text>
+			</p>
 			<DonatContainer>
 				<Pie data={data} options={options as any} plugins={[ChartDataLabels as any]} />
 			</DonatContainer>

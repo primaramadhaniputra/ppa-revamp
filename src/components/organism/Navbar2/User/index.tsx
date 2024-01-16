@@ -28,7 +28,7 @@ const User = () => {
 	return (
 		<ContainerUser>
 			<div className="flex items-center gap-2" onClick={() => setuserDropdown((prev) => !prev)}>
-				<p className="font-montserrat text-xs">{userName}</p>
+				<p className="font-montserrat text-sm">{userName}</p>
 				<Avatar
 					src="/icons/tukang.jpg"
 					size="m"
