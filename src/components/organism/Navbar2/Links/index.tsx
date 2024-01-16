@@ -1,4 +1,4 @@
-import { Grid, Icon } from "@hudoro/neron";
+import { Grid } from "@hudoro/neron";
 import Link from "next/link";
 import { useState } from "react";
 import { useWindowSize } from "utils/functions";
@@ -43,12 +43,6 @@ const Links = () => {
 							<Link href={`/dashboard/${item.title.toLowerCase()}`} passHref>
 								<Styledtext>{item.title}</Styledtext>
 							</Link>
-						)}
-						{item.subMenu && width < 1024 && (
-							<Icon
-								iconName={activeSubmenu === index ? "IcArrowUp" : "IcArrowDown"}
-								color="white"
-							/>
 						)}
 					</Grid>
 					<ContainerSubmenu activeSubMenu={activeSubmenu === index && true}>
