@@ -61,14 +61,18 @@ const SurveyDetail = () => {
 
 	const rataRataRowSite = (data: any) => {
 		const elementRata: any = {};
+		const elementLength: any = {};
 		for (const element of data) {
 			for (let i = 0; i < element.users.length; i++) {
-				elementRata[i] = (elementRata[i] || 0) + Number(element.users[i]?.averageValue);
+				const averageValue = Number(element.users[i]?.averageValue);
+				elementRata[i] = (elementRata[i] || 0) + averageValue;
+				elementLength[i] = (elementLength[i] || 0) + (averageValue > 0 ? 1 : 0);
 			}
 		}
 		const newElementRata = Object.keys(elementRata).map((index) => {
-			return (elementRata[index] / data.length).toFixed(2);
+			return (elementRata[index] / elementLength[index]).toFixed(2);
 		});
+
 		return newElementRata;
 	};
 
@@ -147,7 +151,12 @@ const SurveyDetail = () => {
 						const rata2 = item.users.reduce((acc: any, curr: any) => {
 							return (acc += Number(curr.averageValue));
 						}, 0);
-
+						let length = 0;
+						for (const i of item.users) {
+							if (i.averageValue !== "0") {
+								length++;
+							}
+						}
 						return (
 							<tr key={idx}>
 								<td style={{ verticalAlign: "middle" }} colSpan={2}>
@@ -174,12 +183,12 @@ const SurveyDetail = () => {
 									style={{
 										verticalAlign: "middle",
 										textAlign: "center",
-										backgroundColor: renderColor(rata2 / item.users.length || 0),
+										backgroundColor: renderColor(rata2 / length || 0),
 										border: "2px solid black",
 										fontWeight: "bold",
 									}}
 								>
-									<b>{(rata2 / item.users.length || 0).toFixed(2)}</b>
+									<b>{(rata2 / length || 0).toFixed(2)}</b>
 								</td>
 							</tr>
 						);
