@@ -44,7 +44,7 @@ const SurveyDetail = () => {
 			setAssessmentCriteria(assessmentCriteria);
 			let newAssessmentCriteria: any = [];
 
-			for (let i of assessmentCriteria) {
+			for (const i of assessmentCriteria) {
 				const findSectionName = newAssessmentCriteria.find(
 					(item: any) => item.sectionName === i.sectionName,
 				);
@@ -168,7 +168,7 @@ const SurveyDetail = () => {
 						// for(let i = 0; i < item.datalength)
 						const total: any = [];
 						const divided: any = [];
-						for (let i of item.data) {
+						for (const i of item.data) {
 							for (let j = 0; j < i.users.length; j++) {
 								if (total[j]) {
 									total[j] += Number(i.users[j].averageValue);
