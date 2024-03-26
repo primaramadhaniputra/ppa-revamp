@@ -43,8 +43,8 @@ const SurveyDetail = () => {
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(assessmentCriteria);
 			let newAssessmentCriteria: any = [];
-
-			for (const i of assessmentCriteria) {
+      
+			for (let i of assessmentCriteria) {
 				const findSectionName = newAssessmentCriteria.find(
 					(item: any) => item.sectionName === i.sectionName,
 				);
@@ -169,7 +169,8 @@ const SurveyDetail = () => {
 						// for(let i = 0; i < item.datalength)
 						const total: any = [];
 						const divided: any = [];
-						for (const i of item.data) {
+
+						for (let i of item.data) {
 							for (let j = 0; j < i.users.length; j++) {
 								if (total[j]) {
 									total[j] += Number(i.users[j].averageValue);
