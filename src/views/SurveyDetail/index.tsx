@@ -79,7 +79,6 @@ const SurveyDetail = () => {
 	// 	if (value < 10) return "#008001";
 	// 	return "#800080";
 	// };
-	console.log("test");
 
 	const rataRataRowSite = (data: any) => {
 		const elementRata: any = {};
@@ -169,7 +168,6 @@ const SurveyDetail = () => {
 						// for(let i = 0; i < item.datalength)
 						const total: any = [];
 						const divided: any = [];
-
 						for (let i of item.data) {
 							for (let j = 0; j < i.users.length; j++) {
 								if (total[j]) {
