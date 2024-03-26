@@ -43,7 +43,7 @@ const SurveyDetail = () => {
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
 			setAssessmentCriteria(assessmentCriteria);
 			let newAssessmentCriteria: any = [];
-      
+
 			for (let i of assessmentCriteria) {
 				const findSectionName = newAssessmentCriteria.find(
 					(item: any) => item.sectionName === i.sectionName,
