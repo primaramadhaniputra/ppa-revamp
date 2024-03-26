@@ -79,6 +79,7 @@ const SurveyDetail = () => {
 	// 	if (value < 10) return "#008001";
 	// 	return "#800080";
 	// };
+	// console.log("test");
 
 	const rataRataRowSite = (data: any) => {
 		const elementRata: any = {};
