@@ -7,7 +7,7 @@ import StatusCard from "./StatusCard";
 import { PeriodeText } from "./styles";
 import Button from "atoms/Button";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { getReportSite } from "services/survey";
 import { useDownloadExcel } from "react-export-table-to-excel";
 
@@ -29,17 +29,38 @@ const SurveyDetail = () => {
 	const [assessmentCriteria, setAssessmentCriteria] = useState([]);
 	const [criticismAndSuggestions, setCriticismAndSuggestions] = useState([]);
 	const [participants, setParticipants] = useState([]);
+	const [newAssesmentCriteria, setNewAssesmentCriteria] = useState([]);
 
 	const handleGetReportAllSite = async () => {
 		try {
 			const slug = (router.query.slug as string[])?.join("/");
 			const response = await getReportSite({
-				path: `/${slug}`,
+				path: `${slug}`,
 			});
 
+			const assessmentCriteria = response.data.data.assessmentCriteria;
 			setParticipants(response.data.data.participants);
 			setCriticismAndSuggestions(response.data.data.criticismAndSuggestions);
-			setAssessmentCriteria(response.data.data.assessmentCriteria);
+			setAssessmentCriteria(assessmentCriteria);
+			let newAssessmentCriteria: any = [];
+
+			for (let i of assessmentCriteria) {
+				const findSectionName = newAssessmentCriteria.find(
+					(item: any) => item.sectionName === i.sectionName,
+				);
+				if (!findSectionName) {
+					newAssessmentCriteria.push({ sectionName: i.sectionName, data: [i] });
+				} else {
+					const newData = newAssessmentCriteria.map((item: any) => {
+						if (item.sectionName === findSectionName.sectionName) {
+							return { ...item, data: [...item.data, i] };
+						}
+						return item;
+					});
+					newAssessmentCriteria = newData;
+				}
+			}
+			setNewAssesmentCriteria(newAssessmentCriteria);
 		} catch (error) {}
 	};
 	useEffect(() => {
@@ -75,7 +96,6 @@ const SurveyDetail = () => {
 
 		return newElementRata;
 	};
-
 	return (
 		<>
 			<Grid container gap={10} alignItems="center" justifyContent="space-between">
@@ -95,14 +115,9 @@ const SurveyDetail = () => {
 				<Button title="Download Excel" onClick={onDownload} />
 			</Grid>
 			<table hidden ref={tableRef}>
-				<thead>
+				{/* <thead>
 					<tr>
 						<th>{site}</th>
-						{/* <th colSpan={10}>
-							FULL SERVICE MINING CONTRACTOR PT. PUTRA PERKASA ABADI OFFICE: GEDUNG OFFICE 8 LT. 8 ,
-							JL. SENOPATI RAYA NO.8 B RT.01, RW.02 SENAYAN KEBAYORAN BARU - JAKARTA TEL:
-							021-57903456 (7) FAX: 021-57903458
-						</th> */}
 					</tr>
 					<tr>
 						<th colSpan={11} style={{ background: "black", color: "white" }}>
@@ -128,10 +143,11 @@ const SurveyDetail = () => {
 						<th style={{ background: "purple", color: "black" }}>10</th>
 						<th colSpan={10}>excellent (bagus sekali)</th>
 					</tr>
-				</thead>
+				</thead> */}
 				<thead>
 					<tr>
-						<th colSpan={2}>Standar skala index angka kepuasan pelanggan pt ppa adalah 8</th>
+						<th></th>
+						<th>Standar skala index angka kepuasan pelanggan pt ppa adalah 8</th>
 						{participants.map((item: any, indx) => {
 							return <th key={indx}>{item.positionName}</th>;
 						})}
@@ -139,7 +155,8 @@ const SurveyDetail = () => {
 				</thead>
 				<thead>
 					<tr>
-						<th colSpan={2}>Kriteria Penilaian</th>
+						<th></th>
+						<th>Kriteria Penilaian</th>
 						{participants.map((item: any, indx) => {
 							return <th key={indx}>{item.fullName}</th>;
 						})}
@@ -147,6 +164,94 @@ const SurveyDetail = () => {
 					</tr>
 				</thead>
 				<tbody>
+					{newAssesmentCriteria.map((item: any, idx) => {
+						// for(let i = 0; i < item.datalength)
+						const total: any = [];
+						const divided: any = [];
+						for (let i of item.data) {
+							for (let j = 0; j < i.users.length; j++) {
+								if (total[j]) {
+									total[j] += Number(i.users[j].averageValue);
+									if (Number(i.users[j].averageValue)) {
+										divided[j] += 1;
+									}
+								} else {
+									total[j] = Number(i.users[j].averageValue);
+									divided[j] = 1;
+								}
+							}
+						}
+
+						const result = total.map((item: any, idx: any) => (item / divided[idx]).toFixed(2));
+						const { res, div } = result.reduce(
+							(acc: any, curr: any) => {
+								acc.res += Number(curr);
+								if (Number(curr)) {
+									acc.div += 1;
+								}
+								return acc;
+							},
+							{ res: 0, div: 0 },
+						);
+						return (
+							<Fragment key={idx}>
+								<tr>
+									<td style={{ verticalAlign: "middle" }}>{item.sectionName}</td>
+									<td colSpan={10}>
+										<table>
+											{item.data.map((item: any, idx: any) => {
+												const { value, divided } = item.users.reduce(
+													(acc: any, curr: any) => {
+														acc.value += Number(curr.averageValue);
+														if (Number(curr.averageValue)) {
+															acc.divided += 1;
+														}
+														return acc;
+													},
+													{ value: 0, divided: 0 },
+												);
+												return (
+													<tr key={idx}>
+														<td>{item.name}</td>
+														{item.users.map((item: any, idx: any) => {
+															return (
+																<td
+																	key={idx}
+																	style={{
+																		textAlign: "center",
+																		border: "2px solid black",
+																		backgroundColor: "white",
+																		verticalAlign: "middle",
+																		fontWeight: "bold",
+																	}}
+																>
+																	{item.averageValue}
+																</td>
+															);
+														})}
+														<td style={{ verticalAlign: "middle" }}>
+															{(value / (divided || 1)).toFixed(2)}
+														</td>
+													</tr>
+												);
+											})}
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td colSpan={2} style={{ verticalAlign: "middle" }}>
+										{item.sectionName}
+									</td>
+									{total.map((item: any, idx: any) => (
+										<td>{(item / divided[idx]).toFixed(2)}</td>
+									))}
+									<td style={{ verticalAlign: "middle" }}>{(res / (div || 1)).toFixed(2)}</td>
+								</tr>
+							</Fragment>
+						);
+					})}
+				</tbody>
+				{/* <tbody>
 					{assessmentCriteria.map((item: any, idx) => {
 						const rata2 = item.users.reduce((acc: any, curr: any) => {
 							return (acc += Number(curr.averageValue));
@@ -193,18 +298,19 @@ const SurveyDetail = () => {
 							</tr>
 						);
 					})}
-				</tbody>
+				</tbody> */}
 				<tbody>
 					<tr>
 						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
 							RATA RATA PER SITE
 						</td>
-						{rataRataRowSite(assessmentCriteria).map((item) => {
+						{rataRataRowSite(assessmentCriteria).map((item, idx) => {
 							return (
 								<td
+									key={idx}
 									style={{
 										textAlign: "center",
-										background: renderColor(Number(item)),
+										// background: renderColor(Number(item)),
 										fontWeight: "bold",
 									}}
 								>
@@ -219,8 +325,12 @@ const SurveyDetail = () => {
 						<td colSpan={2} style={{ textAlign: "center", background: "#FFC001" }}>
 							SCORE
 						</td>
-						{rataRataRowSite(assessmentCriteria).map((item) => {
-							return <td style={{ textAlign: "center" }}>{renderScore(item)}</td>;
+						{rataRataRowSite(assessmentCriteria).map((item, idx) => {
+							return (
+								<td key={idx} style={{ textAlign: "center" }}>
+									{renderScore(item)}
+								</td>
+							);
 						})}
 					</tr>
 				</tbody>

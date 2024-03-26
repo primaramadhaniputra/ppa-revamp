@@ -10,7 +10,8 @@ const apiEndpoints = {
 	moco: `${appActiveConfig.baseurl}/admin/settings/reports/productions/daily`,
 	production: `${appActiveConfig.ppaurl11}/production/mainProduction`,
 	// production: `${appActiveConfig.baseurl}/admin/settings/reports/productions/site`,
-	survey: `${appActiveConfig.surveyurl}/reports/criteria/periodes`,
+	// survey: `${appActiveConfig.surveyurl}/reports/criteria/periodes`,
+	survey: `${appActiveConfig.hsd}/reports/criteria/periodes`,
 	manajemenRisiko: `${appActiveConfig.surveyurl}`,
 
 	// sso
