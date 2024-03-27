@@ -3,6 +3,7 @@ import TableExcel from "./TableExcel";
 import CardSite from "./CardSite";
 import PointDescription from "./PointDescription";
 import { getReportCriteriaByCriteriaId } from "services/survey";
+import Loading from "atoms/Loading";
 
 interface IProps {
 	periodeId: any;
@@ -10,14 +11,19 @@ interface IProps {
 
 const KepuasanPelanggan = ({ periodeId }: IProps) => {
 	const [dataReport, setDataReport] = useState([]);
+	const [loading, setloading] = useState(false);
 
 	const handleGetReportCriteriaById = async () => {
 		try {
+			setloading(true);
 			const response = await getReportCriteriaByCriteriaId({
 				path: `${periodeId}`,
 			});
 			setDataReport(response.data.data.reports);
-		} catch (error) {}
+		} catch (error) {
+		} finally {
+			setloading(false);
+		}
 	};
 
 	useEffect(() => {
@@ -26,9 +32,15 @@ const KepuasanPelanggan = ({ periodeId }: IProps) => {
 
 	return (
 		<>
-			<TableExcel reportCriteria={dataReport} />
-			<PointDescription />
-			<CardSite reportCriteria={dataReport} periodeId={periodeId} />
+			{loading ? (
+				<Loading />
+			) : (
+				<>
+					<TableExcel reportCriteria={dataReport} />
+					<PointDescription />
+					<CardSite reportCriteria={dataReport} periodeId={periodeId} />
+				</>
+			)}
 		</>
 	);
 };
