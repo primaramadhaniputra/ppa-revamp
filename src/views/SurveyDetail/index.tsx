@@ -114,7 +114,7 @@ const SurveyDetail = () => {
 			<Grid container justifyContent="flex-end" style={{ marginTop: "20px" }}>
 				<Button title="Download Excel" onClick={onDownload} />
 			</Grid>
-			<table hidden ref={tableRef}>
+			<table ref={tableRef}>
 				{/* <thead>
 					<tr>
 						<th>{site}</th>
@@ -197,7 +197,7 @@ const SurveyDetail = () => {
 							<Fragment key={idx}>
 								<tr>
 									<td style={{ verticalAlign: "middle" }}>{item.sectionName}</td>
-									<td colSpan={10}>
+									<td colSpan={11}>
 										<table>
 											{item.data.map((item: any, idx: any) => {
 												const { value, divided } = item.users.reduce(
